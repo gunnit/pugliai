@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI per il Manifatturiero - Industry 4.0 | PugliAI</title>
+    <meta name="description" content="Soluzioni AI per il settore manifatturiero: ottimizzazione produzione, manutenzione predittiva, controllo qualità e Industry 4.0. Trasforma la tua fabbrica con l'intelligenza artificiale.">
+    <meta name="keywords" content="AI manifatturiero, Industry 4.0, manutenzione predittiva, ottimizzazione produzione, controllo qualità AI, smart manufacturing">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pugliai.com/manifatturiero.html">
+    <meta property="og:title" content="AI per il Manifatturiero - Industry 4.0 | PugliAI">
+    <meta property="og:description" content="Soluzioni AI per il settore manifatturiero: ottimizzazione produzione, manutenzione predittiva e controllo qualità per Industry 4.0.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pugliai.com/manifatturiero.html">
+    <meta property="twitter:title" content="AI per il Manifatturiero - Industry 4.0 | PugliAI">
+    <meta property="twitter:description" content="Soluzioni AI per il settore manifatturiero: ottimizzazione produzione, manutenzione predittiva e controllo qualità per Industry 4.0.">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="manifatturiero.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <script src="includes/loader.js"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI per il Manifatturiero",
+      "description": "Soluzioni AI per il settore manifatturiero: ottimizzazione produzione, manutenzione predittiva e Industry 4.0",
+      "provider": {
+        "@type": "Organization",
+        "name": "PUGLIAI S.R.L."
+      },
+      "serviceType": "Manufacturing AI Solutions",
+      "areaServed": "IT",
+      "industry": "Manufacturing"
+    }
+    </script>
+</head>
+<body>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>Utilizziamo cookie per migliorare la tua esperienza e analizzare il traffico. Scegli le tue preferenze:</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="cookie-necessary" class="btn btn-outline">Solo Necessari</button>
+                <button id="cookie-all" class="btn btn-primary">Accetta Tutti</button>
+                <button id="cookie-settings" class="btn btn-text">Gestisci</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="img/pittogramma.png" alt="PugliAI Logo" class="logo">
+                    <span class="brand-text">PugliAI</span>
+                </div>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Servizi</a>
+                            <div class="dropdown-content">
+                                <a href="infrastrutture-ai.html">Infrastrutture AI</a>
+                                <a href="agenti-ai.html">Agenti AI Personalizzati</a>
+                                <a href="consulenza-strategica.html">Consulenza Strategica</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Settori</a>
+                            <div class="dropdown-content">
+                                <a href="manifatturiero.html">Manifatturiero</a>
+                                <a href="moda-lusso.html">Moda e Lusso</a>
+                                <a href="alimentare.html">Alimentare</a>
+                                <a href="servizi-finanziari.html">Servizi Finanziari</a>
+                                <a href="turismo.html">Turismo</a>
+                                <a href="sanita.html">Sanità</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Chi Siamo</a>
+                            <div class="dropdown-content">
+                                <a href="team.html">Il Team</a>
+                                <a href="mission.html">La Nostra Mission</a>
+                                <a href="certificazioni.html">Certificazioni</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contatti.html" class="nav-link">Contatti</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="contatti.html" class="btn btn-primary">Consulenza Gratuita</a>
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero manufacturing-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <nav class="breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span>Settori</span>
+                        <span>Manifatturiero</span>
+                    </nav>
+                    <h1 class="hero-title">AI per il Manifatturiero</h1>
+                    <p class="hero-subtitle">Rivoluziona la tua produzione con l'intelligenza artificiale: Industry 4.0, manutenzione predittiva e ottimizzazione continua</p>
+                    <p class="hero-description">Trasforma la tua fabbrica in un ecosistema intelligente con le nostre soluzioni AI per il manifatturiero. Ottimizza la produzione, riduci i costi operativi e migliora la qualità attraverso tecnologie all'avanguardia progettate per l'eccellenza industriale italiana.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="contatti.html" class="btn btn-primary btn-large">Trasforma la Tua Fabbrica</a>
+                        <a href="#soluzioni" class="btn btn-secondary btn-large">Scopri le Soluzioni</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="factory-animation">
+                        <div class="production-line">
+                            <div class="machine machine-1">
+                                <div class="machine-core">
+                                    <span class="machine-icon">🏭</span>
+                                </div>
+                                <div class="machine-status active">
+                                    <span class="status-dot"></span>
+                                    <span class="status-text">Attiva</span>
+                                </div>
+                            </div>
+                            <div class="machine machine-2">
+                                <div class="machine-core">
+                                    <span class="machine-icon">⚙️</span>
+                                </div>
+                                <div class="machine-status maintenance">
+                                    <span class="status-dot"></span>
+                                    <span class="status-text">Manutenzione</span>
+                                </div>
+                            </div>
+                            <div class="machine machine-3">
+                                <div class="machine-core">
+                                    <span class="machine-icon">📊</span>
+                                </div>
+                                <div class="machine-status monitoring">
+                                    <span class="status-dot"></span>
+                                    <span class="status-text">Monitoraggio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="data-flow">
+                            <div class="data-point" style="animation-delay: 0s;"></div>
+                            <div class="data-point" style="animation-delay: 0.5s;"></div>
+                            <div class="data-point" style="animation-delay: 1s;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soluzioni AI -->
+    <section id="soluzioni" class="ai-solutions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Soluzioni AI per il Manifatturiero</h2>
+                <p>Tecnologie intelligenti per ogni aspetto della produzione industriale</p>
+            </div>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span>🔧</span>
+                    </div>
+                    <h3>Manutenzione Predittiva</h3>
+                    <p>Anticipa guasti e ottimizza la manutenzione con algoritmi di machine learning che analizzano vibrazioni, temperature e performance.</p>
+                    <ul class="solution-features">
+                        <li>Riduzione downtime fino al 50%</li>
+                        <li>Ottimizzazione costi manutenzione</li>
+                        <li>Allungamento vita utile macchinari</li>
+                        <li>Alerting intelligente in tempo reale</li>
+                    </ul>
+                    <div class="solution-metrics">
+                        <div class="metric">
+                            <span class="metric-value">-45%</span>
+                            <span class="metric-label">Costi Manutenzione</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">+30%</span>
+                            <span class="metric-label">Uptime</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span>📈</span>
+                    </div>
+                    <h3>Ottimizzazione Produzione</h3>
+                    <p>Massimizza l'efficienza produttiva con AI che ottimizza processi, sequenze e allocazione risorse in tempo reale.</p>
+                    <ul class="solution-features">
+                        <li>Pianificazione produzione intelligente</li>
+                        <li>Ottimizzazione parametri processo</li>
+                        <li>Bilanciamento linee produttive</li>
+                        <li>Riduzione sprechi e scarti</li>
+                    </ul>
+                    <div class="solution-metrics">
+                        <div class="metric">
+                            <span class="metric-value">+35%</span>
+                            <span class="metric-label">Efficienza</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">-25%</span>
+                            <span class="metric-label">Sprechi</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span>🎯</span>
+                    </div>
+                    <h3>Controllo Qualità</h3>
+                    <p>Sistemi di computer vision e AI per ispezioni automatiche, rilevamento difetti e controllo qualità continuo.</p>
+                    <ul class="solution-features">
+                        <li>Ispezione automatica 24/7</li>
+                        <li>Rilevamento difetti in tempo reale</li>
+                        <li>Classificazione automatica prodotti</li>
+                        <li>Tracciabilità completa</li>
+                    </ul>
+                    <div class="solution-metrics">
+                        <div class="metric">
+                            <span class="metric-value">99.8%</span>
+                            <span class="metric-label">Precisione</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">+60%</span>
+                            <span class="metric-label">Velocità Controllo</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span>🔗</span>
+                    </div>
+                    <h3>Supply Chain Intelligente</h3>
+                    <p>Ottimizza la catena di fornitura con previsioni di domanda, gestione inventario e logistica predittiva.</p>
+                    <ul class="solution-features">
+                        <li>Previsione domanda accurata</li>
+                        <li>Ottimizzazione inventario</li>
+                        <li>Gestione fornitori intelligente</li>
+                        <li>Logistica predittiva</li>
+                    </ul>
+                    <div class="solution-metrics">
+                        <div class="metric">
+                            <span class="metric-value">-20%</span>
+                            <span class="metric-label">Costi Logistici</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">+40%</span>
+                            <span class="metric-label">Precisione Previsioni</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span>🤖</span>
+                    </div>
+                    <h3>Robotica Collaborativa</h3>
+                    <p>Integrazione di robot collaborativi con AI per automazione flessibile e sicura accanto agli operatori.</p>
+                    <ul class="solution-features">
+                        <li>Cobot con AI integrata</li>
+                        <li>Sicurezza operatore avanzata</li>
+                        <li>Apprendimento automatico task</li>
+                        <li>Flessibilità produttiva</li>
+                    </ul>
+                    <div class="solution-metrics">
+                        <div class="metric">
+                            <span class="metric-value">+50%</span>
+                            <span class="metric-label">Produttività</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">-70%</span>
+                            <span class="metric-label">Errori Umani</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <span>💡</span>
+                    </div>
+                    <h3>Efficienza Energetica</h3>
+                    <p>Ottimizza i consumi energetici della fabbrica con AI che analizza e ottimizza l'uso di energia in tempo reale.</p>
+                    <ul class="solution-features">
+                        <li>Monitoraggio consumi real-time</li>
+                        <li>Ottimizzazione automatica</li>
+                        <li>Previsione picchi energetici</li>
+                        <li>Reporting sostenibilità</li>
+                    </ul>
+                    <div class="solution-metrics">
+                        <div class="metric">
+                            <span class="metric-value">-30%</span>
+                            <span class="metric-label">Consumi</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">+25%</span>
+                            <span class="metric-label">Efficienza</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry 4.0 Integration -->
+    <section class="industry-4-integration">
+        <div class="container">
+            <div class="section-header">
+                <h2>Integrazione Industry 4.0</h2>
+                <p>Trasforma la tua fabbrica in un ecosistema digitale connesso</p>
+            </div>
+            
+            <div class="integration-content">
+                <div class="integration-visual">
+                    <div class="factory-layers">
+                        <div class="layer physical-layer">
+                            <h4>Livello Fisico</h4>
+                            <div class="layer-elements">
+                                <span class="element">Macchine</span>
+                                <span class="element">Sensori</span>
+                                <span class="element">Attuatori</span>
+                            </div>
+                        </div>
+                        <div class="layer communication-layer">
+                            <h4>Comunicazione</h4>
+                            <div class="layer-elements">
+                                <span class="element">IoT</span>
+                                <span class="element">5G</span>
+                                <span class="element">Edge Computing</span>
+                            </div>
+                        </div>
+                        <div class="layer information-layer">
+                            <h4>Informazione</h4>
+                            <div class="layer-elements">
+                                <span class="element">Data Lake</span>
+                                <span class="element">Analytics</span>
+                                <span class="element">AI/ML</span>
+                            </div>
+                        </div>
+                        <div class="layer functional-layer">
+                            <h4>Funzionale</h4>
+                            <div class="layer-elements">
+                                <span class="element">MES</span>
+                                <span class="element">ERP</span>
+                                <span class="element">Digital Twin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <span>🔗</span>
+                        </div>
+                        <h3>Connettività Totale</h3>
+                        <p>Integrazione completa di tutti i sistemi produttivi con protocolli industriali standard e comunicazione sicura.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <span>📊</span>
+                        </div>
+                        <h3>Digital Twin</h3>
+                        <p>Replica digitale della tua fabbrica per simulazioni, ottimizzazioni e test virtuali prima dell'implementazione.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <span>🎯</span>
+                        </div>
+                        <h3>Edge Computing</h3>
+                        <p>Elaborazione dati in tempo reale direttamente sul campo per decisioni istantanee e latenza ridotta.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <span>🔒</span>
+                        </div>
+                        <h3>Cybersecurity</h3>
+                        <p>Protezione avanzata per sistemi industriali con monitoraggio continuo e risposta automatica alle minacce.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Casi di Studio -->
+    <section class="case-studies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Casi di Studio</h2>
+                <p>Risultati concreti ottenuti dalle nostre implementazioni</p>
+            </div>
+            
+            <div class="studies-grid">
+                <div class="study-card">
+                    <div class="study-header">
+                        <div class="study-company">Azienda Automotive</div>
+                        <div class="study-location">Torino, Italia</div>
+                    </div>
+                    <h3>Manutenzione Predittiva su Linea di Assemblaggio</h3>
+                    <p>Implementazione di sistema AI per predire guasti su linea di assemblaggio automobili con oltre 200 sensori IoT.</p>
+                    
+                    <div class="study-challenge">
+                        <h4>Sfida</h4>
+                        <p>Downtime imprevisti costavano €50K/ora con perdita di produzione di 120 veicoli/giorno.</p>
+                    </div>
+                    
+                    <div class="study-solution">
+                        <h4>Soluzione</h4>
+                        <p>Sistema predittivo con ML che analizza vibrazioni, temperature e performance per anticipare guasti di 2-4 settimane.</p>
+                    </div>
+                    
+                    <div class="study-results">
+                        <h4>Risultati</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <span class="result-value">-65%</span>
+                                <span class="result-label">Downtime Imprevisti</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-value">€2.1M</span>
+                                <span class="result-label">Risparmio Annuo</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-value">+40%</span>
+                                <span class="result-label">Efficienza Manutenzione</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="study-card">
+                    <div class="study-header">
+                        <div class="study-company">Produttore Acciaio</div>
+                        <div class="study-location">Brescia, Italia</div>
+                    </div>
+                    <h3>Ottimizzazione Processo di Laminazione</h3>
+                    <p>Sistema AI per ottimizzare parametri di laminazione acciaio con controllo qualità in tempo reale.</p>
+                    
+                    <div class="study-challenge">
+                        <h4>Sfida</h4>
+                        <p>Variabilità qualità prodotto e sprechi del 15% con costi energetici elevati nel processo di laminazione.</p>
+                    </div>
+                    
+                    <div class="study-solution">
+                        <h4>Soluzione</h4>
+                        <p>AI che ottimizza temperatura, pressione e velocità di laminazione basandosi su proprietà materiale e specifiche prodotto.</p>
+                    </div>
+                    
+                    <div class="study-results">
+                        <h4>Risultati</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <span class="result-value">-80%</span>
+                                <span class="result-label">Difetti Prodotto</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-value">-20%</span>
+                                <span class="result-label">Consumi Energetici</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-value">+25%</span>
+                                <span class="result-label">Throughput</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="study-card">
+                    <div class="study-header">
+                        <div class="study-company">Azienda Farmaceutica</div>
+                        <div class="study-location">Milano, Italia</div>
+                    </div>
+                    <h3>Controllo Qualità Automatizzato</h3>
+                    <p>Sistema di computer vision per ispezione automatica farmaci con AI per rilevamento difetti microscopici.</p>
+                    
+                    <div class="study-challenge">
+                        <h4>Sfida</h4>
+                        <p>Ispezione manuale lenta e soggetta a errori umani con requisiti di qualità farmaceutica stringenti.</p>
+                    </div>
+                    
+                    <div class="study-solution">
+                        <h4>Soluzione</h4>
+                        <p>Sistema vision con AI che ispeziona 100% dei prodotti per difetti, contaminazioni e conformità packaging.</p>
+                    </div>
+                    
+                    <div class="study-results">
+                        <h4>Risultati</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <span class="result-value">99.97%</span>
+                                <span class="result-label">Precisione Controllo</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-value">+300%</span>
+                                <span class="result-label">Velocità Ispezione</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-value">-90%</span>
+                                <span class="result-label">False Positives</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Process -->
+    <section class="implementation-process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Processo di Implementazione</h2>
+                <p>Metodologia provata per trasformare la tua fabbrica step by step</p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Assessment Iniziale</h3>
+                        <p>Analisi completa dei processi produttivi, identificazione opportunità AI e definizione obiettivi.</p>
+                        <div class="timeline-duration">2-3 settimane</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>Proof of Concept</h3>
+                        <p>Sviluppo prototipo su caso d'uso prioritario per validare approccio e dimostrare valore.</p>
+                        <div class="timeline-duration">4-6 settimane</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Implementazione Pilota</h3>
+                        <p>Deploy su linea/area pilota con monitoraggio intensivo e raccolta feedback operatori.</p>
+                        <div class="timeline-duration">2-3 mesi</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Scaling e Ottimizzazione</h3>
+                        <p>Espansione graduale a tutta la produzione con ottimizzazioni continue basate su dati reali.</p>
+                        <div class="timeline-duration">6-12 mesi</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <h3>Supporto Continuo</h3>
+                        <p>Monitoraggio prestazioni, aggiornamenti algoritmi e supporto tecnico specializzato.</p>
+                        <div class="timeline-duration">Ongoing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="manufacturing-roi">
+        <div class="container">
+            <div class="section-header">
+                <h2>Calcola il ROI della Tua Trasformazione</h2>
+                <p>Stima i benefici economici dell'implementazione AI nella tua fabbrica</p>
+            </div>
+            
+            <div class="roi-calculator">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="production-hours">Ore Produzione/Giorno</label>
+                        <input type="number" id="production-hours" min="8" max="24" value="16">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="hourly-cost">Costo Orario Produzione (€)</label>
+                        <input type="number" id="hourly-cost" min="100" value="2500">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="downtime-hours">Ore Downtime/Mese</label>
+                        <input type="number" id="downtime-hours" min="1" value="48">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="quality-issues">% Difetti Attuali</label>
+                        <input type="number" id="quality-issues" min="0.1" max="20" step="0.1" value="3.5">
+                    </div>
+                    
+                    <button id="calculate-manufacturing-roi" class="btn btn-primary">Calcola Benefici</button>
+                </div>
+                
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <h3>Risparmio Annuo da Riduzione Downtime</h3>
+                        <div class="result-value" id="downtime-savings">€0</div>
+                        <p>Basato su riduzione 50% downtime imprevisti</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Benefici da Miglioramento Qualità</h3>
+                        <div class="result-value" id="quality-benefits">€0</div>
+                        <p>Riduzione difetti del 80% e costi associati</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Totale Benefici Annuali</h3>
+                        <div class="result-value" id="total-benefits">€0</div>
+                        <p>Benefici totali stimati nel primo anno</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Trasforma la Tua Fabbrica con l'AI</h2>
+                <p>Inizia il tuo percorso verso Industry 4.0 con una consulenza personalizzata gratuita.</p>
+                <div class="cta-actions">
+                    <a href="contatti.html" class="btn btn-primary btn-large">Consulenza Gratuita</a>
+                    <a href="infrastrutture-ai.html" class="btn btn-secondary btn-large">Infrastrutture AI</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="img/pittogramma.png" alt="PugliAI Logo" class="footer-logo">
+                        <span class="footer-brand-text">PugliAI</span>
+                    </div>
+                    <p class="footer-description">Partner strategico per l'eccellenza AI italiana. Infrastrutture, consulenza e soluzioni personalizzate per il vostro successo digitale.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Servizi</h4>
+                    <ul>
+                        <li><a href="infrastrutture-ai.html">Infrastrutture AI</a></li>
+                        <li><a href="agenti-ai.html">Agenti AI Personalizzati</a></li>
+                        <li><a href="consulenza-strategica.html">Consulenza Strategica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Settori</h4>
+                    <ul>
+                        <li><a href="manifatturiero.html">Manifatturiero</a></li>
+                        <li><a href="moda-lusso.html">Moda e Lusso</a></li>
+                        <li><a href="alimentare.html">Alimentare</a></li>
+                        <li><a href="servizi-finanziari.html">Servizi Finanziari</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Azienda</h4>
+                    <ul>
+                        <li><a href="team.html">Il Team</a></li>
+                        <li><a href="mission.html">La Nostra Mission</a></li>
+                        <li><a href="certificazioni.html">Certificazioni</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contatti</h4>
+                    <div class="contact-info">
+                        <p><strong>Sede Legale</strong><br>Via Giovanni Forleo 45<br>72022 Latiano (BR)<br>P.IVA/CF: IT02735920742</p>
+                        <p><strong>Headquarters Verona</strong><br>Via Santa Maria in Chiavica 4/A<br>37121 Verona (VR)<br>Tel: +39 045 123 4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>&copy; 2024 PUGLIAI S.R.L. - P.IVA/CF: IT02735920742</p>
+                    <div class="legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="cookies.html">Cookie Policy</a>
+                        <a href="terms.html">Termini di Servizio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contact-form.js"></script>
+    <script>
+        // Manufacturing ROI Calculator
+        document.getElementById('calculate-manufacturing-roi').addEventListener('click', function() {
+            const productionHours = parseInt(document.getElementById('production-hours').value);
+            const hourlyCost = parseInt(document.getElementById('hourly-cost').value);
+            const downtimeHours = parseInt(document.getElementById('downtime-hours').value);
+            const qualityIssues = parseFloat(document.getElementById('quality-issues').value);
+            
+            // Calculate annual downtime cost reduction (50% improvement)
+            const annualDowntimeCost = downtimeHours * 12 * hourlyCost;
+            const downtimeSavings = annualDowntimeCost * 0.5;
+            
+            // Calculate quality improvement benefits (80% reduction in defects)
+            const annualProduction = productionHours * 365 * hourlyCost;
+            const qualityLosses = annualProduction * (qualityIssues / 100);
+            const qualityBenefits = qualityLosses * 0.8;
+            
+            const totalBenefits = downtimeSavings + qualityBenefits;
+            
+            document.getElementById('downtime-savings').textContent = 
+                '€' + Math.round(downtimeSavings).toLocaleString('it-IT');
+            document.getElementById('quality-benefits').textContent = 
+                '€' + Math.round(qualityBenefits).toLocaleString('it-IT');
+            document.getElementById('total-benefits').textContent = 
+                '€' + Math.round(totalBenefits).toLocaleString('it-IT');
+        });
+    </script>
+</body>
+</html>

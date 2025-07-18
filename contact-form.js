@@ -30,8 +30,8 @@ function initContactForm() {
         }
         
         try {
-            // Simulate form submission (in production, this would send to your backend)
-            await simulateFormSubmission(form);
+            // Real form submission with fallback to simulation
+            await submitContactForm(form);
             
             // Show success message
             showFormSuccess();
@@ -166,7 +166,8 @@ function clearFormErrors(form) {
 }
 
 // Simulate form submission (replace with actual API call)
-async function simulateFormSubmission(form) {
+// Enhanced form submission with real backend support
+async function submitContactForm(form) {
     const formData = new FormData(form);
     const data = {};
     
@@ -176,30 +177,111 @@ async function simulateFormSubmission(form) {
     }
     
     // Add checkboxes that might not be checked
-    data.marketingConsent = form.querySelector('#marketing-consent').checked;
-    data.profilingConsent = form.querySelector('#profiling-consent').checked;
+    data.marketingConsent = form.querySelector('#marketing-consent')?.checked || false;
+    data.profilingConsent = form.querySelector('#profiling-consent')?.checked || false;
+    data.timestamp = new Date().toISOString();
+    data.source = 'website';
     
-    console.log('Form data:', data);
+    console.log('Submitting form data:', data);
     
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    // Try multiple submission methods
+    const submissionMethods = [
+        () => submitToFormspree(data),
+        () => submitToEmailService(data),
+        () => submitToBackend(data)
+    ];
     
-    // In production, this would be:
-    // const response = await fetch('/api/contact', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(data)
-    // });
-    // 
-    // if (!response.ok) {
-    //     throw new Error('Network response was not ok');
-    // }
-    // 
-    // return response.json();
+    let lastError = null;
     
-    return { success: true, message: 'Form submitted successfully' };
+    for (const method of submissionMethods) {
+        try {
+            const result = await method();
+            console.log('Form submitted successfully:', result);
+            return result;
+        } catch (error) {
+            console.warn('Submission method failed:', error);
+            lastError = error;
+        }
+    }
+    
+    // If all methods fail, throw the last error
+    throw lastError || new Error('All submission methods failed');
+}
+
+// Formspree submission (free tier available)
+async function submitToFormspree(data) {
+    const formspreeEndpoint = 'https://formspree.io/f/mbjnkjlr'; // Replace with your Formspree endpoint
+    
+    const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+    
+    if (!response.ok) {
+        throw new Error(`Formspree submission failed: ${response.status}`);
+    }
+    
+    return await response.json();
+}
+
+// Email service submission (using EmailJS or similar)
+async function submitToEmailService(data) {
+    // EmailJS configuration (replace with your EmailJS credentials)
+    const emailjsConfig = {
+        service_id: 'your_service_id',
+        template_id: 'your_template_id',
+        user_id: 'your_user_id'
+    };
+    
+    // Check if EmailJS is available
+    if (typeof emailjs === 'undefined') {
+        throw new Error('EmailJS library not loaded');
+    }
+    
+    const templateParams = {
+        to_email: 'info@pugliai.com',
+        from_name: data.name,
+        from_email: data.email,
+        company: data.company,
+        phone: data.phone,
+        role: data.role,
+        service_type: data.service,
+        industry: data.industry,
+        budget: data.budget,
+        timeline: data.timeline,
+        message: data.message,
+        marketing_consent: data.marketingConsent,
+        profiling_consent: data.profilingConsent,
+        timestamp: data.timestamp
+    };
+    
+    return await emailjs.send(
+        emailjsConfig.service_id,
+        emailjsConfig.template_id,
+        templateParams,
+        emailjsConfig.user_id
+    );
+}
+
+// Backend API submission
+async function submitToBackend(data) {
+    const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    
+    if (!response.ok) {
+        throw new Error(`Backend submission failed: ${response.status}`);
+    }
+    
+    return await response.json();
 }
 
 function showFormSuccess() {
