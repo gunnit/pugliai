@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(for file in agenti-ai.html consulenza-strategica.html manifatturiero.html moda-lusso.html alimentare.html servizi-finanziari.html turismo.html sanita.html team.html mission.html certificazioni.html privacy.html cookies.html terms.html)",
+      "Bash(do if [ ! -s \"/mnt/c/Dev/Pugliai/$file\" ])",
+      "Bash(then echo \"Empty or missing: $file\")",
+      "Bash(fi)",
+      "Bash(done)",
+      "WebFetch"
+    ],
+    "deny": []
+  }
+}
