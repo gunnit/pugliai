@@ -339,18 +339,34 @@ function createModal(title, message, buttons) {
         <div class="modal-content">
             <div class="modal-header">
                 <h3>${title}</h3>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body">
                 <p>${message}</p>
             </div>
             <div class="modal-footer">
-                ${buttons.map(btn => `
-                    <button class="${btn.class}" onclick="${btn.action.toString().replace('() => ', '').replace('closeModal()', 'closeModal()')}">${btn.text}</button>
+                ${buttons.map((btn, index) => `
+                    <button class="${btn.class}" data-modal-action="${index}">${btn.text}</button>
                 `).join('')}
             </div>
         </div>
     `;
+    
+    // Add event listeners
+    setTimeout(() => {
+        const closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }
+        
+        // Add button event listeners
+        buttons.forEach((btn, index) => {
+            const btnElement = modal.querySelector(`[data-modal-action="${index}"]`);
+            if (btnElement && btn.action) {
+                btnElement.addEventListener('click', btn.action);
+            }
+        });
+    }, 0);
     
     // Add modal styles
     if (!document.querySelector('#modal-styles')) {
@@ -418,6 +434,9 @@ function closeModal() {
         modal.remove();
     }
 }
+
+// Make closeModal globally available
+window.closeModal = closeModal;
 
 // FAQ Functionality
 function initFAQ() {

@@ -216,17 +216,19 @@ function initSmoothScrolling() {
     window.addEventListener('scroll', throttle(() => {
         const scrollY = window.scrollY;
         
-        if (scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-        
-        // Hide/show header on scroll
-        if (scrollY > lastScrollY && scrollY > 200) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
+        if (header) {
+            if (scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Hide/show header on scroll
+            if (scrollY > lastScrollY && scrollY > 200) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
         }
         
         lastScrollY = scrollY;
@@ -665,12 +667,16 @@ function showCookieSettings() {
                 </div>
             </div>
             <div class="cookie-modal-actions">
-                <button class="btn btn-outline" onclick="closeCookieModal()">Annulla</button>
-                <button class="btn btn-primary" onclick="saveCookieSettings()">Salva Impostazioni</button>
+                <button class="btn btn-outline" id="close-cookie-modal">Annulla</button>
+                <button class="btn btn-primary" id="save-cookie-settings">Salva Impostazioni</button>
             </div>
         </div>
     `;
     document.body.appendChild(modal);
+    
+    // Add event listeners instead of onclick
+    document.getElementById('close-cookie-modal').addEventListener('click', closeCookieModal);
+    document.getElementById('save-cookie-settings').addEventListener('click', saveCookieSettings);
     
     setTimeout(() => modal.classList.add('show'), 100);
 }
@@ -684,7 +690,10 @@ function closeCookieModal() {
 }
 
 function saveCookieSettings() {
-    const analyticsEnabled = document.getElementById('analytics-cookies').checked;
+    const analyticsCheckbox = document.getElementById('analytics-cookies');
+    if (!analyticsCheckbox) return;
+    
+    const analyticsEnabled = analyticsCheckbox.checked;
     const consent = analyticsEnabled ? 'all' : 'necessary';
     
     localStorage.setItem('cookieConsent', consent);
@@ -693,11 +702,18 @@ function saveCookieSettings() {
         loadAnalytics();
     }
     
-    document.getElementById('cookie-banner').classList.remove('show');
-    closeCookieModal();
+    const cookieBanner = document.getElementById('cookie-banner');
+    if (cookieBanner) {
+        cookieBanner.classList.remove('show');
+    }
     
+    closeCookieModal();
     trackEvent('cookie_settings_saved', { consent_type: consent });
 }
+
+// Make functions globally available for any HTML onclick calls
+window.closeCookieModal = closeCookieModal;
+window.saveCookieSettings = saveCookieSettings;
 
 // Enhanced Performance Monitoring
 function initPerformanceMonitoring() {

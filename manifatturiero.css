@@ -1,7 +1,5 @@
-/* Import shared styles */
-@import url('styles.css');
-
 /* Manufacturing Page Specific Styles */
+/* Note: This file should be loaded after styles.css in the HTML */
 
 /* Hero Section */
 .manufacturing-hero {
