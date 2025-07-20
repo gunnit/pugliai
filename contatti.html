@@ -403,15 +403,85 @@
         <div class="container">
             <h2>Trova l'Ufficio Più Vicino</h2>
             <div class="map-container">
-                <div class="map-placeholder">
+                <!-- Map placeholder with privacy-first approach -->
+                <div id="map-placeholder" class="map-placeholder">
                     <div class="map-content">
                         <div class="map-icon">🗺️</div>
                         <h3>Mappa Interattiva</h3>
                         <p>Visualizza la posizione dei nostri uffici e calcola il percorso più comodo per raggiungerci.</p>
-                        <button class="btn btn-outline">Carica Mappa</button>
+                        <div class="map-buttons">
+                            <button id="load-google-maps" class="btn btn-primary">Carica Google Maps</button>
+                            <button id="load-openstreetmap" class="btn btn-outline">Usa OpenStreetMap</button>
+                        </div>
+                        <p class="privacy-note">
+                            <small>Cliccando su "Carica Google Maps" accetti il caricamento di contenuti da Google Maps. 
+                            <a href="privacy.html">Informativa Privacy</a></small>
+                        </p>
                     </div>
                 </div>
-                <!-- In production, this would be replaced with Google Maps or similar -->
+                <!-- Google Maps container (loaded on demand) -->
+                <div id="google-map" class="google-map" style="display: none;"></div>
+                <!-- OpenStreetMap container (privacy-friendly alternative) -->
+                <div id="openstreetmap" class="openstreetmap" style="display: none;"></div>
+            </div>
+            
+            <!-- Office locations info -->
+            <div class="offices-grid">
+                <div class="office-card">
+                    <div class="office-header">
+                        <h3>Sede Principale - Latiano (BR)</h3>
+                        <span class="office-status online">🟢 Attivo</span>
+                    </div>
+                    <div class="office-info">
+                        <div class="office-address">
+                            <strong>📍 Indirizzo:</strong><br>
+                            Via Giovanni Forleo 45<br>
+                            72022 Latiano (BR)<br>
+                            Puglia, Italia
+                        </div>
+                        <div class="office-details">
+                            <div class="detail-item">
+                                <strong>📞 Telefono:</strong> +39 045 123 4567
+                            </div>
+                            <div class="detail-item">
+                                <strong>📧 Email:</strong> info@pugliai.com
+                            </div>
+                            <div class="detail-item">
+                                <strong>🕒 Orari:</strong> Lun-Ven 9:00-18:00
+                            </div>
+                        </div>
+                        <div class="office-actions">
+                            <a href="https://maps.google.com/maps?q=Via+Giovanni+Forleo+45,+72022+Latiano+BR,+Italia" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="btn btn-small btn-outline">
+                                🗺️ Apri in Google Maps
+                            </a>
+                            <a href="https://www.waze.com/live-map/directions?to=ll.40.5587%2C17.7058" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="btn btn-small btn-outline">
+                                🚗 Apri in Waze
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Future office locations can be added here -->
+                <div class="office-card future-office">
+                    <div class="office-header">
+                        <h3>Ufficio Milano</h3>
+                        <span class="office-status upcoming">🟡 Prossimamente</span>
+                    </div>
+                    <div class="office-info">
+                        <p>Stiamo valutando l'apertura di un ufficio a Milano per essere più vicini ai nostri clienti del Nord Italia.</p>
+                        <div class="office-actions">
+                            <a href="contatti.html" class="btn btn-small btn-primary">
+                                📧 Rimani Aggiornato
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

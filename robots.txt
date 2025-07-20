@@ -1,0 +1,75 @@
+# Robots.txt for PugliAI.com
+# This file tells search engine crawlers which URLs they can access on your site.
+
+User-agent: *
+Allow: /
+
+# Disallow access to sensitive or non-public areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /*.json$
+Disallow: /sw.js
+
+# Allow access to CSS and JS files for proper rendering
+Allow: /styles.css
+Allow: /script.js
+Allow: /contact-form.js
+Allow: /*.css
+Allow: /*.js
+Allow: /includes/
+
+# Allow access to images
+Allow: /img/
+
+# Sitemap location
+Sitemap: https://pugliai.com/sitemap.xml
+
+# Crawl-delay to be respectful of server resources
+Crawl-delay: 1
+
+# Specific instructions for major search engines
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Facebook (for social sharing previews)
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter (for social sharing previews)
+User-agent: Twitterbot
+Allow: /
+
+# LinkedIn (for social sharing previews)
+User-agent: LinkedInBot
+Allow: /
+
+# Block bad bots and scrapers
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Performance note: This robots.txt is optimized for Italian business websites
+# targeting both local and international search engines.

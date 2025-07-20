@@ -7,6 +7,16 @@
     <meta name="description" content="PugliAI: Partner strategico per infrastrutture AI e consulenza specializzata. Soluzioni conformi AI Act per aziende italiane. Consulenza gratuita disponibile.">
     <meta name="keywords" content="consulenza AI Italia, infrastrutture intelligenza artificiale, trasformazione digitale AI, soluzioni AI aziende italiane">
     
+    <!-- SEO Meta Tags -->
+    <link rel="canonical" href="https://pugliai.com/">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="PUGLIAI S.R.L.">
+    <meta name="language" content="Italian">
+    <meta name="geo.region" content="IT-BR">
+    <meta name="geo.placename" content="Latiano, Brindisi, Puglia">
+    <meta name="geo.position" content="40.5587;17.7058">
+    <meta name="ICBM" content="40.5587, 17.7058">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pugliai.com/">
@@ -23,29 +33,182 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00E676">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="PugliAI">
+    <link rel="apple-touch-icon" href="/img/pittogramma.png">
+    
     <script src="includes/loader.js"></script>
     
-    <!-- Structured Data -->
+    <!-- Structured Data - Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "PUGLIAI S.R.L.",
+      "alternateName": "PugliAI",
       "url": "https://pugliai.com",
-      "description": "Partner strategico per infrastrutture AI e consulenza specializzata per aziende italiane",
+      "logo": "https://pugliai.com/img/pittogramma.png",
+      "image": "https://pugliai.com/img/pittogramma.png",
+      "description": "Partner strategico per infrastrutture AI e consulenza specializzata per aziende italiane. Soluzioni conformi AI Act, agenti AI personalizzati e trasformazione digitale.",
+      "slogan": "Partner Strategico per l'Eccellenza AI Italiana",
+      "foundingDate": "2024",
+      "legalName": "PUGLIAI S.R.L.",
+      "taxID": "IT00000000000",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Via Giovanni Forleo 45",
         "addressLocality": "Latiano",
-        "addressRegion": "BR",
+        "addressRegion": "Puglia",
         "postalCode": "72022",
         "addressCountry": "IT"
       },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+39 045 123 4567",
-        "contactType": "customer service"
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "40.5587",
+        "longitude": "17.7058"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+39 045 123 4567",
+          "contactType": "customer service",
+          "areaServed": "IT",
+          "availableLanguage": ["Italian", "English"]
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "info@pugliai.com",
+          "contactType": "sales",
+          "areaServed": "IT"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/pugliai",
+        "https://www.facebook.com/pugliai",
+        "https://twitter.com/pugliai"
+      ],
+      "serviceArea": {
+        "@type": "Country",
+        "name": "Italia"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servizi AI",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Agenti AI Personalizzati",
+              "description": "Sviluppo di agenti AI personalizzati, chatbot intelligenti e assistenti virtuali"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Consulenza Strategica AI",
+              "description": "Consulenza strategica per trasformazione digitale e implementazione AI"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Infrastrutture AI",
+              "description": "Progettazione e gestione di infrastrutture AI dedicate e scalabili"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "47",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Azienda Cliente"
+          },
+          "reviewBody": "PugliAI ci ha aiutato a implementare soluzioni AI che hanno trasformato i nostri processi aziendali."
+        }
+      ],
+      "knowsAbout": [
+        "Intelligenza Artificiale",
+        "Machine Learning",
+        "Automazione Aziendale",
+        "Trasformazione Digitale",
+        "Chatbot",
+        "Agenti AI",
+        "Consulenza Tecnologica"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Italia"
+      },
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+      "priceRange": "€€€",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday", 
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
       }
+    }
+    </script>
+    
+    <!-- Structured Data - WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PugliAI",
+      "alternateName": "PUGLIAI S.R.L.",
+      "url": "https://pugliai.com",
+      "description": "Partner strategico per infrastrutture AI e consulenza specializzata per aziende italiane",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PUGLIAI S.R.L.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pugliai.com/img/pittogramma.png"
+        }
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://pugliai.com/?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/pugliai",
+        "https://www.facebook.com/pugliai",
+        "https://twitter.com/pugliai"
+      ]
     }
     </script>
 </head>
@@ -65,60 +228,7 @@
     </div>
 
     <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="container">
-                <div class="nav-brand">
-                    <img src="img/pittogramma.png" alt="PugliAI Logo" class="logo">
-                    <span class="brand-text">PugliAI</span>
-                </div>
-                
-                <div class="nav-menu" id="nav-menu">
-                    <ul class="nav-list">
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">Servizi</a>
-                            <div class="dropdown-content">
-                                <a href="infrastrutture-ai.html">Infrastrutture AI</a>
-                                <a href="agenti-ai.html">Agenti AI Personalizzati</a>
-                                <a href="consulenza-strategica.html">Consulenza Strategica</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">Settori</a>
-                            <div class="dropdown-content">
-                                <a href="manifatturiero.html">Manifatturiero</a>
-                                <a href="moda-lusso.html">Moda e Lusso</a>
-                                <a href="alimentare.html">Alimentare</a>
-                                <a href="servizi-finanziari.html">Servizi Finanziari</a>
-                                <a href="turismo.html">Turismo</a>
-                                <a href="sanita.html">Sanità</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">Chi Siamo</a>
-                            <div class="dropdown-content">
-                                <a href="team.html">Il Team</a>
-                                <a href="mission.html">La Nostra Mission</a>
-                                <a href="certificazioni.html">Certificazioni</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="contatti.html" class="nav-link">Contatti</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="nav-actions">
-                    <a href="contatti.html" class="btn btn-primary">Consulenza Gratuita</a>
-                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <div id="menu-include"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -523,68 +633,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-brand">
-                        <img src="img/pittogramma.png" alt="PugliAI Logo" class="footer-logo">
-                        <span class="footer-brand-text">PugliAI</span>
-                    </div>
-                    <p class="footer-description">Partner strategico per l'eccellenza AI italiana. Infrastrutture, consulenza e soluzioni personalizzate per il vostro successo digitale.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Servizi</h4>
-                    <ul>
-                        <li><a href="infrastrutture-ai.html">Infrastrutture AI</a></li>
-                        <li><a href="agenti-ai.html">Agenti AI Personalizzati</a></li>
-                        <li><a href="consulenza-strategica.html">Consulenza Strategica</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Settori</h4>
-                    <ul>
-                        <li><a href="manifatturiero.html">Manifatturiero</a></li>
-                        <li><a href="moda-lusso.html">Moda e Lusso</a></li>
-                        <li><a href="alimentare.html">Alimentare</a></li>
-                        <li><a href="servizi-finanziari.html">Servizi Finanziari</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Azienda</h4>
-                    <ul>
-                        <li><a href="team.html">Il Team</a></li>
-                        <li><a href="mission.html">La Nostra Mission</a></li>
-                        <li><a href="certificazioni.html">Certificazioni</a></li>
-                        <li><a href="contatti.html">Contatti</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contatti</h4>
-                    <div class="contact-info">
-                        <p><strong>Milano HQ</strong><br>Via Brera 21, 20121 Milano<br>Tel: +39 02 8705 4321</p>
-                        <p><strong>Roma</strong><br>Via del Corso 123, 00186 Roma<br>Tel: +39 06 9876 5432</p>
-                        <p><strong>Napoli</strong><br>Via Chiaia 45, 80121 Napoli<br>Tel: +39 081 234 5678</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-legal">
-                    <p>&copy; 2024 PugliAI S.r.l. - P.IVA 12345678901</p>
-                    <div class="legal-links">
-                        <a href="privacy.html">Informativa Privacy</a>
-                        <a href="cookies.html">Informativa Cookie</a>
-                        <a href="terms.html">Termini di Servizio</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-include"></div>
 
     <script src="script.js"></script>
 </body>

@@ -1,5 +1,8 @@
 // Enhanced JavaScript with Modern Animations and Effects
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize service worker first
+    initServiceWorker();
+    
     // Initialize all enhanced components
     initCookieBanner();
     initMobileMenu();
@@ -17,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initFloatingElements();
     initGlassmorphismEffects();
     initPerformanceMonitoring();
+    initLazyLoading();
 });
 
 // Enhanced Cookie Banner with Animations
@@ -1092,12 +1096,129 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Service Worker registration for PWA
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => console.log('SW registered'))
-            .catch(registrationError => console.log('SW registration failed'));
+// Service Worker Registration with PWA support
+function initServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('[SW] Registered successfully:', registration.scope);
+                    
+                    // Check for updates
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        if (newWorker) {
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New content available, notify user
+                                    showUpdateAvailable();
+                                }
+                            });
+                        }
+                    });
+                    
+                    // Handle controlled state
+                    if (!navigator.serviceWorker.controller) {
+                        console.log('[SW] First time installation');
+                    }
+                })
+                .catch(error => {
+                    console.error('[SW] Registration failed:', error);
+                });
+        });
+        
+        // Listen for messages from service worker
+        navigator.serviceWorker.addEventListener('message', event => {
+            if (event.data && event.data.type === 'UPDATE_AVAILABLE') {
+                showUpdateAvailable();
+            }
+        });
+    } else {
+        console.log('[SW] Service Workers not supported');
+    }
+}
+
+// Show update available notification
+function showUpdateAvailable() {
+    // Create update banner
+    const updateBanner = document.createElement('div');
+    updateBanner.className = 'update-banner';
+    updateBanner.innerHTML = `
+        <div class="update-content">
+            <span class="update-text">🔄 Nuovo aggiornamento disponibile!</span>
+            <button class="update-btn btn btn-small">Aggiorna</button>
+            <button class="update-dismiss">&times;</button>
+        </div>
+    `;
+    
+    // Add styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .update-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--accent-emerald);
+            color: white;
+            z-index: 1001;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        .update-banner.show {
+            transform: translateY(0);
+        }
+        .update-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            gap: 16px;
+        }
+        .update-text {
+            font-weight: 500;
+        }
+        .update-btn {
+            background: white;
+            color: var(--accent-emerald);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+        .update-dismiss {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            margin-left: auto;
+        }
+        @media (max-width: 768px) {
+            .update-content {
+                flex-wrap: wrap;
+                text-align: center;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    document.body.appendChild(updateBanner);
+    
+    // Show banner
+    setTimeout(() => updateBanner.classList.add('show'), 100);
+    
+    // Handle update button
+    updateBanner.querySelector('.update-btn').addEventListener('click', () => {
+        if (navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+            window.location.reload();
+        }
+    });
+    
+    // Handle dismiss
+    updateBanner.querySelector('.update-dismiss').addEventListener('click', () => {
+        updateBanner.remove();
     });
 }
 
@@ -1124,3 +1245,309 @@ document.addEventListener('keydown', function(e) {
 document.addEventListener('mousedown', function() {
     document.body.classList.remove('keyboard-navigation');
 });
+
+// Lazy Loading Implementation
+function initLazyLoading() {
+    // Feature detection
+    if ('IntersectionObserver' in window) {
+        initIntersectionObserverLazyLoading();
+    } else {
+        // Fallback for older browsers
+        initFallbackLazyLoading();
+    }
+    
+    // Optimize existing images
+    optimizeExistingImages();
+}
+
+// Modern lazy loading using Intersection Observer
+function initIntersectionObserverLazyLoading() {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                loadImage(img);
+                observer.unobserve(img);
+            }
+        });
+    }, {
+        rootMargin: '50px 0px', // Start loading 50px before the image comes into view
+        threshold: 0.01
+    });
+    
+    // Observe all images with data-src attribute
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+    
+    // Auto-convert existing images to lazy loading
+    document.querySelectorAll('img:not([data-src])').forEach(img => {
+        // Skip if already loaded or is above the fold
+        if (img.complete || isAboveFold(img)) {
+            return;
+        }
+        
+        // Convert to lazy loading
+        img.dataset.src = img.src;
+        img.src = generatePlaceholder(img);
+        img.classList.add('lazy-loading');
+        imageObserver.observe(img);
+    });
+}
+
+// Fallback lazy loading for older browsers
+function initFallbackLazyLoading() {
+    const loadImagesInViewport = throttle(() => {
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            if (isInViewport(img)) {
+                loadImage(img);
+            }
+        });
+    }, 100);
+    
+    // Load images on scroll and resize
+    window.addEventListener('scroll', loadImagesInViewport, { passive: true });
+    window.addEventListener('resize', loadImagesInViewport);
+    
+    // Initial load
+    loadImagesInViewport();
+}
+
+// Load individual image
+function loadImage(img) {
+    if (img.dataset.src) {
+        // Show loading state
+        img.classList.add('loading');
+        
+        // Create new image for preloading
+        const newImg = new Image();
+        
+        // Handle successful load
+        newImg.onload = function() {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy-loading', 'loading');
+            img.classList.add('loaded');
+            
+            // Remove data-src to prevent reprocessing
+            delete img.dataset.src;
+            
+            // Trigger fade-in animation
+            requestAnimationFrame(() => {
+                img.style.opacity = '1';
+            });
+            
+            // Track lazy loading performance
+            if (typeof trackEvent === 'function') {
+                trackEvent('image_lazy_loaded', {
+                    src: img.src,
+                    alt: img.alt || 'no-alt'
+                });
+            }
+        };
+        
+        // Handle load error
+        newImg.onerror = function() {
+            img.classList.remove('loading');
+            img.classList.add('error');
+            
+            // Set placeholder or error image
+            img.src = generateErrorPlaceholder(img);
+            
+            // Track error
+            console.warn('Failed to lazy load image:', img.dataset.src);
+        };
+        
+        // Start loading
+        newImg.src = img.dataset.src;
+    }
+}
+
+// Check if element is above the fold (visible without scrolling)
+function isAboveFold(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+}
+
+// Check if element is in viewport (fallback method)
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+    
+    return (
+        rect.top < windowHeight + 50 && // 50px threshold
+        rect.bottom > -50 &&
+        rect.left < windowWidth &&
+        rect.right > 0
+    );
+}
+
+// Generate placeholder image (base64 encoded 1x1 transparent pixel)
+function generatePlaceholder(img) {
+    const width = img.getAttribute('width') || img.offsetWidth || 300;
+    const height = img.getAttribute('height') || img.offsetHeight || 200;
+    
+    // Create SVG placeholder with aspect ratio
+    return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${width} ${height}'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial,sans-serif' font-size='12' text-anchor='middle' dy='0.3em' fill='%23999'%3ECaricamento...%3C/text%3E%3C/svg%3E`;
+}
+
+// Generate error placeholder
+function generateErrorPlaceholder(img) {
+    const width = img.getAttribute('width') || img.offsetWidth || 300;
+    const height = img.getAttribute('height') || img.offsetHeight || 200;
+    
+    return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${width} ${height}'%3E%3Crect width='100%25' height='100%25' fill='%23f8f8f8' stroke='%23ddd'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial,sans-serif' font-size='12' text-anchor='middle' dy='0.3em' fill='%23999'%3EErrore caricamento%3C/text%3E%3C/svg%3E`;
+}
+
+// Optimize existing images that are already loaded
+function optimizeExistingImages() {
+    document.querySelectorAll('img').forEach(img => {
+        // Add loading attribute for browsers that support it
+        if (!img.hasAttribute('loading')) {
+            // Don't add lazy loading to images that are likely above the fold
+            if (!isAboveFold(img)) {
+                img.setAttribute('loading', 'lazy');
+            }
+        }
+        
+        // Add decoding attribute for better performance
+        if (!img.hasAttribute('decoding')) {
+            img.setAttribute('decoding', 'async');
+        }
+        
+        // Ensure alt attributes exist for accessibility
+        if (!img.hasAttribute('alt')) {
+            console.warn('Image missing alt attribute:', img.src);
+            img.setAttribute('alt', '');
+        }
+    });
+}
+
+// Preload critical images
+function preloadCriticalImages() {
+    const criticalImages = [
+        '/img/pittogramma.png', // Logo
+        // Add other critical images that should load immediately
+    ];
+    
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+}
+
+// Progressive image loading with different quality levels
+function loadProgressiveImage(img) {
+    const lowQualitySrc = img.dataset.srcLow;
+    const highQualitySrc = img.dataset.src;
+    
+    if (lowQualitySrc) {
+        // Load low quality first
+        img.src = lowQualitySrc;
+        img.classList.add('low-quality');
+        
+        // Then load high quality
+        const highQualityImg = new Image();
+        highQualityImg.onload = function() {
+            img.src = highQualitySrc;
+            img.classList.remove('low-quality');
+            img.classList.add('high-quality');
+        };
+        highQualityImg.src = highQualitySrc;
+    } else {
+        loadImage(img);
+    }
+}
+
+// Add CSS for lazy loading animations and states
+if (!document.querySelector('#lazy-loading-styles')) {
+    const style = document.createElement('style');
+    style.id = 'lazy-loading-styles';
+    style.textContent = `
+        /* Lazy loading states */
+        img.lazy-loading {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background-color: var(--gray-100);
+        }
+        
+        img.loading {
+            opacity: 0.7;
+            filter: blur(2px);
+        }
+        
+        img.loaded {
+            opacity: 1;
+            filter: none;
+        }
+        
+        img.error {
+            opacity: 0.8;
+            border: 1px dashed var(--gray-300);
+        }
+        
+        /* Progressive loading states */
+        img.low-quality {
+            filter: blur(5px);
+            transition: filter 0.3s ease;
+        }
+        
+        img.high-quality {
+            filter: none;
+        }
+        
+        /* Loading animation for placeholders */
+        img.lazy-loading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: loading-shimmer 1.5s infinite;
+        }
+        
+        @keyframes loading-shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Responsive images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Performance optimizations */
+        img[loading="lazy"] {
+            content-visibility: auto;
+        }
+        
+        /* Accessibility improvements */
+        img:not([alt]) {
+            outline: 2px solid red;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            img {
+                transition: none;
+            }
+            
+            img.lazy-loading::before {
+                animation: none;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', preloadCriticalImages);
+} else {
+    preloadCriticalImages();
+}
