@@ -35,6 +35,116 @@
     
     <script src="includes/loader.js"></script>
     
+    <!-- Password Protection Styles -->
+    <style>
+    #password-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 22, 40, 0.95);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    #password-modal {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 3rem;
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    
+    #password-modal h2 {
+        color: #FFD700;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    
+    #password-modal p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+    
+    #password-input {
+        width: 100%;
+        padding: 1rem;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 1rem;
+        text-align: center;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    #password-input:focus {
+        outline: none;
+        border-color: #00E676;
+        box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
+    }
+    
+    #password-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    
+    #password-submit {
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(135deg, #00E676, #FFD700);
+        border: none;
+        border-radius: 12px;
+        color: #0A1628;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 1rem;
+    }
+    
+    #password-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 230, 118, 0.3);
+    }
+    
+    #password-error {
+        color: #FF6B6B;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    #password-error.show {
+        opacity: 1;
+    }
+    
+    .password-logo {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, #00E676, #FFD700);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+    }
+    </style>
+    
     <!-- Structured Data - Service -->
     <script type="application/ld+json">
     {
@@ -87,6 +197,27 @@
     </script>
 </head>
 <body>
+    <!-- Password Protection Overlay -->
+    <div id="password-overlay">
+        <div id="password-modal">
+            <div class="password-logo">🔒</div>
+            <h2>Accesso Riservato</h2>
+            <p>Questa pagina è protetta. Inserisci la password per accedere al contenuto.</p>
+            <form id="password-form">
+                <input 
+                    type="password" 
+                    id="password-input" 
+                    placeholder="Inserisci la password" 
+                    maxlength="20"
+                    autocomplete="off"
+                    required
+                />
+                <button type="submit" id="password-submit">Accedi</button>
+                <div id="password-error">Password non corretta. Riprova.</div>
+            </form>
+        </div>
+    </div>
+
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-content">
@@ -733,5 +864,177 @@
 
     <script src="script.js"></script>
     <script src="contact-form.js"></script>
+    
+    <!-- Password Protection Script -->
+    <script>
+    (function() {
+        'use strict';
+        
+        const CORRECT_PASSWORD = 'AIITALY';
+        const PASSWORD_STORAGE_KEY = 'comtel_pugliai_access';
+        
+        // Check if user already entered correct password in this session
+        function checkExistingAccess() {
+            const stored = sessionStorage.getItem(PASSWORD_STORAGE_KEY);
+            return stored === CORRECT_PASSWORD;
+        }
+        
+        // Initialize password protection
+        function initPasswordProtection() {
+            // If already authenticated, hide overlay and show content
+            if (checkExistingAccess()) {
+                hidePasswordOverlay();
+                return;
+            }
+            
+            // Show password overlay and hide main content
+            showPasswordOverlay();
+            
+            // Set up event listeners
+            setupPasswordEventListeners();
+        }
+        
+        function showPasswordOverlay() {
+            const overlay = document.getElementById('password-overlay');
+            const body = document.body;
+            
+            if (overlay) {
+                overlay.style.display = 'flex';
+                body.style.overflow = 'hidden';
+                
+                // Focus on password input after a brief delay
+                setTimeout(() => {
+                    const input = document.getElementById('password-input');
+                    if (input) input.focus();
+                }, 100);
+            }
+        }
+        
+        function hidePasswordOverlay() {
+            const overlay = document.getElementById('password-overlay');
+            const body = document.body;
+            
+            if (overlay) {
+                overlay.style.opacity = '0';
+                overlay.style.transition = 'opacity 0.5s ease';
+                
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    body.style.overflow = '';
+                }, 500);
+            }
+        }
+        
+        function showPasswordError() {
+            const errorElement = document.getElementById('password-error');
+            const input = document.getElementById('password-input');
+            
+            if (errorElement) {
+                errorElement.classList.add('show');
+                
+                // Shake animation for input
+                if (input) {
+                    input.style.animation = 'shake 0.5s ease-in-out';
+                    input.style.borderColor = '#FF6B6B';
+                    
+                    setTimeout(() => {
+                        input.style.animation = '';
+                        input.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                    }, 500);
+                }
+                
+                // Hide error after 3 seconds
+                setTimeout(() => {
+                    errorElement.classList.remove('show');
+                }, 3000);
+            }
+        }
+        
+        function handlePasswordSubmit(event) {
+            event.preventDefault();
+            
+            const input = document.getElementById('password-input');
+            const enteredPassword = input.value.trim();
+            
+            if (enteredPassword === CORRECT_PASSWORD) {
+                // Store successful access in session
+                sessionStorage.setItem(PASSWORD_STORAGE_KEY, CORRECT_PASSWORD);
+                
+                // Hide overlay with success animation
+                hidePasswordOverlay();
+                
+                // Clear input
+                input.value = '';
+                
+                // Track successful access (if analytics available)
+                if (typeof trackEvent === 'function') {
+                    trackEvent('password_access_granted', { page: 'comtelpugliai' });
+                }
+                
+            } else {
+                // Show error and clear input
+                showPasswordError();
+                input.value = '';
+                input.focus();
+                
+                // Track failed attempt (if analytics available)
+                if (typeof trackEvent === 'function') {
+                    trackEvent('password_access_denied', { page: 'comtelpugliai' });
+                }
+            }
+        }
+        
+        function setupPasswordEventListeners() {
+            const form = document.getElementById('password-form');
+            const input = document.getElementById('password-input');
+            
+            if (form) {
+                form.addEventListener('submit', handlePasswordSubmit);
+            }
+            
+            // Allow Enter key to submit
+            if (input) {
+                input.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter') {
+                        handlePasswordSubmit(event);
+                    }
+                });
+                
+                // Hide error when user starts typing again
+                input.addEventListener('input', function() {
+                    const errorElement = document.getElementById('password-error');
+                    if (errorElement) {
+                        errorElement.classList.remove('show');
+                    }
+                });
+            }
+        }
+        
+        // Add shake animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                20%, 40%, 60%, 80% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initPasswordProtection);
+        } else {
+            initPasswordProtection();
+        }
+        
+        // Clear session storage when tab/window is closed (optional security measure)
+        window.addEventListener('beforeunload', function() {
+            // Uncomment the line below if you want password to expire when tab is closed
+            // sessionStorage.removeItem(PASSWORD_STORAGE_KEY);
+        });
+        
+    })();
+    </script>
 </body>
 </html>
