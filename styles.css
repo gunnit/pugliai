@@ -19,6 +19,12 @@
     --accent-cyan: #00BCD4;
     --accent-purple: #7C4DFF;
     
+    /* Legacy Color Variables for Compatibility */
+    --color-primary: var(--primary-blue);
+    --color-accent: var(--accent-emerald);
+    --color-gold: var(--secondary-gold);
+    --color-dark: var(--primary-blue);
+    
     /* Neutral Colors */
     --white: #FFFFFF;
     --black: #000000;
@@ -4166,6 +4172,247 @@ a:focus {
     
     .food-confidence {
         font-size: 1rem;
+    }
+}
+
+/* Missing Essential Section Styles for comtelpugliai.html */
+
+/* Features Section */
+.features {
+    padding: var(--space-20) 0;
+    background: var(--white);
+    color: var(--gray-800);
+}
+
+.features .section-title {
+    color: var(--primary-blue);
+}
+
+/* Demo Section overrides */
+.demo-section .section-title {
+    color: var(--primary-blue);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+}
+
+.feature-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: var(--space-8);
+    backdrop-filter: var(--glass-blur);
+    transition: all var(--transition-normal);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+    display: block;
+}
+
+/* Section Header Styles */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--primary-blue);
+    margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: var(--gray-600);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-badge {
+    display: inline-block;
+    background: var(--gradient-emerald);
+    color: var(--white);
+    padding: var(--space-2) var(--space-4);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+}
+
+/* Pricing Section */
+.pricing {
+    padding: var(--space-20) 0;
+    background: var(--gradient-mesh);
+    color: var(--white);
+}
+
+.pricing .section-title {
+    color: var(--white);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+}
+
+.pricing-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: var(--space-8);
+    backdrop-filter: var(--glass-blur);
+    text-align: center;
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.pricing-header {
+    margin-bottom: var(--space-6);
+}
+
+.pricing-price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--secondary-gold);
+    margin: var(--space-4) 0;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-6) 0;
+    text-align: left;
+}
+
+.pricing-features li {
+    padding: var(--space-2) 0;
+    position: relative;
+    padding-left: var(--space-6);
+}
+
+.pricing-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-emerald);
+    font-weight: bold;
+}
+
+.pricing-action {
+    margin-top: var(--space-8);
+}
+
+/* Benefits Section */
+.benefits {
+    padding: var(--space-20) 0;
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.benefits .section-title {
+    color: var(--white);
+}
+
+/* Use Cases Section */
+.use-cases {
+    padding: var(--space-20) 0;
+    background: var(--white);
+    color: var(--gray-800);
+}
+
+/* Technology Section */
+.technology {
+    padding: var(--space-20) 0;
+    background: var(--gray-50);
+    color: var(--gray-800);
+}
+
+.technology .section-title {
+    color: var(--primary-blue);
+}
+
+/* Implementation Section */
+.implementation {
+    padding: var(--space-20) 0;
+    background: var(--white);
+    color: var(--gray-800);
+}
+
+.implementation .section-title {
+    color: var(--primary-blue);
+}
+
+/* Testimonial Section */
+.testimonial {
+    padding: var(--space-20) 0;
+    background: var(--gradient-primary);
+    color: var(--white);
+    text-align: center;
+}
+
+.testimonial .section-title {
+    color: var(--white);
+}
+
+/* CTA Section */
+.cta {
+    padding: var(--space-20) 0;
+    background: var(--gradient-mesh);
+    color: var(--white);
+    text-align: center;
+}
+
+.cta .section-title,
+.cta h2 {
+    color: var(--white);
+}
+
+/* Mobile Responsive Styles for New Sections */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+    
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+    
+    .section-header {
+        margin-bottom: var(--space-8);
+    }
+    
+    .section-title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-card,
+    .pricing-card {
+        padding: var(--space-6);
+    }
+    
+    .pricing-price {
+        font-size: 2rem;
     }
 }
 
