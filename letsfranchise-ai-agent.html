@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scopri l'innovativo assistente AI vocale per LetsFramchise. Esperienza interattiva avanzata nel mondo del franchising con intelligenza artificiale. Demo esclusiva by PugliAI.">
+    <meta name="keywords" content="AI vocale, assistente intelligenza artificiale, franchising, LetsFramchise, PugliAI, consulenza AI, voice agent">
+    <meta name="author" content="PugliAI">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pugliai.com/letsfranchise-ai-agent.html">
+    <meta property="og:title" content="LetsFramchise AI Voice Agent - Demo Esclusiva">
+    <meta property="og:description" content="Esperienza interattiva avanzata con intelligenza artificiale vocale per il mondo del franchising">
+    <meta property="og:image" content="https://pugliai.com/img/pittogramma.png">
+    <meta property="og:locale" content="it_IT">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://pugliai.com/letsfranchise-ai-agent.html">
+    <meta name="twitter:title" content="LetsFramchise AI Voice Agent - Demo Esclusiva">
+    <meta name="twitter:description" content="Esperienza interattiva avanzata con intelligenza artificiale vocale per il mondo del franchising">
+    <meta name="twitter:image" content="https://pugliai.com/img/pittogramma.png">
+    
+    <!-- Security -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <!-- PWA / Mobile -->
+    <meta name="theme-color" content="#0A1628">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <title>LetsFramchise AI Voice Agent - Demo Esclusiva | PugliAI</title>
+    
+    <!-- Critical CSS -->
+    <style>
+        :root {
+            --primary-blue: #0A1628;
+            --accent-gold: #FFD700;
+            --accent-emerald: #00E676;
+            --white: #FFFFFF;
+            --gray-100: #F8F9FA;
+            --gray-200: #E9ECEF;
+            --gray-300: #DEE2E6;
+            --gray-800: #343A40;
+            --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, #1E3A8A 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent-emerald) 0%, #10B981 100%);
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --border-radius: 8px;
+            --border-radius-lg: 16px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--gradient-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: var(--space-2xl) 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 230, 118, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: var(--space-md);
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-xl);
+            font-weight: 300;
+        }
+
+        .ai-widget-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .ai-widget-container::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: var(--gradient-accent);
+            border-radius: var(--border-radius-lg);
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .widget-intro {
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+        }
+
+        .widget-intro h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .widget-intro p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-card h3 {
+            color: var(--accent-emerald);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            padding: var(--space-xl) 0;
+            color: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: var(--space-2xl);
+        }
+
+        .logo {
+            margin-bottom: var(--space-lg);
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content > * {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .hero-content > *:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .hero-content > *:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .hero-content > *:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .hero {
+                padding: var(--space-lg) 0;
+            }
+            
+            .ai-widget-container {
+                padding: var(--space-lg);
+                margin: var(--space-lg) 0;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+        }
+
+        /* Focus styles for accessibility */
+        elevenlabs-convai:focus {
+            outline: 2px solid var(--accent-emerald);
+            outline-offset: 2px;
+            border-radius: var(--border-radius);
+        }
+        
+        /* Error handling styles */
+        .widget-error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            color: var(--white);
+            text-align: center;
+            margin: var(--space-lg) 0;
+        }
+        
+        .widget-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            color: var(--white);
+            font-size: 1.125rem;
+        }
+        
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--accent-emerald);
+            animation: spin 1s ease-in-out infinite;
+            margin-right: var(--space-sm);
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Print styles */
+        @media print {
+            .ai-widget-container,
+            elevenlabs-convai {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: var(--space-lg) 0;
+            }
+        }
+        
+        /* Reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-content > * {
+                animation: none;
+            }
+            
+            .feature-card {
+                transition: none;
+            }
+            
+            .loading-spinner {
+                animation: none;
+            }
+        }
+        
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --glass-bg: rgba(255, 255, 255, 0.2);
+                --glass-border: rgba(255, 255, 255, 0.4);
+            }
+        }
+    </style>
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="img/pittogramma.png" as="image">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/pittogramma.png">
+    <link rel="apple-touch-icon" href="img/pittogramma.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://pugliai.com/letsfranchise-ai-agent.html">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+</head>
+<body>
+    <main class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo">
+                    <img src="img/pittogramma.png" alt="PugliAI Logo" loading="eager">
+                </div>
+                
+                <h1>LetsFramchise AI Voice Agent</h1>
+                <p class="subtitle">Esperienza interattiva avanzata con intelligenza artificiale vocale per il mondo del franchising</p>
+                
+                <div class="ai-widget-container">
+                    <div class="widget-intro">
+                        <h2>Prova l'Assistente Vocale</h2>
+                        <p>Interagisci con il nostro assistente AI specializzato nel franchising. Fai domande, ricevi consigli personalizzati e scopri le opportunità del settore.</p>
+                    </div>
+                    
+                    <!-- ElevenLabs ConvAI Widget -->
+                    <div id="widget-container">
+                        <div class="widget-loading" id="widget-loading">
+                            <div class="loading-spinner"></div>
+                            Caricamento assistente AI...
+                        </div>
+                        <elevenlabs-convai agent-id="agent_4201k0synr0vf8eb74tm4t5t22d2" role="application" aria-label="Assistente AI Vocale LetsFramchise"></elevenlabs-convai>
+                    </div>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>Conversazione Naturale</h3>
+                        <p>Dialoga in modo naturale con un assistente AI che comprende il contesto del franchising e fornisce risposte precise e pertinenti.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Expertise Settoriale</h3>
+                        <p>Accesso a conoscenze specializzate nel mondo del franchising, dalle opportunità di investimento alle strategie di crescita.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Disponibilità 24/7</h3>
+                        <p>L'assistente è sempre disponibile per rispondere alle tue domande, offrirti supporto e guidarti nelle decisioni di business.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 PugliAI - Soluzioni AI Avanzate per il Business</p>
+        </div>
+    </footer>
+    
+    <!-- ElevenLabs ConvAI Widget Script -->
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript" onerror="handleWidgetError()"></script>
+    
+    <!-- Enhanced functionality and error handling -->
+    <script>
+        // Performance monitoring
+        let performanceData = {};
+        
+        window.addEventListener('load', function() {
+            if ('performance' in window) {
+                const loadTime = performance.now();
+                performanceData.loadTime = Math.round(loadTime);
+                console.log(`Page load time: ${performanceData.loadTime}ms`);
+                
+                // Core Web Vitals tracking
+                if ('PerformanceObserver' in window) {
+                    const observer = new PerformanceObserver((list) => {
+                        list.getEntries().forEach((entry) => {
+                            if (entry.entryType === 'largest-contentful-paint') {
+                                performanceData.lcp = Math.round(entry.startTime);
+                            }
+                        });
+                    });
+                    observer.observe({ entryTypes: ['largest-contentful-paint'] });
+                }
+            }
+        });
+        
+        // Widget error handling
+        function handleWidgetError() {
+            const container = document.getElementById('widget-container');
+            const loading = document.getElementById('widget-loading');
+            
+            if (container && loading) {
+                loading.style.display = 'none';
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'widget-error';
+                errorDiv.innerHTML = `
+                    <h3>Errore di Caricamento</h3>
+                    <p>Impossibile caricare l'assistente AI. Riprova tra qualche istante.</p>
+                    <button onclick="location.reload()" style="
+                        background: var(--accent-emerald);
+                        color: white;
+                        border: none;
+                        padding: 0.5rem 1rem;
+                        border-radius: var(--border-radius);
+                        cursor: pointer;
+                        margin-top: 1rem;
+                    ">Ricarica Pagina</button>
+                `;
+                container.appendChild(errorDiv);
+            }
+        }
+        
+        // Enhanced widget initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            const widget = document.querySelector('elevenlabs-convai');
+            const loading = document.getElementById('widget-loading');
+            
+            if (widget) {
+                // Hide loading indicator when widget loads
+                widget.addEventListener('load', function() {
+                    if (loading) loading.style.display = 'none';
+                    console.log('AI Voice Agent loaded successfully');
+                    performanceData.widgetLoaded = Date.now();
+                });
+                
+                // Handle widget errors
+                widget.addEventListener('error', function(e) {
+                    console.error('Widget error:', e);
+                    handleWidgetError();
+                });
+                
+                // Timeout fallback
+                setTimeout(() => {
+                    if (loading && loading.style.display !== 'none') {
+                        handleWidgetError();
+                    }
+                }, 15000); // 15 second timeout
+            }
+        });
+        
+        // Accessibility enhancements
+        document.addEventListener('keydown', function(e) {
+            // ESC key to provide escape mechanism
+            if (e.key === 'Escape') {
+                const widget = document.querySelector('elevenlabs-convai');
+                if (widget && document.activeElement === widget) {
+                    widget.blur();
+                }
+            }
+        });
+        
+        // Privacy and GDPR compliance
+        const trackingConsent = localStorage.getItem('tracking-consent');
+        if (trackingConsent === 'true') {
+            // Only track if user has consented
+            console.log('Tracking enabled with user consent');
+        }
+        
+        // Error boundary for global errors
+        window.addEventListener('error', function(e) {
+            console.error('Global error:', e.error);
+            // Don't expose errors to users in production
+        });
+        
+        // Service Worker registration for offline capability (optional)
+        if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+            navigator.serviceWorker.register('/sw.js').catch(err => {
+                console.log('Service Worker registration failed:', err);
+            });
+        }
+    </script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LetsFramchise AI Voice Agent",
+        "description": "Assistente AI vocale specializzato nel franchising",
+        "url": "https://pugliai.com/letsfranchise-ai-agent.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "creator": {
+            "@type": "Organization",
+            "name": "PugliAI",
+            "url": "https://pugliai.com"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        }
+    }
+    </script>
+</body>
+</html>
