@@ -13,17 +13,25 @@ This is a static website for PugliAI, an Italian AI consulting company. The site
 - **Styling**: Modern CSS with custom properties, CSS Grid, Flexbox, and glassmorphism effects
 - **Performance**: Resource optimization, intersection observers, requestAnimationFrame animations
 - **Accessibility**: WCAG 2.1 AA compliant, keyboard navigation, screen reader support
+- **PWA Features**: Service worker, manifest.json, installable app capabilities
+- **SEO**: Structured data, meta tags, sitemap, robots.txt
 - **Deployment**: Static files served directly (no build process)
 
 ### File Structure
 ```
 /
 ├── index.html              # Main homepage
-├── contatti.html           # Contact page  
+├── contatti.html           # Contact page
 ├── infrastrutture-ai.html  # AI Infrastructure service page
+├── agenti-ai.html          # AI Agents service page
+├── consulenza-strategica.html # Strategic consulting page
+├── team.html               # Team page
+├── mission.html            # Mission page
+├── [sector].html           # Sector-specific pages (manifatturiero, moda-lusso, etc.)
 ├── script.js               # Main JavaScript functionality
 ├── contact-form.js         # Contact form and FAQ handling
-├── styles.css              # Complete CSS styles
+├── styles.css              # Global CSS styles
+├── [page-specific].css     # Page-specific stylesheets
 ├── includes/
 │   ├── footer.html         # Footer component (loaded via fetch)
 │   ├── loader.js           # Include loader and scroll effects
@@ -31,8 +39,13 @@ This is a static website for PugliAI, an Italian AI consulting company. The site
 ├── img/                    # Images directory
 │   ├── clients/            # Client logos
 │   ├── partners/           # Partner logos
+│   ├── team/               # Team photos
 │   └── pittogramma.png     # Main logo
-├── instructions.md         # Project instructions and specifications
+├── manifest.json           # PWA manifest
+├── sw.js                   # Service worker for caching
+├── robots.txt              # Search engine directives
+├── sitemap.xml             # Site structure for SEO
+├── instructions.md         # Detailed project specifications
 └── tasks.md               # Task tracking file
 ```
 
@@ -231,3 +244,15 @@ Components are initialized in a specific order for performance:
 - `initNumberCounters()` - Animated number counting with easing
 - `initScrollAnimations()` - Intersection Observer-based animations
 - `initFormHandling()` - Contact form validation and submission
+- `initServiceWorker()` - PWA service worker registration
+- `initParallaxEffects()` - Smooth parallax scrolling effects
+- `initCursorEffects()` - Custom cursor animations (desktop only)
+- `initLazyLoading()` - Image lazy loading with intersection observers
+
+### Page-Specific Architecture
+The website uses a modular approach where each major service/sector has its own dedicated HTML and CSS files:
+- **Service pages**: `infrastrutture-ai.html`, `agenti-ai.html`, `consulenza-strategica.html`
+- **Sector pages**: `manifatturiero.html`, `moda-lusso.html`, `servizi-finanziari.html`, etc.
+- **Company pages**: `team.html`, `mission.html`, `contatti.html`
+- Each page maintains the same header/footer structure via the include system
+- Page-specific CSS files provide targeted styling while inheriting from `styles.css`

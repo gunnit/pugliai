@@ -12,18 +12,79 @@
     <meta property="og:url" content="https://pugliai.com/sanita.html">
     <meta property="og:title" content="Sanità - AI per l'Eccellenza Sanitaria e Cura del Paziente | PugliAI">
     <meta property="og:description" content="Soluzioni AI per sanità: diagnostica assistita, gestione pazienti, ricerca medica e telemedicina.">
+    <meta property="og:image" content="https://pugliai.com/img/social-share-default.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://pugliai.com/sanita.html">
     <meta property="twitter:title" content="Sanità - AI per l'Eccellenza Sanitaria e Cura del Paziente | PugliAI">
     <meta property="twitter:description" content="Soluzioni AI per sanità: diagnostica assistita, gestione pazienti, ricerca medica e telemedicina.">
+    <meta property="twitter:image" content="https://pugliai.com/img/social-share-default.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "AI per la Sanità",
+        "description": "Soluzioni AI per il settore sanitario: diagnostica assistita, gestione pazienti, ricerca medica e telemedicina",
+        "provider": {
+            "@type": "Organization",
+            "name": "PUGLIAI S.R.L.",
+            "url": "https://pugliai.com",
+            "logo": "https://pugliai.com/img/pittogramma.png",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Via Alessandro Volta, 39",
+                "addressLocality": "Lecce",
+                "postalCode": "73100",
+                "addressCountry": "IT"
+            }
+        },
+        "serviceType": "Healthcare AI Solutions",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Italia"
+        },
+        "industry": "Healthcare",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Soluzioni AI per Sanità",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Diagnostica Assistita AI",
+                        "description": "Machine learning per analisi immagini mediche e diagnostica predittiva"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Gestione Pazienti Intelligente",
+                        "description": "AI per ottimizzazione percorsi clinici e gestione risorse sanitarie"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Ricerca Medica AI",
+                        "description": "Analisi dati clinici e supporto alla ricerca farmaceutica con AI"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
     
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sanita.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-    <script src="includes/loader.js"></script>
 </head>
 <body>
     <!-- Cookie Banner -->
@@ -57,7 +118,7 @@
     </section>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero healthcare-hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -570,5 +631,7 @@
     <div id="footer-include"></div>
 
     <script src="script.js"></script>
+    <script src="contact-form.js"></script>
+    <script src="includes/loader.js"></script>
 </body>
 </html>

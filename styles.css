@@ -4435,3 +4435,186 @@ a:focus {
         padding: var(--space-8) 0;
     }
 }
+
+/* ========================================================================== */
+/* Consolidated Common Patterns - Added for CSS Architecture Optimization */
+/* ========================================================================== */
+
+/* Page Hero Section Patterns */
+.page-hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--hero-gradient, var(--gradient-primary));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-32) 0;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hero-overlay, radial-gradient(circle at 70% 30%, rgba(0, 230, 118, 0.1) 0%, transparent 50%));
+    animation: var(--hero-animation, heroFloat) var(--hero-duration, 25s) ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes heroFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+        opacity: 1;
+    }
+}
+
+/* Card Base Components */
+.card-base {
+    background: var(--white);
+    border-radius: 16px;
+    padding: var(--space-8);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+    border: 1px solid var(--gray-200);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Lift Utilities */
+.hover-lift-sm:hover {
+    transform: translateY(-4px);
+}
+
+.hover-lift-md:hover {
+    transform: translateY(-8px);
+}
+
+.hover-lift-lg:hover {
+    transform: translateY(-12px);
+}
+
+/* Hover Shadow Utilities */
+.hover-shadow-xl:hover {
+    box-shadow: var(--shadow-xl);
+}
+
+.hover-shadow-2xl:hover {
+    box-shadow: var(--shadow-2xl);
+}
+
+/* Icon Container Components */
+.icon-container {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--icon-gradient, var(--gradient-emerald));
+    transition: all var(--transition-normal);
+}
+
+.icon-container.icon-lg {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+}
+
+.icon-container.icon-md {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+}
+
+.icon-container.icon-sm {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+}
+
+.icon-container:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Grid Layout Utilities */
+.grid-auto-300 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-16);
+}
+
+.grid-auto-350 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-16);
+}
+
+.grid-auto-400 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-16);
+}
+
+/* Feature List Patterns */
+.feature-list-check li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-emerald);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.feature-list-arrow li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-emerald);
+    font-weight: bold;
+}
+
+.feature-list-bullet li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-emerald);
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Glassmorphism Card Patterns */
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    padding: var(--space-8);
+    box-shadow: 0 8px 32px 0 rgba(10, 22, 40, 0.37);
+    transition: all var(--transition-normal);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 40px 0 rgba(10, 22, 40, 0.5);
+    transform: translateY(-4px);
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 768px) {
+    .grid-auto-300,
+    .grid-auto-350,
+    .grid-auto-400 {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+    
+    .page-hero {
+        min-height: 80vh;
+        padding: var(--space-20) 0;
+    }
+}

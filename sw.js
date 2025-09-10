@@ -1,9 +1,9 @@
 // Service Worker for PugliAI website
 // Provides caching, offline functionality, and PWA features
 
-const CACHE_NAME = 'pugliai-v1.0.0';
-const STATIC_CACHE = 'pugliai-static-v1.0.0';
-const DYNAMIC_CACHE = 'pugliai-dynamic-v1.0.0';
+const CACHE_NAME = 'pugliai-v1.1.0';
+const STATIC_CACHE = 'pugliai-static-v1.1.0';
+const DYNAMIC_CACHE = 'pugliai-dynamic-v1.1.0';
 
 // Assets to cache immediately
 const STATIC_ASSETS = [
@@ -33,7 +33,9 @@ const STATIC_ASSETS = [
     '/turismo.html',
     '/turismo.css',
     '/sanita.html',
+    '/sanita.css',
     '/alimentare.html',
+    '/alimentare.css',
     // Company pages
     '/team.html',
     '/team.css',
