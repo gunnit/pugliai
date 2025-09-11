@@ -10,7 +10,8 @@
       "Bash(fi)",
       "Bash(done)",
       "WebFetch",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }
