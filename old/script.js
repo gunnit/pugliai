@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize service worker first
     initServiceWorker();
     
-    // Initialize all enhanced components
+    // Initialize all enhanced components EXCEPT menu (handled by loader.js)
     initCookieBanner();
-    initMobileMenu();
-    initDropdownMenus();
+    // initMobileMenu() - REMOVED: Now handled by loader.js after menu HTML loads
+    // initDropdownMenus() - REMOVED: Now handled by loader.js after menu HTML loads
     initNumberCounters();
     initSmoothScrolling();
     initAccessibility();
@@ -22,6 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
     initPerformanceMonitoring();
     initLazyLoading();
 });
+
+// Callback for when menu is loaded by loader.js
+window.onMenuLoaded = function() {
+    console.log('Menu loaded callback - additional initialization if needed');
+    // Any additional menu-related initialization can go here
+};
 
 // Enhanced Cookie Banner with Animations
 function initCookieBanner() {
@@ -63,12 +69,14 @@ function initCookieBanner() {
 }
 
 // Enhanced Mobile Menu with Modern Animations
+// NOTE: This function is now called by loader.js after menu HTML is loaded
+// Keeping it here for compatibility with pages that might still call it
 function initMobileMenu() {
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     
     if (!mobileMenuToggle || !navMenu) {
-        console.warn('Mobile menu elements not found');
+        console.warn('Mobile menu elements not found - this is expected if menu is loading');
         return;
     }
     
@@ -1098,9 +1106,24 @@ window.addEventListener('scroll', function() {
 
 // Service Worker Registration with PWA support
 function initServiceWorker() {
+    // Check if we're on file:// protocol
+    const isFileProtocol = window.location.protocol === 'file:';
+    
+    if (isFileProtocol) {
+        console.log('[SW] Service Workers not available on file:// protocol');
+        return;
+    }
+    
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js')
+            // Use relative path for service worker
+            const swPath = window.location.pathname.includes('.html') 
+                ? '/sw.js' 
+                : window.location.pathname.endsWith('/') 
+                    ? 'sw.js' 
+                    : '/sw.js';
+            
+            navigator.serviceWorker.register(swPath)
                 .then(registration => {
                     console.log('[SW] Registered successfully:', registration.scope);
                     
@@ -1124,6 +1147,10 @@ function initServiceWorker() {
                 })
                 .catch(error => {
                     console.error('[SW] Registration failed:', error);
+                    // Silently fail for file:// protocol or other issues
+                    if (error.message && error.message.includes('The URL protocol')) {
+                        console.log('[SW] Cannot register service worker with current protocol');
+                    }
                 });
         });
         

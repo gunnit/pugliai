@@ -31,10 +31,73 @@
     <meta property="twitter:description" content="Infrastrutture AI dedicate, consulenza strategica e soluzioni personalizzate per aziende italiane che competono nel futuro digitale.">
     <meta property="twitter:image" content="https://pugliai.com/img/social-share-default.png">
     
+    <!-- Critical CSS - Inline for immediate rendering -->
+    <style>
+        /* Critical Reset */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Critical Variables */
+        :root {
+            --primary-blue: #0A1628;
+            --secondary-gold: #FFD700;
+            --accent-emerald: #00E676;
+            --gray-50: #FAFAFA;
+            --gray-900: #212121;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-20: 5rem;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        /* Critical Body */
+        body {
+            margin: 0;
+            font-family: var(--font-primary);
+            color: var(--gray-900);
+            background: white;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Force Section Visibility */
+        section {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            padding: var(--space-20) 0;
+        }
+        
+        /* Critical Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex !important;
+            align-items: center;
+            background: linear-gradient(135deg, #0A1628 0%, #1565C0 50%, #0A1628 100%);
+            color: white;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+        
+        /* Mobile Critical */
+        @media (max-width: 768px) {
+            .hero-title { font-size: clamp(1.75rem, 8vw, 2.5rem) !important; }
+            .hero-content { grid-template-columns: 1fr !important; }
+        }
+    </style>
+    
+    <!-- Main Stylesheet - Load asynchronously -->
+    <link rel="preload" href="styles.css" as="style">
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">

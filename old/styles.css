@@ -1,0 +1,339 @@
+/* ===================================
+   STYLES.CSS - Main Stylesheet with Layer Architecture
+   PugliAI Design System v2.0
+   =================================== */
+
+/* Define cascade layers for proper specificity management */
+@layer reset, base, layout, components, utilities, pages, overrides;
+
+/* ===================================
+   LAYER: RESET
+   =================================== */
+@layer reset {
+  /* CSS Reset & Box Model */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Remove default styles */
+  h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Remove list styles */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Make images easier to work with */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Inherit fonts for form elements */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* Remove text decoration from links */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* ===================================
+   IMPORT MODULAR CSS FILES IN LAYERS
+   =================================== */
+
+/* Base layer imports */
+@import url('css/base.css') layer(base);
+
+/* Layout layer imports */
+@import url('css/layout.css') layer(layout);
+
+/* Components layer imports */
+@import url('css/components.css') layer(components);
+
+/* Animations (part of components) */
+@import url('css/animations.css') layer(components);
+
+/* Utilities layer imports */
+@import url('css/utilities.css') layer(utilities);
+
+/* ===================================
+   LAYER: BASE - Core Setup
+   =================================== */
+@layer base {
+  /* Ensure body has proper defaults */
+  body {
+    font-family: var(--font-primary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+    color: var(--gray-900, #212121);
+    background: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--accent-emerald, #00E676);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* Selection colors */
+  ::selection {
+    background: var(--accent-emerald, #00E676);
+    color: white;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--gray-100, #F5F5F5);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--gray-400, #BDBDBD);
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-600, #757575);
+  }
+}
+
+/* ===================================
+   LAYER: OVERRIDES - Critical Fixes
+   =================================== */
+@layer overrides {
+  /* Ensure main content is always visible */
+  main,
+  section {
+    position: relative;
+    z-index: 1;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Fix for hero section visibility across all pages */
+  .hero,
+  [class*="-hero"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Ensure navigation is always on top */
+  header,
+  nav,
+  .navbar {
+    z-index: 1000;
+  }
+  
+  /* Ensure modals and overlays are on top */
+  .modal,
+  .overlay,
+  .cookie-banner {
+    z-index: 2000;
+  }
+  
+  /* Critical performance optimizations */
+  .hero,
+  .section {
+    contain: layout style paint;
+  }
+  
+  /* Hardware acceleration for smooth animations */
+  .animated,
+  [data-aos],
+  .particle,
+  .floating {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* ===================================
+   RESPONSIVE UTILITIES
+   =================================== */
+@layer utilities {
+  /* Hide on mobile */
+  @media (max-width: 767px) {
+    .hide-mobile {
+      display: none !important;
+    }
+  }
+  
+  /* Hide on desktop */
+  @media (min-width: 768px) {
+    .hide-desktop {
+      display: none !important;
+    }
+  }
+  
+  /* Container queries support */
+  @supports (container-type: inline-size) {
+    .container-responsive {
+      container-type: inline-size;
+    }
+  }
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+@media print {
+  /* Hide non-essential elements */
+  header,
+  footer,
+  nav,
+  .no-print,
+  .cookie-banner,
+  .back-to-top {
+    display: none !important;
+  }
+  
+  /* Ensure good print layout */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: black;
+    background: white;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  img, figure {
+    page-break-inside: avoid;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY FEATURES
+   =================================== */
+@layer utilities {
+  /* Screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Skip to main content link */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-blue);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+  }
+  
+  .skip-link:focus {
+    top: 0;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    * {
+      border-color: currentColor !important;
+    }
+    
+    button,
+    .btn {
+      border: 2px solid currentColor !important;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ===================================
+   CUSTOM PROPERTIES FOR MODERN FEATURES
+   =================================== */
+@layer base {
+  /* Container query breakpoints */
+  @property --container-sm {
+    syntax: '<length>';
+    initial-value: 640px;
+    inherits: false;
+  }
+  
+  @property --container-md {
+    syntax: '<length>';
+    initial-value: 768px;
+    inherits: false;
+  }
+  
+  @property --container-lg {
+    syntax: '<length>';
+    initial-value: 1024px;
+    inherits: false;
+  }
+  
+  /* Animatable custom properties */
+  @property --gradient-angle {
+    syntax: '<angle>';
+    initial-value: 135deg;
+    inherits: false;
+  }
+  
+  @property --glow-intensity {
+    syntax: '<number>';
+    initial-value: 1;
+    inherits: false;
+  }
+}

@@ -9,7 +9,8 @@
       "Bash(then echo \"Empty or missing: $file\")",
       "Bash(fi)",
       "Bash(done)",
-      "WebFetch"
+      "WebFetch",
+      "Bash(pkill:*)"
     ],
     "deny": []
   }
