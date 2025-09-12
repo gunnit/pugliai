@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaggio Inviato - PugliAI</title>
+    <meta name="description" content="Grazie per averci contattato. Il tuo messaggio è stato inviato con successo.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+    <style>
+        .success-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: var(--space-4xl) var(--space-lg);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--accent-emerald);
+            margin-bottom: var(--space-xl);
+            animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        @keyframes pop-in {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-title {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .success-message {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .linkedin-cta {
+            margin-top: var(--space-2xl);
+            font-size: var(--font-size-base);
+            color: var(--text-muted);
+        }
+
+        .linkedin-cta a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .linkedin-cta a:hover {
+            color: var(--accent-emerald);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Success Section -->
+    <section class="success-section">
+        <div class="success-icon">✓</div>
+        <h1 class="success-title">Messaggio Inviato!</h1>
+        <p class="success-message">
+            Grazie per averci contattato. Abbiamo ricevuto il tuo messaggio e ti risponderemo il prima possibile.
+        </p>
+        <div class="cta-buttons">
+            <a href="index.html" class="btn btn-primary">Torna alla Home</a>
+        </div>
+        <p class="linkedin-cta">
+            Nel frattempo, seguici su <a href="https://www.linkedin.com/company/pugliai/" target="_blank">LinkedIn</a> per rimanere aggiornato sulle nostre novità.
+        </p>
+    </section>
+
+</body>
+</html>

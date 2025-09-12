@@ -1,33 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(rm:*)",
-      "Bash(find:*)",
-      "Bash(ls:*)",
-      "Bash(for file in agenti-ai.html consulenza-strategica.html manifatturiero.html moda-lusso.html alimentare.html servizi-finanziari.html turismo.html sanita.html team.html mission.html certificazioni.html privacy.html cookies.html terms.html)",
-      "Bash(do if [ ! -s \"/mnt/c/Dev/Pugliai/$file\" ])",
-      "Bash(then echo \"Empty or missing: $file\")",
-      "Bash(fi)",
-      "Bash(done)",
-      "WebFetch",
-      "Bash(pkill:*)",
-      "Bash(grep:*)",
-      "Bash(cp:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git config:*)",
-      "Bash(git push:*)",
-      "Bash(git pull:*)",
-      "Bash(git fetch:*)",
-      "Bash(git rebase:*)",
-      "Bash(for page in contatti.html infrastrutture-ai.html privacy.html cookie.html termini.html)",
-      "Bash(do if [ ! -f \"$page\" ])",
-      "Bash(then echo \"MISSING: $page\")",
-      "Bash(python:*)",
-      "Bash(node:*)",
-      "Bash(npx playwright install:*)",
-      "Bash(curl:*)"
+      "Bash(for:*)",
+      "Bash(do)",
+      "Bash(if [ -f \"$file\" ])",
+      "Bash(then)",
+      "Bash(sed:*)",
+      "Bash(echo \"Updated: $file\")"
     ],
-    "deny": []
+    "deny": [],
+    "ask": []
   }
 }

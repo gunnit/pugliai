@@ -8,7 +8,7 @@ async function takePageScreenshots() {
         fs.mkdirSync('screenshots');
     }
 
-    const browser = await chromium.launch({ headless: true });
+    const browser = await chromium.launch({ headless: false });
     
     // Define the pages to screenshot
     const pages = [
