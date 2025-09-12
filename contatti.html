@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - PugliAI</title>
+    <meta name="description" content="Contatta PugliAI per una consulenza gratuita e scopri come l'AI può trasformare il tuo business.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">PugliAI</a>
+                <nav>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="has-dropdown">
+                            <a href="servizi.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Servizi <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
+                            <ul class="dropdown-menu" role="menu" aria-label="Servizi submenu">
+                                <li role="none"><a href="infrastrutture-ai.html" class="dropdown-link" role="menuitem">Infrastrutture AI</a></li>
+                                <li role="none"><a href="agenti-ai.html" class="dropdown-link" role="menuitem">Agenti AI</a></li>
+                                <li role="none"><a href="consulenza-strategica.html" class="dropdown-link" role="menuitem">Consulenza Strategica</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="settori.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Settori <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
+                            <ul class="dropdown-menu" role="menu" aria-label="Settori submenu">
+                                <li role="none"><a href="manifatturiero.html" class="dropdown-link" role="menuitem">Manifatturiero</a></li>
+                                <li role="none"><a href="moda-lusso.html" class="dropdown-link" role="menuitem">Moda & Lusso</a></li>
+                                <li role="none"><a href="servizi-finanziari.html" class="dropdown-link" role="menuitem">Servizi Finanziari</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
+                    </ul>
+                </nav>
+                <a href="contatti.html" class="cta-button">Consulenza Gratuita</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="heading-1 mb-lg animate-fade-in-up">
+                    Inizia il Tuo Percorso <span class="text-gradient-emerald">AI</span>
+                </h1>
+                <p class="body-large mb-2xl animate-fade-in-up" style="animation-delay: 0.2s;">
+                    Richiedi una consulenza gratuita e scopri come l'intelligenza artificiale può trasformare il tuo business.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-cols-2" style="gap: 4rem;">
+                <div>
+                    <h2 class="heading-2 mb-lg">Parla con un Esperto</h2>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nome e Cognome</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Aziendale</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company" class="form-label">Azienda</label>
+                            <input type="text" id="company" name="company" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Telefono</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" pattern="\+39[0-9]{9,10}">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Come possiamo aiutarti?</label>
+                            <textarea id="message" name="message" rows="4" class="form-input" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                            Invia Richiesta
+                        </button>
+                    </form>
+                </div>
+
+                <div>
+                    <h2 class="heading-2 mb-lg">I Nostri Uffici</h2>
+                    <div class="card mb-lg">
+                        <h3 class="card-title">Sede di Milano</h3>
+                        <p class="body-medium">
+                            Via dell'Innovazione, 42<br>
+                            20121 Milano, Italia<br>
+                            Tel: +39 02 1234 5678<br>
+                            Email: milano@pugliai.it
+                        </p>
+                    </div>
+                    <div class="card mb-lg">
+                        <h3 class="card-title">Sede di Roma</h3>
+                        <p class="body-medium">
+                            Piazza della Tecnologia, 15<br>
+                            00187 Roma, Italia<br>
+                            Tel: +39 06 8765 4321<br>
+                            Email: roma@pugliai.it
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Supporto Premium</h3>
+                        <p class="body-medium">
+                            Disponibile 24/7 per i nostri clienti enterprise<br>
+                            Hotline: +39 800 AI PUGLIA<br>
+                            Email: support@pugliai.it
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="infrastrutture-ai.html" class="footer-link">Infrastrutture AI</a>
+                    <a href="agenti-ai.html" class="footer-link">Agenti AI</a>
+                    <a href="consulenza-strategica.html" class="footer-link">Consulenza</a>
+                    <a href="chi-siamo.html" class="footer-link">Chi Siamo</a>
+                    <a href="contatti.html" class="footer-link">Contatti</a>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2025 PugliAI S.r.l. - P.IVA 12345678901 | Milano - Roma</p>
+                    <p>
+                        <a href="privacy.html" class="footer-link">Privacy</a> | 
+                        <a href="cookie.html" class="footer-link">Cookie</a> | 
+                        <a href="termini.html" class="footer-link">Termini</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuToggle?.addEventListener('click', () => {
+            navMenu?.classList.toggle('nav-menu-open');
+            mobileMenuToggle.classList.toggle('active');
+        });
+
+        // Form submission
+        document.querySelector('.contact-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Grazie per la tua richiesta! Ti contatteremo entro 24 ore.');
+        });
+    </script>
+</body>
+</html>

@@ -19,7 +19,14 @@
       "Bash(git push:*)",
       "Bash(git pull:*)",
       "Bash(git fetch:*)",
-      "Bash(git rebase:*)"
+      "Bash(git rebase:*)",
+      "Bash(for page in contatti.html infrastrutture-ai.html privacy.html cookie.html termini.html)",
+      "Bash(do if [ ! -f \"$page\" ])",
+      "Bash(then echo \"MISSING: $page\")",
+      "Bash(python:*)",
+      "Bash(node:*)",
+      "Bash(npx playwright install:*)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }

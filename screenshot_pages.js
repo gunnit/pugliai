@@ -12,14 +12,17 @@ async function takePageScreenshots() {
     
     // Define the pages to screenshot
     const pages = [
-        { name: 'index', path: 'src/pages/index.html' },
-        { name: 'agenti-ai', path: 'src/pages/agenti-ai.html' },
-        { name: 'chi-siamo', path: 'src/pages/chi-siamo.html' },
-        { name: 'servizi', path: 'src/pages/servizi.html' },
-        { name: 'consulenza-strategica', path: 'src/pages/consulenza-strategica.html' },
-        { name: 'manifatturiero', path: 'src/pages/settori/manifatturiero.html' },
-        { name: 'moda-lusso', path: 'src/pages/settori/moda-lusso.html' },
-        { name: 'servizi-finanziari', path: 'src/pages/settori/servizi-finanziari.html' }
+        { name: 'index', path: 'index.html' },
+        { name: 'agenti-ai', path: 'agenti-ai.html' },
+        { name: 'chi-siamo', path: 'chi-siamo.html' },
+        { name: 'servizi', path: 'servizi.html' },
+        { name: 'consulenza-strategica', path: 'consulenza-strategica.html' },
+        { name: 'infrastrutture-ai', path: 'infrastrutture-ai.html' },
+        { name: 'manifatturiero', path: 'manifatturiero.html' },
+        { name: 'moda-lusso', path: 'moda-lusso.html' },
+        { name: 'servizi-finanziari', path: 'servizi-finanziari.html' },
+        { name: 'settori', path: 'settori.html' },
+        { name: 'contatti', path: 'contatti.html' }
     ];
     
     // Test different viewport sizes
@@ -49,8 +52,20 @@ async function takePageScreenshots() {
                 const filePath = `file://${path.resolve(pageConfig.path)}`;
                 await page.goto(filePath, { waitUntil: 'networkidle' });
                 
-                // Wait for content to load
-                await page.waitForTimeout(2000);
+                // Wait for content to load and animations to start
+                await page.waitForTimeout(3000);
+                
+                // Scroll to carousel sections if on index page
+                if (pageConfig.name === 'index') {
+                    // Scroll to client logos section
+                    await page.evaluate(() => {
+                        const clientSection = document.querySelector('.logo-carousel');
+                        if (clientSection) {
+                            clientSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    });
+                    await page.waitForTimeout(1000);
+                }
                 
                 // Take full page screenshot
                 await page.screenshot({

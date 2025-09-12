@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Carousel - PugliAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+    <style>
+        body {
+            padding: 2rem;
+            background: var(--gradient-primary);
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 1rem;
+        }
+        .test-title {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; color: var(--accent-gold); margin-bottom: 3rem;">
+            Carousel Test Page
+        </h1>
+        
+        <!-- Test Client Logos Carousel -->
+        <div class="test-section">
+            <h2 class="test-title">Client Logos Carousel (40s animation)</h2>
+            <div class="logo-carousel">
+                <div class="logo-track">
+                    <!-- First set -->
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/clients/Bvlgari-Logo.png" alt="Bvlgari">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/clients/Percassi.jpeg" alt="Percassi">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/clients/FEEDEL_HIRES.png" alt="Fedeli">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/clients/GYG.png" alt="GYG">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/clients/F3T1.F_BIG.png" alt="F3T1">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/clients/ORMA_edited.png" alt="ORMA">
+                    </div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/clients/Bvlgari-Logo.png" alt="Bvlgari">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/clients/Percassi.jpeg" alt="Percassi">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/clients/FEEDEL_HIRES.png" alt="Fedeli">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/clients/GYG.png" alt="GYG">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Test Partners Carousel -->
+        <div class="test-section">
+            <h2 class="test-title">Partners Carousel (50s animation)</h2>
+            <div class="logo-carousel partners-carousel">
+                <div class="logo-track">
+                    <!-- First set -->
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/partners/universita_bari_logo.png" alt="Università di Bari">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/partners/universita_salento_logo.png" alt="Università del Salento">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/partners/merantix_partner_logo.png" alt="Merantix">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/partners/puglia_woman_lead_logo.png" alt="Puglia Women Lead">
+                    </div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/partners/universita_bari_logo.png" alt="Università di Bari">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/partners/universita_salento_logo.png" alt="Università del Salento">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/partners/merantix_partner_logo.png" alt="Merantix">
+                    </div>
+                    <div class="carousel-logo">
+                        <img src="src/assets/img/partners/puglia_woman_lead_logo.png" alt="Puglia Women Lead">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features Test -->
+        <div class="test-section">
+            <h2 class="test-title">Carousel Features</h2>
+            <ul style="color: var(--text-primary); line-height: 2;">
+                <li>✅ Infinite scrolling animation</li>
+                <li>✅ Hover to pause animation</li>
+                <li>✅ Gold glow effect on client logos hover</li>
+                <li>✅ Emerald glow effect on partner logos hover</li>
+                <li>✅ Glassmorphism design with backdrop blur</li>
+                <li>✅ Different animation speeds (40s vs 50s)</li>
+                <li>✅ Responsive design for mobile</li>
+                <li>✅ Smooth transitions</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
