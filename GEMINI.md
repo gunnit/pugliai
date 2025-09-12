@@ -32,7 +32,9 @@ Then navigate to `http://localhost:8000` in your browser.
 - The website is in Italian.
 - The design is modern and uses glassmorphism effects.
 - The `chi-siamo.html` page has been made production-ready by removing inline styles, adding alt tags to images, and fixing broken links.
+- A new section has been added to `index.html` to introduce the team and link to the `chi-siamo.html` page.
 - New classes have been added to `stylesheet.css` to accommodate the changes in `chi-siamo.html`. These classes are `hero-section`, `hero-description`, `team-image`, `cta-buttons`, and `cta-button-dark`.
+- The headers in `index.html`, `chi-siamo.html`, and `servizi.html` have been standardized to match the header in `stylesheet.html`.
 
 ## GitHub Actions
 

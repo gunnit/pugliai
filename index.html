@@ -6,64 +6,61 @@
     <title>PugliAI - Leader nell'Intelligenza Artificiale per le Imprese Italiane</title>
     <meta name="description" content="PugliAI trasforma l'intelligenza artificiale in vantaggio competitivo. Infrastrutture AI, agenti intelligenti e consulenza strategica per grandi aziende italiane.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
 </head>
 <body>
     <!-- Header Navigation -->
     <header class="header">
-        <div class="container nav-container">
-            <a href="/" class="logo">PugliAI</a>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="/" class="nav-link active">Home</a></li>
-                    <li class="has-dropdown">
-                        <a href="/servizi.html" class="nav-link">
-                            Servizi <span class="dropdown-arrow">▼</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/infrastrutture-ai.html" class="dropdown-link">Infrastrutture AI</a></li>
-                            <li><a href="/agenti-ai.html" class="dropdown-link">Agenti AI</a></li>
-                            <li><a href="/consulenza-strategica.html" class="dropdown-link">Consulenza Strategica</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="/settori.html" class="nav-link">
-                            Settori <span class="dropdown-arrow">▼</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/manifatturiero.html" class="dropdown-link">Manifatturiero</a></li>
-                            <li><a href="/moda-lusso.html" class="dropdown-link">Moda & Lusso</a></li>
-                            <li><a href="/alimentare.html" class="dropdown-link">Alimentare</a></li>
-                            <li><a href="/servizi-finanziari.html" class="dropdown-link">Servizi Finanziari</a></li>
-                            <li><a href="/turismo.html" class="dropdown-link">Turismo</a></li>
-                            <li><a href="/sanita.html" class="dropdown-link">Sanità</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/chi-siamo.html" class="nav-link">Chi Siamo</a></li>
-                    <li><a href="/contatti.html" class="cta-button">Consulenza Gratuita</a></li>
-                </ul>
-                <button class="mobile-menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">PugliAI</a>
+                <nav>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link active">Home</a></li>
+                        <li class="has-dropdown">
+                            <a href="src/pages/servizi.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Servizi <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
+                            <ul class="dropdown-menu" role="menu" aria-label="Servizi submenu">
+                                <li role="none"><a href="./servizi.html" class="dropdown-link" role="menuitem">Infrastrutture AI</a></li>
+                                <li role="none"><a href="./servizi.html" class="dropdown-link" role="menuitem">Agenti AI</a></li>
+                                <li role="none"><a href="./servizi.html" class="dropdown-link" role="menuitem">Consulenza Strategica</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="src/pages/servizi.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Settori <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
+                            <ul class="dropdown-menu" role="menu" aria-label="Settori submenu">
+                                <li role="none"><a href="src/pages/settori/manifatturiero.html" class="dropdown-link" role="menuitem">Manifatturiero</a></li>
+                                <li role="none"><a href="src/pages/settori/moda-lusso.html" class="dropdown-link" role="menuitem">Moda & Lusso</a></li>
+                                <li role="none"><a href="src/pages/settori/servizi-finanziari.html" class="dropdown-link" role="menuitem">Servizi Finanziari</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="src/pages/chi-siamo.html" class="nav-link">Chi Siamo</a></li>
+                    </ul>
+                </nav>
+                <a href="src/pages/contatti.html" class="cta-button">Consulenza Gratuita</a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="section" style="padding-top: 120px; text-align: center;">
+    <section class="section" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);">
         <div class="container">
-            <h1 class="heading-1 mb-lg animate-fade-in-up">
-                Trasformiamo l'AI in <span class="text-gradient-emerald">Vantaggio Competitivo</span>
-            </h1>
-            <p class="body-large mb-2xl animate-fade-in-up" style="max-width: 800px; margin: 0 auto;">
-                Partner strategico per le grandi aziende italiane nella trasformazione AI. 
-                Infrastrutture scalabili, agenti intelligenti e consulenza strategica per guidare la tua impresa nel futuro.
-            </p>
-            <div class="animate-fade-in-up" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="/contatti.html" class="btn btn-primary btn-lg">Inizia il Tuo Percorso AI</a>
-                <a href="#solutions" class="btn btn-outline btn-lg">Esplora Soluzioni</a>
+            <div class="section-header">
+                <h1 class="heading-1 mb-lg animate-fade-in-up">
+                    Trasformiamo l'AI in <span class="text-gradient-emerald">Vantaggio Competitivo</span>
+                </h1>
+                <p class="body-large mb-2xl animate-fade-in-up" style="animation-delay: 0.2s;">
+                    Partner strategico per le grandi aziende italiane nella trasformazione AI. 
+                    Infrastrutture scalabili, agenti intelligenti e consulenza strategica per guidare la tua impresa nel futuro.
+                </p>
+                <div style="display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap;" class="animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <a href="/contatti.html" class="btn btn-primary btn-lg">Inizia il Tuo Percorso AI</a>
+                    <a href="#solutions" class="btn btn-outline btn-lg">Esplora Soluzioni</a>
+                </div>
             </div>
         </div>
     </section>
@@ -191,22 +188,22 @@
             
             <div class="logo-grid">
                 <div class="logo-item">
-                    <img src="/img/bulgari.png" alt="Bulgari">
+                    <img src="../assets/img/bulgari.png" alt="Bulgari">
                 </div>
                 <div class="logo-item">
-                    <img src="/img/percassi.png" alt="Percassi">
+                    <img src="../assets/img/percassi.png" alt="Percassi">
                 </div>
                 <div class="logo-item">
-                    <img src="/img/ferrero.png" alt="Ferrero">
+                    <img src="../assets/img/ferrero.png" alt="Ferrero">
                 </div>
                 <div class="logo-item">
-                    <img src="/img/carrefour.png" alt="Carrefour">
+                    <img src="../assets/img/carrefour.png" alt="Carrefour">
                 </div>
                 <div class="logo-item">
-                    <img src="/img/ferretti.png" alt="Ferretti">
+                    <img src="../assets/img/ferretti.png" alt="Ferretti">
                 </div>
                 <div class="logo-item">
-                    <img src="/img/camozzi.png" alt="Camozzi">
+                    <img src="../assets/img/camozzi.png" alt="Camozzi">
                 </div>
             </div>
         </div>
@@ -266,6 +263,44 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Il Nostro Team</h2>
+                <p class="section-subtitle">
+                    Un mix di esperienza, passione e competenza al vostro servizio.
+                </p>
+            </div>
+            <div class="grid grid-cols-3">
+                <div class="card">
+                    <img src="../assets/img/team/gregor_givingspeach.jpeg" alt="Gregor, CEO di PugliAI, mentre tiene un discorso a un evento." class="team-image">
+                    <h3 class="card-title">Gregor, CEO</h3>
+                    <p class="card-description">
+                        Fondatore e visionario, guida PugliAI con l'obiettivo di rendere l'Italia un leader nell'innovazione AI.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="../assets/img/team/teamactivity.jpg" alt="Il team tecnico di PugliAI durante un'attività di team building." class="team-image">
+                    <h3 class="card-title">Il Team Tecnico</h3>
+                    <p class="card-description">
+                        Ingegneri, sviluppatori e data scientist che trasformano le idee in soluzioni AI performanti.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="../assets/img/team/teamdinner.jpg" alt="Il team strategico di PugliAI a una cena di team." class="team-image">
+                    <h3 class="card-title">Il Team Strategico</h3>
+                    <p class="card-description">
+                        Consulenti esperti che affiancano le aziende nella definizione di strategie AI di successo.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="/chi-siamo.html" class="btn btn-primary btn-lg">Scopri di più sul nostro team</a>
             </div>
         </div>
     </section>

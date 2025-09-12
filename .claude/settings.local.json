@@ -11,7 +11,9 @@
       "Bash(done)",
       "WebFetch",
       "Bash(pkill:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(cp:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }
