@@ -6,7 +6,8 @@
       "Bash(if [ -f \"$file\" ])",
       "Bash(then)",
       "Bash(sed:*)",
-      "Bash(echo \"Updated: $file\")"
+      "Bash(echo \"Updated: $file\")",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
