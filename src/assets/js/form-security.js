@@ -118,12 +118,28 @@
             }
         }
 
-        // Validate phone number for Italian format
+        // Validate phone number for Italian format (more flexible)
         const phone = form.querySelector('input[type="tel"]');
         if (phone && phone.value) {
-            const phoneRegex = /^\+39\s?[0-9]{9,10}$/;
-            if (!phoneRegex.test(phone.value.replace(/\s/g, ''))) {
-                phone.setCustomValidity('Inserisci un numero di telefono italiano valido (es. +39 333 1234567)');
+            // Remove all spaces, dashes, and parentheses for validation
+            const cleanPhone = phone.value.replace(/[\s\-\(\)]/g, '');
+            
+            // Accept various formats:
+            // +39 with 9-10 digits
+            // 0039 with 9-10 digits  
+            // 3xx (mobile) with 9-10 digits total
+            // 0x (landline) with 8-11 digits total
+            // Plain 9-11 digit numbers
+            const phoneRegex = /^(\+39|0039)?[\s]?([0-9]{9,11})$/;
+            const mobileRegex = /^(\+39|0039)?[\s]?3[0-9]{8,9}$/;
+            const landlineRegex = /^(\+39|0039)?[\s]?0[0-9]{8,10}$/;
+            const plainRegex = /^[0-9]{9,11}$/;
+            
+            if (!phoneRegex.test(cleanPhone) && 
+                !mobileRegex.test(cleanPhone) && 
+                !landlineRegex.test(cleanPhone) &&
+                !plainRegex.test(cleanPhone)) {
+                phone.setCustomValidity('Inserisci un numero di telefono valido');
                 phone.reportValidity();
                 return false;
             }
