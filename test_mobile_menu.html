@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Mobile Menu - PugliAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+    <style>
+        /* Force mobile view for testing */
+        @media (min-width: 1025px) {
+            .test-mobile-view .mobile-menu-toggle {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .test-mobile-view .nav-menu {
+                display: none !important;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 22, 40, 0.98);
+                -webkit-backdrop-filter: blur(20px);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid var(--glass-border);
+                border-bottom: 1px solid var(--glass-border);
+                flex-direction: column;
+                padding: var(--space-xl) var(--space-lg);
+                z-index: 999;
+                box-shadow: var(--shadow-2xl);
+                max-height: calc(100vh - 80px);
+                overflow-y: auto;
+            }
+            
+            .test-mobile-view .nav-menu.active,
+            .test-mobile-view .nav-menu.nav-menu-open {
+                display: flex !important;
+                animation: slideDown 0.3s ease;
+            }
+            
+            .test-mobile-view .cta-button {
+                display: none !important;
+            }
+        }
+        
+        .test-info {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin: var(--space-2xl) auto;
+            max-width: 800px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+        
+        .test-info h2 {
+            color: var(--accent-gold);
+            margin-bottom: var(--space-md);
+        }
+        
+        .test-info ul {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .test-info code {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent-gold);
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body class="test-mobile-view">
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="src/assets/img/pugliai_pittogramma.png" alt="PugliAI" class="logo-img">
+                    <span class="logo-text">PugliAI</span>
+                </a>
+                <nav>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="has-dropdown">
+                            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Servizi <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="none"><a href="infrastrutture-ai.html" class="dropdown-link" role="menuitem">Infrastrutture AI</a></li>
+                                <li role="none"><a href="agenti-ai.html" class="dropdown-link" role="menuitem">Agenti AI</a></li>
+                                <li role="none"><a href="consulenza-strategica.html" class="dropdown-link" role="menuitem">Consulenza Strategica</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Settori <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="none"><a href="manifatturiero.html" class="dropdown-link" role="menuitem">Manifatturiero</a></li>
+                                <li role="none"><a href="moda-lusso.html" class="dropdown-link" role="menuitem">Moda & Lusso</a></li>
+                                <li role="none"><a href="servizi-finanziari.html" class="dropdown-link" role="menuitem">Servizi Finanziari</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
+                        <li><a href="contatti.html" class="nav-link">Contatti</a></li>
+                    </ul>
+                </nav>
+                <a href="contatti.html" class="cta-button">Consulenza Gratuita</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Test Information -->
+    <section class="section" style="padding-top: calc(80px + 4rem);">
+        <div class="container">
+            <div class="test-info">
+                <h2>Mobile Menu Test Page</h2>
+                <p>This page simulates mobile view on all screen sizes for testing purposes.</p>
+                <h3>Features to Test:</h3>
+                <ul>
+                    <li>✓ Click the hamburger menu (three lines) to open/close the mobile menu</li>
+                    <li>✓ The menu should slide down smoothly with glassmorphism effect</li>
+                    <li>✓ Click on "Servizi" or "Settori" to expand dropdown submenus</li>
+                    <li>✓ Dropdown arrows should rotate when expanded</li>
+                    <li>✓ Click outside the menu to close it</li>
+                    <li>✓ The hamburger icon should animate to an X when open</li>
+                    <li>✓ Body scroll should be locked when menu is open</li>
+                </ul>
+                <h3>Implementation Details:</h3>
+                <ul>
+                    <li>Uses both <code>.active</code> and <code>.nav-menu-open</code> classes for compatibility</li>
+                    <li>Responsive breakpoint at <code>1024px</code></li>
+                    <li>Glassmorphism with backdrop blur effect</li>
+                    <li>Smooth animations with CSS transitions</li>
+                    <li>Accessibility features with ARIA attributes</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileMenuToggle && navMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                // Toggle both 'active' and 'nav-menu-open' classes for compatibility
+                navMenu.classList.toggle('active');
+                navMenu.classList.toggle('nav-menu-open');
+                mobileMenuToggle.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active', 'nav-menu-open');
+                    mobileMenuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Dropdown toggle for mobile
+        const dropdowns = document.querySelectorAll('.has-dropdown');
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Close other dropdowns
+                    dropdowns.forEach(other => {
+                        if (other !== dropdown) {
+                            other.classList.remove('active');
+                        }
+                    });
+                    dropdown.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

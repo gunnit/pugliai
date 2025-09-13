@@ -18,7 +18,9 @@
       "Read(///**)",
       "Bash(cat:*)",
       "Bash(head:*)",
-      "Bash(done)"
+      "Bash(done)",
+      "WebSearch",
+      "WebFetch(domain:automa.site)"
     ],
     "deny": [],
     "ask": []

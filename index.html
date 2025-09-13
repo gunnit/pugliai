@@ -627,10 +627,22 @@
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
         
-        if (mobileMenuToggle) {
+        if (mobileMenuToggle && navMenu) {
             mobileMenuToggle.addEventListener('click', () => {
+                // Toggle both 'active' and 'nav-menu-open' classes for compatibility
                 navMenu.classList.toggle('active');
+                navMenu.classList.toggle('nav-menu-open');
                 mobileMenuToggle.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active', 'nav-menu-open');
+                    mobileMenuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             });
         }
 
@@ -638,12 +650,20 @@
         const dropdowns = document.querySelectorAll('.has-dropdown');
         dropdowns.forEach(dropdown => {
             const link = dropdown.querySelector('.nav-link');
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                }
-            });
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 1024) {
+                        e.preventDefault();
+                        // Close other dropdowns
+                        dropdowns.forEach(other => {
+                            if (other !== dropdown) {
+                                other.classList.remove('active');
+                            }
+                        });
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            }
         });
 
         // Back to top button
