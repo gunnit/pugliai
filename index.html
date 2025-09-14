@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7711R1PDP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L7711R1PDP');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PugliAI - Leader nell'Intelligenza Artificiale per le Imprese Italiane</title>
@@ -41,7 +50,7 @@
       "address": [
         {
           "@type": "PostalAddress",
-          "streetAddress": "Via Esempio 123",
+          "streetAddress": "Via Giovanni Forleo 45",
           "addressLocality": "Brindisi",
           "addressRegion": "BR",
           "postalCode": "72100",
@@ -49,7 +58,7 @@
         },
         {
           "@type": "PostalAddress",
-          "streetAddress": "Via Esempio 456",
+          "streetAddress": "Via Giovanni Forleo 45",
           "addressLocality": "Bergamo",
           "addressRegion": "BG",
           "postalCode": "24121",
@@ -93,6 +102,17 @@
     </script>
 </head>
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link" style="position: absolute; left: -9999px; z-index: 999; background: var(--accent-gold); color: var(--primary-navy); padding: 0.5rem 1rem; text-decoration: none; border-radius: 0 0 4px 0;">
+        Vai al contenuto principale
+    </a>
+    <style>
+        .skip-link:focus {
+            left: 0;
+            top: 0;
+        }
+    </style>
+    
     <!-- Header Navigation -->
     <header class="header">
         <div class="container">
@@ -134,7 +154,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="section" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);">
+    <section id="main-content" class="section" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);">
         <div class="container">
             <div class="section-header">
                 <h1 class="heading-1 mb-lg animate-fade-in-up">
@@ -187,7 +207,12 @@
             
             <div class="grid grid-cols-3">
                 <div class="card">
-                    <div class="card-icon">🏗️</div>
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7V11C2 16.55 5.84 21.74 11 23C16.16 21.74 20 16.55 20 11V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 7V17M8 11H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="card-title">Infrastrutture AI che scalano</h3>
                     <p class="card-description">
                         Elimina il 70% dei costi cloud mentre processi 10x più dati. 
@@ -197,7 +222,14 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-icon">🤖</div>
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="9" cy="7" r="2" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="15" cy="7" r="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9 2V5M15 2V5M3 16H5M19 16H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <h3 class="card-title">Agenti AI che lavorano 24/7</h3>
                     <p class="card-description">
                         Sostituisci 100 ore/uomo settimanali con agenti che non dormono mai. 
@@ -207,7 +239,12 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-icon">📊</div>
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 16V12M12 16V8M17 16V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="card-title">Strategia AI che domina il mercato</h3>
                     <p class="card-description">
                         Trasforma la tua azienda nel leader AI del settore prima che lo faccia 
@@ -278,13 +315,13 @@
             <div class="logo-track">
                 <!-- First set of logos -->
                 <div class="carousel-logo">
-                    <img src="src/assets/img/clients/Bvlgari-Logo.png" alt="Bvlgari">
+                    <img data-src="src/assets/img/clients/Bvlgari-Logo.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50'%3E%3C/svg%3E" alt="Bvlgari" loading="lazy">
                 </div>
                 <div class="carousel-logo">
-                    <img src="src/assets/img/clients/Percassi.jpeg" alt="Percassi">
+                    <img data-src="src/assets/img/clients/Percassi.jpeg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50'%3E%3C/svg%3E" alt="Percassi" loading="lazy">
                 </div>
                 <div class="carousel-logo">
-                    <img src="src/assets/img/clients/FEEDEL_HIRES.png" alt="Fedeli">
+                    <img data-src="src/assets/img/clients/FEEDEL_HIRES.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50'%3E%3C/svg%3E" alt="Fedeli" loading="lazy">
                 </div>
                 <div class="carousel-logo">
                     <img src="src/assets/img/clients/GYG.png" alt="GYG">
@@ -327,13 +364,13 @@
                 </div>
                 <!-- Duplicate set for infinite scroll -->
                 <div class="carousel-logo">
-                    <img src="src/assets/img/clients/Bvlgari-Logo.png" alt="Bvlgari">
+                    <img data-src="src/assets/img/clients/Bvlgari-Logo.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50'%3E%3C/svg%3E" alt="Bvlgari" loading="lazy">
                 </div>
                 <div class="carousel-logo">
-                    <img src="src/assets/img/clients/Percassi.jpeg" alt="Percassi">
+                    <img data-src="src/assets/img/clients/Percassi.jpeg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50'%3E%3C/svg%3E" alt="Percassi" loading="lazy">
                 </div>
                 <div class="carousel-logo">
-                    <img src="src/assets/img/clients/FEEDEL_HIRES.png" alt="Fedeli">
+                    <img data-src="src/assets/img/clients/FEEDEL_HIRES.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50'%3E%3C/svg%3E" alt="Fedeli" loading="lazy">
                 </div>
                 <div class="carousel-logo">
                     <img src="src/assets/img/clients/GYG.png" alt="GYG">
@@ -449,9 +486,9 @@
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">MB</div>
                         <div class="testimonial-info">
-                            <div class="testimonial-name">Marco Bizzarri</div>
+                            <div class="testimonial-name">M.B.</div>
                             <div class="testimonial-title">CEO</div>
-                            <div class="testimonial-company">Luxury Fashion Group</div>
+                            <div class="testimonial-company">Azienda Leader nel Fashion & Luxury</div>
                         </div>
                         <div class="testimonial-rating">
                             <span class="star">★</span>
@@ -471,9 +508,9 @@
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">LF</div>
                         <div class="testimonial-info">
-                            <div class="testimonial-name">Laura Ferrari</div>
+                            <div class="testimonial-name">L.F.</div>
                             <div class="testimonial-title">CTO</div>
-                            <div class="testimonial-company">FinTech Italia</div>
+                            <div class="testimonial-company">Società Leader nel FinTech</div>
                         </div>
                         <div class="testimonial-rating">
                             <span class="star">★</span>
@@ -484,6 +521,15 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- ROI Disclaimer -->
+            <div class="disclaimer-section" style="margin-top: 3rem; padding: 1.5rem; background: rgba(255, 215, 0, 0.05); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 8px;">
+                <p style="font-size: 0.875rem; color: var(--text-secondary); text-align: center; margin: 0;">
+                    *I risultati indicati sono basati su case study verificati. 
+                    I risultati effettivi possono variare in base al settore e 
+                    all'implementazione. Documentazione disponibile su richiesta.
+                </p>
             </div>
         </div>
     </section>
@@ -613,6 +659,9 @@
                         <a href="cookie.html" class="footer-link">Cookie</a> | 
                         <a href="termini.html" class="footer-link">Termini</a>
                     </p>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; opacity: 0.9;">
+                        PugliAI opera in conformità con l'AI Act europeo e le normative italiane sull'intelligenza artificiale.
+                    </p>
                 </div>
             </div>
         </div>
@@ -646,11 +695,12 @@
             });
         }
 
-        // Dropdown toggle for mobile
+        // Dropdown toggle for mobile and keyboard
         const dropdowns = document.querySelectorAll('.has-dropdown');
         dropdowns.forEach(dropdown => {
             const link = dropdown.querySelector('.nav-link');
             if (link) {
+                // Mouse click handler
                 link.addEventListener('click', (e) => {
                     if (window.innerWidth <= 1024) {
                         e.preventDefault();
@@ -663,7 +713,53 @@
                         dropdown.classList.toggle('active');
                     }
                 });
+                
+                // Keyboard navigation handler
+                link.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        // Toggle dropdown
+                        dropdown.classList.toggle('active');
+                        // Update aria-expanded
+                        const isExpanded = dropdown.classList.contains('active');
+                        link.setAttribute('aria-expanded', isExpanded);
+                        
+                        // Focus first item in dropdown if opened
+                        if (isExpanded) {
+                            const firstItem = dropdown.querySelector('.dropdown-link');
+                            if (firstItem) firstItem.focus();
+                        }
+                    } else if (e.key === 'Escape') {
+                        // Close dropdown on Escape
+                        dropdown.classList.remove('active');
+                        link.setAttribute('aria-expanded', 'false');
+                    }
+                });
             }
+            
+            // Add keyboard navigation within dropdown menu
+            const dropdownLinks = dropdown.querySelectorAll('.dropdown-link');
+            dropdownLinks.forEach((item, index) => {
+                item.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        const nextItem = dropdownLinks[index + 1];
+                        if (nextItem) nextItem.focus();
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        if (index === 0) {
+                            link.focus();
+                        } else {
+                            const prevItem = dropdownLinks[index - 1];
+                            if (prevItem) prevItem.focus();
+                        }
+                    } else if (e.key === 'Escape') {
+                        dropdown.classList.remove('active');
+                        link.setAttribute('aria-expanded', 'false');
+                        link.focus();
+                    }
+                });
+            });
         });
 
         // Back to top button
@@ -702,7 +798,175 @@
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
+        
+        // Lazy loading for images
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+        });
+        
+        // Observe all images with data-src
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
     </script>
+<!-- GDPR Cookie Banner -->
+<div id="cookieBanner" class="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--primary-navy); color: white; padding: 2rem; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 10000;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+        <div style="flex: 1; min-width: 300px;">
+            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Informativa sui Cookie</h3>
+            <p style="font-size: 0.875rem; margin-bottom: 1rem; opacity: 0.9;">
+                Utilizziamo cookie per migliorare la tua esperienza di navigazione, analizzare il traffico del sito e personalizzare i contenuti. 
+                Puoi gestire le tue preferenze in qualsiasi momento.
+            </p>
+            <a href="cookie.html" style="color: var(--accent-gold); text-decoration: underline; font-size: 0.875rem;">Maggiori informazioni</a>
+        </div>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button id="acceptAllCookies" class="btn btn-primary" style="padding: 0.75rem 2rem;">
+                Accetta tutti
+            </button>
+            <button id="acceptNecessaryCookies" class="btn btn-secondary" style="padding: 0.75rem 2rem;">
+                Solo necessari
+            </button>
+            <button id="manageCookies" class="btn btn-outline" style="padding: 0.75rem 2rem; border: 1px solid white; color: white;">
+                Gestisci preferenze
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Preferences Modal -->
+<div id="cookieModal" class="cookie-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 10001;">
+    <div class="cookie-modal-content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border-radius: 12px; padding: 2rem; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;">
+        <h2 style="color: var(--primary-navy); margin-bottom: 1rem;">Gestione Cookie</h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <label style="display: flex; align-items: center; margin-bottom: 1rem; cursor: pointer;">
+                <input type="checkbox" id="necessaryCookies" checked disabled style="margin-right: 0.5rem;">
+                <div>
+                    <strong style="color: var(--primary-navy);">Cookie Necessari</strong>
+                    <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Essenziali per il funzionamento del sito (sempre attivi)</p>
+                </div>
+            </label>
+            
+            <label style="display: flex; align-items: center; margin-bottom: 1rem; cursor: pointer;">
+                <input type="checkbox" id="analyticsCookies" style="margin-right: 0.5rem;">
+                <div>
+                    <strong style="color: var(--primary-navy);">Cookie Analitici</strong>
+                    <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Ci aiutano a capire come utilizzi il sito</p>
+                </div>
+            </label>
+            
+            <label style="display: flex; align-items: center; margin-bottom: 1rem; cursor: pointer;">
+                <input type="checkbox" id="marketingCookies" style="margin-right: 0.5rem;">
+                <div>
+                    <strong style="color: var(--primary-navy);">Cookie di Marketing</strong>
+                    <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Utilizzati per mostrarti contenuti pertinenti</p>
+                </div>
+            </label>
+        </div>
+        
+        <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+            <button id="saveCookiePreferences" class="btn btn-primary">Salva preferenze</button>
+            <button id="closeModal" class="btn btn-secondary">Chiudi</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Cookie Banner Management
+(function() {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieModal = document.getElementById('cookieModal');
+    
+    // Check if user has already made a choice
+    if (!localStorage.getItem('cookieConsent')) {
+        cookieBanner.style.display = 'block';
+    }
+    
+    // Accept all cookies
+    document.getElementById('acceptAllCookies').addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', JSON.stringify({
+            necessary: true,
+            analytics: true,
+            marketing: true,
+            timestamp: new Date().toISOString()
+        }));
+        cookieBanner.style.display = 'none';
+        initializeCookies(true, true);
+    });
+    
+    // Accept only necessary cookies
+    document.getElementById('acceptNecessaryCookies').addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', JSON.stringify({
+            necessary: true,
+            analytics: false,
+            marketing: false,
+            timestamp: new Date().toISOString()
+        }));
+        cookieBanner.style.display = 'none';
+        initializeCookies(false, false);
+    });
+    
+    // Open preferences modal
+    document.getElementById('manageCookies').addEventListener('click', function() {
+        cookieModal.style.display = 'block';
+    });
+    
+    // Save preferences
+    document.getElementById('saveCookiePreferences').addEventListener('click', function() {
+        const analytics = document.getElementById('analyticsCookies').checked;
+        const marketing = document.getElementById('marketingCookies').checked;
+        
+        localStorage.setItem('cookieConsent', JSON.stringify({
+            necessary: true,
+            analytics: analytics,
+            marketing: marketing,
+            timestamp: new Date().toISOString()
+        }));
+        
+        cookieBanner.style.display = 'none';
+        cookieModal.style.display = 'none';
+        initializeCookies(analytics, marketing);
+    });
+    
+    // Close modal
+    document.getElementById('closeModal').addEventListener('click', function() {
+        cookieModal.style.display = 'none';
+    });
+    
+    // Initialize cookies based on consent
+    function initializeCookies(analytics, marketing) {
+        if (analytics) {
+            // Initialize Google Analytics or other analytics tools
+            console.log('Analytics cookies enabled');
+        }
+        if (marketing) {
+            // Initialize marketing/advertising cookies
+            console.log('Marketing cookies enabled');
+        }
+    }
+    
+    // Check existing consent on load
+    const consent = localStorage.getItem('cookieConsent');
+    if (consent) {
+        const consentObj = JSON.parse(consent);
+        initializeCookies(consentObj.analytics, consentObj.marketing);
+    }
+})();
+</script>
+
 <elevenlabs-convai agent-id="agent_2301k4z070vse9nsbd4499wt9reb"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 </body>
 </html>

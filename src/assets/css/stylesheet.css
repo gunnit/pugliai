@@ -3,7 +3,8 @@
             /* Brand Colors */
             --primary-navy: #0A1628;
             --secondary-navy: #1E293B;
-            --accent-gold: #FFD700;
+            --accent-gold: #D4A017; /* WCAG AA compliant */
+            --accent-gold-light: #FFD700; /* For non-text elements */
             --accent-emerald: #10B981;
             --accent-platinum: #E5E7EB;
             
@@ -21,7 +22,8 @@
             
             /* Gradients */
             --gradient-primary: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);
-            --gradient-gold: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%);
+            --gradient-gold: linear-gradient(135deg, #D4A017 0%, #F59E0B 100%);
+            --gradient-gold-light: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%); /* For decorative elements */
             --gradient-emerald: linear-gradient(135deg, #10B981 0%, #059669 100%);
             --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
             
@@ -275,7 +277,8 @@
         }
 
         .dropdown-link {
-            display: block;
+            display: flex;
+            align-items: center;
             padding: 12px 24px;
             color: var(--text-secondary);
             text-decoration: none;
@@ -286,6 +289,7 @@
             overflow: hidden;
             border-radius: var(--radius-sm);
             margin: 2px 8px;
+            min-height: 48px;
         }
 
         .dropdown-link::before {
@@ -809,6 +813,26 @@
         .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
         .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
         .grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        
+        /* Responsive Grid Breakpoints */
+        @media (max-width: 640px) {
+            .grid-cols-2,
+            .grid-cols-3,
+            .grid-cols-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .grid-cols-3,
+            .grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            /* Keep original grid columns */
+        }
 
         /* Sections */
         .section {
@@ -1015,10 +1039,23 @@
                 overflow-y: auto;
             }
             
+            .nav-menu {
+                position: fixed;
+                right: -300px;
+                top: 80px;
+                width: 300px;
+                height: calc(100vh - 80px);
+                background: var(--primary-navy);
+                transition: right 0.3s ease;
+                overflow-y: auto;
+                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
+            
             .nav-menu.active,
             .nav-menu.nav-menu-open {
                 display: flex;
-                animation: slideDown 0.3s ease;
+                right: 0;
             }
             
             .nav-menu li {
@@ -1031,6 +1068,9 @@
                 border-radius: var(--radius-md);
                 font-size: var(--font-size-lg);
                 justify-content: space-between;
+                min-height: 48px;
+                display: flex;
+                align-items: center;
             }
             
             .nav-link:hover {
@@ -1092,11 +1132,11 @@
 
             .logo-track {
                 gap: var(--space-xl);
-                animation: scroll-logos 30s linear infinite;
+                animation: scroll-logos 60s linear infinite;
             }
 
             .partners-carousel .logo-track {
-                animation: scroll-logos 35s linear infinite;
+                animation: scroll-logos 60s linear infinite;
             }
             
             .partners-carousel .carousel-logo {
@@ -1143,7 +1183,9 @@
             }
 
             .cta-button {
-                display: none;
+                display: inline-block !important;
+                padding: 8px 16px;
+                font-size: 14px;
             }
             
             .grid-cols-2,
@@ -1472,7 +1514,7 @@
         .logo-track {
             display: flex;
             gap: var(--space-4xl);
-            animation: scroll-logos 40s linear infinite;
+            animation: scroll-logos 60s linear infinite;
             width: fit-content;
         }
 
@@ -1519,7 +1561,7 @@
 
         /* Partners carousel with different animation speed and no boxes */
         .partners-carousel .logo-track {
-            animation: scroll-logos 50s linear infinite;
+            animation: scroll-logos 70s linear infinite;
         }
 
         .partners-carousel .carousel-logo {
