@@ -906,11 +906,15 @@
         document.addEventListener('DOMContentLoaded', function() {
             setupEventListeners();
             initializeTooltips();
-            
+            loadCalculatorState();
+
             // Check if mobile
             if (window.innerWidth <= 768) {
                 document.getElementById('mobileCalculateBtn').style.display = 'block';
             }
+
+            // Initial calculation after everything is loaded
+            setTimeout(calculateROI, 100);
         });
 
         function setupEventListeners() {
@@ -935,20 +939,42 @@
                 });
             });
 
-            // Range sliders
-            document.getElementById('repetitiveWork').addEventListener('input', function() {
+            // Range sliders - add both input and change events
+            const repetitiveWorkSlider = document.getElementById('repetitiveWork');
+            const errorRateSlider = document.getElementById('errorRate');
+
+            repetitiveWorkSlider.addEventListener('input', function() {
                 document.getElementById('repetitiveWorkValue').textContent = this.value + '%';
+                saveCalculatorState();
+                calculateROI();
+            });
+            repetitiveWorkSlider.addEventListener('change', function() {
+                document.getElementById('repetitiveWorkValue').textContent = this.value + '%';
+                saveCalculatorState();
                 calculateROI();
             });
 
-            document.getElementById('errorRate').addEventListener('input', function() {
+            errorRateSlider.addEventListener('input', function() {
                 document.getElementById('errorRateValue').textContent = this.value + '%';
+                saveCalculatorState();
+                calculateROI();
+            });
+            errorRateSlider.addEventListener('change', function() {
+                document.getElementById('errorRateValue').textContent = this.value + '%';
+                saveCalculatorState();
                 calculateROI();
             });
 
-            // Input fields
+            // Input fields - use both 'input' and 'change' events for real-time updates
             document.querySelectorAll('.input-field').forEach(input => {
-                input.addEventListener('change', calculateROI);
+                input.addEventListener('input', function() {
+                    saveCalculatorState();
+                    calculateROI();
+                });
+                input.addEventListener('change', function() {
+                    saveCalculatorState();
+                    calculateROI();
+                });
             });
 
             // Lead form
@@ -987,6 +1013,8 @@
         }
 
         function calculateROI() {
+            console.log('calculateROI() called');
+
             // Get input values
             const revenue = parseFloat(document.getElementById('revenue').value) || 0;
             const employees = parseInt(document.getElementById('employees').value) || 0;
@@ -995,23 +1023,37 @@
             const errorRate = parseFloat(document.getElementById('errorRate').value) / 100;
             const decisionTime = parseInt(document.getElementById('decisionTime').value) || 7;
             const errorCost = parseFloat(document.getElementById('errorCost').value) || 0;
+
+            console.log('Input values:', {
+                revenue, employees, avgSalary, repetitiveWork, errorRate, decisionTime, errorCost
+            });
             
             // Get selected processes and goals
             const selectedProcesses = document.querySelectorAll('#processes .toggle-btn.active').length;
             const selectedGoals = document.querySelectorAll('#goals .toggle-btn.active').length;
-            
-            // Validation
+
+            console.log('Selected processes:', selectedProcesses, 'Selected goals:', selectedGoals);
+
+            // Validation - show partial results even with incomplete data
+            let validationMessage = '';
             if (revenue < 1000000) {
+                validationMessage = 'Inserisci un fatturato minimo di €1M per risultati accurati';
+            } else if (employees < 10) {
+                validationMessage = 'Inserisci almeno 10 dipendenti per risultati accurati';
+            }
+
+            console.log('Validation message:', validationMessage);
+
+            // If critical values are missing, show placeholder
+            if (revenue === 0 || employees === 0) {
+                console.log('Critical values missing, clearing results');
                 document.getElementById('roiYear1').textContent = '--';
-                document.getElementById('roiSubtitle').textContent = 'Inserisci un fatturato minimo di €1M';
+                document.getElementById('roiSubtitle').textContent = 'Compila i campi per vedere il calcolo';
+                clearResults();
                 return;
             }
-            
-            if (employees < 10) {
-                document.getElementById('roiYear1').textContent = '--';
-                document.getElementById('roiSubtitle').textContent = 'Inserisci almeno 10 dipendenti';
-                return;
-            }
+
+            console.log('Proceeding with calculation...');
             
             // Calculate savings components
             const totalSalaryBase = employees * avgSalary;
@@ -1047,9 +1089,8 @@
             const netBenefit = totalYear1Benefits - totalInvestment;
             const roi = (netBenefit / totalInvestment) * 100;
             const paybackMonths = Math.ceil((totalInvestment / totalYear1Benefits) * 12);
-            
-            // Update UI
-            updateResults({
+
+            const calculationResults = {
                 roi: roi,
                 totalBenefits: totalYear1Benefits,
                 automationSavings: automationSavings,
@@ -1059,7 +1100,33 @@
                 investment: totalInvestment,
                 netBenefit: netBenefit,
                 paybackMonths: paybackMonths,
-                efficiencyGain: repetitiveWork * automationEfficiency * 100
+                efficiencyGain: repetitiveWork * automationEfficiency * 100,
+                validationMessage: validationMessage
+            };
+
+            console.log('Final calculation results:', calculationResults);
+
+            // Update UI
+            updateResults(calculationResults);
+        }
+
+        function clearResults() {
+            const clearElements = [
+                'savingsValue', 'revenueIncreaseValue', 'efficiencyValue', 'paybackValue',
+                'automationSavings', 'errorReductionSavings', 'decisionSavings', 'newRevenue',
+                'year1Total', 'year2Total', 'year3Total', 'total3Years'
+            ];
+
+            clearElements.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.textContent = '--';
+            });
+
+            // Clear progress bars
+            const progressBars = ['automationBar', 'errorBar', 'decisionBar', 'revenueBar'];
+            progressBars.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.style.width = '0%';
             });
         }
 
@@ -1076,53 +1143,71 @@
             };
             
             // Main ROI
-            document.getElementById('roiYear1').textContent = Math.round(results.roi) + '%';
-            document.getElementById('roiSubtitle').textContent = 
-                `Valore netto: ${formatCurrency(results.netBenefit)} nel primo anno`;
+            const roiElement = document.getElementById('roiYear1');
+            const subtitleElement = document.getElementById('roiSubtitle');
+
+            if (isNaN(results.roi) || !isFinite(results.roi)) {
+                roiElement.textContent = '--';
+                subtitleElement.textContent = 'Verifica i dati inseriti';
+            } else {
+                roiElement.textContent = Math.round(results.roi) + '%';
+                subtitleElement.textContent = results.validationMessage ||
+                    `Valore netto: ${formatCurrency(results.netBenefit)} nel primo anno`;
+            }
             
-            // Metrics
-            document.getElementById('savingsValue').textContent = 
-                formatCurrency(results.automationSavings + results.errorSavings);
-            document.getElementById('revenueIncreaseValue').textContent = 
-                formatCurrency(results.newRevenue);
-            document.getElementById('efficiencyValue').textContent = 
-                Math.round(results.efficiencyGain) + '%';
-            document.getElementById('paybackValue').textContent = 
-                results.paybackMonths + ' mesi';
+            // Metrics - with safety checks
+            document.getElementById('savingsValue').textContent =
+                formatCurrency((results.automationSavings || 0) + (results.errorSavings || 0));
+            document.getElementById('revenueIncreaseValue').textContent =
+                formatCurrency(results.newRevenue || 0);
+            document.getElementById('efficiencyValue').textContent =
+                Math.round(results.efficiencyGain || 0) + '%';
+            document.getElementById('paybackValue').textContent =
+                (results.paybackMonths && isFinite(results.paybackMonths) ? results.paybackMonths + ' mesi' : 'N/A');
             
-            // Breakdown bars
+            // Breakdown bars - with safety checks
             const maxValue = Math.max(
-                results.automationSavings,
-                results.errorSavings,
-                results.decisionValue,
-                results.newRevenue
+                results.automationSavings || 0,
+                results.errorSavings || 0,
+                results.decisionValue || 0,
+                results.newRevenue || 0,
+                1 // Prevent division by zero
             );
+
+            const updateBreakdownBar = (valueId, barId, value) => {
+                const element = document.getElementById(valueId);
+                const bar = document.getElementById(barId);
+                if (element && bar) {
+                    element.textContent = formatCurrency(value || 0);
+                    const percentage = ((value || 0) / maxValue * 100);
+                    bar.style.width = (isFinite(percentage) ? percentage : 0) + '%';
+                }
+            };
+
+            updateBreakdownBar('automationSavings', 'automationBar', results.automationSavings);
+            updateBreakdownBar('errorReductionSavings', 'errorBar', results.errorSavings);
+            updateBreakdownBar('decisionSavings', 'decisionBar', results.decisionValue);
+            updateBreakdownBar('newRevenue', 'revenueBar', results.newRevenue);
             
-            document.getElementById('automationSavings').textContent = formatCurrency(results.automationSavings);
-            document.getElementById('automationBar').style.width = 
-                (results.automationSavings / maxValue * 100) + '%';
-            
-            document.getElementById('errorReductionSavings').textContent = formatCurrency(results.errorSavings);
-            document.getElementById('errorBar').style.width = 
-                (results.errorSavings / maxValue * 100) + '%';
-            
-            document.getElementById('decisionSavings').textContent = formatCurrency(results.decisionValue);
-            document.getElementById('decisionBar').style.width = 
-                (results.decisionValue / maxValue * 100) + '%';
-            
-            document.getElementById('newRevenue').textContent = formatCurrency(results.newRevenue);
-            document.getElementById('revenueBar').style.width = 
-                (results.newRevenue / maxValue * 100) + '%';
-            
-            // 3-year projection (with compound growth)
-            const year1 = results.totalBenefits - results.investment;
-            const year2 = results.totalBenefits * 1.3 - (results.investment * 0.5); // 30% improvement, 50% investment
-            const year3 = results.totalBenefits * 1.6 - (results.investment * 0.3); // 60% improvement, 30% investment
-            
-            document.getElementById('year1Total').textContent = formatCurrency(year1);
-            document.getElementById('year2Total').textContent = formatCurrency(year2);
-            document.getElementById('year3Total').textContent = formatCurrency(year3);
-            document.getElementById('total3Years').textContent = formatCurrency(year1 + year2 + year3);
+            // 3-year projection (with compound growth) - with safety checks
+            const totalBenefits = results.totalBenefits || 0;
+            const investment = results.investment || 0;
+
+            const year1 = totalBenefits - investment;
+            const year2 = totalBenefits * 1.3 - (investment * 0.5); // 30% improvement, 50% investment
+            const year3 = totalBenefits * 1.6 - (investment * 0.3); // 60% improvement, 30% investment
+
+            const updateYearValue = (elementId, value) => {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.textContent = formatCurrency(isFinite(value) ? value : 0);
+                }
+            };
+
+            updateYearValue('year1Total', year1);
+            updateYearValue('year2Total', year2);
+            updateYearValue('year3Total', year3);
+            updateYearValue('total3Years', year1 + year2 + year3);
         }
 
         function submitLeadForm() {
@@ -1176,22 +1261,84 @@
         function loadCalculatorState() {
             const saved = localStorage.getItem('roiCalculatorState');
             if (saved) {
-                const state = JSON.parse(saved);
-                Object.keys(state).forEach(key => {
-                    if (document.getElementById(key)) {
-                        document.getElementById(key).value = state[key];
-                    }
-                });
+                try {
+                    const state = JSON.parse(saved);
+                    Object.keys(state).forEach(key => {
+                        const element = document.getElementById(key);
+                        if (element && state[key]) {
+                            element.value = state[key];
+
+                            // Update range slider display values
+                            if (key === 'repetitiveWork') {
+                                document.getElementById('repetitiveWorkValue').textContent = state[key] + '%';
+                            } else if (key === 'errorRate') {
+                                document.getElementById('errorRateValue').textContent = state[key] + '%';
+                            }
+                        }
+                    });
+                } catch (e) {
+                    console.warn('Could not load saved calculator state:', e);
+                }
             }
         }
 
-        // Save state on input
-        document.querySelectorAll('.input-field, .range-slider').forEach(input => {
-            input.addEventListener('input', saveCalculatorState);
-        });
+        // Note: Save state and load state are now handled in the main event listeners above
+        // This prevents duplicate event listeners and timing issues
 
-        // Load state on page load
-        window.addEventListener('load', loadCalculatorState);
+        // Debug function - can be called from browser console
+        window.testROICalculator = function(testData = {}) {
+            console.log('Testing ROI Calculator with:', testData);
+
+            // Set default test values
+            const defaults = {
+                revenue: 10000000,      // €10M
+                employees: 100,
+                avgSalary: 45000,
+                repetitiveWork: 30,
+                errorRate: 5,
+                decisionTime: 7,
+                errorCost: 200000
+            };
+
+            const values = { ...defaults, ...testData };
+
+            // Fill form fields
+            Object.keys(values).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.value = values[key];
+                    // Trigger events
+                    element.dispatchEvent(new Event('input'));
+                    element.dispatchEvent(new Event('change'));
+
+                    // Update range slider displays
+                    if (key === 'repetitiveWork') {
+                        document.getElementById('repetitiveWorkValue').textContent = values[key] + '%';
+                    } else if (key === 'errorRate') {
+                        document.getElementById('errorRateValue').textContent = values[key] + '%';
+                    }
+                }
+            });
+
+            // Select some processes and goals for testing
+            const testProcesses = ['customer-service', 'operations', 'marketing'];
+            const testGoals = ['cost-reduction', 'efficiency', 'revenue-growth'];
+
+            testProcesses.forEach(process => {
+                const btn = document.querySelector(`[data-process="${process}"]`);
+                if (btn) btn.classList.add('active');
+            });
+
+            testGoals.forEach(goal => {
+                const btn = document.querySelector(`[data-goal="${goal}"]`);
+                if (btn) btn.classList.add('active');
+            });
+
+            // Trigger calculation
+            setTimeout(calculateROI, 100);
+
+            console.log('Test data applied, calculation triggered');
+        };
     </script>
 </body>
 </html>
