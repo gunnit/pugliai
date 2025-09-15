@@ -1,0 +1,17 @@
+# llm.txt for PugliAI - https://www.pugliai.com
+# This file is a forward-looking measure to specify rules for Large Language Model (LLM) crawlers.
+# This syntax mirrors robots.txt for potential future compatibility.
+# The recognized standard for crawler control remains robots.txt.
+
+User-agent: *
+Allow: /
+
+# Specific allowance for known AI-related user-agents
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /

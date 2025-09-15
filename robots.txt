@@ -35,3 +35,10 @@ Disallow: /
 
 User-agent: MJ12bot
 Disallow: /
+
+# Allow AI crawlers for Generative Engine Optimization (GEO)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /

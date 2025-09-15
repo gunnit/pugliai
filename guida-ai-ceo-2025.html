@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guida AI per CEO Italiani 2025 - PugliAI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        @media print {
+            .nav-bar {
+                display: none;
+            }
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+        }
+
+        .pdf-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .pdf-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16,185,129,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            background: white;
+        }
+
+        @media print {
+            .container {
+                margin: 0 auto;
+            }
+        }
+
+        /* Cover Page */
+        .cover-page {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+        }
+
+        @media print {
+            .cover-page {
+                margin-top: 0;
+            }
+        }
+
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .cover-content {
+            text-align: center;
+            z-index: 1;
+            padding: 40px;
+        }
+
+        .cover-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .cover-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .cover-tagline {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 60px;
+            opacity: 0.95;
+        }
+
+        .cover-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .cover-year {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 6rem;
+            font-weight: 800;
+            opacity: 0.1;
+        }
+
+        /* Content Pages */
+        .content {
+            padding: 80px 60px;
+        }
+
+        .page {
+            margin-bottom: 100px;
+            page-break-after: always;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #4a5568;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #4a5568;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f6f9fc 0%, #e9f3ff 100%);
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102,126,234,0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+
+        .bar-chart {
+            margin: 30px 0;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .bar-label {
+            flex: 0 0 150px;
+            font-weight: 500;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+
+        .bar-container {
+            flex: 1;
+            height: 35px;
+            background: #f7fafc;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: width 1s ease;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px;
+            width: 45%;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 55%;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid #667eea;
+            border-radius: 50%;
+            top: 25px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -52px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -52px;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .action-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .action-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .action-item:hover {
+            background: #e9f3ff;
+            transform: translateX(10px);
+        }
+
+        .action-number {
+            flex: 0 0 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+
+        .action-text {
+            flex: 1;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            background: #2d3748;
+            color: white;
+            margin-top: 100px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Quick wins cards */
+        .quick-wins-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .quick-win-card {
+            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+            border: 2px solid #e2e8f0;
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .quick-win-card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102,126,234,0.15);
+        }
+
+        .quick-win-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .quick-win-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .quick-win-desc {
+            color: #718096;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Print specific styles */
+        @media print {
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+
+            body {
+                font-size: 11pt;
+            }
+
+            .page {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+
+            .cover-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+
+            .stat-card:hover,
+            .quick-win-card:hover,
+            .action-item:hover {
+                transform: none;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            .highlight-box,
+            .chart-container,
+            .stats-grid,
+            .timeline,
+            .quick-wins-grid {
+                page-break-inside: avoid;
+            }
+
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: #f8fafc;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 12px;
+            page-break-after: always;
+        }
+
+        .toc h2 {
+            color: #2d3748;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .toc-item:hover {
+            background: white;
+            transform: translateX(5px);
+        }
+
+        .toc-number {
+            flex: 0 0 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 15px;
+            font-size: 0.9rem;
+        }
+
+        .toc-text {
+            flex: 1;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .toc-page {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <button class="back-button" onclick="window.history.back()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Torna Indietro
+        </button>
+        <button class="pdf-button" onclick="window.print()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Scarica PDF
+        </button>
+    </div>
+
+    <div class="container">
+        <!-- Cover Page -->
+        <div class="cover-page">
+            <div class="cover-content">
+                <div class="cover-subtitle">Il Futuro dell'Innovazione Aziendale</div>
+                <h1 class="cover-title">Guida AI per<br>CEO Italiani</h1>
+                <div class="cover-tagline">Strategie e Opportunità per la Trasformazione Digitale</div>
+                <div class="cover-logo">PUGLIAI.COM</div>
+            </div>
+            <div class="cover-year">2025</div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="content">
+            <div class="toc">
+                <h2>Indice dei Contenuti</h2>
+                <div class="toc-item">
+                    <div class="toc-number">1</div>
+                    <div class="toc-text">Introduzione e Contesto Globale</div>
+                    <div class="toc-page">pag. 3</div>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">2</div>
+                    <div class="toc-text">Stato dell'AI in Italia</div>
+                    <div class="toc-page">pag. 5</div>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">3</div>
+                    <div class="toc-text">Strategie per i CEO</div>
+                    <div class="toc-page">pag. 7</div>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">4</div>
+                    <div class="toc-text">Leadership e Cultura Aziendale</div>
+                    <div class="toc-page">pag. 10</div>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">5</div>
+                    <div class="toc-text">Normativa ed Etica</div>
+                    <div class="toc-page">pag. 12</div>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">6</div>
+                    <div class="toc-text">Piano d'Azione e Conclusioni</div>
+                    <div class="toc-page">pag. 14</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Section 1 -->
+            <div class="page">
+                <div class="section-number">1</div>
+                <h1>Introduzione e Contesto Globale</h1>
+
+                <p>Nel 2025, l'intelligenza artificiale è divenuta il motore principale dell'innovazione in tutti i settori industriali. Le aziende che hanno abbracciato questa trasformazione stanno ridefinendo i paradigmi competitivi, mentre quelle che esitano rischiano l'obsolescenza.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">78%</div>
+                        <div class="stat-label">Aziende globali con AI</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">90%</div>
+                        <div class="stat-label">Esplorano nuove applicazioni</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">71%</div>
+                        <div class="stat-label">Utilizzano AI generativa</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">92%</div>
+                        <div class="stat-label">Aumenteranno investimenti</div>
+                    </div>
+                </div>
+
+                <h2>Panorama Globale dell'Adozione AI</h2>
+
+                <div class="chart-container">
+                    <h3>Adozione dell'AI per Paese (2025)</h3>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <div class="bar-label">India</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 59%">59%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">UAE</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 58%">58%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Singapore</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 53%">53%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Italia</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 36%">36%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Stati Uniti</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 33%">33%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Germania</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 32%">32%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Spagna</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 28%">28%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Francia</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 26%">26%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Insight Chiave</h3>
+                    <p>Nonostante l'entusiasmo diffuso, solo l'1% delle organizzazioni ha raggiunto una maturità elevata nell'implementazione dell'AI. La maggior parte delle aziende resta ancora in fase sperimentale, evidenziando enormi opportunità di crescita per chi saprà muoversi rapidamente.</p>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="page">
+                <div class="section-number">2</div>
+                <h1>Stato dell'AI in Italia</h1>
+
+                <p>L'Italia sta vivendo una fase di rapida accelerazione nell'adozione dell'intelligenza artificiale, con un balzo significativo negli ultimi 12 mesi. Tuttavia, il gap rispetto ai leader globali rimane sostanziale e richiede azioni decisive.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">46%</div>
+                        <div class="stat-label">Aziende con AI (EY)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8%</div>
+                        <div class="stat-label">PMI italiane (ISTAT)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">63%</div>
+                        <div class="stat-label">Grandi aziende (Minsait)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">€115B</div>
+                        <div class="stat-label">Potenziale incremento PIL</div>
+                    </div>
+                </div>
+
+                <h2>Settori Leader nell'Adozione</h2>
+
+                <div class="chart-container">
+                    <h3>Impatto dell'AI per Settore</h3>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <div class="bar-label">Energia & Sport</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 100%">100%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Finanza</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 88%">88%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Manifattura</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 80%">80%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Scientifico</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 75%">75%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Principali Ostacoli all'Adozione</h2>
+
+                <div class="highlight-box">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px;">
+                            <strong style="color: #667eea;">53%</strong> - Sicurezza dei dati e privacy
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <strong style="color: #667eea;">40%</strong> - Esperienza utente inadeguata
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <strong style="color: #667eea;">32.5%</strong> - Costi di implementazione
+                        </li>
+                        <li>
+                            <strong style="color: #667eea;">23%</strong> - Formazione insufficiente
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="page">
+                <div class="section-number">3</div>
+                <h1>Strategie per i CEO</h1>
+
+                <p>Una strategia vincente per l'AI richiede un approccio sistematico e graduale. I CEO di successo iniziano con progetti pilota ad alto impatto, costruiscono capacità interne e scalano progressivamente le implementazioni.</p>
+
+                <h2>Quick Wins per Iniziare</h2>
+
+                <div class="quick-wins-grid">
+                    <div class="quick-win-card">
+                        <div class="quick-win-icon"></div>
+                        <div class="quick-win-title">Chatbot e Assistenza</div>
+                        <div class="quick-win-desc">Automatizza il servizio clienti riducendo i costi del 30% e migliorando la soddisfazione</div>
+                    </div>
+                    <div class="quick-win-card">
+                        <div class="quick-win-icon"></div>
+                        <div class="quick-win-title">Previsioni Domanda</div>
+                        <div class="quick-win-desc">Ottimizza l'inventario e riduce gli sprechi con algoritmi predittivi avanzati</div>
+                    </div>
+                    <div class="quick-win-card">
+                        <div class="quick-win-icon"></div>
+                        <div class="quick-win-title">Automazione Admin</div>
+                        <div class="quick-win-desc">Libera risorse umane da task ripetitivi aumentando la produttività del 40%</div>
+                    </div>
+                    <div class="quick-win-card">
+                        <div class="quick-win-icon"></div>
+                        <div class="quick-win-title">Marketing Personalizzato</div>
+                        <div class="quick-win-desc">Aumenta le conversioni del 25% con campagne iper-targetizzate</div>
+                    </div>
+                </div>
+
+                <h2>Framework Strategico</h2>
+
+                <ul class="action-list">
+                    <li class="action-item">
+                        <div class="action-number">1</div>
+                        <div class="action-text">
+                            <strong>Avviare progetti pilota ad alto impatto</strong><br>
+                            Identificare 2-3 casi d'uso con ROI chiaro e misurabile entro 6 mesi
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">2</div>
+                        <div class="action-text">
+                            <strong>Definire una roadmap con casi d'uso concreti</strong><br>
+                            Pianificare l'evoluzione dall'automazione semplice all'AI predittiva e generativa
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">3</div>
+                        <div class="action-text">
+                            <strong>Sviluppare una governance dei dati robusta</strong><br>
+                            Centralizzare la gestione dati e garantire qualità, sicurezza e compliance
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">4</div>
+                        <div class="action-text">
+                            <strong>Creare una task force trasversale</strong><br>
+                            Coinvolgere IT, business, HR e legal in un team dedicato all'AI
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">5</div>
+                        <div class="action-text">
+                            <strong>Nominare un responsabile etico dell'AI</strong><br>
+                            Assicurare trasparenza, equità e conformità normativa
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>📊 Case Study: UPS ORION</h3>
+                    <p>Il sistema ORION di UPS ha ottimizzato i percorsi di consegna utilizzando l'AI, generando risparmi di $300-400 milioni all'anno. Questo dimostra come concentrarsi su progetti con ROI immediato acceleri l'adozione e generi valore tangibile.</p>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="page">
+                <div class="section-number">4</div>
+                <h1>Leadership e Cultura Aziendale</h1>
+
+                <p>La trasformazione AI non è solo tecnologica ma culturale. I CEO devono guidare il cambiamento con visione e empatia, affrontando le resistenze e costruendo fiducia nell'organizzazione.</p>
+
+                <h2>AI per Funzione Aziendale</h2>
+
+                <div class="chart-container">
+                    <h3>Tasso di Adozione per Area</h3>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <div class="bar-label">Servizio Clienti</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 56%">56%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Cybersecurity</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 51%">51%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Assistenti Digitali</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 47%">47%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">CRM</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 46%">46%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Gestione Inventario</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 40%">40%</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Content Creation</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 35%">35%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Costruire una Cultura AI-First</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1/4</div>
+                        <div class="stat-label">Aziende che scalano con successo</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">47%</div>
+                        <div class="stat-label">Aumento coinvolgimento con formazione</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">82%</div>
+                        <div class="stat-label">IT lascia per mancanza formazione</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Principi per il Successo</h3>
+                    <ul style="padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">Definire l'AI come strumento per aumentare l'impatto umano, non sostituirlo</li>
+                        <li style="margin-bottom: 10px;">Promuovere la co-creazione coinvolgendo i dipendenti nello sviluppo</li>
+                        <li style="margin-bottom: 10px;">Affrontare apertamente paure legate a precisione e sicurezza</li>
+                        <li style="margin-bottom: 10px;">Celebrare i successi e imparare dai fallimenti</li>
+                        <li>Investire massicciamente in upskilling e reskilling</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="page">
+                <div class="section-number">5</div>
+                <h1>Normativa ed Etica</h1>
+
+                <p>Il quadro normativo europeo e italiano impone requisiti stringenti ma offre anche certezza giuridica per investimenti a lungo termine. La compliance non è un ostacolo ma un vantaggio competitivo.</p>
+
+                <h2>Timeline Normativa AI Act</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2 Febbraio 2025</div>
+                        <div class="timeline-content">
+                            <strong>Avvio divieti e alfabetizzazione</strong><br>
+                            Entrano in vigore i divieti per pratiche vietate
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2 Agosto 2025</div>
+                        <div class="timeline-content">
+                            <strong>Regole per modelli generativi</strong><br>
+                            Obblighi specifici per AI generativa
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2 Agosto 2027</div>
+                        <div class="timeline-content">
+                            <strong>Conformità sistemi alto rischio</strong><br>
+                            Piena applicazione per sanità, lavoro, giustizia
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Legge Italiana n.1146/2025</h2>
+
+                <div class="highlight-box">
+                    <h3>Punti Chiave</h3>
+                    <ul style="padding-left: 20px;">
+                        <li style="margin-bottom: 10px;"><strong>€1 miliardo</strong> di investimenti pubblici per l'AI</li>
+                        <li style="margin-bottom: 10px;">Obbligo di hosting su <strong>server nazionali</strong> per la PA</li>
+                        <li style="margin-bottom: 10px;">Diritto dei lavoratori all'<strong>informazione</strong> sull'uso dell'AI</li>
+                        <li>Tutela del <strong>copyright</strong> per opere con contributo umano significativo</li>
+                    </ul>
+                </div>
+
+                <h2>Framework di Compliance</h2>
+
+                <ul class="action-list">
+                    <li class="action-item">
+                        <div class="action-number">✓</div>
+                        <div class="action-text">
+                            <strong>Valutazione d'impatto</strong><br>
+                            Mappare tutti i sistemi AI e classificarli secondo il livello di rischio
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">✓</div>
+                        <div class="action-text">
+                            <strong>Documentazione tecnica</strong><br>
+                            Mantenere registri dettagliati di dati, algoritmi e decisioni
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">✓</div>
+                        <div class="action-text">
+                            <strong>Supervisione umana</strong><br>
+                            Garantire controllo umano per decisioni critiche
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">✓</div>
+                        <div class="action-text">
+                            <strong>Trasparenza</strong><br>
+                            Informare utenti e dipendenti quando interagiscono con AI
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="page">
+                <div class="section-number">6</div>
+                <h1>Piano d'Azione e Conclusioni</h1>
+
+                <p>Il successo nell'era dell'AI richiede azione decisiva e coordinata. Ecco la roadmap operativa per trasformare la vostra organizzazione.</p>
+
+                <h2>I 7 Passi per il Successo</h2>
+
+                <ul class="action-list">
+                    <li class="action-item">
+                        <div class="action-number">1</div>
+                        <div class="action-text">
+                            <strong>Valutare la maturità digitale</strong><br>
+                            Audit completo delle capacità attuali e definizione della vision strategica
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">2</div>
+                        <div class="action-text">
+                            <strong>Identificare casi d'uso ad alto impatto</strong><br>
+                            Prioritizzare opportunità con ROI chiaro e tempi di implementazione brevi
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">3</div>
+                        <div class="action-text">
+                            <strong>Costruire infrastruttura dati robusta</strong><br>
+                            Centralizzare, pulire e proteggere i dati aziendali
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">4</div>
+                        <div class="action-text">
+                            <strong>Investire in formazione continua</strong><br>
+                            Programmi di upskilling per tutti i livelli organizzativi
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">5</div>
+                        <div class="action-text">
+                            <strong>Stabilire governance chiara</strong><br>
+                            Comitato AI, responsabile etico, processi decisionali definiti
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">6</div>
+                        <div class="action-text">
+                            <strong>Collaborare con l'ecosistema</strong><br>
+                            Partnership con università, centri di ricerca, startup innovative
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <div class="action-number">7</div>
+                        <div class="action-text">
+                            <strong>Monitorare e iterare</strong><br>
+                            KPI chiari, feedback continuo, aggiornamento strategia
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="cta-section">
+                    <div class="cta-content">
+                        <h2 class="cta-title">L'AI è il Futuro. Il Futuro è Adesso.</h2>
+                        <p class="cta-text">
+                            L'intelligenza artificiale rappresenta una leva formidabile per accrescere la competitività delle imprese italiane. Con una strategia oculata, una leadership inclusiva e un forte impegno sulla formazione, i CEO possono trasformare l'AI in un motore di crescita sostenibile.
+                        </p>
+                        <p style="font-size: 1.3rem; font-weight: 600; margin-top: 30px;">
+                            PugliAI è al vostro fianco in questo percorso innovativo.
+                        </p>
+                    </div>
+                </div>
+
+                <h2>Metriche di Successo</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">-30%</div>
+                        <div class="stat-label">Riduzione costi operativi</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">+40%</div>
+                        <div class="stat-label">Aumento produttività</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">+25%</div>
+                        <div class="stat-label">Miglioramento customer satisfaction</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2x</div>
+                        <div class="stat-label">Velocità time-to-market</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">PUGLIAI.COM</div>
+            <p>Strategie Digitali per il Successo Aziendale</p>
+            <p style="margin-top: 20px; opacity: 0.8;">
+                © 2025 PugliAI. Tutti i diritti riservati.<br>
+                <a href="https://pugliai.com" class="footer-link">www.pugliai.com</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
