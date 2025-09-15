@@ -143,3 +143,4 @@ The project is transitioning from individual HTML/CSS files to a component-based
 - Phone validation: Italian format (+39)
 - Address format: Italian conventions
 - GDPR compliance for EU regulations
+- always push to github your modifications at the end of all the tasks

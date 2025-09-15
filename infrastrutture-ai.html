@@ -39,14 +39,14 @@
 </head>
 <body>
     <!-- Header Navigation -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="nav-container">
-                <a href="index.html" class="logo">
+                <a href="index.html" class="logo" aria-label="PugliAI - Torna alla home">
                     <img src="src/assets/img/pugliai_pittogramma.png" alt="PugliAI" class="logo-img">
                     <span class="logo-text">PugliAI</span>
                 </a>
-                <nav>
+                <nav role="navigation" aria-label="Menu principale">
                     <button class="mobile-menu-toggle" aria-label="Toggle menu">
                         <span></span>
                         <span></span>
@@ -73,17 +73,18 @@
                         <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
                     </ul>
                 </nav>
-                <a href="contatti.html" class="cta-button">Sessione Strategica</a>
+                <a href="contatti.html" class="cta-button" aria-label="Prenota una sessione strategica gratuita">Sessione Strategica</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="section" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);">
+    <main role="main">
+    <section class="section" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);" aria-labelledby="page-title">
         <div class="container">
             <div class="section-header">
                 <div class="badge mb-lg">Infrastrutture AI Enterprise</div>
-                <h1 class="heading-1 mb-lg animate-fade-in-up">
+                <h1 id="page-title" class="heading-1 mb-lg animate-fade-in-up">
                     Infrastrutture AI <span class="text-gradient-emerald">Scalabili e Sicure</span>
                 </h1>
                 <p class="body-large mb-2xl animate-fade-in-up" style="animation-delay: 0.2s;">

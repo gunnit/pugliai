@@ -39,14 +39,14 @@
 </head>
 <body>
     <!-- Header Navigation -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="nav-container">
-                <a href="index.html" class="logo">
+                <a href="index.html" class="logo" aria-label="PugliAI - Torna alla home">
                     <img src="src/assets/img/pugliai_pittogramma.png" alt="PugliAI" class="logo-img">
                     <span class="logo-text">PugliAI</span>
                 </a>
-                <nav>
+                <nav role="navigation" aria-label="Menu principale">
                     <button class="mobile-menu-toggle" aria-label="Toggle menu">
                         <span></span>
                         <span></span>
@@ -73,16 +73,17 @@
                         <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
                     </ul>
                 </nav>
-                <a href="contatti.html" class="cta-button">Sessione Strategica</a>
+                <a href="contatti.html" class="cta-button" aria-label="Prenota una sessione strategica gratuita" aria-current="page">Sessione Strategica</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="section" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);">
+    <main role="main">
+    <section class="section" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);" aria-labelledby="page-title">
         <div class="container">
             <div class="section-header">
-                <h1 class="heading-1 mb-lg animate-fade-in-up">
+                <h1 id="page-title" class="heading-1 mb-lg animate-fade-in-up">
                     Inizia il Tuo Percorso <span class="text-gradient-emerald">AI</span>
                 </h1>
                 <p class="body-large mb-2xl animate-fade-in-up" style="animation-delay: 0.2s;">
@@ -101,15 +102,15 @@
                     <form action="https://formcarry.com/s/xWKwXtJvS4C" method="POST" class="contact-form">
                         <div class="form-group">
                             <label for="name" class="form-label">Nome e Cognome</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
+                            <input type="text" id="name" name="name" class="form-input" required aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Email Aziendale</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
+                            <input type="email" id="email" name="email" class="form-input" required aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="company" class="form-label">Azienda</label>
-                            <input type="text" id="company" name="company" class="form-input" required>
+                            <input type="text" id="company" name="company" class="form-input" required aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="phone" class="form-label">Telefono</label>
@@ -117,7 +118,7 @@
                         </div>
                         <div class="form-group">
                             <label for="message" class="form-label">Come possiamo aiutarti?</label>
-                            <textarea id="message" name="message" rows="4" class="form-input" required></textarea>
+                            <textarea id="message" name="message" rows="4" class="form-input" required aria-required="true"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
                             Invia Richiesta
