@@ -12,45 +12,20 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcolatore ROI AI - PugliAI | Stima il Valore dell'AI per la Tua Azienda</title>
-    <meta name="description" content="Calcola il ROI potenziale dell'implementazione AI nella tua azienda. Analisi personalizzata per settore con metriche verificate da 50+ implementazioni.">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Calcolatore ROI AI Gratuito - PugliAI">
-    <meta property="og:description" content="Scopri quanto puoi risparmiare e guadagnare con l'AI. Risultati basati su dati reali di 50+ aziende italiane.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.pugliai.com/roi-calculator">
-    
+    <title>Calcolatore ROI AI - PugliAI | Scopri il Tuo Ritorno sull'Investimento</title>
+    <meta name="description" content="Calcola il ROI della tua trasformazione AI. Strumento gratuito per stimare risparmi, incrementi di fatturato e tempo di payback.">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/assets/css/stylesheet.css">
-    
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
     <style>
-        /* Calculator-specific styles */
-        .calculator-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .calculator-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 1024px) {
-            .calculator-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .calculator-section {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
+            background: var(--glass-bg);
+            border-radius: var(--radius-lg);
             padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--glass-border);
         }
 
         .input-group {
@@ -60,24 +35,17 @@
         .input-label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--text-light);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .input-help {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 0.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
         .input-field {
             width: 100%;
-            padding: 0.75rem 1rem;
+            padding: 0.75rem;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: white;
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
             font-size: 1rem;
             transition: all 0.3s ease;
         }
@@ -86,1259 +54,541 @@
             outline: none;
             border-color: var(--accent-gold);
             background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
-        }
-
-        .input-field:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .input-addon {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .input-addon-text {
-            color: var(--text-muted);
-            font-size: 0.9rem;
         }
 
         .range-slider {
             width: 100%;
-            margin: 1rem 0;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: var(--radius-full);
+            background: var(--glass-border);
+            outline: none;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            cursor: pointer;
         }
 
         .range-value {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: var(--accent-gold);
-            color: var(--primary-navy);
-            border-radius: 4px;
-            font-weight: 600;
-            margin-left: 0.5rem;
+            margin-left: 1rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            min-width: 60px;
         }
 
-        .toggle-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 0.5rem;
-        }
-
-        .toggle-btn {
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: var(--text-light);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .toggle-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .toggle-btn.active {
-            background: var(--accent-emerald);
-            border-color: var(--accent-emerald);
-            color: white;
-        }
-
-        .results-section {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 16px;
+        .results-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: var(--radius-lg);
             padding: 2rem;
             margin-top: 2rem;
         }
 
-        .result-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .result-title {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
         .result-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-emerald) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .result-subtitle {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-top: 0.25rem;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .metric-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .metric-value {
             font-size: 1.5rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--accent-gold);
         }
 
-        .metric-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 0.25rem;
-        }
-
-        .chart-container {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 0.5rem;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-emerald) 100%);
-            border-radius: 4px;
-            transition: width 0.5s ease;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-emerald) 100%);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .cta-section h3 {
-            color: var(--primary-navy);
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            color: var(--primary-navy);
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .industry-presets {
+        .industry-selector {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-top: 1rem;
         }
 
-        .preset-card {
+        .industry-option {
             padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid transparent;
-            border-radius: 12px;
+            text-align: center;
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: var(--radius-md);
             cursor: pointer;
             transition: all 0.3s ease;
-            text-align: center;
         }
 
-        .preset-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .preset-card.active {
+        .industry-option:hover {
             border-color: var(--accent-gold);
             background: rgba(255, 215, 0, 0.1);
         }
 
-        .preset-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .preset-name {
-            font-weight: 600;
-            color: var(--text-light);
-            margin-bottom: 0.25rem;
-        }
-
-        .preset-metrics {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .disclaimer {
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 8px;
-            padding: 1rem;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .loading-spinner {
-            display: none;
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            border-top-color: var(--accent-gold);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 2rem auto;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .validation-error {
-            color: #ef4444;
-            font-size: 0.85rem;
-            margin-top: 0.25rem;
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: help;
-        }
-
-        .tooltip-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 18px;
-            height: 18px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-left: 0.5rem;
-        }
-
-        .tooltip-content {
-            visibility: hidden;
-            position: absolute;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(10, 22, 40, 0.95);
-            color: white;
-            padding: 0.75rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            width: 250px;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltip-content {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        @media print {
-            .header, .footer, .cta-section, button {
-                display: none;
-            }
-            
-            .calculator-grid {
-                grid-template-columns: 1fr;
-            }
+        .industry-option.selected {
+            border-color: var(--accent-gold);
+            background: rgba(255, 215, 0, 0.2);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <!-- Header Navigation -->
+    <header class="header" role="banner">
         <div class="container">
             <div class="nav-container">
-                <a href="index.html" class="logo">
+                <a href="index.html" class="logo" aria-label="PugliAI - Torna alla home">
                     <img src="src/assets/img/pugliai_pittogramma.png" alt="PugliAI" class="logo-img">
                     <span class="logo-text">PugliAI</span>
                 </a>
-                <nav>
+                <nav role="navigation" aria-label="Menu principale">
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                     <ul class="nav-menu">
                         <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="servizi.html" class="nav-link">Servizi</a></li>
-                        <li><a href="settori.html" class="nav-link">Settori</a></li>
+                        <li class="has-dropdown">
+                            <a href="servizi.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Servizi <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
+                            <ul class="dropdown-menu" role="menu" aria-label="Servizi submenu">
+                                <li role="none"><a href="infrastrutture-ai.html" class="dropdown-link" role="menuitem">Infrastrutture AI</a></li>
+                                <li role="none"><a href="agenti-ai.html" class="dropdown-link" role="menuitem">Agenti AI</a></li>
+                                <li role="none"><a href="consulenza-strategica.html" class="dropdown-link" role="menuitem">Consulenza Strategica</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="settori.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Settori <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
+                            <ul class="dropdown-menu" role="menu" aria-label="Settori submenu">
+                                <li role="none"><a href="manifatturiero.html" class="dropdown-link" role="menuitem">Manifatturiero</a></li>
+                                <li role="none"><a href="moda-lusso.html" class="dropdown-link" role="menuitem">Moda & Lusso</a></li>
+                                <li role="none"><a href="servizi-finanziari.html" class="dropdown-link" role="menuitem">Servizi Finanziari</a></li>
+                            </ul>
+                        </li>
                         <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
+                        <li><a href="investimenti-ai.html" class="nav-link">Prezzi</a></li>
                     </ul>
                 </nav>
-                <a href="contatti.html" class="cta-button">Sessione Strategica</a>
+                <a href="contatti.html" class="cta-button" aria-label="Prenota una sessione strategica gratuita">Sessione Strategica</a>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main style="padding-top: 100px; min-height: 100vh; background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);">
-        <div class="calculator-container">
-            <!-- Hero Section -->
-            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-                <h1 class="heading-1 mb-lg">
-                    Calcola il ROI dell'AI per la tua azienda
+    <!-- Hero Section -->
+    <main role="main">
+    <section class="section hero-section" aria-labelledby="page-title" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);">
+        <div class="container">
+            <div class="section-header">
+                <h1 id="page-title" class="heading-1 mb-lg animate-fade-in-up">
+                    Calcola il Tuo <span class="text-gradient-gold">ROI</span> con l'AI
                 </h1>
-                <p class="body-large" style="max-width: 800px; margin: 0 auto;">
-                    Basato su dati reali di 50+ implementazioni in aziende italiane. 
-                    Ricevi una stima personalizzata del valore che l'AI può generare nel tuo business.
+                <p class="body-large mb-2xl animate-fade-in-up" style="animation-delay: 0.2s;">
+                    Scopri in 2 minuti quanto puoi risparmiare e guadagnare implementando l'intelligenza artificiale nella tua azienda
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-cols-2" style="gap: 3rem;">
+                <!-- Input Section -->
+                <div>
+                    <h2 class="heading-2 mb-lg">I Tuoi Dati Aziendali</h2>
+
+                    <div class="calculator-section">
+                        <div class="input-group">
+                            <label class="input-label" for="industry">Settore di Appartenenza</label>
+                            <div class="industry-selector">
+                                <div class="industry-option" data-industry="manifatturiero" data-savings="40" data-revenue="15">
+                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏭</div>
+                                    <div>Manifatturiero</div>
+                                </div>
+                                <div class="industry-option" data-industry="fashion" data-savings="35" data-revenue="25">
+                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">👗</div>
+                                    <div>Fashion & Luxury</div>
+                                </div>
+                                <div class="industry-option" data-industry="fintech" data-savings="30" data-revenue="20">
+                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">💳</div>
+                                    <div>Servizi Finanziari</div>
+                                </div>
+                                <div class="industry-option" data-industry="retail" data-savings="25" data-revenue="30">
+                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🛍️</div>
+                                    <div>Retail</div>
+                                </div>
+                                <div class="industry-option" data-industry="healthcare" data-savings="35" data-revenue="15">
+                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏥</div>
+                                    <div>Sanità</div>
+                                </div>
+                                <div class="industry-option" data-industry="other" data-savings="20" data-revenue="15">
+                                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏢</div>
+                                    <div>Altro</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label" for="revenue">Fatturato Annuale (€)</label>
+                            <input type="number" id="revenue" class="input-field" placeholder="es. 10000000" value="10000000">
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label" for="employees">Numero di Dipendenti</label>
+                            <input type="number" id="employees" class="input-field" placeholder="es. 100" value="100">
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label" for="processes">
+                                Processi da Automatizzare
+                                <span class="range-value" id="processesValue">3</span>
+                            </label>
+                            <input type="range" id="processes" class="range-slider" min="1" max="10" value="3">
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label" for="efficiency">
+                                Ore/Settimana di Lavoro Ripetitivo
+                                <span class="range-value" id="efficiencyValue">40</span>
+                            </label>
+                            <input type="range" id="efficiency" class="range-slider" min="10" max="200" value="40" step="10">
+                        </div>
+
+                        <button class="btn btn-primary btn-lg" style="width: 100%;" onclick="calculateROI()">
+                            Calcola il Mio ROI →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div>
+                    <h2 class="heading-2 mb-lg">Il Tuo ROI Potenziale</h2>
+
+                    <div class="results-card" id="resultsCard" style="display: none;">
+                        <h3 class="heading-3 mb-lg" style="text-align: center; color: var(--accent-gold);">
+                            Risultati della Tua Analisi
+                        </h3>
+
+                        <div class="result-item">
+                            <span class="result-label">Risparmio Annuale Stimato</span>
+                            <span class="result-value" id="annualSavings">€0</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">Incremento Fatturato Atteso</span>
+                            <span class="result-value" id="revenueIncrease">€0</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">ROI Primo Anno</span>
+                            <span class="result-value" id="roiPercentage" style="color: var(--accent-emerald);">0%</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">Tempo di Payback</span>
+                            <span class="result-value" id="paybackTime">0 mesi</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">Ore Liberate/Anno</span>
+                            <span class="result-value" id="hoursFreed">0</span>
+                        </div>
+
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                            <h4 class="heading-4 mb-md">Investimento Consigliato</h4>
+                            <p id="recommendedPackage" style="font-size: 1.125rem; color: var(--text-secondary);"></p>
+
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <a href="contatti.html" class="btn btn-primary btn-md" style="flex: 1;">
+                                    Ottieni Analisi Dettagliata →
+                                </a>
+                                <button class="btn btn-secondary btn-md" style="flex: 1;" onclick="shareResults()">
+                                    Condividi Risultati
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Initial State Message -->
+                    <div class="card" id="initialMessage">
+                        <div style="text-align: center; padding: 2rem;">
+                            <div style="font-size: 4rem; margin-bottom: 1rem;">📊</div>
+                            <h3 class="heading-3 mb-md">Inserisci i Tuoi Dati</h3>
+                            <p style="color: var(--text-secondary);">
+                                Compila il form a sinistra per scoprire il potenziale ROI dell'AI per la tua azienda.
+                                Il calcolo è basato su dati reali di oltre 50 implementazioni di successo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="section" style="background: var(--glass-bg);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Confronta: Con AI vs Senza AI</h2>
+                <p class="section-subtitle">
+                    Proiezione a 3 anni basata sui tuoi dati
                 </p>
             </div>
 
-            <!-- Industry Presets -->
-            <div class="calculator-section">
-                <h2 class="heading-3 mb-md">Seleziona il tuo settore</h2>
-                <div class="industry-presets" id="industryPresets">
-                    <div class="preset-card" data-industry="manufacturing">
-                        <div class="preset-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 20H22V21H2V20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3.8 20L7 9H9L12.2 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M12.2 20L15.4 9H17.4L20.6 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M8 5V9M16 3V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="8" cy="5" r="1" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="16" cy="3" r="1" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <div class="preset-name">Manifatturiero</div>
-                        <div class="preset-metrics">ROI medio: 280%</div>
+            <div class="grid grid-cols-2" style="gap: 2rem;">
+                <div class="card" style="border: 2px solid var(--glass-border);">
+                    <h3 class="heading-3 mb-lg" style="color: var(--text-secondary);">❌ Senza AI</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border);">
+                            Crescita annuale: <strong>+5%</strong> (media di settore)
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border);">
+                            Costi operativi: <strong>+3%/anno</strong>
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border);">
+                            Competitività: <strong>In calo</strong>
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            Rischio disruption: <strong>Alto</strong>
+                        </li>
+                    </ul>
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: var(--radius-md);">
+                        <p style="font-weight: 600; color: #EF4444;">
+                            Fatturato a 3 anni: <span id="revenueWithoutAI">€10M</span>
+                        </p>
                     </div>
-                    <div class="preset-card" data-industry="fashion">
-                        <div class="preset-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 1L8 5V9L12 13L16 9V5L12 1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M8 17L4 21V23H20V21L16 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M8 9L12 13L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="preset-name">Moda & Lusso</div>
-                        <div class="preset-metrics">ROI medio: 320%</div>
-                    </div>
-                    <div class="preset-card" data-industry="finance">
-                        <div class="preset-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M17 5H9.5A3.5 3.5 0 0 0 6 8.5V8.5A3.5 3.5 0 0 0 9.5 12H14.5A3.5 3.5 0 0 1 18 15.5V15.5A3.5 3.5 0 0 1 14.5 19H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="preset-name">Servizi Finanziari</div>
-                        <div class="preset-metrics">ROI medio: 350%</div>
-                    </div>
-                    <div class="preset-card" data-industry="retail">
-                        <div class="preset-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4M7 4H5C3.9 4 3 4.9 3 6V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V6C21 4.9 20.1 4 19 4H17M7 4H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M9 9H15M9 13H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="preset-name">Retail</div>
-                        <div class="preset-metrics">ROI medio: 240%</div>
-                    </div>
-                    <div class="preset-card" data-industry="healthcare">
-                        <div class="preset-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M12 2V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4 9H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="12" cy="20" r="2" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <div class="preset-name">Sanità</div>
-                        <div class="preset-metrics">ROI medio: 290%</div>
-                    </div>
-                    <div class="preset-card" data-industry="other">
-                        <div class="preset-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
-                                <path d="M3 10H21M7 14H9M15 14H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M12 3V6M8 3V6M16 3V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="preset-name">Altro</div>
-                        <div class="preset-metrics">Personalizza</div>
+                </div>
+
+                <div class="card" style="border: 2px solid var(--accent-gold);">
+                    <h3 class="heading-3 mb-lg" style="color: var(--accent-gold);">✅ Con PugliAI</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border);">
+                            Crescita annuale: <strong>+25%</strong> (con AI)
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border);">
+                            Costi operativi: <strong>-30%</strong>
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border);">
+                            Competitività: <strong>Leader di mercato</strong>
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            Innovazione: <strong>Continua</strong>
+                        </li>
+                    </ul>
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: var(--radius-md);">
+                        <p style="font-weight: 600; color: var(--accent-emerald);">
+                            Fatturato a 3 anni: <span id="revenueWithAI">€19.5M</span>
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Calculator Grid -->
-            <div class="calculator-grid">
-                <!-- Left Column - Inputs -->
-                <div>
-                    <!-- Company Information -->
-                    <div class="calculator-section">
-                        <h2 class="heading-3 mb-md">Informazioni Aziendali</h2>
-                        
-                        <div class="input-group">
-                            <label class="input-label">
-                                Fatturato Annuale
-                                <span class="tooltip">
-                                    <span class="tooltip-icon">?</span>
-                                    <span class="tooltip-content">
-                                        Il fatturato annuale ci aiuta a calibrare l'investimento AI ottimale per la tua dimensione aziendale
-                                    </span>
-                                </span>
-                            </label>
-                            <div class="input-addon">
-                                <input type="number" 
-                                       id="revenue" 
-                                       class="input-field" 
-                                       placeholder="es. 50000000"
-                                       min="1000000"
-                                       step="1000000">
-                                <span class="input-addon-text">€</span>
-                            </div>
-                            <div class="input-help">Minimo €1M per accedere ai nostri servizi enterprise</div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">
-                                Numero di Dipendenti
-                                <span class="tooltip">
-                                    <span class="tooltip-icon">?</span>
-                                    <span class="tooltip-content">
-                                        Il numero di dipendenti influenza il potenziale di automazione e ottimizzazione dei processi
-                                    </span>
-                                </span>
-                            </label>
-                            <input type="number" 
-                                   id="employees" 
-                                   class="input-field" 
-                                   placeholder="es. 250"
-                                   min="10">
-                            <div class="input-help">Include tutti i dipendenti a tempo pieno</div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">
-                                Costo Medio per Dipendente
-                                <span class="tooltip">
-                                    <span class="tooltip-icon">?</span>
-                                    <span class="tooltip-content">
-                                        Include stipendio lordo, contributi, benefit. Media aziendale italiana: €45.000
-                                    </span>
-                                </span>
-                            </label>
-                            <div class="input-addon">
-                                <input type="number" 
-                                       id="avgSalary" 
-                                       class="input-field" 
-                                       placeholder="45000"
-                                       value="45000"
-                                       min="20000">
-                                <span class="input-addon-text">€/anno</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- AI Implementation Areas -->
-                    <div class="calculator-section">
-                        <h2 class="heading-3 mb-md">Aree di Implementazione AI</h2>
-                        
-                        <div class="input-group">
-                            <label class="input-label">Processi da Automatizzare</label>
-                            <div class="toggle-group" id="processes">
-                                <button class="toggle-btn" data-process="customer-service">Servizio Clienti</button>
-                                <button class="toggle-btn" data-process="sales">Vendite</button>
-                                <button class="toggle-btn" data-process="marketing">Marketing</button>
-                                <button class="toggle-btn" data-process="operations">Operations</button>
-                                <button class="toggle-btn" data-process="finance">Finance</button>
-                                <button class="toggle-btn" data-process="hr">HR</button>
-                                <button class="toggle-btn" data-process="supply-chain">Supply Chain</button>
-                                <button class="toggle-btn" data-process="quality">Qualità</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">
-                                Ore di Lavoro Ripetitivo (% del totale)
-                                <span class="range-value" id="repetitiveWorkValue">30%</span>
-                            </label>
-                            <input type="range" 
-                                   id="repetitiveWork" 
-                                   class="range-slider" 
-                                   min="10" 
-                                   max="70" 
-                                   value="30"
-                                   step="5">
-                            <div class="input-help">Stima delle ore dedicate a task ripetitivi automatizzabili</div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">
-                                Tasso di Errore Attuale (%)
-                                <span class="range-value" id="errorRateValue">5%</span>
-                            </label>
-                            <input type="range" 
-                                   id="errorRate" 
-                                   class="range-slider" 
-                                   min="1" 
-                                   max="20" 
-                                   value="5"
-                                   step="1">
-                            <div class="input-help">Errori nei processi che causano rilavorazioni o perdite</div>
-                        </div>
-                    </div>
-
-                    <!-- Current Challenges -->
-                    <div class="calculator-section">
-                        <h2 class="heading-3 mb-md">Sfide Attuali</h2>
-                        
-                        <div class="input-group">
-                            <label class="input-label">
-                                Tempo Medio Decisionale (giorni)
-                                <span class="tooltip">
-                                    <span class="tooltip-icon">?</span>
-                                    <span class="tooltip-content">
-                                        Tempo medio per prendere decisioni strategiche basate su dati
-                                    </span>
-                                </span>
-                            </label>
-                            <input type="number" 
-                                   id="decisionTime" 
-                                   class="input-field" 
-                                   placeholder="7"
-                                   value="7"
-                                   min="1">
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">
-                                Costo Annuale degli Errori
-                                <span class="tooltip">
-                                    <span class="tooltip-icon">?</span>
-                                    <span class="tooltip-content">
-                                        Include difetti, rilavorazioni, resi, perdita clienti per errori
-                                    </span>
-                                </span>
-                            </label>
-                            <div class="input-addon">
-                                <input type="number" 
-                                       id="errorCost" 
-                                       class="input-field" 
-                                       placeholder="500000"
-                                       min="0">
-                                <span class="input-addon-text">€</span>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Obiettivi Prioritari</label>
-                            <div class="toggle-group" id="goals">
-                                <button class="toggle-btn" data-goal="cost-reduction">Riduzione Costi</button>
-                                <button class="toggle-btn" data-goal="revenue-growth">Aumento Ricavi</button>
-                                <button class="toggle-btn" data-goal="efficiency">Efficienza</button>
-                                <button class="toggle-btn" data-goal="quality">Qualità</button>
-                                <button class="toggle-btn" data-goal="speed">Velocità</button>
-                                <button class="toggle-btn" data-goal="innovation">Innovazione</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column - Results -->
-                <div>
-                    <!-- Main Results -->
-                    <div class="results-section" id="resultsSection">
-                        <h2 class="heading-3 mb-md">Il Tuo ROI Potenziale con l'AI</h2>
-                        
-                        <div class="result-card">
-                            <div class="result-title">ROI Stimato Anno 1</div>
-                            <div class="result-value" id="roiYear1">--</div>
-                            <div class="result-subtitle" id="roiSubtitle">Calcola per vedere il risultato</div>
-                        </div>
-
-                        <div class="metrics-grid">
-                            <div class="metric-card">
-                                <div class="metric-value" id="savingsValue">--</div>
-                                <div class="metric-label">Risparmi Annuali</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" id="revenueIncreaseValue">--</div>
-                                <div class="metric-label">Aumento Ricavi</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" id="efficiencyValue">--</div>
-                                <div class="metric-label">Efficienza +</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" id="paybackValue">--</div>
-                                <div class="metric-label">Payback Period</div>
-                            </div>
-                        </div>
-
-                        <!-- Detailed Breakdown -->
-                        <div class="chart-container">
-                            <h3 class="heading-4 mb-md">Breakdown dei Benefici</h3>
-                            
-                            <div class="mb-md">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                    <span>Automazione Processi</span>
-                                    <span id="automationSavings">€0</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" id="automationBar" style="width: 0%"></div>
-                                </div>
-                            </div>
-
-                            <div class="mb-md">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                    <span>Riduzione Errori</span>
-                                    <span id="errorReductionSavings">€0</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" id="errorBar" style="width: 0%"></div>
-                                </div>
-                            </div>
-
-                            <div class="mb-md">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                    <span>Decisioni più Rapide</span>
-                                    <span id="decisionSavings">€0</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" id="decisionBar" style="width: 0%"></div>
-                                </div>
-                            </div>
-
-                            <div class="mb-md">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                    <span>Nuove Opportunità</span>
-                                    <span id="newRevenue">€0</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" id="revenueBar" style="width: 0%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 3-Year Projection -->
-                        <div class="chart-container">
-                            <h3 class="heading-4 mb-md">Proiezione Triennale</h3>
-                            <div class="metrics-grid">
-                                <div class="metric-card">
-                                    <div class="metric-label">Anno 1</div>
-                                    <div class="metric-value" id="year1Total">€0</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-label">Anno 2</div>
-                                    <div class="metric-value" id="year2Total">€0</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-label">Anno 3</div>
-                                    <div class="metric-value" id="year3Total">€0</div>
-                                </div>
-                            </div>
-                            <div style="text-align: center; margin-top: 1rem;">
-                                <strong style="color: var(--accent-gold); font-size: 1.2rem;">
-                                    Valore Totale 3 Anni: <span id="total3Years">€0</span>
-                                </strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lead Capture -->
-                    <div class="cta-section">
-                        <h3>Ottieni il Report Completo</h3>
-                        <p>Ricevi un'analisi dettagliata personalizzata per la tua azienda con roadmap di implementazione</p>
-                        
-                        <form id="leadForm" style="max-width: 400px; margin: 0 auto;">
-                            <div style="display: grid; gap: 1rem;">
-                                <input type="email" 
-                                       id="email" 
-                                       class="input-field" 
-                                       placeholder="Email aziendale"
-                                       required
-                                       style="background: rgba(10, 22, 40, 0.3); color: var(--primary-navy);">
-                                
-                                <input type="text" 
-                                       id="name" 
-                                       class="input-field" 
-                                       placeholder="Nome e Cognome"
-                                       required
-                                       style="background: rgba(10, 22, 40, 0.3); color: var(--primary-navy);">
-                                
-                                <input type="text" 
-                                       id="company" 
-                                       class="input-field" 
-                                       placeholder="Azienda"
-                                       required
-                                       style="background: rgba(10, 22, 40, 0.3); color: var(--primary-navy);">
-                                
-                                <input type="tel" 
-                                       id="phone" 
-                                       class="input-field" 
-                                       placeholder="Telefono (opzionale)"
-                                       style="background: rgba(10, 22, 40, 0.3); color: var(--primary-navy);">
-                                
-                                <button type="submit" 
-                                        class="btn btn-primary btn-lg" 
-                                        style="background: var(--primary-navy); color: white;">
-                                    Ricevi Report Dettagliato →
-                                </button>
-                            </div>
-                        </form>
-                        
-                        <div id="formSuccess" style="display: none; margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.2); border-radius: 8px;">
-                            Report inviato! Controlla la tua email.
-                        </div>
-                    </div>
-
-                    <!-- Disclaimer -->
-                    <div class="disclaimer">
-                        <strong>Nota:</strong> Questa è una stima basata su medie di settore e dati aggregati da 50+ implementazioni. 
-                        I risultati effettivi possono variare in base alla specifica situazione aziendale, alla qualità dell'implementazione 
-                        e all'impegno organizzativo. PugliAI offre garanzie contrattuali sui risultati per progetti enterprise.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Calculate Button (Mobile) -->
-            <div style="position: fixed; bottom: 20px; left: 20px; right: 20px; z-index: 100; display: none;" id="mobileCalculateBtn">
-                <button onclick="calculateROI()" class="btn btn-primary btn-lg" style="width: 100%;">
-                    Calcola ROI →
-                </button>
+            <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); border: 2px solid var(--accent-gold); text-align: center;">
+                <h3 class="heading-3 mb-md">Il Costo del Non Agire</h3>
+                <p class="body-large" style="color: var(--text-primary);">
+                    Ogni mese di ritardo costa alla tua azienda circa
+                    <span id="monthlyCost" style="font-size: 2rem; font-weight: 700; color: var(--accent-gold); display: block; margin: 1rem 0;">
+                        €0
+                    </span>
+                    in opportunità perse e inefficienze operative
+                </p>
             </div>
         </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-banner">
+        <div class="container cta-banner-content">
+            <h2 class="heading-2">Trasforma Questi Numeri in Realtà</h2>
+            <p class="body-large">
+                Prenota una sessione strategica gratuita e ricevi un'analisi ROI personalizzata completa
+            </p>
+            <div style="text-align: center;">
+                <a href="contatti.html" class="btn btn-primary btn-lg">
+                    Prenota Analisi Gratuita →
+                </a>
+            </div>
+        </div>
+    </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="src/assets/img/pugliai_pittogramma.png" alt="PugliAI - Logo aziendale" class="footer-logo-img">
+                </div>
+                <div class="footer-links" role="navigation" aria-label="Link footer">
+                    <a href="infrastrutture-ai.html" class="footer-link">Infrastrutture AI</a>
+                    <a href="agenti-ai.html" class="footer-link">Agenti AI</a>
+                    <a href="consulenza-strategica.html" class="footer-link">Consulenza</a>
+                    <a href="chi-siamo.html" class="footer-link">Chi Siamo</a>
+                    <a href="contatti.html" class="footer-link">Contatti</a>
+                </div>
                 <div class="footer-text">
                     <p>&copy; 2025 PugliAI S.r.l. - P.IVA IT02735920742</p>
-                    <p>
-                        <a href="privacy.html" class="footer-link">Privacy</a> | 
-                        <a href="cookie.html" class="footer-link">Cookie</a> | 
-                        <a href="termini.html" class="footer-link">Termini</a>
-                    </p>
+                    <p>Via Giovanni Forleo 45, 72022 Latiano (BR) | Via Angelo Maj 16, 24121 Bergamo</p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Torna all'inizio della pagina" title="Torna su">↑</button>
+
+    <!-- Scripts -->
     <script>
-        // Industry presets data
-        const industryData = {
-            manufacturing: {
-                repetitiveWork: 45,
-                errorRate: 8,
-                automationPotential: 0.35,
-                revenueIncrease: 0.15,
-                processes: ['operations', 'supply-chain', 'quality'],
-                goals: ['cost-reduction', 'efficiency', 'quality']
-            },
-            fashion: {
-                repetitiveWork: 35,
-                errorRate: 5,
-                automationPotential: 0.30,
-                revenueIncrease: 0.25,
-                processes: ['marketing', 'sales', 'supply-chain'],
-                goals: ['revenue-growth', 'innovation', 'speed']
-            },
-            finance: {
-                repetitiveWork: 50,
-                errorRate: 3,
-                automationPotential: 0.40,
-                revenueIncrease: 0.20,
-                processes: ['operations', 'finance', 'customer-service'],
-                goals: ['efficiency', 'cost-reduction', 'quality']
-            },
-            retail: {
-                repetitiveWork: 40,
-                errorRate: 6,
-                automationPotential: 0.32,
-                revenueIncrease: 0.22,
-                processes: ['customer-service', 'marketing', 'operations'],
-                goals: ['revenue-growth', 'efficiency', 'speed']
-            },
-            healthcare: {
-                repetitiveWork: 35,
-                errorRate: 4,
-                automationPotential: 0.28,
-                revenueIncrease: 0.18,
-                processes: ['operations', 'quality', 'hr'],
-                goals: ['quality', 'efficiency', 'cost-reduction']
-            },
-            other: {
-                repetitiveWork: 30,
-                errorRate: 5,
-                automationPotential: 0.25,
-                revenueIncrease: 0.15,
-                processes: [],
-                goals: []
-            }
-        };
+        // Industry selection
+        let selectedIndustry = null;
+        const industryOptions = document.querySelectorAll('.industry-option');
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            setupEventListeners();
-            initializeTooltips();
-            loadCalculatorState();
-
-            // Check if mobile
-            if (window.innerWidth <= 768) {
-                document.getElementById('mobileCalculateBtn').style.display = 'block';
-            }
-
-            // Initial calculation after everything is loaded
-            setTimeout(calculateROI, 100);
+        industryOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                industryOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                selectedIndustry = option.dataset;
+            });
         });
 
-        function setupEventListeners() {
-            // Industry preset selection
-            document.querySelectorAll('.preset-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    document.querySelectorAll('.preset-card').forEach(c => c.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const industry = this.dataset.industry;
-                    if (industry && industryData[industry]) {
-                        loadIndustryPreset(industry);
-                    }
-                });
-            });
+        // Range sliders
+        const processesSlider = document.getElementById('processes');
+        const processesValue = document.getElementById('processesValue');
+        const efficiencySlider = document.getElementById('efficiency');
+        const efficiencyValue = document.getElementById('efficiencyValue');
 
-            // Toggle buttons
-            document.querySelectorAll('.toggle-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    calculateROI();
-                });
-            });
+        processesSlider.addEventListener('input', () => {
+            processesValue.textContent = processesSlider.value;
+        });
 
-            // Range sliders - add both input and change events
-            const repetitiveWorkSlider = document.getElementById('repetitiveWork');
-            const errorRateSlider = document.getElementById('errorRate');
+        efficiencySlider.addEventListener('input', () => {
+            efficiencyValue.textContent = efficiencySlider.value;
+        });
 
-            repetitiveWorkSlider.addEventListener('input', function() {
-                document.getElementById('repetitiveWorkValue').textContent = this.value + '%';
-                saveCalculatorState();
-                calculateROI();
-            });
-            repetitiveWorkSlider.addEventListener('change', function() {
-                document.getElementById('repetitiveWorkValue').textContent = this.value + '%';
-                saveCalculatorState();
-                calculateROI();
-            });
-
-            errorRateSlider.addEventListener('input', function() {
-                document.getElementById('errorRateValue').textContent = this.value + '%';
-                saveCalculatorState();
-                calculateROI();
-            });
-            errorRateSlider.addEventListener('change', function() {
-                document.getElementById('errorRateValue').textContent = this.value + '%';
-                saveCalculatorState();
-                calculateROI();
-            });
-
-            // Input fields - use both 'input' and 'change' events for real-time updates
-            document.querySelectorAll('.input-field').forEach(input => {
-                input.addEventListener('input', function() {
-                    saveCalculatorState();
-                    calculateROI();
-                });
-                input.addEventListener('change', function() {
-                    saveCalculatorState();
-                    calculateROI();
-                });
-            });
-
-            // Lead form
-            document.getElementById('leadForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                submitLeadForm();
-            });
-        }
-
-        function loadIndustryPreset(industry) {
-            const preset = industryData[industry];
-            
-            // Set values
-            document.getElementById('repetitiveWork').value = preset.repetitiveWork;
-            document.getElementById('repetitiveWorkValue').textContent = preset.repetitiveWork + '%';
-            
-            document.getElementById('errorRate').value = preset.errorRate;
-            document.getElementById('errorRateValue').textContent = preset.errorRate + '%';
-            
-            // Clear all toggles
-            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
-            
-            // Set processes
-            preset.processes.forEach(process => {
-                const btn = document.querySelector(`[data-process="${process}"]`);
-                if (btn) btn.classList.add('active');
-            });
-            
-            // Set goals
-            preset.goals.forEach(goal => {
-                const btn = document.querySelector(`[data-goal="${goal}"]`);
-                if (btn) btn.classList.add('active');
-            });
-            
-            calculateROI();
-        }
-
+        // ROI Calculation
         function calculateROI() {
-            console.log('calculateROI() called');
-
-            // Get input values
-            const revenue = parseFloat(document.getElementById('revenue').value) || 0;
-            const employees = parseInt(document.getElementById('employees').value) || 0;
-            const avgSalary = parseFloat(document.getElementById('avgSalary').value) || 45000;
-            const repetitiveWork = parseFloat(document.getElementById('repetitiveWork').value) / 100;
-            const errorRate = parseFloat(document.getElementById('errorRate').value) / 100;
-            const decisionTime = parseInt(document.getElementById('decisionTime').value) || 7;
-            const errorCost = parseFloat(document.getElementById('errorCost').value) || 0;
-
-            console.log('Input values:', {
-                revenue, employees, avgSalary, repetitiveWork, errorRate, decisionTime, errorCost
-            });
-            
-            // Get selected processes and goals
-            const selectedProcesses = document.querySelectorAll('#processes .toggle-btn.active').length;
-            const selectedGoals = document.querySelectorAll('#goals .toggle-btn.active').length;
-
-            console.log('Selected processes:', selectedProcesses, 'Selected goals:', selectedGoals);
-
-            // Validation - show partial results even with incomplete data
-            let validationMessage = '';
-            if (revenue < 1000000) {
-                validationMessage = 'Inserisci un fatturato minimo di €1M per risultati accurati';
-            } else if (employees < 10) {
-                validationMessage = 'Inserisci almeno 10 dipendenti per risultati accurati';
-            }
-
-            console.log('Validation message:', validationMessage);
-
-            // If critical values are missing, show placeholder
-            if (revenue === 0 || employees === 0) {
-                console.log('Critical values missing, clearing results');
-                document.getElementById('roiYear1').textContent = '--';
-                document.getElementById('roiSubtitle').textContent = 'Compila i campi per vedere il calcolo';
-                clearResults();
+            if (!selectedIndustry) {
+                alert('Seleziona il tuo settore di appartenenza');
                 return;
             }
 
-            console.log('Proceeding with calculation...');
-            
-            // Calculate savings components
-            const totalSalaryBase = employees * avgSalary;
-            
-            // 1. Process Automation Savings
-            const automationEfficiency = 0.7; // AI can automate 70% of repetitive work
-            const processMultiplier = 1 + (selectedProcesses * 0.1); // More processes = more savings
-            const automationSavings = totalSalaryBase * repetitiveWork * automationEfficiency * processMultiplier * 0.3;
-            
-            // 2. Error Reduction Savings
-            const errorReduction = 0.85; // AI reduces errors by 85%
-            const errorSavings = errorCost * errorReduction;
-            
-            // 3. Decision Speed Improvement
-            const decisionImprovement = 0.6; // 60% faster decisions
-            const decisionValue = revenue * 0.02 * (decisionTime / 7) * decisionImprovement; // 2% revenue impact per week of delay
-            
-            // 4. New Revenue Opportunities
-            const revenueMultiplier = 1 + (selectedGoals * 0.05); // More goals = more opportunities
-            const hasRevenueGoal = document.querySelector('[data-goal="revenue-growth"].active');
-            const baseRevenueIncrease = hasRevenueGoal ? 0.08 : 0.04; // 8% if revenue is a goal, 4% otherwise
-            const newRevenueValue = revenue * baseRevenueIncrease * revenueMultiplier;
-            
-            // Calculate totals
-            const totalYear1Benefits = automationSavings + errorSavings + decisionValue + newRevenueValue;
-            
-            // Investment estimation (varies by company size)
-            const investmentBase = revenue * 0.01; // 1% of revenue as baseline
-            const investmentScaling = Math.min(500000, investmentBase); // Cap at €500k for year 1
-            const totalInvestment = investmentScaling;
-            
-            // ROI Calculation
-            const netBenefit = totalYear1Benefits - totalInvestment;
-            const roi = (netBenefit / totalInvestment) * 100;
-            const paybackMonths = Math.ceil((totalInvestment / totalYear1Benefits) * 12);
+            const revenue = parseFloat(document.getElementById('revenue').value) || 0;
+            const employees = parseInt(document.getElementById('employees').value) || 0;
+            const processes = parseInt(document.getElementById('processes').value);
+            const weeklyHours = parseInt(document.getElementById('efficiency').value);
 
-            const calculationResults = {
-                roi: roi,
-                totalBenefits: totalYear1Benefits,
-                automationSavings: automationSavings,
-                errorSavings: errorSavings,
-                decisionValue: decisionValue,
-                newRevenue: newRevenueValue,
-                investment: totalInvestment,
-                netBenefit: netBenefit,
-                paybackMonths: paybackMonths,
-                efficiencyGain: repetitiveWork * automationEfficiency * 100,
-                validationMessage: validationMessage
-            };
+            // Industry-specific multipliers
+            const savingsRate = parseFloat(selectedIndustry.savings) / 100;
+            const revenueGrowth = parseFloat(selectedIndustry.revenue) / 100;
 
-            console.log('Final calculation results:', calculationResults);
+            // Calculate savings
+            const avgSalary = 35000; // Average Italian salary
+            const hourlyRate = avgSalary / (52 * 40);
+            const annualHoursSaved = weeklyHours * 52 * 0.7; // 70% automation rate
+            const laborSavings = annualHoursSaved * hourlyRate * (employees * 0.3); // 30% of employees affected
+            const operationalSavings = revenue * savingsRate * 0.4; // 40% of potential savings realized
+            const totalSavings = laborSavings + operationalSavings;
 
-            // Update UI
-            updateResults(calculationResults);
-        }
+            // Calculate revenue increase
+            const revenueIncrease = revenue * revenueGrowth;
 
-        function clearResults() {
-            const clearElements = [
-                'savingsValue', 'revenueIncreaseValue', 'efficiencyValue', 'paybackValue',
-                'automationSavings', 'errorReductionSavings', 'decisionSavings', 'newRevenue',
-                'year1Total', 'year2Total', 'year3Total', 'total3Years'
-            ];
-
-            clearElements.forEach(id => {
-                const element = document.getElementById(id);
-                if (element) element.textContent = '--';
-            });
-
-            // Clear progress bars
-            const progressBars = ['automationBar', 'errorBar', 'decisionBar', 'revenueBar'];
-            progressBars.forEach(id => {
-                const element = document.getElementById(id);
-                if (element) element.style.width = '0%';
-            });
-        }
-
-        function updateResults(results) {
-            // Format numbers
-            const formatCurrency = (num) => {
-                if (num >= 1000000) {
-                    return '€' + (num / 1000000).toFixed(1) + 'M';
-                } else if (num >= 1000) {
-                    return '€' + (num / 1000).toFixed(0) + 'k';
-                } else {
-                    return '€' + num.toFixed(0);
-                }
-            };
-            
-            // Main ROI
-            const roiElement = document.getElementById('roiYear1');
-            const subtitleElement = document.getElementById('roiSubtitle');
-
-            if (isNaN(results.roi) || !isFinite(results.roi)) {
-                roiElement.textContent = '--';
-                subtitleElement.textContent = 'Verifica i dati inseriti';
-            } else {
-                roiElement.textContent = Math.round(results.roi) + '%';
-                subtitleElement.textContent = results.validationMessage ||
-                    `Valore netto: ${formatCurrency(results.netBenefit)} nel primo anno`;
+            // Calculate investment
+            let investment = 75000; // Default starter
+            let packageName = "AI Starter";
+            if (revenue > 50000000 || employees > 500) {
+                investment = 500000;
+                packageName = "Enterprise Plus";
+            } else if (revenue > 10000000 || employees > 100) {
+                investment = 250000;
+                packageName = "Enterprise AI";
             }
-            
-            // Metrics - with safety checks
-            document.getElementById('savingsValue').textContent =
-                formatCurrency((results.automationSavings || 0) + (results.errorSavings || 0));
-            document.getElementById('revenueIncreaseValue').textContent =
-                formatCurrency(results.newRevenue || 0);
-            document.getElementById('efficiencyValue').textContent =
-                Math.round(results.efficiencyGain || 0) + '%';
-            document.getElementById('paybackValue').textContent =
-                (results.paybackMonths && isFinite(results.paybackMonths) ? results.paybackMonths + ' mesi' : 'N/A');
-            
-            // Breakdown bars - with safety checks
-            const maxValue = Math.max(
-                results.automationSavings || 0,
-                results.errorSavings || 0,
-                results.decisionValue || 0,
-                results.newRevenue || 0,
-                1 // Prevent division by zero
-            );
 
-            const updateBreakdownBar = (valueId, barId, value) => {
-                const element = document.getElementById(valueId);
-                const bar = document.getElementById(barId);
-                if (element && bar) {
-                    element.textContent = formatCurrency(value || 0);
-                    const percentage = ((value || 0) / maxValue * 100);
-                    bar.style.width = (isFinite(percentage) ? percentage : 0) + '%';
-                }
-            };
+            // Calculate ROI
+            const totalBenefit = totalSavings + revenueIncrease;
+            const roi = ((totalBenefit - investment) / investment) * 100;
+            const paybackMonths = Math.ceil((investment / totalBenefit) * 12);
 
-            updateBreakdownBar('automationSavings', 'automationBar', results.automationSavings);
-            updateBreakdownBar('errorReductionSavings', 'errorBar', results.errorSavings);
-            updateBreakdownBar('decisionSavings', 'decisionBar', results.decisionValue);
-            updateBreakdownBar('newRevenue', 'revenueBar', results.newRevenue);
-            
-            // 3-year projection (with compound growth) - with safety checks
-            const totalBenefits = results.totalBenefits || 0;
-            const investment = results.investment || 0;
+            // Update results
+            document.getElementById('annualSavings').textContent = '€' + formatNumber(Math.round(totalSavings));
+            document.getElementById('revenueIncrease').textContent = '€' + formatNumber(Math.round(revenueIncrease));
+            document.getElementById('roiPercentage').textContent = Math.round(roi) + '%';
+            document.getElementById('paybackTime').textContent = paybackMonths + ' mesi';
+            document.getElementById('hoursFreed').textContent = formatNumber(Math.round(annualHoursSaved));
+            document.getElementById('recommendedPackage').textContent =
+                `Basato sui tuoi dati, consigliamo il pacchetto ${packageName} (€${formatNumber(investment)})
+                con un ritorno stimato di €${formatNumber(Math.round(totalBenefit))} nel primo anno.`;
 
-            const year1 = totalBenefits - investment;
-            const year2 = totalBenefits * 1.3 - (investment * 0.5); // 30% improvement, 50% investment
-            const year3 = totalBenefits * 1.6 - (investment * 0.3); // 60% improvement, 30% investment
+            // Update comparison
+            const revenueWithoutAI = revenue * Math.pow(1.05, 3); // 5% growth
+            const revenueWithAI = revenue * Math.pow(1.25, 3); // 25% growth
+            document.getElementById('revenueWithoutAI').textContent = '€' + formatNumber(Math.round(revenueWithoutAI));
+            document.getElementById('revenueWithAI').textContent = '€' + formatNumber(Math.round(revenueWithAI));
 
-            const updateYearValue = (elementId, value) => {
-                const element = document.getElementById(elementId);
-                if (element) {
-                    element.textContent = formatCurrency(isFinite(value) ? value : 0);
-                }
-            };
+            // Monthly cost of delay
+            const monthlyCost = totalBenefit / 12;
+            document.getElementById('monthlyCost').textContent = '€' + formatNumber(Math.round(monthlyCost));
 
-            updateYearValue('year1Total', year1);
-            updateYearValue('year2Total', year2);
-            updateYearValue('year3Total', year3);
-            updateYearValue('total3Years', year1 + year2 + year3);
+            // Show results
+            document.getElementById('resultsCard').style.display = 'block';
+            document.getElementById('initialMessage').style.display = 'none';
         }
 
-        function submitLeadForm() {
-            const formData = {
-                email: document.getElementById('email').value,
-                name: document.getElementById('name').value,
-                company: document.getElementById('company').value,
-                phone: document.getElementById('phone').value,
-                revenue: document.getElementById('revenue').value,
-                employees: document.getElementById('employees').value,
-                roi: document.getElementById('roiYear1').textContent,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Here you would send to your backend
-            console.log('Lead captured:', formData);
-            
-            // Show success message
-            document.getElementById('leadForm').style.display = 'none';
-            document.getElementById('formSuccess').style.display = 'block';
-            
-            // Track conversion
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'generate_lead', {
-                    'event_category': 'roi_calculator',
-                    'event_label': 'detailed_report',
-                    'value': parseFloat(document.getElementById('revenue').value)
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        function shareResults() {
+            const roi = document.getElementById('roiPercentage').textContent;
+            const savings = document.getElementById('annualSavings').textContent;
+            const text = `Ho appena calcolato il mio ROI potenziale con l'AI di PugliAI: ${roi} di ritorno e ${savings} di risparmio annuale! Calcola anche tu: https://www.pugliai.com/roi-calculator.html`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Il mio ROI con PugliAI',
+                    text: text,
+                    url: window.location.href
                 });
+            } else {
+                navigator.clipboard.writeText(text);
+                alert('Risultati copiati negli appunti!');
             }
         }
 
-        function initializeTooltips() {
-            // Tooltips are handled via CSS hover
+        // Mobile menu and other standard scripts
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (mobileMenuToggle && navMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
         }
 
-        // Auto-save to localStorage
-        function saveCalculatorState() {
-            const state = {
-                revenue: document.getElementById('revenue').value,
-                employees: document.getElementById('employees').value,
-                avgSalary: document.getElementById('avgSalary').value,
-                repetitiveWork: document.getElementById('repetitiveWork').value,
-                errorRate: document.getElementById('errorRate').value,
-                decisionTime: document.getElementById('decisionTime').value,
-                errorCost: document.getElementById('errorCost').value
-            };
-            localStorage.setItem('roiCalculatorState', JSON.stringify(state));
-        }
-
-        // Load saved state
-        function loadCalculatorState() {
-            const saved = localStorage.getItem('roiCalculatorState');
-            if (saved) {
-                try {
-                    const state = JSON.parse(saved);
-                    Object.keys(state).forEach(key => {
-                        const element = document.getElementById(key);
-                        if (element && state[key]) {
-                            element.value = state[key];
-
-                            // Update range slider display values
-                            if (key === 'repetitiveWork') {
-                                document.getElementById('repetitiveWorkValue').textContent = state[key] + '%';
-                            } else if (key === 'errorRate') {
-                                document.getElementById('errorRateValue').textContent = state[key] + '%';
-                            }
-                        }
-                    });
-                } catch (e) {
-                    console.warn('Could not load saved calculator state:', e);
-                }
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
             }
-        }
+        });
 
-        // Note: Save state and load state are now handled in the main event listeners above
-        // This prevents duplicate event listeners and timing issues
-
-        // Debug function - can be called from browser console
-        window.testROICalculator = function(testData = {}) {
-            console.log('Testing ROI Calculator with:', testData);
-
-            // Set default test values
-            const defaults = {
-                revenue: 10000000,      // €10M
-                employees: 100,
-                avgSalary: 45000,
-                repetitiveWork: 30,
-                errorRate: 5,
-                decisionTime: 7,
-                errorCost: 200000
-            };
-
-            const values = { ...defaults, ...testData };
-
-            // Fill form fields
-            Object.keys(values).forEach(key => {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.value = values[key];
-                    // Trigger events
-                    element.dispatchEvent(new Event('input'));
-                    element.dispatchEvent(new Event('change'));
-
-                    // Update range slider displays
-                    if (key === 'repetitiveWork') {
-                        document.getElementById('repetitiveWorkValue').textContent = values[key] + '%';
-                    } else if (key === 'errorRate') {
-                        document.getElementById('errorRateValue').textContent = values[key] + '%';
-                    }
-                }
-            });
-
-            // Select some processes and goals for testing
-            const testProcesses = ['customer-service', 'operations', 'marketing'];
-            const testGoals = ['cost-reduction', 'efficiency', 'revenue-growth'];
-
-            testProcesses.forEach(process => {
-                const btn = document.querySelector(`[data-process="${process}"]`);
-                if (btn) btn.classList.add('active');
-            });
-
-            testGoals.forEach(goal => {
-                const btn = document.querySelector(`[data-goal="${goal}"]`);
-                if (btn) btn.classList.add('active');
-            });
-
-            // Trigger calculation
-            setTimeout(calculateROI, 100);
-
-            console.log('Test data applied, calculation triggered');
-        };
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
