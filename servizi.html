@@ -14,18 +14,573 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servizi AI Enterprise - PugliAI | Infrastrutture, Agenti e Consulenza</title>
     <meta name="description" content="Servizi AI completi per grandi aziende: infrastrutture scalabili, agenti intelligenti e consulenza strategica. Trasforma il tuo business con PugliAI.">
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content="Servizi AI Enterprise - PugliAI">
     <meta property="og:description" content="Infrastrutture AI, agenti intelligenti e consulenza strategica per la trasformazione digitale">
-    
+
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="src/assets/css/stylesheet.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <style>
+        /* Enhanced navbar styles for this page */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-cta {
+            background: var(--gradient-gold);
+            color: var(--primary-navy);
+            padding: 0.625rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Hero section with animated background */
+        .hero-section {
+            padding: 10rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            animation: gradient-shift 20s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20px, -20px) scale(1.1); }
+            66% { transform: translate(20px, -10px) scale(0.95); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-gold) 50%, var(--accent-emerald) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Enhanced service cards */
+        .services-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .services-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .services-intro h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .services-intro p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .enhanced-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .enhanced-service-card {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, var(--glass-bg) 0%, rgba(255, 255, 255, 0.05) 100%);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .enhanced-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .enhanced-service-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .enhanced-service-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.4);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+        }
+
+        .enhanced-service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .enhanced-service-card:hover::after {
+            opacity: 1;
+        }
+
+        .service-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-gold);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .enhanced-service-card:hover .service-icon-wrapper {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0 12px 32px rgba(255, 215, 0, 0.4);
+        }
+
+        .service-icon-wrapper svg {
+            width: 48px;
+            height: 48px;
+            color: var(--primary-navy);
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .enhanced-service-card:hover .service-features li {
+            color: var(--text-primary);
+            transform: translateX(4px);
+        }
+
+        .service-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+
+        .service-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-action svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .enhanced-service-card:hover .service-action {
+            gap: 1rem;
+        }
+
+        .enhanced-service-card:hover .service-action svg {
+            transform: translateX(4px);
+        }
+
+        /* Trust indicators section */
+        .trust-section {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .trust-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trust-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--accent-gold);
+        }
+
+        .trust-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .trust-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 4rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border: 2px solid var(--glass-border);
+            border-radius: 2rem;
+            position: relative;
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+        }
+
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-gold);
+            border-radius: 2rem;
+            opacity: 0.5;
+            z-index: -1;
+            animation: pulse-border 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.01); }
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--gradient-gold);
+            color: var(--primary-navy);
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--glass-border);
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-secondary:hover {
+            background: var(--glass-bg);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .enhanced-services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-container {
+                padding: 2rem;
+            }
+
+            .cta-title {
+                font-size: 1.875rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -44,117 +599,218 @@
                 </li>
                 <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
             </ul>
-            <a href="contatti.html" class="nav-cta">Contattaci</a>
+            <a href="contatti.html" class="nav-cta">Inizia Ora</a>
         </div>
     </nav>
 
-    <main class="page-header">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            <div class="page-badge">Servizi Enterprise</div>
-            <h1>Trasforma il tuo Business con l'AI</h1>
-            <p class="page-description">Infrastrutture scalabili, agenti intelligenti e consulenza strategica per guidare la trasformazione digitale della tua azienda</p>
-        </div>
-    </main>
-
-    <section class="services-overview">
-        <div class="container">
-            <div class="services-grid">
-                <!-- AI Infrastructure -->
-                <a href="infrastrutture-ai.html" class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="4" y="14" width="16" height="8" stroke="currentColor" stroke-width="2"/>
-                                <path d="M8 14V10" stroke="currentColor" stroke-width="2"/>
-                                <path d="M12 14V8" stroke="currentColor" stroke-width="2"/>
-                                <path d="M16 14V6" stroke="currentColor" stroke-width="2"/>
-                                <path d="M12 8L8 10" stroke="currentColor" stroke-width="2"/>
-                                <path d="M12 8L16 6" stroke="currentColor" stroke-width="2"/>
-                                <path d="M2 22H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Infrastrutture AI</h3>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                    </svg>
+                    <span>Servizi Enterprise AI</span>
+                </div>
+                <h1 class="hero-title">Potenzia il Futuro della Tua Azienda con l'Intelligenza Artificiale</h1>
+                <p class="hero-description">
+                    Soluzioni AI end-to-end progettate per trasformare radicalmente il modo in cui la tua azienda
+                    opera, compete e innova nel mercato digitale globale.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Progetti Completati</div>
                     </div>
-                    <div class="service-body">
+                    <div class="stat-item">
+                        <div class="stat-number">45%</div>
+                        <div class="stat-label">ROI Medio</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Supporto Dedicato</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="services-intro">
+                <h2>I Nostri Servizi Premium</h2>
+                <p>Soluzioni AI complete e personalizzate per accelerare la crescita e l'innovazione della tua azienda</p>
+            </div>
+
+            <div class="enhanced-services-grid">
+                <!-- AI Infrastructure -->
+                <a href="infrastrutture-ai.html" class="enhanced-service-card">
+                    <div class="service-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="4" y="14" width="16" height="8"/>
+                            <path d="M8 14V10M12 14V8M16 14V6"/>
+                            <path d="M12 8L8 10M12 8L16 6"/>
+                            <path d="M2 22H22" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Infrastrutture AI Enterprise</h3>
                         <p class="service-description">
-                            Progettiamo e implementiamo infrastrutture AI scalabili, sicure e performanti, 
-                            ottimizzate per le esigenze enterprise e pronte per il futuro.
+                            Architetture AI scalabili e sicure che crescono con il tuo business.
+                            Progettiamo e implementiamo soluzioni cloud-native ottimizzate per performance eccezionali.
                         </p>
-                        <ul class="service-highlights">
-                            <li>Architetture cloud-native (AWS, Azure, GCP)</li>
-                            <li>Piattaforme MLOps per automazione</li>
-                            <li>Data lake e data warehouse moderni</li>
-                            <li>GPU cluster per training intensivo</li>
-                            <li>Sicurezza e compliance by design</li>
+                        <ul class="service-features">
+                            <li>Architetture multi-cloud (AWS, Azure, GCP)</li>
+                            <li>Pipeline MLOps automatizzate</li>
+                            <li>Data lake e warehouse integrati</li>
+                            <li>Infrastrutture GPU ad alte prestazioni</li>
+                            <li>Security & compliance enterprise</li>
                         </ul>
-                        <span class="service-cta">
-                            Scopri di più →
-                        </span>
+                    </div>
+                    <div class="service-action">
+                        <span>Esplora le soluzioni</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
                 </a>
 
                 <!-- AI Agents -->
-                <a href="agenti-ai.html" class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="8" cy="16" r="1.5" fill="currentColor"/>
-                                <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
-                                <path d="M8 11V9C8 7.89543 8.89543 7 10 7H14C15.1046 7 16 7.89543 16 9V11" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="12" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
-                                <path d="M6 4H8M16 4H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Agenti AI</h3>
+                <a href="agenti-ai.html" class="enhanced-service-card">
+                    <div class="service-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="10" rx="2"/>
+                            <circle cx="8" cy="16" r="1.5" fill="currentColor"/>
+                            <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
+                            <path d="M8 11V9C8 7.89543 8.89543 7 10 7H14C15.1046 7 16 7.89543 16 9V11"/>
+                            <circle cx="12" cy="4" r="2"/>
+                            <path d="M6 4H8M16 4H18" stroke-linecap="round"/>
+                        </svg>
                     </div>
-                    <div class="service-body">
+                    <div class="service-content">
+                        <h3 class="service-title">Agenti AI Intelligenti</h3>
                         <p class="service-description">
-                            Sviluppiamo agenti AI intelligenti che automatizzano processi complessi, 
-                            migliorano l'efficienza operativa e creano esperienze cliente innovative 
-                            e personalizzate.
+                            Automazione avanzata che trasforma i processi aziendali.
+                            I nostri agenti AI lavorano 24/7 per ottimizzare operazioni e customer experience.
                         </p>
-                        <ul class="service-highlights">
-                            <li>Chatbot e assistenti virtuali multilingua</li>
-                            <li>Automazione processi RPA intelligente</li>
-                            <li>Computer vision e analisi immagini</li>
-                            <li>NLP avanzato per analisi documenti</li>
-                            <li>Sistemi di raccomandazione personalizzati</li>
+                        <ul class="service-features">
+                            <li>Assistenti virtuali conversazionali</li>
+                            <li>RPA cognitivo per automazione processi</li>
+                            <li>Computer vision per analisi visiva</li>
+                            <li>NLP per comprensione documentale</li>
+                            <li>Recommendation engine personalizzati</li>
                         </ul>
-                        <span class="service-cta">
-                            Scopri di più →
-                        </span>
+                    </div>
+                    <div class="service-action">
+                        <span>Scopri gli agenti AI</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
                 </a>
 
                 <!-- Strategic Consulting -->
-                <a href="consulenza-strategica.html" class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M7 16V12M12 16V8M17 16V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Consulenza Strategica</h3>
+                <a href="consulenza-strategica.html" class="enhanced-service-card">
+                    <div class="service-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3v18h18" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 16V12M12 16V8M17 16V4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
-                    <div class="service-body">
+                    <div class="service-content">
+                        <h3 class="service-title">Consulenza Strategica AI</h3>
                         <p class="service-description">
-                            Guidiamo la tua azienda nella definizione e implementazione di una strategia AI 
-                            vincente, dalla valutazione iniziale alla trasformazione completa del business.
+                            Guida esperta per la tua trasformazione digitale.
+                            Definiamo insieme la roadmap AI perfetta per i tuoi obiettivi di business.
                         </p>
-                        <ul class="service-highlights">
-                            <li>AI readiness assessment completo</li>
-                            <li>Roadmap strategica personalizzata</li>
-                            <li>ROI analysis e business case</li>
-                            <li>Formazione executive e team</li>
-                            <li>Change management e adoption</li>
+                        <ul class="service-features">
+                            <li>Assessment della maturità AI</li>
+                            <li>Strategia e roadmap personalizzate</li>
+                            <li>Business case e analisi ROI</li>
+                            <li>Formazione team e leadership</li>
+                            <li>Change management strutturato</li>
                         </ul>
-                        <span class="service-cta">
-                            Scopri di più →
-                        </span>
+                    </div>
+                    <div class="service-action">
+                        <span>Inizia la trasformazione</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <div class="trust-value">4.9/5</div>
+                    <div class="trust-label">Valutazione Clienti</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <div class="trust-value">100%</div>
+                    <div class="trust-label">Progetti Completati</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                        </svg>
+                    </div>
+                    <div class="trust-value">ISO</div>
+                    <div class="trust-label">Certificazioni</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                    </div>
+                    <div class="trust-value">48h</div>
+                    <div class="trust-label">Tempo Risposta</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h2 class="cta-title">Pronto a Rivoluzionare il Tuo Business?</h2>
+                <p class="cta-description">
+                    Scopri come l'intelligenza artificiale può trasformare la tua azienda.
+                    Parliamo dei tuoi obiettivi e definiamo insieme la strategia vincente.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contatti.html" class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        Richiedi Consulenza Gratuita
+                    </a>
+                    <a href="#" class="btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        Chiamaci Ora
+                    </a>
+                </div>
             </div>
         </div>
     </section>
