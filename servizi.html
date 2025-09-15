@@ -213,8 +213,14 @@
 
         .enhanced-services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .enhanced-services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .enhanced-service-card {
@@ -588,7 +594,14 @@
             <a href="index.html" class="nav-brand">PugliAI</a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="servizi.html" class="nav-link active">Servizi</a></li>
+                <li class="has-dropdown">
+                    <a href="servizi.html" class="nav-link active" aria-haspopup="true" aria-expanded="false">Servizi <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
+                    <ul class="dropdown-menu" role="menu" aria-label="Servizi submenu">
+                        <li role="none"><a href="infrastrutture-ai.html" class="dropdown-link" role="menuitem">Infrastrutture AI</a></li>
+                        <li role="none"><a href="agenti-ai.html" class="dropdown-link" role="menuitem">Agenti AI</a></li>
+                        <li role="none"><a href="consulenza-strategica.html" class="dropdown-link" role="menuitem">Consulenza Strategica</a></li>
+                    </ul>
+                </li>
                 <li class="has-dropdown">
                     <a href="settori.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Settori <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
                     <ul class="dropdown-menu" role="menu" aria-label="Settori submenu">
