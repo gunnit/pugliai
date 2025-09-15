@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POC Framework | PugliAI - Proof of Concept Strutturato</title>
+    <meta name="description" content="Il framework PugliAI per POC di successo: metodologia strutturata per validare soluzioni AI con rischio minimo e ROI massimo.">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+
+    <style>
+        /* POC Framework Specific Styles */
+        .poc-hero {
+            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .poc-hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 30% 50%, rgba(212, 160, 23, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(212, 160, 23, 0.2);
+            color: #D4A017;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #D4A017, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #94A3B8;
+            max-width: 800px;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .hero-feature {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-title {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-desc {
+            color: #94A3B8;
+            font-size: 0.9rem;
+        }
+
+        /* Process Timeline */
+        .timeline-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0A1628;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748B;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #D4A017 0%, #10B981 100%);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 0 3rem;
+        }
+
+        .timeline-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 48px;
+            background: white;
+            border: 3px solid #D4A017;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #0A1628;
+            font-size: 1.25rem;
+            z-index: 1;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-duration {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #F0F4F8;
+            color: #64748B;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: #64748B;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-deliverables {
+            border-top: 1px solid #E5E7EB;
+            padding-top: 1rem;
+        }
+
+        .deliverables-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 0.5rem;
+        }
+
+        .deliverables-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .deliverables-list li {
+            padding: 0.25rem 0;
+            color: #64748B;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .deliverables-list li::before {
+            content: '✓';
+            color: #10B981;
+            margin-right: 0.5rem;
+        }
+
+        /* Methodology Section */
+        .methodology-section {
+            padding: 4rem 0;
+            background: #F7F8FA;
+        }
+
+        .methodology-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .methodology-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+        }
+
+        .methodology-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .methodology-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #0A1628, #1E293B);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .methodology-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 1rem;
+        }
+
+        .methodology-description {
+            color: #64748B;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .methodology-checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .methodology-checklist li {
+            padding: 0.5rem 0;
+            color: #475569;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #F0F4F8;
+        }
+
+        /* Success Metrics */
+        .metrics-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .metrics-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
+            border-radius: 16px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(212, 160, 23, 0.2) 0%, transparent 70%);
+            top: -75px;
+            right: -75px;
+        }
+
+        .metric-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #D4A017;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #94A3B8;
+            font-size: 1rem;
+        }
+
+        /* Package Options */
+        .packages-section {
+            padding: 4rem 0;
+            background: #F7F8FA;
+        }
+
+        .packages-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid #E5E7EB;
+            transition: all 0.3s ease;
+        }
+
+        .package-card.featured {
+            border-color: #D4A017;
+            transform: scale(1.05);
+        }
+
+        .package-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-header {
+            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .package-card.featured .package-header {
+            background: linear-gradient(135deg, #D4A017 0%, #FFD700 100%);
+        }
+
+        .package-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-card.featured .package-name {
+            color: #0A1628;
+        }
+
+        .package-tagline {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        .package-card.featured .package-tagline {
+            color: rgba(10, 22, 40, 0.8);
+        }
+
+        .package-body {
+            padding: 2rem;
+        }
+
+        .package-price {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0A1628;
+        }
+
+        .price-period {
+            color: #64748B;
+            font-size: 0.9rem;
+        }
+
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            color: #475569;
+            border-bottom: 1px solid #F0F4F8;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: #10B981;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .package-cta {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #0A1628;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .package-card.featured .package-cta {
+            background: #D4A017;
+            color: #0A1628;
+        }
+
+        .package-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #10B981 0%, #D4A017 100%);
+            padding: 4rem 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn.primary {
+            background: white;
+            color: #0A1628;
+        }
+
+        .cta-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .timeline-line { display: none; }
+            .timeline-item { flex-direction: column !important; }
+            .timeline-content { padding: 0; }
+            .timeline-number { position: static; margin: 0 auto 1rem; }
+            .packages-grid { grid-template-columns: 1fr; }
+            .package-card.featured { transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">PugliAI</a>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="infrastrutture-ai.html">Infrastrutture AI</a></li>
+                <li><a href="consulenza-ai.html">Consulenza Strategica</a></li>
+                <li><a href="poc-framework.html" class="active">POC Framework</a></li>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="poc-hero">
+        <div class="hero-content">
+            <span class="hero-badge">Risk-Free Innovation</span>
+            <h1 class="hero-title">POC Framework Strutturato</h1>
+            <p class="hero-subtitle">
+                Validate le vostre idee AI con il nostro framework POC collaudato.
+                Da concept a production in 8 settimane con rischio minimo e risultati misurabili.
+                Metodologia agile, deliverables chiari e ROI garantito.
+            </p>
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">8 Settimane</div>
+                    <div class="feature-desc">Time to Value</div>
+                </div>
+                <div class="hero-feature">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">95%</div>
+                    <div class="feature-desc">Success Rate</div>
+                </div>
+                <div class="hero-feature">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-title">ROI Garantito</div>
+                    <div class="feature-desc">O Rimborso</div>
+                </div>
+                <div class="hero-feature">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">IP Protetta</div>
+                    <div class="feature-desc">100% Vostra</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="timeline-section">
+        <h2 class="section-title">Il Processo POC in 8 Settimane</h2>
+        <p class="section-subtitle">
+            Un percorso strutturato e collaudato per trasformare le vostre idee in soluzioni AI funzionanti
+        </p>
+
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Discovery & Assessment</h3>
+                        <span class="timeline-duration">Settimana 1-2</span>
+                        <p class="timeline-description">
+                            Analisi approfondita del vostro business case, identificazione KPI,
+                            valutazione dati disponibili e definizione success criteria.
+                            Workshop con stakeholder e mappatura processi esistenti.
+                        </p>
+                        <div class="timeline-deliverables">
+                            <p class="deliverables-title">Deliverables:</p>
+                            <ul class="deliverables-list">
+                                <li>Business Case Document</li>
+                                <li>Data Quality Assessment</li>
+                                <li>Technical Feasibility Report</li>
+                                <li>Success Metrics Definition</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Solution Design</h3>
+                        <span class="timeline-duration">Settimana 3</span>
+                        <p class="timeline-description">
+                            Progettazione architettura tecnica, selezione modelli AI,
+                            definizione pipeline dati e integration points.
+                            Creazione mockup e user journey mapping.
+                        </p>
+                        <div class="timeline-deliverables">
+                            <p class="deliverables-title">Deliverables:</p>
+                            <ul class="deliverables-list">
+                                <li>Solution Architecture Diagram</li>
+                                <li>AI Model Selection Report</li>
+                                <li>Integration Blueprint</li>
+                                <li>UI/UX Mockups</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">MVP Development</h3>
+                        <span class="timeline-duration">Settimana 4-6</span>
+                        <p class="timeline-description">
+                            Sviluppo MVP funzionante con core features.
+                            Training modelli AI, sviluppo API, creazione dashboard
+                            e implementazione logica business critical.
+                        </p>
+                        <div class="timeline-deliverables">
+                            <p class="deliverables-title">Deliverables:</p>
+                            <ul class="deliverables-list">
+                                <li>Working MVP Application</li>
+                                <li>Trained AI Models</li>
+                                <li>API Documentation</li>
+                                <li>Admin Dashboard</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <div class="timeline-content">
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Testing & Validation</h3>
+                        <span class="timeline-duration">Settimana 7</span>
+                        <p class="timeline-description">
+                            Testing con dati reali, validazione performance,
+                            user acceptance testing e ottimizzazione.
+                            Raccolta feedback e fine-tuning modelli.
+                        </p>
+                        <div class="timeline-deliverables">
+                            <p class="deliverables-title">Deliverables:</p>
+                            <ul class="deliverables-list">
+                                <li>Performance Test Results</li>
+                                <li>UAT Report</li>
+                                <li>Model Accuracy Metrics</li>
+                                <li>Optimization Recommendations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">5</div>
+                <div class="timeline-content">
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Deployment & Handover</h3>
+                        <span class="timeline-duration">Settimana 8</span>
+                        <p class="timeline-description">
+                            Deploy in ambiente production-ready, training team,
+                            documentazione completa e piano di scale-up.
+                            Support post-deployment e knowledge transfer.
+                        </p>
+                        <div class="timeline-deliverables">
+                            <p class="deliverables-title">Deliverables:</p>
+                            <ul class="deliverables-list">
+                                <li>Production Deployment</li>
+                                <li>Technical Documentation</li>
+                                <li>Training Materials</li>
+                                <li>Scale-up Roadmap</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="methodology-section">
+        <h2 class="section-title">Metodologia Collaudata</h2>
+        <p class="section-subtitle">
+            Approccio sistematico per garantire successo e valore misurabile
+        </p>
+
+        <div class="methodology-grid">
+            <div class="methodology-card">
+                <div class="methodology-icon">🎯</div>
+                <h3 class="methodology-title">Goal-Driven Approach</h3>
+                <p class="methodology-description">
+                    Ogni POC inizia con obiettivi chiari e misurabili.
+                    Definiamo KPI specifici e success criteria prima di iniziare.
+                </p>
+                <ul class="methodology-checklist">
+                    <li>Business objectives alignment</li>
+                    <li>SMART goals definition</li>
+                    <li>ROI targets setting</li>
+                    <li>Risk assessment</li>
+                </ul>
+            </div>
+
+            <div class="methodology-card">
+                <div class="methodology-icon">🔄</div>
+                <h3 class="methodology-title">Agile Iterations</h3>
+                <p class="methodology-description">
+                    Sprint settimanali con demo e feedback continuo.
+                    Adattiamo rapidamente in base ai risultati.
+                </p>
+                <ul class="methodology-checklist">
+                    <li>Weekly sprint reviews</li>
+                    <li>Continuous stakeholder feedback</li>
+                    <li>Rapid prototyping</li>
+                    <li>Fail-fast mentality</li>
+                </ul>
+            </div>
+
+            <div class="methodology-card">
+                <div class="methodology-icon">📊</div>
+                <h3 class="methodology-title">Data-Centric Design</h3>
+                <p class="methodology-description">
+                    I dati guidano ogni decisione. Validazione continua
+                    con metriche reali e A/B testing.
+                </p>
+                <ul class="methodology-checklist">
+                    <li>Data quality assessment</li>
+                    <li>Performance benchmarking</li>
+                    <li>A/B testing framework</li>
+                    <li>Continuous monitoring</li>
+                </ul>
+            </div>
+
+            <div class="methodology-card">
+                <div class="methodology-icon">🤝</div>
+                <h3 class="methodology-title">Collaborative Process</h3>
+                <p class="methodology-description">
+                    Il vostro team lavora fianco a fianco con i nostri esperti.
+                    Knowledge transfer continuo per autonomia post-POC.
+                </p>
+                <ul class="methodology-checklist">
+                    <li>Joint working sessions</li>
+                    <li>Skills transfer program</li>
+                    <li>Documentation as code</li>
+                    <li>Team empowerment</li>
+                </ul>
+            </div>
+
+            <div class="methodology-card">
+                <div class="methodology-icon">🔒</div>
+                <h3 class="methodology-title">Security First</h3>
+                <p class="methodology-description">
+                    Security e compliance integrate dal Day 1.
+                    GDPR compliance e data protection by design.
+                </p>
+                <ul class="methodology-checklist">
+                    <li>Security assessment</li>
+                    <li>GDPR compliance check</li>
+                    <li>Encryption standards</li>
+                    <li>Access control setup</li>
+                </ul>
+            </div>
+
+            <div class="methodology-card">
+                <div class="methodology-icon">🚀</div>
+                <h3 class="methodology-title">Production Ready</h3>
+                <p class="methodology-description">
+                    POC sviluppati con standard production.
+                    Codice scalabile e infrastruttura enterprise-grade.
+                </p>
+                <ul class="methodology-checklist">
+                    <li>Production-grade code</li>
+                    <li>Scalability planning</li>
+                    <li>CI/CD pipeline setup</li>
+                    <li>Monitoring & logging</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics -->
+    <section class="metrics-section">
+        <h2 class="section-title">Track Record di Successo</h2>
+        <p class="section-subtitle">
+            Numeri che parlano da soli: il nostro framework POC garantisce risultati
+        </p>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon">🏆</div>
+                <div class="metric-value">95%</div>
+                <div class="metric-label">POC → Production</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">⏱️</div>
+                <div class="metric-value">8 Settimane</div>
+                <div class="metric-label">Average Time to Value</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">💰</div>
+                <div class="metric-value">3.5x</div>
+                <div class="metric-label">Average ROI Year 1</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">📈</div>
+                <div class="metric-value">87%</div>
+                <div class="metric-label">Cost Reduction vs Full Dev</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Options -->
+    <section class="packages-section">
+        <h2 class="section-title">Scegli il Tuo POC Package</h2>
+        <p class="section-subtitle">
+            Opzioni flessibili per ogni esigenza e budget
+        </p>
+
+        <div class="packages-grid">
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-name">Rapid POC</h3>
+                    <p class="package-tagline">Validazione veloce dell'idea</p>
+                </div>
+                <div class="package-body">
+                    <div class="package-price">
+                        <div class="price-amount">€25.000</div>
+                        <div class="price-period">4 settimane</div>
+                    </div>
+                    <ul class="package-features">
+                        <li>Feasibility study</li>
+                        <li>Basic MVP development</li>
+                        <li>1 AI model implementation</li>
+                        <li>Performance benchmarking</li>
+                        <li>Technical documentation</li>
+                        <li>2 training sessions</li>
+                    </ul>
+                    <a href="contatti.html" class="package-cta">Inizia Ora</a>
+                </div>
+            </div>
+
+            <div class="package-card featured">
+                <div class="package-header">
+                    <h3 class="package-name">Standard POC</h3>
+                    <p class="package-tagline">Il nostro framework completo</p>
+                </div>
+                <div class="package-body">
+                    <div class="package-price">
+                        <div class="price-amount">€50.000</div>
+                        <div class="price-period">8 settimane</div>
+                    </div>
+                    <ul class="package-features">
+                        <li>Full 5-phase framework</li>
+                        <li>Production-ready MVP</li>
+                        <li>Multiple AI models</li>
+                        <li>Custom dashboard</li>
+                        <li>API development</li>
+                        <li>Complete documentation</li>
+                        <li>Team training program</li>
+                        <li>30 days post-launch support</li>
+                    </ul>
+                    <a href="contatti.html" class="package-cta">Più Popolare</a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-name">Enterprise POC</h3>
+                    <p class="package-tagline">Per progetti complessi</p>
+                </div>
+                <div class="package-body">
+                    <div class="package-price">
+                        <div class="price-amount">€100.000+</div>
+                        <div class="price-period">12+ settimane</div>
+                    </div>
+                    <ul class="package-features">
+                        <li>Multi-system integration</li>
+                        <li>Advanced AI pipelines</li>
+                        <li>Custom architecture</li>
+                        <li>Compliance certification</li>
+                        <li>Dedicated team</li>
+                        <li>Change management</li>
+                        <li>90 days support</li>
+                        <li>Scale-up planning</li>
+                    </ul>
+                    <a href="contatti.html" class="package-cta">Contattaci</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Trasforma la Tua Idea in Realtà</h2>
+            <p class="cta-subtitle">
+                Inizia il tuo POC oggi. Zero rischi, risultati garantiti.
+                Se non raggiungiamo i KPI concordati, rimborso completo.
+            </p>
+            <div class="cta-buttons">
+                <a href="contatti.html" class="cta-btn primary">Richiedi POC Assessment</a>
+                <a href="casi-studio.html" class="cta-btn secondary">Vedi Casi di Successo</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle?.addEventListener('click', () => {
+            navMenu?.classList.toggle('active');
+        });
+
+        // Smooth scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline cards
+        document.querySelectorAll('.timeline-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Observe methodology cards
+        document.querySelectorAll('.methodology-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

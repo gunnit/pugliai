@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architettura Tecnica | PugliAI - Stack Tecnologico Enterprise AI</title>
+    <meta name="description" content="Scopri l'architettura tecnica e lo stack tecnologico che PugliAI utilizza per implementare soluzioni AI enterprise-grade sicure e scalabili.">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+
+    <style>
+        /* Technical Architecture Specific Styles */
+        .tech-hero {
+            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(212, 160, 23, 0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #10B981, #D4A017);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #94A3B8;
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        /* Architecture Diagram Section */
+        .architecture-section {
+            padding: 4rem 0;
+            background: #F7F8FA;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0A1628;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .architecture-diagram {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .layer-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .layer-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        .layer-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #0A1628, #1E293B);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: #D4A017;
+            font-size: 1.5rem;
+        }
+
+        .layer-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0A1628;
+        }
+
+        .layer-description {
+            color: #64748B;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .tech-item {
+            background: #F7F8FA;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            border-color: #D4A017;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 160, 23, 0.1);
+        }
+
+        .tech-name {
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-category {
+            font-size: 0.85rem;
+            color: #64748B;
+        }
+
+        /* Stack Cards */
+        .stack-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .stack-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .stack-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .stack-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .stack-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #0A1628, #1E293B);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .stack-icon.ai { color: #10B981; }
+        .stack-icon.cloud { color: #3B82F6; }
+        .stack-icon.data { color: #D4A017; }
+        .stack-icon.security { color: #EF4444; }
+        .stack-icon.devops { color: #8B5CF6; }
+        .stack-icon.monitoring { color: #F59E0B; }
+
+        .stack-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 1rem;
+        }
+
+        .stack-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .stack-list li {
+            padding: 0.5rem 0;
+            color: #64748B;
+            display: flex;
+            align-items: center;
+        }
+
+        .stack-list li::before {
+            content: '→';
+            color: #10B981;
+            margin-right: 0.5rem;
+        }
+
+        /* Security Section */
+        .security-section {
+            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .security-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .security-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .security-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #D4A017;
+        }
+
+        .security-description {
+            color: #94A3B8;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Integration Section */
+        .integration-section {
+            padding: 4rem 0;
+            background: #F7F8FA;
+        }
+
+        .integration-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .integration-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+        }
+
+        .integration-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .integration-logo {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .integration-name {
+            font-weight: 500;
+            color: #0A1628;
+            font-size: 0.95rem;
+        }
+
+        /* Performance Metrics */
+        .metrics-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .metrics-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 2rem;
+            background: #F7F8FA;
+            border-radius: 12px;
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #64748B;
+            font-size: 1rem;
+        }
+
+        .metric-description {
+            color: #94A3B8;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #10B981 0%, #D4A017 100%);
+            padding: 4rem 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #0A1628;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .tech-grid { grid-template-columns: 1fr; }
+            .stack-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">PugliAI</a>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="infrastrutture-ai.html">Infrastrutture AI</a></li>
+                <li><a href="consulenza-ai.html">Consulenza Strategica</a></li>
+                <li><a href="architettura-tecnica.html" class="active">Architettura</a></li>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="tech-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Architettura Enterprise AI</h1>
+            <p class="hero-subtitle">
+                Stack tecnologico all'avanguardia per soluzioni AI scalabili, sicure e performanti.
+                Architettura cloud-native con focus su affidabilità, compliance e integrazione seamless
+                con i sistemi esistenti.
+            </p>
+        </div>
+    </section>
+
+    <!-- Architecture Layers -->
+    <section class="architecture-section">
+        <h2 class="section-title">Architettura Multi-Layer</h2>
+        <div class="architecture-diagram">
+            <!-- Presentation Layer -->
+            <div class="layer-container">
+                <div class="layer-header">
+                    <div class="layer-icon">🖥️</div>
+                    <h3 class="layer-title">Presentation Layer</h3>
+                </div>
+                <p class="layer-description">
+                    Interfacce utente intuitive e responsive per interazione seamless con sistemi AI.
+                    Dashboard real-time, visualizzazioni avanzate e API RESTful per integrazione.
+                </p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-name">React / Next.js</div>
+                        <div class="tech-category">Frontend Framework</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Streamlit</div>
+                        <div class="tech-category">Data Apps</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Grafana</div>
+                        <div class="tech-category">Monitoring Dashboard</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">PowerBI</div>
+                        <div class="tech-category">Business Intelligence</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Layer -->
+            <div class="layer-container">
+                <div class="layer-header">
+                    <div class="layer-icon">⚙️</div>
+                    <h3 class="layer-title">Application Layer</h3>
+                </div>
+                <p class="layer-description">
+                    Microservizi scalabili per orchestrazione modelli AI, business logic e workflow automation.
+                    Container-based architecture per deployment flessibile e manutenzione semplificata.
+                </p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-name">FastAPI</div>
+                        <div class="tech-category">API Framework</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Kubernetes</div>
+                        <div class="tech-category">Orchestration</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Apache Airflow</div>
+                        <div class="tech-category">Workflow Management</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">RabbitMQ</div>
+                        <div class="tech-category">Message Queue</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI/ML Layer -->
+            <div class="layer-container">
+                <div class="layer-header">
+                    <div class="layer-icon">🧠</div>
+                    <h3 class="layer-title">AI/ML Layer</h3>
+                </div>
+                <p class="layer-description">
+                    Core AI capabilities con state-of-the-art models, training pipelines e inference optimization.
+                    Support per LLMs, computer vision, NLP e custom models.
+                </p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-name">OpenAI GPT-4</div>
+                        <div class="tech-category">Language Model</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Claude 3</div>
+                        <div class="tech-category">Language Model</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">TensorFlow</div>
+                        <div class="tech-category">ML Framework</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">PyTorch</div>
+                        <div class="tech-category">Deep Learning</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Hugging Face</div>
+                        <div class="tech-category">Model Hub</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">LangChain</div>
+                        <div class="tech-category">LLM Framework</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">NVIDIA Triton</div>
+                        <div class="tech-category">Inference Server</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">MLflow</div>
+                        <div class="tech-category">ML Lifecycle</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Layer -->
+            <div class="layer-container">
+                <div class="layer-header">
+                    <div class="layer-icon">💾</div>
+                    <h3 class="layer-title">Data Layer</h3>
+                </div>
+                <p class="layer-description">
+                    Data management robusto con support per structured/unstructured data, real-time streaming
+                    e data lake architecture per analytics avanzate.
+                </p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-name">PostgreSQL</div>
+                        <div class="tech-category">Relational DB</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">MongoDB</div>
+                        <div class="tech-category">NoSQL DB</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Pinecone</div>
+                        <div class="tech-category">Vector DB</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Redis</div>
+                        <div class="tech-category">Cache</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Apache Kafka</div>
+                        <div class="tech-category">Streaming</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Databricks</div>
+                        <div class="tech-category">Data Lakehouse</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Apache Spark</div>
+                        <div class="tech-category">Processing</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">MinIO</div>
+                        <div class="tech-category">Object Storage</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Infrastructure Layer -->
+            <div class="layer-container">
+                <div class="layer-header">
+                    <div class="layer-icon">☁️</div>
+                    <h3 class="layer-title">Infrastructure Layer</h3>
+                </div>
+                <p class="layer-description">
+                    Cloud-native infrastructure con auto-scaling, high availability e disaster recovery.
+                    Multi-cloud strategy per vendor independence e ottimizzazione costi.
+                </p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-name">Azure</div>
+                        <div class="tech-category">Cloud Platform</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">AWS</div>
+                        <div class="tech-category">Cloud Platform</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Docker</div>
+                        <div class="tech-category">Containerization</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Terraform</div>
+                        <div class="tech-category">IaC</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">GitHub Actions</div>
+                        <div class="tech-category">CI/CD</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">ArgoCD</div>
+                        <div class="tech-category">GitOps</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Prometheus</div>
+                        <div class="tech-category">Monitoring</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">ELK Stack</div>
+                        <div class="tech-category">Logging</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="stack-section">
+        <h2 class="section-title">Stack Tecnologico Completo</h2>
+        <div class="stack-grid">
+            <div class="stack-card">
+                <div class="stack-icon ai">🤖</div>
+                <h3 class="stack-title">AI & Machine Learning</h3>
+                <ul class="stack-list">
+                    <li>Large Language Models (GPT-4, Claude)</li>
+                    <li>Computer Vision (YOLO, ResNet)</li>
+                    <li>NLP & Text Analytics</li>
+                    <li>Reinforcement Learning</li>
+                    <li>AutoML Pipelines</li>
+                    <li>Federated Learning</li>
+                </ul>
+            </div>
+
+            <div class="stack-card">
+                <div class="stack-icon cloud">☁️</div>
+                <h3 class="stack-title">Cloud & Infrastructure</h3>
+                <ul class="stack-list">
+                    <li>Azure AI Services</li>
+                    <li>AWS SageMaker</li>
+                    <li>Google Cloud AI Platform</li>
+                    <li>Hybrid Cloud Solutions</li>
+                    <li>Edge Computing</li>
+                    <li>5G Private Networks</li>
+                </ul>
+            </div>
+
+            <div class="stack-card">
+                <div class="stack-icon data">📊</div>
+                <h3 class="stack-title">Data Engineering</h3>
+                <ul class="stack-list">
+                    <li>ETL/ELT Pipelines</li>
+                    <li>Real-time Data Streaming</li>
+                    <li>Data Quality Management</li>
+                    <li>Feature Engineering</li>
+                    <li>Data Versioning (DVC)</li>
+                    <li>Data Governance</li>
+                </ul>
+            </div>
+
+            <div class="stack-card">
+                <div class="stack-icon security">🔒</div>
+                <h3 class="stack-title">Security & Compliance</h3>
+                <ul class="stack-list">
+                    <li>End-to-end Encryption</li>
+                    <li>Zero Trust Architecture</li>
+                    <li>GDPR Compliance Tools</li>
+                    <li>Audit Logging</li>
+                    <li>Identity Management (OAuth, SAML)</li>
+                    <li>Vulnerability Scanning</li>
+                </ul>
+            </div>
+
+            <div class="stack-card">
+                <div class="stack-icon devops">🚀</div>
+                <h3 class="stack-title">DevOps & MLOps</h3>
+                <ul class="stack-list">
+                    <li>CI/CD Pipelines</li>
+                    <li>Model Registry & Versioning</li>
+                    <li>A/B Testing Framework</li>
+                    <li>Blue-Green Deployments</li>
+                    <li>Infrastructure as Code</li>
+                    <li>Automated Testing</li>
+                </ul>
+            </div>
+
+            <div class="stack-card">
+                <div class="stack-icon monitoring">📈</div>
+                <h3 class="stack-title">Monitoring & Analytics</h3>
+                <ul class="stack-list">
+                    <li>Real-time Performance Metrics</li>
+                    <li>Model Drift Detection</li>
+                    <li>Business KPI Dashboards</li>
+                    <li>Alert Management</li>
+                    <li>Cost Optimization</li>
+                    <li>User Analytics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section">
+        <h2 class="section-title" style="color: white;">Security & Compliance First</h2>
+        <div class="security-grid">
+            <div class="security-card">
+                <h3 class="security-title">Data Protection</h3>
+                <p class="security-description">
+                    Encryption at rest e in transit, data masking, tokenization e secure key management
+                    con HSM compliance.
+                </p>
+            </div>
+            <div class="security-card">
+                <h3 class="security-title">Privacy by Design</h3>
+                <p class="security-description">
+                    GDPR compliance integrata, data minimization, consent management e right to be forgotten
+                    implementation.
+                </p>
+            </div>
+            <div class="security-card">
+                <h3 class="security-title">Access Control</h3>
+                <p class="security-description">
+                    Role-based access control (RBAC), multi-factor authentication, privileged access management
+                    e audit trails completi.
+                </p>
+            </div>
+            <div class="security-card">
+                <h3 class="security-title">Compliance Standards</h3>
+                <p class="security-description">
+                    ISO 27001, SOC 2 Type II, HIPAA ready, PCI DSS compatible per maximum regulatory compliance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section class="integration-section">
+        <h2 class="section-title">Integrazioni Enterprise</h2>
+        <div class="integration-container">
+            <p style="text-align: center; color: #64748B; max-width: 800px; margin: 0 auto 2rem;">
+                Seamless integration con i principali sistemi enterprise per massimizzare il valore
+                degli investimenti esistenti e accelerare il time-to-value.
+            </p>
+            <div class="integration-grid">
+                <div class="integration-item">
+                    <div class="integration-logo">📊</div>
+                    <div class="integration-name">SAP</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo">☁️</div>
+                    <div class="integration-name">Salesforce</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo">📈</div>
+                    <div class="integration-name">Oracle</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo">💼</div>
+                    <div class="integration-name">Microsoft 365</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo">🔧</div>
+                    <div class="integration-name">ServiceNow</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo">📱</div>
+                    <div class="integration-name">Slack</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo">🎯</div>
+                    <div class="integration-name">HubSpot</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo">🏭</div>
+                    <div class="integration-name">Siemens MindSphere</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="metrics-section">
+        <h2 class="section-title">Performance & Reliability</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">99.99%</div>
+                <div class="metric-label">Uptime SLA</div>
+                <div class="metric-description">Guaranteed availability con redundancy multi-region</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value"><100ms</div>
+                <div class="metric-label">API Latency</div>
+                <div class="metric-description">Response time per il 95° percentile delle richieste</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">10M+</div>
+                <div class="metric-label">Requests/Day</div>
+                <div class="metric-description">Capacità di gestione richieste con auto-scaling</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">PB Scale</div>
+                <div class="metric-label">Data Processing</div>
+                <div class="metric-description">Gestione big data a scala petabyte</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Architettura Pronta per il Futuro</h2>
+            <p class="cta-subtitle">
+                Scoprite come la nostra architettura enterprise-grade può trasformare
+                la vostra infrastruttura AI e accelerare l'innovazione.
+            </p>
+            <a href="contatti.html" class="cta-button">Richiedi Architecture Review</a>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle?.addEventListener('click', () => {
+            navMenu?.classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

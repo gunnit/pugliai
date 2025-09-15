@@ -7,6 +7,27 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+        :root {
+            /* PugliAI Brand Colors */
+            --primary-navy: #0A1628;
+            --secondary-navy: #1E293B;
+            --accent-gold: #D4A017;
+            --accent-gold-light: #FFD700;
+            --accent-emerald: #10B981;
+            --accent-platinum: #E5E7EB;
+
+            /* Text Colors */
+            --text-primary: #1E293B;
+            --text-secondary: #4A5568;
+            --text-muted: #718096;
+            --text-white: #FFFFFF;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);
+            --gradient-gold: linear-gradient(135deg, #D4A017 0%, #F59E0B 100%);
+            --gradient-emerald: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -16,7 +37,7 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
+            color: var(--text-primary);
             background: #ffffff;
         }
 
@@ -26,8 +47,8 @@
             top: 0;
             left: 0;
             right: 0;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: var(--primary-navy);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
@@ -46,11 +67,11 @@
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--gradient-gold);
+            color: var(--primary-navy);
             text-decoration: none;
             border-radius: 25px;
-            font-weight: 500;
+            font-weight: 600;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: none;
             cursor: pointer;
@@ -58,7 +79,7 @@
 
         .back-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+            box-shadow: 0 5px 15px rgba(212, 160, 23, 0.3);
         }
 
         .pdf-button {
@@ -66,11 +87,11 @@
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            background: var(--gradient-emerald);
             color: white;
             text-decoration: none;
             border-radius: 25px;
-            font-weight: 500;
+            font-weight: 600;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: none;
             cursor: pointer;
@@ -78,7 +99,7 @@
 
         .pdf-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(16,185,129,0.3);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
         }
 
         .container {
@@ -96,7 +117,7 @@
         /* Cover Page */
         .cover-page {
             height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-primary);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -110,6 +131,9 @@
         @media print {
             .cover-page {
                 margin-top: 0;
+                background: var(--gradient-primary);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
 
@@ -120,7 +144,7 @@
             right: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(212, 160, 23, 0.1) 0%, transparent 70%);
             animation: pulse 15s ease-in-out infinite;
         }
 
@@ -142,6 +166,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             opacity: 0.9;
+            color: var(--accent-gold);
         }
 
         .cover-title {
@@ -152,11 +177,19 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
+        .cover-title span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .cover-tagline {
             font-size: 1.5rem;
             font-weight: 400;
             margin-bottom: 60px;
             opacity: 0.95;
+            color: var(--accent-platinum);
         }
 
         .cover-logo {
@@ -165,10 +198,11 @@
             letter-spacing: 1px;
             margin-top: 40px;
             padding: 20px 40px;
-            border: 3px solid white;
+            border: 3px solid var(--accent-gold);
             border-radius: 50px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(212, 160, 23, 0.1);
             backdrop-filter: blur(10px);
+            color: var(--accent-gold);
         }
 
         .cover-year {
@@ -178,6 +212,7 @@
             font-size: 6rem;
             font-weight: 800;
             opacity: 0.1;
+            color: var(--accent-gold);
         }
 
         /* Content Pages */
@@ -198,8 +233,8 @@
             display: inline-block;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--gradient-gold);
+            color: var(--primary-navy);
             text-align: center;
             line-height: 50px;
             border-radius: 50%;
@@ -211,16 +246,16 @@
         h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #2d3748;
+            color: var(--primary-navy);
             margin-bottom: 30px;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 3px solid var(--accent-gold);
             padding-bottom: 15px;
         }
 
         h2 {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #4a5568;
+            color: var(--secondary-navy);
             margin-top: 40px;
             margin-bottom: 20px;
         }
@@ -228,25 +263,29 @@
         h3 {
             font-size: 1.3rem;
             font-weight: 600;
-            color: #667eea;
+            color: var(--accent-emerald);
             margin-top: 30px;
             margin-bottom: 15px;
         }
 
         p {
             margin-bottom: 20px;
-            color: #4a5568;
+            color: var(--text-secondary);
             line-height: 1.8;
             text-align: justify;
         }
 
         .highlight-box {
-            background: linear-gradient(135deg, #f6f9fc 0%, #e9f3ff 100%);
-            border-left: 4px solid #667eea;
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border-left: 4px solid var(--accent-gold);
             padding: 25px;
             margin: 30px 0;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .highlight-box h3 {
+            color: var(--primary-navy);
         }
 
         .stats-grid {
@@ -260,20 +299,22 @@
             background: white;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(10, 22, 40, 0.1);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102,126,234,0.2);
+            box-shadow: 0 15px 40px rgba(212, 160, 23, 0.2);
+            border-color: var(--accent-gold);
         }
 
         .stat-number {
             font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-gold);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -282,7 +323,7 @@
 
         .stat-label {
             font-size: 1rem;
-            color: #718096;
+            color: var(--text-muted);
             font-weight: 500;
         }
 
@@ -290,8 +331,9 @@
             background: white;
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(10, 22, 40, 0.1);
             margin: 40px 0;
+            border: 2px solid rgba(212, 160, 23, 0.2);
         }
 
         .bar-chart {
@@ -307,14 +349,14 @@
         .bar-label {
             flex: 0 0 150px;
             font-weight: 500;
-            color: #4a5568;
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
 
         .bar-container {
             flex: 1;
             height: 35px;
-            background: #f7fafc;
+            background: rgba(212, 160, 23, 0.1);
             border-radius: 20px;
             overflow: hidden;
             position: relative;
@@ -322,7 +364,7 @@
 
         .bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-emerald);
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -347,7 +389,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-gold);
             transform: translateX(-50%);
         }
 
@@ -373,7 +415,7 @@
             width: 20px;
             height: 20px;
             background: white;
-            border: 4px solid #667eea;
+            border: 4px solid var(--accent-gold);
             border-radius: 50%;
             top: 25px;
         }
@@ -388,7 +430,7 @@
 
         .timeline-date {
             font-weight: 700;
-            color: #667eea;
+            color: var(--accent-emerald);
             margin-bottom: 10px;
             font-size: 1.1rem;
         }
@@ -397,7 +439,8 @@
             background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(10, 22, 40, 0.1);
+            border: 1px solid rgba(212, 160, 23, 0.2);
         }
 
         .action-list {
@@ -411,20 +454,22 @@
             align-items: flex-start;
             margin-bottom: 20px;
             padding: 20px;
-            background: #f8fafc;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.02) 0%, rgba(212, 160, 23, 0.02) 100%);
             border-radius: 8px;
             transition: all 0.3s ease;
+            border: 1px solid rgba(212, 160, 23, 0.1);
         }
 
         .action-item:hover {
-            background: #e9f3ff;
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
             transform: translateX(10px);
+            border-color: var(--accent-gold);
         }
 
         .action-number {
             flex: 0 0 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-emerald);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -436,12 +481,16 @@
 
         .action-text {
             flex: 1;
-            color: #4a5568;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
 
+        .action-text strong {
+            color: var(--primary-navy);
+        }
+
         .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-primary);
             color: white;
             padding: 60px;
             border-radius: 20px;
@@ -458,7 +507,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(212, 160, 23, 0.1) 0%, transparent 70%);
         }
 
         .cta-content {
@@ -470,18 +519,20 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 20px;
+            color: white;
         }
 
         .cta-text {
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.95;
+            color: var(--accent-platinum);
         }
 
         .footer {
             text-align: center;
             padding: 40px;
-            background: #2d3748;
+            background: var(--primary-navy);
             color: white;
             margin-top: 100px;
         }
@@ -490,10 +541,11 @@
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 20px;
+            color: var(--accent-gold);
         }
 
         .footer-link {
-            color: #667eea;
+            color: var(--accent-gold);
             text-decoration: none;
             font-weight: 500;
         }
@@ -507,35 +559,35 @@
         }
 
         .quick-win-card {
-            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
-            border: 2px solid #e2e8f0;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(212, 160, 23, 0.03) 100%);
+            border: 2px solid rgba(212, 160, 23, 0.2);
             padding: 25px;
             border-radius: 12px;
             transition: all 0.3s ease;
         }
 
         .quick-win-card:hover {
-            border-color: #667eea;
+            border-color: var(--accent-gold);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102,126,234,0.15);
+            box-shadow: 0 10px 25px rgba(212, 160, 23, 0.15);
         }
 
         .quick-win-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-emerald);
             border-radius: 10px;
             margin-bottom: 15px;
         }
 
         .quick-win-title {
             font-weight: 600;
-            color: #2d3748;
+            color: var(--primary-navy);
             margin-bottom: 10px;
         }
 
         .quick-win-desc {
-            color: #718096;
+            color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.5;
         }
@@ -559,13 +611,16 @@
             .cover-page {
                 page-break-after: always;
                 height: 100vh;
+                background: var(--gradient-primary) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
 
             .stat-card:hover,
             .quick-win-card:hover,
             .action-item:hover {
                 transform: none;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                box-shadow: 0 10px 30px rgba(10, 22, 40, 0.1);
             }
 
             .highlight-box,
@@ -584,21 +639,29 @@
                 orphans: 3;
                 widows: 3;
             }
+
+            .section-number,
+            .bar-fill,
+            .cta-section {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
 
         /* Table of Contents */
         .toc {
-            background: #f8fafc;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.02) 0%, rgba(212, 160, 23, 0.02) 100%);
             padding: 40px;
             margin: 40px 0;
             border-radius: 12px;
             page-break-after: always;
+            border: 2px solid rgba(212, 160, 23, 0.1);
         }
 
         .toc h2 {
-            color: #2d3748;
+            color: var(--primary-navy);
             margin-bottom: 30px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid var(--accent-gold);
             padding-bottom: 10px;
         }
 
@@ -619,7 +682,7 @@
         .toc-number {
             flex: 0 0 30px;
             height: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-emerald);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -632,25 +695,36 @@
 
         .toc-text {
             flex: 1;
-            color: #4a5568;
+            color: var(--text-secondary);
             font-weight: 500;
         }
 
         .toc-page {
-            color: #718096;
+            color: var(--text-muted);
             font-size: 0.9rem;
+        }
+
+        /* Special styles for emphasis */
+        .gold-emphasis {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .emerald-emphasis {
+            color: var(--accent-emerald);
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <div class="nav-bar">
-        <button class="back-button" onclick="window.history.back()">
+        <button class="back-button" onclick="window.location.href='index.html'">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="19" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
-            Torna Indietro
+            Torna al Sito
         </button>
         <button class="pdf-button" onclick="window.print()">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -667,9 +741,9 @@
         <div class="cover-page">
             <div class="cover-content">
                 <div class="cover-subtitle">Il Futuro dell'Innovazione Aziendale</div>
-                <h1 class="cover-title">Guida AI per<br>CEO Italiani</h1>
+                <h1 class="cover-title">Guida AI per<br><span>CEO Italiani</span></h1>
                 <div class="cover-tagline">Strategie e Opportunità per la Trasformazione Digitale</div>
-                <div class="cover-logo">PUGLIAI.COM</div>
+                <div class="cover-logo">PUGLIAI</div>
             </div>
             <div class="cover-year">2025</div>
         </div>
@@ -797,7 +871,7 @@
 
                 <div class="highlight-box">
                     <h3>Insight Chiave</h3>
-                    <p>Nonostante l'entusiasmo diffuso, solo l'1% delle organizzazioni ha raggiunto una maturità elevata nell'implementazione dell'AI. La maggior parte delle aziende resta ancora in fase sperimentale, evidenziando enormi opportunità di crescita per chi saprà muoversi rapidamente.</p>
+                    <p>Nonostante l'entusiasmo diffuso, solo l'<span class="gold-emphasis">1%</span> delle organizzazioni ha raggiunto una maturità elevata nell'implementazione dell'AI. La maggior parte delle aziende resta ancora in fase sperimentale, evidenziando enormi opportunità di crescita per chi saprà muoversi rapidamente.</p>
                 </div>
             </div>
 
@@ -864,16 +938,16 @@
                 <div class="highlight-box">
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 15px;">
-                            <strong style="color: #667eea;">53%</strong> - Sicurezza dei dati e privacy
+                            <span class="emerald-emphasis">53%</span> - Sicurezza dei dati e privacy
                         </li>
                         <li style="margin-bottom: 15px;">
-                            <strong style="color: #667eea;">40%</strong> - Esperienza utente inadeguata
+                            <span class="emerald-emphasis">40%</span> - Esperienza utente inadeguata
                         </li>
                         <li style="margin-bottom: 15px;">
-                            <strong style="color: #667eea;">32.5%</strong> - Costi di implementazione
+                            <span class="emerald-emphasis">32.5%</span> - Costi di implementazione
                         </li>
                         <li>
-                            <strong style="color: #667eea;">23%</strong> - Formazione insufficiente
+                            <span class="emerald-emphasis">23%</span> - Formazione insufficiente
                         </li>
                     </ul>
                 </div>
@@ -953,7 +1027,7 @@
 
                 <div class="highlight-box">
                     <h3>📊 Case Study: UPS ORION</h3>
-                    <p>Il sistema ORION di UPS ha ottimizzato i percorsi di consegna utilizzando l'AI, generando risparmi di $300-400 milioni all'anno. Questo dimostra come concentrarsi su progetti con ROI immediato acceleri l'adozione e generi valore tangibile.</p>
+                    <p>Il sistema ORION di UPS ha ottimizzato i percorsi di consegna utilizzando l'AI, generando risparmi di <span class="gold-emphasis">$300-400 milioni</span> all'anno. Questo dimostra come concentrarsi su progetti con ROI immediato acceleri l'adozione e generi valore tangibile.</p>
                 </div>
             </div>
 
@@ -1028,11 +1102,11 @@
                 <div class="highlight-box">
                     <h3>Principi per il Successo</h3>
                     <ul style="padding-left: 20px;">
-                        <li style="margin-bottom: 10px;">Definire l'AI come strumento per aumentare l'impatto umano, non sostituirlo</li>
-                        <li style="margin-bottom: 10px;">Promuovere la co-creazione coinvolgendo i dipendenti nello sviluppo</li>
+                        <li style="margin-bottom: 10px;">Definire l'AI come strumento per <span class="emerald-emphasis">aumentare l'impatto umano</span>, non sostituirlo</li>
+                        <li style="margin-bottom: 10px;">Promuovere la <span class="emerald-emphasis">co-creazione</span> coinvolgendo i dipendenti nello sviluppo</li>
                         <li style="margin-bottom: 10px;">Affrontare apertamente paure legate a precisione e sicurezza</li>
                         <li style="margin-bottom: 10px;">Celebrare i successi e imparare dai fallimenti</li>
-                        <li>Investire massicciamente in upskilling e reskilling</li>
+                        <li>Investire massicciamente in <span class="emerald-emphasis">upskilling e reskilling</span></li>
                     </ul>
                 </div>
             </div>
@@ -1078,10 +1152,10 @@
                 <div class="highlight-box">
                     <h3>Punti Chiave</h3>
                     <ul style="padding-left: 20px;">
-                        <li style="margin-bottom: 10px;"><strong>€1 miliardo</strong> di investimenti pubblici per l'AI</li>
-                        <li style="margin-bottom: 10px;">Obbligo di hosting su <strong>server nazionali</strong> per la PA</li>
-                        <li style="margin-bottom: 10px;">Diritto dei lavoratori all'<strong>informazione</strong> sull'uso dell'AI</li>
-                        <li>Tutela del <strong>copyright</strong> per opere con contributo umano significativo</li>
+                        <li style="margin-bottom: 10px;"><span class="gold-emphasis">€1 miliardo</span> di investimenti pubblici per l'AI</li>
+                        <li style="margin-bottom: 10px;">Obbligo di hosting su <span class="gold-emphasis">server nazionali</span> per la PA</li>
+                        <li style="margin-bottom: 10px;">Diritto dei lavoratori all'<span class="gold-emphasis">informazione</span> sull'uso dell'AI</li>
+                        <li>Tutela del <span class="gold-emphasis">copyright</span> per opere con contributo umano significativo</li>
                     </ul>
                 </div>
 
@@ -1186,7 +1260,7 @@
                         <p class="cta-text">
                             L'intelligenza artificiale rappresenta una leva formidabile per accrescere la competitività delle imprese italiane. Con una strategia oculata, una leadership inclusiva e un forte impegno sulla formazione, i CEO possono trasformare l'AI in un motore di crescita sostenibile.
                         </p>
-                        <p style="font-size: 1.3rem; font-weight: 600; margin-top: 30px;">
+                        <p style="font-size: 1.3rem; font-weight: 600; margin-top: 30px; color: var(--accent-gold);">
                             PugliAI è al vostro fianco in questo percorso innovativo.
                         </p>
                     </div>
@@ -1217,7 +1291,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <div class="footer-logo">PUGLIAI.COM</div>
+            <div class="footer-logo">PUGLIAI</div>
             <p>Strategie Digitali per il Successo Aziendale</p>
             <p style="margin-top: 20px; opacity: 0.8;">
                 © 2025 PugliAI. Tutti i diritti riservati.<br>
