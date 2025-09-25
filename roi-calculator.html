@@ -522,13 +522,15 @@
 
             // Calculate investment
             let investment = 75000; // Default starter
-            let packageName = "AI Starter";
+            let packageName = "AI Accelerator";
             if (revenue > 50000000 || employees > 500) {
-                investment = 500000;
-                packageName = "Enterprise Plus";
+                investment = 100000;
+                packageName = "AI Partnership";
             } else if (revenue > 10000000 || employees > 100) {
-                investment = 250000;
-                packageName = "Enterprise AI";
+                investment = 60000;
+                packageName = "AI Transformation";
+            } else {
+                investment = 20000;
             }
 
             // Calculate ROI
