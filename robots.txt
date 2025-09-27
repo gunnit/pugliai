@@ -36,9 +36,33 @@ Disallow: /
 User-agent: MJ12bot
 Disallow: /
 
-# Allow AI crawlers for Generative Engine Optimization (GEO)
+# Allow AI crawlers for Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO)
+# OpenAI GPT Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Claude Crawlers
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Google AI
 User-agent: Google-Extended
 Allow: /
 
+# Common Crawl (used by many AI systems)
 User-agent: CCBot
 Allow: /

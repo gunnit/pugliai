@@ -20,7 +20,8 @@
       "Bash(head:*)",
       "Bash(done)",
       "WebSearch",
-      "WebFetch(domain:automa.site)"
+      "WebFetch(domain:automa.site)",
+      "Bash(python3:*)"
     ],
     "deny": [],
     "ask": []
