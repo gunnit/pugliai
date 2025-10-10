@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7711R1PDP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L7711R1PDP');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent - PugliAI</title>
+    <meta name="description" content="Thank you for contacting us. Your message has been sent successfully.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
+    <style>
+        .success-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: var(--space-4xl) var(--space-lg);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--accent-emerald);
+            margin-bottom: var(--space-xl);
+            animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        @keyframes pop-in {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-title {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .success-message {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .linkedin-cta {
+            margin-top: var(--space-2xl);
+            font-size: var(--font-size-base);
+            color: var(--text-muted);
+        }
+
+        .linkedin-cta a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .linkedin-cta a:hover {
+            color: var(--accent-emerald);
+        }
+    </style>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="alternate" hreflang="it" href="/success.html">
+    <link rel="alternate" hreflang="en" href="/en/success.html">
+</head>
+<body>
+
+    <!-- Success Section -->
+    <section class="success-section">
+        <div class="success-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+        <h1 class="success-title">Message Sent!</h1>
+        <p class="success-message">
+            Thank you for contacting us. We have received your message and will respond as soon as possible.
+        </p>
+        <div class="cta-buttons">
+            <a href="/en/index.html" class="btn btn-primary">Back to Home</a>
+        </div>
+        <p class="linkedin-cta">
+            In the meantime, follow us on <a href="https://www.linkedin.com/company/pugliai/" target="_blank" rel="noopener noreferrer">LinkedIn</a> to stay updated on our latest news.
+        </p>
+    </section>
+
+</body>
+</html>
