@@ -265,14 +265,17 @@
                 </nav>
                 <!-- Language Switcher -->
                 <div class="language-switcher" role="navigation" aria-label="Selettore lingua">
-                    <a href="/index.html" class="lang-option active" aria-label="Italiano" aria-current="true">
+                    <div class="lang-toggle" aria-label="Cambia lingua" role="button" tabindex="0">
                         <span class="lang-flag">🇮🇹</span>
-                        <span>IT</span>
-                    </a>
-                    <a href="/en/index.html" class="lang-option" aria-label="English">
-                        <span class="lang-flag">🇬🇧</span>
-                        <span>EN</span>
-                    </a>
+                        <span class="lang-code">IT</span>
+                        <span class="lang-arrow">▼</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="/en/index.html" class="lang-option" aria-label="Switch to English">
+                            <span class="lang-flag">🇬🇧</span>
+                            <span>English</span>
+                        </a>
+                    </div>
                 </div>
                 <a href="contatti.html" class="cta-button" aria-label="Prenota una sessione strategica gratuita">Sessione Strategica</a>
             </div>

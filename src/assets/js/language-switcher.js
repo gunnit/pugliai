@@ -77,7 +77,7 @@
     }
 
     /**
-     * Update language switcher links based on current page
+     * Update language switcher based on current page
      */
     function updateLanguageSwitcher() {
         const currentPage = getCurrentPage();
@@ -86,33 +86,53 @@
         const langSwitcher = document.querySelector('.language-switcher');
         if (!langSwitcher) return;
 
-        const itLink = langSwitcher.querySelector('a[aria-label="Italiano"]');
-        const enLink = langSwitcher.querySelector('a[aria-label="English"]');
+        const langToggle = langSwitcher.querySelector('.lang-toggle');
+        const langOption = langSwitcher.querySelector('.lang-option');
 
-        if (!itLink || !enLink) return;
+        if (!langToggle || !langOption) return;
 
-        // Set active state
+        // Update toggle button to show current language
+        const flagSpan = langToggle.querySelector('.lang-flag');
+        const codeSpan = langToggle.querySelector('.lang-code');
+
         if (isEnglish) {
-            itLink.classList.remove('active');
-            itLink.removeAttribute('aria-current');
-            enLink.classList.add('active');
-            enLink.setAttribute('aria-current', 'true');
+            // Show EN flag in toggle
+            flagSpan.textContent = '🇬🇧';
+            codeSpan.textContent = 'EN';
+            // Update dropdown to show Italian option
+            langOption.href = getAlternateUrl(currentPage, false);
+            langOption.querySelector('.lang-flag').textContent = '🇮🇹';
+            langOption.querySelector('span:last-child').textContent = 'Italiano';
+            langOption.setAttribute('aria-label', 'Passa all\'italiano');
         } else {
-            itLink.classList.add('active');
-            itLink.setAttribute('aria-current', 'true');
-            enLink.classList.remove('active');
-            enLink.removeAttribute('aria-current');
+            // Show IT flag in toggle
+            flagSpan.textContent = '🇮🇹';
+            codeSpan.textContent = 'IT';
+            // Update dropdown to show English option
+            langOption.href = getAlternateUrl(currentPage, true);
+            langOption.querySelector('.lang-flag').textContent = '🇬🇧';
+            langOption.querySelector('span:last-child').textContent = 'English';
+            langOption.setAttribute('aria-label', 'Switch to English');
         }
+    }
 
-        // Update URLs
-        if (isEnglish) {
-            // Currently on English page, Italian link should go to Italian version
-            itLink.href = getAlternateUrl(currentPage, false);
-            enLink.href = '/en/' + currentPage;
-        } else {
-            // Currently on Italian page, English link should go to English version
-            itLink.href = '/' + currentPage;
-            enLink.href = getAlternateUrl(currentPage, true);
+    /**
+     * Toggle dropdown open/closed
+     */
+    function toggleDropdown() {
+        const langSwitcher = document.querySelector('.language-switcher');
+        if (langSwitcher) {
+            langSwitcher.classList.toggle('open');
+        }
+    }
+
+    /**
+     * Close dropdown when clicking outside
+     */
+    function closeDropdownOnClickOutside(event) {
+        const langSwitcher = document.querySelector('.language-switcher');
+        if (langSwitcher && !langSwitcher.contains(event.target)) {
+            langSwitcher.classList.remove('open');
         }
     }
 
@@ -127,14 +147,34 @@
             updateLanguageSwitcher();
         }
 
-        // Optional: Add smooth transition effect on language switch
-        const langOptions = document.querySelectorAll('.lang-option');
-        langOptions.forEach(option => {
-            option.addEventListener('click', function(e) {
-                // Allow default link behavior
-                // Optional: Add loading state or animation here
+        // Add click handler for toggle button
+        document.addEventListener('click', function(e) {
+            const langToggle = e.target.closest('.lang-toggle');
+            if (langToggle) {
+                e.preventDefault();
+                toggleDropdown();
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', closeDropdownOnClickOutside);
+
+        // Close dropdown on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const langSwitcher = document.querySelector('.language-switcher');
+                if (langSwitcher) {
+                    langSwitcher.classList.remove('open');
+                }
+            }
+        });
+
+        // Smooth transition effect on language switch
+        document.addEventListener('click', function(e) {
+            const langOption = e.target.closest('.lang-option');
+            if (langOption) {
                 document.body.style.opacity = '0.7';
-            });
+            }
         });
     }
 

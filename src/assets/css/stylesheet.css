@@ -336,59 +336,97 @@
 
         /* Language Switcher */
         .language-switcher {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-toggle {
             display: flex;
             align-items: center;
-            gap: 2px;
+            gap: 4px;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-full);
-            padding: 4px 6px;
+            padding: 6px 10px;
+            cursor: pointer;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .language-switcher:hover {
+        .lang-toggle:hover {
             background: var(--glass-bg-light);
             border-color: rgba(255, 215, 0, 0.3);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .lang-option {
-            padding: 4px 8px;
-            border-radius: var(--radius-full);
-            text-decoration: none;
+        .lang-flag {
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .lang-code {
             font-size: var(--font-size-xs);
             font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .lang-arrow {
+            font-size: 10px;
             color: var(--text-secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .language-switcher.open .lang-arrow {
+            transform: rotate(180deg);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: var(--primary-navy);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 4px;
+            min-width: 100px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .language-switcher.open .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-option {
             display: flex;
             align-items: center;
-            gap: 3px;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
         .lang-option:hover {
-            color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--glass-bg-light);
+            color: var(--accent-gold);
         }
 
-        .lang-option.active {
-            background: var(--gradient-gold);
-            color: var(--primary-navy);
-            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
-        }
-
-        .lang-option.active:hover {
-            color: var(--primary-navy);
-            transform: scale(1.05);
-        }
-
-        .lang-flag {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            object-fit: cover;
+        .lang-option .lang-flag {
+            font-size: 16px;
         }
 
         /* Typography System */
@@ -1178,17 +1216,22 @@
                 position: absolute;
                 top: 20px;
                 right: 60px;
-                padding: 4px 6px;
             }
 
-            .lang-option {
-                padding: 4px 8px;
-                font-size: var(--font-size-xs);
+            .lang-toggle {
+                padding: 5px 8px;
             }
 
             .lang-flag {
-                width: 16px;
-                height: 16px;
+                font-size: 16px;
+            }
+
+            .lang-code {
+                font-size: 11px;
+            }
+
+            .lang-arrow {
+                font-size: 8px;
             }
 
             .cta-button {
