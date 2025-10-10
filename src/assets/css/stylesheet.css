@@ -334,6 +334,63 @@
             box-shadow: 0 8px 32px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-full);
+            padding: 6px 8px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .language-switcher:hover {
+            background: var(--glass-bg-light);
+            border-color: rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .lang-option {
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .lang-option:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-option.active {
+            background: var(--gradient-gold);
+            color: var(--primary-navy);
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+        }
+
+        .lang-option.active:hover {
+            color: var(--primary-navy);
+            transform: scale(1.05);
+        }
+
+        .lang-flag {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
         /* Typography System */
         .heading-1 {
             font-size: var(--font-size-6xl);
@@ -1114,6 +1171,29 @@
             
             .has-dropdown.active .dropdown-arrow {
                 transform: rotate(180deg);
+            }
+
+            /* Language Switcher - Mobile */
+            .language-switcher {
+                position: absolute;
+                top: 20px;
+                right: 60px;
+                padding: 4px 6px;
+            }
+
+            .lang-option {
+                padding: 4px 8px;
+                font-size: var(--font-size-xs);
+            }
+
+            .lang-flag {
+                width: 16px;
+                height: 16px;
+            }
+
+            .cta-button {
+                font-size: var(--font-size-xs);
+                padding: 8px 16px;
             }
         }
 
