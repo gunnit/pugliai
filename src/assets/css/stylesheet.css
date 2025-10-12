@@ -493,6 +493,15 @@
             line-height: 1.5;
         }
 
+        /* Text color utilities for different backgrounds */
+        .text-on-light {
+            color: var(--secondary-navy) !important; /* Dark navy for excellent contrast on light backgrounds */
+        }
+
+        .text-on-light-muted {
+            color: #64748B !important; /* Medium gray that meets WCAG AA on white backgrounds */
+        }
+
         /* Button System */
         .btn {
             display: inline-flex;
