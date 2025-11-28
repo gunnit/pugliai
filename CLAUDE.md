@@ -36,7 +36,7 @@ node src/assets/js/screenshot_stylesheet.js  # Component library screenshots
 git add .
 git commit -m "Your descriptive message"
 
-# Push to GitHub (triggers auto-deployment to Azure Static Web Apps)
+# Push to GitHub (triggers auto-deployment to GitHub Pages)
 git push origin main
 ```
 
@@ -187,11 +187,11 @@ This is a **reference file**, not a build artifact - copy components manually in
 
 ## Deployment
 
-**Hosting:** Azure Static Web Apps
+**Hosting:** GitHub Pages
 **Domain:** pugliai.com
 **Auto-deployment:** Enabled on `main` branch push
 
-Push to GitHub main branch triggers automatic deployment - no manual deployment steps required.
+Push to GitHub main branch triggers automatic deployment via GitHub Pages - no manual deployment steps required.
 
 ## GitHub Actions
 
