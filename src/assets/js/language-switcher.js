@@ -19,6 +19,10 @@
         'agenti-ai.html': 'ai-agents.html',
         'consulenza-strategica.html': 'strategic-consulting.html',
 
+        // Products (On-Premise)
+        'voiceai-on-premise.html': 'voiceai-on-premise.html',
+        'knowledgeai-enterprise.html': 'knowledgeai-enterprise.html',
+
         // Sectors
         'settori.html': 'sectors.html',
         'manifatturiero.html': 'manufacturing.html',

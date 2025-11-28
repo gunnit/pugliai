@@ -752,6 +752,13 @@
                     </ul>
                 </li>
                 <li class="has-dropdown">
+                    <a href="#">Prodotti <span class="dropdown-arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="voiceai-on-premise.html">VoiceAI On-Premise</a></li>
+                        <li><a href="knowledgeai-enterprise.html">KnowledgeAI Enterprise</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
                     <a href="settori.html">Settori <span class="dropdown-arrow">▼</span></a>
                     <ul class="dropdown-menu">
                         <li><a href="manifatturiero.html">Manifatturiero</a></li>
@@ -1029,12 +1036,14 @@
         const dropdowns = document.querySelectorAll('.has-dropdown');
         dropdowns.forEach(dropdown => {
             const link = dropdown.querySelector('.nav-link');
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                }
-            });
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            }
         });
 
         // Back to top button

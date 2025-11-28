@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7711R1PDP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L7711R1PDP');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowledgeAI Enterprise | Chat RAG On-Premise | PugliAI</title>
+    <meta name="description" content="Chat aziendale AI con RAG on-premise. Interroga documenti interni senza inviare dati al cloud. Zero hallucination, massima privacy, GDPR compliant.">
+
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="it-IT" href="https://www.pugliai.com/knowledgeai-enterprise.html">
+    <link rel="alternate" hreflang="en" href="https://www.pugliai.com/en/knowledgeai-enterprise.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.pugliai.com/knowledgeai-enterprise.html">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="KnowledgeAI Enterprise | Chat RAG On-Premise | PugliAI">
+    <meta property="og:description" content="Chat AI che interroga i tuoi documenti aziendali. Deployment on-premise, dati che non escono mai. Riduzione 70-90% allucinazioni AI.">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://www.pugliai.com/knowledgeai-enterprise.html">
+    <meta property="og:image" content="https://www.pugliai.com/src/assets/img/pugliai-og-image.jpg">
+    <meta property="og:site_name" content="PugliAI">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KnowledgeAI Enterprise | Chat RAG On-Premise">
+    <meta name="twitter:description" content="Chat AI aziendale che risponde usando i tuoi documenti. On-premise, GDPR compliant, zero allucinazioni.">
+    <meta name="twitter:image" content="https://www.pugliai.com/src/assets/img/pugliai-og-image.jpg">
+    <meta name="twitter:site" content="@PugliAI">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.pugliai.com/knowledgeai-enterprise.html">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "KnowledgeAI Enterprise",
+        "description": "Chat aziendale AI con RAG on-premise. Interroga documenti interni, manuali, contratti e knowledge base senza inviare dati al cloud.",
+        "url": "https://www.pugliai.com/knowledgeai-enterprise.html",
+        "brand": {
+            "@type": "Organization",
+            "name": "PugliAI"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "EUR",
+            "lowPrice": "30000",
+            "highPrice": "85000",
+            "offerCount": "3"
+        },
+        "category": "Enterprise RAG Solutions",
+        "audience": {
+            "@type": "Audience",
+            "name": "PMI Italiane",
+            "description": "Aziende con knowledge base interna e requisiti di privacy dati"
+        }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Cos'e KnowledgeAI Enterprise?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KnowledgeAI Enterprise e una chat AI aziendale che utilizza la tecnologia RAG (Retrieval Augmented Generation) per rispondere alle domande dei dipendenti usando i documenti interni dell'azienda. Tutto viene elaborato on-premise, senza inviare dati al cloud."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Cosa significa RAG e perche riduce le allucinazioni?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RAG (Retrieval Augmented Generation) e una tecnologia che combina la ricerca nei documenti con la generazione AI. Prima di rispondere, il sistema cerca nei tuoi documenti le informazioni rilevanti, poi genera una risposta basata su fonti verificabili. Questo riduce le allucinazioni (risposte inventate) del 70-90% rispetto a ChatGPT generico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quali tipi di documenti supporta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KnowledgeAI supporta PDF, Word, Excel, PowerPoint, email, pagine web, database SQL, e puo connettersi a SharePoint, Google Drive, Confluence e altri repository documentali. Supporta anche documenti scannerizzati grazie all'OCR integrato."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come funziona il controllo degli accessi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KnowledgeAI Enterprise include un sistema di Role-Based Access Control (RBAC). Ogni utente vede solo i documenti a cui e autorizzato ad accedere. I permessi si sincronizzano con Active Directory, LDAP o il tuo sistema IAM esistente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto costa KnowledgeAI Enterprise?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I pacchetti partono da 30.000 euro per Team (50 utenti, 10GB), 55.000 euro per Business (200 utenti, 100GB, RBAC), fino a 85.000+ euro per Enterprise con utenti e storage illimitati, modelli custom e audit completo."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="src/assets/img/pugliai_pittogramma.png" alt="PugliAI" class="logo-img">
+                    <span class="logo-text">PugliAI</span>
+                </a>
+                <nav role="navigation" aria-label="Menu principale">
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="has-dropdown">
+                            <a href="servizi.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Servizi <span class="dropdown-arrow" aria-hidden="true">&#9660;</span></a>
+                            <ul class="dropdown-menu" role="menu" aria-label="Servizi submenu">
+                                <li role="none"><a href="infrastrutture-ai.html" class="dropdown-link" role="menuitem">Infrastrutture AI</a></li>
+                                <li role="none"><a href="agenti-ai.html" class="dropdown-link" role="menuitem">Agenti AI</a></li>
+                                <li role="none"><a href="consulenza-strategica.html" class="dropdown-link" role="menuitem">Consulenza Strategica</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="#" class="nav-link active" aria-current="page" aria-haspopup="true" aria-expanded="false">Prodotti <span class="dropdown-arrow" aria-hidden="true">&#9660;</span></a>
+                            <ul class="dropdown-menu" role="menu" aria-label="Prodotti submenu">
+                                <li role="none"><a href="voiceai-on-premise.html" class="dropdown-link" role="menuitem">VoiceAI On-Premise</a></li>
+                                <li role="none"><a href="knowledgeai-enterprise.html" class="dropdown-link" role="menuitem">KnowledgeAI Enterprise</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="settori.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Settori <span class="dropdown-arrow" aria-hidden="true">&#9660;</span></a>
+                            <ul class="dropdown-menu" role="menu" aria-label="Settori submenu">
+                                <li role="none"><a href="manifatturiero.html" class="dropdown-link" role="menuitem">Manifatturiero</a></li>
+                                <li role="none"><a href="moda-lusso.html" class="dropdown-link" role="menuitem">Moda & Lusso</a></li>
+                                <li role="none"><a href="servizi-finanziari.html" class="dropdown-link" role="menuitem">Servizi Finanziari</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
+                        <li><a href="investimenti-ai.html" class="nav-link">Prezzi</a></li>
+                    </ul>
+                </nav>
+                <a href="contatti.html" class="cta-button" aria-label="Prenota una sessione strategica gratuita">Sessione Strategica</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge mb-lg" style="background: rgba(99, 102, 241, 0.2); color: #818CF8;">Prodotto On-Premise</div>
+                <h1 class="heading-1 mb-lg animate-fade-in-up">
+                    KnowledgeAI <span class="text-gradient-gold">Enterprise</span>
+                </h1>
+                <p class="body-large mb-md animate-fade-in-up" style="animation-delay: 0.1s; font-size: 1.5rem; font-weight: 600; color: #818CF8;">
+                    Chat Aziendale che Interroga i Tuoi Documenti - On-Premise
+                </p>
+                <p class="body-large mb-2xl animate-fade-in-up" style="animation-delay: 0.2s;">
+                    I tuoi documenti non escono mai dall'azienda. Tecnologia RAG che riduce le allucinazioni del 70-90%, risposte basate su fonti verificabili, controllo accessi granulare.
+                </p>
+
+                <!-- Key Benefits Pills -->
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;" class="animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <span style="background: rgba(99, 102, 241, 0.15); color: #818CF8; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; border: 1px solid rgba(99, 102, 241, 0.3);">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 6px;">
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        -70% Allucinazioni
+                    </span>
+                    <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; border: 1px solid rgba(16, 185, 129, 0.3);">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 6px;">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Dati On-Premise
+                    </span>
+                    <span style="background: rgba(212, 160, 23, 0.15); color: #D4A017; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; border: 1px solid rgba(212, 160, 23, 0.3);">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 6px;">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Fonti Verificabili
+                    </span>
+                    <span style="background: rgba(236, 72, 153, 0.15); color: #F472B6; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; border: 1px solid rgba(236, 72, 153, 0.3);">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 6px;">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M23 21v-2a4 4 0 00-3-3.87" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Role-Based Access
+                    </span>
+                </div>
+
+                <div style="display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap;" class="animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <a href="contatti.html" class="btn btn-primary btn-lg">Richiedi Demo On-Premise</a>
+                    <a href="#pricing" class="btn btn-outline btn-lg">Vedi Prezzi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RAG Explanation Banner -->
+    <section class="section" style="background: linear-gradient(90deg, rgba(99, 102, 241, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); padding: 2rem 0;">
+        <div class="container">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; text-align: center;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="color: #818CF8;">
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span style="font-size: 1.1rem; font-weight: 600; color: #E5E7EB;"><span style="color: #818CF8;">RAG</span> = Cerca nei tuoi documenti</span>
+                </div>
+                <div style="color: #D4A017; font-size: 1.5rem;">+</div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="color: #10B981;">
+                        <path d="M12 2a10 10 0 00-7.07 17.07l1.41 1.41A10 10 0 1012 2z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span style="font-size: 1.1rem; font-weight: 600; color: #E5E7EB;">Genera risposte <span style="color: #10B981;">verificabili</span></span>
+                </div>
+                <div style="color: #D4A017; font-size: 1.5rem;">=</div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="color: #D4A017;">
+                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span style="font-size: 1.1rem; font-weight: 600; color: #E5E7EB;"><span style="color: #D4A017;">Zero allucinazioni</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="section" id="use-cases">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Casi d'Uso KnowledgeAI Enterprise</h2>
+                <p class="section-subtitle">
+                    La tua knowledge base aziendale diventa accessibile tramite una chat intelligente, mantenendo ogni documento al sicuro nei tuoi server.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-3" style="gap: 2rem;">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Knowledge Base Interna</h3>
+                    <p class="card-description">I dipendenti interrogano procedure, policy aziendali e best practice in linguaggio naturale invece di cercare nei documenti.</p>
+                    <ul class="feature-list">
+                        <li>Procedure operative standard</li>
+                        <li>Policy HR e regolamenti</li>
+                        <li>Onboarding nuovi dipendenti</li>
+                        <li>FAQ interne automatizzate</li>
+                        <li>Ricerca cross-dipartimento</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Documentazione Tecnica</h3>
+                    <p class="card-description">Tecnici e ingegneri trovano rapidamente specifiche, manuali e schemi tecnici senza sfogliare centinaia di PDF.</p>
+                    <ul class="feature-list">
+                        <li>Manuali prodotto e schede tecniche</li>
+                        <li>Documentazione API e codice</li>
+                        <li>Troubleshooting guidato</li>
+                        <li>Specifiche di progetto</li>
+                        <li>Archivio disegni e CAD</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Contratti e Legale</h3>
+                    <p class="card-description">Ufficio legale e commerciale interrogano contratti, clausole e precedenti per rispondere rapidamente a clienti e fornitori.</p>
+                    <ul class="feature-list">
+                        <li>Ricerca clausole specifiche</li>
+                        <li>Confronto tra contratti</li>
+                        <li>Scadenze e rinnovi</li>
+                        <li>Compliance check automatico</li>
+                        <li>Template e modelli</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M23 21v-2a4 4 0 00-3-3.87" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Supporto HR</h3>
+                    <p class="card-description">Dipendenti ottengono risposte su ferie, benefit, rimborsi e policy senza dover contattare l'ufficio risorse umane.</p>
+                    <ul class="feature-list">
+                        <li>CCNL e normative lavoro</li>
+                        <li>Policy ferie e permessi</li>
+                        <li>Benefit e welfare aziendale</li>
+                        <li>Procedure rimborsi</li>
+                        <li>FAQ dipendenti</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 20V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M18 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 20v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Business Intelligence</h3>
+                    <p class="card-description">Manager interrogano report, analisi di mercato e dati storici per prendere decisioni informate rapidamente.</p>
+                    <ul class="feature-list">
+                        <li>Report vendite e performance</li>
+                        <li>Analisi competitor</li>
+                        <li>Trend di mercato</li>
+                        <li>KPI storici</li>
+                        <li>Previsioni e forecast</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Customer Support Interno</h3>
+                    <p class="card-description">Operatori customer service trovano rapidamente risposte nella knowledge base per assistere i clienti in tempo reale.</p>
+                    <ul class="feature-list">
+                        <li>FAQ prodotti e servizi</li>
+                        <li>Guide troubleshooting</li>
+                        <li>Storico ticket simili</li>
+                        <li>Procedure di escalation</li>
+                        <li>Script di risposta</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How RAG Works Section -->
+    <section class="section" style="background: rgba(99, 102, 241, 0.05);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Come Funziona la Tecnologia RAG</h2>
+                <p class="section-subtitle">
+                    RAG (Retrieval Augmented Generation) combina la ricerca semantica nei tuoi documenti con la generazione AI per risposte accurate e verificabili.
+                </p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 900px; margin: 0 auto;">
+                <!-- Step 1 -->
+                <div style="display: flex; gap: 2rem; align-items: center;">
+                    <div style="background: linear-gradient(135deg, #818CF8, #6366F1); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0;">1</div>
+                    <div class="card" style="flex: 1; margin: 0;">
+                        <h3 style="color: #818CF8; margin-bottom: 0.5rem;">Indicizzazione Documenti</h3>
+                        <p style="color: #9CA3AF; margin: 0;">I tuoi documenti (PDF, Word, email, database) vengono processati e indicizzati in un vector database locale. Ogni frammento di testo diventa ricercabile semanticamente.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div style="display: flex; gap: 2rem; align-items: center;">
+                    <div style="background: linear-gradient(135deg, #10B981, #059669); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0;">2</div>
+                    <div class="card" style="flex: 1; margin: 0;">
+                        <h3 style="color: #10B981; margin-bottom: 0.5rem;">Ricerca Semantica</h3>
+                        <p style="color: #9CA3AF; margin: 0;">Quando fai una domanda, il sistema cerca nei tuoi documenti i passaggi piu rilevanti, anche se non contengono le parole esatte della domanda.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div style="display: flex; gap: 2rem; align-items: center;">
+                    <div style="background: linear-gradient(135deg, #D4A017, #F59E0B); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0;">3</div>
+                    <div class="card" style="flex: 1; margin: 0;">
+                        <h3 style="color: #D4A017; margin-bottom: 0.5rem;">Generazione con Contesto</h3>
+                        <p style="color: #9CA3AF; margin: 0;">Il modello AI genera la risposta usando SOLO le informazioni trovate nei tuoi documenti. Ogni affermazione e tracciabile alla fonte originale.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div style="display: flex; gap: 2rem; align-items: center;">
+                    <div style="background: linear-gradient(135deg, #F472B6, #EC4899); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0;">4</div>
+                    <div class="card" style="flex: 1; margin: 0;">
+                        <h3 style="color: #F472B6; margin-bottom: 0.5rem;">Risposta con Citazioni</h3>
+                        <p style="color: #9CA3AF; margin: 0;">Ricevi la risposta completa con link ai documenti fonte. Puoi verificare ogni informazione cliccando sul riferimento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison box -->
+            <div style="margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <div class="card" style="border: 2px solid rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05);">
+                    <h3 style="color: #EF4444; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        ChatGPT Generico
+                    </h3>
+                    <ul style="color: #9CA3AF; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">&#10060; Inventa informazioni plausibili</li>
+                        <li style="margin-bottom: 0.5rem;">&#10060; Non conosce i tuoi documenti</li>
+                        <li style="margin-bottom: 0.5rem;">&#10060; Dati inviati al cloud</li>
+                        <li>&#10060; Nessuna fonte verificabile</li>
+                    </ul>
+                </div>
+                <div class="card" style="border: 2px solid rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.05);">
+                    <h3 style="color: #10B981; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        KnowledgeAI RAG
+                    </h3>
+                    <ul style="color: #9CA3AF; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">&#9989; Risponde solo da fonti reali</li>
+                        <li style="margin-bottom: 0.5rem;">&#9989; Usa i tuoi documenti aziendali</li>
+                        <li style="margin-bottom: 0.5rem;">&#9989; Tutto on-premise</li>
+                        <li>&#9989; Ogni risposta con citazione</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Funzionalita Enterprise</h2>
+                <p class="section-subtitle">
+                    Tutto cio che serve per deployare una knowledge base AI sicura e scalabile nella tua organizzazione.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2" style="gap: 3rem; max-width: 1000px; margin: 0 auto;">
+                <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                    <div style="background: rgba(99, 102, 241, 0.2); padding: 1rem; border-radius: 12px; flex-shrink: 0;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="color: #818CF8;">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M23 21v-2a4 4 0 00-3-3.87" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="color: #E5E7EB; margin-bottom: 0.5rem; font-size: 1.25rem;">Role-Based Access Control</h3>
+                        <p style="color: #9CA3AF;">Ogni utente vede solo i documenti a cui e autorizzato. Integrazione con Active Directory, LDAP, SAML. Permessi granulari per team, ruolo o documento.</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                    <div style="background: rgba(16, 185, 129, 0.2); padding: 1rem; border-radius: 12px; flex-shrink: 0;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="color: #10B981;">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="color: #E5E7EB; margin-bottom: 0.5rem; font-size: 1.25rem;">Multi-formato Documenti</h3>
+                        <p style="color: #9CA3AF;">PDF, Word, Excel, PowerPoint, email, HTML, Markdown. OCR integrato per documenti scannerizzati. Supporto database SQL per dati strutturati.</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                    <div style="background: rgba(212, 160, 23, 0.2); padding: 1rem; border-radius: 12px; flex-shrink: 0;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="color: #D4A017;">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="17,8 12,3 7,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="color: #E5E7EB; margin-bottom: 0.5rem; font-size: 1.25rem;">Connettori Repository</h3>
+                        <p style="color: #9CA3AF;">SharePoint, Google Drive, Confluence, Notion, Dropbox. Sincronizzazione automatica: nuovi documenti indicizzati in tempo reale.</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                    <div style="background: rgba(236, 72, 153, 0.2); padding: 1rem; border-radius: 12px; flex-shrink: 0;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="color: #F472B6;">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="color: #E5E7EB; margin-bottom: 0.5rem; font-size: 1.25rem;">Audit Trail Completo</h3>
+                        <p style="color: #9CA3AF;">Log di ogni query, risposta e documento acceduto. Export per compliance GDPR e audit. Data retention configurabile.</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                    <div style="background: rgba(34, 211, 238, 0.2); padding: 1rem; border-radius: 12px; flex-shrink: 0;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="color: #22D3EE;">
+                            <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="color: #E5E7EB; margin-bottom: 0.5rem; font-size: 1.25rem;">Interfaccia Multi-canale</h3>
+                        <p style="color: #9CA3AF;">Web app, Slack, Microsoft Teams, widget embedabile. API REST per integrazione in applicazioni custom.</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                    <div style="background: rgba(251, 146, 60, 0.2); padding: 1rem; border-radius: 12px; flex-shrink: 0;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="color: #FB923C;">
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="color: #E5E7EB; margin-bottom: 0.5rem; font-size: 1.25rem;">Analytics e Insights</h3>
+                        <p style="color: #9CA3AF;">Dashboard query piu frequenti, gap nella knowledge base, trend di utilizzo. Identifica quali documenti mancano o necessitano aggiornamento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing" style="background: rgba(99, 102, 241, 0.05);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pacchetti KnowledgeAI Enterprise</h2>
+                <p class="section-subtitle">
+                    Prezzi trasparenti basati su utenti e storage. Nessun costo per query.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-3" style="gap: 2rem; max-width: 1200px; margin: 0 auto;">
+                <!-- Team -->
+                <div class="card" style="border: 2px solid rgba(255, 255, 255, 0.1);">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(99, 102, 241, 0.2); color: #818CF8; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; font-weight: 600;">TEAM</span>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="font-size: 3rem; font-weight: 800; color: #E5E7EB;">30.000</span>
+                        <span style="font-size: 1.25rem; color: #9CA3AF;"> EUR</span>
+                    </div>
+                    <p style="text-align: center; color: #9CA3AF; margin-bottom: 1.5rem;">Per team e dipartimenti che iniziano con RAG</p>
+                    <ul class="feature-list" style="margin-bottom: 2rem;">
+                        <li>Fino a 50 utenti</li>
+                        <li>10GB documenti indicizzati</li>
+                        <li>Formati base (PDF, Word, Excel)</li>
+                        <li>Web interface</li>
+                        <li>Supporto email</li>
+                        <li>Training team (4 ore)</li>
+                    </ul>
+                    <p style="text-align: center; font-size: 0.85rem; color: #6B7280; margin-bottom: 1rem;">Hardware non incluso</p>
+                    <a href="contatti.html" class="btn btn-outline" style="width: 100%;">Richiedi Preventivo</a>
+                </div>
+
+                <!-- Business - Highlighted -->
+                <div class="card" style="border: 2px solid #818CF8; position: relative; transform: scale(1.05);">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #818CF8, #6366F1); color: white; padding: 0.25rem 1rem; border-radius: 12px; font-size: 0.85rem; font-weight: 700;">PIU POPOLARE</div>
+                    <div style="text-align: center; margin-bottom: 1.5rem; margin-top: 0.5rem;">
+                        <span style="background: rgba(99, 102, 241, 0.2); color: #818CF8; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; font-weight: 600;">BUSINESS</span>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="font-size: 3rem; font-weight: 800; color: #818CF8;">55.000</span>
+                        <span style="font-size: 1.25rem; color: #9CA3AF;"> EUR</span>
+                    </div>
+                    <p style="text-align: center; color: #9CA3AF; margin-bottom: 1.5rem;">Per aziende con esigenze di controllo accessi</p>
+                    <ul class="feature-list" style="margin-bottom: 2rem;">
+                        <li><strong>Fino a 200 utenti</strong></li>
+                        <li><strong>100GB documenti</strong></li>
+                        <li><strong>Role-Based Access Control</strong></li>
+                        <li>Tutti i formati + OCR</li>
+                        <li>Connettori SharePoint, Drive</li>
+                        <li>Slack/Teams integration</li>
+                        <li>Supporto prioritario</li>
+                        <li>Training team (8 ore)</li>
+                    </ul>
+                    <p style="text-align: center; font-size: 0.85rem; color: #6B7280; margin-bottom: 1rem;">Hardware opzionale (+20.000 EUR)</p>
+                    <a href="contatti.html" class="btn btn-primary" style="width: 100%;">Richiedi Demo</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="card" style="border: 2px solid rgba(16, 185, 129, 0.3);">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(16, 185, 129, 0.2); color: #10B981; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; font-weight: 600;">ENTERPRISE</span>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="font-size: 3rem; font-weight: 800; color: #10B981;">85.000+</span>
+                        <span style="font-size: 1.25rem; color: #9CA3AF;"> EUR</span>
+                    </div>
+                    <p style="text-align: center; color: #9CA3AF; margin-bottom: 1.5rem;">Per organizzazioni con requisiti avanzati</p>
+                    <ul class="feature-list" style="margin-bottom: 2rem;">
+                        <li><strong>Utenti illimitati</strong></li>
+                        <li><strong>Storage illimitato</strong></li>
+                        <li><strong>SSO / Active Directory</strong></li>
+                        <li>Modelli custom fine-tuned</li>
+                        <li>Connettori illimitati</li>
+                        <li>Audit trail avanzato</li>
+                        <li>Supporto dedicato 24/7</li>
+                        <li>Training illimitato</li>
+                        <li>SLA garantito</li>
+                    </ul>
+                    <p style="text-align: center; font-size: 0.85rem; color: #6B7280; margin-bottom: 1rem;">Server turnkey incluso</p>
+                    <a href="contatti.html" class="btn btn-outline" style="width: 100%; border-color: #10B981; color: #10B981;">Contatta Sales</a>
+                </div>
+            </div>
+
+            <!-- Bundle offer -->
+            <div style="margin-top: 3rem; text-align: center; padding: 2rem; background: rgba(212, 160, 23, 0.1); border-radius: 16px; border: 1px solid rgba(212, 160, 23, 0.3);">
+                <h3 style="color: #D4A017; margin-bottom: 0.5rem; font-size: 1.25rem;">Risparmia con il Bundle</h3>
+                <p style="color: #E5E7EB; margin-bottom: 1rem;">Combina <strong>KnowledgeAI</strong> + <strong>VoiceAI On-Premise</strong> e ottieni il <strong>15% di sconto</strong> sul totale</p>
+                <a href="voiceai-on-premise.html" class="btn btn-outline" style="border-color: #D4A017; color: #D4A017;">Scopri VoiceAI</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specs Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Specifiche Tecniche</h2>
+                <p class="section-subtitle">
+                    Requisiti e integrazioni per il deployment nella tua infrastruttura.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2" style="gap: 3rem; max-width: 1000px; margin: 0 auto;">
+                <div class="card">
+                    <h3 class="card-title" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="color: #818CF8;">
+                            <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <rect x="9" y="9" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Requisiti Hardware
+                    </h3>
+                    <ul class="feature-list">
+                        <li><strong>GPU</strong>: NVIDIA RTX 4090 o A100</li>
+                        <li><strong>VRAM</strong>: 24GB minimo (48GB per modelli grandi)</li>
+                        <li><strong>RAM</strong>: 128GB (256GB consigliato)</li>
+                        <li><strong>Storage</strong>: 2TB NVMe SSD (vector DB + docs)</li>
+                        <li><strong>CPU</strong>: 32+ core per indicizzazione</li>
+                        <li><strong>Rete</strong>: 1Gbps LAN</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; color: #6B7280; margin-top: 1rem;">Requisiti scalano con volume documenti</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="color: #10B981;">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Integrazioni Supportate
+                    </h3>
+                    <ul class="feature-list">
+                        <li><strong>Repository</strong>: SharePoint, Google Drive, Confluence</li>
+                        <li><strong>Chat</strong>: Slack, Microsoft Teams, Discord</li>
+                        <li><strong>Auth</strong>: Active Directory, LDAP, SAML, OAuth</li>
+                        <li><strong>Database</strong>: PostgreSQL, MySQL, SQL Server</li>
+                        <li><strong>ERP</strong>: Zucchetti, TeamSystem, SAP</li>
+                        <li><strong>Custom</strong>: REST API, Webhooks, GraphQL</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: rgba(99, 102, 241, 0.05);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pronto a Sbloccare la Tua Knowledge Base?</h2>
+                <p class="section-subtitle mb-2xl">
+                    Richiedi una demo personalizzata e scopri come KnowledgeAI Enterprise puo trasformare l'accesso alla conoscenza aziendale - con i dati che restano sempre sotto il tuo controllo.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contatti.html" class="btn btn-primary btn-lg">Richiedi Demo Gratuita</a>
+                    <a href="investimenti-ai.html" class="btn btn-outline btn-lg">Tutti i Prezzi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="src/assets/img/pugliai_pittogramma.png" alt="PugliAI" class="footer-logo-img">
+                </div>
+                <div class="footer-links">
+                    <a href="voiceai-on-premise.html" class="footer-link">VoiceAI On-Premise</a>
+                    <a href="knowledgeai-enterprise.html" class="footer-link">KnowledgeAI Enterprise</a>
+                    <a href="servizi.html" class="footer-link">Servizi</a>
+                    <a href="chi-siamo.html" class="footer-link">Chi Siamo</a>
+                    <a href="contatti.html" class="footer-link">Contatti</a>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2025 PugliAI S.r.l. - P.IVA IT02735920742</p>
+                    <p>Via Giovanni Forleo 45, 72022 Latiano (BR) | Via Angelo Maj 16, 24121 Bergamo</p>
+                    <p>
+                        <a href="privacy.html" class="footer-link">Privacy</a> |
+                        <a href="cookie.html" class="footer-link">Cookie</a> |
+                        <a href="termini.html" class="footer-link">Termini</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">&#8593;</div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
+        }
+
+        // Dropdown toggle for mobile
+        const dropdowns = document.querySelectorAll('.has-dropdown');
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
