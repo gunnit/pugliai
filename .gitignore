@@ -26,13 +26,25 @@
 ehthumbs.db
 Thumbs.db
 
-# Node.js (if ever added)
+# Node.js
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
 
 # Logs
 *.log
 logs/
+
+# Playwright / Testing
+playwright-report/
+test-results/
+.playwright-mcp/
 screenshots/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Misc
+image.png

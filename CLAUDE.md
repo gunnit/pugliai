@@ -20,10 +20,8 @@ python -m http.server 8000
 
 ### Testing
 ```bash
-# Run Playwright screenshot utilities
-node quick_screenshot.js           # Quick page screenshots
-node screenshot_pages.js           # Batch screenshot generation
-node src/assets/js/screenshot_stylesheet.js  # Component library screenshots
+# Use MCP Playwright for browser testing and screenshots
+# Available through Claude Code's Playwright MCP tools
 
 # Test pages available at:
 # http://localhost:8000/src/tests/test_page.html
@@ -99,7 +97,6 @@ Key architectural patterns:
 Pure vanilla JavaScript - no frameworks or build tools:
 - **language-switcher.js**: Bilingual navigation and URL mapping
 - **form-security.js**: Client-side form validation and security
-- **Playwright scripts**: Screenshot generation for testing/documentation
 
 Progressive enhancement approach - JavaScript enhances but isn't required for core functionality.
 
@@ -179,7 +176,7 @@ This is a **reference file**, not a build artifact - copy components manually in
 5. Update navigation in language-switcher.js if needed
 
 ### Testing
-- Use Playwright screenshot scripts to capture visual state before/after changes
+- Use MCP Playwright to capture visual state and test pages
 - Test language switching manually
 - Validate forms with `form-security.js` patterns
 - Check responsive behavior across breakpoints
