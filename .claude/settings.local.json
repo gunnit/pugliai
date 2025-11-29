@@ -21,7 +21,8 @@
       "Bash(done)",
       "WebSearch",
       "WebFetch(domain:automa.site)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "WebFetch(domain:www.linkedin.com)"
     ],
     "deny": [],
     "ask": []
