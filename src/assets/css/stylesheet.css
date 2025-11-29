@@ -2712,4 +2712,88 @@ n            table {
 .hero-section-home {
     padding-top: calc(80px + 4rem);
     background: var(--gradient-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section-home::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background-image: url('../img/backgrounditaly.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-section-home .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero with decorative image */
+.hero-with-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    text-align: left;
+}
+
+.hero-with-image .hero-content {
+    text-align: left;
+}
+
+.hero-with-image .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-with-image .hero-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+@media (max-width: 768px) {
+    .hero-with-image {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-with-image .hero-content {
+        text-align: center;
+        order: 1;
+    }
+
+    .hero-with-image .hero-image {
+        order: 0;
+        margin-bottom: 2rem;
+    }
+
+    .hero-with-image .hero-image img {
+        max-height: 250px;
+    }
+
+    .hero-section-home::before {
+        width: 350px;
+        height: 350px;
+        opacity: 0.1;
+    }
 }
