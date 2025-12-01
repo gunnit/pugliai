@@ -70,6 +70,14 @@
         <priority>0.85</priority>
     </url>
 
+    <!-- Products Landing Page -->
+    <url>
+        <loc>https://www.pugliai.com/prodotti.html</loc>
+        <lastmod>2025-11-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
     <!-- Product Pages (On-Premise) -->
     <url>
         <loc>https://www.pugliai.com/voiceai-on-premise.html</loc>
@@ -281,6 +289,14 @@
         <lastmod>2025-10-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+    </url>
+
+    <!-- English Products Landing Page -->
+    <url>
+        <loc>https://www.pugliai.com/en/products.html</loc>
+        <lastmod>2025-11-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
     </url>
 
     <!-- English Product Pages (On-Premise) -->

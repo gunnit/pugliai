@@ -27,33 +27,8 @@
             },
             menuLabel: 'Menu principale',
             items: [
-                { label: 'Home', href: 'index.html' },
-                {
-                    label: 'Servizi',
-                    href: 'servizi.html',
-                    submenu: [
-                        { label: 'Infrastrutture AI', href: 'infrastrutture-ai.html' },
-                        { label: 'Agenti AI', href: 'agenti-ai.html' },
-                        { label: 'Consulenza Strategica', href: 'consulenza-strategica.html' }
-                    ]
-                },
-                {
-                    label: 'Prodotti',
-                    href: '#',
-                    submenu: [
-                        { label: 'VoiceAI On-Premise', href: 'voiceai-on-premise.html' },
-                        { label: 'KnowledgeAI Enterprise', href: 'knowledgeai-enterprise.html' }
-                    ]
-                },
-                {
-                    label: 'Settori',
-                    href: 'settori.html',
-                    submenu: [
-                        { label: 'Manifatturiero', href: 'manifatturiero.html' },
-                        { label: 'Moda & Lusso', href: 'moda-lusso.html' },
-                        { label: 'Servizi Finanziari', href: 'servizi-finanziari.html' }
-                    ]
-                },
+                { label: 'Servizi', href: 'servizi.html' },
+                { label: 'Prodotti', href: 'prodotti.html' },
                 { label: 'Chi Siamo', href: 'chi-siamo.html' },
                 { label: 'Prezzi', href: 'investimenti-ai.html' },
                 { label: 'Guida CEO', href: 'guida-ai-ceo-2025.html', highlight: true, icon: 'book' }
@@ -84,33 +59,8 @@
             },
             menuLabel: 'Main menu',
             items: [
-                { label: 'Home', href: 'index.html' },
-                {
-                    label: 'Services',
-                    href: 'services.html',
-                    submenu: [
-                        { label: 'AI Infrastructure', href: 'ai-infrastructure.html' },
-                        { label: 'AI Agents', href: 'ai-agents.html' },
-                        { label: 'Strategic Consulting', href: 'strategic-consulting.html' }
-                    ]
-                },
-                {
-                    label: 'Products',
-                    href: '#',
-                    submenu: [
-                        { label: 'VoiceAI On-Premise', href: 'voiceai-on-premise.html' },
-                        { label: 'KnowledgeAI Enterprise', href: 'knowledgeai-enterprise.html' }
-                    ]
-                },
-                {
-                    label: 'Sectors',
-                    href: 'sectors.html',
-                    submenu: [
-                        { label: 'Manufacturing', href: 'manufacturing.html' },
-                        { label: 'Fashion & Luxury', href: 'fashion-luxury.html' },
-                        { label: 'Financial Services', href: 'financial-services.html' }
-                    ]
-                },
+                { label: 'Services', href: 'services.html' },
+                { label: 'Products', href: 'products.html' },
                 { label: 'About Us', href: 'about-us.html' },
                 { label: 'Pricing', href: 'ai-investment.html' },
                 { label: 'CEO Guide', href: 'ceo-ai-guide-2025.html', highlight: true, icon: 'book' }
@@ -233,6 +183,7 @@
             'about-us.html': 'chi-siamo.html',
             'contact.html': 'contatti.html',
             'services.html': 'servizi.html',
+            'products.html': 'prodotti.html',
             'ai-infrastructure.html': 'infrastrutture-ai.html',
             'ai-agents.html': 'agenti-ai.html',
             'strategic-consulting.html': 'consulenza-strategica.html',

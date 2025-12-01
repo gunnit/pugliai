@@ -19,7 +19,8 @@
         'agenti-ai.html': 'ai-agents.html',
         'consulenza-strategica.html': 'strategic-consulting.html',
 
-        // Products (On-Premise)
+        // Products
+        'prodotti.html': 'products.html',
         'voiceai-on-premise.html': 'voiceai-on-premise.html',
         'knowledgeai-enterprise.html': 'knowledgeai-enterprise.html',
 
