@@ -153,9 +153,80 @@
 
     <url>
         <loc>https://www.pugliai.com/guida-ai-ceo-2025.html</loc>
-        <lastmod>2025-01-25</lastmod>
-        <changefreq>yearly</changefreq>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.85</priority>
+    </url>
+
+    <!-- CEO Guide Articles -->
+    <url>
+        <loc>https://www.pugliai.com/guida-ai/ai-hr-recruiting.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://www.pugliai.com/guida-ai/ai-cybersecurity-aziendale.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://www.pugliai.com/guida-ai/ai-agroalimentare-made-italy.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://www.pugliai.com/guida-ai/ai-turismo-hospitality.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://www.pugliai.com/guida-ai/ai-sanita-healthcare.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://www.pugliai.com/guida-ai/ai-incentivi-finanziamenti-italia.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://www.pugliai.com/guida-ai/ai-retail-ecommerce.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://www.pugliai.com/guida-ai/ai-sostenibilita-esg.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://www.pugliai.com/guida-ai/ai-studi-professionali.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://www.pugliai.com/guida-ai/ai-predittiva-data-analytics.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.75</priority>
     </url>
 
     <!-- Tools Pages -->
