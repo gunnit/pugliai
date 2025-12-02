@@ -27,11 +27,12 @@
             },
             menuLabel: 'Menu principale',
             items: [
+                { label: 'Acceleratore', href: 'acceleratore.html', highlight: true, icon: 'rocket' },
                 { label: 'Servizi', href: 'servizi.html' },
                 { label: 'Prodotti', href: 'prodotti.html' },
                 { label: 'Chi Siamo', href: 'chi-siamo.html' },
                 { label: 'Prezzi', href: 'investimenti-ai.html' },
-                { label: 'Guida CEO', href: 'guida-ai-ceo-2025.html', highlight: true, icon: 'book' }
+                { label: 'Guida CEO', href: 'guida-ai-ceo-2025.html', icon: 'book' }
             ],
             cta: {
                 label: 'Sessione Strategica',
@@ -59,11 +60,12 @@
             },
             menuLabel: 'Main menu',
             items: [
+                { label: 'Accelerator', href: 'accelerator.html', highlight: true, icon: 'rocket' },
                 { label: 'Services', href: 'services.html' },
                 { label: 'Products', href: 'products.html' },
                 { label: 'About Us', href: 'about-us.html' },
                 { label: 'Pricing', href: 'ai-investment.html' },
-                { label: 'CEO Guide', href: 'ceo-ai-guide-2025.html', highlight: true, icon: 'book' }
+                { label: 'CEO Guide', href: 'ceo-ai-guide-2025.html', icon: 'book' }
             ],
             cta: {
                 label: 'Strategic Session',
@@ -110,6 +112,11 @@
         book: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 6px;">
             <path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`,
+        rocket: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 6px;">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a1.96 1.96 0 00-2.91-.09z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>`
     };
 
@@ -189,6 +196,9 @@
             'strategic-consulting.html': 'consulenza-strategica.html',
             'ai-investment.html': 'investimenti-ai.html',
             'ceo-ai-guide-2025.html': 'guida-ai-ceo-2025.html',
+            'accelerator.html': 'acceleratore.html',
+            'accelerator-apply.html': 'acceleratore-candidatura.html',
+            'accelerator-success.html': 'acceleratore-success.html',
             'sectors.html': 'settori.html',
             'manufacturing.html': 'manifatturiero.html',
             'fashion-luxury.html': 'moda-lusso.html',
