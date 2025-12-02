@@ -40,10 +40,39 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.pugliai.com/">
     
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/assets/css/stylesheet.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    
+
+    <!-- Structured Data - WebSite Schema with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PugliAI",
+      "alternateName": ["PugliAI S.r.l.", "Puglia AI", "Puglia Intelligenza Artificiale"],
+      "url": "https://www.pugliai.com",
+      "description": "Consulenza AI per PMI italiane. Pacchetti completi di intelligenza artificiale da €15K con ROI garantito.",
+      "inLanguage": ["it-IT", "en"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.pugliai.com/guida-ai-ceo-2025.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PugliAI",
+        "url": "https://www.pugliai.com"
+      }
+    }
+    </script>
+
     <!-- Structured Data - Organization Schema -->
     <script type="application/ld+json">
     {
@@ -57,15 +86,17 @@
       "address": [
         {
           "@type": "PostalAddress",
+          "name": "Sede Legale Puglia",
           "streetAddress": "Via Giovanni Forleo 45",
-          "addressLocality": "Brindisi",
+          "addressLocality": "Latiano",
           "addressRegion": "BR",
-          "postalCode": "72100",
+          "postalCode": "72022",
           "addressCountry": "IT"
         },
         {
           "@type": "PostalAddress",
-          "streetAddress": "Via Giovanni Forleo 45",
+          "name": "Sede Operativa Nord Italia",
+          "streetAddress": "Via Angelo Maj 16",
           "addressLocality": "Bergamo",
           "addressRegion": "BG",
           "postalCode": "24121",
@@ -208,6 +239,20 @@
           }
         }
       ]
+    }
+    </script>
+
+    <!-- Speakable Schema for Voice Search / AI Assistants -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "PugliAI - Pacchetti AI Completi per PMI Italiane",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["#hero-title", ".body-large", ".stat-number", ".stat-label"]
+      },
+      "url": "https://www.pugliai.com/"
     }
     </script>
 </head>
