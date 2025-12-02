@@ -31,7 +31,6 @@
                 { label: 'Servizi', href: 'servizi.html' },
                 { label: 'Prodotti', href: 'prodotti.html' },
                 { label: 'Chi Siamo', href: 'chi-siamo.html' },
-                { label: 'Prezzi', href: 'investimenti-ai.html' },
                 { label: 'Guida CEO', href: 'guida-ai-ceo-2025.html', icon: 'book' }
             ],
             cta: {
@@ -64,7 +63,6 @@
                 { label: 'Services', href: 'services.html' },
                 { label: 'Products', href: 'products.html' },
                 { label: 'About Us', href: 'about-us.html' },
-                { label: 'Pricing', href: 'ai-investment.html' },
                 { label: 'CEO Guide', href: 'ceo-ai-guide-2025.html', icon: 'book' }
             ],
             cta: {
