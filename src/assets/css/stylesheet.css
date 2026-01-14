@@ -104,6 +104,28 @@
             border: 0;
         }
 
+        /* Skip Navigation Link - Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-gold);
+            color: var(--primary-navy);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            text-decoration: none;
+            z-index: 10000;
+            transition: top 0.3s ease;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+            outline: 3px solid var(--accent-emerald);
+            outline-offset: 2px;
+        }
+
         .text-center { text-align: center; }
         .text-left { text-align: left; }
         .text-right { text-align: right; }
@@ -2268,6 +2290,11 @@ n            table {
         .hero-description {
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        .team-figure {
+            margin: 0;
+            padding: 0;
         }
 
         .team-image {
