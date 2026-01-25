@@ -92,6 +92,106 @@
         }
     };
 
+    // Detect language
+    const isEnglish = window.location.pathname.includes('/en/');
+
+    // Localized messages
+    const messages = {
+        it: {
+            required: 'Questo campo è obbligatorio',
+            email: 'Inserisci un indirizzo email valido',
+            phone: 'Inserisci un numero di telefono valido',
+            privacy: 'Devi accettare la Privacy Policy per continuare',
+            rateLimit: 'Troppe richieste. Attendi un momento prima di riprovare.',
+            success: 'Messaggio inviato con successo!'
+        },
+        en: {
+            required: 'This field is required',
+            email: 'Please enter a valid email address',
+            phone: 'Please enter a valid phone number',
+            privacy: 'You must accept the Privacy Policy to continue',
+            rateLimit: 'Too many requests. Please wait a moment before trying again.',
+            success: 'Message sent successfully!'
+        }
+    };
+
+    const msg = isEnglish ? messages.en : messages.it;
+
+    // Show error for a field
+    function showError(input, message) {
+        input.classList.add('error');
+        input.classList.remove('success');
+
+        const errorSpan = document.getElementById(input.id + '-error');
+        if (errorSpan) {
+            errorSpan.textContent = message;
+            errorSpan.style.display = 'flex';
+        }
+    }
+
+    // Clear error for a field
+    function clearError(input) {
+        input.classList.remove('error');
+
+        const errorSpan = document.getElementById(input.id + '-error');
+        if (errorSpan) {
+            errorSpan.textContent = '';
+            errorSpan.style.display = 'none';
+        }
+    }
+
+    // Show success for a field
+    function showSuccess(input) {
+        input.classList.remove('error');
+        input.classList.add('success');
+        clearError(input);
+    }
+
+    // Validate a single field
+    function validateField(input) {
+        const value = input.value.trim();
+
+        // Required check
+        if (input.hasAttribute('required') && !value) {
+            showError(input, msg.required);
+            return false;
+        }
+
+        // Email validation
+        if (input.type === 'email' && value) {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(value)) {
+                showError(input, msg.email);
+                return false;
+            }
+        }
+
+        // Phone validation (optional field)
+        if (input.type === 'tel' && value) {
+            const cleanPhone = value.replace(/[\s\-\(\)]/g, '');
+            const phoneRegex = /^(\+39|0039)?[\s]?([0-9]{9,11})$/;
+            const mobileRegex = /^(\+39|0039)?[\s]?3[0-9]{8,9}$/;
+            const landlineRegex = /^(\+39|0039)?[\s]?0[0-9]{8,10}$/;
+            const plainRegex = /^[0-9]{9,11}$/;
+
+            if (!phoneRegex.test(cleanPhone) &&
+                !mobileRegex.test(cleanPhone) &&
+                !landlineRegex.test(cleanPhone) &&
+                !plainRegex.test(cleanPhone)) {
+                showError(input, msg.phone);
+                return false;
+            }
+        }
+
+        // If we get here, the field is valid
+        if (value) {
+            showSuccess(input);
+        } else {
+            clearError(input);
+        }
+        return true;
+    }
+
     // Enhanced form validation
     function validateForm(form) {
         // Check honeypot
@@ -103,85 +203,118 @@
 
         // Check rate limiting
         if (!rateLimiter.canSubmit()) {
-            alert('Troppe richieste. Attendi un momento prima di riprovare.');
+            alert(msg.rateLimit);
             return false;
         }
 
-        // Validate email format more strictly
-        const email = form.querySelector('input[type="email"]');
-        if (email) {
-            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            if (!emailRegex.test(email.value)) {
-                email.setCustomValidity('Inserisci un indirizzo email valido');
-                email.reportValidity();
-                return false;
+        let isValid = true;
+
+        // Validate all required fields
+        const inputs = form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]), textarea');
+        inputs.forEach(input => {
+            if (!validateField(input)) {
+                isValid = false;
+            }
+        });
+
+        // Validate privacy checkbox
+        const privacyCheckbox = form.querySelector('#privacy-consent');
+        if (privacyCheckbox && !privacyCheckbox.checked) {
+            const privacyError = document.getElementById('privacy-error');
+            if (privacyError) {
+                privacyError.textContent = msg.privacy;
+                privacyError.style.display = 'flex';
+            }
+            isValid = false;
+        } else if (privacyCheckbox) {
+            const privacyError = document.getElementById('privacy-error');
+            if (privacyError) {
+                privacyError.style.display = 'none';
             }
         }
 
-        // Validate phone number for Italian format (more flexible)
-        const phone = form.querySelector('input[type="tel"]');
-        if (phone && phone.value) {
-            // Remove all spaces, dashes, and parentheses for validation
-            const cleanPhone = phone.value.replace(/[\s\-\(\)]/g, '');
-            
-            // Accept various formats:
-            // +39 with 9-10 digits
-            // 0039 with 9-10 digits  
-            // 3xx (mobile) with 9-10 digits total
-            // 0x (landline) with 8-11 digits total
-            // Plain 9-11 digit numbers
-            const phoneRegex = /^(\+39|0039)?[\s]?([0-9]{9,11})$/;
-            const mobileRegex = /^(\+39|0039)?[\s]?3[0-9]{8,9}$/;
-            const landlineRegex = /^(\+39|0039)?[\s]?0[0-9]{8,10}$/;
-            const plainRegex = /^[0-9]{9,11}$/;
-            
-            if (!phoneRegex.test(cleanPhone) && 
-                !mobileRegex.test(cleanPhone) && 
-                !landlineRegex.test(cleanPhone) &&
-                !plainRegex.test(cleanPhone)) {
-                phone.setCustomValidity('Inserisci un numero di telefono valido');
-                phone.reportValidity();
-                return false;
-            }
-        }
-
-        return true;
+        return isValid;
     }
 
     // Initialize security features on all forms
     function initFormSecurity() {
         const forms = document.querySelectorAll('form.contact-form');
-        
+
         forms.forEach(form => {
             // Add CSRF token
             addCSRFToForm(form);
-            
+
             // Add honeypot
             addHoneypot(form);
-            
+
+            // Add real-time validation on blur
+            const inputs = form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]), textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    validateField(this);
+                });
+
+                input.addEventListener('input', function() {
+                    // Clear error on typing
+                    this.setCustomValidity('');
+                    if (this.classList.contains('error')) {
+                        clearError(this);
+                    }
+                });
+            });
+
+            // Privacy checkbox validation
+            const privacyCheckbox = form.querySelector('#privacy-consent');
+            if (privacyCheckbox) {
+                privacyCheckbox.addEventListener('change', function() {
+                    const privacyError = document.getElementById('privacy-error');
+                    if (privacyError) {
+                        privacyError.style.display = 'none';
+                    }
+                });
+            }
+
             // Add submit handler
             form.addEventListener('submit', function(e) {
                 if (!validateForm(form)) {
                     e.preventDefault();
+                    // Focus on first error field
+                    const firstError = form.querySelector('.error');
+                    if (firstError) {
+                        firstError.focus();
+                    }
                     return false;
                 }
-                
+
                 // Refresh CSRF token for next submission
                 addCSRFToForm(form);
-                
+
                 // Add timestamp
                 const timestamp = document.createElement('input');
                 timestamp.type = 'hidden';
                 timestamp.name = '_timestamp';
                 timestamp.value = Date.now().toString();
                 form.appendChild(timestamp);
-            });
 
-            // Clear custom validity on input
-            form.querySelectorAll('input').forEach(input => {
-                input.addEventListener('input', function() {
-                    this.setCustomValidity('');
-                });
+                // Show success message if form-success element exists (for AJAX forms)
+                // Note: For standard form submission, redirect handles success
+                const successEl = document.getElementById('form-success');
+                if (successEl && form.getAttribute('data-ajax') === 'true') {
+                    e.preventDefault();
+
+                    // Submit via fetch
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form)
+                    }).then(response => {
+                        if (response.ok) {
+                            form.style.display = 'none';
+                            successEl.style.display = 'block';
+                        }
+                    }).catch(error => {
+                        console.error('Form submission error:', error);
+                    });
+                }
             });
         });
     }

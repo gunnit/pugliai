@@ -148,13 +148,13 @@
     function generateItalianLangSwitcher() {
         const ls = config.langSwitcher;
         return `<div class="language-switcher" role="navigation" aria-label="${ls.ariaLabel}">
-                    <div class="lang-toggle" aria-label="${ls.toggleLabel}" role="button" tabindex="0">
+                    <div class="lang-toggle" aria-label="${ls.toggleLabel}" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
                         <span class="lang-flag">${ls.current.flag}</span>
                         <span class="lang-code">${ls.current.code}</span>
                         <span class="lang-arrow">▼</span>
                     </div>
-                    <div class="lang-dropdown">
-                        <a href="${ls.alternate.href}" class="lang-option" aria-label="Switch to ${ls.alternate.label}">
+                    <div class="lang-dropdown" role="menu">
+                        <a href="${ls.alternate.href}" class="lang-option" role="menuitem" aria-label="Switch to ${ls.alternate.label}">
                             <span class="lang-flag">${ls.alternate.flag}</span>
                             <span>${ls.alternate.label}</span>
                         </a>
@@ -162,7 +162,7 @@
                 </div>`;
     }
 
-    // Generate English language switcher (buttons style)
+    // Generate English language switcher (dropdown style - consistent with Italian)
     function generateEnglishLangSwitcher() {
         const ls = config.langSwitcher;
         // Compute the Italian equivalent page
@@ -170,14 +170,17 @@
         const itPage = getItalianEquivalent(currentPage);
 
         return `<div class="language-switcher" role="navigation" aria-label="${ls.ariaLabel}">
-                    <a href="/${itPage}" class="lang-option" aria-label="Italiano">
-                        <span class="lang-flag">${ls.alternate.flag}</span>
-                        <span>${ls.alternate.label}</span>
-                    </a>
-                    <a href="/en/${currentPage}" class="lang-option active" aria-label="English" aria-current="true">
+                    <div class="lang-toggle" aria-label="Change language" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
                         <span class="lang-flag">${ls.current.flag}</span>
-                        <span>${ls.current.code}</span>
-                    </a>
+                        <span class="lang-code">${ls.current.code}</span>
+                        <span class="lang-arrow">▼</span>
+                    </div>
+                    <div class="lang-dropdown" role="menu">
+                        <a href="/${itPage}" class="lang-option" role="menuitem" aria-label="Switch to Italian">
+                            <span class="lang-flag">${ls.alternate.flag}</span>
+                            <span>Italiano</span>
+                        </a>
+                    </div>
                 </div>`;
     }
 
@@ -235,12 +238,12 @@
                     <span class="logo-text">${config.logo.text}</span>
                 </a>
                 <nav role="navigation" aria-label="${config.menuLabel}">
-                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <button class="mobile-menu-toggle" aria-label="${isEnglish ? 'Open navigation menu' : 'Apri menu di navigazione'}" aria-expanded="false" aria-controls="main-nav-menu">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
-                    <ul class="nav-menu">
+                    <ul class="nav-menu" id="main-nav-menu" role="menubar">
                         ${menuItems}
                     </ul>
                 </nav>
@@ -269,10 +272,8 @@
         // Initialize dropdown menus
         initDropdowns();
 
-        // Initialize language switcher (Italian style)
-        if (!isEnglish) {
-            initLangSwitcher();
-        }
+        // Initialize language switcher (dropdown style for both languages)
+        initLangSwitcher();
     }
 
     // Mobile menu functionality
@@ -286,6 +287,24 @@
                 toggle.classList.toggle('active');
                 const expanded = toggle.getAttribute('aria-expanded') === 'true';
                 toggle.setAttribute('aria-expanded', !expanded);
+
+                // Update aria-label based on state
+                if (!expanded) {
+                    toggle.setAttribute('aria-label', isEnglish ? 'Close navigation menu' : 'Chiudi menu di navigazione');
+                } else {
+                    toggle.setAttribute('aria-label', isEnglish ? 'Open navigation menu' : 'Apri menu di navigazione');
+                }
+            });
+
+            // Close menu on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    toggle.classList.remove('active');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.setAttribute('aria-label', isEnglish ? 'Open navigation menu' : 'Apri menu di navigazione');
+                    toggle.focus();
+                }
             });
         }
     }
@@ -326,34 +345,63 @@
         });
     }
 
-    // Language switcher functionality (Italian dropdown style)
+    // Language switcher functionality (dropdown style)
     function initLangSwitcher() {
+        const switcher = document.querySelector('.language-switcher');
         const toggle = document.querySelector('.lang-toggle');
         const dropdown = document.querySelector('.lang-dropdown');
 
         if (toggle && dropdown) {
+            function openDropdown() {
+                dropdown.classList.add('active');
+                switcher.classList.add('open');
+                toggle.setAttribute('aria-expanded', 'true');
+            }
+
+            function closeDropdown() {
+                dropdown.classList.remove('active');
+                switcher.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+
             toggle.addEventListener('click', function() {
-                dropdown.classList.toggle('active');
+                const isOpen = dropdown.classList.contains('active');
+                if (isOpen) {
+                    closeDropdown();
+                } else {
+                    openDropdown();
+                }
             });
 
             toggle.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    dropdown.classList.toggle('active');
+                    const isOpen = dropdown.classList.contains('active');
+                    if (isOpen) {
+                        closeDropdown();
+                    } else {
+                        openDropdown();
+                        // Focus first option
+                        const firstOption = dropdown.querySelector('.lang-option');
+                        if (firstOption) {
+                            firstOption.focus();
+                        }
+                    }
                 }
             });
 
             // Close on outside click
             document.addEventListener('click', function(e) {
                 if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
-                    dropdown.classList.remove('active');
+                    closeDropdown();
                 }
             });
 
             // Close on escape
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    dropdown.classList.remove('active');
+                if (e.key === 'Escape' && dropdown.classList.contains('active')) {
+                    closeDropdown();
+                    toggle.focus();
                 }
             });
         }

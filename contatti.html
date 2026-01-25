@@ -301,31 +301,47 @@
             <div class="grid grid-cols-2" style="gap: 4rem;">
                 <div>
                     <h2 class="heading-2 mb-lg">Parla con un Esperto</h2>
-                    <form action="https://formcarry.com/s/xWKwXtJvS4C" method="POST" class="contact-form">
+                    <form action="https://formcarry.com/s/xWKwXtJvS4C" method="POST" class="contact-form" id="contact-form">
                         <div class="form-group">
-                            <label for="name" class="form-label">Nome e Cognome</label>
-                            <input type="text" id="name" name="name" class="form-input" required aria-required="true">
+                            <label for="name" class="form-label form-label--required">Nome e Cognome</label>
+                            <input type="text" id="name" name="name" class="form-input" required aria-required="true" aria-describedby="name-error">
+                            <span id="name-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="form-label">Email Aziendale</label>
-                            <input type="email" id="email" name="email" class="form-input" required aria-required="true">
+                            <label for="email" class="form-label form-label--required">Email Aziendale</label>
+                            <input type="email" id="email" name="email" class="form-input" required aria-required="true" aria-describedby="email-error">
+                            <span id="email-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
-                            <label for="company" class="form-label">Azienda</label>
-                            <input type="text" id="company" name="company" class="form-input" required aria-required="true">
+                            <label for="company" class="form-label form-label--required">Azienda</label>
+                            <input type="text" id="company" name="company" class="form-input" required aria-required="true" aria-describedby="company-error">
+                            <span id="company-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="phone" class="form-label">Telefono</label>
                             <input type="tel" id="phone" name="phone" class="form-input" placeholder="+39 333 1234567">
+                            <span class="form-hint">Opzionale - per essere ricontattato telefonicamente</span>
                         </div>
                         <div class="form-group">
-                            <label for="message" class="form-label">Come possiamo aiutarti?</label>
-                            <textarea id="message" name="message" rows="4" class="form-input" required aria-required="true"></textarea>
+                            <label for="message" class="form-label form-label--required">Come possiamo aiutarti?</label>
+                            <textarea id="message" name="message" rows="4" class="form-input" required aria-required="true" aria-describedby="message-error"></textarea>
+                            <span id="message-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
+                        <div class="form-checkbox-group required">
+                            <input type="checkbox" id="privacy-consent" name="privacy_consent" class="form-checkbox" required aria-required="true" aria-describedby="privacy-error">
+                            <label for="privacy-consent" class="form-checkbox-label">
+                                Ho letto e accetto la <a href="privacy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati personali per rispondere alla mia richiesta, ai sensi del GDPR (Reg. UE 2016/679)
+                            </label>
+                        </div>
+                        <span id="privacy-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
                             Invia Richiesta
                         </button>
                     </form>
+                    <div id="form-success" class="form-success-message" style="display: none;">
+                        <h3>Grazie per averci contattato!</h3>
+                        <p>La tua richiesta è stata inviata con successo. Ti risponderemo entro 2 ore lavorative.</p>
+                    </div>
                 </div>
 
                 <div>

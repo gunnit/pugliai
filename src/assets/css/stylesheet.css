@@ -3063,3 +3063,317 @@ n            table {
         font-size: 1.75rem;
     }
 }
+
+/* =====================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ===================================================== */
+
+/* Global Focus States - WCAG 2.1 AA Compliance */
+:focus-visible {
+    outline: 3px solid var(--accent-emerald);
+    outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users, keep for keyboard */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Specific focus states for interactive elements */
+.btn:focus-visible,
+.cta-button:focus-visible,
+.nav-link:focus-visible,
+.dropdown-link:focus-visible,
+.footer-link:focus-visible {
+    outline: 3px solid var(--accent-emerald);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.15);
+}
+
+.form-input:focus-visible {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 4px rgba(212, 160, 23, 0.2);
+}
+
+/* Card focus states for keyboard navigation */
+.card:focus-visible,
+.service-card:focus-visible,
+.stat-card:focus-visible {
+    outline: 3px solid var(--accent-emerald);
+    outline-offset: 2px;
+    transform: translateY(-4px);
+}
+
+/* Language switcher focus */
+.lang-toggle:focus-visible,
+.lang-option:focus-visible {
+    outline: 3px solid var(--accent-emerald);
+    outline-offset: 2px;
+}
+
+/* Mobile menu toggle focus */
+.mobile-menu-toggle:focus-visible {
+    outline: 3px solid var(--accent-emerald);
+    outline-offset: 4px;
+}
+
+/* =====================================================
+   FORM VALIDATION STATES
+   ===================================================== */
+
+/* Required field indicator */
+.form-label--required::after {
+    content: " *";
+    color: #EF4444;
+    font-weight: 600;
+}
+
+/* Error state */
+.form-input--error,
+.form-input.error {
+    border-color: #EF4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.form-input--error:focus,
+.form-input.error:focus {
+    border-color: #EF4444;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2);
+}
+
+/* Success state */
+.form-input--success,
+.form-input.success {
+    border-color: var(--accent-emerald);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* Error message */
+.form-error {
+    color: #EF4444;
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.form-error::before {
+    content: "⚠";
+    font-size: 1em;
+}
+
+/* Success message */
+.form-success {
+    color: var(--accent-emerald);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.form-success::before {
+    content: "✓";
+    font-size: 1em;
+}
+
+/* Form hint text */
+.form-hint {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-xs);
+}
+
+/* =====================================================
+   CHECKBOX & CONSENT STYLES
+   ===================================================== */
+
+.form-checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.form-checkbox {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    accent-color: var(--accent-gold);
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.form-checkbox-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.form-checkbox-label a {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+.form-checkbox-label a:hover {
+    color: var(--accent-gold-light);
+}
+
+/* Required checkbox indicator */
+.form-checkbox-group.required .form-checkbox-label::after {
+    content: " *";
+    color: #EF4444;
+    font-weight: 600;
+}
+
+/* =====================================================
+   FORM SUCCESS STATE (AFTER SUBMISSION)
+   ===================================================== */
+
+.form-success-message {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--accent-emerald);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    animation: fadeInUp 0.5s ease;
+}
+
+.form-success-message h3 {
+    color: var(--accent-emerald);
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-xl);
+}
+
+.form-success-message p {
+    color: var(--text-secondary);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================================
+   COOKIE BANNER MOBILE IMPROVEMENTS
+   ===================================================== */
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--primary-navy);
+    color: white;
+    padding: 1.5rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+}
+
+@media (max-width: 768px) {
+    .cookie-banner {
+        padding: 1rem;
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+
+    .cookie-banner .container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .cookie-banner h3 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .cookie-banner p {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .cookie-banner .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        width: 100%;
+    }
+}
+
+/* =====================================================
+   BREADCRUMB NAVIGATION
+   ===================================================== */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    padding: var(--space-md) 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.breadcrumb-item a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--accent-gold);
+}
+
+.breadcrumb-item.active {
+    color: var(--text-primary);
+}
+
+.breadcrumb-separator {
+    margin: 0 var(--space-xs);
+    color: var(--text-muted);
+    font-size: 0.75em;
+}
+
+.breadcrumb-separator::after {
+    content: "›";
+}
+
+/* =====================================================
+   SKIP TO CONTENT LINK IMPROVEMENTS
+   ===================================================== */
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-gold);
+    color: var(--primary-navy);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 10000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 1rem;
+    outline: 3px solid var(--accent-emerald);
+    outline-offset: 2px;
+}

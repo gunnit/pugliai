@@ -301,31 +301,47 @@
             <div class="grid grid-cols-2" style="gap: 4rem;">
                 <div>
                     <h2 class="heading-2 mb-lg">Talk to an Expert</h2>
-                    <form action="https://formcarry.com/s/xWKwXtJvS4C" method="POST" class="contact-form">
+                    <form action="https://formcarry.com/s/xWKwXtJvS4C" method="POST" class="contact-form" id="contact-form">
                         <div class="form-group">
-                            <label for="name" class="form-label">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required aria-required="true">
+                            <label for="name" class="form-label form-label--required">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required aria-required="true" aria-describedby="name-error">
+                            <span id="name-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="form-label">Business Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required aria-required="true">
+                            <label for="email" class="form-label form-label--required">Business Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required aria-required="true" aria-describedby="email-error">
+                            <span id="email-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
-                            <label for="company" class="form-label">Company</label>
-                            <input type="text" id="company" name="company" class="form-input" required aria-required="true">
+                            <label for="company" class="form-label form-label--required">Company</label>
+                            <input type="text" id="company" name="company" class="form-input" required aria-required="true" aria-describedby="company-error">
+                            <span id="company-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="phone" class="form-label">Phone</label>
                             <input type="tel" id="phone" name="phone" class="form-input" placeholder="+39 333 1234567">
+                            <span class="form-hint">Optional - for phone callback</span>
                         </div>
                         <div class="form-group">
-                            <label for="message" class="form-label">How can we help you?</label>
-                            <textarea id="message" name="message" rows="4" class="form-input" required aria-required="true"></textarea>
+                            <label for="message" class="form-label form-label--required">How can we help you?</label>
+                            <textarea id="message" name="message" rows="4" class="form-input" required aria-required="true" aria-describedby="message-error"></textarea>
+                            <span id="message-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
+                        <div class="form-checkbox-group required">
+                            <input type="checkbox" id="privacy-consent" name="privacy_consent" class="form-checkbox" required aria-required="true" aria-describedby="privacy-error">
+                            <label for="privacy-consent" class="form-checkbox-label">
+                                I have read and accept the <a href="privacy.html" target="_blank">Privacy Policy</a> and consent to the processing of my personal data to respond to my request, in accordance with GDPR (EU Reg. 2016/679)
+                            </label>
+                        </div>
+                        <span id="privacy-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
                             Send Request
                         </button>
                     </form>
+                    <div id="form-success" class="form-success-message" style="display: none;">
+                        <h3>Thank you for contacting us!</h3>
+                        <p>Your request has been sent successfully. We will respond within 2 business hours.</p>
+                    </div>
                 </div>
 
                 <div>

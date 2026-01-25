@@ -1701,25 +1701,24 @@
         });
     </script>
 <!-- GDPR Cookie Banner -->
-<div id="cookieBanner" class="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--primary-navy); color: white; padding: 2rem; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 10000;">
+<div id="cookieBanner" class="cookie-banner" style="display: none;" role="dialog" aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-desc">
     <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
-        <div style="flex: 1; min-width: 300px;">
-            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Informativa sui Cookie</h3>
-            <p style="font-size: 0.875rem; margin-bottom: 1rem; opacity: 0.9;">
-                Utilizziamo cookie per migliorare la tua esperienza di navigazione, analizzare il traffico del sito e personalizzare i contenuti. 
-                Puoi gestire le tue preferenze in qualsiasi momento.
+        <div style="flex: 1; min-width: 200px;">
+            <h3 id="cookie-banner-title" style="font-size: 1.125rem; margin-bottom: 0.5rem;">Informativa sui Cookie</h3>
+            <p id="cookie-banner-desc" style="font-size: 0.875rem; margin-bottom: 0.75rem; opacity: 0.9;">
+                Utilizziamo cookie per migliorare la tua esperienza di navigazione e analizzare il traffico del sito.
             </p>
             <a href="cookie.html" style="color: var(--accent-gold); text-decoration: underline; font-size: 0.875rem;">Maggiori informazioni</a>
         </div>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <button id="acceptAllCookies" class="btn btn-primary" style="padding: 0.75rem 2rem;" aria-label="Accetta tutti i cookie">
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <button id="acceptAllCookies" class="btn btn-primary" aria-label="Accetta tutti i cookie">
                 Accetta tutti
             </button>
-            <button id="acceptNecessaryCookies" class="btn btn-secondary" style="padding: 0.75rem 2rem;" aria-label="Accetta solo cookie necessari">
+            <button id="acceptNecessaryCookies" class="btn btn-secondary" aria-label="Accetta solo cookie necessari">
                 Solo necessari
             </button>
-            <button id="manageCookies" class="btn btn-outline" style="padding: 0.75rem 2rem; border: 1px solid white; color: white;" aria-label="Gestisci preferenze cookie">
-                Gestisci preferenze
+            <button id="manageCookies" class="btn btn-outline" style="border: 1px solid white; color: white;" aria-label="Gestisci preferenze cookie">
+                Preferenze
             </button>
         </div>
     </div>
