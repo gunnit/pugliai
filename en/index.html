@@ -44,6 +44,32 @@
     <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
+    <!-- Structured Data - WebSite Schema with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PugliAI",
+      "alternateName": ["PugliAI S.r.l.", "Puglia AI", "Puglia Artificial Intelligence"],
+      "url": "https://www.pugliai.com",
+      "description": "AI consulting for Italian SMEs. Complete artificial intelligence packages from €15K with guaranteed ROI.",
+      "inLanguage": ["it-IT", "en"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.pugliai.com/en/ceo-ai-guide-2025.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PugliAI",
+        "url": "https://www.pugliai.com"
+      }
+    }
+    </script>
+
     <!-- Structured Data - Organization Schema -->
     <script type="application/ld+json">
     {
@@ -269,8 +295,13 @@
       "name": "PugliAI - Complete AI Packages for Italian SMEs",
       "description": "AI consulting for Italian SMEs. Complete packages from €15K with 150% ROI guaranteed.",
       "datePublished": "2024-01-15",
-      "dateModified": "2025-01-14",
+      "dateModified": "2026-02-28",
       "inLanguage": "en",
+      "about": {
+        "@type": "Thing",
+        "name": "AI Consulting for Italian SMEs",
+        "sameAs": "https://en.wikipedia.org/wiki/Artificial_intelligence"
+      },
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": ["#hero-title", "#services-title", "#process-title", ".faq-answer", ".testimonial-content"]
@@ -1052,8 +1083,8 @@
                             <div class="testimonial-name">Luigi Rossi</div>
                             <div class="testimonial-title">Marketing Director</div>
                             <div class="testimonial-company">Manufacturing SME - 50 employees</div>
-                            <a href="https://linkedin.com/in/marcobenetton" target="_blank" rel="noopener" style="color: var(--accent-gold); font-size: 0.875rem; text-decoration: none; margin-top: 0.25rem; display: inline-block;">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;">
+                            <a href="https://linkedin.com/in/marcobenetton" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-size: 0.875rem; text-decoration: none; margin-top: 0.25rem; display: inline-block;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                 </svg>
                                 LinkedIn Profile
@@ -1080,8 +1111,8 @@
                             <div class="testimonial-name">Sofia Colombo</div>
                             <div class="testimonial-title">CEO</div>
                             <div class="testimonial-company">Fashion E-commerce - 20 employees</div>
-                            <a href="https://linkedin.com/in/lucaferretti-cto" target="_blank" rel="noopener" style="color: var(--accent-gold); font-size: 0.875rem; text-decoration: none; margin-top: 0.25rem; display: inline-block;">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;">
+                            <a href="https://linkedin.com/in/lucaferretti-cto" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-size: 0.875rem; text-decoration: none; margin-top: 0.25rem; display: inline-block;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                 </svg>
                                 LinkedIn Profile
@@ -1120,21 +1151,27 @@
             </div>
             <div class="grid grid-cols-3">
                 <div class="card">
-                    <img src="../src/assets/img/team/gregor_givingspeach.png" alt="Gregor Marić, CEO of PugliAI, giving a speech at an event." class="team-image" loading="lazy" width="400" height="300">
+                    <figure class="team-figure">
+                        <img src="../src/assets/img/team/gregor_givingspeach.png" alt="Gregor Marić, CEO of PugliAI, giving a speech at an event." class="team-image" loading="lazy" width="400" height="300">
+                        <figcaption class="sr-only">Gregor Marić presents PugliAI's AI vision</figcaption>
+                    </figure>
                     <h3 class="card-title">Gregor Marić, CEO & Founder</h3>
                     <p class="card-description">
                         Ex-McKinsey Senior Consultant (2015-2020). 3 successful tech exits.
                         MSc in AI from Politecnico di Milano. Led 50+ AI transformations for SMEs.
                     </p>
-                    <a href="https://linkedin.com/in/gregormaric" target="_blank" rel="noopener" style="color: var(--accent-gold); font-size: 0.875rem; text-decoration: none; margin-top: 0.5rem; display: inline-block;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;">
+                    <a href="https://linkedin.com/in/gregormaric" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-size: 0.875rem; text-decoration: none; margin-top: 0.5rem; display: inline-block;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align: middle; margin-right: 4px;">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
                         LinkedIn Profile
                     </a>
                 </div>
                 <div class="card">
-                    <img src="../src/assets/img/team/teamactivity.jpg" alt="PugliAI's technical team during a team building activity." class="team-image" loading="lazy" width="400" height="300">
+                    <figure class="team-figure">
+                        <img src="../src/assets/img/team/teamactivity.jpg" alt="PugliAI's technical team during a team building activity." class="team-image" loading="lazy" width="400" height="300">
+                        <figcaption class="sr-only">The technical team during a team building activity</figcaption>
+                    </figure>
                     <h3 class="card-title">Excellence Technical Team</h3>
                     <p class="card-description">
                         <strong>Dr. Alessandro Rossi</strong> - Head of AI (PhD MIT)<br>
@@ -1144,7 +1181,10 @@
                     </p>
                 </div>
                 <div class="card">
-                    <img src="../src/assets/img/team/teamdinner.jpg" alt="PugliAI's strategic team at a team dinner." class="team-image" loading="lazy" width="400" height="300">
+                    <figure class="team-figure">
+                        <img src="../src/assets/img/team/teamdinner.jpg" alt="PugliAI's strategic team at a team dinner." class="team-image" loading="lazy" width="400" height="300">
+                        <figcaption class="sr-only">PugliAI's strategic advisory board</figcaption>
+                    </figure>
                     <h3 class="card-title">Strategic Advisory Board</h3>
                     <p class="card-description">
                         <strong>Roberto Monti</strong> - Ex-Partner PwC Digital<br>

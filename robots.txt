@@ -70,3 +70,31 @@ Allow: /
 # Common Crawl (used by many AI systems)
 User-agent: CCBot
 Allow: /
+
+# Anthropic ClaudeBot
+User-agent: ClaudeBot
+Allow: /
+
+# Apple Intelligence / Siri
+User-agent: Applebot-Extended
+Allow: /
+
+# Amazon Alexa / Rufus
+User-agent: Amazonbot
+Allow: /
+
+# Allen Institute for AI
+User-agent: AI2Bot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# ByteDance AI
+User-agent: Bytespider
+Allow: /
+
+# Diffbot (knowledge graph)
+User-agent: Diffbot
+Allow: /
