@@ -470,26 +470,7 @@
     </url>
 
     <!-- Company Pages -->
-    <url>
-        <loc>https://www.pugliai.com/team.html</loc>
-        <lastmod>2026-02-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://www.pugliai.com/mission.html</loc>
-        <lastmod>2026-02-28</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://www.pugliai.com/certificazioni.html</loc>
-        <lastmod>2026-02-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
+    <!-- team.html, mission.html, certificazioni.html removed - pages don't exist -->
 
     <!-- Contact and Legal Pages -->
     <url>
