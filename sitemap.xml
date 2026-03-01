@@ -144,26 +144,8 @@
         <priority>0.8</priority>
     </url>
 
-    <url>
-        <loc>https://www.pugliai.com/turismo.html</loc>
-        <lastmod>2026-02-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://www.pugliai.com/sanita.html</loc>
-        <lastmod>2026-02-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://www.pugliai.com/alimentare.html</loc>
-        <lastmod>2026-02-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
+    <!-- turismo.html, sanita.html, alimentare.html removed - pages don't exist as standalone files -->
+    <!-- These sectors are covered by guide articles: ai-turismo-hospitality.html, ai-sanita-healthcare.html, ai-agroalimentare-made-italy.html -->
 
     <!-- Resource Pages -->
     <url>
