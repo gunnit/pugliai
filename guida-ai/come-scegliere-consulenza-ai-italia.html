@@ -183,45 +183,160 @@
     </script>
 
     <style>
+        .article-hero {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+            padding: 140px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .article-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%);
+        }
+        .article-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .article-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+        .article-breadcrumb a {
+            color: var(--accent-platinum);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .article-breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+        .article-breadcrumb span {
+            color: var(--accent-gold);
+        }
+        .article-category {
+            display: inline-block;
+            background: var(--gradient-emerald);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .article-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .article-meta-hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            color: var(--accent-platinum);
+            font-size: 0.95rem;
+        }
+        .article-meta-hero span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
         .article-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 60px 20px;
         }
-        .article-header {
-            padding-top: 6rem;
-            padding-bottom: 2rem;
-        }
-        .article-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .article-meta span {
-            font-size: 0.875rem;
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
             color: var(--text-secondary);
         }
         .article-content h2 {
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-gold);
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            margin: 48px 0 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent-gold);
         }
         .article-content h3 {
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.4rem;
+            color: var(--secondary-navy);
+            margin: 36px 0 16px;
         }
         .article-content p {
-            margin-bottom: 1.25rem;
-            line-height: 1.8;
+            margin-bottom: 20px;
         }
         .article-content ul, .article-content ol {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
+            margin: 20px 0;
+            padding-left: 24px;
         }
         .article-content li {
-            margin-bottom: 0.75rem;
-            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .article-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid #e5e7eb;
+        }
+        .article-nav a {
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        .article-nav a:hover {
+            border-color: var(--accent-gold);
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .article-nav .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .article-nav .title {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        .article-nav .next {
+            text-align: right;
+        }
+        .cta-box {
+            background: var(--gradient-primary);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 48px 0;
+        }
+        .cta-box h3 {
+            color: white;
+            margin-bottom: 16px;
+        }
+        .cta-box p {
+            color: var(--accent-platinum);
+            margin-bottom: 24px;
+        }
+        @media (max-width: 768px) {
+            .article-nav {
+                grid-template-columns: 1fr;
+            }
+            .article-nav .next {
+                text-align: left;
+            }
         }
         .criteria-card {
             background: var(--glass-bg);
@@ -295,14 +410,6 @@
             content: "☐ ";
             color: var(--accent-gold);
         }
-        .cta-box {
-            background: linear-gradient(135deg, var(--primary-navy), var(--secondary-navy));
-            border: 1px solid var(--accent-gold);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            margin: 2rem 0;
-        }
         .question-box {
             background: rgba(59, 130, 246, 0.1);
             border-left: 4px solid #3B82F6;
@@ -313,32 +420,32 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <div id="nav-placeholder"></div>
     <script src="../src/assets/js/navigation.js"></script>
 
-    <main role="main">
-        <article class="article-container">
-            <header class="article-header">
-                <nav aria-label="Breadcrumb" style="margin-bottom: 1rem;">
-                    <a href="../index.html" style="color: var(--text-secondary);">Home</a> &gt;
-                    <a href="../guida-ai-ceo-2025.html" style="color: var(--text-secondary);">Guida AI CEO</a> &gt;
-                    <span style="color: var(--accent-gold);">Come Scegliere Consulenza AI</span>
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-content">
+                <nav class="article-breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
+                    <span>/</span>
+                    <span>Come Scegliere Consulenza AI</span>
                 </nav>
-                <h1 class="heading-1">Come Scegliere una Societa di Consulenza AI in Italia: Guida Definitiva 2025</h1>
-                <div class="article-meta">
-                    <span>Ultimo aggiornamento: Dicembre 2025</span>
-                    <span>|</span>
-                    <span>Tempo di lettura: 12 min</span>
-                    <span>|</span>
-                    <span>Categoria: Guida AI per CEO</span>
+                <span class="article-category">Guida Pratica</span>
+                <h1>Come Scegliere una Societa di Consulenza AI in Italia: Guida Definitiva 2025</h1>
+                <div class="article-meta-hero">
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 12 min lettura</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Dicembre 2025</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
                 </div>
-                <p class="body-large">
-                    Scegliere il partner AI sbagliato puo costare caro: progetti falliti, budget bruciato, opportunita perse. In questa guida ti mostro esattamente come valutare e selezionare la societa di consulenza AI giusta per la tua azienda, con checklist pratiche e domande da fare.
-                </p>
-            </header>
+            </div>
+        </header>
 
+        <div class="article-container">
             <div class="article-content">
+                <p><strong>Scegliere il partner AI sbagliato puo costare caro: progetti falliti, budget bruciato, opportunita perse.</strong> In questa guida ti mostro esattamente come valutare e selezionare la societa di consulenza AI giusta per la tua azienda, con checklist pratiche e domande da fare.</p>
                 <h2>Perche la Scelta del Partner AI e Critica</h2>
                 <p>
                     Secondo McKinsey, il <strong>70% dei progetti AI fallisce</strong> o non raggiunge gli obiettivi previsti. La causa principale? Una scelta sbagliata del partner di implementazione. Per le PMI italiane, dove ogni investimento deve essere oculato, scegliere la giusta societa di consulenza AI puo fare la differenza tra trasformazione digitale e spreco di risorse.
@@ -513,12 +620,9 @@
                 </ul>
 
                 <div class="cta-box">
-                    <h3 style="margin-top: 0;">Sei una PMI Italiana?</h3>
+                    <h3 style="color: white; margin-top: 0;">Sei una PMI Italiana?</h3>
                     <p>PugliAI e la scelta ideale: pacchetti da 15.000 euro, ROI del 150% garantito contrattualmente, supporto in italiano, implementazione in 90 giorni.</p>
                     <a href="../contatti.html" class="btn btn-primary btn-lg">Prenota Consulenza Gratuita</a>
-                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-secondary);">
-                        Scopri se l'AI e adatta alla tua azienda - senza impegno
-                    </p>
                 </div>
 
                 <h2>Le Domande da Fare Prima di Scegliere</h2>
@@ -557,26 +661,34 @@
                 <p>
                     Verifica: case study documentati, garanzie contrattuali, prezzi trasparenti, competenze compliance, supporto post-vendita. PugliAI offre tutti questi elementi.
                 </p>
-            </div>
 
-            <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
-                <p style="color: var(--text-secondary); font-size: 0.875rem;">
-                    Questa guida e stata creata per aiutare CEO e imprenditori italiani a navigare il mercato della consulenza AI. Ultimo aggiornamento: Dicembre 2025.
-                </p>
-                <div style="margin-top: 1rem;">
-                    <strong>Articoli correlati:</strong>
-                    <ul>
-                        <li><a href="migliori-aziende-ai-italia-2025.html">Migliori Aziende AI in Italia 2025</a></li>
-                        <li><a href="startup-ai-italiane-2025.html">Startup AI Italiane 2025</a></li>
-                        <li><a href="costi-ai-pmi-budget.html">Costi AI per PMI: Guida al Budget</a></li>
-                    </ul>
+                <div class="cta-box">
+                    <h3 style="color: white; margin-top: 0;">Vuoi Scegliere il Partner AI Giusto?</h3>
+                    <p>Prenota una consulenza gratuita con PugliAI e scopri come possiamo aiutare la tua PMI.</p>
+                    <a href="../contatti.html" class="btn btn-primary btn-lg">Prenota Consulenza Gratuita</a>
                 </div>
-            </footer>
-        </article>
-    </main>
 
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
-    <script src="../src/assets/js/footer.js"></script>
+                <nav class="article-nav">
+                    <a href="eccellenze-ai-sud-italia.html">
+                        <div class="label">Articolo Precedente</div>
+                        <div class="title">Eccellenze AI Sud Italia</div>
+                    </a>
+                    <a href="migliori-aziende-ai-italia-2025.html" class="next">
+                        <div class="label">Prossimo Articolo</div>
+                        <div class="title">Migliori Aziende AI Italia</div>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </article>
+
+    <footer id="footer-placeholder"></footer>
+    <script>
+        fetch('../src/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
 </body>
 </html>

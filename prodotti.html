@@ -76,6 +76,78 @@
     }
     </script>
 
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.pugliai.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Prodotti",
+                "item": "https://www.pugliai.com/prodotti.html"
+            }
+        ]
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Cosa sono i prodotti AI on-premise?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "I prodotti AI on-premise sono soluzioni di intelligenza artificiale installate direttamente nell'infrastruttura IT della tua azienda, anziche nel cloud. Questo significa che i tuoi dati non lasciano mai i tuoi server, garantendo massima privacy, conformita GDPR nativa e zero dipendenza da servizi esterni."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Perche scegliere AI on-premise invece del cloud?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "L'AI on-premise offre vantaggi decisivi per le PMI italiane: sovranita totale sui dati aziendali, conformita GDPR garantita, zero latenza nelle risposte, nessun costo ricorrente per API cloud e funzionamento anche senza connessione internet. E la scelta ideale per aziende che trattano dati sensibili o che operano in settori regolamentati."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quali prodotti AI offre PugliAI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "PugliAI offre due prodotti AI on-premise: VoiceAI On-Premise, un assistente vocale AI per centralino intelligente e customer service automatizzato 24/7, e KnowledgeAI Enterprise, una chat AI aziendale con tecnologia RAG per interrogare documenti interni con riduzione del 70-90% delle allucinazioni AI."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto costano i prodotti AI on-premise di PugliAI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "VoiceAI On-Premise parte da 25.000 euro fino a 75.000 euro, mentre KnowledgeAI Enterprise parte da 30.000 euro fino a 85.000 euro. Il costo varia in base alle esigenze specifiche dell'azienda, al numero di utenti e alle integrazioni richieste con sistemi CRM, ERP o ticketing esistenti."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "I prodotti PugliAI si integrano con i sistemi aziendali esistenti?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si, entrambi i prodotti sono progettati per integrarsi nativamente con i sistemi aziendali esistenti. VoiceAI si collega a CRM, ERP e sistemi di ticketing, mentre KnowledgeAI supporta PDF, Word, Excel, email e altri formati documentali. L'integrazione viene personalizzata durante la fase di implementazione."
+                }
+            }
+        ]
+    }
+    </script>
+
     <style>
         /* Hero section with animated background */
         .hero-section {
@@ -525,6 +597,35 @@
                         Richiedi Demo Gratuita
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding" style="background: var(--primary-navy);">
+        <div class="container">
+            <h2 class="section-title text-center" style="color: var(--accent-platinum);">Domande Frequenti</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Cosa sono i prodotti AI on-premise?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">I prodotti AI on-premise sono soluzioni di intelligenza artificiale installate direttamente nell'infrastruttura IT della tua azienda, anziche nel cloud. Questo significa che i tuoi dati non lasciano mai i tuoi server, garantendo massima privacy, conformita GDPR nativa e zero dipendenza da servizi esterni.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Perche scegliere AI on-premise invece del cloud?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">L'AI on-premise offre vantaggi decisivi per le PMI italiane: sovranita totale sui dati aziendali, conformita GDPR garantita, zero latenza nelle risposte, nessun costo ricorrente per API cloud e funzionamento anche senza connessione internet. E la scelta ideale per aziende che trattano dati sensibili o che operano in settori regolamentati.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Quali prodotti AI offre PugliAI?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">PugliAI offre due prodotti AI on-premise: VoiceAI On-Premise, un assistente vocale AI per centralino intelligente e customer service automatizzato 24/7, e KnowledgeAI Enterprise, una chat AI aziendale con tecnologia RAG per interrogare documenti interni con riduzione del 70-90% delle allucinazioni AI.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Quanto costano i prodotti AI on-premise di PugliAI?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">VoiceAI On-Premise parte da 25.000 euro fino a 75.000 euro, mentre KnowledgeAI Enterprise parte da 30.000 euro fino a 85.000 euro. Il costo varia in base alle esigenze specifiche dell'azienda, al numero di utenti e alle integrazioni richieste con sistemi CRM, ERP o ticketing esistenti.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">I prodotti PugliAI si integrano con i sistemi aziendali esistenti?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Si, entrambi i prodotti sono progettati per integrarsi nativamente con i sistemi aziendali esistenti. VoiceAI si collega a CRM, ERP e sistemi di ticketing, mentre KnowledgeAI supporta PDF, Word, Excel, email e altri formati documentali. L'integrazione viene personalizzata durante la fase di implementazione.</p>
+                </details>
             </div>
         </div>
     </section>

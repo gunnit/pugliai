@@ -76,6 +76,68 @@
     }
     </script>
 
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pugliai.com/en/"},
+            {"@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.pugliai.com/en/products.html"}
+        ]
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What are on-premise AI products?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "On-premise AI products are artificial intelligence solutions installed directly on your company's infrastructure, rather than running in the cloud. This means your data never leaves your servers, ensuring maximum privacy, full GDPR compliance, and complete data sovereignty. PugliAI offers two on-premise products: VoiceAI for intelligent voice assistance and KnowledgeAI for enterprise document chat."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why choose on-premise AI over cloud solutions?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "On-premise AI offers several advantages for SMBs: your sensitive data stays within your company walls ensuring native GDPR compliance, you maintain total control over your AI systems, there is zero latency since processing happens locally, and you avoid ongoing cloud subscription costs. This is especially critical for industries handling confidential customer data, financial records, or proprietary manufacturing processes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What products does PugliAI offer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "PugliAI offers two enterprise on-premise AI products designed for Italian SMBs: VoiceAI On-Premise, an AI voice assistant for intelligent switchboard and automated customer service with 24/7 availability and CRM/ERP integration (from EUR 25,000 to EUR 75,000); and KnowledgeAI Enterprise, an AI-powered chat system using RAG technology to query internal documents like PDFs, Word, Excel, and emails with 70-90% reduction in AI hallucinations (from EUR 30,000 to EUR 85,000)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much do on-premise AI solutions cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "PugliAI's on-premise AI solutions are competitively priced for SMBs. VoiceAI On-Premise ranges from EUR 25,000 to EUR 75,000 depending on the scope of integration and number of channels. KnowledgeAI Enterprise ranges from EUR 30,000 to EUR 85,000 based on document volume and complexity. Both products include installation, configuration, and integration with your existing systems like CRM, ERP, and ticketing platforms."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can on-premise AI products integrate with existing systems?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, both PugliAI products are designed to integrate seamlessly with your existing business systems. VoiceAI On-Premise connects with CRM, ERP, and ticketing systems for intelligent call routing and customer service automation. KnowledgeAI Enterprise supports multiple document formats including PDF, Word, Excel, and email, and maintains an always up-to-date knowledge base from your internal documents. Both solutions are tailored to fit your specific infrastructure."
+                }
+            }
+        ]
+    }
+    </script>
+
     <style>
         /* Hero section with animated background */
         .hero-section {
@@ -414,6 +476,7 @@
     <div id="nav-placeholder"></div>
     <script src="../src/assets/js/navigation.js"></script>
 
+    <main role="main">
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
@@ -528,6 +591,36 @@
             </div>
         </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding" style="background: var(--primary-navy);">
+        <div class="container">
+            <h2 class="section-title text-center" style="color: var(--accent-platinum);">Frequently Asked Questions</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">What are on-premise AI products?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">On-premise AI products are artificial intelligence solutions installed directly on your company's infrastructure, rather than running in the cloud. This means your data never leaves your servers, ensuring maximum privacy, full GDPR compliance, and complete data sovereignty. PugliAI offers two on-premise products: VoiceAI for intelligent voice assistance and KnowledgeAI for enterprise document chat.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Why choose on-premise AI over cloud solutions?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">On-premise AI offers several advantages for SMBs: your sensitive data stays within your company walls ensuring native GDPR compliance, you maintain total control over your AI systems, there is zero latency since processing happens locally, and you avoid ongoing cloud subscription costs. This is especially critical for industries handling confidential customer data, financial records, or proprietary manufacturing processes.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">What products does PugliAI offer?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">PugliAI offers two enterprise on-premise AI products designed for Italian SMBs. VoiceAI On-Premise is an AI voice assistant for intelligent switchboard and automated customer service with 24/7 availability and CRM/ERP integration, priced from EUR 25,000 to EUR 75,000. KnowledgeAI Enterprise is an AI-powered chat system using RAG technology to query internal documents like PDFs, Word, Excel, and emails with 70-90% reduction in AI hallucinations, priced from EUR 30,000 to EUR 85,000.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">How much do on-premise AI solutions cost?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">PugliAI's on-premise AI solutions are competitively priced for SMBs. VoiceAI On-Premise ranges from EUR 25,000 to EUR 75,000 depending on the scope of integration and number of channels. KnowledgeAI Enterprise ranges from EUR 30,000 to EUR 85,000 based on document volume and complexity. Both products include installation, configuration, and integration with your existing systems like CRM, ERP, and ticketing platforms.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Can on-premise AI products integrate with existing systems?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Yes, both PugliAI products are designed to integrate seamlessly with your existing business systems. VoiceAI On-Premise connects with CRM, ERP, and ticketing systems for intelligent call routing and customer service automation. KnowledgeAI Enterprise supports multiple document formats including PDF, Word, Excel, and email, and maintains an always up-to-date knowledge base from your internal documents. Both solutions are tailored to fit your specific infrastructure.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">

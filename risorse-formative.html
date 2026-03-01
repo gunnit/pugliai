@@ -533,6 +533,176 @@
             .newsletter-form { flex-direction: column; }
         }
     </style>
+
+    <!-- Structured Data: WebPage + EducationalOrganization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "PugliAI Academy - Risorse Formative AI",
+      "url": "https://www.pugliai.com/risorse-formative.html",
+      "inLanguage": "it-IT",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PugliAI",
+        "url": "https://www.pugliai.com",
+        "logo": "https://www.pugliai.com/src/assets/img/pugliai_pittogramma.png"
+      },
+      "mainEntity": {
+        "@type": "EducationalOrganization",
+        "name": "PugliAI Academy",
+        "description": "Academy AI per PMI italiane - formazione pratica e certificata",
+        "url": "https://www.pugliai.com/risorse-formative.html"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: ItemList of Courses -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "PugliAI Academy Programs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Course",
+            "name": "AI Leadership Track",
+            "description": "Programma intensivo per C-level e senior management. Strategia, governance e change management per l'era AI. 3 moduli da 2 giorni con case studies settoriali, coaching 1-on-1 e certificazione finale.",
+            "provider": {
+              "@type": "Organization",
+              "name": "PugliAI",
+              "url": "https://www.pugliai.com"
+            },
+            "educationalLevel": "Executive",
+            "courseCode": "AI-LEAD-01"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Course",
+            "name": "AI Engineering Path",
+            "description": "Formazione hands-on per sviluppatori e data scientist. Da ML basics a production deployment. 8 settimane part-time con lab pratici su cloud, progetti real-world e mentorship tecnica.",
+            "provider": {
+              "@type": "Organization",
+              "name": "PugliAI",
+              "url": "https://www.pugliai.com"
+            },
+            "educationalLevel": "Technical",
+            "courseCode": "AI-ENG-01"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Course",
+            "name": "Corporate Training",
+            "description": "Programmi su misura per la vostra azienda. Contenuti personalizzati sui vostri use case specifici. Assessment iniziale, curriculum customizzato, on-site o remoto, per team di 10-100 persone con support post-training.",
+            "provider": {
+              "@type": "Organization",
+              "name": "PugliAI",
+              "url": "https://www.pugliai.com"
+            },
+            "educationalLevel": "All levels",
+            "courseCode": "AI-CORP-01"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Course",
+            "name": "AI Leadership Masterclass",
+            "description": "Corso intensivo per C-level su strategia e governance AI. 3 giorni di formazione executive.",
+            "provider": {
+              "@type": "Organization",
+              "name": "PugliAI",
+              "url": "https://www.pugliai.com"
+            },
+            "educationalLevel": "Executive",
+            "courseCode": "AI-MASTER-01"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.pugliai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Risorse Formative",
+          "item": "https://www.pugliai.com/risorse-formative.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Che tipo di formazione AI offre PugliAI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PugliAI offre un programma formativo completo che include: guide pratiche, whitepaper strategici, webinar con esperti, corsi executive e programmi certificati. L'Academy dispone di oltre 150 risorse e tre percorsi principali: AI Leadership Track per C-level e senior management, AI Engineering Path per sviluppatori e data scientist, e Corporate Training personalizzato per team aziendali."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto dura la formazione AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La durata varia in base al percorso scelto. L'AI Leadership Track prevede 3 moduli da 2 giorni ciascuno. L'AI Engineering Path dura 8 settimane in modalita part-time. La AI Leadership Masterclass e un corso intensivo di 3 giorni. I programmi Corporate Training hanno durata personalizzata in base alle esigenze dell'azienda."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La formazione e adatta a chi non ha competenze tecniche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si, assolutamente. L'AI Leadership Track e specificamente progettato per C-level e senior management senza background tecnico, focalizzandosi su strategia, governance e change management. Il Corporate Training puo essere personalizzato per qualsiasi livello di competenza, dai principianti agli esperti, con team da 10 a 100 persone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quali certificazioni si ottengono?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tutti i percorsi formativi principali includono una certificazione finale rilasciata da PugliAI Academy. L'AI Leadership Track prevede certificazione in AI strategy framework. L'AI Engineering Path include accesso a tool professionali e certificazione tecnica. Con oltre 2.500 executive gia formati, le certificazioni PugliAI sono riconosciute nel settore AI italiano."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come si svolge la formazione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La formazione si svolge in modalita flessibile: i programmi Corporate Training possono essere erogati on-site presso la vostra azienda o in modalita remota. I percorsi includono case studies settoriali, sessioni di coaching 1-on-1, lab pratici su cloud, progetti real-world e mentorship continua. Sono disponibili anche risorse on-demand come guide, whitepaper e webinar registrati."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Dynamic Navigation - Generated by navigation.js -->

@@ -18,7 +18,7 @@
     <!-- Hreflang Tags -->
     <link rel="alternate" hreflang="it-IT" href="https://www.pugliai.com/servizi-finanziari.html">
     <link rel="alternate" hreflang="en" href="https://www.pugliai.com/en/financial-services.html">
-    <link rel="alternate" hreflang="x-default" href="https://www.pugliai.com/en/financial-services.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.pugliai.com/servizi-finanziari.html">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="AI for Financial Services - PugliAI | FinTech and Banking">
@@ -142,9 +142,59 @@
             "name": "PugliAI",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.pugliai.com/src/assets/img/pugliai_pittrogramma.png"
+                "url": "https://www.pugliai.com/src/assets/img/pugliai_pittogramma.png"
             }
         }
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does AI help detect financial fraud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI analyzes millions of data points in milliseconds to identify suspicious transactions and fraud patterns in real-time. Our machine learning models use behavioral analysis to detect anomalies, reducing false positives by 70% while catching fraud that traditional rule-based systems miss."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is AI compliant with financial regulations like GDPR, PSD2, and MiFID II?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Data security and regulatory compliance are the foundation of every solution we design. We build compliance by design into all AI systems, meeting GDPR, PSD2, MiFID II, and KYC/AML requirements. We also use Explainable AI (XAI) to make algorithmic decisions transparent and auditable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What results can financial institutions expect from AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our financial AI solutions deliver measurable results: -70% reduction in false positive fraud detection, +95% accuracy in credit scoring, -80% document processing time, and significant improvements in customer satisfaction through personalized advisory services."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does PugliAI's robo-advisory solution work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our robo-advisory platforms combine AI-driven portfolio management with personalized investment strategies. They can be fully automated or hybrid (augmenting human advisors), making professional financial advice accessible to a wider audience while maintaining regulatory compliance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI integrate with existing core banking systems?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We integrate AI solutions into your existing core banking, trading systems, and other financial infrastructure with a focus on security, privacy, and business continuity. Our rigorous 4-phase framework ensures seamless integration with backtesting and validation before deployment."
+          }
+        }
+      ]
     }
     </script>
 </head>
@@ -154,6 +204,7 @@
     <script src="../src/assets/js/navigation.js"></script>
 
     <!-- Hero Section -->
+    <main role="main">
     <section class="section" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);">
         <div class="container">
             <div class="section-header">
@@ -386,6 +437,36 @@
             </div>
         </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding" style="background: var(--primary-navy);">
+      <div class="container">
+        <h2 class="section-title text-center" style="color: var(--accent-platinum);">Frequently Asked Questions</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">How does AI help detect financial fraud?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">AI analyzes millions of data points in milliseconds to identify suspicious transactions and fraud patterns in real-time. Our machine learning models use behavioral analysis to detect anomalies, reducing false positives by 70% while catching fraud that traditional rule-based systems miss.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Is AI compliant with financial regulations like GDPR, PSD2, and MiFID II?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Yes. Data security and regulatory compliance are the foundation of every solution we design. We build compliance by design into all AI systems, meeting GDPR, PSD2, MiFID II, and KYC/AML requirements. We also use Explainable AI (XAI) to make algorithmic decisions transparent and auditable.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">What results can financial institutions expect from AI?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Our financial AI solutions deliver measurable results: -70% reduction in false positive fraud detection, +95% accuracy in credit scoring, -80% document processing time, and significant improvements in customer satisfaction through personalized advisory services.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">How does PugliAI's robo-advisory solution work?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Our robo-advisory platforms combine AI-driven portfolio management with personalized investment strategies. They can be fully automated or hybrid (augmenting human advisors), making professional financial advice accessible to a wider audience while maintaining regulatory compliance.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Can AI integrate with existing core banking systems?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Absolutely. We integrate AI solutions into your existing core banking, trading systems, and other financial infrastructure with a focus on security, privacy, and business continuity. Our rigorous 4-phase framework ensures seamless integration with backtesting and validation before deployment.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">

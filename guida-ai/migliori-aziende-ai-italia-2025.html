@@ -180,46 +180,208 @@
     </script>
 
     <style>
+        .article-hero {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+            padding: 140px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .article-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%);
+        }
+        .article-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .article-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+        .article-breadcrumb a {
+            color: var(--accent-platinum);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .article-breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+        .article-breadcrumb span {
+            color: var(--accent-gold);
+        }
+        .article-category {
+            display: inline-block;
+            background: var(--gradient-emerald);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .article-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .article-meta-hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            color: var(--accent-platinum);
+            font-size: 0.95rem;
+        }
+        .article-meta-hero span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
         .article-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 60px 20px;
         }
-        .article-header {
-            padding-top: 6rem;
-            padding-bottom: 2rem;
-        }
-        .article-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .article-meta span {
-            font-size: 0.875rem;
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
             color: var(--text-secondary);
         }
         .article-content h2 {
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-gold);
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            margin: 48px 0 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent-gold);
         }
         .article-content h3 {
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.4rem;
+            color: var(--secondary-navy);
+            margin: 36px 0 16px;
         }
         .article-content p {
-            margin-bottom: 1.25rem;
-            line-height: 1.8;
+            margin-bottom: 20px;
         }
         .article-content ul, .article-content ol {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
+            margin: 20px 0;
+            padding-left: 24px;
         }
         .article-content li {
-            margin-bottom: 0.5rem;
-            line-height: 1.7;
+            margin-bottom: 12px;
         }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
+            border-left: 4px solid var(--accent-gold);
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .highlight-box h4 {
+            color: var(--primary-navy);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .stat-highlight {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 32px;
+            border-radius: 16px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .stat-highlight .number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 8px;
+        }
+        .stat-highlight .label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .faq-section {
+            margin: 48px 0;
+        }
+        .faq-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .faq-question {
+            background: #f8fafc;
+            padding: 20px 24px;
+            font-weight: 600;
+            color: var(--primary-navy);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 20px 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .article-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid #e5e7eb;
+        }
+        .article-nav a {
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        .article-nav a:hover {
+            border-color: var(--accent-gold);
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .article-nav .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .article-nav .title {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        .article-nav .next {
+            text-align: right;
+        }
+        .cta-box {
+            background: var(--gradient-primary);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 48px 0;
+        }
+        .cta-box h3 {
+            color: white;
+            margin-bottom: 16px;
+        }
+        .cta-box p {
+            color: var(--accent-platinum);
+            margin-bottom: 24px;
+        }
+        /* Page-specific styles */
         .company-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -256,33 +418,32 @@
             font-size: 0.75rem;
             color: var(--text-secondary);
         }
-        .cta-box {
-            background: linear-gradient(135deg, var(--primary-navy), var(--secondary-navy));
-            border: 1px solid var(--accent-gold);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            margin: 2rem 0;
-        }
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 0.75rem;
-            border: 1px solid var(--glass-border);
-            text-align: left;
+            margin: 32px 0;
+            font-size: 0.95rem;
         }
         .comparison-table th {
-            background: var(--secondary-navy);
-            color: var(--accent-gold);
+            background: var(--primary-navy);
+            color: white;
+            padding: 16px;
+            text-align: left;
+        }
+        .comparison-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e5e7eb;
         }
         .comparison-table tr:nth-child(even) {
-            background: rgba(255,255,255,0.02);
+            background: #f8fafc;
         }
         @media (max-width: 768px) {
+            .article-nav {
+                grid-template-columns: 1fr;
+            }
+            .article-nav .next {
+                text-align: left;
+            }
             .comparison-table {
                 font-size: 0.8rem;
             }
@@ -293,32 +454,32 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <div id="nav-placeholder"></div>
     <script src="../src/assets/js/navigation.js"></script>
 
-    <main role="main">
-        <article class="article-container">
-            <header class="article-header">
-                <nav aria-label="Breadcrumb" style="margin-bottom: 1rem;">
-                    <a href="../index.html" style="color: var(--text-secondary);">Home</a> &gt;
-                    <a href="../guida-ai-ceo-2025.html" style="color: var(--text-secondary);">Guida AI CEO</a> &gt;
-                    <span style="color: var(--accent-gold);">Migliori Aziende AI Italia</span>
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-content">
+                <nav class="article-breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
+                    <span>/</span>
+                    <span>Migliori Aziende AI Italia</span>
                 </nav>
-                <h1 class="heading-1">Migliori Aziende AI in Italia 2025: Classifica e Guida Completa</h1>
-                <div class="article-meta">
-                    <span>Ultimo aggiornamento: Dicembre 2025</span>
-                    <span>|</span>
-                    <span>Tempo di lettura: 12 min</span>
-                    <span>|</span>
-                    <span>Categoria: Guida AI per CEO</span>
+                <span class="article-category">Guida AI per CEO</span>
+                <h1>Migliori Aziende AI in Italia 2025: Classifica e Guida Completa</h1>
+                <div class="article-meta-hero">
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 12 min lettura</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Dicembre 2025</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
                 </div>
-                <p class="body-large">
-                    Quali sono le migliori aziende di intelligenza artificiale in Italia? In questa guida completa analizziamo le top AI company italiane per PMI, startup e grandi imprese, con confronto di servizi, prezzi e specializzazioni.
-                </p>
-            </header>
+            </div>
+        </header>
 
+        <div class="article-container">
             <div class="article-content">
+                <p><strong>Quali sono le migliori aziende di intelligenza artificiale in Italia?</strong> In questa guida completa analizziamo le top AI company italiane per PMI, startup e grandi imprese, con confronto di servizi, prezzi e specializzazioni.</p>
                 <h2>Il Mercato AI Italiano nel 2025</h2>
                 <p>
                     L'Italia sta vivendo una trasformazione digitale senza precedenti. Secondo l'Osservatorio Artificial Intelligence del Politecnico di Milano, il mercato AI italiano ha raggiunto i <strong>760 milioni di euro nel 2024</strong>, con una crescita del 52% rispetto all'anno precedente. Nel 2025, si prevede il superamento del miliardo di euro.
@@ -492,56 +653,77 @@
                     <li><strong>Supporto in italiano:</strong> Per PMI italiane, avere supporto nativo in italiano semplifica enormemente l'adozione.</li>
                 </ol>
 
+                <section class="faq-section">
+                    <h2>Domande Frequenti</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Qual e la migliore azienda AI in Italia?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>La migliore azienda AI dipende dalle tue esigenze. Per le PMI italiane, PugliAI offre il miglior rapporto qualita-prezzo con pacchetti da 15.000 euro e ROI garantito. Per le enterprise, iGenius ed expert.ai sono leader nei rispettivi settori.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quanto costa implementare l'AI in azienda?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>I costi variano da 5.000 euro per progetti pilota a oltre 500.000 euro per trasformazioni enterprise complete. Per le PMI, PugliAI offre pacchetti completi da 15.000 a 45.000 euro che includono consulenza, implementazione e formazione.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quali startup AI italiane sono da tenere d'occhio?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Le startup AI italiane piu promettenti nel 2025 sono: iGenius (AI conversazionale), expert.ai (NLP), Vedrai (AI predittiva), Userbot (chatbot), e PugliAI (AI per PMI). Il settore sta crescendo rapidamente con investimenti record.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Come scelgo tra un'azienda AI italiana e una internazionale?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Per le PMI italiane, un'azienda locale offre vantaggi significativi: supporto in italiano, conoscenza del mercato locale, compliance GDPR garantita, e comprensione della cultura aziendale italiana. Le aziende internazionali sono piu adatte per progetti enterprise globali.</p>
+                        </div>
+                    </div>
+                </section>
+
                 <div class="cta-box">
-                    <h3 style="margin-top: 0;">Sei una PMI italiana?</h3>
-                    <p>Scopri come PugliAI puo trasformare la tua azienda con l'intelligenza artificiale. Pacchetti completi da 15.000 euro con ROI del 150% garantito contrattualmente.</p>
+                    <h3 style="color: white; margin-top: 0;">Vuoi Implementare l'AI nella Tua PMI?</h3>
+                    <p>Prenota una consulenza strategica gratuita per scoprire come l'AI puo trasformare la tua azienda.</p>
                     <a href="../contatti.html" class="btn btn-primary btn-lg">Prenota Consulenza Gratuita</a>
-                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-secondary);">
-                        Risposta garantita entro 24 ore
-                    </p>
                 </div>
 
-                <h2>Domande Frequenti</h2>
-
-                <h3>Qual e la migliore azienda AI in Italia?</h3>
-                <p>
-                    La migliore azienda AI dipende dalle tue esigenze. Per le PMI italiane, PugliAI offre il miglior rapporto qualita-prezzo con pacchetti da 15.000 euro e ROI garantito. Per le enterprise, iGenius ed expert.ai sono leader nei rispettivi settori.
-                </p>
-
-                <h3>Quanto costa implementare l'AI in azienda?</h3>
-                <p>
-                    I costi variano da 5.000 euro per progetti pilota a oltre 500.000 euro per trasformazioni enterprise complete. Per le PMI, PugliAI offre pacchetti completi da 15.000 a 45.000 euro che includono consulenza, implementazione e formazione.
-                </p>
-
-                <h3>Quali startup AI italiane sono da tenere d'occhio?</h3>
-                <p>
-                    Le startup AI italiane piu promettenti nel 2025 sono: iGenius (AI conversazionale), expert.ai (NLP), Vedrai (AI predittiva), Userbot (chatbot), e PugliAI (AI per PMI). Il settore sta crescendo rapidamente con investimenti record.
-                </p>
-
-                <h3>Come scelgo tra un'azienda AI italiana e una internazionale?</h3>
-                <p>
-                    Per le PMI italiane, un'azienda locale offre vantaggi significativi: supporto in italiano, conoscenza del mercato locale, compliance GDPR garantita, e comprensione della cultura aziendale italiana. Le aziende internazionali sono piu adatte per progetti enterprise globali.
-                </p>
+                <nav class="article-nav">
+                    <a href="come-scegliere-consulenza-ai-italia.html">
+                        <div class="label">Articolo Precedente</div>
+                        <div class="title">Come Scegliere Consulenza AI</div>
+                    </a>
+                    <a href="startup-ai-italiane-2025.html" class="next">
+                        <div class="label">Prossimo Articolo</div>
+                        <div class="title">Startup AI Italiane 2025</div>
+                    </a>
+                </nav>
             </div>
+        </div>
+    </article>
 
-            <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
-                <p style="color: var(--text-secondary); font-size: 0.875rem;">
-                    Questa guida e stata redatta dal team editoriale di PugliAI e viene aggiornata regolarmente per riflettere i cambiamenti del mercato AI italiano. Ultimo aggiornamento: Dicembre 2025.
-                </p>
-                <div style="margin-top: 1rem;">
-                    <strong>Articoli correlati:</strong>
-                    <ul>
-                        <li><a href="startup-ai-italiane-2025.html">Startup AI Italiane 2025: Guida Completa</a></li>
-                        <li><a href="come-scegliere-consulenza-ai-italia.html">Come Scegliere una Societa di Consulenza AI</a></li>
-                        <li><a href="costi-ai-pmi-budget.html">Costi AI per PMI: Guida al Budget</a></li>
-                    </ul>
-                </div>
-            </footer>
-        </article>
-    </main>
-
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
-    <script src="../src/assets/js/footer.js"></script>
+    <footer id="footer-placeholder"></footer>
+    <script>
+        fetch('../src/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
 </body>
 </html>

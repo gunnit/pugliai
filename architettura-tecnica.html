@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7711R1PDP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L7711R1PDP');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Architettura Tecnica | PugliAI - Stack Tecnologico AI per PMI</title>
@@ -432,12 +441,101 @@
             .stack-grid { grid-template-columns: 1fr; }
         }
     </style>
+
+    <!-- Structured Data - WebPage + Service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Architettura Tecnica AI - PugliAI",
+      "description": "Progettazione e implementazione di architetture AI scalabili per PMI italiane",
+      "url": "https://www.pugliai.com/architettura-tecnica.html",
+      "inLanguage": "it-IT",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PugliAI",
+        "url": "https://www.pugliai.com",
+        "logo": "https://www.pugliai.com/src/assets/img/pugliai_pittogramma.png"
+      },
+      "mainEntity": {
+        "@type": "Service",
+        "name": "Architettura Tecnica AI",
+        "provider": {"@type": "Organization", "name": "PugliAI"},
+        "areaServed": {"@type": "Country", "name": "Italy"},
+        "description": "Progettazione di architetture AI enterprise scalabili e sicure per PMI italiane"
+      }
+    }
+    </script>
+
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pugliai.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Servizi", "item": "https://www.pugliai.com/servizi.html"},
+        {"@type": "ListItem", "position": 3, "name": "Architettura Tecnica", "item": "https://www.pugliai.com/architettura-tecnica.html"}
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Cos'è un'architettura tecnica AI e perché è importante?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un'architettura tecnica AI è la struttura multi-layer che comprende presentation layer, application layer, AI/ML layer, data layer e infrastructure layer. Definisce come i componenti software, i modelli di intelligenza artificiale e l'infrastruttura cloud interagiscono per fornire soluzioni AI scalabili, sicure e performanti. È fondamentale perché garantisce che i sistemi AI siano affidabili, manutenibili e pronti per la crescita aziendale."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Perché le PMI italiane hanno bisogno di un'architettura AI dedicata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le PMI italiane necessitano di un'architettura AI ottimizzata perché permette di integrare l'intelligenza artificiale con i sistemi aziendali esistenti come SAP, Salesforce e Microsoft 365, mantenendo la compliance GDPR. Un'architettura ben progettata consente alle PMI di ottenere i benefici dell'AI enterprise (microservizi, automazione, analytics avanzate) con costi e complessità proporzionati alle loro dimensioni."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Meglio un'architettura AI cloud o on-premise per una PMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PugliAI adotta un approccio cloud-native con supporto multi-cloud (Azure, AWS) che offre auto-scaling, high availability e disaster recovery senza investimenti hardware iniziali. Tuttavia, per esigenze specifiche di compliance o latenza, sono disponibili soluzioni ibride con edge computing. La strategia multi-cloud garantisce vendor independence e ottimizzazione dei costi, ideale per le PMI che vogliono scalare gradualmente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come viene garantita la sicurezza nell'architettura AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La sicurezza è integrata a ogni livello dell'architettura con un approccio Zero Trust: encryption at rest e in transit, data masking, tokenization, RBAC (Role-Based Access Control), autenticazione multi-fattore e audit trails completi. L'architettura include Privacy by Design con compliance GDPR integrata, data minimization e consent management. Gli standard supportati includono ISO 27001, SOC 2 Type II, HIPAA e PCI DSS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come si garantisce la scalabilità dell'architettura AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La scalabilità è garantita attraverso un'architettura a microservizi con orchestrazione Kubernetes, container Docker e auto-scaling automatico. Il sistema supporta oltre 10 milioni di richieste al giorno con latenza API inferiore ai 100ms e un uptime SLA del 99.99%. La data layer gestisce dati a scala petabyte con streaming in tempo reale tramite Apache Kafka e processing distribuito con Apache Spark."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Dynamic Navigation - Generated by navigation.js -->
     <div id="nav-placeholder"></div>
     <script src="src/assets/js/navigation.js"></script>
 
+    <main role="main">
     <!-- Hero Section -->
     <section class="tech-hero">
         <div class="hero-content">
@@ -896,6 +994,7 @@
             <a href="contatti.html" class="cta-button">Richiedi Architecture Review</a>
         </div>
     </section>
+    </main>
 
     <script>
         // Mobile menu toggle

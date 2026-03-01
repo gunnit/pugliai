@@ -598,7 +598,142 @@
         }
     </style>
 
-    <!-- FAQ Schema -->
+    <!-- Structured Data: WebPage + Service with Offer -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "POC Framework AI - Proof of Concept Strutturato",
+      "url": "https://www.pugliai.com/poc-framework.html",
+      "inLanguage": "it-IT",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PugliAI",
+        "url": "https://www.pugliai.com",
+        "logo": "https://www.pugliai.com/src/assets/img/pugliai_pittogramma.png"
+      },
+      "mainEntity": {
+        "@type": "Service",
+        "name": "POC Framework AI per PMI",
+        "description": "Metodologia strutturata in 5 fasi per validare soluzioni AI in 8 settimane con rischio zero, ROI pre-validato e garanzia rimborso totale. 95% di tasso di successo.",
+        "provider": {
+          "@type": "Organization",
+          "name": "PugliAI",
+          "url": "https://www.pugliai.com"
+        },
+        "serviceType": "AI Proof of Concept",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Italy"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "POC Packages",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Rapid POC",
+              "description": "Validazione veloce dell'idea in 4 settimane. Include feasibility study, basic MVP, 1 AI model, performance benchmarking e 2 training sessions.",
+              "price": "25000",
+              "priceCurrency": "EUR"
+            },
+            {
+              "@type": "Offer",
+              "name": "Standard POC",
+              "description": "Framework completo in 8 settimane. Include full 5-phase framework, production-ready MVP, multiple AI models, custom dashboard, API development, documentazione completa e 30 giorni di supporto post-lancio.",
+              "price": "50000",
+              "priceCurrency": "EUR"
+            },
+            {
+              "@type": "Offer",
+              "name": "POC Avanzato",
+              "description": "Per progetti complessi in 12+ settimane. Include multi-system integration, advanced AI pipelines, custom architecture, compliance certification, dedicated team e 90 giorni di supporto.",
+              "price": "100000",
+              "priceCurrency": "EUR"
+            }
+          ]
+        }
+      }
+    }
+    </script>
+
+    <!-- Structured Data: HowTo - 5-Phase POC Methodology -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Come funziona il POC Framework AI di PugliAI",
+      "description": "Percorso strutturato in 5 fasi per trasformare le idee in soluzioni AI funzionanti, da concept a production in 8 settimane.",
+      "totalTime": "P56D",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Discovery & Assessment",
+          "text": "Analisi approfondita del business case, identificazione KPI, valutazione dati disponibili e definizione success criteria. Workshop con stakeholder e mappatura processi esistenti. Deliverables: Business Case Document, Data Quality Assessment, Technical Feasibility Report, Success Metrics Definition.",
+          "url": "https://www.pugliai.com/poc-framework.html"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Solution Design",
+          "text": "Progettazione architettura tecnica, selezione modelli AI, definizione pipeline dati e integration points. Creazione mockup e user journey mapping. Deliverables: Solution Architecture Diagram, AI Model Selection Report, Integration Blueprint, UI/UX Mockups.",
+          "url": "https://www.pugliai.com/poc-framework.html"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "MVP Development",
+          "text": "Sviluppo MVP funzionante con core features. Training modelli AI, sviluppo API, creazione dashboard e implementazione logica business critical. Deliverables: Working MVP Application, Trained AI Models, API Documentation, Admin Dashboard.",
+          "url": "https://www.pugliai.com/poc-framework.html"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Testing & Validation",
+          "text": "Testing con dati reali, validazione performance, user acceptance testing e ottimizzazione. Raccolta feedback e fine-tuning modelli. Deliverables: Performance Test Results, UAT Report, Model Accuracy Metrics, Optimization Recommendations.",
+          "url": "https://www.pugliai.com/poc-framework.html"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Deployment & Handover",
+          "text": "Deploy in ambiente production-ready, training team, documentazione completa e piano di scale-up. Support post-deployment e knowledge transfer. Deliverables: Production Deployment, Technical Documentation, Training Materials, Scale-up Roadmap.",
+          "url": "https://www.pugliai.com/poc-framework.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.pugliai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Servizi",
+          "item": "https://www.pugliai.com/servizi.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "POC Framework",
+          "item": "https://www.pugliai.com/poc-framework.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -606,42 +741,42 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Cos'è esattamente il POC Framework per l'AI?",
+          "name": "Cos'e un POC nel contesto dell'AI?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Il POC Framework è una metodologia strutturata in 4 fasi per testare soluzioni AI in 30 giorni con rischio zero. Include assessment iniziale, progettazione soluzione, implementazione test e validazione ROI. Con il 95% di tasso di successo, permette alle PMI di validare l'AI prima dell'investimento completo."
+            "text": "Un POC (Proof of Concept) nel contesto dell'AI e una validazione strutturata che permette di testare una soluzione di intelligenza artificiale prima dell'investimento completo. Il POC Framework di PugliAI e una metodologia in 5 fasi (Discovery, Solution Design, MVP Development, Testing e Deployment) che porta da un'idea a un prototipo funzionante con dati reali, KPI misurabili e ROI pre-validato."
           }
         },
         {
           "@type": "Question",
-          "name": "Quanto costa un POC Framework e cosa include?",
+          "name": "Quanto dura il POC framework di PugliAI?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Il POC Framework ha un costo fisso di €5.000-15.000 a seconda della complessità. Include: assessment completo, sviluppo prototipo funzionante, test con dati reali, report dettagliato con ROI previsto e piano di implementazione. Garanzia rimborso totale se il POC non raggiunge gli obiettivi concordati."
+            "text": "La durata dipende dal pacchetto scelto. Il Rapid POC dura 4 settimane per una validazione veloce dell'idea. Lo Standard POC, il framework completo piu popolare, dura 8 settimane e include tutte le 5 fasi della metodologia con MVP production-ready. Il POC Avanzato per progetti complessi richiede 12 o piu settimane con multi-system integration e architettura custom."
           }
         },
         {
           "@type": "Question",
-          "name": "Cosa succede se il POC Framework non funziona?",
+          "name": "Quanto costa un POC AI?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Offriamo garanzia rimborso totale se il POC non raggiunge gli obiettivi concordati contrattualmente. In 5 anni abbiamo rimborsato solo il 5% dei progetti. Se il POC ha successo, l'investimento viene interamente scalato dall'implementazione completa, rendendo il test praticamente gratuito."
+            "text": "PugliAI offre tre pacchetti POC: Rapid POC a 25.000 euro (4 settimane), Standard POC a 50.000 euro (8 settimane, il piu popolare) e POC Avanzato da 100.000 euro in su (12+ settimane). Ogni pacchetto include deliverables specifici come MVP, documentazione tecnica, training del team e supporto post-lancio. Se il POC ha successo, l'investimento viene scalato dall'implementazione completa."
           }
         },
         {
           "@type": "Question",
-          "name": "Posso continuare con l'implementazione se il POC ha successo?",
+          "name": "Cosa succede se il POC non ha successo?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Assolutamente sì. Il POC Framework è progettato per la continuità: se il test ha successo, passiamo direttamente all'implementazione completa scalando tutto il lavoro già fatto. Il costo del POC viene completamente dedotto dall'investimento totale, garantendo un passaggio fluido dalla prova alla produzione."
+            "text": "PugliAI offre garanzia rimborso completo se il POC non raggiunge i KPI concordati contrattualmente. Con un tasso di successo del 95% e un track record che include un ROI medio di 3.5x nel primo anno, i casi di rimborso sono estremamente rari. La metodologia goal-driven con obiettivi SMART e sprint settimanali minimizza i rischi fin dall'inizio."
           }
         },
         {
           "@type": "Question",
-          "name": "Il POC Framework è adatto alla mia PMI?",
+          "name": "Quali risultati posso aspettarmi dal POC?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Il POC Framework è ideale per PMI da 15 a 500 dipendenti che vogliono testare l'AI senza rischi. È perfetto se avete processi ripetitivi, gestite grandi volumi di dati o documenti, o volete automatizzare customer service, vendite o analisi. Una breve consultazione ci permette di valutare l'idoneità in 24 ore."
+            "text": "Dal POC Framework potete aspettarvi: un MVP funzionante testato con dati reali, modelli AI addestrati, documentazione tecnica completa, dashboard personalizzata, API funzionanti e un piano di scale-up. Il 95% dei POC viene convertito in produzione. I risultati misurabili includono un ROI medio di 3.5x nel primo anno e una riduzione dei costi dell'87% rispetto allo sviluppo completo tradizionale."
           }
         }
       ]

@@ -142,9 +142,59 @@
             "name": "PugliAI",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.pugliai.com/src/assets/img/pugliai_pittrogramma.png"
+                "url": "https://www.pugliai.com/src/assets/img/pugliai_pittogramma.png"
             }
         }
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Come funziona il rilevamento frodi con l'AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "L'AI per il fraud detection analizza milioni di transazioni in tempo reale utilizzando algoritmi di machine learning che identificano pattern anomali e comportamenti sospetti. I modelli vengono addestrati su dati storici e si aggiornano continuamente per riconoscere nuove tipologie di frode. Questo approccio riduce i falsi positivi del 70% rispetto ai sistemi tradizionali basati su regole."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Cos'e il credit scoring basato sull'AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Il credit scoring AI utilizza modelli di machine learning per valutare l'affidabilita creditizia dei richiedenti analizzando centinaia di variabili, non solo i dati finanziari tradizionali. Questo permette valutazioni piu accurate (fino al 95% di accuratezza), decisioni piu rapide e l'inclusione di soggetti che i modelli tradizionali escluderebbero ingiustamente, aumentando le approvazioni del 60%."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "L'AI e conforme alle normative finanziarie italiane ed europee?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si, tutte le soluzioni PugliAI per il settore finanziario sono progettate con un approccio compliance-by-design. Rispettiamo GDPR, PSD2, MiFID II, le direttive antiriciclaggio (AML) e i requisiti KYC. Utilizziamo tecniche di Explainable AI (XAI) per rendere le decisioni algoritmiche trasparenti e interpretabili, come richiesto dai regolatori."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto tempo serve per implementare l'AI in una banca o fintech?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "I tempi variano in base alla complessita: un progetto pilota di fraud detection o credit scoring puo essere operativo in 60-90 giorni. L'integrazione completa con i sistemi core banking richiede tipicamente 4-6 mesi. PugliAI adotta un approccio incrementale con backtesting rigoroso su dati storici per garantire affidabilita prima del go-live in produzione."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Cos'e l'AI spiegabile (XAI) e perche e importante nella finanza?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "L'Explainable AI (XAI) rende le decisioni degli algoritmi trasparenti e comprensibili per gli esseri umani. Nella finanza e fondamentale perche i regolatori richiedono che le decisioni automatizzate (come il rifiuto di un prestito) siano motivate e verificabili. PugliAI implementa tecniche XAI in tutti i modelli per garantire audit trail completi e fiducia degli stakeholder."
+                }
+            }
+        ]
     }
     </script>
 </head>
@@ -357,6 +407,35 @@
                     <h3 class="heading-4 text-gradient-gold">-80%</h3>
                     <p class="body-base">Tempo di processamento documenti</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding" style="background: var(--primary-navy);">
+        <div class="container">
+            <h2 class="section-title text-center" style="color: var(--accent-platinum);">Domande Frequenti</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Come funziona il rilevamento frodi con l'AI?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">L'AI per il fraud detection analizza milioni di transazioni in tempo reale utilizzando algoritmi di machine learning che identificano pattern anomali e comportamenti sospetti. I modelli vengono addestrati su dati storici e si aggiornano continuamente per riconoscere nuove tipologie di frode. Questo approccio riduce i falsi positivi del 70% rispetto ai sistemi tradizionali basati su regole.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Cos'e il credit scoring basato sull'AI?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Il credit scoring AI utilizza modelli di machine learning per valutare l'affidabilita creditizia dei richiedenti analizzando centinaia di variabili, non solo i dati finanziari tradizionali. Questo permette valutazioni piu accurate (fino al 95% di accuratezza), decisioni piu rapide e l'inclusione di soggetti che i modelli tradizionali escluderebbero ingiustamente, aumentando le approvazioni del 60%.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">L'AI e conforme alle normative finanziarie italiane ed europee?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Si, tutte le soluzioni PugliAI per il settore finanziario sono progettate con un approccio compliance-by-design. Rispettiamo GDPR, PSD2, MiFID II, le direttive antiriciclaggio (AML) e i requisiti KYC. Utilizziamo tecniche di Explainable AI (XAI) per rendere le decisioni algoritmiche trasparenti e interpretabili, come richiesto dai regolatori.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Quanto tempo serve per implementare l'AI in una banca o fintech?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">I tempi variano in base alla complessita: un progetto pilota di fraud detection o credit scoring puo essere operativo in 60-90 giorni. L'integrazione completa con i sistemi core banking richiede tipicamente 4-6 mesi. PugliAI adotta un approccio incrementale con backtesting rigoroso su dati storici per garantire affidabilita prima del go-live in produzione.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Cos'e l'AI spiegabile (XAI) e perche e importante nella finanza?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">L'Explainable AI (XAI) rende le decisioni degli algoritmi trasparenti e comprensibili per gli esseri umani. Nella finanza e fondamentale perche i regolatori richiedono che le decisioni automatizzate (come il rifiuto di un prestito) siano motivate e verificabili. PugliAI implementa tecniche XAI in tutti i modelli per garantire audit trail completi e fiducia degli stakeholder.</p>
+                </details>
             </div>
         </div>
     </section>
