@@ -48,3 +48,8 @@ screenshots/
 
 # Misc
 image.png
+
+# Local build/preview artifacts (not for deploy)
+_build/
+*.orig
+.claude/launch.json

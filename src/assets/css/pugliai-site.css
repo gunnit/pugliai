@@ -1,0 +1,34 @@
+/* =====================================================================
+   PUGLIAI — site overrides on top of brand.css + landing.css
+   Small, page-agnostic adjustments shared by every page.
+   ===================================================================== */
+
+/* Brand logo is full-colour; render it white where it sits on dark chrome. */
+.nav__logo img,
+.foot__brand img { filter: brightness(0) invert(1); }
+
+/* Language switch is a pair of links (URL-based IT/EN), styled like the
+   original toggle. */
+.lang a {
+  display: inline-flex; align-items: center;
+  text-decoration: none; background: none; border: none;
+  color: var(--txt-faint); cursor: pointer;
+  padding: 6px 11px; font: inherit; font-size: 12px; font-weight: 600;
+  letter-spacing: .04em; transition: .2s;
+}
+.lang a:hover { color: #fff; }
+.lang a.on { background: rgba(255,255,255,.12); color: #fff; }
+
+/* Metaphor visual: the brand mark sits on the soft light card. */
+.meta__tree { width: 70%; max-width: 320px; }
+
+/* Make in-page anchored sections clear the fixed navbar when jumped to. */
+[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
+
+/* Skip-link for keyboard users. */
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 200;
+  background: var(--green); color: #fff; padding: 10px 16px; border-radius: 10px;
+  font-weight: 600; font-size: 14px; transition: top .2s;
+}
+.skip-link:focus { top: 12px; }
