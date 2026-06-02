@@ -32,3 +32,31 @@
   font-weight: 600; font-size: 14px; transition: top .2s;
 }
 .skip-link:focus { top: 12px; }
+
+/* Accessibility: contrast bumps for small text on light sections
+   (--mist on white lands ~4:1; --slate clears AA comfortably). */
+.tcard__by .rl { color: var(--slate); }
+.meta .mrow__k .it { color: var(--slate); }
+
+/* Visible keyboard focus — green on dark chrome, blue on light sections. */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--green-400);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.sec--light :where(a, button):focus-visible,
+.meta :where(a, button):focus-visible { outline-color: var(--blue); }
+
+/* Larger touch targets for the always-on controls. */
+.nav__burger { padding: 11px; }
+.lang a { padding: 10px 13px; min-height: 40px; }
+
+/* Honor reduced-motion for the remaining decorative animations.
+   (.reveal + .aurora are already handled in landing.css; the canvas trees
+   render a single static frame via tree-canvas.js.) */
+@media (prefers-reduced-motion: reduce) {
+  .scrollcue .mouse::before,
+  .meta__halo,
+  .meta__tree,
+  .mnode { animation: none !important; }
+}

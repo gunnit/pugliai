@@ -8,8 +8,8 @@
   --glass: rgba(11,26,45,.55);
   --hairline: rgba(255,255,255,.10);
   --hairline-2: rgba(255,255,255,.06);
-  --txt-dim: rgba(255,255,255,.66);
-  --txt-faint: rgba(255,255,255,.46);
+  --txt-dim: rgba(255,255,255,.72);
+  --txt-faint: rgba(255,255,255,.58);
 }
 
 html{ scroll-behavior:smooth; }

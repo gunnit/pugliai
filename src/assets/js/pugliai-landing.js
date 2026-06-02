@@ -54,8 +54,10 @@
   setTimeout(revealAll, 4000);
 
   /* ---------------- count up ---------------- */
+  var prefersReduced = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   var countEls = document.querySelectorAll('[data-count]');
-  if ('IntersectionObserver' in window && countEls.length) {
+  // Skip the count animation under reduced-motion: the final values are already in the HTML.
+  if (!prefersReduced && 'IntersectionObserver' in window && countEls.length) {
     var cio = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;

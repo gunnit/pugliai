@@ -47,6 +47,8 @@
         network: true,
       };
       this._raf = null;
+      this._running = false;
+      this.reduced = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
       this._onResize = this.resize.bind(this);
       window.addEventListener('resize', this._onResize);
       if ('ResizeObserver' in window) {
@@ -58,6 +60,15 @@
         this.mouse.tx = e.clientX / window.innerWidth;
         this.mouse.ty = e.clientY / window.innerHeight;
       });
+      // Pause the loop whenever the canvas is off-screen or the tab is hidden.
+      this._onVis = () => { if (document.hidden) this.pause(); else this.resume(); };
+      document.addEventListener('visibilitychange', this._onVis);
+      if ('IntersectionObserver' in window) {
+        this._vio = new IntersectionObserver((entries) => {
+          if (entries.some((e) => e.isIntersecting)) this.resume(); else this.pause();
+        }, { threshold: 0 });
+        this._vio.observe(canvas);
+      }
       this.resize();
       this.start();
     }
@@ -77,6 +88,7 @@
       this.canvas.height = Math.round(this.h * this.dpr);
       this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
       this.build();
+      if (this.reduced) this.renderStatic();
     }
 
     // ---- procedural generation: orthogonal circuit-tree ----
@@ -182,11 +194,31 @@
     }
 
     start() {
+      // Reduced motion: draw one settled frame, never loop.
+      if (this.reduced) { this.renderStatic(); return; }
+      if (this._running) return;
+      this._running = true;
       const loop = (now) => {
+        if (!this._running) { this._raf = null; return; }
         this._raf = requestAnimationFrame(loop);
         this.draw(now);
       };
       this._raf = requestAnimationFrame(loop);
+    }
+
+    pause() {
+      this._running = false;
+      if (this._raf) { cancelAnimationFrame(this._raf); this._raf = null; }
+    }
+
+    resume() {
+      if (this.reduced || this._running) return;
+      this.start();
+    }
+
+    // One fully-grown, motionless frame for prefers-reduced-motion users.
+    renderStatic() {
+      if (this.geo) this.draw(this.t0 + 4000);
     }
 
     draw(now) {
@@ -325,8 +357,13 @@
     }
 
     destroy() {
+      this._running = false;
       cancelAnimationFrame(this._raf);
       window.removeEventListener('resize', this._onResize);
+      window.removeEventListener('load', this._onResize);
+      if (this._onVis) document.removeEventListener('visibilitychange', this._onVis);
+      if (this._vio) this._vio.disconnect();
+      if (this._ro) this._ro.disconnect();
     }
   }
 
