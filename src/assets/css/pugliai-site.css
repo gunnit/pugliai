@@ -156,3 +156,73 @@
 .prose strong, .prose b { color: #fff; font-weight: 600; }
 .sec--light .prose strong, .sec--light .prose b { color: var(--ink); }
 .prose .muted { color: var(--txt-faint); font-size: 14px; }
+
+/* =====================================================================
+   ARTICLE COMPONENTS — long-form guides (guida-ai/*).
+   Reuse .prose for body copy; these cover the article-only pieces:
+   breadcrumb + meta row (dark pagehead), tables, callouts, stat boxes
+   and prev/next nav. Pair the article body section with .sec--light.
+   ===================================================================== */
+
+/* Breadcrumb + reading-meta inside the dark .pagehead. */
+.crumb { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 18px; font-size: 13.5px; color: var(--txt-faint); }
+.crumb a { color: var(--txt-dim); text-decoration: none; transition: color .2s; }
+.crumb a:hover { color: #fff; }
+.crumb i { color: var(--green-400); font-style: normal; }
+.pagehead__meta { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 24px; font-size: 14px; color: var(--txt-dim); }
+.pagehead__meta span { display: inline-flex; align-items: center; gap: 7px; }
+.pagehead__meta svg { width: 16px; height: 16px; flex: none; color: var(--green-400); }
+
+/* Tables inside prose. */
+.prose table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 15px; }
+.prose thead th { text-align: left; font-weight: 600; padding: 13px 16px; background: var(--notte); color: #fff; }
+.prose thead th:first-child { border-top-left-radius: 12px; }
+.prose thead th:last-child { border-top-right-radius: 12px; }
+.prose td { padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--slate); vertical-align: top; }
+.sec--light .prose tbody tr:nth-child(even) { background: rgba(11,26,45,.035); }
+
+/* Callout / highlight boxes (info by default, warn variant). */
+.callout { margin: 28px 0; padding: 22px 26px; border-radius: 14px; border-left: 4px solid var(--green); background: var(--grad-soft); }
+.callout > :first-child { margin-top: 0; }
+.callout > :last-child { margin-bottom: 0; }
+.callout h3, .callout h4 { font-size: 17px; font-weight: 700; margin: 0 0 10px; color: var(--ink); }
+.callout--warn { border-left-color: var(--terra); background: linear-gradient(118deg, rgba(194,99,47,.10), rgba(194,99,47,.04)); }
+.sec--dark .callout, .sec--panel .callout, .sec--darker .callout { background: rgba(255,255,255,.04); border-left-color: var(--green-400); }
+.sec--dark .callout h3, .sec--dark .callout h4,
+.sec--panel .callout h3, .sec--panel .callout h4 { color: #fff; }
+
+/* Single big stat highlight (gradient panel). */
+.statbox { margin: 28px 0; padding: 32px; border-radius: 18px; text-align: center; background: var(--grad); color: #fff; }
+.statbox__n { display: block; font-size: clamp(40px, 6vw, 56px); font-weight: 800; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.statbox__l { display: block; margin-top: 10px; font-size: 16px; opacity: .92; }
+
+/* Prev / next article navigation. */
+.artnav { max-width: 768px; margin: 48px auto 0; padding-top: 32px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.sec--dark .artnav, .sec--panel .artnav, .sec--darker .artnav { border-top-color: var(--hairline); }
+.artnav a { display: block; padding: 20px 22px; border-radius: 14px; border: 1px solid var(--line); background: var(--white); text-decoration: none; transition: border-color .2s, box-shadow .2s; }
+.artnav a:hover { border-color: var(--green); box-shadow: var(--shadow-sm); }
+.artnav__k { font-size: 12.5px; color: var(--mist); margin-bottom: 6px; }
+.artnav__t { font-weight: 600; color: var(--ink); font-size: 15.5px; }
+.artnav .next { text-align: right; }
+@media (max-width: 640px) { .artnav { grid-template-columns: 1fr; } .artnav .next { text-align: left; } }
+
+/* Landing components (.stats / .gcard / .proc / .pcard from landing.css)
+   are styled for dark surfaces. The guides drop them into .sec--light
+   reading bodies, so make them light-aware here (white cards, visible
+   hairlines, dark body text). Numbers inherit --ink on light already. */
+.sec--light .stats { background: var(--line); border-color: var(--line); }
+.sec--light .stat { background: var(--white); }
+.sec--light .stat .l { color: var(--ink); }
+.sec--light .stat .s { color: var(--mist); }
+
+.sec--light .gcard { background: var(--white); border-color: var(--line); }
+.sec--light .gcard:hover { background: var(--white); box-shadow: var(--shadow-sm); }
+.sec--light .gcard h3 { color: var(--ink); }
+.sec--light .gcard p { color: var(--slate); }
+.sec--light .gcard__link { color: var(--green); }
+
+.sec--light .pstep h4 { color: var(--ink); }
+.sec--light .pstep p { color: var(--slate); }
+
+.sec--light .pcard h3 { color: var(--ink); }
+.sec--light .pcard p, .sec--light .pcard li { color: var(--slate); }

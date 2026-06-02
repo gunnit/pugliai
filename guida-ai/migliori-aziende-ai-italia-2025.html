@@ -36,13 +36,6 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/migliori-aziende-ai-italia-2025.html">
 
-    <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
     <!-- Article Schema -->
     <script type="application/ld+json">
     {
@@ -179,551 +172,295 @@
     }
     </script>
 
-    <style>
-        .article-hero {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
-            padding: 140px 20px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        .article-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 100%;
-            background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%);
-        }
-        .article-hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        .article-breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 24px;
-            font-size: 0.9rem;
-        }
-        .article-breadcrumb a {
-            color: var(--accent-platinum);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .article-breadcrumb a:hover {
-            color: var(--accent-gold);
-        }
-        .article-breadcrumb span {
-            color: var(--accent-gold);
-        }
-        .article-category {
-            display: inline-block;
-            background: var(--gradient-emerald);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-        .article-hero h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: white;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        .article-meta-hero {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            color: var(--accent-platinum);
-            font-size: 0.95rem;
-        }
-        .article-meta-hero span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .article-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        .article-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-        .article-content h2 {
-            font-size: 1.8rem;
-            color: var(--primary-navy);
-            margin: 48px 0 24px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-        .article-content h3 {
-            font-size: 1.4rem;
-            color: var(--secondary-navy);
-            margin: 36px 0 16px;
-        }
-        .article-content p {
-            margin-bottom: 20px;
-        }
-        .article-content ul, .article-content ol {
-            margin: 20px 0;
-            padding-left: 24px;
-        }
-        .article-content li {
-            margin-bottom: 12px;
-        }
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
-            border-left: 4px solid var(--accent-gold);
-            padding: 24px 28px;
-            margin: 32px 0;
-            border-radius: 0 12px 12px 0;
-        }
-        .highlight-box h4 {
-            color: var(--primary-navy);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        .stat-highlight {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 32px;
-            border-radius: 16px;
-            margin: 32px 0;
-            text-align: center;
-        }
-        .stat-highlight .number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            display: block;
-            margin-bottom: 8px;
-        }
-        .stat-highlight .label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        .faq-section {
-            margin: 48px 0;
-        }
-        .faq-item {
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            overflow: hidden;
-        }
-        .faq-question {
-            background: #f8fafc;
-            padding: 20px 24px;
-            font-weight: 600;
-            color: var(--primary-navy);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-answer {
-            padding: 20px 24px;
-            border-top: 1px solid #e5e7eb;
-        }
-        .article-nav {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 2px solid #e5e7eb;
-        }
-        .article-nav a {
-            padding: 24px;
-            background: #f8fafc;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
-        .article-nav a:hover {
-            border-color: var(--accent-gold);
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .article-nav .label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-        .article-nav .title {
-            color: var(--primary-navy);
-            font-weight: 600;
-        }
-        .article-nav .next {
-            text-align: right;
-        }
-        .cta-box {
-            background: var(--gradient-primary);
-            padding: 40px;
-            border-radius: 16px;
-            text-align: center;
-            margin: 48px 0;
-        }
-        .cta-box h3 {
-            color: white;
-            margin-bottom: 16px;
-        }
-        .cta-box p {
-            color: var(--accent-platinum);
-            margin-bottom: 24px;
-        }
-        /* Page-specific styles */
-        .company-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .company-card h3 {
-            color: var(--accent-emerald);
-            margin-top: 0;
-        }
-        .company-card .highlight {
-            background: linear-gradient(135deg, rgba(212, 160, 23, 0.1), rgba(16, 185, 129, 0.1));
-            border: 1px solid var(--accent-gold);
-        }
-        .company-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .stat-item {
-            text-align: center;
-            padding: 0.75rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
-        }
-        .stat-value {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-        }
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 32px 0;
-            font-size: 0.95rem;
-        }
-        .comparison-table th {
-            background: var(--primary-navy);
-            color: white;
-            padding: 16px;
-            text-align: left;
-        }
-        .comparison-table td {
-            padding: 14px 16px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .comparison-table tr:nth-child(even) {
-            background: #f8fafc;
-        }
-        @media (max-width: 768px) {
-            .article-nav {
-                grid-template-columns: 1fr;
-            }
-            .article-nav .next {
-                text-align: left;
-            }
-            .comparison-table {
-                font-size: 0.8rem;
-            }
-            .comparison-table th, .comparison-table td {
-                padding: 0.5rem;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/brand.css">
+    <link rel="stylesheet" href="../src/assets/css/landing.css">
+    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div id="nav-placeholder"></div>
-    <script src="../src/assets/js/navigation.js"></script>
+<a href="#main" class="skip-link">Vai al contenuto</a>
 
-    <article>
-        <header class="article-hero">
-            <div class="article-hero-content">
-                <nav class="article-breadcrumb">
-                    <a href="../index.html">Home</a>
-                    <span>/</span>
-                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
-                    <span>/</span>
-                    <span>Migliori Aziende AI Italia</span>
-                </nav>
-                <span class="article-category">Guida AI per CEO</span>
-                <h1>Migliori Aziende AI in Italia 2025: Classifica e Guida Completa</h1>
-                <div class="article-meta-hero">
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 12 min lettura</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Dicembre 2025</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
-                </div>
-            </div>
-        </header>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="../index.html#metaphor">L'Idea</a>
+      <a href="../servizi.html">Servizi</a>
+      <a href="../prodotti.html">On-Premise</a>
+      <a href="../acceleratore.html">Acceleratore</a>
+      <a href="../index.html#process">Percorso</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Lingua">
+        <a href="migliori-aziende-ai-italia-2025.html" class="on" aria-current="true">IT</a>
+        <a href="../en/ceo-ai-guide-2025.html">EN</a>
+      </div>
+      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="../index.html#metaphor">L'Idea</a>
+  <a href="../servizi.html">Servizi</a>
+  <a href="../prodotti.html">On-Premise</a>
+  <a href="../acceleratore.html">Acceleratore</a>
+  <a href="../index.html#process">Percorso</a>
+  <a href="../contatti.html">Richiedi un preventivo</a>
+</div>
 
-        <div class="article-container">
-            <div class="article-content">
-                <p><strong>Quali sono le migliori aziende di intelligenza artificiale in Italia?</strong> In questa guida completa analizziamo le top AI company italiane per PMI, startup e grandi imprese, con confronto di servizi, prezzi e specializzazioni.</p>
-                <h2>Il Mercato AI Italiano nel 2025</h2>
-                <p>
-                    L'Italia sta vivendo una trasformazione digitale senza precedenti. Secondo l'Osservatorio Artificial Intelligence del Politecnico di Milano, il mercato AI italiano ha raggiunto i <strong>760 milioni di euro nel 2024</strong>, con una crescita del 52% rispetto all'anno precedente. Nel 2025, si prevede il superamento del miliardo di euro.
-                </p>
-                <p>
-                    Le PMI italiane rappresentano il segmento in maggiore crescita: il <strong>26,7% delle piccole e medie imprese</strong> utilizza gia strumenti AI, rispetto al 18% del 2023. Questo ha creato un ecosistema ricco di aziende specializzate nella consulenza e implementazione AI.
-                </p>
+<main id="main">
 
-                <h2>Classifica: Le Migliori Aziende AI per PMI Italiane</h2>
-                <p>
-                    Se sei un imprenditore o CEO di una PMI italiana, queste sono le aziende AI da considerare nel 2025:
-                </p>
+<!-- PAGE HEADER -->
+<section class="pagehead">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><i>/</i>
+      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
+      <span>Migliori Aziende AI Italia</span>
+    </nav>
+    <div class="eyebrow-lux">Guida AI per CEO</div>
+    <h1>Migliori Aziende <span class="serif">AI in Italia</span> 2025: Classifica e Guida Completa</h1>
+    <p class="pagehead__lead">Quali sono le migliori aziende di intelligenza artificiale in Italia? Analizziamo le top AI company italiane per PMI, startup e grandi imprese, con confronto di servizi, prezzi e specializzazioni.</p>
+    <div class="pagehead__meta">
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 12 min lettura</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Dicembre 2025</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
+    </div>
+  </div>
+</section>
 
-                <div class="company-card highlight">
-                    <h3>1. PugliAI - La Scelta Migliore per PMI</h3>
-                    <p>
-                        <strong>Specializzazione:</strong> Consulenza AI esclusivamente per piccole e medie imprese italiane. PugliAI si distingue per l'approccio "Italy-first" con supporto nativo in italiano e pacchetti pensati specificamente per le esigenze delle PMI.
-                    </p>
-                    <div class="company-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">Da 15.000</div>
-                            <div class="stat-label">Investimento minimo</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">150%</div>
-                            <div class="stat-label">ROI Garantito</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">90 giorni</div>
-                            <div class="stat-label">Time to Value</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">50+</div>
-                            <div class="stat-label">PMI Trasformate</div>
-                        </div>
-                    </div>
-                    <p style="margin-top: 1rem;">
-                        <strong>Punti di forza:</strong> Unica azienda italiana a offrire garanzia contrattuale sul ROI. Pacchetti all-inclusive che includono consulenza, implementazione, formazione e supporto. Vincitrice del Comtel Startup Challenge 2024.
-                    </p>
-                    <p>
-                        <strong>Ideale per:</strong> PMI da 10-250 dipendenti che vogliono iniziare con l'AI senza rischi, con budget da 15.000 a 75.000 euro.
-                    </p>
-                    <p style="margin-top: 1rem;">
-                        <a href="../contatti.html" class="btn btn-primary">Richiedi Consulenza Gratuita</a>
-                    </p>
-                </div>
+<!-- ARTICLE -->
+<section class="sec sec--light">
+  <div class="shell">
+    <div class="prose reveal">
 
-                <div class="company-card">
-                    <h3>2. Mashfrog - Digital Transformation</h3>
-                    <p>
-                        <strong>Specializzazione:</strong> Agenzia digitale con forte competenza AI per trasformazione digitale. Offre soluzioni integrate di marketing, tecnologia e AI.
-                    </p>
-                    <p>
-                        <strong>Punti di forza:</strong> Approccio full-service, forte presenza nel centro Italia, competenze cross-funzionali.
-                    </p>
-                    <p>
-                        <strong>Ideale per:</strong> Aziende che cercano un partner per trasformazione digitale completa, non solo AI.
-                    </p>
-                </div>
+      <p><strong>Quali sono le migliori aziende di intelligenza artificiale in Italia?</strong> In questa guida completa analizziamo le top AI company italiane per PMI, startup e grandi imprese, con confronto di servizi, prezzi e specializzazioni.</p>
 
-                <div class="company-card">
-                    <h3>3. Spindox - AI e Data Analytics</h3>
-                    <p>
-                        <strong>Specializzazione:</strong> Consulenza tecnologica con focus su AI, data analytics e cloud. Quotata in borsa, con presenza nazionale.
-                    </p>
-                    <p>
-                        <strong>Punti di forza:</strong> Solidita finanziaria, team numeroso, esperienza enterprise.
-                    </p>
-                    <p>
-                        <strong>Ideale per:</strong> Medie e grandi imprese con progetti AI complessi e budget elevati.
-                    </p>
-                </div>
+      <h2>Il Mercato AI Italiano nel 2025</h2>
+      <p>L'Italia sta vivendo una trasformazione digitale senza precedenti. Secondo l'Osservatorio Artificial Intelligence del Politecnico di Milano, il mercato AI italiano ha raggiunto i <strong>760 milioni di euro nel 2024</strong>, con una crescita del 52% rispetto all'anno precedente. Nel 2025, si prevede il superamento del miliardo di euro.</p>
+      <p>Le PMI italiane rappresentano il segmento in maggiore crescita: il <strong>26,7% delle piccole e medie imprese</strong> utilizza gia strumenti AI, rispetto al 18% del 2023. Questo ha creato un ecosistema ricco di aziende specializzate nella consulenza e implementazione AI.</p>
 
-                <h2>Le Migliori Startup AI Italiane 2025</h2>
-                <p>
-                    L'ecosistema startup italiano e in fermento. Ecco le startup AI piu innovative:
-                </p>
+      <h2>Classifica: Le Migliori Aziende AI per PMI Italiane</h2>
+      <p>Se sei un imprenditore o CEO di una PMI italiana, queste sono le aziende AI da considerare nel 2025:</p>
 
-                <div class="company-card">
-                    <h3>iGenius</h3>
-                    <p>
-                        Fondata a Milano, iGenius e la startup AI italiana piu finanziata con una valutazione superiore ai 100 milioni di euro. La sua piattaforma Crystal permette di interrogare i dati aziendali in linguaggio naturale.
-                    </p>
-                    <p><strong>Focus:</strong> AI conversazionale per business intelligence</p>
-                </div>
+      <h3>1. PugliAI - La Scelta Migliore per PMI</h3>
+      <p><strong>Specializzazione:</strong> Consulenza AI esclusivamente per piccole e medie imprese italiane. PugliAI si distingue per l'approccio "Italy-first" con supporto nativo in italiano e pacchetti pensati specificamente per le esigenze delle PMI.</p>
+    </div>
 
-                <div class="company-card">
-                    <h3>expert.ai</h3>
-                    <p>
-                        Leader mondiale nel Natural Language Processing (NLP), expert.ai e quotata su Euronext Growth Milan. La tecnologia proprietaria permette di comprendere e analizzare testi in modo simile agli esseri umani.
-                    </p>
-                    <p><strong>Focus:</strong> NLP enterprise, text analytics</p>
-                </div>
+    <div class="stats">
+      <div class="stat reveal" data-d="1"><div class="n grad-text">Da 15.000</div><div class="l">Investimento minimo</div><div class="s">euro all-inclusive</div></div>
+      <div class="stat reveal" data-d="2"><div class="n">150%</div><div class="l">ROI Garantito</div><div class="s">unica con garanzia contrattuale</div></div>
+      <div class="stat reveal" data-d="3"><div class="n grad-text">90 giorni</div><div class="l">Time to Value</div><div class="s">dal progetto ai risultati</div></div>
+      <div class="stat reveal" data-d="4"><div class="n">50+</div><div class="l">PMI Trasformate</div><div class="s">in tutta Italia</div></div>
+    </div>
 
-                <div class="company-card">
-                    <h3>Vedrai</h3>
-                    <p>
-                        Startup milanese specializzata in AI predittiva per il business. Ha sviluppato agenti AI che supportano le decisioni aziendali basandosi su simulazioni di scenari futuri.
-                    </p>
-                    <p><strong>Focus:</strong> AI predittiva, decision intelligence</p>
-                </div>
+    <div class="prose reveal">
+      <p><strong>Punti di forza:</strong> Unica azienda italiana a offrire garanzia contrattuale sul ROI. Pacchetti all-inclusive che includono consulenza, implementazione, formazione e supporto. Vincitrice del Comtel Startup Challenge 2024.</p>
+      <p><strong>Ideale per:</strong> PMI da 10-250 dipendenti che vogliono iniziare con l'AI senza rischi, con budget da 15.000 a 75.000 euro.</p>
+    </div>
 
-                <div class="company-card highlight">
-                    <h3>PugliAI</h3>
-                    <p>
-                        Startup pugliese vincitrice del Comtel Startup Challenge 2024, specializzata nell'AI accessibile per PMI. A differenza delle altre startup che puntano a enterprise e investitori, PugliAI si concentra esclusivamente sulle piccole e medie imprese italiane.
-                    </p>
-                    <p><strong>Focus:</strong> Consulenza AI per PMI con garanzia ROI</p>
-                </div>
+    <div class="cards3">
+      <div class="gcard reveal" data-d="1">
+        <h3>2. Mashfrog</h3>
+        <p><strong>Specializzazione:</strong> Agenzia digitale con forte competenza AI per trasformazione digitale. Offre soluzioni integrate di marketing, tecnologia e AI.</p>
+        <p><strong>Punti di forza:</strong> Approccio full-service, forte presenza nel centro Italia, competenze cross-funzionali.</p>
+        <p><strong>Ideale per:</strong> Aziende che cercano un partner per trasformazione digitale completa, non solo AI.</p>
+      </div>
+      <div class="gcard reveal" data-d="2">
+        <h3>3. Spindox</h3>
+        <p><strong>Specializzazione:</strong> Consulenza tecnologica con focus su AI, data analytics e cloud. Quotata in borsa, con presenza nazionale.</p>
+        <p><strong>Punti di forza:</strong> Solidita finanziaria, team numeroso, esperienza enterprise.</p>
+        <p><strong>Ideale per:</strong> Medie e grandi imprese con progetti AI complessi e budget elevati.</p>
+      </div>
+    </div>
 
-                <h2>Confronto: Quale Azienda AI Scegliere?</h2>
+    <div class="prose reveal">
+      <h2>Le Migliori Startup AI Italiane 2025</h2>
+      <p>L'ecosistema startup italiano e in fermento. Ecco le startup AI piu innovative:</p>
+    </div>
 
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Azienda</th>
-                            <th>Target</th>
-                            <th>Budget Minimo</th>
-                            <th>Garanzia ROI</th>
-                            <th>Specializzazione</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>PugliAI</strong></td>
-                            <td>PMI</td>
-                            <td>15.000</td>
-                            <td>Si, 150%</td>
-                            <td>AI per PMI italiane</td>
-                        </tr>
-                        <tr>
-                            <td>iGenius</td>
-                            <td>Enterprise</td>
-                            <td>50.000+</td>
-                            <td>No</td>
-                            <td>Business Intelligence</td>
-                        </tr>
-                        <tr>
-                            <td>expert.ai</td>
-                            <td>Enterprise</td>
-                            <td>100.000+</td>
-                            <td>No</td>
-                            <td>NLP</td>
-                        </tr>
-                        <tr>
-                            <td>Accenture</td>
-                            <td>Large Enterprise</td>
-                            <td>200.000+</td>
-                            <td>No</td>
-                            <td>Full service</td>
-                        </tr>
-                        <tr>
-                            <td>Reply</td>
-                            <td>Enterprise</td>
-                            <td>100.000+</td>
-                            <td>No</td>
-                            <td>System integration</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="cards3">
+      <div class="gcard reveal" data-d="1">
+        <h3>iGenius</h3>
+        <p>Fondata a Milano, iGenius e la startup AI italiana piu finanziata con una valutazione superiore ai 100 milioni di euro. La sua piattaforma Crystal permette di interrogare i dati aziendali in linguaggio naturale.</p>
+        <p><strong>Focus:</strong> AI conversazionale per business intelligence</p>
+      </div>
+      <div class="gcard reveal" data-d="2">
+        <h3>expert.ai</h3>
+        <p>Leader mondiale nel Natural Language Processing (NLP), expert.ai e quotata su Euronext Growth Milan. La tecnologia proprietaria permette di comprendere e analizzare testi in modo simile agli esseri umani.</p>
+        <p><strong>Focus:</strong> NLP enterprise, text analytics</p>
+      </div>
+      <div class="gcard reveal" data-d="3">
+        <h3>Vedrai</h3>
+        <p>Startup milanese specializzata in AI predittiva per il business. Ha sviluppato agenti AI che supportano le decisioni aziendali basandosi su simulazioni di scenari futuri.</p>
+        <p><strong>Focus:</strong> AI predittiva, decision intelligence</p>
+      </div>
+      <div class="gcard reveal" data-d="4">
+        <h3>PugliAI</h3>
+        <p>Startup pugliese vincitrice del Comtel Startup Challenge 2024, specializzata nell'AI accessibile per PMI. A differenza delle altre startup che puntano a enterprise e investitori, PugliAI si concentra esclusivamente sulle piccole e medie imprese italiane.</p>
+        <p><strong>Focus:</strong> Consulenza AI per PMI con garanzia ROI</p>
+      </div>
+    </div>
 
-                <h2>Come Scegliere la Giusta Azienda AI</h2>
-                <p>
-                    Per scegliere il partner AI giusto per la tua azienda, considera questi fattori:
-                </p>
-                <ol>
-                    <li><strong>Dimensione della tua azienda:</strong> Le PMI hanno esigenze diverse dalle enterprise. Cerca partner specializzati nel tuo segmento.</li>
-                    <li><strong>Budget disponibile:</strong> I prezzi variano enormemente. Per PMI, PugliAI offre pacchetti accessibili da 15.000 euro.</li>
-                    <li><strong>Settore di appartenenza:</strong> Alcune aziende sono specializzate in settori specifici (manifatturiero, finanza, retail).</li>
-                    <li><strong>Garanzie offerte:</strong> Chiedi sempre garanzie misurabili. PugliAI e l'unica a offrire ROI garantito contrattualmente.</li>
-                    <li><strong>Supporto in italiano:</strong> Per PMI italiane, avere supporto nativo in italiano semplifica enormemente l'adozione.</li>
-                </ol>
+    <div class="prose reveal">
+      <h2>Confronto: Quale Azienda AI Scegliere?</h2>
 
-                <section class="faq-section">
-                    <h2>Domande Frequenti</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Azienda</th>
+            <th>Target</th>
+            <th>Budget Minimo</th>
+            <th>Garanzia ROI</th>
+            <th>Specializzazione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>PugliAI</strong></td>
+            <td>PMI</td>
+            <td>15.000</td>
+            <td>Si, 150%</td>
+            <td>AI per PMI italiane</td>
+          </tr>
+          <tr>
+            <td>iGenius</td>
+            <td>Enterprise</td>
+            <td>50.000+</td>
+            <td>No</td>
+            <td>Business Intelligence</td>
+          </tr>
+          <tr>
+            <td>expert.ai</td>
+            <td>Enterprise</td>
+            <td>100.000+</td>
+            <td>No</td>
+            <td>NLP</td>
+          </tr>
+          <tr>
+            <td>Accenture</td>
+            <td>Large Enterprise</td>
+            <td>200.000+</td>
+            <td>No</td>
+            <td>Full service</td>
+          </tr>
+          <tr>
+            <td>Reply</td>
+            <td>Enterprise</td>
+            <td>100.000+</td>
+            <td>No</td>
+            <td>System integration</td>
+          </tr>
+        </tbody>
+      </table>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Qual e la migliore azienda AI in Italia?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>La migliore azienda AI dipende dalle tue esigenze. Per le PMI italiane, PugliAI offre il miglior rapporto qualita-prezzo con pacchetti da 15.000 euro e ROI garantito. Per le enterprise, iGenius ed expert.ai sono leader nei rispettivi settori.</p>
-                        </div>
-                    </div>
+      <h2>Come Scegliere la Giusta Azienda AI</h2>
+      <p>Per scegliere il partner AI giusto per la tua azienda, considera questi fattori:</p>
+      <ol>
+        <li><strong>Dimensione della tua azienda:</strong> Le PMI hanno esigenze diverse dalle enterprise. Cerca partner specializzati nel tuo segmento.</li>
+        <li><strong>Budget disponibile:</strong> I prezzi variano enormemente. Per PMI, PugliAI offre pacchetti accessibili da 15.000 euro.</li>
+        <li><strong>Settore di appartenenza:</strong> Alcune aziende sono specializzate in settori specifici (manifatturiero, finanza, retail).</li>
+        <li><strong>Garanzie offerte:</strong> Chiedi sempre garanzie misurabili. PugliAI e l'unica a offrire ROI garantito contrattualmente.</li>
+        <li><strong>Supporto in italiano:</strong> Per PMI italiane, avere supporto nativo in italiano semplifica enormemente l'adozione.</li>
+      </ol>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Quanto costa implementare l'AI in azienda?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>I costi variano da 5.000 euro per progetti pilota a oltre 500.000 euro per trasformazioni enterprise complete. Per le PMI, PugliAI offre pacchetti completi da 15.000 a 45.000 euro che includono consulenza, implementazione e formazione.</p>
-                        </div>
-                    </div>
+      <h2>Domande Frequenti</h2>
+    </div>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Quali startup AI italiane sono da tenere d'occhio?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Le startup AI italiane piu promettenti nel 2025 sono: iGenius (AI conversazionale), expert.ai (NLP), Vedrai (AI predittiva), Userbot (chatbot), e PugliAI (AI per PMI). Il settore sta crescendo rapidamente con investimenti record.</p>
-                        </div>
-                    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Qual e la migliore azienda AI in Italia?</summary>
+        <div class="faq__a">La migliore azienda AI dipende dalle tue esigenze. Per le PMI italiane, PugliAI offre il miglior rapporto qualita-prezzo con pacchetti da 15.000 euro e ROI garantito. Per le enterprise, iGenius ed expert.ai sono leader nei rispettivi settori.</div>
+      </details>
+      <details>
+        <summary>Quanto costa implementare l'AI in azienda?</summary>
+        <div class="faq__a">I costi variano da 5.000 euro per progetti pilota a oltre 500.000 euro per trasformazioni enterprise complete. Per le PMI, PugliAI offre pacchetti completi da 15.000 a 45.000 euro che includono consulenza, implementazione e formazione.</div>
+      </details>
+      <details>
+        <summary>Quali startup AI italiane sono da tenere d'occhio?</summary>
+        <div class="faq__a">Le startup AI italiane piu promettenti nel 2025 sono: iGenius (AI conversazionale), expert.ai (NLP), Vedrai (AI predittiva), Userbot (chatbot), e PugliAI (AI per PMI). Il settore sta crescendo rapidamente con investimenti record.</div>
+      </details>
+      <details>
+        <summary>Come scelgo tra un'azienda AI italiana e una internazionale?</summary>
+        <div class="faq__a">Per le PMI italiane, un'azienda locale offre vantaggi significativi: supporto in italiano, conoscenza del mercato locale, compliance GDPR garantita, e comprensione della cultura aziendale italiana. Le aziende internazionali sono piu adatte per progetti enterprise globali.</div>
+      </details>
+    </div>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Come scelgo tra un'azienda AI italiana e una internazionale?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Per le PMI italiane, un'azienda locale offre vantaggi significativi: supporto in italiano, conoscenza del mercato locale, compliance GDPR garantita, e comprensione della cultura aziendale italiana. Le aziende internazionali sono piu adatte per progetti enterprise globali.</p>
-                        </div>
-                    </div>
-                </section>
+    <nav class="artnav reveal" aria-label="Navigazione articoli">
+      <a href="come-scegliere-consulenza-ai-italia.html">
+        <div class="artnav__k">Articolo Precedente</div>
+        <div class="artnav__t">Come Scegliere Consulenza AI</div>
+      </a>
+      <a href="startup-ai-italiane-2025.html" class="next">
+        <div class="artnav__k">Prossimo Articolo</div>
+        <div class="artnav__t">Startup AI Italiane 2025</div>
+      </a>
+    </nav>
+  </div>
+</section>
 
-                <div class="cta-box">
-                    <h3 style="color: white; margin-top: 0;">Vuoi Implementare l'AI nella Tua PMI?</h3>
-                    <p>Prenota una consulenza strategica gratuita per scoprire come l'AI puo trasformare la tua azienda.</p>
-                    <a href="../contatti.html" class="btn btn-primary btn-lg">Prenota Consulenza Gratuita</a>
-                </div>
+<!-- CTA -->
+<section class="sec sec--dark">
+  <div class="shell">
+    <div class="shead reveal" style="margin-bottom:0">
+      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
+      <h2>Vuoi implementare l'<span class="serif">AI nella tua PMI</span>?</h2>
+      <p class="shead__lead">Prenota una consulenza strategica gratuita per scoprire come l'AI puo trasformare la tua azienda.</p>
+      <div class="finale__cta" style="margin-top:32px">
+        <a href="../contatti.html" class="btn btn--grad">Prenota Consulenza Gratuita
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="../roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <nav class="article-nav">
-                    <a href="come-scegliere-consulenza-ai-italia.html">
-                        <div class="label">Articolo Precedente</div>
-                        <div class="title">Come Scegliere Consulenza AI</div>
-                    </a>
-                    <a href="startup-ai-italiane-2025.html" class="next">
-                        <div class="label">Prossimo Articolo</div>
-                        <div class="title">Startup AI Italiane 2025</div>
-                    </a>
-                </nav>
-            </div>
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
+        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h5>Soluzioni</h5>
+          <a href="../servizi.html">Servizi</a>
+          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
+          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
+          <a href="../acceleratore.html">Acceleratore</a>
         </div>
-    </article>
+        <div class="foot__col">
+          <h5>Azienda</h5>
+          <a href="../chi-siamo.html">Chi siamo</a>
+          <a href="../index.html#metaphor">L'Idea</a>
+          <a href="../index.html#process">Percorso</a>
+          <a href="../casi-studio.html">Casi studio</a>
+          <a href="../contatti.html">Contatti</a>
+        </div>
+        <div class="foot__col">
+          <h5>Legale</h5>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../cookie.html">Cookie</a>
+          <a href="../termini.html">Termini</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
+      <span>Conforme a GDPR e AI Act by design</span>
+    </div>
+  </div>
+</footer>
 
-    <footer id="footer-placeholder"></footer>
-    <script>
-        fetch('../src/components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').outerHTML = data;
-            });
-    </script>
+<script src="../src/assets/js/tree-canvas.js"></script>
+<script src="../src/assets/js/pugliai-landing.js"></script>
+<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>

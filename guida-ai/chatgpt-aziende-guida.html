@@ -33,8 +33,10 @@
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/chatgpt-aziende-guida.html">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/brand.css">
+    <link rel="stylesheet" href="../src/assets/css/landing.css">
+    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <script type="application/ld+json">
@@ -165,908 +167,613 @@
         "totalTime": "P30D"
     }
     </script>
-
-    <style>
-        .article-hero {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
-            padding: 140px 20px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        .article-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 100%;
-            background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%);
-        }
-        .article-hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        .article-breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 24px;
-            font-size: 0.9rem;
-        }
-        .article-breadcrumb a {
-            color: var(--accent-platinum);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .article-breadcrumb a:hover {
-            color: var(--accent-gold);
-        }
-        .article-breadcrumb span {
-            color: var(--accent-gold);
-        }
-        .article-category {
-            display: inline-block;
-            background: var(--gradient-emerald);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-        .article-hero h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: white;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        .article-meta-hero {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            color: var(--accent-platinum);
-            font-size: 0.95rem;
-        }
-        .article-meta-hero span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .article-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        .article-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-        .article-content h2 {
-            font-size: 1.8rem;
-            color: var(--primary-navy);
-            margin: 48px 0 24px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-        .article-content h3 {
-            font-size: 1.4rem;
-            color: var(--secondary-navy);
-            margin: 36px 0 16px;
-        }
-        .article-content p {
-            margin-bottom: 20px;
-        }
-        .article-content ul, .article-content ol {
-            margin: 20px 0;
-            padding-left: 24px;
-        }
-        .article-content li {
-            margin-bottom: 12px;
-        }
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
-            border-left: 4px solid var(--accent-gold);
-            padding: 24px 28px;
-            margin: 32px 0;
-            border-radius: 0 12px 12px 0;
-        }
-        .highlight-box h4 {
-            color: var(--primary-navy);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        .stat-highlight {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 32px;
-            border-radius: 16px;
-            margin: 32px 0;
-            text-align: center;
-        }
-        .stat-highlight .number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            display: block;
-            margin-bottom: 8px;
-        }
-        .stat-highlight .label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 32px 0;
-            font-size: 0.95rem;
-        }
-        .comparison-table th {
-            background: var(--primary-navy);
-            color: white;
-            padding: 16px;
-            text-align: left;
-        }
-        .comparison-table td {
-            padding: 14px 16px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .comparison-table tr:nth-child(even) {
-            background: #f8fafc;
-        }
-        .faq-section {
-            margin: 48px 0;
-        }
-        .faq-item {
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            overflow: hidden;
-        }
-        .faq-question {
-            background: #f8fafc;
-            padding: 20px 24px;
-            font-weight: 600;
-            color: var(--primary-navy);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-answer {
-            padding: 20px 24px;
-            border-top: 1px solid #e5e7eb;
-        }
-        .article-nav {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 2px solid #e5e7eb;
-        }
-        .article-nav a {
-            padding: 24px;
-            background: #f8fafc;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
-        .article-nav a:hover {
-            border-color: var(--accent-gold);
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .article-nav .label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-        .article-nav .title {
-            color: var(--primary-navy);
-            font-weight: 600;
-        }
-        .article-nav .next {
-            text-align: right;
-        }
-        .cta-box {
-            background: var(--gradient-primary);
-            padding: 40px;
-            border-radius: 16px;
-            text-align: center;
-            margin: 48px 0;
-        }
-        .cta-box h3 {
-            color: white;
-            margin-bottom: 16px;
-        }
-        .cta-box p {
-            color: var(--accent-platinum);
-            margin-bottom: 24px;
-        }
-        .pricing-card {
-            background: white;
-            border: 2px solid #e5e7eb;
-            border-radius: 16px;
-            padding: 28px;
-            margin-bottom: 24px;
-            transition: all 0.3s;
-        }
-        .pricing-card:hover {
-            border-color: var(--accent-gold);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-        }
-        .pricing-card.recommended {
-            border-color: var(--accent-gold);
-            position: relative;
-        }
-        .pricing-card.recommended::before {
-            content: 'Consigliato per PMI';
-            position: absolute;
-            top: -12px;
-            left: 24px;
-            background: var(--accent-gold);
-            color: var(--primary-navy);
-            padding: 4px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-        .pricing-card h4 {
-            color: var(--primary-navy);
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-        }
-        .pricing-card .price {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent-emerald);
-            margin-bottom: 4px;
-        }
-        .pricing-card .price-note {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-        }
-        .pricing-card .target {
-            background: #f0fdf4;
-            color: #166534;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-            display: inline-block;
-        }
-        .pricing-card ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-        .pricing-card li {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-        .prompt-example {
-            background: #1e293b;
-            color: #e2e8f0;
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-            font-family: 'Monaco', 'Menlo', monospace;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            overflow-x: auto;
-        }
-        .prompt-example .label {
-            color: var(--accent-gold);
-            font-weight: 600;
-            margin-bottom: 12px;
-            display: block;
-            font-family: 'Inter', sans-serif;
-        }
-        .prompt-example .output {
-            border-top: 1px solid #475569;
-            margin-top: 16px;
-            padding-top: 16px;
-            color: #94a3b8;
-        }
-        .integration-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin: 24px 0;
-        }
-        .integration-item {
-            background: #f8fafc;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-        }
-        .integration-item h5 {
-            color: var(--primary-navy);
-            margin-bottom: 8px;
-            font-size: 1rem;
-        }
-        .integration-item p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
-        @media (max-width: 768px) {
-            .article-nav {
-                grid-template-columns: 1fr;
-            }
-            .article-nav .next {
-                text-align: left;
-            }
-            .integration-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div id="nav-placeholder"></div>
-    <script src="../src/assets/js/navigation.js"></script>
-
-    <article>
-        <header class="article-hero">
-            <div class="article-hero-content">
-                <nav class="article-breadcrumb">
-                    <a href="../index.html">Home</a>
-                    <span>/</span>
-                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
-                    <span>/</span>
-                    <span>ChatGPT per Aziende</span>
-                </nav>
-                <span class="article-category">Implementazione Pratica</span>
-                <h1>ChatGPT per Aziende: Guida Pratica all'Implementazione</h1>
-                <div class="article-meta-hero">
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 20 min lettura</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Novembre 2025</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Base</span>
-                </div>
-            </div>
-        </header>
-
-        <div class="article-container">
-            <div class="article-content">
-                <p><strong>ChatGPT ha raggiunto 700 milioni di utenti settimanali nel 2025.</strong> Non e piu una novita tecnologica: e uno strumento di lavoro consolidato. Ma come puoi implementarlo concretamente nella tua azienda? Quale piano scegliere? Come scrivere prompt efficaci?</p>
-
-                <p>In questa guida trovi tutto cio che serve per passare dalla curiosita all'azione: confronto tra i piani tariffari, casi d'uso reali per le PMI italiane, tecniche di prompting testate e integrazioni con i tuoi workflow esistenti.</p>
-
-                <div class="stat-highlight">
-                    <span class="number">43%</span>
-                    <span class="label">dei lavoratori italiani usa strumenti AI nel 2025 (era il 12% nel 2024)</span>
-                </div>
-
-                <h2>Cos'e ChatGPT e Come Funziona?</h2>
-
-                <p>ChatGPT e un assistente AI conversazionale sviluppato da OpenAI. Puoi chiedergli di scrivere testi, analizzare documenti, generare idee, tradurre contenuti, scrivere codice e molto altro. Risponde in italiano naturale, comprende il contesto e puo gestire conversazioni complesse.</p>
-
-                <p>A differenza di un motore di ricerca, ChatGPT non cerca informazioni online: genera risposte basandosi su miliardi di testi appresi durante l'addestramento. Questo significa che eccelle nella creazione di contenuti originali, ma richiede verifica per dati fattuali aggiornati.</p>
-
-                <div class="highlight-box">
-                    <h4>Come Funziona in Pratica</h4>
-                    <p>Tu scrivi una richiesta (prompt) come "Scrivi un'email di follow-up per un cliente che ha chiesto informazioni sui nostri servizi di consulenza". ChatGPT genera una risposta completa in 5-10 secondi. Puoi poi chiedere modifiche: "Rendila piu breve" o "Aggiungi un riferimento al nostro ultimo progetto".</p>
-                </div>
-
-                <p>Nel 2025, ChatGPT include anche funzionalita avanzate: analisi di documenti PDF, generazione di immagini con DALL-E, esecuzione di codice Python per analisi dati, e la possibilita di creare "GPT personalizzati" addestrati sulle tue istruzioni specifiche.</p>
-
-                <h2>Quale Piano ChatGPT Scegliere per la Tua Azienda?</h2>
-
-                <p>OpenAI offre quattro piani con funzionalita e prezzi diversi. Ecco un confronto dettagliato per aiutarti a scegliere quello giusto per la tua situazione:</p>
-
-                <div class="pricing-card">
-                    <h4>ChatGPT Free</h4>
-                    <div class="price">Gratis</div>
-                    <div class="price-note">Nessun costo, funzionalita limitate</div>
-                    <div class="target">Test iniziale, uso occasionale personale</div>
-                    <ul>
-                        <li>Accesso a GPT-4o con limiti di utilizzo</li>
-                        <li>Funzionalita base di chat e generazione testo</li>
-                        <li>Limiti giornalieri sul numero di messaggi</li>
-                        <li>Nessuna garanzia sui dati (potrebbero essere usati per training)</li>
-                        <li>Priorita bassa nei momenti di picco</li>
-                    </ul>
-                </div>
-
-                <div class="pricing-card">
-                    <h4>ChatGPT Plus</h4>
-                    <div class="price">20 euro/mese</div>
-                    <div class="price-note">Per singolo utente</div>
-                    <div class="target">Freelance, liberi professionisti, micro-imprese (1-2 persone)</div>
-                    <ul>
-                        <li>Accesso completo a GPT-4o senza limiti significativi</li>
-                        <li>DALL-E per generazione immagini</li>
-                        <li>Code Interpreter per analisi dati e grafici</li>
-                        <li>Navigazione web per informazioni aggiornate</li>
-                        <li>Accesso prioritario anche nei momenti di picco</li>
-                        <li>Puoi disattivare l'uso dei dati per training nelle impostazioni</li>
-                    </ul>
-                </div>
-
-                <div class="stat-highlight">
-                    <span class="number">340%</span>
-                    <span class="label">incremento medio della produttivita nella creazione di contenuti con ChatGPT</span>
-                </div>
-
-                <div class="pricing-card recommended">
-                    <h4>ChatGPT Team</h4>
-                    <div class="price">25 euro/utente/mese</div>
-                    <div class="price-note">Minimo 2 utenti, fatturazione annuale</div>
-                    <div class="target">PMI con 5-50 dipendenti, team che collaborano</div>
-                    <ul>
-                        <li><strong>Tutto di Plus, piu:</strong></li>
-                        <li>Workspace condiviso per il team</li>
-                        <li><strong>Garanzia contrattuale:</strong> i dati non vengono usati per il training</li>
-                        <li>GPT personalizzati condivisibili con il team</li>
-                        <li>Console di amministrazione per gestire utenti</li>
-                        <li>Limiti di utilizzo piu alti rispetto a Plus</li>
-                        <li>Supporto prioritario</li>
-                    </ul>
-                </div>
-
-                <div class="pricing-card">
-                    <h4>ChatGPT Enterprise</h4>
-                    <div class="price">Prezzo personalizzato</div>
-                    <div class="price-note">Contatto commerciale richiesto</div>
-                    <div class="target">Grandi aziende, 50+ dipendenti, esigenze di sicurezza avanzate</div>
-                    <ul>
-                        <li><strong>Tutto di Team, piu:</strong></li>
-                        <li>Sicurezza di livello enterprise (SOC 2 Type 2)</li>
-                        <li>Single Sign-On (SSO) e SAML</li>
-                        <li>Utilizzo illimitato di GPT-4o</li>
-                        <li>Finestra di contesto estesa (128k token)</li>
-                        <li>Analytics avanzate sull'utilizzo</li>
-                        <li>Contratti personalizzati e SLA garantiti</li>
-                        <li>Domain verification e controlli admin avanzati</li>
-                    </ul>
-                </div>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Caratteristica</th>
-                            <th>Free</th>
-                            <th>Plus</th>
-                            <th>Team</th>
-                            <th>Enterprise</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Costo mensile</td>
-                            <td>0 euro</td>
-                            <td>20 euro</td>
-                            <td>25 euro/utente</td>
-                            <td>Custom</td>
-                        </tr>
-                        <tr>
-                            <td>GPT-4o</td>
-                            <td>Limitato</td>
-                            <td>Completo</td>
-                            <td>Completo+</td>
-                            <td>Illimitato</td>
-                        </tr>
-                        <tr>
-                            <td>DALL-E</td>
-                            <td>No</td>
-                            <td>Si</td>
-                            <td>Si</td>
-                            <td>Si</td>
-                        </tr>
-                        <tr>
-                            <td>Data protection</td>
-                            <td>No</td>
-                            <td>Opt-out</td>
-                            <td>Garantita</td>
-                            <td>Garantita + SOC 2</td>
-                        </tr>
-                        <tr>
-                            <td>Workspace condiviso</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>Si</td>
-                            <td>Si</td>
-                        </tr>
-                        <tr>
-                            <td>Admin console</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>Base</td>
-                            <td>Avanzata</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="highlight-box">
-                    <h4>Quale Piano per la Tua Situazione?</h4>
-                    <p><strong>Freelance o libero professionista:</strong> ChatGPT Plus (20 euro/mese) e sufficiente per la maggior parte delle esigenze.<br><br>
-                    <strong>PMI con 5-50 dipendenti:</strong> ChatGPT Team (25 euro/utente/mese) offre il miglior rapporto qualita-prezzo con la sicurezza dei dati garantita.<br><br>
-                    <strong>Oltre 50 dipendenti o settori regolamentati:</strong> Valuta ChatGPT Enterprise per sicurezza avanzata e controlli admin.</p>
-                </div>
-
-                <h2>Quali Sono i Casi d'Uso Concreti per le PMI?</h2>
-
-                <p>L'AI non e teoria: e pratica quotidiana. Ecco come le PMI italiane stanno usando ChatGPT con risultati misurabili.</p>
-
-                <h3>Creazione di Contenuti</h3>
-
-                <p>L'applicazione piu diffusa e con il ROI piu immediato. ChatGPT eccelle nella creazione di:</p>
-
-                <ul>
-                    <li><strong>Articoli per blog aziendale</strong> - Bozze complete in minuti invece che ore</li>
-                    <li><strong>Post per social media</strong> - LinkedIn, Instagram, Facebook con tone of voice adattato</li>
-                    <li><strong>Newsletter e email marketing</strong> - Sequenze di nurturing, comunicazioni periodiche</li>
-                    <li><strong>Schede prodotto per e-commerce</strong> - Descrizioni SEO-friendly e persuasive</li>
-                    <li><strong>Presentazioni aziendali</strong> - Struttura, testi e punti chiave</li>
-                </ul>
-
-                <div class="stat-highlight">
-                    <span class="number">67%</span>
-                    <span class="label">riduzione del tempo per la stesura di email aziendali con ChatGPT</span>
-                </div>
-
-                <h3>Email e Comunicazione</h3>
-
-                <p>La comunicazione scritta occupa ore ogni settimana. ChatGPT la accelera drasticamente:</p>
-
-                <ul>
-                    <li><strong>Risposte a clienti</strong> - Bozze personalizzate da rivedere in secondi</li>
-                    <li><strong>Follow-up commerciali</strong> - Sequenze strutturate per pipeline di vendita</li>
-                    <li><strong>Comunicazioni interne</strong> - Memo, annunci, aggiornamenti</li>
-                    <li><strong>Gestione reclami</strong> - Risposte empatiche e professionali</li>
-                </ul>
-
-                <h3>Customer Service</h3>
-
-                <p>ChatGPT trasforma l'assistenza clienti, sia come strumento interno sia integrato in chatbot:</p>
-
-                <ul>
-                    <li><strong>Bozze risposte supporto</strong> - L'operatore riceve una bozza da personalizzare</li>
-                    <li><strong>FAQ dinamiche</strong> - Risposte generate dalla knowledge base aziendale</li>
-                    <li><strong>Chatbot intelligenti</strong> - Tramite API, risposte naturali 24/7</li>
-                    <li><strong>Escalation strutturata</strong> - Categorizzazione automatica delle richieste</li>
-                </ul>
-
-                <h3>Traduzioni e Localizzazione</h3>
-
-                <p>Per le PMI che esportano, ChatGPT abbatte le barriere linguistiche:</p>
-
-                <ul>
-                    <li><strong>Traduzione documenti commerciali</strong> - Contratti, preventivi, schede tecniche</li>
-                    <li><strong>Localizzazione siti web</strong> - Non solo traduzione, adattamento culturale</li>
-                    <li><strong>Corrispondenza multilingue</strong> - Email in inglese, tedesco, francese, spagnolo</li>
-                    <li><strong>Materiale marketing</strong> - Brochure e presentazioni per mercati esteri</li>
-                </ul>
-
-                <h3>Analisi Dati</h3>
-
-                <p>Con la funzionalita Code Interpreter, ChatGPT analizza file Excel, CSV e crea visualizzazioni:</p>
-
-                <ul>
-                    <li><strong>Report vendite</strong> - Sintesi automatiche con grafici</li>
-                    <li><strong>Analisi trend</strong> - Identificazione pattern nei dati</li>
-                    <li><strong>Pulizia dati</strong> - Standardizzazione e correzione errori</li>
-                    <li><strong>Dashboard semplici</strong> - Visualizzazioni immediate senza strumenti BI</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <h4>Caso PMI: Agenzia di Comunicazione - Bologna</h4>
-                    <p>Un'agenzia con 12 dipendenti usa ChatGPT Team per la produzione di contenuti. Risultati dopo 3 mesi: <strong>tempo di produzione articoli ridotto del 60%</strong>, capacita di gestire il 40% di clienti in piu senza nuove assunzioni. Costo: 300 euro/mese. ROI stimato: 15x.</p>
-                </div>
-
-                <h2>Come Scrivere Prompt Efficaci per ChatGPT?</h2>
-
-                <p>La qualita dell'output dipende dalla qualita dell'input. Un prompt ben strutturato fa la differenza tra una risposta generica e una realmente utile. Ecco le tecniche che funzionano.</p>
-
-                <h3>La Formula COSE: Contesto, Obiettivo, Stile, Esempio</h3>
-
-                <ul>
-                    <li><strong>Contesto:</strong> Chi sei, per chi scrivi, qual e la situazione</li>
-                    <li><strong>Obiettivo:</strong> Cosa deve ottenere il contenuto</li>
-                    <li><strong>Stile:</strong> Tono, lunghezza, formato desiderato</li>
-                    <li><strong>Esempio:</strong> Se possibile, mostra un esempio di cosa vuoi</li>
-                </ul>
-
-                <div class="prompt-example">
-                    <span class="label">Prompt Base (Poco Efficace)</span>
-                    Scrivi un'email per un cliente.
-                    <div class="output">
-                        Risultato: Email generica, tono incerto, lunghezza casuale
-                    </div>
-                </div>
-
-                <div class="prompt-example">
-                    <span class="label">Prompt COSE (Efficace)</span>
-                    [CONTESTO] Sono il responsabile commerciale di un'azienda che produce macchinari industriali per il settore alimentare. Ho incontrato un potenziale cliente alla fiera CIBUS la settimana scorsa.<br><br>
-                    [OBIETTIVO] Scrivi un'email di follow-up per fissare una chiamata di approfondimento sui nostri sistemi di confezionamento.<br><br>
-                    [STILE] Professionale ma cordiale, massimo 150 parole, con una call-to-action chiara per prenotare una call.<br><br>
-                    [ESEMPIO] Il tono dovrebbe essere simile a: "E stato un piacere incontrarla... Sarebbe interessato a esplorare..."
-                    <div class="output">
-                        Risultato: Email personalizzata, tono appropriato, lunghezza corretta, CTA efficace
-                    </div>
-                </div>
-
-                <div class="stat-highlight">
-                    <span class="number">40%</span>
-                    <span class="label">miglioramento della qualita del lavoro con AI secondo Harvard Business School</span>
-                </div>
-
-                <h3>Esempi di Prompt per Casi d'Uso Comuni</h3>
-
-                <div class="prompt-example">
-                    <span class="label">Prompt per Scheda Prodotto E-commerce</span>
-                    Sei un copywriter esperto di e-commerce nel settore moda. Scrivi una scheda prodotto per:<br><br>
-                    Prodotto: Giacca in pelle da uomo<br>
-                    Caratteristiche: 100% pelle italiana, fodera in seta, chiusura con zip, 2 tasche esterne, 1 tasca interna<br>
-                    Prezzo: 489 euro<br>
-                    Target: Uomo 35-55 anni, professionista, attento alla qualita<br><br>
-                    Formato: Titolo accattivante + descrizione 100 parole + 5 bullet point caratteristiche + frase finale con CTA.
-                </div>
-
-                <div class="prompt-example">
-                    <span class="label">Prompt per Risposta Reclamo Cliente</span>
-                    Sei il customer service manager di un e-commerce di elettronica. Un cliente ha ricevuto un prodotto danneggiato e ha scritto arrabbiato.<br><br>
-                    Scrivi una risposta che:<br>
-                    1. Si scusi sinceramente senza essere servile<br>
-                    2. Proponga una soluzione immediata (sostituzione o rimborso)<br>
-                    3. Offra un gesto di goodwill (sconto 10% su prossimo ordine)<br>
-                    4. Rassicuri sulla qualita dei controlli<br><br>
-                    Tono: Empatico, professionale, risolutivo. Massimo 120 parole.
-                </div>
-
-                <div class="prompt-example">
-                    <span class="label">Prompt per Analisi Documento</span>
-                    Analizza il contratto allegato e fornisci:<br><br>
-                    1. Riassunto in 3 frasi dei punti chiave<br>
-                    2. Elenco degli obblighi per la nostra azienda<br>
-                    3. Elenco degli obblighi per la controparte<br>
-                    4. Clausole potenzialmente problematiche o da negoziare<br>
-                    5. Scadenze importanti da segnare in calendario<br><br>
-                    Formatta con bullet point e usa linguaggio semplice, non legalese.
-                </div>
-
-                <h3>Tecniche Avanzate</h3>
-
-                <ul>
-                    <li><strong>Chain of Thought:</strong> Chiedi a ChatGPT di "ragionare passo passo" per problemi complessi</li>
-                    <li><strong>Few-Shot Learning:</strong> Fornisci 2-3 esempi di input/output desiderato</li>
-                    <li><strong>Role Playing:</strong> Assegna un ruolo specifico ("Sei un esperto di marketing B2B con 20 anni di esperienza...")</li>
-                    <li><strong>Iterazione:</strong> Chiedi modifiche successive per affinare il risultato</li>
-                </ul>
-
-                <h2>Come Integrare ChatGPT nei Workflow Aziendali?</h2>
-
-                <p>Usare ChatGPT manualmente e solo l'inizio. Il vero potenziale emerge quando lo integri nei tuoi processi con strumenti di automazione no-code.</p>
-
-                <h3>Integrazione con Make (ex Integromat)</h3>
-
-                <p>Make e una piattaforma di automazione visuale che connette ChatGPT a centinaia di applicazioni:</p>
-
-                <div class="integration-grid">
-                    <div class="integration-item">
-                        <h5>Email Automatiche</h5>
-                        <p>Gmail/Outlook riceve email, ChatGPT genera risposta, tu approvi con un click</p>
-                    </div>
-                    <div class="integration-item">
-                        <h5>CRM Arricchito</h5>
-                        <p>Nuovo lead in HubSpot genera automaticamente email di benvenuto personalizzata</p>
-                    </div>
-                    <div class="integration-item">
-                        <h5>Social Automatico</h5>
-                        <p>Nuovo articolo sul blog genera post per LinkedIn, Twitter, Facebook</p>
-                    </div>
-                    <div class="integration-item">
-                        <h5>Report Periodici</h5>
-                        <p>Google Sheets con dati vendite genera report settimanale formattato</p>
-                    </div>
-                </div>
-
-                <h3>Integrazione con Zapier</h3>
-
-                <p>Zapier offre integrazioni simili con un approccio leggermente diverso:</p>
-
-                <ul>
-                    <li><strong>Slack + ChatGPT:</strong> Messaggi in canali specifici generano risposte AI</li>
-                    <li><strong>Typeform + ChatGPT:</strong> Risposte ai form generano follow-up personalizzati</li>
-                    <li><strong>Notion + ChatGPT:</strong> Nuove pagine vengono arricchite con contenuti AI</li>
-                    <li><strong>Calendly + ChatGPT:</strong> Nuovi appuntamenti generano brief preparatorio</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <h4>Esempio Workflow: Lead Qualification Automatica</h4>
-                    <p><strong>Trigger:</strong> Nuovo form compilato su sito web<br>
-                    <strong>Azione 1:</strong> ChatGPT analizza le risposte e assegna un punteggio lead (1-10)<br>
-                    <strong>Azione 2:</strong> Lead alto punteggio: notifica Slack al commerciale + email personalizzata<br>
-                    <strong>Azione 3:</strong> Lead basso punteggio: aggiunto a sequenza nurturing automatica<br>
-                    <strong>Risultato:</strong> Il commerciale si concentra solo sui lead qualificati, risparmiando 5+ ore/settimana.</p>
-                </div>
-
-                <h3>GPT Personalizzati per l'Azienda</h3>
-
-                <p>Con i piani Team ed Enterprise puoi creare GPT customizzati:</p>
-
-                <ul>
-                    <li><strong>GPT Catalogo Prodotti:</strong> Addestrato sulle tue schede prodotto, risponde a domande tecniche</li>
-                    <li><strong>GPT Policy Aziendali:</strong> Conosce regolamenti interni, risponde a domande HR</li>
-                    <li><strong>GPT Supporto Tecnico:</strong> Addestrato sui manuali, assiste clienti e tecnici</li>
-                    <li><strong>GPT Brand Voice:</strong> Scrive sempre con il tono e stile del tuo brand</li>
-                </ul>
-
-                <h2>Come Gestire Privacy e Sicurezza dei Dati?</h2>
-
-                <p>La sicurezza dei dati e la preoccupazione principale per le PMI. Ecco cosa devi sapere.</p>
-
-                <h3>Cosa Succede ai Dati con Ogni Piano</h3>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Piano</th>
-                            <th>Dati usati per training?</th>
-                            <th>Livello sicurezza</th>
-                            <th>Adatto per dati sensibili?</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Free</td>
-                            <td>Si (default)</td>
-                            <td>Base</td>
-                            <td>No</td>
-                        </tr>
-                        <tr>
-                            <td>Plus</td>
-                            <td>Si (disattivabile)</td>
-                            <td>Base</td>
-                            <td>Limitato</td>
-                        </tr>
-                        <tr>
-                            <td>Team</td>
-                            <td>No (garantito)</td>
-                            <td>Business</td>
-                            <td>Si</td>
-                        </tr>
-                        <tr>
-                            <td>Enterprise</td>
-                            <td>No (garantito)</td>
-                            <td>Enterprise (SOC 2)</td>
-                            <td>Si</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3>Best Practice per la Sicurezza</h3>
-
-                <ul>
-                    <li><strong>Usa sempre piani business per dati aziendali</strong> - Team o Enterprise garantiscono la non-utilizzazione per training</li>
-                    <li><strong>Non inserire dati personali identificativi</strong> - Anonimizza nomi, email, telefoni prima di usare ChatGPT</li>
-                    <li><strong>Evita segreti industriali</strong> - Formule, brevetti, strategie riservate non vanno inseriti</li>
-                    <li><strong>Forma il team sulla policy</strong> - Tutti devono sapere cosa si puo e non si puo fare</li>
-                    <li><strong>Crea una policy AI aziendale</strong> - Documenta le regole e falle firmare</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <h4>Conformita GDPR</h4>
-                    <p>OpenAI ha nominato un rappresentante UE e offre un Data Processing Agreement (DPA) per i piani business. Con ChatGPT Team ed Enterprise puoi utilizzare lo strumento in conformita al GDPR, a patto di seguire le best practice: non inserire dati personali non necessari, informare gli interessati se i loro dati vengono elaborati, mantenere il controllo sulle finalita del trattamento.</p>
-                </div>
-
-                <h2>Quali Sono i Limiti e le Best Practice di ChatGPT?</h2>
-
-                <p>ChatGPT e potente, ma non e perfetto. Conoscere i limiti ti permette di usarlo efficacemente.</p>
-
-                <h3>Limiti da Conoscere</h3>
-
-                <ul>
-                    <li><strong>Allucinazioni:</strong> ChatGPT puo inventare fatti, citazioni, statistiche. Verifica sempre dati numerici e riferimenti</li>
-                    <li><strong>Conoscenza datata:</strong> Il modello ha una "data di taglio". Per info recenti, usa la navigazione web (disponibile in Plus/Team)</li>
-                    <li><strong>Nessun accesso ai tuoi sistemi:</strong> Non conosce i tuoi dati interni se non glieli fornisci</li>
-                    <li><strong>Limiti di contesto:</strong> Conversazioni molto lunghe possono perdere coerenza</li>
-                    <li><strong>Stile generico:</strong> Senza istruzioni precise, i testi possono sembrare "da AI"</li>
-                </ul>
-
-                <h3>Best Practice Consolidate</h3>
-
-                <ul>
-                    <li><strong>Verifica sempre l'output</strong> - Mai pubblicare senza revisione umana</li>
-                    <li><strong>Usa prompt strutturati</strong> - La formula COSE migliora drasticamente i risultati</li>
-                    <li><strong>Itera e affina</strong> - Chiedi modifiche, non accettare la prima risposta</li>
-                    <li><strong>Crea template di prompt</strong> - Standardizza i prompt per attivita ricorrenti</li>
-                    <li><strong>Forma il team</strong> - L'efficacia dipende da chi lo usa</li>
-                    <li><strong>Misura i risultati</strong> - Traccia tempo risparmiato, qualita, output</li>
-                </ul>
-
-                <h3>Cosa ChatGPT NON Puo Fare</h3>
-
-                <ul>
-                    <li>Sostituire il giudizio umano su decisioni strategiche</li>
-                    <li>Garantire accuratezza al 100% su fatti e dati</li>
-                    <li>Comprendere il contesto aziendale senza che glielo spieghi</li>
-                    <li>Accedere a informazioni riservate o aggiornate in tempo reale (senza web browsing)</li>
-                    <li>Sostituire la creativita umana per contenuti realmente distintivi</li>
-                </ul>
-
-                <div class="stat-highlight">
-                    <span class="number">700M</span>
-                    <span class="label">utenti settimanali di ChatGPT nel mondo (novembre 2025)</span>
-                </div>
-
-                <section class="faq-section">
-                    <h2>Domande Frequenti</h2>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Qual e la differenza tra ChatGPT Plus e ChatGPT Team per aziende?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>ChatGPT Plus (20 euro/mese) e pensato per uso individuale: accesso a GPT-4o, DALL-E e analisi dati. ChatGPT Team (25 euro/utente/mese, minimo 2 utenti) aggiunge workspace condiviso, GPT personalizzati per il team, garanzia che i dati non vengono usati per il training del modello e strumenti di admin. Per le PMI con 5+ dipendenti che usano ChatGPT, il piano Team e la scelta consigliata per sicurezza e collaborazione.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            ChatGPT puo essere integrato con altri software aziendali?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Si, ChatGPT si integra facilmente con i principali strumenti aziendali tramite piattaforme no-code come Make (ex Integromat) e Zapier. Puoi connettere ChatGPT a CRM (Salesforce, HubSpot), email (Gmail, Outlook), fogli di calcolo (Google Sheets, Excel), Slack, Notion e centinaia di altre applicazioni. Le integrazioni permettono di automatizzare processi come la risposta alle email, la generazione di report e l'arricchimento dei dati.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            I dati aziendali inseriti in ChatGPT sono sicuri?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Dipende dal piano. Con ChatGPT Free e Plus, i dati potrebbero essere usati per migliorare i modelli (puoi disattivarlo nelle impostazioni). Con ChatGPT Team ed Enterprise, OpenAI garantisce contrattualmente che i dati non vengono usati per il training. Per dati sensibili (informazioni clienti, dati finanziari, segreti industriali), usa sempre i piani business con data protection inclusa.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Quanto tempo serve per implementare ChatGPT in azienda?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>L'implementazione base richiede pochi giorni: attivazione account, formazione base del team sui prompt efficaci, definizione di 2-3 casi d'uso iniziali. Per un'adozione strutturata con workflow automatizzati, template di prompt aziendali e integrazioni con altri software, calcola 2-4 settimane. Il ritorno sull'investimento e tipicamente visibile entro il primo mese, con risparmi di tempo del 40-60% sulle attivita supportate.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="cta-box">
-                    <h3 style="color: white; margin-top: 0;">Vuoi Implementare ChatGPT nella Tua PMI?</h3>
-                    <p>Calcola il potenziale ritorno sull'investimento per la tua azienda con il nostro calcolatore gratuito.</p>
-                    <a href="../roi-calculator.html" class="btn btn-primary btn-lg">Calcola il Tuo ROI</a>
-                </div>
-
-                <nav class="article-nav">
-                    <a href="come-iniziare-ai-pmi.html">
-                        <div class="label">Articolo Precedente</div>
-                        <div class="title">Come Iniziare con l'AI: Guida per PMI</div>
-                    </a>
-                    <a href="agenti-ai-automazione.html" class="next">
-                        <div class="label">Prossimo Articolo</div>
-                        <div class="title">Agenti AI e Automazione Aziendale</div>
-                    </a>
-                </nav>
-            </div>
+<a href="#main" class="skip-link">Vai al contenuto</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="../index.html#metaphor">L'Idea</a>
+      <a href="../servizi.html">Servizi</a>
+      <a href="../prodotti.html">On-Premise</a>
+      <a href="../acceleratore.html">Acceleratore</a>
+      <a href="../index.html#process">Percorso</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Lingua">
+        <a href="chatgpt-aziende-guida.html" class="on" aria-current="true">IT</a>
+        <a href="../en/ceo-ai-guide-2025.html">EN</a>
+      </div>
+      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="../index.html#metaphor">L'Idea</a>
+  <a href="../servizi.html">Servizi</a>
+  <a href="../prodotti.html">On-Premise</a>
+  <a href="../acceleratore.html">Acceleratore</a>
+  <a href="../index.html#process">Percorso</a>
+  <a href="../contatti.html">Richiedi un preventivo</a>
+</div>
+
+<main id="main">
+
+<!-- PAGE HEADER -->
+<section class="pagehead">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><i>/</i>
+      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
+      <span>ChatGPT per Aziende</span>
+    </nav>
+    <div class="eyebrow-lux">Implementazione Pratica</div>
+    <h1>ChatGPT per Aziende: Guida Pratica all'<span class="serif">Implementazione</span></h1>
+    <p class="pagehead__lead">Confronto tra i piani tariffari, casi d'uso reali per le PMI italiane, tecniche di prompting testate e integrazioni con i tuoi workflow esistenti.</p>
+    <div class="pagehead__meta">
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 20 min lettura</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Novembre 2025</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Base</span>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<section class="sec sec--light">
+  <div class="shell">
+    <div class="prose reveal">
+
+      <p><strong>ChatGPT ha raggiunto 700 milioni di utenti settimanali nel 2025.</strong> Non e piu una novita tecnologica: e uno strumento di lavoro consolidato. Ma come puoi implementarlo concretamente nella tua azienda? Quale piano scegliere? Come scrivere prompt efficaci?</p>
+
+      <p>In questa guida trovi tutto cio che serve per passare dalla curiosita all'azione: confronto tra i piani tariffari, casi d'uso reali per le PMI italiane, tecniche di prompting testate e integrazioni con i tuoi workflow esistenti.</p>
+
+      <div class="statbox">
+        <span class="statbox__n">43%</span>
+        <span class="statbox__l">dei lavoratori italiani usa strumenti AI nel 2025 (era il 12% nel 2024)</span>
+      </div>
+
+      <h2>Cos'e ChatGPT e Come Funziona?</h2>
+
+      <p>ChatGPT e un assistente AI conversazionale sviluppato da OpenAI. Puoi chiedergli di scrivere testi, analizzare documenti, generare idee, tradurre contenuti, scrivere codice e molto altro. Risponde in italiano naturale, comprende il contesto e puo gestire conversazioni complesse.</p>
+
+      <p>A differenza di un motore di ricerca, ChatGPT non cerca informazioni online: genera risposte basandosi su miliardi di testi appresi durante l'addestramento. Questo significa che eccelle nella creazione di contenuti originali, ma richiede verifica per dati fattuali aggiornati.</p>
+
+      <div class="callout">
+        <h4>Come Funziona in Pratica</h4>
+        <p>Tu scrivi una richiesta (prompt) come "Scrivi un'email di follow-up per un cliente che ha chiesto informazioni sui nostri servizi di consulenza". ChatGPT genera una risposta completa in 5-10 secondi. Puoi poi chiedere modifiche: "Rendila piu breve" o "Aggiungi un riferimento al nostro ultimo progetto".</p>
+      </div>
+
+      <p>Nel 2025, ChatGPT include anche funzionalita avanzate: analisi di documenti PDF, generazione di immagini con DALL-E, esecuzione di codice Python per analisi dati, e la possibilita di creare "GPT personalizzati" addestrati sulle tue istruzioni specifiche.</p>
+
+      <h2>Quale Piano ChatGPT Scegliere per la Tua Azienda?</h2>
+
+      <p>OpenAI offre quattro piani con funzionalita e prezzi diversi. Ecco un confronto dettagliato per aiutarti a scegliere quello giusto per la tua situazione:</p>
+    </div>
+
+    <div class="cards3">
+      <div class="gcard reveal" data-d="1">
+        <h3>ChatGPT Free</h3>
+        <p><strong>Gratis</strong> — Nessun costo, funzionalita limitate. Per test iniziale, uso occasionale personale.</p>
+        <ul>
+          <li>Accesso a GPT-4o con limiti di utilizzo</li>
+          <li>Funzionalita base di chat e generazione testo</li>
+          <li>Limiti giornalieri sul numero di messaggi</li>
+          <li>Nessuna garanzia sui dati (potrebbero essere usati per training)</li>
+          <li>Priorita bassa nei momenti di picco</li>
+        </ul>
+      </div>
+      <div class="gcard reveal" data-d="2">
+        <h3>ChatGPT Plus</h3>
+        <p><strong>20 euro/mese</strong> — Per singolo utente. Per freelance, liberi professionisti, micro-imprese (1-2 persone).</p>
+        <ul>
+          <li>Accesso completo a GPT-4o senza limiti significativi</li>
+          <li>DALL-E per generazione immagini</li>
+          <li>Code Interpreter per analisi dati e grafici</li>
+          <li>Navigazione web per informazioni aggiornate</li>
+          <li>Accesso prioritario anche nei momenti di picco</li>
+          <li>Puoi disattivare l'uso dei dati per training nelle impostazioni</li>
+        </ul>
+      </div>
+      <div class="gcard reveal" data-d="3">
+        <h3>ChatGPT Team — Consigliato per PMI</h3>
+        <p><strong>25 euro/utente/mese</strong> — Minimo 2 utenti, fatturazione annuale. Per PMI con 5-50 dipendenti, team che collaborano.</p>
+        <ul>
+          <li><strong>Tutto di Plus, piu:</strong></li>
+          <li>Workspace condiviso per il team</li>
+          <li><strong>Garanzia contrattuale:</strong> i dati non vengono usati per il training</li>
+          <li>GPT personalizzati condivisibili con il team</li>
+          <li>Console di amministrazione per gestire utenti</li>
+          <li>Limiti di utilizzo piu alti rispetto a Plus</li>
+          <li>Supporto prioritario</li>
+        </ul>
+      </div>
+      <div class="gcard reveal" data-d="4">
+        <h3>ChatGPT Enterprise</h3>
+        <p><strong>Prezzo personalizzato</strong> — Contatto commerciale richiesto. Per grandi aziende, 50+ dipendenti, esigenze di sicurezza avanzate.</p>
+        <ul>
+          <li><strong>Tutto di Team, piu:</strong></li>
+          <li>Sicurezza di livello enterprise (SOC 2 Type 2)</li>
+          <li>Single Sign-On (SSO) e SAML</li>
+          <li>Utilizzo illimitato di GPT-4o</li>
+          <li>Finestra di contesto estesa (128k token)</li>
+          <li>Analytics avanzate sull'utilizzo</li>
+          <li>Contratti personalizzati e SLA garantiti</li>
+          <li>Domain verification e controlli admin avanzati</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose reveal">
+      <div class="statbox">
+        <span class="statbox__n">340%</span>
+        <span class="statbox__l">incremento medio della produttivita nella creazione di contenuti con ChatGPT</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Caratteristica</th>
+            <th>Free</th>
+            <th>Plus</th>
+            <th>Team</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Costo mensile</td>
+            <td>0 euro</td>
+            <td>20 euro</td>
+            <td>25 euro/utente</td>
+            <td>Custom</td>
+          </tr>
+          <tr>
+            <td>GPT-4o</td>
+            <td>Limitato</td>
+            <td>Completo</td>
+            <td>Completo+</td>
+            <td>Illimitato</td>
+          </tr>
+          <tr>
+            <td>DALL-E</td>
+            <td>No</td>
+            <td>Si</td>
+            <td>Si</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <td>Data protection</td>
+            <td>No</td>
+            <td>Opt-out</td>
+            <td>Garantita</td>
+            <td>Garantita + SOC 2</td>
+          </tr>
+          <tr>
+            <td>Workspace condiviso</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Si</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <td>Admin console</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Base</td>
+            <td>Avanzata</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <h4>Quale Piano per la Tua Situazione?</h4>
+        <p><strong>Freelance o libero professionista:</strong> ChatGPT Plus (20 euro/mese) e sufficiente per la maggior parte delle esigenze.<br><br>
+        <strong>PMI con 5-50 dipendenti:</strong> ChatGPT Team (25 euro/utente/mese) offre il miglior rapporto qualita-prezzo con la sicurezza dei dati garantita.<br><br>
+        <strong>Oltre 50 dipendenti o settori regolamentati:</strong> Valuta ChatGPT Enterprise per sicurezza avanzata e controlli admin.</p>
+      </div>
+
+      <h2>Quali Sono i Casi d'Uso Concreti per le PMI?</h2>
+
+      <p>L'AI non e teoria: e pratica quotidiana. Ecco come le PMI italiane stanno usando ChatGPT con risultati misurabili.</p>
+
+      <h3>Creazione di Contenuti</h3>
+
+      <p>L'applicazione piu diffusa e con il ROI piu immediato. ChatGPT eccelle nella creazione di:</p>
+
+      <ul>
+        <li><strong>Articoli per blog aziendale</strong> - Bozze complete in minuti invece che ore</li>
+        <li><strong>Post per social media</strong> - LinkedIn, Instagram, Facebook con tone of voice adattato</li>
+        <li><strong>Newsletter e email marketing</strong> - Sequenze di nurturing, comunicazioni periodiche</li>
+        <li><strong>Schede prodotto per e-commerce</strong> - Descrizioni SEO-friendly e persuasive</li>
+        <li><strong>Presentazioni aziendali</strong> - Struttura, testi e punti chiave</li>
+      </ul>
+
+      <div class="statbox">
+        <span class="statbox__n">67%</span>
+        <span class="statbox__l">riduzione del tempo per la stesura di email aziendali con ChatGPT</span>
+      </div>
+
+      <h3>Email e Comunicazione</h3>
+
+      <p>La comunicazione scritta occupa ore ogni settimana. ChatGPT la accelera drasticamente:</p>
+
+      <ul>
+        <li><strong>Risposte a clienti</strong> - Bozze personalizzate da rivedere in secondi</li>
+        <li><strong>Follow-up commerciali</strong> - Sequenze strutturate per pipeline di vendita</li>
+        <li><strong>Comunicazioni interne</strong> - Memo, annunci, aggiornamenti</li>
+        <li><strong>Gestione reclami</strong> - Risposte empatiche e professionali</li>
+      </ul>
+
+      <h3>Customer Service</h3>
+
+      <p>ChatGPT trasforma l'assistenza clienti, sia come strumento interno sia integrato in chatbot:</p>
+
+      <ul>
+        <li><strong>Bozze risposte supporto</strong> - L'operatore riceve una bozza da personalizzare</li>
+        <li><strong>FAQ dinamiche</strong> - Risposte generate dalla knowledge base aziendale</li>
+        <li><strong>Chatbot intelligenti</strong> - Tramite API, risposte naturali 24/7</li>
+        <li><strong>Escalation strutturata</strong> - Categorizzazione automatica delle richieste</li>
+      </ul>
+
+      <h3>Traduzioni e Localizzazione</h3>
+
+      <p>Per le PMI che esportano, ChatGPT abbatte le barriere linguistiche:</p>
+
+      <ul>
+        <li><strong>Traduzione documenti commerciali</strong> - Contratti, preventivi, schede tecniche</li>
+        <li><strong>Localizzazione siti web</strong> - Non solo traduzione, adattamento culturale</li>
+        <li><strong>Corrispondenza multilingue</strong> - Email in inglese, tedesco, francese, spagnolo</li>
+        <li><strong>Materiale marketing</strong> - Brochure e presentazioni per mercati esteri</li>
+      </ul>
+
+      <h3>Analisi Dati</h3>
+
+      <p>Con la funzionalita Code Interpreter, ChatGPT analizza file Excel, CSV e crea visualizzazioni:</p>
+
+      <ul>
+        <li><strong>Report vendite</strong> - Sintesi automatiche con grafici</li>
+        <li><strong>Analisi trend</strong> - Identificazione pattern nei dati</li>
+        <li><strong>Pulizia dati</strong> - Standardizzazione e correzione errori</li>
+        <li><strong>Dashboard semplici</strong> - Visualizzazioni immediate senza strumenti BI</li>
+      </ul>
+
+      <div class="callout">
+        <h4>Caso PMI: Agenzia di Comunicazione - Bologna</h4>
+        <p>Un'agenzia con 12 dipendenti usa ChatGPT Team per la produzione di contenuti. Risultati dopo 3 mesi: <strong>tempo di produzione articoli ridotto del 60%</strong>, capacita di gestire il 40% di clienti in piu senza nuove assunzioni. Costo: 300 euro/mese. ROI stimato: 15x.</p>
+      </div>
+
+      <h2>Come Scrivere Prompt Efficaci per ChatGPT?</h2>
+
+      <p>La qualita dell'output dipende dalla qualita dell'input. Un prompt ben strutturato fa la differenza tra una risposta generica e una realmente utile. Ecco le tecniche che funzionano.</p>
+
+      <h3>La Formula COSE: Contesto, Obiettivo, Stile, Esempio</h3>
+
+      <ul>
+        <li><strong>Contesto:</strong> Chi sei, per chi scrivi, qual e la situazione</li>
+        <li><strong>Obiettivo:</strong> Cosa deve ottenere il contenuto</li>
+        <li><strong>Stile:</strong> Tono, lunghezza, formato desiderato</li>
+        <li><strong>Esempio:</strong> Se possibile, mostra un esempio di cosa vuoi</li>
+      </ul>
+
+      <div class="callout">
+        <h4>Prompt Base (Poco Efficace)</h4>
+        <p>Scrivi un'email per un cliente.<br><br>
+        <strong>Risultato:</strong> Email generica, tono incerto, lunghezza casuale</p>
+      </div>
+
+      <div class="callout">
+        <h4>Prompt COSE (Efficace)</h4>
+        <p>[CONTESTO] Sono il responsabile commerciale di un'azienda che produce macchinari industriali per il settore alimentare. Ho incontrato un potenziale cliente alla fiera CIBUS la settimana scorsa.<br><br>
+        [OBIETTIVO] Scrivi un'email di follow-up per fissare una chiamata di approfondimento sui nostri sistemi di confezionamento.<br><br>
+        [STILE] Professionale ma cordiale, massimo 150 parole, con una call-to-action chiara per prenotare una call.<br><br>
+        [ESEMPIO] Il tono dovrebbe essere simile a: "E stato un piacere incontrarla... Sarebbe interessato a esplorare..."<br><br>
+        <strong>Risultato:</strong> Email personalizzata, tono appropriato, lunghezza corretta, CTA efficace</p>
+      </div>
+
+      <div class="statbox">
+        <span class="statbox__n">40%</span>
+        <span class="statbox__l">miglioramento della qualita del lavoro con AI secondo Harvard Business School</span>
+      </div>
+
+      <h3>Esempi di Prompt per Casi d'Uso Comuni</h3>
+
+      <div class="callout">
+        <h4>Prompt per Scheda Prodotto E-commerce</h4>
+        <p>Sei un copywriter esperto di e-commerce nel settore moda. Scrivi una scheda prodotto per:<br><br>
+        Prodotto: Giacca in pelle da uomo<br>
+        Caratteristiche: 100% pelle italiana, fodera in seta, chiusura con zip, 2 tasche esterne, 1 tasca interna<br>
+        Prezzo: 489 euro<br>
+        Target: Uomo 35-55 anni, professionista, attento alla qualita<br><br>
+        Formato: Titolo accattivante + descrizione 100 parole + 5 bullet point caratteristiche + frase finale con CTA.</p>
+      </div>
+
+      <div class="callout">
+        <h4>Prompt per Risposta Reclamo Cliente</h4>
+        <p>Sei il customer service manager di un e-commerce di elettronica. Un cliente ha ricevuto un prodotto danneggiato e ha scritto arrabbiato.<br><br>
+        Scrivi una risposta che:<br>
+        1. Si scusi sinceramente senza essere servile<br>
+        2. Proponga una soluzione immediata (sostituzione o rimborso)<br>
+        3. Offra un gesto di goodwill (sconto 10% su prossimo ordine)<br>
+        4. Rassicuri sulla qualita dei controlli<br><br>
+        Tono: Empatico, professionale, risolutivo. Massimo 120 parole.</p>
+      </div>
+
+      <div class="callout">
+        <h4>Prompt per Analisi Documento</h4>
+        <p>Analizza il contratto allegato e fornisci:<br><br>
+        1. Riassunto in 3 frasi dei punti chiave<br>
+        2. Elenco degli obblighi per la nostra azienda<br>
+        3. Elenco degli obblighi per la controparte<br>
+        4. Clausole potenzialmente problematiche o da negoziare<br>
+        5. Scadenze importanti da segnare in calendario<br><br>
+        Formatta con bullet point e usa linguaggio semplice, non legalese.</p>
+      </div>
+
+      <h3>Tecniche Avanzate</h3>
+
+      <ul>
+        <li><strong>Chain of Thought:</strong> Chiedi a ChatGPT di "ragionare passo passo" per problemi complessi</li>
+        <li><strong>Few-Shot Learning:</strong> Fornisci 2-3 esempi di input/output desiderato</li>
+        <li><strong>Role Playing:</strong> Assegna un ruolo specifico ("Sei un esperto di marketing B2B con 20 anni di esperienza...")</li>
+        <li><strong>Iterazione:</strong> Chiedi modifiche successive per affinare il risultato</li>
+      </ul>
+
+      <h2>Come Integrare ChatGPT nei Workflow Aziendali?</h2>
+
+      <p>Usare ChatGPT manualmente e solo l'inizio. Il vero potenziale emerge quando lo integri nei tuoi processi con strumenti di automazione no-code.</p>
+
+      <h3>Integrazione con Make (ex Integromat)</h3>
+
+      <p>Make e una piattaforma di automazione visuale che connette ChatGPT a centinaia di applicazioni:</p>
+    </div>
+
+    <div class="cards3">
+      <div class="gcard reveal" data-d="1">
+        <h3>Email Automatiche</h3>
+        <p>Gmail/Outlook riceve email, ChatGPT genera risposta, tu approvi con un click</p>
+      </div>
+      <div class="gcard reveal" data-d="2">
+        <h3>CRM Arricchito</h3>
+        <p>Nuovo lead in HubSpot genera automaticamente email di benvenuto personalizzata</p>
+      </div>
+      <div class="gcard reveal" data-d="3">
+        <h3>Social Automatico</h3>
+        <p>Nuovo articolo sul blog genera post per LinkedIn, Twitter, Facebook</p>
+      </div>
+      <div class="gcard reveal" data-d="4">
+        <h3>Report Periodici</h3>
+        <p>Google Sheets con dati vendite genera report settimanale formattato</p>
+      </div>
+    </div>
+
+    <div class="prose reveal">
+      <h3>Integrazione con Zapier</h3>
+
+      <p>Zapier offre integrazioni simili con un approccio leggermente diverso:</p>
+
+      <ul>
+        <li><strong>Slack + ChatGPT:</strong> Messaggi in canali specifici generano risposte AI</li>
+        <li><strong>Typeform + ChatGPT:</strong> Risposte ai form generano follow-up personalizzati</li>
+        <li><strong>Notion + ChatGPT:</strong> Nuove pagine vengono arricchite con contenuti AI</li>
+        <li><strong>Calendly + ChatGPT:</strong> Nuovi appuntamenti generano brief preparatorio</li>
+      </ul>
+
+      <div class="callout">
+        <h4>Esempio Workflow: Lead Qualification Automatica</h4>
+        <p><strong>Trigger:</strong> Nuovo form compilato su sito web<br>
+        <strong>Azione 1:</strong> ChatGPT analizza le risposte e assegna un punteggio lead (1-10)<br>
+        <strong>Azione 2:</strong> Lead alto punteggio: notifica Slack al commerciale + email personalizzata<br>
+        <strong>Azione 3:</strong> Lead basso punteggio: aggiunto a sequenza nurturing automatica<br>
+        <strong>Risultato:</strong> Il commerciale si concentra solo sui lead qualificati, risparmiando 5+ ore/settimana.</p>
+      </div>
+
+      <h3>GPT Personalizzati per l'Azienda</h3>
+
+      <p>Con i piani Team ed Enterprise puoi creare GPT customizzati:</p>
+
+      <ul>
+        <li><strong>GPT Catalogo Prodotti:</strong> Addestrato sulle tue schede prodotto, risponde a domande tecniche</li>
+        <li><strong>GPT Policy Aziendali:</strong> Conosce regolamenti interni, risponde a domande HR</li>
+        <li><strong>GPT Supporto Tecnico:</strong> Addestrato sui manuali, assiste clienti e tecnici</li>
+        <li><strong>GPT Brand Voice:</strong> Scrive sempre con il tono e stile del tuo brand</li>
+      </ul>
+
+      <h2>Come Gestire Privacy e Sicurezza dei Dati?</h2>
+
+      <p>La sicurezza dei dati e la preoccupazione principale per le PMI. Ecco cosa devi sapere.</p>
+
+      <h3>Cosa Succede ai Dati con Ogni Piano</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Piano</th>
+            <th>Dati usati per training?</th>
+            <th>Livello sicurezza</th>
+            <th>Adatto per dati sensibili?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Free</td>
+            <td>Si (default)</td>
+            <td>Base</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Plus</td>
+            <td>Si (disattivabile)</td>
+            <td>Base</td>
+            <td>Limitato</td>
+          </tr>
+          <tr>
+            <td>Team</td>
+            <td>No (garantito)</td>
+            <td>Business</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <td>Enterprise</td>
+            <td>No (garantito)</td>
+            <td>Enterprise (SOC 2)</td>
+            <td>Si</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Best Practice per la Sicurezza</h3>
+
+      <ul>
+        <li><strong>Usa sempre piani business per dati aziendali</strong> - Team o Enterprise garantiscono la non-utilizzazione per training</li>
+        <li><strong>Non inserire dati personali identificativi</strong> - Anonimizza nomi, email, telefoni prima di usare ChatGPT</li>
+        <li><strong>Evita segreti industriali</strong> - Formule, brevetti, strategie riservate non vanno inseriti</li>
+        <li><strong>Forma il team sulla policy</strong> - Tutti devono sapere cosa si puo e non si puo fare</li>
+        <li><strong>Crea una policy AI aziendale</strong> - Documenta le regole e falle firmare</li>
+      </ul>
+
+      <div class="callout callout--warn">
+        <h4>Conformita GDPR</h4>
+        <p>OpenAI ha nominato un rappresentante UE e offre un Data Processing Agreement (DPA) per i piani business. Con ChatGPT Team ed Enterprise puoi utilizzare lo strumento in conformita al GDPR, a patto di seguire le best practice: non inserire dati personali non necessari, informare gli interessati se i loro dati vengono elaborati, mantenere il controllo sulle finalita del trattamento.</p>
+      </div>
+
+      <h2>Quali Sono i Limiti e le Best Practice di ChatGPT?</h2>
+
+      <p>ChatGPT e potente, ma non e perfetto. Conoscere i limiti ti permette di usarlo efficacemente.</p>
+
+      <h3>Limiti da Conoscere</h3>
+
+      <ul>
+        <li><strong>Allucinazioni:</strong> ChatGPT puo inventare fatti, citazioni, statistiche. Verifica sempre dati numerici e riferimenti</li>
+        <li><strong>Conoscenza datata:</strong> Il modello ha una "data di taglio". Per info recenti, usa la navigazione web (disponibile in Plus/Team)</li>
+        <li><strong>Nessun accesso ai tuoi sistemi:</strong> Non conosce i tuoi dati interni se non glieli fornisci</li>
+        <li><strong>Limiti di contesto:</strong> Conversazioni molto lunghe possono perdere coerenza</li>
+        <li><strong>Stile generico:</strong> Senza istruzioni precise, i testi possono sembrare "da AI"</li>
+      </ul>
+
+      <h3>Best Practice Consolidate</h3>
+
+      <ul>
+        <li><strong>Verifica sempre l'output</strong> - Mai pubblicare senza revisione umana</li>
+        <li><strong>Usa prompt strutturati</strong> - La formula COSE migliora drasticamente i risultati</li>
+        <li><strong>Itera e affina</strong> - Chiedi modifiche, non accettare la prima risposta</li>
+        <li><strong>Crea template di prompt</strong> - Standardizza i prompt per attivita ricorrenti</li>
+        <li><strong>Forma il team</strong> - L'efficacia dipende da chi lo usa</li>
+        <li><strong>Misura i risultati</strong> - Traccia tempo risparmiato, qualita, output</li>
+      </ul>
+
+      <h3>Cosa ChatGPT NON Puo Fare</h3>
+
+      <ul>
+        <li>Sostituire il giudizio umano su decisioni strategiche</li>
+        <li>Garantire accuratezza al 100% su fatti e dati</li>
+        <li>Comprendere il contesto aziendale senza che glielo spieghi</li>
+        <li>Accedere a informazioni riservate o aggiornate in tempo reale (senza web browsing)</li>
+        <li>Sostituire la creativita umana per contenuti realmente distintivi</li>
+      </ul>
+
+      <div class="statbox">
+        <span class="statbox__n">700M</span>
+        <span class="statbox__l">utenti settimanali di ChatGPT nel mondo (novembre 2025)</span>
+      </div>
+
+      <h2>Domande Frequenti</h2>
+    </div>
+
+    <div class="faq reveal">
+      <details>
+        <summary>Qual e la differenza tra ChatGPT Plus e ChatGPT Team per aziende?</summary>
+        <div class="faq__a">ChatGPT Plus (20 euro/mese) e pensato per uso individuale: accesso a GPT-4o, DALL-E e analisi dati. ChatGPT Team (25 euro/utente/mese, minimo 2 utenti) aggiunge workspace condiviso, GPT personalizzati per il team, garanzia che i dati non vengono usati per il training del modello e strumenti di admin. Per le PMI con 5+ dipendenti che usano ChatGPT, il piano Team e la scelta consigliata per sicurezza e collaborazione.</div>
+      </details>
+      <details>
+        <summary>ChatGPT puo essere integrato con altri software aziendali?</summary>
+        <div class="faq__a">Si, ChatGPT si integra facilmente con i principali strumenti aziendali tramite piattaforme no-code come Make (ex Integromat) e Zapier. Puoi connettere ChatGPT a CRM (Salesforce, HubSpot), email (Gmail, Outlook), fogli di calcolo (Google Sheets, Excel), Slack, Notion e centinaia di altre applicazioni. Le integrazioni permettono di automatizzare processi come la risposta alle email, la generazione di report e l'arricchimento dei dati.</div>
+      </details>
+      <details>
+        <summary>I dati aziendali inseriti in ChatGPT sono sicuri?</summary>
+        <div class="faq__a">Dipende dal piano. Con ChatGPT Free e Plus, i dati potrebbero essere usati per migliorare i modelli (puoi disattivarlo nelle impostazioni). Con ChatGPT Team ed Enterprise, OpenAI garantisce contrattualmente che i dati non vengono usati per il training. Per dati sensibili (informazioni clienti, dati finanziari, segreti industriali), usa sempre i piani business con data protection inclusa.</div>
+      </details>
+      <details>
+        <summary>Quanto tempo serve per implementare ChatGPT in azienda?</summary>
+        <div class="faq__a">L'implementazione base richiede pochi giorni: attivazione account, formazione base del team sui prompt efficaci, definizione di 2-3 casi d'uso iniziali. Per un'adozione strutturata con workflow automatizzati, template di prompt aziendali e integrazioni con altri software, calcola 2-4 settimane. Il ritorno sull'investimento e tipicamente visibile entro il primo mese, con risparmi di tempo del 40-60% sulle attivita supportate.</div>
+      </details>
+    </div>
+
+    <nav class="artnav reveal" aria-label="Navigazione articoli">
+      <a href="come-iniziare-ai-pmi.html">
+        <div class="artnav__k">Articolo Precedente</div>
+        <div class="artnav__t">Come Iniziare con l'AI: Guida per PMI</div>
+      </a>
+      <a href="agenti-ai-automazione.html" class="next">
+        <div class="artnav__k">Prossimo Articolo</div>
+        <div class="artnav__t">Agenti AI e Automazione Aziendale</div>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec sec--dark">
+  <div class="shell">
+    <div class="shead reveal" style="margin-bottom:0">
+      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
+      <h2>Vuoi implementare <span class="serif">ChatGPT</span> nella tua PMI?</h2>
+      <p class="shead__lead">Calcola il potenziale ritorno sull'investimento per la tua azienda con il nostro calcolatore gratuito.</p>
+      <div class="finale__cta" style="margin-top:32px">
+        <a href="../roi-calculator.html" class="btn btn--grad">Calcola il tuo ROI
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="../contatti.html" class="btn btn--ghost">Richiedi una consulenza</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
+        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h5>Soluzioni</h5>
+          <a href="../servizi.html">Servizi</a>
+          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
+          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
+          <a href="../acceleratore.html">Acceleratore</a>
         </div>
-    </article>
+        <div class="foot__col">
+          <h5>Azienda</h5>
+          <a href="../chi-siamo.html">Chi siamo</a>
+          <a href="../index.html#metaphor">L'Idea</a>
+          <a href="../index.html#process">Percorso</a>
+          <a href="../casi-studio.html">Casi studio</a>
+          <a href="../contatti.html">Contatti</a>
+        </div>
+        <div class="foot__col">
+          <h5>Legale</h5>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../cookie.html">Cookie</a>
+          <a href="../termini.html">Termini</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
+      <span>Conforme a GDPR e AI Act by design</span>
+    </div>
+  </div>
+</footer>
 
-    <footer id="footer-placeholder"></footer>
-    <script>
-        fetch('../src/components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').outerHTML = data;
-            });
-    </script>
+<script src="../src/assets/js/tree-canvas.js"></script>
+<script src="../src/assets/js/pugliai-landing.js"></script>
+<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>

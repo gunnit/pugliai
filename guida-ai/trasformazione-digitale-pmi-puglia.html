@@ -33,10 +33,6 @@
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/trasformazione-digitale-pmi-puglia.html">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -117,432 +113,440 @@
     }
     </script>
 
-    <style>
-        .article-hero { background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%); padding: 140px 20px 80px; position: relative; overflow: hidden; }
-        .article-hero::before { content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%); }
-        .article-hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
-        .article-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; font-size: 0.9rem; flex-wrap: wrap; }
-        .article-breadcrumb a { color: var(--accent-platinum); text-decoration: none; transition: color 0.3s; }
-        .article-breadcrumb a:hover { color: var(--accent-gold); }
-        .article-breadcrumb span { color: var(--accent-gold); }
-        .article-category { display: inline-block; background: var(--gradient-emerald); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
-        .article-hero h1 { font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 20px; line-height: 1.2; }
-        .article-meta-hero { display: flex; flex-wrap: wrap; gap: 24px; color: var(--accent-platinum); font-size: 0.95rem; }
-        .article-meta-hero span { display: flex; align-items: center; gap: 6px; }
-        .article-container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
-        .article-content { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); }
-        .article-content h2 { font-size: 1.8rem; color: var(--primary-navy); margin: 48px 0 24px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-gold); }
-        .article-content h3 { font-size: 1.4rem; color: var(--secondary-navy); margin: 36px 0 16px; }
-        .article-content p { margin-bottom: 20px; }
-        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 24px; }
-        .article-content li { margin-bottom: 12px; }
-        .highlight-box { background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%); border-left: 4px solid var(--accent-gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 12px 12px 0; }
-        .highlight-box h4 { color: var(--primary-navy); margin-bottom: 12px; font-size: 1.1rem; }
-        .stat-highlight { background: var(--gradient-primary); color: white; padding: 32px; border-radius: 16px; margin: 32px 0; text-align: center; }
-        .stat-highlight .number { font-size: 3rem; font-weight: 800; color: var(--accent-gold); display: block; margin-bottom: 8px; }
-        .stat-highlight .label { font-size: 1.1rem; opacity: 0.9; }
-        .comparison-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.95rem; }
-        .comparison-table th { background: var(--primary-navy); color: white; padding: 16px; text-align: left; }
-        .comparison-table td { padding: 14px 16px; border-bottom: 1px solid #e5e7eb; }
-        .comparison-table tr:nth-child(even) { background: #f8fafc; }
-        .faq-section { margin: 48px 0; }
-        .faq-item { border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
-        .faq-question { background: #f8fafc; padding: 20px 24px; font-weight: 600; color: var(--primary-navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 20px 24px; border-top: 1px solid #e5e7eb; }
-        .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; padding-top: 40px; border-top: 2px solid #e5e7eb; }
-        .article-nav a { padding: 24px; background: #f8fafc; border-radius: 12px; text-decoration: none; transition: all 0.3s; border: 1px solid transparent; }
-        .article-nav a:hover { border-color: var(--accent-gold); background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .article-nav .label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
-        .article-nav .title { color: var(--primary-navy); font-weight: 600; }
-        .article-nav .next { text-align: right; }
-        .cta-box { background: var(--gradient-primary); padding: 40px; border-radius: 16px; text-align: center; margin: 48px 0; }
-        .cta-box h3 { color: white; margin-bottom: 16px; }
-        .cta-box p { color: var(--accent-platinum); margin-bottom: 24px; }
-        .incentive-card { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin: 16px 0; }
-        .incentive-card h4 { color: var(--primary-navy); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        .incentive-card .badge { background: var(--accent-emerald); color: white; font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; }
-        .warning-box { background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; padding: 20px 24px; margin: 24px 0; border-radius: 0 12px 12px 0; }
-        .warning-box h4 { color: #dc2626; margin-bottom: 8px; }
-        @media (max-width: 768px) { .article-nav { grid-template-columns: 1fr; } .article-nav .next { text-align: left; } }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/brand.css">
+    <link rel="stylesheet" href="../src/assets/css/landing.css">
+    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div id="nav-placeholder"></div>
-    <script src="../src/assets/js/navigation.js"></script>
-
-    <article>
-        <header class="article-hero">
-            <div class="article-hero-content">
-                <nav class="article-breadcrumb" aria-label="Breadcrumb">
-                    <a href="../index.html">Home</a>
-                    <span>/</span>
-                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
-                    <span>/</span>
-                    <span>Trasformazione Digitale PMI Puglia</span>
-                </nav>
-                <span class="article-category">Trasformazione Digitale</span>
-                <h1>Trasformazione Digitale e AI per le PMI Pugliesi: Guida Completa 2025</h1>
-                <div class="article-meta-hero">
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 15 min lettura</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Gennaio 2025</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
-                </div>
-            </div>
-        </header>
-
-        <div class="article-container">
-            <div class="article-content">
-                <p><strong>La trasformazione digitale non e piu un'opzione per le PMI pugliesi: e una necessita competitiva.</strong> Nel 2025, le imprese che non investono in digitalizzazione e intelligenza artificiale rischiano di perdere terreno rispetto a concorrenti piu agili, sia locali che internazionali.</p>
-
-                <p>La buona notizia? La Puglia offre un ecosistema favorevole alla trasformazione digitale: incentivi regionali dedicati, un crescente polo di competenze tech, e un tessuto imprenditoriale pronto a innovare. Questa guida ti accompagna attraverso opportunita, sfide e strategie per digitalizzare la tua PMI pugliese.</p>
-
-                <div class="stat-highlight">
-                    <span class="number">680 milioni</span>
-                    <span class="label">Euro stanziati dalla Regione Puglia per innovazione e digitalizzazione 2021-2027</span>
-                </div>
-
-                <h2>Lo Stato della Digitalizzazione in Puglia</h2>
-
-                <p>Prima di parlare di strategie, e importante comprendere il contesto attuale. La Puglia si colloca in una posizione intermedia nel panorama italiano della digitalizzazione:</p>
-
-                <h3>I Numeri Chiave</h3>
-
-                <ul>
-                    <li><strong>35% delle PMI pugliesi</strong> ha avviato progetti di digitalizzazione strutturati (vs. 42% media nazionale)</li>
-                    <li><strong>12% utilizza soluzioni AI</strong> avanzate (vs. 18% media Nord Italia)</li>
-                    <li><strong>58% ha adottato</strong> almeno uno strumento cloud (in forte crescita)</li>
-                    <li><strong>78% ha un sito web</strong>, ma solo il 32% con e-commerce attivo</li>
-                </ul>
-
-                <h3>Punti di Forza</h3>
-
-                <ul>
-                    <li><strong>Crescita rapida:</strong> +60% di adozione digitale rispetto al 2022</li>
-                    <li><strong>Settori trainanti:</strong> Turismo, agroalimentare e manifatturiero stanno guidando l'innovazione</li>
-                    <li><strong>Giovani imprenditori:</strong> Le nuove generazioni spingono la trasformazione</li>
-                    <li><strong>Incentivi disponibili:</strong> Ampia gamma di finanziamenti accessibili</li>
-                </ul>
-
-                <h3>Sfide da Affrontare</h3>
-
-                <ul>
-                    <li><strong>Gap di competenze:</strong> Difficolta a trovare talenti digitali qualificati</li>
-                    <li><strong>Resistenza culturale:</strong> Mentalita tradizionale in alcune aziende familiari</li>
-                    <li><strong>Infrastrutture:</strong> Connettivita non uniforme nelle aree interne</li>
-                    <li><strong>Frammentazione:</strong> Tessuto di micro-imprese con risorse limitate</li>
-                </ul>
-
-                <h2>Opportunita AI per le PMI Pugliesi</h2>
-
-                <p>L'intelligenza artificiale offre opportunita specifiche per i settori chiave dell'economia pugliese. Ecco le applicazioni piu promettenti:</p>
-
-                <h3>Agroalimentare e Vitivinicolo</h3>
-
-                <p>La Puglia e il secondo produttore agricolo italiano. L'AI puo trasformare il settore:</p>
+<a href="#main" class="skip-link">Vai al contenuto</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="../index.html#metaphor">L'Idea</a>
+      <a href="../servizi.html">Servizi</a>
+      <a href="../prodotti.html">On-Premise</a>
+      <a href="../acceleratore.html">Acceleratore</a>
+      <a href="../index.html#process">Percorso</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Lingua">
+        <a href="trasformazione-digitale-pmi-puglia.html" class="on" aria-current="true">IT</a>
+        <a href="../en/ceo-ai-guide-2025.html">EN</a>
+      </div>
+      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="../index.html#metaphor">L'Idea</a>
+  <a href="../servizi.html">Servizi</a>
+  <a href="../prodotti.html">On-Premise</a>
+  <a href="../acceleratore.html">Acceleratore</a>
+  <a href="../index.html#process">Percorso</a>
+  <a href="../contatti.html">Richiedi un preventivo</a>
+</div>
+
+<main id="main">
+
+<!-- PAGE HEADER -->
+<section class="pagehead">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><i>/</i>
+      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
+      <span>Trasformazione Digitale PMI Puglia</span>
+    </nav>
+    <div class="eyebrow-lux">Trasformazione Digitale</div>
+    <h1>Trasformazione Digitale e AI per le <span class="serif">PMI Pugliesi</span>: Guida Completa 2025</h1>
+    <p class="pagehead__lead">Opportunita AI, incentivi regionali, finanziamenti e strategie per digitalizzare la tua piccola o media impresa in Puglia nel 2025.</p>
+    <div class="pagehead__meta">
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 15 min lettura</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Gennaio 2025</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<section class="sec sec--light">
+  <div class="shell">
+    <div class="prose reveal">
+
+      <p><strong>La trasformazione digitale non e piu un'opzione per le PMI pugliesi: e una necessita competitiva.</strong> Nel 2025, le imprese che non investono in digitalizzazione e intelligenza artificiale rischiano di perdere terreno rispetto a concorrenti piu agili, sia locali che internazionali.</p>
+
+      <p>La buona notizia? La Puglia offre un ecosistema favorevole alla trasformazione digitale: incentivi regionali dedicati, un crescente polo di competenze tech, e un tessuto imprenditoriale pronto a innovare. Questa guida ti accompagna attraverso opportunita, sfide e strategie per digitalizzare la tua PMI pugliese.</p>
+
+      <div class="statbox">
+        <span class="statbox__n">680 milioni</span>
+        <span class="statbox__l">Euro stanziati dalla Regione Puglia per innovazione e digitalizzazione 2021-2027</span>
+      </div>
+
+      <h2>Lo Stato della Digitalizzazione in Puglia</h2>
+
+      <p>Prima di parlare di strategie, e importante comprendere il contesto attuale. La Puglia si colloca in una posizione intermedia nel panorama italiano della digitalizzazione:</p>
+
+      <h3>I Numeri Chiave</h3>
+
+      <ul>
+        <li><strong>35% delle PMI pugliesi</strong> ha avviato progetti di digitalizzazione strutturati (vs. 42% media nazionale)</li>
+        <li><strong>12% utilizza soluzioni AI</strong> avanzate (vs. 18% media Nord Italia)</li>
+        <li><strong>58% ha adottato</strong> almeno uno strumento cloud (in forte crescita)</li>
+        <li><strong>78% ha un sito web</strong>, ma solo il 32% con e-commerce attivo</li>
+      </ul>
+
+      <h3>Punti di Forza</h3>
+
+      <ul>
+        <li><strong>Crescita rapida:</strong> +60% di adozione digitale rispetto al 2022</li>
+        <li><strong>Settori trainanti:</strong> Turismo, agroalimentare e manifatturiero stanno guidando l'innovazione</li>
+        <li><strong>Giovani imprenditori:</strong> Le nuove generazioni spingono la trasformazione</li>
+        <li><strong>Incentivi disponibili:</strong> Ampia gamma di finanziamenti accessibili</li>
+      </ul>
+
+      <h3>Sfide da Affrontare</h3>
+
+      <ul>
+        <li><strong>Gap di competenze:</strong> Difficolta a trovare talenti digitali qualificati</li>
+        <li><strong>Resistenza culturale:</strong> Mentalita tradizionale in alcune aziende familiari</li>
+        <li><strong>Infrastrutture:</strong> Connettivita non uniforme nelle aree interne</li>
+        <li><strong>Frammentazione:</strong> Tessuto di micro-imprese con risorse limitate</li>
+      </ul>
+
+      <h2>Opportunita AI per le PMI Pugliesi</h2>
+
+      <p>L'intelligenza artificiale offre opportunita specifiche per i settori chiave dell'economia pugliese. Ecco le applicazioni piu promettenti:</p>
+
+      <h3>Agroalimentare e Vitivinicolo</h3>
+
+      <p>La Puglia e il secondo produttore agricolo italiano. L'AI puo trasformare il settore:</p>
+
+      <ul>
+        <li><strong>Agricoltura di precisione:</strong> Droni e sensori AI per ottimizzare irrigazione e trattamenti</li>
+        <li><strong>Tracciabilita blockchain:</strong> Certificazione dell'origine per olio, vino, pomodori</li>
+        <li><strong>Previsione raccolti:</strong> Machine learning per anticipare quantita e qualita</li>
+        <li><strong>Controllo qualita:</strong> Computer vision per la selezione automatica dei prodotti</li>
+      </ul>
+
+      <div class="callout">
+        <h4>Case Study: Frantoio nel Salento</h4>
+        <p>Un frantoio di Lecce ha implementato un sistema AI per la classificazione automatica delle olive. Risultato: <strong>+18% qualita media dell'olio</strong>, <strong>-25% scarti</strong> e <strong>certificazione premium</strong> per l'export. Investimento: 35.000 euro, recuperati in 18 mesi.</p>
+      </div>
 
-                <ul>
-                    <li><strong>Agricoltura di precisione:</strong> Droni e sensori AI per ottimizzare irrigazione e trattamenti</li>
-                    <li><strong>Tracciabilita blockchain:</strong> Certificazione dell'origine per olio, vino, pomodori</li>
-                    <li><strong>Previsione raccolti:</strong> Machine learning per anticipare quantita e qualita</li>
-                    <li><strong>Controllo qualita:</strong> Computer vision per la selezione automatica dei prodotti</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <h4>Case Study: Frantoio nel Salento</h4>
-                    <p>Un frantoio di Lecce ha implementato un sistema AI per la classificazione automatica delle olive. Risultato: <strong>+18% qualita media dell'olio</strong>, <strong>-25% scarti</strong> e <strong>certificazione premium</strong> per l'export. Investimento: 35.000 euro, recuperati in 18 mesi.</p>
-                </div>
+      <h3>Turismo e Hospitality</h3>
 
-                <h3>Turismo e Hospitality</h3>
-
-                <p>Con oltre 15 milioni di presenze turistiche annue, la Puglia puo sfruttare l'AI per:</p>
-
-                <ul>
-                    <li><strong>Revenue management:</strong> Pricing dinamico basato su domanda e stagionalita</li>
-                    <li><strong>Chatbot multilingue:</strong> Assistenza 24/7 per prenotazioni e informazioni</li>
-                    <li><strong>Personalizzazione:</strong> Raccomandazioni su misura per ogni ospite</li>
-                    <li><strong>Sentiment analysis:</strong> Monitoraggio automatico delle recensioni online</li>
-                </ul>
+      <p>Con oltre 15 milioni di presenze turistiche annue, la Puglia puo sfruttare l'AI per:</p>
+
+      <ul>
+        <li><strong>Revenue management:</strong> Pricing dinamico basato su domanda e stagionalita</li>
+        <li><strong>Chatbot multilingue:</strong> Assistenza 24/7 per prenotazioni e informazioni</li>
+        <li><strong>Personalizzazione:</strong> Raccomandazioni su misura per ogni ospite</li>
+        <li><strong>Sentiment analysis:</strong> Monitoraggio automatico delle recensioni online</li>
+      </ul>
 
-                <h3>Manifatturiero e Meccanica</h3>
-
-                <p>I distretti industriali di Bari e Taranto possono beneficiare di:</p>
-
-                <ul>
-                    <li><strong>Manutenzione predittiva:</strong> Anticipare guasti e fermi macchina</li>
-                    <li><strong>Controllo qualita visivo:</strong> Ispezione automatica dei prodotti</li>
-                    <li><strong>Ottimizzazione produzione:</strong> Scheduling intelligente delle lavorazioni</li>
-                    <li><strong>Supply chain AI:</strong> Previsione domanda e gestione fornitori</li>
-                </ul>
-
-                <h3>Moda, Tessile e Calzaturiero</h3>
-
-                <p>Il distretto della moda pugliese puo innovare con:</p>
-
-                <ul>
-                    <li><strong>Trend forecasting:</strong> Previsione delle tendenze con AI</li>
-                    <li><strong>Design generativo:</strong> Supporto alla creativita con AI generativa</li>
-                    <li><strong>Gestione collezioni:</strong> Ottimizzazione assortimento e taglie</li>
-                    <li><strong>E-commerce intelligente:</strong> Raccomandazioni e virtual try-on</li>
-                </ul>
-
-                <h2>Incentivi e Finanziamenti Disponibili</h2>
-
-                <p>Uno dei vantaggi di investire in digitale in Puglia e l'ampia disponibilita di incentivi. Ecco i principali strumenti attivi nel 2025:</p>
-
-                <div class="incentive-card">
-                    <h4><span class="badge">ATTIVO</span> POR FESR Puglia 2021-2027 - Azione 1.1</h4>
-                    <p>Finanziamenti per progetti di ricerca, sviluppo e innovazione delle PMI. Copertura fino al <strong>50% delle spese ammissibili</strong> per progetti di digitalizzazione e AI. Budget complessivo: 180 milioni di euro.</p>
-                    <p><strong>Requisiti:</strong> PMI con sede operativa in Puglia, progetto innovativo con impatto misurabile.</p>
-                </div>
-
-                <div class="incentive-card">
-                    <h4><span class="badge">ATTIVO</span> Voucher Digitalizzazione Puglia</h4>
-                    <p>Contributi a fondo perduto fino a <strong>10.000 euro</strong> per l'acquisto di servizi di consulenza digitale, software e formazione. Copertura: 70% delle spese.</p>
-                    <p><strong>Requisiti:</strong> Micro e piccole imprese, investimento minimo 5.000 euro.</p>
-                </div>
-
-                <div class="incentive-card">
-                    <h4><span class="badge">ATTIVO</span> Contratti di Programma Regionali</h4>
-                    <p>Per investimenti strutturali superiori a 2 milioni di euro. Include agevolazioni per impianti Industria 4.0 e sistemi AI. Copertura fino al <strong>35-45%</strong> a seconda della dimensione.</p>
-                    <p><strong>Requisiti:</strong> PMI e grandi imprese, progetto con impatto occupazionale.</p>
-                </div>
-
-                <div class="incentive-card">
-                    <h4><span class="badge">NAZIONALE</span> Transizione 5.0</h4>
-                    <p>Credito d'imposta dal 35% al 45% per investimenti in beni materiali e immateriali 5.0, inclusi software AI e formazione. Cumulabile con incentivi regionali.</p>
-                    <p><strong>Requisiti:</strong> Tutte le imprese italiane, rispetto dei requisiti di efficienza energetica.</p>
-                </div>
-
-                <div class="highlight-box">
-                    <h4>Come Massimizzare gli Incentivi</h4>
-                    <p>Un progetto di digitalizzazione ben strutturato puo combinare piu incentivi. Esempio: un investimento di 50.000 euro in AI puo ottenere 17.500 euro da Transizione 5.0 + 7.000 euro da voucher regionale = <strong>49% di copertura totale</strong>.</p>
-                </div>
-
-                <h2>Strategie di Successo per le PMI Pugliesi</h2>
-
-                <p>Sulla base delle esperienze delle aziende pugliesi che hanno gia intrapreso il percorso di trasformazione, ecco le strategie che funzionano:</p>
-
-                <h3>1. Parti dai Quick Win</h3>
-
-                <p>Non iniziare con progetti ambiziosi e complessi. Identifica processi con:</p>
-
-                <ul>
-                    <li>Alto volume di attivita ripetitive</li>
-                    <li>Dati gia disponibili in formato digitale</li>
-                    <li>Impatto misurabile su costi o ricavi</li>
-                    <li>Bassa resistenza al cambiamento del team</li>
-                </ul>
-
-                <p><strong>Esempi di quick win:</strong> Chatbot per FAQ clienti, automazione email marketing, digitalizzazione ordini, reportistica automatica.</p>
-
-                <h3>2. Investi nelle Persone</h3>
-
-                <p>La tecnologia e solo meta dell'equazione. Dedica risorse a:</p>
-
-                <ul>
-                    <li><strong>Formazione:</strong> Corsi pratici per i dipendenti sugli strumenti adottati</li>
-                    <li><strong>Change management:</strong> Comunicazione chiara su obiettivi e benefici</li>
-                    <li><strong>Champion interni:</strong> Identifica referenti entusiasti in ogni area</li>
-                    <li><strong>Incentivi:</strong> Premia l'adozione e la propositivita</li>
-                </ul>
-
-                <h3>3. Scegli Partner Locali</h3>
-
-                <p>Collaborare con consulenti e fornitori pugliesi offre vantaggi concreti:</p>
-
-                <ul>
-                    <li>Vicinanza per supporto continuativo</li>
-                    <li>Comprensione del contesto locale</li>
-                    <li>Costi competitivi</li>
-                    <li>Conoscenza degli incentivi regionali</li>
-                </ul>
-
-                <h3>4. Misura e Itera</h3>
-
-                <p>Definisci KPI chiari fin dall'inizio e monitora costantemente:</p>
-
-                <ul>
-                    <li><strong>KPI di processo:</strong> Tempo risparmiato, errori ridotti, volumi gestiti</li>
-                    <li><strong>KPI di business:</strong> Ricavi, margini, soddisfazione clienti</li>
-                    <li><strong>KPI di adozione:</strong> Utilizzo degli strumenti, feedback del team</li>
-                </ul>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Fase</th>
-                            <th>Obiettivo</th>
-                            <th>Durata</th>
-                            <th>Budget Indicativo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Assessment</td>
-                            <td>Mappatura opportunita</td>
-                            <td>2-4 settimane</td>
-                            <td>2.000-5.000 euro</td>
-                        </tr>
-                        <tr>
-                            <td>Quick Win</td>
-                            <td>Primi risultati tangibili</td>
-                            <td>1-3 mesi</td>
-                            <td>5.000-15.000 euro</td>
-                        </tr>
-                        <tr>
-                            <td>Consolidamento</td>
-                            <td>Espansione a piu processi</td>
-                            <td>3-6 mesi</td>
-                            <td>15.000-40.000 euro</td>
-                        </tr>
-                        <tr>
-                            <td>Trasformazione</td>
-                            <td>Ridisegno modello operativo</td>
-                            <td>6-18 mesi</td>
-                            <td>40.000-150.000 euro</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h2>Sfide Comuni e Come Superarle</h2>
-
-                <p>Le PMI pugliesi che intraprendono la trasformazione digitale affrontano sfide ricorrenti. Ecco come gestirle:</p>
-
-                <h3>Resistenza al Cambiamento</h3>
-
-                <p><strong>Problema:</strong> Dipendenti e manager diffidenti verso le nuove tecnologie.</p>
-
-                <p><strong>Soluzione:</strong></p>
-                <ul>
-                    <li>Coinvolgi il team fin dalla fase di analisi</li>
-                    <li>Comunica i benefici in termini concreti (meno lavoro noioso, piu tempo per attivita di valore)</li>
-                    <li>Forma con pazienza, rispettando i diversi ritmi di apprendimento</li>
-                    <li>Celebra i primi successi pubblicamente</li>
-                </ul>
-
-                <h3>Budget Limitato</h3>
-
-                <p><strong>Problema:</strong> Risorse finanziarie insufficienti per progetti ambiziosi.</p>
-
-                <p><strong>Soluzione:</strong></p>
-                <ul>
-                    <li>Parti con strumenti SaaS a basso costo (da 50-200 euro/mese)</li>
-                    <li>Sfrutta al massimo gli incentivi disponibili</li>
-                    <li>Prioritizza progetti con ROI rapido e dimostrabile</li>
-                    <li>Considera modelli di pagamento a risultato con i fornitori</li>
-                </ul>
-
-                <h3>Mancanza di Competenze</h3>
-
-                <p><strong>Problema:</strong> Non ci sono figure tecniche interne.</p>
-
-                <p><strong>Soluzione:</strong></p>
-                <ul>
-                    <li>Affidati a partner esterni per l'implementazione</li>
-                    <li>Investi in formazione per creare competenze di base interne</li>
-                    <li>Scegli soluzioni no-code/low-code gestibili internamente</li>
-                    <li>Valuta stage e collaborazioni con universita locali</li>
-                </ul>
-
-                <div class="warning-box">
-                    <h4>Errore da Evitare</h4>
-                    <p>Non partire dalla tecnologia. Il 65% dei progetti di digitalizzazione fallisce perche si sceglie uno strumento prima di aver chiarito il problema da risolvere. Prima identifica la sfida di business, poi cerca la soluzione tecnologica adatta.</p>
-                </div>
-
-                <h2>I Prossimi Passi per la Tua PMI</h2>
-
-                <p>Se sei pronto a iniziare il percorso di trasformazione digitale della tua azienda pugliese, ecco un piano d'azione pratico:</p>
-
-                <ol>
-                    <li><strong>Valuta la tua maturita digitale:</strong> Usa il nostro <a href="../roi-calculator.html">calcolatore ROI</a> per una prima stima del potenziale</li>
-                    <li><strong>Identifica 2-3 processi candidati:</strong> Dove perdi piu tempo? Dove ci sono piu errori?</li>
-                    <li><strong>Verifica gli incentivi disponibili:</strong> Consulta <a href="ai-incentivi-finanziamenti-italia.html">la nostra guida agli incentivi</a></li>
-                    <li><strong>Parla con un esperto:</strong> Un assessment iniziale puo chiarire le priorita</li>
-                    <li><strong>Definisci un budget realistico:</strong> Anche 5.000-10.000 euro possono bastare per iniziare</li>
-                    <li><strong>Parti con un pilota:</strong> Testa su scala ridotta prima di estendere</li>
-                </ol>
-
-                <section class="faq-section">
-                    <h2>Domande Frequenti</h2>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Quali incentivi regionali sono disponibili per la digitalizzazione in Puglia?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>La Puglia offre diversi incentivi: POR FESR Puglia 2021-2027 con fondi per innovazione e digitalizzazione, Contratti di Programma Regionali per investimenti strutturali, voucher digitalizzazione per PMI (fino a 10.000 euro), e bandi specifici per Industria 4.0. Inoltre, le imprese pugliesi possono accedere agli incentivi nazionali Transizione 5.0.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Qual e il livello di digitalizzazione delle PMI pugliesi?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Secondo i dati 2025, circa il 35% delle PMI pugliesi ha avviato progetti di digitalizzazione strutturati, in crescita rispetto al 22% del 2022. Tuttavia, solo il 12% utilizza soluzioni AI avanzate. C'e quindi un significativo potenziale di crescita, supportato dagli incentivi regionali e nazionali disponibili.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Quanto costa digitalizzare una PMI in Puglia?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>I costi variano in base all'ambito: da 5.000-15.000 euro per digitalizzazione base (gestionale, cloud), a 20.000-50.000 euro per progetti AI intermedi, fino a 50.000-150.000 euro per trasformazioni complete con automazione avanzata. Con gli incentivi regionali e nazionali, e possibile recuperare dal 30% al 50% dell'investimento.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Quali settori pugliesi beneficiano maggiormente dell'AI?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>I settori con maggiore impatto sono: agroalimentare (tracciabilita, agricoltura di precisione), turismo e hospitality (personalizzazione, revenue management), manifatturiero (manutenzione predittiva, qualita), moda e tessile (demand forecasting, design), e servizi alle imprese (automazione, customer service).</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Come posso accedere ai fondi per la digitalizzazione in Puglia?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Per accedere ai fondi: 1) Monitora i bandi su Sistema Puglia e Puglia Sviluppo, 2) Verifica i requisiti di ammissibilita della tua impresa, 3) Prepara un progetto tecnico dettagliato, 4) Presenta la domanda nei tempi previsti, 5) Considera di affidarti a consulenti specializzati per massimizzare le possibilita di successo.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="cta-box">
-                    <h3 style="color: white; margin-top: 0;">Vuoi Digitalizzare la Tua PMI Pugliese?</h3>
-                    <p>Contattaci per una consulenza gratuita. Ti aiuteremo a identificare le opportunita e gli incentivi disponibili per la tua azienda.</p>
-                    <a href="../contatti.html" class="btn btn-primary btn-lg">Prenota una Consulenza</a>
-                </div>
-
-                <nav class="article-nav" aria-label="Navigazione articoli">
-                    <a href="consulenza-ai-puglia.html">
-                        <div class="label">Articolo Precedente</div>
-                        <div class="title">Consulenza AI in Puglia</div>
-                    </a>
-                    <a href="eccellenze-ai-sud-italia.html" class="next">
-                        <div class="label">Prossimo Articolo</div>
-                        <div class="title">Eccellenze AI nel Sud Italia</div>
-                    </a>
-                </nav>
-            </div>
+      <h3>Manifatturiero e Meccanica</h3>
+
+      <p>I distretti industriali di Bari e Taranto possono beneficiare di:</p>
+
+      <ul>
+        <li><strong>Manutenzione predittiva:</strong> Anticipare guasti e fermi macchina</li>
+        <li><strong>Controllo qualita visivo:</strong> Ispezione automatica dei prodotti</li>
+        <li><strong>Ottimizzazione produzione:</strong> Scheduling intelligente delle lavorazioni</li>
+        <li><strong>Supply chain AI:</strong> Previsione domanda e gestione fornitori</li>
+      </ul>
+
+      <h3>Moda, Tessile e Calzaturiero</h3>
+
+      <p>Il distretto della moda pugliese puo innovare con:</p>
+
+      <ul>
+        <li><strong>Trend forecasting:</strong> Previsione delle tendenze con AI</li>
+        <li><strong>Design generativo:</strong> Supporto alla creativita con AI generativa</li>
+        <li><strong>Gestione collezioni:</strong> Ottimizzazione assortimento e taglie</li>
+        <li><strong>E-commerce intelligente:</strong> Raccomandazioni e virtual try-on</li>
+      </ul>
+
+      <h2>Incentivi e Finanziamenti Disponibili</h2>
+
+      <p>Uno dei vantaggi di investire in digitale in Puglia e l'ampia disponibilita di incentivi. Ecco i principali strumenti attivi nel 2025:</p>
+    </div>
+
+    <div class="cards3">
+      <div class="gcard reveal" data-d="1">
+        <h3>POR FESR Puglia 2021-2027 - Azione 1.1</h3>
+        <p><strong>ATTIVO.</strong> Finanziamenti per progetti di ricerca, sviluppo e innovazione delle PMI. Copertura fino al <strong>50% delle spese ammissibili</strong> per progetti di digitalizzazione e AI. Budget complessivo: 180 milioni di euro.</p>
+        <p><strong>Requisiti:</strong> PMI con sede operativa in Puglia, progetto innovativo con impatto misurabile.</p>
+      </div>
+      <div class="gcard reveal" data-d="2">
+        <h3>Voucher Digitalizzazione Puglia</h3>
+        <p><strong>ATTIVO.</strong> Contributi a fondo perduto fino a <strong>10.000 euro</strong> per l'acquisto di servizi di consulenza digitale, software e formazione. Copertura: 70% delle spese.</p>
+        <p><strong>Requisiti:</strong> Micro e piccole imprese, investimento minimo 5.000 euro.</p>
+      </div>
+      <div class="gcard reveal" data-d="3">
+        <h3>Contratti di Programma Regionali</h3>
+        <p><strong>ATTIVO.</strong> Per investimenti strutturali superiori a 2 milioni di euro. Include agevolazioni per impianti Industria 4.0 e sistemi AI. Copertura fino al <strong>35-45%</strong> a seconda della dimensione.</p>
+        <p><strong>Requisiti:</strong> PMI e grandi imprese, progetto con impatto occupazionale.</p>
+      </div>
+      <div class="gcard reveal" data-d="4">
+        <h3>Transizione 5.0</h3>
+        <p><strong>NAZIONALE.</strong> Credito d'imposta dal 35% al 45% per investimenti in beni materiali e immateriali 5.0, inclusi software AI e formazione. Cumulabile con incentivi regionali.</p>
+        <p><strong>Requisiti:</strong> Tutte le imprese italiane, rispetto dei requisiti di efficienza energetica.</p>
+      </div>
+    </div>
+
+    <div class="prose reveal">
+      <div class="callout">
+        <h4>Come Massimizzare gli Incentivi</h4>
+        <p>Un progetto di digitalizzazione ben strutturato puo combinare piu incentivi. Esempio: un investimento di 50.000 euro in AI puo ottenere 17.500 euro da Transizione 5.0 + 7.000 euro da voucher regionale = <strong>49% di copertura totale</strong>.</p>
+      </div>
+
+      <h2>Strategie di Successo per le PMI Pugliesi</h2>
+
+      <p>Sulla base delle esperienze delle aziende pugliesi che hanno gia intrapreso il percorso di trasformazione, ecco le strategie che funzionano:</p>
+
+      <h3>1. Parti dai Quick Win</h3>
+
+      <p>Non iniziare con progetti ambiziosi e complessi. Identifica processi con:</p>
+
+      <ul>
+        <li>Alto volume di attivita ripetitive</li>
+        <li>Dati gia disponibili in formato digitale</li>
+        <li>Impatto misurabile su costi o ricavi</li>
+        <li>Bassa resistenza al cambiamento del team</li>
+      </ul>
+
+      <p><strong>Esempi di quick win:</strong> Chatbot per FAQ clienti, automazione email marketing, digitalizzazione ordini, reportistica automatica.</p>
+
+      <h3>2. Investi nelle Persone</h3>
+
+      <p>La tecnologia e solo meta dell'equazione. Dedica risorse a:</p>
+
+      <ul>
+        <li><strong>Formazione:</strong> Corsi pratici per i dipendenti sugli strumenti adottati</li>
+        <li><strong>Change management:</strong> Comunicazione chiara su obiettivi e benefici</li>
+        <li><strong>Champion interni:</strong> Identifica referenti entusiasti in ogni area</li>
+        <li><strong>Incentivi:</strong> Premia l'adozione e la propositivita</li>
+      </ul>
+
+      <h3>3. Scegli Partner Locali</h3>
+
+      <p>Collaborare con consulenti e fornitori pugliesi offre vantaggi concreti:</p>
+
+      <ul>
+        <li>Vicinanza per supporto continuativo</li>
+        <li>Comprensione del contesto locale</li>
+        <li>Costi competitivi</li>
+        <li>Conoscenza degli incentivi regionali</li>
+      </ul>
+
+      <h3>4. Misura e Itera</h3>
+
+      <p>Definisci KPI chiari fin dall'inizio e monitora costantemente:</p>
+
+      <ul>
+        <li><strong>KPI di processo:</strong> Tempo risparmiato, errori ridotti, volumi gestiti</li>
+        <li><strong>KPI di business:</strong> Ricavi, margini, soddisfazione clienti</li>
+        <li><strong>KPI di adozione:</strong> Utilizzo degli strumenti, feedback del team</li>
+      </ul>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Fase</th>
+            <th>Obiettivo</th>
+            <th>Durata</th>
+            <th>Budget Indicativo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Assessment</td>
+            <td>Mappatura opportunita</td>
+            <td>2-4 settimane</td>
+            <td>2.000-5.000 euro</td>
+          </tr>
+          <tr>
+            <td>Quick Win</td>
+            <td>Primi risultati tangibili</td>
+            <td>1-3 mesi</td>
+            <td>5.000-15.000 euro</td>
+          </tr>
+          <tr>
+            <td>Consolidamento</td>
+            <td>Espansione a piu processi</td>
+            <td>3-6 mesi</td>
+            <td>15.000-40.000 euro</td>
+          </tr>
+          <tr>
+            <td>Trasformazione</td>
+            <td>Ridisegno modello operativo</td>
+            <td>6-18 mesi</td>
+            <td>40.000-150.000 euro</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Sfide Comuni e Come Superarle</h2>
+
+      <p>Le PMI pugliesi che intraprendono la trasformazione digitale affrontano sfide ricorrenti. Ecco come gestirle:</p>
+
+      <h3>Resistenza al Cambiamento</h3>
+
+      <p><strong>Problema:</strong> Dipendenti e manager diffidenti verso le nuove tecnologie.</p>
+
+      <p><strong>Soluzione:</strong></p>
+      <ul>
+        <li>Coinvolgi il team fin dalla fase di analisi</li>
+        <li>Comunica i benefici in termini concreti (meno lavoro noioso, piu tempo per attivita di valore)</li>
+        <li>Forma con pazienza, rispettando i diversi ritmi di apprendimento</li>
+        <li>Celebra i primi successi pubblicamente</li>
+      </ul>
+
+      <h3>Budget Limitato</h3>
+
+      <p><strong>Problema:</strong> Risorse finanziarie insufficienti per progetti ambiziosi.</p>
+
+      <p><strong>Soluzione:</strong></p>
+      <ul>
+        <li>Parti con strumenti SaaS a basso costo (da 50-200 euro/mese)</li>
+        <li>Sfrutta al massimo gli incentivi disponibili</li>
+        <li>Prioritizza progetti con ROI rapido e dimostrabile</li>
+        <li>Considera modelli di pagamento a risultato con i fornitori</li>
+      </ul>
+
+      <h3>Mancanza di Competenze</h3>
+
+      <p><strong>Problema:</strong> Non ci sono figure tecniche interne.</p>
+
+      <p><strong>Soluzione:</strong></p>
+      <ul>
+        <li>Affidati a partner esterni per l'implementazione</li>
+        <li>Investi in formazione per creare competenze di base interne</li>
+        <li>Scegli soluzioni no-code/low-code gestibili internamente</li>
+        <li>Valuta stage e collaborazioni con universita locali</li>
+      </ul>
+
+      <div class="callout callout--warn">
+        <h4>Errore da Evitare</h4>
+        <p>Non partire dalla tecnologia. Il 65% dei progetti di digitalizzazione fallisce perche si sceglie uno strumento prima di aver chiarito il problema da risolvere. Prima identifica la sfida di business, poi cerca la soluzione tecnologica adatta.</p>
+      </div>
+
+      <h2>I Prossimi Passi per la Tua PMI</h2>
+
+      <p>Se sei pronto a iniziare il percorso di trasformazione digitale della tua azienda pugliese, ecco un piano d'azione pratico:</p>
+
+      <ol>
+        <li><strong>Valuta la tua maturita digitale:</strong> Usa il nostro <a href="../roi-calculator.html">calcolatore ROI</a> per una prima stima del potenziale</li>
+        <li><strong>Identifica 2-3 processi candidati:</strong> Dove perdi piu tempo? Dove ci sono piu errori?</li>
+        <li><strong>Verifica gli incentivi disponibili:</strong> Consulta <a href="ai-incentivi-finanziamenti-italia.html">la nostra guida agli incentivi</a></li>
+        <li><strong>Parla con un esperto:</strong> Un assessment iniziale puo chiarire le priorita</li>
+        <li><strong>Definisci un budget realistico:</strong> Anche 5.000-10.000 euro possono bastare per iniziare</li>
+        <li><strong>Parti con un pilota:</strong> Testa su scala ridotta prima di estendere</li>
+      </ol>
+
+      <h2>Domande Frequenti</h2>
+    </div>
+
+    <div class="faq reveal">
+      <details>
+        <summary>Quali incentivi regionali sono disponibili per la digitalizzazione in Puglia?</summary>
+        <div class="faq__a">La Puglia offre diversi incentivi: POR FESR Puglia 2021-2027 con fondi per innovazione e digitalizzazione, Contratti di Programma Regionali per investimenti strutturali, voucher digitalizzazione per PMI (fino a 10.000 euro), e bandi specifici per Industria 4.0. Inoltre, le imprese pugliesi possono accedere agli incentivi nazionali Transizione 5.0.</div>
+      </details>
+      <details>
+        <summary>Qual e il livello di digitalizzazione delle PMI pugliesi?</summary>
+        <div class="faq__a">Secondo i dati 2025, circa il 35% delle PMI pugliesi ha avviato progetti di digitalizzazione strutturati, in crescita rispetto al 22% del 2022. Tuttavia, solo il 12% utilizza soluzioni AI avanzate. C'e quindi un significativo potenziale di crescita, supportato dagli incentivi regionali e nazionali disponibili.</div>
+      </details>
+      <details>
+        <summary>Quanto costa digitalizzare una PMI in Puglia?</summary>
+        <div class="faq__a">I costi variano in base all'ambito: da 5.000-15.000 euro per digitalizzazione base (gestionale, cloud), a 20.000-50.000 euro per progetti AI intermedi, fino a 50.000-150.000 euro per trasformazioni complete con automazione avanzata. Con gli incentivi regionali e nazionali, e possibile recuperare dal 30% al 50% dell'investimento.</div>
+      </details>
+      <details>
+        <summary>Quali settori pugliesi beneficiano maggiormente dell'AI?</summary>
+        <div class="faq__a">I settori con maggiore impatto sono: agroalimentare (tracciabilita, agricoltura di precisione), turismo e hospitality (personalizzazione, revenue management), manifatturiero (manutenzione predittiva, qualita), moda e tessile (demand forecasting, design), e servizi alle imprese (automazione, customer service).</div>
+      </details>
+      <details>
+        <summary>Come posso accedere ai fondi per la digitalizzazione in Puglia?</summary>
+        <div class="faq__a">Per accedere ai fondi: 1) Monitora i bandi su Sistema Puglia e Puglia Sviluppo, 2) Verifica i requisiti di ammissibilita della tua impresa, 3) Prepara un progetto tecnico dettagliato, 4) Presenta la domanda nei tempi previsti, 5) Considera di affidarti a consulenti specializzati per massimizzare le possibilita di successo.</div>
+      </details>
+    </div>
+
+    <nav class="artnav reveal" aria-label="Navigazione articoli">
+      <a href="consulenza-ai-puglia.html">
+        <div class="artnav__k">Articolo Precedente</div>
+        <div class="artnav__t">Consulenza AI in Puglia</div>
+      </a>
+      <a href="eccellenze-ai-sud-italia.html" class="next">
+        <div class="artnav__k">Prossimo Articolo</div>
+        <div class="artnav__t">Eccellenze AI nel Sud Italia</div>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec sec--dark">
+  <div class="shell">
+    <div class="shead reveal" style="margin-bottom:0">
+      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
+      <h2>Vuoi digitalizzare la tua <span class="serif">PMI pugliese</span>?</h2>
+      <p class="shead__lead">Contattaci per una consulenza gratuita. Ti aiuteremo a identificare le opportunita e gli incentivi disponibili per la tua azienda.</p>
+      <div class="finale__cta" style="margin-top:32px">
+        <a href="../contatti.html" class="btn btn--grad">Prenota una Consulenza
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="../roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
+        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h5>Soluzioni</h5>
+          <a href="../servizi.html">Servizi</a>
+          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
+          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
+          <a href="../acceleratore.html">Acceleratore</a>
         </div>
-    </article>
+        <div class="foot__col">
+          <h5>Azienda</h5>
+          <a href="../chi-siamo.html">Chi siamo</a>
+          <a href="../index.html#metaphor">L'Idea</a>
+          <a href="../index.html#process">Percorso</a>
+          <a href="../casi-studio.html">Casi studio</a>
+          <a href="../contatti.html">Contatti</a>
+        </div>
+        <div class="foot__col">
+          <h5>Legale</h5>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../cookie.html">Cookie</a>
+          <a href="../termini.html">Termini</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
+      <span>Conforme a GDPR e AI Act by design</span>
+    </div>
+  </div>
+</footer>
 
-    <footer id="footer-placeholder"></footer>
-    <script>
-        fetch('../src/components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').outerHTML = data;
-            });
-    </script>
+<script src="../src/assets/js/tree-canvas.js"></script>
+<script src="../src/assets/js/pugliai-landing.js"></script>
+<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>

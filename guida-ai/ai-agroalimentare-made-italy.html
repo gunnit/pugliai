@@ -33,8 +33,10 @@
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/ai-agroalimentare-made-italy.html">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/brand.css">
+    <link rel="stylesheet" href="../src/assets/css/landing.css">
+    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <script type="application/ld+json">
@@ -100,299 +102,317 @@
         ]
     }
     </script>
-
-    <style>
-        .article-hero { background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%); padding: 140px 20px 80px; position: relative; overflow: hidden; }
-        .article-hero::before { content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%); }
-        .article-hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
-        .article-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; font-size: 0.9rem; }
-        .article-breadcrumb a { color: var(--accent-platinum); text-decoration: none; transition: color 0.3s; }
-        .article-breadcrumb a:hover { color: var(--accent-gold); }
-        .article-breadcrumb span { color: var(--accent-gold); }
-        .article-category { display: inline-block; background: var(--gradient-emerald); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
-        .article-hero h1 { font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 20px; line-height: 1.2; }
-        .article-meta-hero { display: flex; flex-wrap: wrap; gap: 24px; color: var(--accent-platinum); font-size: 0.95rem; }
-        .article-meta-hero span { display: flex; align-items: center; gap: 6px; }
-        .article-container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
-        .article-content { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); }
-        .article-content h2 { font-size: 1.8rem; color: var(--primary-navy); margin: 48px 0 24px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-gold); }
-        .article-content h3 { font-size: 1.4rem; color: var(--secondary-navy); margin: 36px 0 16px; }
-        .article-content p { margin-bottom: 20px; }
-        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 24px; }
-        .article-content li { margin-bottom: 12px; }
-        .highlight-box { background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%); border-left: 4px solid var(--accent-gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 12px 12px 0; }
-        .highlight-box h4 { color: var(--primary-navy); margin-bottom: 12px; font-size: 1.1rem; }
-        .stat-highlight { background: var(--gradient-primary); color: white; padding: 32px; border-radius: 16px; margin: 32px 0; text-align: center; }
-        .stat-highlight .number { font-size: 3rem; font-weight: 800; color: var(--accent-gold); display: block; margin-bottom: 8px; }
-        .stat-highlight .label { font-size: 1.1rem; opacity: 0.9; }
-        .comparison-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.95rem; }
-        .comparison-table th { background: var(--primary-navy); color: white; padding: 16px; text-align: left; }
-        .comparison-table td { padding: 14px 16px; border-bottom: 1px solid #e5e7eb; }
-        .comparison-table tr:nth-child(even) { background: #f8fafc; }
-        .faq-section { margin: 48px 0; }
-        .faq-item { border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
-        .faq-question { background: #f8fafc; padding: 20px 24px; font-weight: 600; color: var(--primary-navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 20px 24px; border-top: 1px solid #e5e7eb; }
-        .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; padding-top: 40px; border-top: 2px solid #e5e7eb; }
-        .article-nav a { padding: 24px; background: #f8fafc; border-radius: 12px; text-decoration: none; transition: all 0.3s; border: 1px solid transparent; }
-        .article-nav a:hover { border-color: var(--accent-gold); background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .article-nav .label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
-        .article-nav .title { color: var(--primary-navy); font-weight: 600; }
-        .article-nav .next { text-align: right; }
-        .cta-box { background: var(--gradient-primary); padding: 40px; border-radius: 16px; text-align: center; margin: 48px 0; }
-        .cta-box h3 { color: white; margin-bottom: 16px; }
-        .cta-box p { color: var(--accent-platinum); margin-bottom: 24px; }
-        @media (max-width: 768px) { .article-nav { grid-template-columns: 1fr; } .article-nav .next { text-align: left; } }
-    </style>
 </head>
 <body>
-    <div id="nav-placeholder"></div>
-    <script src="../src/assets/js/navigation.js"></script>
+<a href="#main" class="skip-link">Vai al contenuto</a>
 
-    <article>
-        <header class="article-hero">
-            <div class="article-hero-content">
-                <nav class="article-breadcrumb">
-                    <a href="../index.html">Home</a>
-                    <span>/</span>
-                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
-                    <span>/</span>
-                    <span>AI Agroalimentare</span>
-                </nav>
-                <span class="article-category">AI per Settore</span>
-                <h1>AI nel Settore Agroalimentare: Innovazione Made in Italy 2025</h1>
-                <div class="article-meta-hero">
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 13 min lettura</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Dicembre 2025</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
-                </div>
-            </div>
-        </header>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="../index.html#metaphor">L'Idea</a>
+      <a href="../servizi.html">Servizi</a>
+      <a href="../prodotti.html">On-Premise</a>
+      <a href="../acceleratore.html">Acceleratore</a>
+      <a href="../index.html#process">Percorso</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Lingua">
+        <a href="ai-agroalimentare-made-italy.html" class="on" aria-current="true">IT</a>
+        <a href="../en/ceo-ai-guide-2025.html">EN</a>
+      </div>
+      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="../index.html#metaphor">L'Idea</a>
+  <a href="../servizi.html">Servizi</a>
+  <a href="../prodotti.html">On-Premise</a>
+  <a href="../acceleratore.html">Acceleratore</a>
+  <a href="../index.html#process">Percorso</a>
+  <a href="../contatti.html">Richiedi un preventivo</a>
+</div>
 
-        <div class="article-container">
-            <div class="article-content">
-                <p><strong>L'agroalimentare italiano e un patrimonio da 42,4 miliardi di euro di valore aggiunto, primo in Europa.</strong> Ma e anche un settore minacciato da contraffazioni per 90 miliardi e sfide climatiche crescenti. L'intelligenza artificiale sta diventando l'alleato decisivo per proteggere il Made in Italy e innovare un comparto che ancora oggi vede solo l'8% delle aziende agricole digitalmente mature.</p>
+<main id="main">
 
-                <p>In questo articolo esploriamo come l'AI sta trasformando l'agroalimentare italiano: dall'Agricoltura 4.0 alla lotta contro l'Italian sounding, dalla tracciabilita blockchain all'ottimizzazione della produzione alimentare.</p>
+<!-- PAGE HEADER -->
+<section class="pagehead">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><i>/</i>
+      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
+      <span>AI Agroalimentare</span>
+    </nav>
+    <div class="eyebrow-lux">AI per Settore</div>
+    <h1>AI nel Settore <span class="serif">Agroalimentare</span>: Innovazione Made in Italy 2025</h1>
+    <p class="pagehead__lead">Come l'intelligenza artificiale protegge e innova il food italiano: Agricoltura 4.0, tracciabilita blockchain e la lotta all'Italian sounding.</p>
+    <div class="pagehead__meta">
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 13 min lettura</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Dicembre 2025</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
+    </div>
+  </div>
+</section>
 
-                <div class="stat-highlight">
-                    <span class="number">2,3 mld euro</span>
-                    <span class="label">Valore del mercato Agricoltura 4.0 in Italia (da 100M nel 2017)</span>
-                </div>
+<!-- ARTICLE -->
+<section class="sec sec--light">
+  <div class="shell">
+    <div class="prose reveal">
 
-                <h2>L'Agricoltura 4.0: AI nei Campi Italiani</h2>
+      <p><strong>L'agroalimentare italiano e un patrimonio da 42,4 miliardi di euro di valore aggiunto, primo in Europa.</strong> Ma e anche un settore minacciato da contraffazioni per 90 miliardi e sfide climatiche crescenti. L'intelligenza artificiale sta diventando l'alleato decisivo per proteggere il Made in Italy e innovare un comparto che ancora oggi vede solo l'8% delle aziende agricole digitalmente mature.</p>
 
-                <p>L'Agricoltura 4.0 rappresenta la quarta rivoluzione agricola, dove tecnologie digitali ottimizzano ogni aspetto della produzione:</p>
+      <p>In questo articolo esploriamo come l'AI sta trasformando l'agroalimentare italiano: dall'Agricoltura 4.0 alla lotta contro l'Italian sounding, dalla tracciabilita blockchain all'ottimizzazione della produzione alimentare.</p>
 
-                <h3>Tecnologie Chiave</h3>
+      <div class="statbox">
+        <span class="statbox__n">2,3 mld euro</span>
+        <span class="statbox__l">Valore del mercato Agricoltura 4.0 in Italia (da 100M nel 2017)</span>
+      </div>
 
-                <ul>
-                    <li><strong>AI e Machine Learning:</strong> Previsioni meteo locali, analisi del suolo, rilevamento malattie</li>
-                    <li><strong>IoT e Sensori:</strong> Monitoraggio continuo di umidita, temperatura, nutrienti</li>
-                    <li><strong>Droni e Satelliti:</strong> Mappatura campi, rilevamento stress idrico, monitoraggio crescita</li>
-                    <li><strong>Robotica:</strong> Raccolta automatizzata, diserbo di precisione, potatura</li>
-                </ul>
+      <h2>L'Agricoltura 4.0: AI nei Campi Italiani</h2>
 
-                <div class="highlight-box">
-                    <h4>I Numeri dell'Agricoltura 4.0 in Italia</h4>
-                    <ul>
-                        <li><strong>2,3 miliardi di euro:</strong> Valore del mercato (crescita 23x dal 2017)</li>
-                        <li><strong>8%:</strong> Aziende agricole digitalmente mature</li>
-                        <li><strong>9,5%:</strong> Superficie agricola con soluzioni 4.0</li>
-                        <li><strong>50%:</strong> Startup agrifoodtech concentrate nel Nord Italia</li>
-                        <li><strong>77%:</strong> Nuove startup sviluppano tecnologie in-house</li>
-                    </ul>
-                </div>
+      <p>L'Agricoltura 4.0 rappresenta la quarta rivoluzione agricola, dove tecnologie digitali ottimizzano ogni aspetto della produzione:</p>
 
-                <h3>Applicazioni AI Concrete</h3>
+      <h3>Tecnologie Chiave</h3>
 
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Applicazione</th>
-                            <th>Beneficio</th>
-                            <th>Risparmio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Irrigazione di precisione</td>
-                            <td>Dosaggio ottimale acqua</td>
-                            <td>-30% consumo idrico</td>
-                        </tr>
-                        <tr>
-                            <td>Fertilizzazione variabile</td>
-                            <td>Solo dove serve, quanto serve</td>
-                            <td>-25% fertilizzanti</td>
-                        </tr>
-                        <tr>
-                            <td>Previsione raccolti</td>
-                            <td>Pianificazione logistica</td>
-                            <td>Precisione 90%</td>
-                        </tr>
-                        <tr>
-                            <td>Rilevamento malattie</td>
-                            <td>Intervento precoce mirato</td>
-                            <td>-40% fitofarmaci</td>
-                        </tr>
-                        <tr>
-                            <td>Ottimizzazione macchinari</td>
-                            <td>Percorsi e tempi ottimali</td>
-                            <td>-20% carburante</td>
-                        </tr>
-                    </tbody>
-                </table>
+      <ul>
+        <li><strong>AI e Machine Learning:</strong> Previsioni meteo locali, analisi del suolo, rilevamento malattie</li>
+        <li><strong>IoT e Sensori:</strong> Monitoraggio continuo di umidita, temperatura, nutrienti</li>
+        <li><strong>Droni e Satelliti:</strong> Mappatura campi, rilevamento stress idrico, monitoraggio crescita</li>
+        <li><strong>Robotica:</strong> Raccolta automatizzata, diserbo di precisione, potatura</li>
+      </ul>
 
-                <h2>AI Contro l'Italian Sounding</h2>
+      <div class="callout">
+        <h4>I Numeri dell'Agricoltura 4.0 in Italia</h4>
+        <ul>
+          <li><strong>2,3 miliardi di euro:</strong> Valore del mercato (crescita 23x dal 2017)</li>
+          <li><strong>8%:</strong> Aziende agricole digitalmente mature</li>
+          <li><strong>9,5%:</strong> Superficie agricola con soluzioni 4.0</li>
+          <li><strong>50%:</strong> Startup agrifoodtech concentrate nel Nord Italia</li>
+          <li><strong>77%:</strong> Nuove startup sviluppano tecnologie in-house</li>
+        </ul>
+      </div>
 
-                <p>L'"Italian sounding" - prodotti che evocano l'Italia senza esserlo - causa danni per <strong>oltre 90 miliardi di euro</strong> all'economia nazionale. L'AI sta diventando l'arma principale per combattere questo fenomeno:</p>
+      <h3>Applicazioni AI Concrete</h3>
 
-                <h3>Tracciabilita con Blockchain e AI</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Applicazione</th>
+            <th>Beneficio</th>
+            <th>Risparmio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Irrigazione di precisione</td>
+            <td>Dosaggio ottimale acqua</td>
+            <td>-30% consumo idrico</td>
+          </tr>
+          <tr>
+            <td>Fertilizzazione variabile</td>
+            <td>Solo dove serve, quanto serve</td>
+            <td>-25% fertilizzanti</td>
+          </tr>
+          <tr>
+            <td>Previsione raccolti</td>
+            <td>Pianificazione logistica</td>
+            <td>Precisione 90%</td>
+          </tr>
+          <tr>
+            <td>Rilevamento malattie</td>
+            <td>Intervento precoce mirato</td>
+            <td>-40% fitofarmaci</td>
+          </tr>
+          <tr>
+            <td>Ottimizzazione macchinari</td>
+            <td>Percorsi e tempi ottimali</td>
+            <td>-20% carburante</td>
+          </tr>
+        </tbody>
+      </table>
 
-                <p>La combinazione di blockchain e AI crea sistemi di tracciabilita imbattibili:</p>
+      <h2>AI Contro l'Italian Sounding</h2>
 
-                <ul>
-                    <li><strong>Registro immutabile:</strong> Ogni passaggio della filiera registrato e non modificabile</li>
-                    <li><strong>Verifica automatica:</strong> AI che valida la coerenza dei dati in tempo reale</li>
-                    <li><strong>QR code intelligenti:</strong> Consumatori possono verificare autenticita dal cellulare</li>
-                    <li><strong>Alert automatici:</strong> Sistema segnala anomalie e possibili contraffazioni</li>
-                </ul>
+      <p>L'"Italian sounding" - prodotti che evocano l'Italia senza esserlo - causa danni per <strong>oltre 90 miliardi di euro</strong> all'economia nazionale. L'AI sta diventando l'arma principale per combattere questo fenomeno:</p>
 
-                <h3>Riconoscimento Contraffazioni Online</h3>
+      <h3>Tracciabilita con Blockchain e AI</h3>
 
-                <p>Algoritmi AI scandagliano marketplace e social per identificare prodotti falsi:</p>
+      <p>La combinazione di blockchain e AI crea sistemi di tracciabilita imbattibili:</p>
 
-                <ul>
-                    <li><strong>Image recognition:</strong> Confronto packaging con originali</li>
-                    <li><strong>NLP:</strong> Analisi di etichette e descrizioni per scovare imitazioni</li>
-                    <li><strong>Price monitoring:</strong> Prezzi anomali che indicano possibili falsi</li>
-                    <li><strong>Seller analysis:</strong> Identificazione di venditori sospetti</li>
-                </ul>
+      <ul>
+        <li><strong>Registro immutabile:</strong> Ogni passaggio della filiera registrato e non modificabile</li>
+        <li><strong>Verifica automatica:</strong> AI che valida la coerenza dei dati in tempo reale</li>
+        <li><strong>QR code intelligenti:</strong> Consumatori possono verificare autenticita dal cellulare</li>
+        <li><strong>Alert automatici:</strong> Sistema segnala anomalie e possibili contraffazioni</li>
+      </ul>
 
-                <div class="stat-highlight">
-                    <span class="number">90+ mld euro</span>
-                    <span class="label">Danno annuale all'Italia dall'Italian sounding</span>
-                </div>
+      <h3>Riconoscimento Contraffazioni Online</h3>
 
-                <h2>Progetti Strategici Italiani</h2>
+      <p>Algoritmi AI scandagliano marketplace e social per identificare prodotti falsi:</p>
 
-                <h3>AgrifoodTEF</h3>
+      <ul>
+        <li><strong>Image recognition:</strong> Confronto packaging con originali</li>
+        <li><strong>NLP:</strong> Analisi di etichette e descrizioni per scovare imitazioni</li>
+        <li><strong>Price monitoring:</strong> Prezzi anomali che indicano possibili falsi</li>
+        <li><strong>Seller analysis:</strong> Identificazione di venditori sospetti</li>
+      </ul>
 
-                <p>Coordinato dalla Fondazione Bruno Kessler di Trento, il progetto europeo <strong>AgrifoodTEF</strong> (lanciato febbraio 2023) sperimenta e promuove servizi AI e robotica nel settore agroalimentare con un budget di <strong>60 milioni di euro</strong>.</p>
+      <div class="statbox">
+        <span class="statbox__n">90+ mld euro</span>
+        <span class="statbox__l">Danno annuale all'Italia dall'Italian sounding</span>
+      </div>
 
-                <h3>IT4LIA AI Factory</h3>
+      <h2>Progetti Strategici Italiani</h2>
 
-                <p>L'iniziativa nazionale IT4LIA, cofinanziata dal Ministero dell'Universita e Ricerca, ACN e Fondazione Bruno Kessler, posiziona l'Italia come laboratorio internazionale per l'innovazione con applicazioni strategiche nell'agritech.</p>
+      <h3>AgrifoodTEF</h3>
 
-                <h2>AI nella Trasformazione Alimentare</h2>
+      <p>Coordinato dalla Fondazione Bruno Kessler di Trento, il progetto europeo <strong>AgrifoodTEF</strong> (lanciato febbraio 2023) sperimenta e promuove servizi AI e robotica nel settore agroalimentare con un budget di <strong>60 milioni di euro</strong>.</p>
 
-                <p>Oltre ai campi, l'AI sta rivoluzionando anche la trasformazione e distribuzione alimentare:</p>
+      <h3>IT4LIA AI Factory</h3>
 
-                <h3>Controllo Qualita Automatizzato</h3>
+      <p>L'iniziativa nazionale IT4LIA, cofinanziata dal Ministero dell'Universita e Ricerca, ACN e Fondazione Bruno Kessler, posiziona l'Italia come laboratorio internazionale per l'innovazione con applicazioni strategiche nell'agritech.</p>
 
-                <ul>
-                    <li><strong>Computer vision:</strong> Ispezione visiva al 100% della produzione</li>
-                    <li><strong>Rilevamento contaminanti:</strong> Identificazione corpi estranei invisibili all'occhio</li>
-                    <li><strong>Classificazione automatica:</strong> Sorting per qualita, calibro, maturazione</li>
-                    <li><strong>Predizione shelf-life:</strong> Stima precisa della durabilita</li>
-                </ul>
+      <h2>AI nella Trasformazione Alimentare</h2>
 
-                <h3>Ottimizzazione Produzione</h3>
+      <p>Oltre ai campi, l'AI sta rivoluzionando anche la trasformazione e distribuzione alimentare:</p>
 
-                <ul>
-                    <li><strong>Demand forecasting:</strong> Previsione domanda per ridurre sprechi</li>
-                    <li><strong>Recipe optimization:</strong> Formulazioni ottimali per gusto e costo</li>
-                    <li><strong>Energy management:</strong> Riduzione consumi energetici in stabilimento</li>
-                    <li><strong>Manutenzione predittiva:</strong> Prevenzione fermi impianto</li>
-                </ul>
+      <h3>Controllo Qualita Automatizzato</h3>
 
-                <div class="highlight-box">
-                    <h4>Trend Globale</h4>
-                    <p>Il mercato globale dell'AI nel settore food crescera del <strong>39,1% annuo</strong> fino al 2030. Il <strong>50%</strong> delle aziende alimentari sta pianificando investimenti AI per il 2025. L'Italia, con il suo patrimonio enogastronomico, ha tutto da guadagnare da questa trasformazione.</p>
-                </div>
+      <ul>
+        <li><strong>Computer vision:</strong> Ispezione visiva al 100% della produzione</li>
+        <li><strong>Rilevamento contaminanti:</strong> Identificazione corpi estranei invisibili all'occhio</li>
+        <li><strong>Classificazione automatica:</strong> Sorting per qualita, calibro, maturazione</li>
+        <li><strong>Predizione shelf-life:</strong> Stima precisa della durabilita</li>
+      </ul>
 
-                <h2>Come Iniziare: Guida per PMI Agroalimentari</h2>
+      <h3>Ottimizzazione Produzione</h3>
 
-                <ol>
-                    <li><strong>Valuta la maturita digitale:</strong> Hai dati sulla produzione? Sistemi gestionali?</li>
-                    <li><strong>Identifica il pain point principale:</strong> Sprechi? Qualita? Tracciabilita?</li>
-                    <li><strong>Parti da un progetto pilota:</strong> Un campo, una linea, un prodotto</li>
-                    <li><strong>Considera i finanziamenti:</strong> Transizione 5.0, PSR regionali, PNRR</li>
-                    <li><strong>Cerca partner tecnologici locali:</strong> Competence center, universita, startup</li>
-                </ol>
+      <ul>
+        <li><strong>Demand forecasting:</strong> Previsione domanda per ridurre sprechi</li>
+        <li><strong>Recipe optimization:</strong> Formulazioni ottimali per gusto e costo</li>
+        <li><strong>Energy management:</strong> Riduzione consumi energetici in stabilimento</li>
+        <li><strong>Manutenzione predittiva:</strong> Prevenzione fermi impianto</li>
+      </ul>
 
-                <h2>Opportunita di Finanziamento</h2>
+      <div class="callout">
+        <h4>Trend Globale</h4>
+        <p>Il mercato globale dell'AI nel settore food crescera del <strong>39,1% annuo</strong> fino al 2030. Il <strong>50%</strong> delle aziende alimentari sta pianificando investimenti AI per il 2025. L'Italia, con il suo patrimonio enogastronomico, ha tutto da guadagnare da questa trasformazione.</p>
+      </div>
 
-                <p>Numerosi strumenti supportano l'adozione di AI nell'agroalimentare:</p>
+      <h2>Come Iniziare: Guida per PMI Agroalimentari</h2>
 
-                <ul>
-                    <li><strong>Transizione 5.0:</strong> Credito d'imposta 35-45% per tecnologie digitali</li>
-                    <li><strong>PSR Regionali:</strong> Fondi europei per modernizzazione agricola</li>
-                    <li><strong>PNRR Agritech:</strong> Risorse dedicate all'innovazione agricola</li>
-                    <li><strong>Bandi camerali:</strong> Contributi locali per digitalizzazione PMI</li>
-                </ul>
+      <ol>
+        <li><strong>Valuta la maturita digitale:</strong> Hai dati sulla produzione? Sistemi gestionali?</li>
+        <li><strong>Identifica il pain point principale:</strong> Sprechi? Qualita? Tracciabilita?</li>
+        <li><strong>Parti da un progetto pilota:</strong> Un campo, una linea, un prodotto</li>
+        <li><strong>Considera i finanziamenti:</strong> Transizione 5.0, PSR regionali, PNRR</li>
+        <li><strong>Cerca partner tecnologici locali:</strong> Competence center, universita, startup</li>
+      </ol>
 
-                <section class="faq-section">
-                    <h2>Domande Frequenti</h2>
+      <h2>Opportunita di Finanziamento</h2>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Cos'e l'Agricoltura 4.0?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>L'Agricoltura 4.0 integra tecnologie digitali come AI, IoT, droni e sensori per ottimizzare la produzione agricola. In Italia vale 2,3 miliardi di euro e permette di ridurre sprechi, ottimizzare irrigazione e fertilizzanti, e prevedere raccolti con precisione del 90%.</p>
-                        </div>
-                    </div>
+      <p>Numerosi strumenti supportano l'adozione di AI nell'agroalimentare:</p>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Come l'AI combatte l'Italian sounding?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>L'AI combinata con blockchain crea sistemi di tracciabilita immutabili che certificano l'origine dei prodotti. Algoritmi di image recognition identificano prodotti contraffatti online, mentre NLP analizza etichette e descrizioni per scovare imitazioni. Il danno dell'Italian sounding supera i 90 miliardi di euro.</p>
-                        </div>
-                    </div>
+      <ul>
+        <li><strong>Transizione 5.0:</strong> Credito d'imposta 35-45% per tecnologie digitali</li>
+        <li><strong>PSR Regionali:</strong> Fondi europei per modernizzazione agricola</li>
+        <li><strong>PNRR Agritech:</strong> Risorse dedicate all'innovazione agricola</li>
+        <li><strong>Bandi camerali:</strong> Contributi locali per digitalizzazione PMI</li>
+      </ul>
 
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Quanto e diffusa l'Agricoltura 4.0 in Italia?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Solo l'8% delle aziende agricole italiane e digitalmente maturo e l'area agricola interessata da soluzioni 4.0 e al 9,5%. Tuttavia il mercato e cresciuto da 100 milioni nel 2017 a 2,3 miliardi attuali. Il Nord Italia concentra il 50% delle startup agrifoodtech.</p>
-                        </div>
-                    </div>
-                </section>
+      <h2>Domande Frequenti</h2>
+    </div>
 
-                <div class="cta-box">
-                    <h3 style="color: white; margin-top: 0;">Vuoi Innovare la Tua Azienda Agroalimentare?</h3>
-                    <p>Scopri come l'AI puo proteggere e valorizzare i tuoi prodotti Made in Italy.</p>
-                    <a href="../contatti.html" class="btn btn-primary btn-lg">Richiedi Consulenza</a>
-                </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Cos'e l'Agricoltura 4.0?</summary>
+        <div class="faq__a">L'Agricoltura 4.0 integra tecnologie digitali come AI, IoT, droni e sensori per ottimizzare la produzione agricola. In Italia vale 2,3 miliardi di euro e permette di ridurre sprechi, ottimizzare irrigazione e fertilizzanti, e prevedere raccolti con precisione del 90%.</div>
+      </details>
+      <details>
+        <summary>Come l'AI combatte l'Italian sounding?</summary>
+        <div class="faq__a">L'AI combinata con blockchain crea sistemi di tracciabilita immutabili che certificano l'origine dei prodotti. Algoritmi di image recognition identificano prodotti contraffatti online, mentre NLP analizza etichette e descrizioni per scovare imitazioni. Il danno dell'Italian sounding supera i 90 miliardi di euro.</div>
+      </details>
+      <details>
+        <summary>Quanto e diffusa l'Agricoltura 4.0 in Italia?</summary>
+        <div class="faq__a">Solo l'8% delle aziende agricole italiane e digitalmente maturo e l'area agricola interessata da soluzioni 4.0 e al 9,5%. Tuttavia il mercato e cresciuto da 100 milioni nel 2017 a 2,3 miliardi attuali. Il Nord Italia concentra il 50% delle startup agrifoodtech.</div>
+      </details>
+    </div>
 
-                <nav class="article-nav">
-                    <a href="ai-cybersecurity-aziendale.html">
-                        <div class="label">Articolo Precedente</div>
-                        <div class="title">AI e Cybersecurity Aziendale</div>
-                    </a>
-                    <a href="ai-turismo-hospitality.html" class="next">
-                        <div class="label">Prossimo Articolo</div>
-                        <div class="title">AI nel Turismo e Hospitality</div>
-                    </a>
-                </nav>
-            </div>
+    <nav class="artnav reveal" aria-label="Navigazione articoli">
+      <a href="ai-cybersecurity-aziendale.html">
+        <div class="artnav__k">Articolo Precedente</div>
+        <div class="artnav__t">AI e Cybersecurity Aziendale</div>
+      </a>
+      <a href="ai-turismo-hospitality.html" class="next">
+        <div class="artnav__k">Prossimo Articolo</div>
+        <div class="artnav__t">AI nel Turismo e Hospitality</div>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec sec--dark">
+  <div class="shell">
+    <div class="shead reveal" style="margin-bottom:0">
+      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
+      <h2>Vuoi innovare la tua <span class="serif">azienda agroalimentare</span>?</h2>
+      <p class="shead__lead">Scopri come l'AI puo proteggere e valorizzare i tuoi prodotti Made in Italy.</p>
+      <div class="finale__cta" style="margin-top:32px">
+        <a href="../contatti.html" class="btn btn--grad">Richiedi Consulenza
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="../roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
+        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h5>Soluzioni</h5>
+          <a href="../servizi.html">Servizi</a>
+          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
+          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
+          <a href="../acceleratore.html">Acceleratore</a>
         </div>
-    </article>
+        <div class="foot__col">
+          <h5>Azienda</h5>
+          <a href="../chi-siamo.html">Chi siamo</a>
+          <a href="../index.html#metaphor">L'Idea</a>
+          <a href="../index.html#process">Percorso</a>
+          <a href="../casi-studio.html">Casi studio</a>
+          <a href="../contatti.html">Contatti</a>
+        </div>
+        <div class="foot__col">
+          <h5>Legale</h5>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../cookie.html">Cookie</a>
+          <a href="../termini.html">Termini</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
+      <span>Conforme a GDPR e AI Act by design</span>
+    </div>
+  </div>
+</footer>
 
-    <footer id="footer-placeholder"></footer>
-    <script>
-        fetch('../src/components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').outerHTML = data;
-            });
-    </script>
+<script src="../src/assets/js/tree-canvas.js"></script>
+<script src="../src/assets/js/pugliai-landing.js"></script>
+<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>

@@ -33,8 +33,10 @@
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/come-iniziare-ai-pmi.html">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/brand.css">
+    <link rel="stylesheet" href="../src/assets/css/landing.css">
+    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <script type="application/ld+json">
@@ -177,933 +179,585 @@
         "totalTime": "P12M"
     }
     </script>
-
-    <style>
-        .article-hero {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
-            padding: 140px 20px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        .article-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 100%;
-            background: radial-gradient(circle at 70% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 60%);
-        }
-        .article-hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        .article-breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 24px;
-            font-size: 0.9rem;
-        }
-        .article-breadcrumb a {
-            color: var(--accent-platinum);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .article-breadcrumb a:hover {
-            color: var(--accent-gold);
-        }
-        .article-breadcrumb span {
-            color: var(--accent-gold);
-        }
-        .article-category {
-            display: inline-block;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-        .article-hero h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: white;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        .article-meta-hero {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            color: var(--accent-platinum);
-            font-size: 0.95rem;
-        }
-        .article-meta-hero span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .article-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        .article-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-        .article-content h2 {
-            font-size: 1.8rem;
-            color: var(--primary-navy);
-            margin: 48px 0 24px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-        .article-content h3 {
-            font-size: 1.4rem;
-            color: var(--secondary-navy);
-            margin: 36px 0 16px;
-        }
-        .article-content p {
-            margin-bottom: 20px;
-        }
-        .article-content ul, .article-content ol {
-            margin: 20px 0;
-            padding-left: 24px;
-        }
-        .article-content li {
-            margin-bottom: 12px;
-        }
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
-            border-left: 4px solid var(--accent-gold);
-            padding: 24px 28px;
-            margin: 32px 0;
-            border-radius: 0 12px 12px 0;
-        }
-        .highlight-box h4 {
-            color: var(--primary-navy);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        .warning-box {
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(239, 68, 68, 0.05) 100%);
-            border-left: 4px solid #dc2626;
-            padding: 24px 28px;
-            margin: 32px 0;
-            border-radius: 0 12px 12px 0;
-        }
-        .warning-box h4 {
-            color: #dc2626;
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        .stat-highlight {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 32px;
-            border-radius: 16px;
-            margin: 32px 0;
-            text-align: center;
-        }
-        .stat-highlight .number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            display: block;
-            margin-bottom: 8px;
-        }
-        .stat-highlight .label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        .step-box {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.03) 100%);
-            border-left: 4px solid #10b981;
-            padding: 24px 28px;
-            margin: 32px 0;
-            border-radius: 0 12px 12px 0;
-        }
-        .step-box h4 {
-            color: #059669;
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-right: 12px;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 32px 0;
-            font-size: 0.95rem;
-        }
-        .comparison-table th {
-            background: var(--primary-navy);
-            color: white;
-            padding: 16px;
-            text-align: left;
-        }
-        .comparison-table td {
-            padding: 14px 16px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .comparison-table tr:nth-child(even) {
-            background: #f8fafc;
-        }
-        .checklist-box {
-            background: #f0fdf4;
-            border: 2px solid #22c55e;
-            border-radius: 16px;
-            padding: 32px;
-            margin: 32px 0;
-        }
-        .checklist-box h4 {
-            color: #15803d;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-        .checklist-box ul {
-            list-style: none;
-            padding: 0;
-        }
-        .checklist-box li {
-            padding: 12px 0;
-            padding-left: 36px;
-            position: relative;
-            border-bottom: 1px solid #dcfce7;
-        }
-        .checklist-box li:last-child {
-            border-bottom: none;
-        }
-        .checklist-box li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 14px;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #22c55e;
-            border-radius: 4px;
-        }
-        .quickwin-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
-            border: 2px solid #f59e0b;
-            border-radius: 16px;
-            padding: 32px;
-            margin: 32px 0;
-        }
-        .quickwin-box h4 {
-            color: #b45309;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .quickwin-item {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 16px;
-            border: 1px solid #fcd34d;
-        }
-        .quickwin-item:last-child {
-            margin-bottom: 0;
-        }
-        .quickwin-item h5 {
-            color: #92400e;
-            margin-bottom: 8px;
-            font-size: 1rem;
-        }
-        .quickwin-item p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #78350f;
-        }
-        .quickwin-item .meta {
-            display: flex;
-            gap: 16px;
-            margin-top: 12px;
-            font-size: 0.85rem;
-            color: #a16207;
-        }
-        .faq-section {
-            margin: 48px 0;
-        }
-        .faq-item {
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            overflow: hidden;
-        }
-        .faq-question {
-            background: #f8fafc;
-            padding: 20px 24px;
-            font-weight: 600;
-            color: var(--primary-navy);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-answer {
-            padding: 20px 24px;
-            border-top: 1px solid #e5e7eb;
-        }
-        .article-nav {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 2px solid #e5e7eb;
-        }
-        .article-nav a {
-            padding: 24px;
-            background: #f8fafc;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
-        .article-nav a:hover {
-            border-color: var(--accent-gold);
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .article-nav .label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-        .article-nav .title {
-            color: var(--primary-navy);
-            font-weight: 600;
-        }
-        .article-nav .next {
-            text-align: right;
-        }
-        .cta-box {
-            background: var(--gradient-primary);
-            padding: 40px;
-            border-radius: 16px;
-            text-align: center;
-            margin: 48px 0;
-        }
-        .cta-box h3 {
-            color: white;
-            margin-bottom: 16px;
-        }
-        .cta-box p {
-            color: var(--accent-platinum);
-            margin-bottom: 24px;
-        }
-        .timeline-box {
-            background: #fefce8;
-            border-left: 4px solid #eab308;
-            padding: 24px 28px;
-            margin: 32px 0;
-            border-radius: 0 12px 12px 0;
-        }
-        .timeline-box h4 {
-            color: #a16207;
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        .phase-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin: 32px 0;
-        }
-        .phase-item {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-        .phase-marker {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
-            color: var(--accent-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-        .phase-content {
-            flex: 1;
-        }
-        .phase-content h5 {
-            color: var(--primary-navy);
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-        }
-        .phase-content p {
-            margin: 0;
-            color: var(--text-secondary);
-        }
-        @media (max-width: 768px) {
-            .article-nav {
-                grid-template-columns: 1fr;
-            }
-            .article-nav .next {
-                text-align: left;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div id="nav-placeholder"></div>
-    <script src="../src/assets/js/navigation.js"></script>
-
-    <article>
-        <header class="article-hero">
-            <div class="article-hero-content">
-                <nav class="article-breadcrumb">
-                    <a href="../index.html">Home</a>
-                    <span>/</span>
-                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
-                    <span>/</span>
-                    <span>Come Iniziare con l'AI</span>
-                </nav>
-                <span class="article-category">Implementazione Pratica</span>
-                <h1>Come Iniziare con l'AI: 7 Primi Passi per le PMI</h1>
-                <div class="article-meta-hero">
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 16 min lettura</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Novembre 2025</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Base</span>
-                </div>
-            </div>
-        </header>
-
-        <div class="article-container">
-            <div class="article-content">
-                <p><strong>Hai sentito parlare di AI, chatbot, automazione.</strong> I tuoi competitor stanno sperimentando. I tuoi dipendenti usano ChatGPT di nascosto. Ma da dove si inizia davvero? Come si passa dalle chiacchiere ai risultati concreti, senza bruciare budget e senza illudersi?</p>
-
-                <p>Questa guida ti accompagna attraverso i <strong>7 passi fondamentali</strong> per introdurre l'intelligenza artificiale nella tua PMI. Niente teoria astratta: solo azioni concrete, budget realistici e un percorso testato su decine di aziende italiane.</p>
-
-                <div class="stat-highlight">
-                    <span class="number">26,7%</span>
-                    <span class="label">PMI italiane che usano AI nel 2025 - crescita del 50% rispetto al 2024</span>
-                </div>
-
-                <p>Il momento e adesso. Ma la fretta e il nemico numero uno: oltre il <strong>70% dei progetti AI non supera la fase pilota</strong>. Non per mancanza di tecnologia, ma per errori evitabili nella fase di avvio. Questa guida ti aiuta a non commettere quegli errori.</p>
-
-                <h2>Perche la Tua PMI Dovrebbe Iniziare con l'AI Oggi?</h2>
-
-                <p>Prima dei "come", affrontiamo i "perche". L'adozione dell'AI nelle PMI italiane e in forte accelerazione, ma non tutti i settori procedono alla stessa velocita.</p>
-
-                <p><strong>I numeri parlano chiaro:</strong> le aziende che hanno implementato soluzioni AI nel 2024 riportano un <strong>ROI medio di 1,7 volte l'investimento</strong> nel primo anno. Non e magia - e il risultato di processi piu efficienti, risposte piu rapide ai clienti, e decisioni basate sui dati invece che sulle intuizioni.</p>
-
-                <div class="highlight-box">
-                    <h4>Chi sta guidando l'adozione AI in Italia</h4>
-                    <p>I settori con maggiore penetrazione AI sono: manifatturiero (predictive maintenance), servizi finanziari (fraud detection), retail (customer service), e professional services (automazione documentale). Le PMI del Nord Italia sono in vantaggio, ma il gap si sta riducendo rapidamente.</p>
-                </div>
-
-                <p>L'<strong>85% delle aziende che iniziano con l'AI</strong> parte da due aree: customer service e marketing. Non e un caso - sono i settori dove l'impatto e piu immediato e misurabile. Ma non sono gli unici: vedremo come identificare le opportunita specifiche per la tua realta.</p>
-
-                <h2>Come Valutare la Maturita Digitale della Tua Azienda?</h2>
-
-                <p><span class="step-number">1</span><strong>PASSO 1: Audit delle Capacita Attuali</strong></p>
-
-                <p>Prima di correre a implementare chatbot e automazioni, devi capire il punto di partenza. La maturita digitale della tua azienda determina quali progetti AI sono fattibili oggi e quali richiedono preparazione.</p>
-
-                <div class="checklist-box">
-                    <h4>AI Readiness Checklist - Valuta la Tua PMI</h4>
-                    <ul>
-                        <li><strong>Dati digitalizzati:</strong> I dati aziendali chiave sono in formato digitale e accessibili?</li>
-                        <li><strong>Processi documentati:</strong> Esistono procedure scritte per le attivita ripetitive?</li>
-                        <li><strong>Infrastruttura cloud:</strong> Usi servizi cloud (email, CRM, storage)?</li>
-                        <li><strong>Competenze base:</strong> Il team sa usare strumenti digitali (Excel, software gestionali)?</li>
-                        <li><strong>Budget dedicato:</strong> Puoi allocare 100-500 euro/mese per sperimentare?</li>
-                        <li><strong>Sponsor interno:</strong> C'e un manager disponibile a seguire il progetto?</li>
-                        <li><strong>Tolleranza al cambiamento:</strong> L'azienda ha gia affrontato con successo cambiamenti tecnologici?</li>
-                        <li><strong>Obiettivi chiari:</strong> Sai identificare 2-3 problemi specifici che vorresti risolvere?</li>
-                    </ul>
-                </div>
-
-                <p><strong>Interpretazione:</strong> Se hai risposto si a 6+ domande, sei pronto per progetti AI strutturati. Con 4-5 si, parti da quick wins semplici. Meno di 4? Concentrati prima sulla digitalizzazione base.</p>
-
-                <div class="stat-highlight">
-                    <span class="number">100-500 euro</span>
-                    <span class="label">Budget mensile minimo per iniziare con l'AI in una PMI</span>
-                </div>
-
-                <h3>Cosa fare se la maturita e bassa</h3>
-
-                <p>Non disperare se il punteggio e basso. Puoi comunque iniziare, ma con progetti piu semplici:</p>
-
-                <ul>
-                    <li><strong>Digitalizza prima i dati critici:</strong> Clienti, ordini, inventario in un sistema accessibile</li>
-                    <li><strong>Documenta i processi chiave:</strong> Come gestite le richieste clienti? Come elaborate gli ordini?</li>
-                    <li><strong>Sperimenta strumenti gratuiti:</strong> ChatGPT free per la generazione contenuti, Canva AI per la grafica</li>
-                    <li><strong>Forma un piccolo gruppo:</strong> 2-3 persone che diventino i "champion" dell'innovazione</li>
-                </ul>
-
-                <h2>Quali Casi d'Uso AI Offrono il ROI Piu Alto per le PMI?</h2>
-
-                <p><span class="step-number">2</span><strong>PASSO 2: Identificare Opportunita ad Alto Impatto</strong></p>
-
-                <p>Non tutti i progetti AI sono uguali. Alcuni richiedono mesi di sviluppo e budget consistenti. Altri portano risultati visibili in settimane con investimenti minimi. Il segreto e scegliere i progetti giusti per la fase in cui ti trovi.</p>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Caso d'Uso</th>
-                            <th>Complessita</th>
-                            <th>ROI Atteso</th>
-                            <th>Time to Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Chatbot FAQ sito web</td>
-                            <td>Bassa</td>
-                            <td>Alto (riduzione ticket 30-50%)</td>
-                            <td>2-4 settimane</td>
-                        </tr>
-                        <tr>
-                            <td>Automazione email marketing</td>
-                            <td>Bassa</td>
-                            <td>Medio-Alto (+20-40% engagement)</td>
-                            <td>4-6 settimane</td>
-                        </tr>
-                        <tr>
-                            <td>Generazione contenuti</td>
-                            <td>Bassa</td>
-                            <td>Alto (riduzione tempo 60-80%)</td>
-                            <td>Immediato</td>
-                        </tr>
-                        <tr>
-                            <td>Analisi documenti/contratti</td>
-                            <td>Media</td>
-                            <td>Alto (riduzione errori 90%)</td>
-                            <td>4-8 settimane</td>
-                        </tr>
-                        <tr>
-                            <td>Predictive maintenance</td>
-                            <td>Alta</td>
-                            <td>Molto Alto (-25% downtime)</td>
-                            <td>3-6 mesi</td>
-                        </tr>
-                        <tr>
-                            <td>AI vendite/lead scoring</td>
-                            <td>Media</td>
-                            <td>Alto (+15-30% conversioni)</td>
-                            <td>2-3 mesi</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3>Framework per la prioritizzazione</h3>
-
-                <p>Per ogni potenziale progetto AI, valuta questi criteri:</p>
-
-                <ul>
-                    <li><strong>Impatto sul business:</strong> Quanto influisce su fatturato, costi, o soddisfazione clienti?</li>
-                    <li><strong>Disponibilita dati:</strong> Hai i dati necessari per alimentare l'AI?</li>
-                    <li><strong>Complessita tecnica:</strong> Richiede sviluppo custom o esistono soluzioni pronte?</li>
-                    <li><strong>Resistenza organizzativa:</strong> Il team accettera il cambiamento?</li>
-                    <li><strong>Misurabilita:</strong> Puoi quantificare il successo in modo oggettivo?</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <h4>Regola d'Oro: Inizia dal Dolore</h4>
-                    <p>I progetti AI di successo nascono da problemi reali, non da fascinazione tecnologica. Chiediti: qual e l'attivita che il mio team odia fare? Dove perdiamo tempo? Dove facciamo errori ripetuti? Li c'e l'opportunita.</p>
-                </div>
-
-                <h2>Come Scegliere e Avviare un Progetto Pilota AI?</h2>
-
-                <p><span class="step-number">3</span><strong>PASSO 3: Partire con Progetti Pilota</strong></p>
-
-                <p>Il progetto pilota (PoC - Proof of Concept) e il momento della verita. E dove il <strong>70% dei progetti AI fallisce</strong>. Non per problemi tecnici, ma per errori di impostazione che puoi evitare.</p>
-
-                <div class="warning-box">
-                    <h4>Perche i PoC Falliscono</h4>
-                    <p><strong>Errore #1:</strong> Obiettivi troppo ambiziosi ("Vogliamo un AI che faccia tutto")<br>
-                    <strong>Errore #2:</strong> Nessuna ownership ("Lo seguira qualcuno, prima o poi")<br>
-                    <strong>Errore #3:</strong> Dati insufficienti ("I dati li recuperiamo dopo")<br>
-                    <strong>Errore #4:</strong> Timeline irrealistiche ("Deve essere pronto per la fiera tra 2 settimane")</p>
-                </div>
-
-                <div class="quickwin-box">
-                    <h4>Quick Wins: 3 Progetti AI per Iniziare Subito</h4>
-
-                    <div class="quickwin-item">
-                        <h5>1. Chatbot per FAQ e Assistenza Base</h5>
-                        <p>Implementa un chatbot sul sito web che risponde alle domande frequenti. Riduce il carico sul customer service del 30-50% e offre supporto 24/7.</p>
-                        <div class="meta">
-                            <span>Budget: 50-200 euro/mese</span>
-                            <span>Timeline: 2-4 settimane</span>
-                            <span>Tool: Tidio, Intercom, Zendesk</span>
-                        </div>
-                    </div>
-
-                    <div class="quickwin-item">
-                        <h5>2. Generazione Contenuti Marketing</h5>
-                        <p>Usa AI per creare bozze di post social, newsletter, descrizioni prodotto. Il team rivede e personalizza, risparmiando 60-80% del tempo di scrittura.</p>
-                        <div class="meta">
-                            <span>Budget: 20-30 euro/mese</span>
-                            <span>Timeline: Immediato</span>
-                            <span>Tool: ChatGPT Plus, Claude Pro, Jasper</span>
-                        </div>
-                    </div>
-
-                    <div class="quickwin-item">
-                        <h5>3. Automazione Email Personalizzate</h5>
-                        <p>Configura sequenze email automatiche con contenuti personalizzati basati sul comportamento del cliente. Aumenta l'engagement del 20-40%.</p>
-                        <div class="meta">
-                            <span>Budget: 50-150 euro/mese</span>
-                            <span>Timeline: 4-6 settimane</span>
-                            <span>Tool: ActiveCampaign, Mailchimp, Brevo</span>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Struttura del progetto pilota ideale</h3>
-
-                <p>Un PoC efficace dura <strong>60-90 giorni</strong> e ha queste caratteristiche:</p>
-
-                <ul>
-                    <li><strong>Scope limitato:</strong> Un solo processo, un solo team, un solo obiettivo</li>
-                    <li><strong>KPI definiti prima:</strong> Cosa misurerai? Quale risultato consideri successo?</li>
-                    <li><strong>Owner identificato:</strong> Una persona (non un comitato) responsabile del progetto</li>
-                    <li><strong>Budget allocato:</strong> Chiaro e approvato, incluse eventuali consulenze</li>
-                    <li><strong>Exit criteria:</strong> Quando deciderai se scalare, modificare o abbandonare?</li>
-                </ul>
-
-                <div class="stat-highlight">
-                    <span class="number">85%</span>
-                    <span class="label">Delle aziende inizia con customer service o marketing - i settori a ROI piu rapido</span>
-                </div>
-
-                <h2>Come Formare il Team per l'Adozione dell'AI?</h2>
-
-                <p><span class="step-number">4</span><strong>PASSO 4: Upskilling e Reskilling</strong></p>
-
-                <p>La tecnologia senza le persone giuste e inutile. La formazione del team e spesso sottovalutata, ma e il fattore che distingue i progetti di successo da quelli falliti.</p>
-
-                <h3>Livelli di formazione necessari</h3>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Ruolo</th>
-                            <th>Competenze da Sviluppare</th>
-                            <th>Tempo Stimato</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>CEO/Direzione</td>
-                            <td>Visione strategica AI, valutazione ROI, governance</td>
-                            <td>4-8 ore</td>
-                        </tr>
-                        <tr>
-                            <td>Manager operativi</td>
-                            <td>Identificazione use case, gestione progetti AI, KPI</td>
-                            <td>16-24 ore</td>
-                        </tr>
-                        <tr>
-                            <td>Team operativo</td>
-                            <td>Uso strumenti AI, prompt engineering base, workflow</td>
-                            <td>8-16 ore</td>
-                        </tr>
-                        <tr>
-                            <td>IT/Tecnici</td>
-                            <td>Integrazione sistemi, sicurezza, manutenzione</td>
-                            <td>24-40 ore</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="step-box">
-                    <h4>Prompt Engineering: La Competenza Chiave del 2025</h4>
-                    <p>Saper "parlare" con l'AI e la skill piu richiesta. Un prompt ben scritto puo fare la differenza tra un output mediocre e uno eccellente. Investi almeno 4 ore di formazione specifica sul prompt engineering per ogni utente che usera strumenti AI quotidianamente.</p>
-                </div>
-
-                <h3>Gestire la resistenza al cambiamento</h3>
-
-                <p>Non tutti accoglieranno l'AI a braccia aperte. Alcuni temeranno per il proprio posto di lavoro, altri saranno scettici sull'efficacia. Ecco come gestire le obiezioni piu comuni:</p>
-
-                <ul>
-                    <li><strong>"L'AI mi rubera il lavoro":</strong> Mostra come l'AI automatizza le parti noiose, liberando tempo per attivita a maggior valore</li>
-                    <li><strong>"Non funzionera mai":</strong> Inizia con un quick win visibile, i risultati parlano piu delle promesse</li>
-                    <li><strong>"E troppo complicato":</strong> Fai provare strumenti semplici come ChatGPT, l'esperienza diretta riduce la paura</li>
-                    <li><strong>"Abbiamo sempre fatto cosi":</strong> Coinvolgi i resistenti nel design del progetto, la partecipazione crea ownership</li>
-                </ul>
-
-                <h2>Quali KPI e Governance Servono per i Progetti AI?</h2>
-
-                <p><span class="step-number">5</span><strong>PASSO 5: Stabilire Governance e Metriche</strong></p>
-
-                <p>"Cio che non si misura non si migliora." Per i progetti AI vale doppio: senza metriche chiare, non saprai mai se l'investimento sta funzionando.</p>
-
-                <h3>KPI essenziali per progetto AI</h3>
-
-                <ul>
-                    <li><strong>Metriche di efficienza:</strong> Tempo risparmiato, ticket gestiti automaticamente, documenti processati</li>
-                    <li><strong>Metriche di qualita:</strong> Tasso di errore, soddisfazione cliente (CSAT), accuratezza output</li>
-                    <li><strong>Metriche di adozione:</strong> Utenti attivi, frequenza d'uso, completamento task</li>
-                    <li><strong>Metriche finanziarie:</strong> Costo per interazione, ROI, payback period</li>
-                </ul>
-
-                <div class="stat-highlight">
-                    <span class="number">1,7x</span>
-                    <span class="label">ROI medio dei progetti AI nel primo anno - ma solo per chi misura e ottimizza</span>
-                </div>
-
-                <h3>Struttura di governance minima</h3>
-
-                <p>Per una PMI, non serve una burocrazia complessa. Basta:</p>
-
-                <ul>
-                    <li><strong>Owner del progetto:</strong> Una persona che risponde dei risultati (non un comitato)</li>
-                    <li><strong>Review settimanale:</strong> 15 minuti per verificare progressi e blocchi</li>
-                    <li><strong>Dashboard semplice:</strong> 3-5 KPI visibili a tutti gli stakeholder</li>
-                    <li><strong>Processo di escalation:</strong> A chi ci si rivolge se qualcosa non funziona?</li>
-                    <li><strong>Documentazione:</strong> Cosa facciamo, perche, con quali risultati</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <h4>Template di Review Settimanale</h4>
-                    <p><strong>1.</strong> KPI della settimana vs target<br>
-                    <strong>2.</strong> Cosa ha funzionato?<br>
-                    <strong>3.</strong> Cosa non ha funzionato?<br>
-                    <strong>4.</strong> Azioni per la prossima settimana<br>
-                    <strong>5.</strong> Serve supporto/risorse aggiuntive?</p>
-                </div>
-
-                <h2>Come Scegliere i Partner e le Tecnologie Giuste?</h2>
-
-                <p><span class="step-number">6</span><strong>PASSO 6: Scegliere Fornitori e Consulenti</strong></p>
-
-                <p>Non devi fare tutto da solo. Ma scegliere i partner sbagliati puo costare caro - in termini di soldi, tempo e opportunita perse.</p>
-
-                <h3>Tipologie di partner AI</h3>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Tipo Partner</th>
-                            <th>Quando Sceglierlo</th>
-                            <th>Budget Indicativo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Consulente strategico</td>
-                            <td>Definizione roadmap, assessment, change management</td>
-                            <td>2.000-10.000 euro</td>
-                        </tr>
-                        <tr>
-                            <td>System integrator</td>
-                            <td>Integrazione con sistemi esistenti, sviluppo custom</td>
-                            <td>10.000-50.000+ euro</td>
-                        </tr>
-                        <tr>
-                            <td>Vendor SaaS</td>
-                            <td>Soluzioni pronte all'uso (chatbot, automazione)</td>
-                            <td>100-1.000 euro/mese</td>
-                        </tr>
-                        <tr>
-                            <td>Formatore specializzato</td>
-                            <td>Upskilling team, workshop pratici</td>
-                            <td>500-3.000 euro/giornata</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3>Red flag nella selezione fornitori</h3>
-
-                <div class="warning-box">
-                    <h4>Segnali di Allarme da Non Ignorare</h4>
-                    <p><strong>Promesse irrealistiche:</strong> "ROI garantito del 500% in 3 mesi"<br>
-                    <strong>Mancanza di referenze:</strong> Non possono mostrare casi simili al tuo<br>
-                    <strong>Lock-in tecnologico:</strong> I tuoi dati restano "imprigionati" nella loro piattaforma<br>
-                    <strong>Pricing opaco:</strong> Non riesci a capire quanto spenderai realmente<br>
-                    <strong>Zero supporto post-vendita:</strong> Ti vendono e spariscono</p>
-                </div>
-
-                <h3>Domande da fare ai potenziali fornitori</h3>
-
-                <ul>
-                    <li>Avete casi studio di PMI simili alla mia (settore, dimensione)?</li>
-                    <li>Come gestite i dati? Dove vengono elaborati e conservati?</li>
-                    <li>Qual e il costo totale, incluse integrazioni e formazione?</li>
-                    <li>Cosa succede se voglio cambiare fornitore tra un anno?</li>
-                    <li>Che supporto offrite dopo l'implementazione?</li>
-                    <li>Posso parlare con un vostro cliente attuale?</li>
-                </ul>
-
-                <h2>Come Scalare dall'Esperimento alla Produzione?</h2>
-
-                <p><span class="step-number">7</span><strong>PASSO 7: Scalare Gradualmente</strong></p>
-
-                <p>Il pilota ha funzionato. I KPI sono positivi. E ora? La scalabilita e dove molti progetti si arenano: passare da "funziona nel test" a "funziona in tutta l'azienda" richiede un approccio strutturato.</p>
-
-                <div class="phase-timeline">
-                    <div class="phase-item">
-                        <div class="phase-marker">1</div>
-                        <div class="phase-content">
-                            <h5>Fase Pilota (Mese 1-3)</h5>
-                            <p>Team ristretto (3-5 persone), scope limitato, obiettivo: validare l'ipotesi. Budget: 1.000-5.000 euro.</p>
-                        </div>
-                    </div>
-                    <div class="phase-item">
-                        <div class="phase-marker">2</div>
-                        <div class="phase-content">
-                            <h5>Fase Espansione (Mese 4-6)</h5>
-                            <p>Estensione a un reparto intero o a piu use case correlati. Ottimizzazione basata sui feedback. Budget: 5.000-15.000 euro.</p>
-                        </div>
-                    </div>
-                    <div class="phase-item">
-                        <div class="phase-marker">3</div>
-                        <div class="phase-content">
-                            <h5>Fase Produzione (Mese 7-12)</h5>
-                            <p>Deployment aziendale, integrazione con processi core, formazione estesa. Budget: 15.000-50.000 euro.</p>
-                        </div>
-                    </div>
-                    <div class="phase-item">
-                        <div class="phase-marker">4</div>
-                        <div class="phase-content">
-                            <h5>Fase Ottimizzazione (Continua)</h5>
-                            <p>Monitoraggio KPI, miglioramento continuo, esplorazione nuovi use case. Budget: variabile.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Checklist per la scalabilita</h3>
-
-                <p>Prima di scalare, verifica:</p>
-
-                <ul>
-                    <li><strong>Infrastruttura:</strong> I sistemi reggono volumi maggiori?</li>
-                    <li><strong>Processi:</strong> Le procedure sono documentate e replicabili?</li>
-                    <li><strong>Competenze:</strong> Hai abbastanza persone formate?</li>
-                    <li><strong>Budget:</strong> Hai le risorse per la fase successiva?</li>
-                    <li><strong>Supporto:</strong> Il management e ancora committed?</li>
-                </ul>
-
-                <div class="timeline-box">
-                    <h4>Timeline Realistico per una PMI</h4>
-                    <p><strong>Settimana 1-2:</strong> Assessment e selezione progetto pilota<br>
-                    <strong>Settimana 3-4:</strong> Setup tecnico e formazione iniziale<br>
-                    <strong>Mese 2-3:</strong> Pilota attivo con monitoraggio KPI<br>
-                    <strong>Mese 4:</strong> Valutazione risultati e decisione go/no-go<br>
-                    <strong>Mese 5-6:</strong> Espansione controllata<br>
-                    <strong>Mese 7-12:</strong> Produzione e ottimizzazione</p>
-                </div>
-
-                <h2>Quali Errori Evitare Quando si Inizia con l'AI?</h2>
-
-                <p>Dopo aver accompagnato decine di PMI nel loro percorso AI, questi sono gli errori piu comuni - e come evitarli.</p>
-
-                <div class="warning-box">
-                    <h4>I 7 Errori Fatali nell'Adozione AI</h4>
-                    <p><strong>1. Partire dalla tecnologia invece che dal problema:</strong> L'AI e un mezzo, non un fine. Parti sempre da un problema di business reale.<br><br>
-                    <strong>2. Aspettarsi risultati immediati:</strong> L'AI richiede tempo per essere ottimizzata. I primi 30 giorni sono di apprendimento, non di produzione.<br><br>
-                    <strong>3. Sottovalutare la qualita dei dati:</strong> Garbage in, garbage out. Se i tuoi dati sono sporchi, l'AI produrra output sporchi.<br><br>
-                    <strong>4. Non coinvolgere gli utenti finali:</strong> Chi usera l'AI deve essere coinvolto fin dall'inizio, non a progetto finito.<br><br>
-                    <strong>5. Mancanza di sponsor executive:</strong> Senza supporto della direzione, i progetti AI muoiono alla prima difficolta.<br><br>
-                    <strong>6. Budget troppo risicato:</strong> Meglio fare un progetto bene che tre male. Alloca risorse adeguate.<br><br>
-                    <strong>7. Non misurare i risultati:</strong> Se non misuri, non sai se funziona. E non puoi giustificare ulteriori investimenti.</p>
-                </div>
-
-                <div class="cta-box">
-                    <h3 style="color: white; margin-top: 0;">Pronto a Fare il Primo Passo?</h3>
-                    <p>PugliAI offre assessment gratuiti per valutare la maturita AI della tua PMI e identificare i quick wins con il ROI piu alto.</p>
-                    <a href="../contatti.html" class="btn btn-primary btn-lg">Richiedi Assessment Gratuito</a>
-                </div>
-
-                <section class="faq-section">
-                    <h2>Domande Frequenti su Come Iniziare con l'AI</h2>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Quanto costa iniziare con l'AI per una PMI?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Il budget minimo per iniziare con l'AI e di <strong>100-500 euro al mese</strong>. Questo include strumenti come ChatGPT Team (25 dollari/utente/mese), piattaforme di chatbot base (da 50 euro/mese), e tool di automazione email. Per progetti piu strutturati con consulenza, il budget iniziale tipico e di <strong>5.000-15.000 euro</strong> per un PoC di 2-3 mesi.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Da dove iniziare con l'AI in azienda?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>L'<strong>85% delle aziende inizia con customer service e marketing</strong>. I progetti pilota piu comuni sono: chatbot per FAQ e assistenza clienti, automazione email marketing, generazione contenuti, e analisi documenti. Consigliamo di partire da un singolo caso d'uso con ROI misurabile entro 90 giorni.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Perche il 70% dei progetti AI fallisce?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Oltre il <strong>70% dei PoC AI non supera la fase pilota</strong> per tre motivi principali: aspettative irrealistiche (l'AI non risolve tutto), mancanza di dati di qualita (garbage in, garbage out), e assenza di ownership interna (nessuno responsabile del progetto). La chiave del successo e iniziare piccoli, con obiettivi misurabili e un champion interno.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Quanto tempo serve per vedere risultati dall'AI?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>I primi risultati tangibili arrivano in <strong>30-90 giorni</strong> con progetti pilota ben definiti. Un chatbot base puo essere operativo in 2-4 settimane. L'automazione email richiede 4-6 settimane. Per vedere un ROI completo di 1,7x l'investimento, servono tipicamente <strong>6-12 mesi</strong> di implementazione progressiva.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="highlight-box">
-                    <h4>Continua il Tuo Percorso</h4>
-                    <p>Questo articolo fa parte della <a href="../guida-ai-ceo-2025.html">Guida AI per CEO 2025</a>. Per approfondire gli aspetti legali, leggi l'articolo precedente su <a href="gdpr-intelligenza-artificiale.html">GDPR e Intelligenza Artificiale</a>. Per scoprire come usare ChatGPT in azienda, prosegui con <a href="chatgpt-aziende-guida.html">ChatGPT per Aziende: Guida Pratica</a>.</p>
-                </div>
-
-                <nav class="article-nav">
-                    <a href="gdpr-intelligenza-artificiale.html">
-                        <div class="label">Articolo Precedente</div>
-                        <div class="title">GDPR e Intelligenza Artificiale: Come Garantire la Compliance</div>
-                    </a>
-                    <a href="chatgpt-aziende-guida.html" class="next">
-                        <div class="label">Prossimo Articolo</div>
-                        <div class="title">ChatGPT per Aziende: Guida Pratica 2025</div>
-                    </a>
-                </nav>
-            </div>
+<a href="#main" class="skip-link">Vai al contenuto</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="../index.html#metaphor">L'Idea</a>
+      <a href="../servizi.html">Servizi</a>
+      <a href="../prodotti.html">On-Premise</a>
+      <a href="../acceleratore.html">Acceleratore</a>
+      <a href="../index.html#process">Percorso</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Lingua">
+        <a href="come-iniziare-ai-pmi.html" class="on" aria-current="true">IT</a>
+        <a href="../en/ceo-ai-guide-2025.html">EN</a>
+      </div>
+      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="../index.html#metaphor">L'Idea</a>
+  <a href="../servizi.html">Servizi</a>
+  <a href="../prodotti.html">On-Premise</a>
+  <a href="../acceleratore.html">Acceleratore</a>
+  <a href="../index.html#process">Percorso</a>
+  <a href="../contatti.html">Richiedi un preventivo</a>
+</div>
+
+<main id="main">
+
+<!-- PAGE HEADER -->
+<section class="pagehead">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><i>/</i>
+      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
+      <span>Come Iniziare con l'AI</span>
+    </nav>
+    <div class="eyebrow-lux">Implementazione Pratica</div>
+    <h1>Come Iniziare con l'<span class="serif">AI</span>: 7 Primi Passi per le PMI</h1>
+    <p class="pagehead__lead">Guida pratica step-by-step per introdurre l'intelligenza artificiale nella tua PMI: budget realistici, progetti pilota, formazione del team e metriche di successo.</p>
+    <div class="pagehead__meta">
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 16 min lettura</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Novembre 2025</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Base</span>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<section class="sec sec--light">
+  <div class="shell">
+    <div class="prose reveal">
+
+      <p><strong>Hai sentito parlare di AI, chatbot, automazione.</strong> I tuoi competitor stanno sperimentando. I tuoi dipendenti usano ChatGPT di nascosto. Ma da dove si inizia davvero? Come si passa dalle chiacchiere ai risultati concreti, senza bruciare budget e senza illudersi?</p>
+
+      <p>Questa guida ti accompagna attraverso i <strong>7 passi fondamentali</strong> per introdurre l'intelligenza artificiale nella tua PMI. Niente teoria astratta: solo azioni concrete, budget realistici e un percorso testato su decine di aziende italiane.</p>
+
+      <div class="statbox">
+        <span class="statbox__n">26,7%</span>
+        <span class="statbox__l">PMI italiane che usano AI nel 2025 - crescita del 50% rispetto al 2024</span>
+      </div>
+
+      <p>Il momento e adesso. Ma la fretta e il nemico numero uno: oltre il <strong>70% dei progetti AI non supera la fase pilota</strong>. Non per mancanza di tecnologia, ma per errori evitabili nella fase di avvio. Questa guida ti aiuta a non commettere quegli errori.</p>
+
+      <h2>Perche la Tua PMI Dovrebbe Iniziare con l'AI Oggi?</h2>
+
+      <p>Prima dei "come", affrontiamo i "perche". L'adozione dell'AI nelle PMI italiane e in forte accelerazione, ma non tutti i settori procedono alla stessa velocita.</p>
+
+      <p><strong>I numeri parlano chiaro:</strong> le aziende che hanno implementato soluzioni AI nel 2024 riportano un <strong>ROI medio di 1,7 volte l'investimento</strong> nel primo anno. Non e magia - e il risultato di processi piu efficienti, risposte piu rapide ai clienti, e decisioni basate sui dati invece che sulle intuizioni.</p>
+
+      <div class="callout">
+        <h4>Chi sta guidando l'adozione AI in Italia</h4>
+        <p>I settori con maggiore penetrazione AI sono: manifatturiero (predictive maintenance), servizi finanziari (fraud detection), retail (customer service), e professional services (automazione documentale). Le PMI del Nord Italia sono in vantaggio, ma il gap si sta riducendo rapidamente.</p>
+      </div>
+
+      <p>L'<strong>85% delle aziende che iniziano con l'AI</strong> parte da due aree: customer service e marketing. Non e un caso - sono i settori dove l'impatto e piu immediato e misurabile. Ma non sono gli unici: vedremo come identificare le opportunita specifiche per la tua realta.</p>
+
+      <h2>Come Valutare la Maturita Digitale della Tua Azienda?</h2>
+
+      <p><strong>PASSO 1: Audit delle Capacita Attuali</strong></p>
+
+      <p>Prima di correre a implementare chatbot e automazioni, devi capire il punto di partenza. La maturita digitale della tua azienda determina quali progetti AI sono fattibili oggi e quali richiedono preparazione.</p>
+
+      <div class="callout">
+        <h4>AI Readiness Checklist - Valuta la Tua PMI</h4>
+        <ul>
+          <li><strong>Dati digitalizzati:</strong> I dati aziendali chiave sono in formato digitale e accessibili?</li>
+          <li><strong>Processi documentati:</strong> Esistono procedure scritte per le attivita ripetitive?</li>
+          <li><strong>Infrastruttura cloud:</strong> Usi servizi cloud (email, CRM, storage)?</li>
+          <li><strong>Competenze base:</strong> Il team sa usare strumenti digitali (Excel, software gestionali)?</li>
+          <li><strong>Budget dedicato:</strong> Puoi allocare 100-500 euro/mese per sperimentare?</li>
+          <li><strong>Sponsor interno:</strong> C'e un manager disponibile a seguire il progetto?</li>
+          <li><strong>Tolleranza al cambiamento:</strong> L'azienda ha gia affrontato con successo cambiamenti tecnologici?</li>
+          <li><strong>Obiettivi chiari:</strong> Sai identificare 2-3 problemi specifici che vorresti risolvere?</li>
+        </ul>
+      </div>
+
+      <p><strong>Interpretazione:</strong> Se hai risposto si a 6+ domande, sei pronto per progetti AI strutturati. Con 4-5 si, parti da quick wins semplici. Meno di 4? Concentrati prima sulla digitalizzazione base.</p>
+
+      <div class="statbox">
+        <span class="statbox__n">100-500 euro</span>
+        <span class="statbox__l">Budget mensile minimo per iniziare con l'AI in una PMI</span>
+      </div>
+
+      <h3>Cosa fare se la maturita e bassa</h3>
+
+      <p>Non disperare se il punteggio e basso. Puoi comunque iniziare, ma con progetti piu semplici:</p>
+
+      <ul>
+        <li><strong>Digitalizza prima i dati critici:</strong> Clienti, ordini, inventario in un sistema accessibile</li>
+        <li><strong>Documenta i processi chiave:</strong> Come gestite le richieste clienti? Come elaborate gli ordini?</li>
+        <li><strong>Sperimenta strumenti gratuiti:</strong> ChatGPT free per la generazione contenuti, Canva AI per la grafica</li>
+        <li><strong>Forma un piccolo gruppo:</strong> 2-3 persone che diventino i "champion" dell'innovazione</li>
+      </ul>
+
+      <h2>Quali Casi d'Uso AI Offrono il ROI Piu Alto per le PMI?</h2>
+
+      <p><strong>PASSO 2: Identificare Opportunita ad Alto Impatto</strong></p>
+
+      <p>Non tutti i progetti AI sono uguali. Alcuni richiedono mesi di sviluppo e budget consistenti. Altri portano risultati visibili in settimane con investimenti minimi. Il segreto e scegliere i progetti giusti per la fase in cui ti trovi.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Caso d'Uso</th>
+            <th>Complessita</th>
+            <th>ROI Atteso</th>
+            <th>Time to Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chatbot FAQ sito web</td>
+            <td>Bassa</td>
+            <td>Alto (riduzione ticket 30-50%)</td>
+            <td>2-4 settimane</td>
+          </tr>
+          <tr>
+            <td>Automazione email marketing</td>
+            <td>Bassa</td>
+            <td>Medio-Alto (+20-40% engagement)</td>
+            <td>4-6 settimane</td>
+          </tr>
+          <tr>
+            <td>Generazione contenuti</td>
+            <td>Bassa</td>
+            <td>Alto (riduzione tempo 60-80%)</td>
+            <td>Immediato</td>
+          </tr>
+          <tr>
+            <td>Analisi documenti/contratti</td>
+            <td>Media</td>
+            <td>Alto (riduzione errori 90%)</td>
+            <td>4-8 settimane</td>
+          </tr>
+          <tr>
+            <td>Predictive maintenance</td>
+            <td>Alta</td>
+            <td>Molto Alto (-25% downtime)</td>
+            <td>3-6 mesi</td>
+          </tr>
+          <tr>
+            <td>AI vendite/lead scoring</td>
+            <td>Media</td>
+            <td>Alto (+15-30% conversioni)</td>
+            <td>2-3 mesi</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Framework per la prioritizzazione</h3>
+
+      <p>Per ogni potenziale progetto AI, valuta questi criteri:</p>
+
+      <ul>
+        <li><strong>Impatto sul business:</strong> Quanto influisce su fatturato, costi, o soddisfazione clienti?</li>
+        <li><strong>Disponibilita dati:</strong> Hai i dati necessari per alimentare l'AI?</li>
+        <li><strong>Complessita tecnica:</strong> Richiede sviluppo custom o esistono soluzioni pronte?</li>
+        <li><strong>Resistenza organizzativa:</strong> Il team accettera il cambiamento?</li>
+        <li><strong>Misurabilita:</strong> Puoi quantificare il successo in modo oggettivo?</li>
+      </ul>
+
+      <div class="callout">
+        <h4>Regola d'Oro: Inizia dal Dolore</h4>
+        <p>I progetti AI di successo nascono da problemi reali, non da fascinazione tecnologica. Chiediti: qual e l'attivita che il mio team odia fare? Dove perdiamo tempo? Dove facciamo errori ripetuti? Li c'e l'opportunita.</p>
+      </div>
+
+      <h2>Come Scegliere e Avviare un Progetto Pilota AI?</h2>
+
+      <p><strong>PASSO 3: Partire con Progetti Pilota</strong></p>
+
+      <p>Il progetto pilota (PoC - Proof of Concept) e il momento della verita. E dove il <strong>70% dei progetti AI fallisce</strong>. Non per problemi tecnici, ma per errori di impostazione che puoi evitare.</p>
+
+      <div class="callout callout--warn">
+        <h4>Perche i PoC Falliscono</h4>
+        <p><strong>Errore #1:</strong> Obiettivi troppo ambiziosi ("Vogliamo un AI che faccia tutto")<br>
+        <strong>Errore #2:</strong> Nessuna ownership ("Lo seguira qualcuno, prima o poi")<br>
+        <strong>Errore #3:</strong> Dati insufficienti ("I dati li recuperiamo dopo")<br>
+        <strong>Errore #4:</strong> Timeline irrealistiche ("Deve essere pronto per la fiera tra 2 settimane")</p>
+      </div>
+
+      <h3>Quick Wins: 3 Progetti AI per Iniziare Subito</h3>
+    </div>
+
+    <div class="cards3">
+      <div class="gcard reveal" data-d="1">
+        <h3>1. Chatbot per FAQ e Assistenza Base</h3>
+        <p>Implementa un chatbot sul sito web che risponde alle domande frequenti. Riduce il carico sul customer service del 30-50% e offre supporto 24/7.</p>
+        <p><strong>Budget:</strong> 50-200 euro/mese · <strong>Timeline:</strong> 2-4 settimane · <strong>Tool:</strong> Tidio, Intercom, Zendesk</p>
+      </div>
+      <div class="gcard reveal" data-d="2">
+        <h3>2. Generazione Contenuti Marketing</h3>
+        <p>Usa AI per creare bozze di post social, newsletter, descrizioni prodotto. Il team rivede e personalizza, risparmiando 60-80% del tempo di scrittura.</p>
+        <p><strong>Budget:</strong> 20-30 euro/mese · <strong>Timeline:</strong> Immediato · <strong>Tool:</strong> ChatGPT Plus, Claude Pro, Jasper</p>
+      </div>
+      <div class="gcard reveal" data-d="3">
+        <h3>3. Automazione Email Personalizzate</h3>
+        <p>Configura sequenze email automatiche con contenuti personalizzati basati sul comportamento del cliente. Aumenta l'engagement del 20-40%.</p>
+        <p><strong>Budget:</strong> 50-150 euro/mese · <strong>Timeline:</strong> 4-6 settimane · <strong>Tool:</strong> ActiveCampaign, Mailchimp, Brevo</p>
+      </div>
+    </div>
+
+    <div class="prose reveal">
+      <h3>Struttura del progetto pilota ideale</h3>
+
+      <p>Un PoC efficace dura <strong>60-90 giorni</strong> e ha queste caratteristiche:</p>
+
+      <ul>
+        <li><strong>Scope limitato:</strong> Un solo processo, un solo team, un solo obiettivo</li>
+        <li><strong>KPI definiti prima:</strong> Cosa misurerai? Quale risultato consideri successo?</li>
+        <li><strong>Owner identificato:</strong> Una persona (non un comitato) responsabile del progetto</li>
+        <li><strong>Budget allocato:</strong> Chiaro e approvato, incluse eventuali consulenze</li>
+        <li><strong>Exit criteria:</strong> Quando deciderai se scalare, modificare o abbandonare?</li>
+      </ul>
+
+      <div class="statbox">
+        <span class="statbox__n">85%</span>
+        <span class="statbox__l">Delle aziende inizia con customer service o marketing - i settori a ROI piu rapido</span>
+      </div>
+
+      <h2>Come Formare il Team per l'Adozione dell'AI?</h2>
+
+      <p><strong>PASSO 4: Upskilling e Reskilling</strong></p>
+
+      <p>La tecnologia senza le persone giuste e inutile. La formazione del team e spesso sottovalutata, ma e il fattore che distingue i progetti di successo da quelli falliti.</p>
+
+      <h3>Livelli di formazione necessari</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Ruolo</th>
+            <th>Competenze da Sviluppare</th>
+            <th>Tempo Stimato</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CEO/Direzione</td>
+            <td>Visione strategica AI, valutazione ROI, governance</td>
+            <td>4-8 ore</td>
+          </tr>
+          <tr>
+            <td>Manager operativi</td>
+            <td>Identificazione use case, gestione progetti AI, KPI</td>
+            <td>16-24 ore</td>
+          </tr>
+          <tr>
+            <td>Team operativo</td>
+            <td>Uso strumenti AI, prompt engineering base, workflow</td>
+            <td>8-16 ore</td>
+          </tr>
+          <tr>
+            <td>IT/Tecnici</td>
+            <td>Integrazione sistemi, sicurezza, manutenzione</td>
+            <td>24-40 ore</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <h4>Prompt Engineering: La Competenza Chiave del 2025</h4>
+        <p>Saper "parlare" con l'AI e la skill piu richiesta. Un prompt ben scritto puo fare la differenza tra un output mediocre e uno eccellente. Investi almeno 4 ore di formazione specifica sul prompt engineering per ogni utente che usera strumenti AI quotidianamente.</p>
+      </div>
+
+      <h3>Gestire la resistenza al cambiamento</h3>
+
+      <p>Non tutti accoglieranno l'AI a braccia aperte. Alcuni temeranno per il proprio posto di lavoro, altri saranno scettici sull'efficacia. Ecco come gestire le obiezioni piu comuni:</p>
+
+      <ul>
+        <li><strong>"L'AI mi rubera il lavoro":</strong> Mostra come l'AI automatizza le parti noiose, liberando tempo per attivita a maggior valore</li>
+        <li><strong>"Non funzionera mai":</strong> Inizia con un quick win visibile, i risultati parlano piu delle promesse</li>
+        <li><strong>"E troppo complicato":</strong> Fai provare strumenti semplici come ChatGPT, l'esperienza diretta riduce la paura</li>
+        <li><strong>"Abbiamo sempre fatto cosi":</strong> Coinvolgi i resistenti nel design del progetto, la partecipazione crea ownership</li>
+      </ul>
+
+      <h2>Quali KPI e Governance Servono per i Progetti AI?</h2>
+
+      <p><strong>PASSO 5: Stabilire Governance e Metriche</strong></p>
+
+      <p>"Cio che non si misura non si migliora." Per i progetti AI vale doppio: senza metriche chiare, non saprai mai se l'investimento sta funzionando.</p>
+
+      <h3>KPI essenziali per progetto AI</h3>
+
+      <ul>
+        <li><strong>Metriche di efficienza:</strong> Tempo risparmiato, ticket gestiti automaticamente, documenti processati</li>
+        <li><strong>Metriche di qualita:</strong> Tasso di errore, soddisfazione cliente (CSAT), accuratezza output</li>
+        <li><strong>Metriche di adozione:</strong> Utenti attivi, frequenza d'uso, completamento task</li>
+        <li><strong>Metriche finanziarie:</strong> Costo per interazione, ROI, payback period</li>
+      </ul>
+
+      <div class="statbox">
+        <span class="statbox__n">1,7x</span>
+        <span class="statbox__l">ROI medio dei progetti AI nel primo anno - ma solo per chi misura e ottimizza</span>
+      </div>
+
+      <h3>Struttura di governance minima</h3>
+
+      <p>Per una PMI, non serve una burocrazia complessa. Basta:</p>
+
+      <ul>
+        <li><strong>Owner del progetto:</strong> Una persona che risponde dei risultati (non un comitato)</li>
+        <li><strong>Review settimanale:</strong> 15 minuti per verificare progressi e blocchi</li>
+        <li><strong>Dashboard semplice:</strong> 3-5 KPI visibili a tutti gli stakeholder</li>
+        <li><strong>Processo di escalation:</strong> A chi ci si rivolge se qualcosa non funziona?</li>
+        <li><strong>Documentazione:</strong> Cosa facciamo, perche, con quali risultati</li>
+      </ul>
+
+      <div class="callout">
+        <h4>Template di Review Settimanale</h4>
+        <p><strong>1.</strong> KPI della settimana vs target<br>
+        <strong>2.</strong> Cosa ha funzionato?<br>
+        <strong>3.</strong> Cosa non ha funzionato?<br>
+        <strong>4.</strong> Azioni per la prossima settimana<br>
+        <strong>5.</strong> Serve supporto/risorse aggiuntive?</p>
+      </div>
+
+      <h2>Come Scegliere i Partner e le Tecnologie Giuste?</h2>
+
+      <p><strong>PASSO 6: Scegliere Fornitori e Consulenti</strong></p>
+
+      <p>Non devi fare tutto da solo. Ma scegliere i partner sbagliati puo costare caro - in termini di soldi, tempo e opportunita perse.</p>
+
+      <h3>Tipologie di partner AI</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo Partner</th>
+            <th>Quando Sceglierlo</th>
+            <th>Budget Indicativo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Consulente strategico</td>
+            <td>Definizione roadmap, assessment, change management</td>
+            <td>2.000-10.000 euro</td>
+          </tr>
+          <tr>
+            <td>System integrator</td>
+            <td>Integrazione con sistemi esistenti, sviluppo custom</td>
+            <td>10.000-50.000+ euro</td>
+          </tr>
+          <tr>
+            <td>Vendor SaaS</td>
+            <td>Soluzioni pronte all'uso (chatbot, automazione)</td>
+            <td>100-1.000 euro/mese</td>
+          </tr>
+          <tr>
+            <td>Formatore specializzato</td>
+            <td>Upskilling team, workshop pratici</td>
+            <td>500-3.000 euro/giornata</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Red flag nella selezione fornitori</h3>
+
+      <div class="callout callout--warn">
+        <h4>Segnali di Allarme da Non Ignorare</h4>
+        <p><strong>Promesse irrealistiche:</strong> "ROI garantito del 500% in 3 mesi"<br>
+        <strong>Mancanza di referenze:</strong> Non possono mostrare casi simili al tuo<br>
+        <strong>Lock-in tecnologico:</strong> I tuoi dati restano "imprigionati" nella loro piattaforma<br>
+        <strong>Pricing opaco:</strong> Non riesci a capire quanto spenderai realmente<br>
+        <strong>Zero supporto post-vendita:</strong> Ti vendono e spariscono</p>
+      </div>
+
+      <h3>Domande da fare ai potenziali fornitori</h3>
+
+      <ul>
+        <li>Avete casi studio di PMI simili alla mia (settore, dimensione)?</li>
+        <li>Come gestite i dati? Dove vengono elaborati e conservati?</li>
+        <li>Qual e il costo totale, incluse integrazioni e formazione?</li>
+        <li>Cosa succede se voglio cambiare fornitore tra un anno?</li>
+        <li>Che supporto offrite dopo l'implementazione?</li>
+        <li>Posso parlare con un vostro cliente attuale?</li>
+      </ul>
+
+      <h2>Come Scalare dall'Esperimento alla Produzione?</h2>
+
+      <p><strong>PASSO 7: Scalare Gradualmente</strong></p>
+
+      <p>Il pilota ha funzionato. I KPI sono positivi. E ora? La scalabilita e dove molti progetti si arenano: passare da "funziona nel test" a "funziona in tutta l'azienda" richiede un approccio strutturato.</p>
+    </div>
+
+    <div class="proc">
+      <div class="pstep reveal" data-d="1">
+        <div class="pstep__dot"><b>1</b></div>
+        <div class="wk">Mese 1-3</div>
+        <h4>Fase Pilota</h4>
+        <p>Team ristretto (3-5 persone), scope limitato, obiettivo: validare l'ipotesi. Budget: 1.000-5.000 euro.</p>
+      </div>
+      <div class="pstep reveal" data-d="2">
+        <div class="pstep__dot"><b>2</b></div>
+        <div class="wk">Mese 4-6</div>
+        <h4>Fase Espansione</h4>
+        <p>Estensione a un reparto intero o a piu use case correlati. Ottimizzazione basata sui feedback. Budget: 5.000-15.000 euro.</p>
+      </div>
+      <div class="pstep reveal" data-d="3">
+        <div class="pstep__dot"><b>3</b></div>
+        <div class="wk">Mese 7-12</div>
+        <h4>Fase Produzione</h4>
+        <p>Deployment aziendale, integrazione con processi core, formazione estesa. Budget: 15.000-50.000 euro.</p>
+      </div>
+      <div class="pstep reveal" data-d="4">
+        <div class="pstep__dot"><b>4</b></div>
+        <div class="wk">Continua</div>
+        <h4>Fase Ottimizzazione</h4>
+        <p>Monitoraggio KPI, miglioramento continuo, esplorazione nuovi use case. Budget: variabile.</p>
+      </div>
+    </div>
+
+    <div class="prose reveal">
+      <h3>Checklist per la scalabilita</h3>
+
+      <p>Prima di scalare, verifica:</p>
+
+      <ul>
+        <li><strong>Infrastruttura:</strong> I sistemi reggono volumi maggiori?</li>
+        <li><strong>Processi:</strong> Le procedure sono documentate e replicabili?</li>
+        <li><strong>Competenze:</strong> Hai abbastanza persone formate?</li>
+        <li><strong>Budget:</strong> Hai le risorse per la fase successiva?</li>
+        <li><strong>Supporto:</strong> Il management e ancora committed?</li>
+      </ul>
+
+      <div class="callout">
+        <h4>Timeline Realistico per una PMI</h4>
+        <p><strong>Settimana 1-2:</strong> Assessment e selezione progetto pilota<br>
+        <strong>Settimana 3-4:</strong> Setup tecnico e formazione iniziale<br>
+        <strong>Mese 2-3:</strong> Pilota attivo con monitoraggio KPI<br>
+        <strong>Mese 4:</strong> Valutazione risultati e decisione go/no-go<br>
+        <strong>Mese 5-6:</strong> Espansione controllata<br>
+        <strong>Mese 7-12:</strong> Produzione e ottimizzazione</p>
+      </div>
+
+      <h2>Quali Errori Evitare Quando si Inizia con l'AI?</h2>
+
+      <p>Dopo aver accompagnato decine di PMI nel loro percorso AI, questi sono gli errori piu comuni - e come evitarli.</p>
+
+      <div class="callout callout--warn">
+        <h4>I 7 Errori Fatali nell'Adozione AI</h4>
+        <p><strong>1. Partire dalla tecnologia invece che dal problema:</strong> L'AI e un mezzo, non un fine. Parti sempre da un problema di business reale.<br><br>
+        <strong>2. Aspettarsi risultati immediati:</strong> L'AI richiede tempo per essere ottimizzata. I primi 30 giorni sono di apprendimento, non di produzione.<br><br>
+        <strong>3. Sottovalutare la qualita dei dati:</strong> Garbage in, garbage out. Se i tuoi dati sono sporchi, l'AI produrra output sporchi.<br><br>
+        <strong>4. Non coinvolgere gli utenti finali:</strong> Chi usera l'AI deve essere coinvolto fin dall'inizio, non a progetto finito.<br><br>
+        <strong>5. Mancanza di sponsor executive:</strong> Senza supporto della direzione, i progetti AI muoiono alla prima difficolta.<br><br>
+        <strong>6. Budget troppo risicato:</strong> Meglio fare un progetto bene che tre male. Alloca risorse adeguate.<br><br>
+        <strong>7. Non misurare i risultati:</strong> Se non misuri, non sai se funziona. E non puoi giustificare ulteriori investimenti.</p>
+      </div>
+
+      <h2>Domande Frequenti su Come Iniziare con l'AI</h2>
+    </div>
+
+    <div class="faq reveal">
+      <details>
+        <summary>Quanto costa iniziare con l'AI per una PMI?</summary>
+        <div class="faq__a">Il budget minimo per iniziare con l'AI e di <strong>100-500 euro al mese</strong>. Questo include strumenti come ChatGPT Team (25 dollari/utente/mese), piattaforme di chatbot base (da 50 euro/mese), e tool di automazione email. Per progetti piu strutturati con consulenza, il budget iniziale tipico e di <strong>5.000-15.000 euro</strong> per un PoC di 2-3 mesi.</div>
+      </details>
+      <details>
+        <summary>Da dove iniziare con l'AI in azienda?</summary>
+        <div class="faq__a">L'<strong>85% delle aziende inizia con customer service e marketing</strong>. I progetti pilota piu comuni sono: chatbot per FAQ e assistenza clienti, automazione email marketing, generazione contenuti, e analisi documenti. Consigliamo di partire da un singolo caso d'uso con ROI misurabile entro 90 giorni.</div>
+      </details>
+      <details>
+        <summary>Perche il 70% dei progetti AI fallisce?</summary>
+        <div class="faq__a">Oltre il <strong>70% dei PoC AI non supera la fase pilota</strong> per tre motivi principali: aspettative irrealistiche (l'AI non risolve tutto), mancanza di dati di qualita (garbage in, garbage out), e assenza di ownership interna (nessuno responsabile del progetto). La chiave del successo e iniziare piccoli, con obiettivi misurabili e un champion interno.</div>
+      </details>
+      <details>
+        <summary>Quanto tempo serve per vedere risultati dall'AI?</summary>
+        <div class="faq__a">I primi risultati tangibili arrivano in <strong>30-90 giorni</strong> con progetti pilota ben definiti. Un chatbot base puo essere operativo in 2-4 settimane. L'automazione email richiede 4-6 settimane. Per vedere un ROI completo di 1,7x l'investimento, servono tipicamente <strong>6-12 mesi</strong> di implementazione progressiva.</div>
+      </details>
+    </div>
+
+    <div class="prose reveal">
+      <div class="callout">
+        <h4>Continua il Tuo Percorso</h4>
+        <p>Questo articolo fa parte della <a href="../guida-ai-ceo-2025.html">Guida AI per CEO 2025</a>. Per approfondire gli aspetti legali, leggi l'articolo precedente su <a href="gdpr-intelligenza-artificiale.html">GDPR e Intelligenza Artificiale</a>. Per scoprire come usare ChatGPT in azienda, prosegui con <a href="chatgpt-aziende-guida.html">ChatGPT per Aziende: Guida Pratica</a>.</p>
+      </div>
+    </div>
+
+    <nav class="artnav reveal" aria-label="Navigazione articoli">
+      <a href="gdpr-intelligenza-artificiale.html">
+        <div class="artnav__k">Articolo Precedente</div>
+        <div class="artnav__t">GDPR e Intelligenza Artificiale: Come Garantire la Compliance</div>
+      </a>
+      <a href="chatgpt-aziende-guida.html" class="next">
+        <div class="artnav__k">Prossimo Articolo</div>
+        <div class="artnav__t">ChatGPT per Aziende: Guida Pratica 2025</div>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec sec--dark">
+  <div class="shell">
+    <div class="shead reveal" style="margin-bottom:0">
+      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
+      <h2>Pronto a fare il <span class="serif">primo passo</span>?</h2>
+      <p class="shead__lead">PugliAI offre assessment gratuiti per valutare la maturita AI della tua PMI e identificare i quick wins con il ROI piu alto.</p>
+      <div class="finale__cta" style="margin-top:32px">
+        <a href="../contatti.html" class="btn btn--grad">Richiedi Assessment Gratuito
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="../roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
+        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h5>Soluzioni</h5>
+          <a href="../servizi.html">Servizi</a>
+          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
+          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
+          <a href="../acceleratore.html">Acceleratore</a>
         </div>
-    </article>
+        <div class="foot__col">
+          <h5>Azienda</h5>
+          <a href="../chi-siamo.html">Chi siamo</a>
+          <a href="../index.html#metaphor">L'Idea</a>
+          <a href="../index.html#process">Percorso</a>
+          <a href="../casi-studio.html">Casi studio</a>
+          <a href="../contatti.html">Contatti</a>
+        </div>
+        <div class="foot__col">
+          <h5>Legale</h5>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../cookie.html">Cookie</a>
+          <a href="../termini.html">Termini</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
+      <span>Conforme a GDPR e AI Act by design</span>
+    </div>
+  </div>
+</footer>
 
-    <footer id="footer-placeholder"></footer>
-    <script>
-        fetch('../src/components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').outerHTML = data;
-            });
-    </script>
+<script src="../src/assets/js/tree-canvas.js"></script>
+<script src="../src/assets/js/pugliai-landing.js"></script>
+<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>

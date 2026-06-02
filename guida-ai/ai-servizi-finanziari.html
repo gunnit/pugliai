@@ -33,8 +33,10 @@
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/ai-servizi-finanziari.html">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/brand.css">
+    <link rel="stylesheet" href="../src/assets/css/landing.css">
+    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <script type="application/ld+json">
@@ -122,870 +124,503 @@
         ]
     }
     </script>
-
-    <style>
-        .article-hero {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
-            padding: 140px 20px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        .article-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 100%;
-            background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%);
-        }
-        .article-hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        .article-breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 24px;
-            font-size: 0.9rem;
-        }
-        .article-breadcrumb a {
-            color: var(--accent-platinum);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .article-breadcrumb a:hover {
-            color: var(--accent-gold);
-        }
-        .article-breadcrumb span {
-            color: var(--accent-gold);
-        }
-        .article-category {
-            display: inline-block;
-            background: linear-gradient(135deg, #D4A017 0%, #B8860B 100%);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-        .article-hero h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: white;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        .article-meta-hero {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            color: var(--accent-platinum);
-            font-size: 0.95rem;
-        }
-        .article-meta-hero span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .article-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        .article-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-        .article-content h2 {
-            font-size: 1.8rem;
-            color: var(--primary-navy);
-            margin: 48px 0 24px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-        .article-content h3 {
-            font-size: 1.4rem;
-            color: var(--secondary-navy);
-            margin: 36px 0 16px;
-        }
-        .article-content p {
-            margin-bottom: 20px;
-        }
-        .article-content ul, .article-content ol {
-            margin: 20px 0;
-            padding-left: 24px;
-        }
-        .article-content li {
-            margin-bottom: 12px;
-        }
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
-            border-left: 4px solid var(--accent-gold);
-            padding: 24px 28px;
-            margin: 32px 0;
-            border-radius: 0 12px 12px 0;
-        }
-        .highlight-box h4 {
-            color: var(--primary-navy);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        .stat-highlight {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 32px;
-            border-radius: 16px;
-            margin: 32px 0;
-            text-align: center;
-        }
-        .stat-highlight .number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            display: block;
-            margin-bottom: 8px;
-        }
-        .stat-highlight .label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 32px 0;
-            font-size: 0.95rem;
-        }
-        .comparison-table th {
-            background: var(--primary-navy);
-            color: white;
-            padding: 16px;
-            text-align: left;
-        }
-        .comparison-table td {
-            padding: 14px 16px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .comparison-table tr:nth-child(even) {
-            background: #f8fafc;
-        }
-        .faq-section {
-            margin: 48px 0;
-        }
-        .faq-item {
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            overflow: hidden;
-        }
-        .faq-question {
-            background: #f8fafc;
-            padding: 20px 24px;
-            font-weight: 600;
-            color: var(--primary-navy);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-answer {
-            padding: 20px 24px;
-            border-top: 1px solid #e5e7eb;
-        }
-        .article-nav {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 2px solid #e5e7eb;
-        }
-        .article-nav a {
-            padding: 24px;
-            background: #f8fafc;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
-        .article-nav a:hover {
-            border-color: var(--accent-gold);
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .article-nav .label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-        .article-nav .title {
-            color: var(--primary-navy);
-            font-weight: 600;
-        }
-        .article-nav .next {
-            text-align: right;
-        }
-        .cta-box {
-            background: var(--gradient-primary);
-            padding: 40px;
-            border-radius: 16px;
-            text-align: center;
-            margin: 48px 0;
-        }
-        .cta-box h3 {
-            color: white;
-            margin-bottom: 16px;
-        }
-        .cta-box p {
-            color: var(--accent-platinum);
-            margin-bottom: 24px;
-        }
-        .case-study-card {
-            background: white;
-            border: 2px solid #e5e7eb;
-            border-radius: 16px;
-            padding: 32px;
-            margin: 32px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .case-study-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-emerald) 100%);
-        }
-        .case-study-card h4 {
-            color: var(--primary-navy);
-            margin-bottom: 8px;
-            font-size: 1.3rem;
-        }
-        .case-study-card .brand {
-            color: var(--accent-gold);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-        .case-study-card .results {
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 16px;
-            margin-top: 16px;
-        }
-        .case-study-card .results strong {
-            color: var(--accent-emerald);
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin: 32px 0;
-        }
-        .stat-card {
-            background: linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-        }
-        .stat-card .value {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--primary-navy);
-            display: block;
-        }
-        .stat-card .desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: 8px;
-        }
-        .timeline-item {
-            border-left: 3px solid var(--accent-gold);
-            padding-left: 24px;
-            margin-bottom: 32px;
-            position: relative;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 13px;
-            height: 13px;
-            background: var(--accent-gold);
-            border-radius: 50%;
-        }
-        .timeline-item h4 {
-            color: var(--primary-navy);
-            margin-bottom: 8px;
-        }
-        .process-flow {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin: 32px 0;
-        }
-        .process-step {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
-            border-radius: 12px;
-            padding: 24px 16px;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-        .process-step::after {
-            content: '';
-            position: absolute;
-            right: -12px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-left: 12px solid var(--secondary-navy);
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-        }
-        .process-step:last-child::after {
-            display: none;
-        }
-        .process-step .step-number {
-            width: 32px;
-            height: 32px;
-            background: var(--accent-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin: 0 auto 12px;
-            font-size: 0.9rem;
-            color: var(--primary-navy);
-        }
-        .process-step .step-title {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-        .warning-box {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.04) 100%);
-            border-left: 4px solid #ef4444;
-            padding: 24px 28px;
-            margin: 32px 0;
-            border-radius: 0 12px 12px 0;
-        }
-        .warning-box h4 {
-            color: #dc2626;
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        @media (max-width: 768px) {
-            .article-nav {
-                grid-template-columns: 1fr;
-            }
-            .article-nav .next {
-                text-align: left;
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .process-flow {
-                grid-template-columns: 1fr;
-            }
-            .process-step::after {
-                display: none;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div id="nav-placeholder"></div>
-    <script src="../src/assets/js/navigation.js"></script>
-
-    <article>
-        <header class="article-hero">
-            <div class="article-hero-content">
-                <nav class="article-breadcrumb">
-                    <a href="../index.html">Home</a>
-                    <span>/</span>
-                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
-                    <span>/</span>
-                    <span>AI Servizi Finanziari</span>
-                </nav>
-                <span class="article-category">AI per Settore</span>
-                <h1>AI per i Servizi Finanziari: Innovazione nel Settore Bancario</h1>
-                <div class="article-meta-hero">
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 15 min lettura</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Novembre 2025</span>
-                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Avanzato</span>
-                </div>
-            </div>
-        </header>
-
-        <div class="article-container">
-            <div class="article-content">
-                <p><strong>Il settore finanziario e tra i piu trasformati dall'intelligenza artificiale.</strong> Banche, assicurazioni e fintech stanno ridefinendo ogni aspetto del business: dalla valutazione del credito alla prevenzione frodi, dalla consulenza patrimoniale all'automazione dei processi interni. Non si tratta di innovazione marginale: l'AI sta riscrivendo le regole del gioco competitivo.</p>
-
-                <p>Questa guida approfondisce le applicazioni concrete dell'AI nel settore finanziario italiano, con dati aggiornati, casi studio reali e strategie implementabili. Scoprirai come le istituzioni finanziarie stanno ottenendo risparmi del 40% sui costi operativi e come una banca del Nord Italia ha ridotto a 11 minuti l'erogazione di un anticipo pensione.</p>
-
-                <div class="stat-highlight">
-                    <span class="number">88%</span>
-                    <span class="label">del settore finanziario e significativamente impattato dall'intelligenza artificiale</span>
-                </div>
-
-                <h2>Il Contesto: AI e Trasformazione del Finance</h2>
-
-                <p>Il settore finanziario rappresenta l'avanguardia dell'adozione AI a livello globale. La combinazione di dati strutturati abbondanti, margini sufficienti per investire in tecnologia e pressione competitiva da fintech e neobank ha accelerato la trasformazione digitale oltre ogni previsione.</p>
-
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="value">88%</span>
-                        <span class="desc">Settore impattato dall'AI</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="value">40%</span>
-                        <span class="desc">Risparmio costi finance/accounting</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="value">51%</span>
-                        <span class="desc">Adozione AI cybersecurity</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="value">46%</span>
-                        <span class="desc">Adozione AI nel CRM</span>
-                    </div>
-                </div>
-
-                <p>I numeri parlano chiaro: l'88% del settore finanziario e significativamente impattato dall'AI. Le aree di maggiore adozione sono la cybersecurity (51%) e il CRM/customer service (46%), seguite da antifrode, credit scoring e automazione back-office.</p>
-
-                <p>Ma il dato piu rilevante per i decision maker e quello sui costi: le funzioni finance e accounting delle istituzioni finanziarie registrano risparmi medi del 40% grazie all'automazione AI. Non si tratta di proiezioni teoriche, ma di risultati misurati su implementazioni reali.</p>
-
-                <div class="highlight-box">
-                    <h4>Perche il Finance e in Pole Position</h4>
-                    <p>Il settore finanziario ha tre vantaggi strutturali per l'adozione AI: dati storici abbondanti e strutturati, processi altamente standardizzabili e margini che permettono investimenti tecnologici significativi. Questi fattori spiegano perche banche e assicurazioni sono tra i primi adopter di ogni nuova tecnologia AI.</p>
-                </div>
-
-                <h2>Antifrode e Detection: La Prima Linea dell'AI</h2>
-
-                <p>La prevenzione frodi e storicamente l'applicazione AI piu matura nel settore finanziario. I sistemi tradizionali basati su regole statiche non riescono a tenere il passo con la sofisticazione crescente delle frodi. L'AI cambia le regole del gioco.</p>
-
-                <h3>Come Funziona l'Antifrode AI</h3>
-
-                <p>I modelli di machine learning analizzano transazioni in tempo reale, identificando pattern anomali che sfuggirebbero a qualsiasi sistema rule-based:</p>
-
-                <ul>
-                    <li><strong>Analisi comportamentale</strong> - L'AI costruisce un profilo del comportamento normale di ogni cliente e segnala deviazioni significative</li>
-                    <li><strong>Network analysis</strong> - Identificazione di connessioni sospette tra account, merchant e transazioni apparentemente slegate</li>
-                    <li><strong>Real-time scoring</strong> - Ogni transazione riceve un punteggio di rischio in millisecondi, permettendo blocchi preventivi</li>
-                    <li><strong>Adaptive learning</strong> - I modelli si aggiornano continuamente sui nuovi pattern di frode, riducendo il lag tra nuove minacce e protezione</li>
-                </ul>
-
-                <div class="case-study-card">
-                    <span class="brand">ANTIFRODE NEXT-GEN</span>
-                    <h4>Dall'Analisi Post-Hoc alla Prevenzione Real-Time</h4>
-                    <p>I sistemi antifrode tradizionali identificano le frodi dopo che sono avvenute, permettendo al massimo il recupero. L'AI sposta il paradigma: prevenzione in tempo reale, con blocco delle transazioni sospette prima che il danno si concretizzi.</p>
-                    <div class="results">
-                        <strong>Impatto tipico:</strong> Riduzione delle frodi del 50-70%, diminuzione dei falsi positivi del 30-50% (meno clienti legittimi bloccati), ROI positivo entro 12-18 mesi dall'implementazione.
-                    </div>
-                </div>
-
-                <h3>Cybersecurity Potenziata dall'AI</h3>
-
-                <p>Il 51% delle istituzioni finanziarie utilizza gia l'AI per la cybersecurity. Le applicazioni principali includono:</p>
-
-                <ul>
-                    <li><strong>Threat detection</strong> - Identificazione di comportamenti anomali nella rete che potrebbero indicare intrusioni</li>
-                    <li><strong>Phishing prevention</strong> - Analisi AI delle email per identificare tentativi di phishing sempre piu sofisticati</li>
-                    <li><strong>Identity verification</strong> - Biometria comportamentale (come digiti, come muovi il mouse) per autenticazione continua</li>
-                    <li><strong>Incident response</strong> - Automazione delle risposte iniziali agli incidenti, riducendo i tempi di reazione</li>
-                </ul>
-
-                <div class="warning-box">
-                    <h4>L'AI come Arma a Doppio Taglio</h4>
-                    <p>I criminali informatici utilizzano sempre piu l'AI per attacchi sofisticati: deepfake per impersonation, AI generativa per phishing personalizzato, adversarial ML per eludere i sistemi di detection. La cybersecurity AI e una corsa agli armamenti dove restare fermi significa perdere.</p>
-                </div>
-
-                <h2>Credit Scoring: Oltre i Dati Tradizionali</h2>
-
-                <p>Il credit scoring tradizionale si basa su poche variabili storiche: reddito dichiarato, storico creditizio, anzianita lavorativa. L'AI espande radicalmente lo spettro di dati analizzabili, migliorando accuratezza e inclusione finanziaria.</p>
-
-                <h3>I Nuovi Dati del Credit Scoring AI</h3>
-
-                <p>I modelli di machine learning possono processare centinaia di variabili:</p>
-
-                <ul>
-                    <li><strong>Dati transazionali</strong> - Pattern di spesa, regolarita dei pagamenti, gestione del cash flow</li>
-                    <li><strong>Digital footprint</strong> - Comportamento online (con consenso), stabilita degli identificativi digitali</li>
-                    <li><strong>Alternative data</strong> - Pagamento utenze, affitti, abbonamenti - storici spesso ignorati dal credit scoring tradizionale</li>
-                    <li><strong>Real-time signals</strong> - Variazioni recenti nella situazione finanziaria, non solo snapshot storici</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <h4>Inclusione Finanziaria e AI</h4>
-                    <p>Il credit scoring AI ha un impatto sociale significativo: permette di valutare soggetti "thin file" (giovani, nuovi residenti, lavoratori atipici) che i modelli tradizionali respingerebbero per mancanza di storico. L'AI trova pattern predittivi dove i metodi convenzionali vedono solo dati insufficienti.</p>
-                </div>
-
-                <h3>Explainability: La Sfida Regolamentare</h3>
-
-                <p>I regolatori europei richiedono che le decisioni di credito siano spiegabili. I modelli di deep learning piu performanti sono spesso "black box". La soluzione passa per:</p>
-
-                <ul>
-                    <li><strong>Modelli interpretabili by design</strong> - XGBoost, modelli lineari potenziati, decision tree ensemble</li>
-                    <li><strong>Explainability layer</strong> - SHAP values, LIME e altre tecniche per spiegare decisioni di modelli complessi</li>
-                    <li><strong>Human-in-the-loop</strong> - Revisione umana dei casi borderline e delle rejection</li>
-                    <li><strong>Audit trail completo</strong> - Documentazione di ogni decisione per compliance e contestazioni</li>
-                </ul>
-
-                <h2>Robo-Advisory: Consulenza Finanziaria Automatizzata</h2>
-
-                <p>I robo-advisor rappresentano una delle applicazioni AI piu visibili per il cliente finale. Piattaforme che costruiscono e gestiscono portafogli di investimento in modo automatico, con costi inferiori alla consulenza tradizionale.</p>
-
-                <h3>Come Funziona un Robo-Advisor</h3>
-
-                <div class="process-flow">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div class="step-title">Profilazione</div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div class="step-title">Asset Allocation</div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div class="step-title">Ribilanciamento</div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <div class="step-title">Reporting</div>
-                    </div>
-                </div>
-
-                <ul>
-                    <li><strong>Profilazione automatica</strong> - Questionari digitali per determinare profilo di rischio, orizzonte temporale, obiettivi</li>
-                    <li><strong>Asset allocation ottimizzata</strong> - Algoritmi che costruiscono il portafoglio ottimale per il profilo cliente</li>
-                    <li><strong>Ribilanciamento automatico</strong> - Monitoraggio continuo e aggiustamenti per mantenere l'allocazione target</li>
-                    <li><strong>Tax-loss harvesting</strong> - Ottimizzazione fiscale automatica delle operazioni</li>
-                </ul>
-
-                <h3>Il Modello Ibrido Vincente</h3>
-
-                <p>In Italia, il modello puramente robo non ha sfondato. Il cliente italiano vuole ancora la relazione umana, soprattutto per patrimoni significativi. La soluzione vincente e il modello ibrido:</p>
-
-                <ul>
-                    <li><strong>Robo per il mass market</strong> - Portafogli standard, importi contenuti, gestione completamente automatica</li>
-                    <li><strong>Robo + consulente per affluent</strong> - Gestione automatica con touchpoint umani periodici</li>
-                    <li><strong>Consulente AI-augmented per HNWI</strong> - Il consulente umano usa tool AI per analisi e simulazioni</li>
-                </ul>
-
-                <div class="case-study-card">
-                    <span class="brand">BANCHE RETAIL ITALIANE</span>
-                    <h4>L'Evoluzione della Consulenza</h4>
-                    <p>Le principali banche italiane stanno integrando robo-advisory nelle loro piattaforme, non come sostituto ma come complemento alla rete di consulenti. L'AI gestisce i portafogli standard, liberando tempo per la consulenza a valore aggiunto.</p>
-                    <div class="results">
-                        <strong>Risultato:</strong> Ampliamento della base clienti serviti con consulenza (prima inaccessibile sotto certe soglie), aumento della produttivita dei consulenti del 25-40%, customer satisfaction stabile o in crescita.
-                    </div>
-                </div>
-
-                <h2>Automazione Back-Office: Il Caso della Banca del Nord Italia</h2>
-
-                <p>Se antifrode e robo-advisory sono visibili al cliente, il vero impatto sui costi viene dall'automazione del back-office. Processi che richiedevano giorni e team dedicati ora si completano in minuti.</p>
-
-                <h3>Il Caso Studio: Anticipo Pensione in 11 Minuti</h3>
-
-                <p>Una banca del Nord Italia ha implementato un sistema AI per la gestione delle richieste di anticipo pensione. I risultati sono straordinari:</p>
-
-                <div class="stat-highlight">
-                    <span class="number">11 min</span>
-                    <span class="label">tempo di erogazione anticipo pensione - da giorni a minuti</span>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>Prima: Processo Manuale (3-5 giorni)</h4>
-                    <p>Ricezione richiesta cartacea, inserimento dati manuale, verifica documenti da operatore, calcolo manuale dell'importo, approvazione multilivello, comunicazione al cliente, erogazione.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>Dopo: Processo AI-Powered (11 minuti)</h4>
-                    <p>Richiesta digitale, estrazione automatica dati da documenti (OCR + NLP), verifica automatica requisiti, calcolo istantaneo, approvazione automatica (entro soglie), notifica push al cliente, erogazione immediata.</p>
-                </div>
-
-                <div class="case-study-card">
-                    <span class="brand">BANCA NORD ITALIA</span>
-                    <h4>Automazione Anticipo Pensione</h4>
-                    <p>Il sistema processa il 100% delle richieste, con l'87% completamente automatizzate end-to-end. Il 13% richiede intervento umano per eccezioni o casi complessi - ma anche questi beneficiano della pre-elaborazione AI.</p>
-                    <div class="results">
-                        <strong>Metriche chiave:</strong> 87% automazione completa, 11 minuti time-to-cash (da 3-5 giorni), riduzione errori del 94%, customer satisfaction +35 punti NPS, ROI positivo in 8 mesi.
-                    </div>
-                </div>
-
-                <h3>Le Funzioni Back-Office Piu Impattate</h3>
-
-                <p>L'automazione AI sta trasformando ogni area del back-office bancario:</p>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Funzione</th>
-                            <th>Applicazione AI</th>
-                            <th>Risparmio Tipico</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Riconciliazioni</td>
-                            <td>Matching automatico, gestione eccezioni</td>
-                            <td>50-70%</td>
-                        </tr>
-                        <tr>
-                            <td>KYC/Onboarding</td>
-                            <td>Verifica documenti, screening automatico</td>
-                            <td>40-60%</td>
-                        </tr>
-                        <tr>
-                            <td>Elaborazione prestiti</td>
-                            <td>Istruttoria automatica, valutazione</td>
-                            <td>35-50%</td>
-                        </tr>
-                        <tr>
-                            <td>Contabilita</td>
-                            <td>Registrazioni automatiche, chiusure</td>
-                            <td>40-55%</td>
-                        </tr>
-                        <tr>
-                            <td>Compliance reporting</td>
-                            <td>Generazione automatica report regolamentari</td>
-                            <td>30-45%</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="highlight-box">
-                    <h4>Il 40% di Risparmio sui Costi Finance</h4>
-                    <p>Le funzioni finance e accounting delle istituzioni finanziarie registrano risparmi medi del 40% grazie all'automazione AI. Questo dato comprende sia la riduzione di FTE (full-time equivalent) sia l'eliminazione di errori costosi e rilavorazioni. Per una banca media, parliamo di milioni di euro annui.</p>
-                </div>
-
-                <h2>Compliance e RegTech: Automazione Normativa</h2>
-
-                <p>Il settore finanziario e tra i piu regolamentati. Banche e assicurazioni dedicano risorse enormi alla compliance: reporting, controlli, audit, aggiornamenti normativi. L'AI sta trasformando anche questo ambito.</p>
-
-                <h3>Applicazioni RegTech AI</h3>
-
-                <ul>
-                    <li><strong>Regulatory reporting</strong> - Generazione automatica di report per Banca d'Italia, BCE, IVASS</li>
-                    <li><strong>AML monitoring</strong> - Screening continuo delle transazioni per antiriciclaggio</li>
-                    <li><strong>Regulatory change management</strong> - NLP per analisi automatica di nuove normative e impatto</li>
-                    <li><strong>Audit automation</strong> - Controlli automatici continui invece di audit periodici manuali</li>
-                    <li><strong>Policy compliance</strong> - Verifica automatica che processi e documenti rispettino le policy interne</li>
-                </ul>
-
-                <h3>Il Vantaggio Competitivo della Compliance AI</h3>
-
-                <p>La compliance non e solo un costo da minimizzare. Le istituzioni che automatizzano la compliance ottengono:</p>
-
-                <ul>
-                    <li><strong>Riduzione rischio sanzioni</strong> - Meno errori umani, controlli piu capillari</li>
-                    <li><strong>Time-to-market</strong> - Lancio prodotti piu rapido grazie a compliance check automatizzati</li>
-                    <li><strong>Audit readiness</strong> - Documentazione sempre aggiornata e audit trail completo</li>
-                    <li><strong>Scalabilita</strong> - La compliance non diventa un collo di bottiglia nella crescita</li>
-                </ul>
-
-                <h2>Assicurazioni: AI per Underwriting e Claims</h2>
-
-                <p>Il settore assicurativo presenta opportunita specifiche per l'AI, dalla valutazione del rischio alla gestione sinistri.</p>
-
-                <h3>Underwriting Intelligente</h3>
-
-                <p>L'AI trasforma la sottoscrizione delle polizze:</p>
-
-                <ul>
-                    <li><strong>Risk assessment automatico</strong> - Valutazione del rischio basata su centinaia di variabili</li>
-                    <li><strong>Pricing dinamico</strong> - Premi personalizzati sul profilo di rischio effettivo</li>
-                    <li><strong>Instant quote</strong> - Preventivi in secondi invece che giorni</li>
-                    <li><strong>Fraud detection in fase di sottoscrizione</strong> - Identificazione di informazioni false o omesse</li>
-                </ul>
-
-                <h3>Claims Management AI-Powered</h3>
-
-                <p>La gestione sinistri e un'area ad alto potenziale:</p>
-
-                <ul>
-                    <li><strong>First Notice of Loss automatico</strong> - Chatbot e app per apertura sinistro 24/7</li>
-                    <li><strong>Damage assessment</strong> - Computer vision per stima danni da foto (auto, property)</li>
-                    <li><strong>Fraud detection sui sinistri</strong> - Pattern recognition per identificare sinistri fraudolenti</li>
-                    <li><strong>Straight-through processing</strong> - Liquidazione automatica per sinistri standard</li>
-                </ul>
-
-                <div class="case-study-card">
-                    <span class="brand">ASSICURAZIONI AUTO</span>
-                    <h4>Perizia Fotografica AI</h4>
-                    <p>Le compagnie assicurative stanno implementando sistemi di computer vision che analizzano le foto dei danni inviate dai clienti, stimando automaticamente l'entita del danno e i costi di riparazione.</p>
-                    <div class="results">
-                        <strong>Benefici:</strong> Riduzione tempi di perizia da giorni a minuti, consistenza nelle valutazioni, riduzione costi periti esterni del 40-60%, customer experience migliorata.
-                    </div>
-                </div>
-
-                <h2>CRM e Customer Service: Il 46% Gia Adotta AI</h2>
-
-                <p>Il 46% delle istituzioni finanziarie utilizza AI per CRM e customer service. Le applicazioni spaziano dai chatbot alla personalizzazione delle offerte.</p>
-
-                <h3>Chatbot e Virtual Assistant</h3>
-
-                <p>I chatbot bancari di nuova generazione vanno oltre le FAQ:</p>
-
-                <ul>
-                    <li><strong>Operazioni dispositive</strong> - Bonifici, ricariche, blocco carte tramite chat</li>
-                    <li><strong>Consulenza base</strong> - Suggerimenti su prodotti, simulazioni, informazioni fiscali</li>
-                    <li><strong>Escalation intelligente</strong> - Passaggio a operatore umano quando necessario, con contesto completo</li>
-                    <li><strong>Proattivita</strong> - Alert personalizzati, suggerimenti basati sul comportamento</li>
-                </ul>
-
-                <h3>Hyper-Personalization</h3>
-
-                <p>L'AI permette di personalizzare ogni interazione:</p>
-
-                <ul>
-                    <li><strong>Next best offer</strong> - Prodotto giusto, momento giusto, canale giusto</li>
-                    <li><strong>Dynamic content</strong> - Email, app, sito che si adattano al profilo cliente</li>
-                    <li><strong>Predictive service</strong> - Anticipare bisogni prima che il cliente li esprima</li>
-                    <li><strong>Churn prevention</strong> - Identificare clienti a rischio e intervenire proattivamente</li>
-                </ul>
-
-                <div class="cta-box">
-                    <h3 style="color: white; margin-top: 0;">Calcola il ROI dell'AI per la Tua Istituzione</h3>
-                    <p>Scopri quanto la tua banca, assicurazione o fintech potrebbe risparmiare con l'automazione AI.</p>
-                    <a href="../roi-calculator.html" class="btn btn-primary btn-lg">Calcola il Tuo ROI</a>
-                </div>
-
-                <h2>Roadmap di Implementazione per Istituzioni Finanziarie</h2>
-
-                <p>Come dovrebbe procedere un'istituzione finanziaria italiana nell'adozione AI? Ecco un framework in quattro fasi.</p>
-
-                <h3>Fase 1: Foundation (Mesi 1-6)</h3>
-
-                <ul>
-                    <li>Assessment della data quality e data governance</li>
-                    <li>Identificazione dei quick win ad alto ROI (automazione processi specifici)</li>
-                    <li>Potenziamento delle capability AI esistenti (antifrode, CRM)</li>
-                    <li>Formazione del management su potenzialita e limiti dell'AI</li>
-                </ul>
-
-                <h3>Fase 2: Pilot (Mesi 7-12)</h3>
-
-                <ul>
-                    <li>Implementazione di 2-3 use case pilota in aree diverse</li>
-                    <li>Credit scoring AI su un segmento cliente specifico</li>
-                    <li>Automazione di un processo back-office end-to-end</li>
-                    <li>Chatbot AI per un canale o prodotto specifico</li>
-                </ul>
-
-                <h3>Fase 3: Scale (Anno 2)</h3>
-
-                <ul>
-                    <li>Estensione delle soluzioni di successo a tutta l'organizzazione</li>
-                    <li>Integrazione dei modelli AI nei sistemi core</li>
-                    <li>Sviluppo di capability MLOps per gestione modelli in produzione</li>
-                    <li>Robo-advisory o consulenza AI-augmented per la rete</li>
-                </ul>
-
-                <h3>Fase 4: Transform (Anno 3+)</h3>
-
-                <ul>
-                    <li>AI come elemento strategico in ogni decisione di business</li>
-                    <li>Real-time decisioning su tutti i touchpoint cliente</li>
-                    <li>Continuous compliance automation</li>
-                    <li>Esplorazione di modelli di business AI-native</li>
-                </ul>
-
-                <h2>Sfide e Considerazioni per il Mercato Italiano</h2>
-
-                <p>L'implementazione AI nel settore finanziario italiano presenta sfide specifiche:</p>
-
-                <ul>
-                    <li><strong>Legacy systems</strong> - Molte banche italiane hanno sistemi core datati che complicano l'integrazione AI</li>
-                    <li><strong>Regolamentazione stringente</strong> - Banca d'Italia, BCE e AI Act europeo impongono vincoli specifici</li>
-                    <li><strong>Cultura del rischio</strong> - Il settore e storicamente avverso al rischio, rallentando l'innovazione</li>
-                    <li><strong>Talenti</strong> - Competizione per data scientist e ML engineer con fintech e big tech</li>
-                    <li><strong>Clientela</strong> - Segmenti di clientela meno digitalizzati rispetto ad altri paesi europei</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <h4>L'Opportunita per le Banche Italiane</h4>
-                    <p>Le sfide sono reali, ma lo e anche l'opportunita. Le banche che investono ora in AI costruiscono un vantaggio competitivo difficile da recuperare. E con il 40% di risparmio sui costi finance, l'investimento si ripaga rapidamente - liberando risorse per ulteriore innovazione.</p>
-                </div>
-
-                <p>Per approfondire l'AI in altri settori, consulta <a href="ai-moda-lusso-made-italy.html">AI nel Settore Moda e Lusso</a> o esplora le applicazioni dei <a href="chatbot-ai-customer-service.html">Chatbot AI per il Customer Service</a>.</p>
-
-                <section class="faq-section">
-                    <h2>Domande Frequenti</h2>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Qual e l'impatto dell'AI sul settore finanziario italiano?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>L'88% del settore finanziario e significativamente impattato dall'intelligenza artificiale. Le aree principali di applicazione sono: cybersecurity (51% di adozione), CRM e customer service (46%), antifrode e risk management, credit scoring e automazione back-office. Le funzioni finance e accounting registrano risparmi medi del 40% grazie all'automazione AI.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Come funziona il credit scoring basato su AI?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Il credit scoring AI analizza centinaia di variabili oltre ai tradizionali dati finanziari: comportamenti di pagamento, digital footprint, dati transazionali in tempo reale. I modelli di machine learning identificano pattern predittivi invisibili agli score tradizionali, migliorando l'accuratezza delle valutazioni e riducendo sia i falsi positivi che i falsi negativi. Il risultato: minori perdite su crediti e maggiore inclusione finanziaria.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Quanto risparmia una banca con l'automazione AI del back-office?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Le funzioni finance e accounting delle istituzioni finanziarie registrano risparmi medi del 40% grazie all'automazione AI. Un caso studio di una banca del Nord Italia mostra tempi di erogazione anticipo pensione ridotti a soli 11 minuti (da giorni), con l'87% del processo completamente automatizzato. I benefici includono riduzione errori umani, elaborazione 24/7, scalabilita immediata durante i picchi di richieste.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Il robo-advisory sostituira i consulenti finanziari umani?
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer">
-                            <p>No, il modello vincente e l'ibrido. I robo-advisor gestiscono efficacemente portafogli standard e clienti mass market, liberando i consulenti umani per la gestione patrimoniale complessa e la relazione con clienti high-net-worth. In Italia, la combinazione robo-advisor + consulente umano sta diventando lo standard nelle banche retail, offrendo personalizzazione scalabile senza perdere il valore della relazione personale.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <nav class="article-nav">
-                    <a href="ai-moda-lusso-made-italy.html">
-                        <div class="label">Articolo Precedente</div>
-                        <div class="title">AI Moda e Lusso: Made in Italy Digitale</div>
-                    </a>
-                    <a href="chatbot-ai-customer-service.html" class="next">
-                        <div class="label">Prossimo Articolo</div>
-                        <div class="title">Chatbot AI per il Customer Service</div>
-                    </a>
-                </nav>
-            </div>
+<a href="#main" class="skip-link">Vai al contenuto</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="../index.html#metaphor">L'Idea</a>
+      <a href="../servizi.html">Servizi</a>
+      <a href="../prodotti.html">On-Premise</a>
+      <a href="../acceleratore.html">Acceleratore</a>
+      <a href="../index.html#process">Percorso</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Lingua">
+        <a href="ai-servizi-finanziari.html" class="on" aria-current="true">IT</a>
+        <a href="../en/ceo-ai-guide-2025.html">EN</a>
+      </div>
+      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="../index.html#metaphor">L'Idea</a>
+  <a href="../servizi.html">Servizi</a>
+  <a href="../prodotti.html">On-Premise</a>
+  <a href="../acceleratore.html">Acceleratore</a>
+  <a href="../index.html#process">Percorso</a>
+  <a href="../contatti.html">Richiedi un preventivo</a>
+</div>
+
+<main id="main">
+
+<!-- PAGE HEADER -->
+<section class="pagehead">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><i>/</i>
+      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
+      <span>AI Servizi Finanziari</span>
+    </nav>
+    <div class="eyebrow-lux">AI per Settore</div>
+    <h1>AI per i <span class="serif">Servizi Finanziari</span>: Innovazione nel Settore Bancario</h1>
+    <p class="pagehead__lead">Antifrode, credit scoring, robo-advisory e automazione back-office: come l'intelligenza artificiale sta riscrivendo le regole del gioco competitivo per banche, assicurazioni e fintech italiane.</p>
+    <div class="pagehead__meta">
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 15 min lettura</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Novembre 2025</span>
+      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Avanzato</span>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<section class="sec sec--light">
+  <div class="shell">
+    <div class="prose reveal">
+
+      <p><strong>Il settore finanziario e tra i piu trasformati dall'intelligenza artificiale.</strong> Banche, assicurazioni e fintech stanno ridefinendo ogni aspetto del business: dalla valutazione del credito alla prevenzione frodi, dalla consulenza patrimoniale all'automazione dei processi interni. Non si tratta di innovazione marginale: l'AI sta riscrivendo le regole del gioco competitivo.</p>
+
+      <p>Questa guida approfondisce le applicazioni concrete dell'AI nel settore finanziario italiano, con dati aggiornati, casi studio reali e strategie implementabili. Scoprirai come le istituzioni finanziarie stanno ottenendo risparmi del 40% sui costi operativi e come una banca del Nord Italia ha ridotto a 11 minuti l'erogazione di un anticipo pensione.</p>
+
+      <div class="statbox">
+        <span class="statbox__n">88%</span>
+        <span class="statbox__l">del settore finanziario e significativamente impattato dall'intelligenza artificiale</span>
+      </div>
+
+      <h2>Il Contesto: AI e Trasformazione del Finance</h2>
+
+      <p>Il settore finanziario rappresenta l'avanguardia dell'adozione AI a livello globale. La combinazione di dati strutturati abbondanti, margini sufficienti per investire in tecnologia e pressione competitiva da fintech e neobank ha accelerato la trasformazione digitale oltre ogni previsione.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat reveal" data-d="1"><div class="n grad-text">88%</div><div class="l">Settore impattato dall'AI</div><div class="s">finanza globale</div></div>
+      <div class="stat reveal" data-d="2"><div class="n">40%</div><div class="l">Risparmio costi finance/accounting</div><div class="s">media istituzioni</div></div>
+      <div class="stat reveal" data-d="3"><div class="n grad-text">51%</div><div class="l">Adozione AI cybersecurity</div><div class="s">istituzioni finanziarie</div></div>
+      <div class="stat reveal" data-d="4"><div class="n">46%</div><div class="l">Adozione AI nel CRM</div><div class="s">customer service</div></div>
+    </div>
+
+    <div class="prose reveal">
+      <p>I numeri parlano chiaro: l'88% del settore finanziario e significativamente impattato dall'AI. Le aree di maggiore adozione sono la cybersecurity (51%) e il CRM/customer service (46%), seguite da antifrode, credit scoring e automazione back-office.</p>
+
+      <p>Ma il dato piu rilevante per i decision maker e quello sui costi: le funzioni finance e accounting delle istituzioni finanziarie registrano risparmi medi del 40% grazie all'automazione AI. Non si tratta di proiezioni teoriche, ma di risultati misurati su implementazioni reali.</p>
+
+      <div class="callout">
+        <h4>Perche il Finance e in Pole Position</h4>
+        <p>Il settore finanziario ha tre vantaggi strutturali per l'adozione AI: dati storici abbondanti e strutturati, processi altamente standardizzabili e margini che permettono investimenti tecnologici significativi. Questi fattori spiegano perche banche e assicurazioni sono tra i primi adopter di ogni nuova tecnologia AI.</p>
+      </div>
+
+      <h2>Antifrode e Detection: La Prima Linea dell'AI</h2>
+
+      <p>La prevenzione frodi e storicamente l'applicazione AI piu matura nel settore finanziario. I sistemi tradizionali basati su regole statiche non riescono a tenere il passo con la sofisticazione crescente delle frodi. L'AI cambia le regole del gioco.</p>
+
+      <h3>Come Funziona l'Antifrode AI</h3>
+
+      <p>I modelli di machine learning analizzano transazioni in tempo reale, identificando pattern anomali che sfuggirebbero a qualsiasi sistema rule-based:</p>
+
+      <ul>
+        <li><strong>Analisi comportamentale</strong> - L'AI costruisce un profilo del comportamento normale di ogni cliente e segnala deviazioni significative</li>
+        <li><strong>Network analysis</strong> - Identificazione di connessioni sospette tra account, merchant e transazioni apparentemente slegate</li>
+        <li><strong>Real-time scoring</strong> - Ogni transazione riceve un punteggio di rischio in millisecondi, permettendo blocchi preventivi</li>
+        <li><strong>Adaptive learning</strong> - I modelli si aggiornano continuamente sui nuovi pattern di frode, riducendo il lag tra nuove minacce e protezione</li>
+      </ul>
+    </div>
+
+    <div class="cards3">
+      <div class="gcard reveal" data-d="1">
+        <h3>Dall'Analisi Post-Hoc alla Prevenzione Real-Time</h3>
+        <p><strong>Antifrode Next-Gen.</strong> I sistemi antifrode tradizionali identificano le frodi dopo che sono avvenute, permettendo al massimo il recupero. L'AI sposta il paradigma: prevenzione in tempo reale, con blocco delle transazioni sospette prima che il danno si concretizzi.</p>
+        <p><strong>Impatto tipico:</strong> Riduzione delle frodi del 50-70%, diminuzione dei falsi positivi del 30-50% (meno clienti legittimi bloccati), ROI positivo entro 12-18 mesi dall'implementazione.</p>
+      </div>
+    </div>
+
+    <div class="prose reveal">
+      <h3>Cybersecurity Potenziata dall'AI</h3>
+
+      <p>Il 51% delle istituzioni finanziarie utilizza gia l'AI per la cybersecurity. Le applicazioni principali includono:</p>
+
+      <ul>
+        <li><strong>Threat detection</strong> - Identificazione di comportamenti anomali nella rete che potrebbero indicare intrusioni</li>
+        <li><strong>Phishing prevention</strong> - Analisi AI delle email per identificare tentativi di phishing sempre piu sofisticati</li>
+        <li><strong>Identity verification</strong> - Biometria comportamentale (come digiti, come muovi il mouse) per autenticazione continua</li>
+        <li><strong>Incident response</strong> - Automazione delle risposte iniziali agli incidenti, riducendo i tempi di reazione</li>
+      </ul>
+
+      <div class="callout callout--warn">
+        <h4>L'AI come Arma a Doppio Taglio</h4>
+        <p>I criminali informatici utilizzano sempre piu l'AI per attacchi sofisticati: deepfake per impersonation, AI generativa per phishing personalizzato, adversarial ML per eludere i sistemi di detection. La cybersecurity AI e una corsa agli armamenti dove restare fermi significa perdere.</p>
+      </div>
+
+      <h2>Credit Scoring: Oltre i Dati Tradizionali</h2>
+
+      <p>Il credit scoring tradizionale si basa su poche variabili storiche: reddito dichiarato, storico creditizio, anzianita lavorativa. L'AI espande radicalmente lo spettro di dati analizzabili, migliorando accuratezza e inclusione finanziaria.</p>
+
+      <h3>I Nuovi Dati del Credit Scoring AI</h3>
+
+      <p>I modelli di machine learning possono processare centinaia di variabili:</p>
+
+      <ul>
+        <li><strong>Dati transazionali</strong> - Pattern di spesa, regolarita dei pagamenti, gestione del cash flow</li>
+        <li><strong>Digital footprint</strong> - Comportamento online (con consenso), stabilita degli identificativi digitali</li>
+        <li><strong>Alternative data</strong> - Pagamento utenze, affitti, abbonamenti - storici spesso ignorati dal credit scoring tradizionale</li>
+        <li><strong>Real-time signals</strong> - Variazioni recenti nella situazione finanziaria, non solo snapshot storici</li>
+      </ul>
+
+      <div class="callout">
+        <h4>Inclusione Finanziaria e AI</h4>
+        <p>Il credit scoring AI ha un impatto sociale significativo: permette di valutare soggetti "thin file" (giovani, nuovi residenti, lavoratori atipici) che i modelli tradizionali respingerebbero per mancanza di storico. L'AI trova pattern predittivi dove i metodi convenzionali vedono solo dati insufficienti.</p>
+      </div>
+
+      <h3>Explainability: La Sfida Regolamentare</h3>
+
+      <p>I regolatori europei richiedono che le decisioni di credito siano spiegabili. I modelli di deep learning piu performanti sono spesso "black box". La soluzione passa per:</p>
+
+      <ul>
+        <li><strong>Modelli interpretabili by design</strong> - XGBoost, modelli lineari potenziati, decision tree ensemble</li>
+        <li><strong>Explainability layer</strong> - SHAP values, LIME e altre tecniche per spiegare decisioni di modelli complessi</li>
+        <li><strong>Human-in-the-loop</strong> - Revisione umana dei casi borderline e delle rejection</li>
+        <li><strong>Audit trail completo</strong> - Documentazione di ogni decisione per compliance e contestazioni</li>
+      </ul>
+
+      <h2>Robo-Advisory: Consulenza Finanziaria Automatizzata</h2>
+
+      <p>I robo-advisor rappresentano una delle applicazioni AI piu visibili per il cliente finale. Piattaforme che costruiscono e gestiscono portafogli di investimento in modo automatico, con costi inferiori alla consulenza tradizionale.</p>
+
+      <h3>Come Funziona un Robo-Advisor</h3>
+    </div>
+
+    <div class="proc">
+      <div class="pstep reveal" data-d="1"><div class="pstep__dot"><b>1</b></div><div class="wk">Step 1</div><h4>Profilazione</h4><p>Questionari digitali per determinare profilo di rischio, orizzonte temporale, obiettivi.</p></div>
+      <div class="pstep reveal" data-d="2"><div class="pstep__dot"><b>2</b></div><div class="wk">Step 2</div><h4>Asset Allocation</h4><p>Algoritmi che costruiscono il portafoglio ottimale per il profilo cliente.</p></div>
+      <div class="pstep reveal" data-d="3"><div class="pstep__dot"><b>3</b></div><div class="wk">Step 3</div><h4>Ribilanciamento</h4><p>Monitoraggio continuo e aggiustamenti per mantenere l'allocazione target.</p></div>
+      <div class="pstep reveal" data-d="4"><div class="pstep__dot"><b>4</b></div><div class="wk">Step 4</div><h4>Reporting</h4><p>Rendicontazione automatica e trasparente delle performance di portafoglio.</p></div>
+    </div>
+
+    <div class="prose reveal">
+      <ul>
+        <li><strong>Profilazione automatica</strong> - Questionari digitali per determinare profilo di rischio, orizzonte temporale, obiettivi</li>
+        <li><strong>Asset allocation ottimizzata</strong> - Algoritmi che costruiscono il portafoglio ottimale per il profilo cliente</li>
+        <li><strong>Ribilanciamento automatico</strong> - Monitoraggio continuo e aggiustamenti per mantenere l'allocazione target</li>
+        <li><strong>Tax-loss harvesting</strong> - Ottimizzazione fiscale automatica delle operazioni</li>
+      </ul>
+
+      <h3>Il Modello Ibrido Vincente</h3>
+
+      <p>In Italia, il modello puramente robo non ha sfondato. Il cliente italiano vuole ancora la relazione umana, soprattutto per patrimoni significativi. La soluzione vincente e il modello ibrido:</p>
+
+      <ul>
+        <li><strong>Robo per il mass market</strong> - Portafogli standard, importi contenuti, gestione completamente automatica</li>
+        <li><strong>Robo + consulente per affluent</strong> - Gestione automatica con touchpoint umani periodici</li>
+        <li><strong>Consulente AI-augmented per HNWI</strong> - Il consulente umano usa tool AI per analisi e simulazioni</li>
+      </ul>
+    </div>
+
+    <div class="cards3">
+      <div class="gcard reveal" data-d="1">
+        <h3>L'Evoluzione della Consulenza</h3>
+        <p><strong>Banche Retail Italiane.</strong> Le principali banche italiane stanno integrando robo-advisory nelle loro piattaforme, non come sostituto ma come complemento alla rete di consulenti. L'AI gestisce i portafogli standard, liberando tempo per la consulenza a valore aggiunto.</p>
+        <p><strong>Risultato:</strong> Ampliamento della base clienti serviti con consulenza (prima inaccessibile sotto certe soglie), aumento della produttivita dei consulenti del 25-40%, customer satisfaction stabile o in crescita.</p>
+      </div>
+    </div>
+
+    <div class="prose reveal">
+      <h2>Automazione Back-Office: Il Caso della Banca del Nord Italia</h2>
+
+      <p>Se antifrode e robo-advisory sono visibili al cliente, il vero impatto sui costi viene dall'automazione del back-office. Processi che richiedevano giorni e team dedicati ora si completano in minuti.</p>
+
+      <h3>Il Caso Studio: Anticipo Pensione in 11 Minuti</h3>
+
+      <p>Una banca del Nord Italia ha implementato un sistema AI per la gestione delle richieste di anticipo pensione. I risultati sono straordinari:</p>
+
+      <div class="statbox">
+        <span class="statbox__n">11 min</span>
+        <span class="statbox__l">tempo di erogazione anticipo pensione - da giorni a minuti</span>
+      </div>
+    </div>
+
+    <div class="proc">
+      <div class="pstep reveal" data-d="1"><div class="pstep__dot"><b>1</b></div><div class="wk">Prima</div><h4>Processo Manuale (3-5 giorni)</h4><p>Ricezione richiesta cartacea, inserimento dati manuale, verifica documenti da operatore, calcolo manuale dell'importo, approvazione multilivello, comunicazione al cliente, erogazione.</p></div>
+      <div class="pstep reveal" data-d="2"><div class="pstep__dot"><b>2</b></div><div class="wk">Dopo</div><h4>Processo AI-Powered (11 minuti)</h4><p>Richiesta digitale, estrazione automatica dati da documenti (OCR + NLP), verifica automatica requisiti, calcolo istantaneo, approvazione automatica (entro soglie), notifica push al cliente, erogazione immediata.</p></div>
+    </div>
+
+    <div class="cards3">
+      <div class="gcard reveal" data-d="1">
+        <h3>Automazione Anticipo Pensione</h3>
+        <p><strong>Banca Nord Italia.</strong> Il sistema processa il 100% delle richieste, con l'87% completamente automatizzate end-to-end. Il 13% richiede intervento umano per eccezioni o casi complessi - ma anche questi beneficiano della pre-elaborazione AI.</p>
+        <p><strong>Metriche chiave:</strong> 87% automazione completa, 11 minuti time-to-cash (da 3-5 giorni), riduzione errori del 94%, customer satisfaction +35 punti NPS, ROI positivo in 8 mesi.</p>
+      </div>
+    </div>
+
+    <div class="prose reveal">
+      <h3>Le Funzioni Back-Office Piu Impattate</h3>
+
+      <p>L'automazione AI sta trasformando ogni area del back-office bancario:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Funzione</th>
+            <th>Applicazione AI</th>
+            <th>Risparmio Tipico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Riconciliazioni</td>
+            <td>Matching automatico, gestione eccezioni</td>
+            <td>50-70%</td>
+          </tr>
+          <tr>
+            <td>KYC/Onboarding</td>
+            <td>Verifica documenti, screening automatico</td>
+            <td>40-60%</td>
+          </tr>
+          <tr>
+            <td>Elaborazione prestiti</td>
+            <td>Istruttoria automatica, valutazione</td>
+            <td>35-50%</td>
+          </tr>
+          <tr>
+            <td>Contabilita</td>
+            <td>Registrazioni automatiche, chiusure</td>
+            <td>40-55%</td>
+          </tr>
+          <tr>
+            <td>Compliance reporting</td>
+            <td>Generazione automatica report regolamentari</td>
+            <td>30-45%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <h4>Il 40% di Risparmio sui Costi Finance</h4>
+        <p>Le funzioni finance e accounting delle istituzioni finanziarie registrano risparmi medi del 40% grazie all'automazione AI. Questo dato comprende sia la riduzione di FTE (full-time equivalent) sia l'eliminazione di errori costosi e rilavorazioni. Per una banca media, parliamo di milioni di euro annui.</p>
+      </div>
+
+      <h2>Compliance e RegTech: Automazione Normativa</h2>
+
+      <p>Il settore finanziario e tra i piu regolamentati. Banche e assicurazioni dedicano risorse enormi alla compliance: reporting, controlli, audit, aggiornamenti normativi. L'AI sta trasformando anche questo ambito.</p>
+
+      <h3>Applicazioni RegTech AI</h3>
+
+      <ul>
+        <li><strong>Regulatory reporting</strong> - Generazione automatica di report per Banca d'Italia, BCE, IVASS</li>
+        <li><strong>AML monitoring</strong> - Screening continuo delle transazioni per antiriciclaggio</li>
+        <li><strong>Regulatory change management</strong> - NLP per analisi automatica di nuove normative e impatto</li>
+        <li><strong>Audit automation</strong> - Controlli automatici continui invece di audit periodici manuali</li>
+        <li><strong>Policy compliance</strong> - Verifica automatica che processi e documenti rispettino le policy interne</li>
+      </ul>
+
+      <h3>Il Vantaggio Competitivo della Compliance AI</h3>
+
+      <p>La compliance non e solo un costo da minimizzare. Le istituzioni che automatizzano la compliance ottengono:</p>
+
+      <ul>
+        <li><strong>Riduzione rischio sanzioni</strong> - Meno errori umani, controlli piu capillari</li>
+        <li><strong>Time-to-market</strong> - Lancio prodotti piu rapido grazie a compliance check automatizzati</li>
+        <li><strong>Audit readiness</strong> - Documentazione sempre aggiornata e audit trail completo</li>
+        <li><strong>Scalabilita</strong> - La compliance non diventa un collo di bottiglia nella crescita</li>
+      </ul>
+
+      <h2>Assicurazioni: AI per Underwriting e Claims</h2>
+
+      <p>Il settore assicurativo presenta opportunita specifiche per l'AI, dalla valutazione del rischio alla gestione sinistri.</p>
+
+      <h3>Underwriting Intelligente</h3>
+
+      <p>L'AI trasforma la sottoscrizione delle polizze:</p>
+
+      <ul>
+        <li><strong>Risk assessment automatico</strong> - Valutazione del rischio basata su centinaia di variabili</li>
+        <li><strong>Pricing dinamico</strong> - Premi personalizzati sul profilo di rischio effettivo</li>
+        <li><strong>Instant quote</strong> - Preventivi in secondi invece che giorni</li>
+        <li><strong>Fraud detection in fase di sottoscrizione</strong> - Identificazione di informazioni false o omesse</li>
+      </ul>
+
+      <h3>Claims Management AI-Powered</h3>
+
+      <p>La gestione sinistri e un'area ad alto potenziale:</p>
+
+      <ul>
+        <li><strong>First Notice of Loss automatico</strong> - Chatbot e app per apertura sinistro 24/7</li>
+        <li><strong>Damage assessment</strong> - Computer vision per stima danni da foto (auto, property)</li>
+        <li><strong>Fraud detection sui sinistri</strong> - Pattern recognition per identificare sinistri fraudolenti</li>
+        <li><strong>Straight-through processing</strong> - Liquidazione automatica per sinistri standard</li>
+      </ul>
+    </div>
+
+    <div class="cards3">
+      <div class="gcard reveal" data-d="1">
+        <h3>Perizia Fotografica AI</h3>
+        <p><strong>Assicurazioni Auto.</strong> Le compagnie assicurative stanno implementando sistemi di computer vision che analizzano le foto dei danni inviate dai clienti, stimando automaticamente l'entita del danno e i costi di riparazione.</p>
+        <p><strong>Benefici:</strong> Riduzione tempi di perizia da giorni a minuti, consistenza nelle valutazioni, riduzione costi periti esterni del 40-60%, customer experience migliorata.</p>
+      </div>
+    </div>
+
+    <div class="prose reveal">
+      <h2>CRM e Customer Service: Il 46% Gia Adotta AI</h2>
+
+      <p>Il 46% delle istituzioni finanziarie utilizza AI per CRM e customer service. Le applicazioni spaziano dai chatbot alla personalizzazione delle offerte.</p>
+
+      <h3>Chatbot e Virtual Assistant</h3>
+
+      <p>I chatbot bancari di nuova generazione vanno oltre le FAQ:</p>
+
+      <ul>
+        <li><strong>Operazioni dispositive</strong> - Bonifici, ricariche, blocco carte tramite chat</li>
+        <li><strong>Consulenza base</strong> - Suggerimenti su prodotti, simulazioni, informazioni fiscali</li>
+        <li><strong>Escalation intelligente</strong> - Passaggio a operatore umano quando necessario, con contesto completo</li>
+        <li><strong>Proattivita</strong> - Alert personalizzati, suggerimenti basati sul comportamento</li>
+      </ul>
+
+      <h3>Hyper-Personalization</h3>
+
+      <p>L'AI permette di personalizzare ogni interazione:</p>
+
+      <ul>
+        <li><strong>Next best offer</strong> - Prodotto giusto, momento giusto, canale giusto</li>
+        <li><strong>Dynamic content</strong> - Email, app, sito che si adattano al profilo cliente</li>
+        <li><strong>Predictive service</strong> - Anticipare bisogni prima che il cliente li esprima</li>
+        <li><strong>Churn prevention</strong> - Identificare clienti a rischio e intervenire proattivamente</li>
+      </ul>
+
+      <div class="callout">
+        <h4>Calcola il ROI dell'AI per la Tua Istituzione</h4>
+        <p>Scopri quanto la tua banca, assicurazione o fintech potrebbe risparmiare con l'automazione AI. <a href="../roi-calculator.html">Calcola il tuo ROI</a> con il nostro strumento gratuito.</p>
+      </div>
+
+      <h2>Roadmap di Implementazione per Istituzioni Finanziarie</h2>
+
+      <p>Come dovrebbe procedere un'istituzione finanziaria italiana nell'adozione AI? Ecco un framework in quattro fasi.</p>
+    </div>
+
+    <div class="proc">
+      <div class="pstep reveal" data-d="1"><div class="pstep__dot"><b>1</b></div><div class="wk">Mesi 1-6</div><h4>Foundation</h4><p>Assessment della data quality e data governance; identificazione dei quick win ad alto ROI (automazione processi specifici); potenziamento delle capability AI esistenti (antifrode, CRM); formazione del management su potenzialita e limiti dell'AI.</p></div>
+      <div class="pstep reveal" data-d="2"><div class="pstep__dot"><b>2</b></div><div class="wk">Mesi 7-12</div><h4>Pilot</h4><p>Implementazione di 2-3 use case pilota in aree diverse; credit scoring AI su un segmento cliente specifico; automazione di un processo back-office end-to-end; chatbot AI per un canale o prodotto specifico.</p></div>
+      <div class="pstep reveal" data-d="3"><div class="pstep__dot"><b>3</b></div><div class="wk">Anno 2</div><h4>Scale</h4><p>Estensione delle soluzioni di successo a tutta l'organizzazione; integrazione dei modelli AI nei sistemi core; sviluppo di capability MLOps per gestione modelli in produzione; robo-advisory o consulenza AI-augmented per la rete.</p></div>
+      <div class="pstep reveal" data-d="4"><div class="pstep__dot"><b>4</b></div><div class="wk">Anno 3+</div><h4>Transform</h4><p>AI come elemento strategico in ogni decisione di business; real-time decisioning su tutti i touchpoint cliente; continuous compliance automation; esplorazione di modelli di business AI-native.</p></div>
+    </div>
+
+    <div class="prose reveal">
+      <h2>Sfide e Considerazioni per il Mercato Italiano</h2>
+
+      <p>L'implementazione AI nel settore finanziario italiano presenta sfide specifiche:</p>
+
+      <ul>
+        <li><strong>Legacy systems</strong> - Molte banche italiane hanno sistemi core datati che complicano l'integrazione AI</li>
+        <li><strong>Regolamentazione stringente</strong> - Banca d'Italia, BCE e AI Act europeo impongono vincoli specifici</li>
+        <li><strong>Cultura del rischio</strong> - Il settore e storicamente avverso al rischio, rallentando l'innovazione</li>
+        <li><strong>Talenti</strong> - Competizione per data scientist e ML engineer con fintech e big tech</li>
+        <li><strong>Clientela</strong> - Segmenti di clientela meno digitalizzati rispetto ad altri paesi europei</li>
+      </ul>
+
+      <div class="callout">
+        <h4>L'Opportunita per le Banche Italiane</h4>
+        <p>Le sfide sono reali, ma lo e anche l'opportunita. Le banche che investono ora in AI costruiscono un vantaggio competitivo difficile da recuperare. E con il 40% di risparmio sui costi finance, l'investimento si ripaga rapidamente - liberando risorse per ulteriore innovazione.</p>
+      </div>
+
+      <p>Per approfondire l'AI in altri settori, consulta <a href="ai-moda-lusso-made-italy.html">AI nel Settore Moda e Lusso</a> o esplora le applicazioni dei <a href="chatbot-ai-customer-service.html">Chatbot AI per il Customer Service</a>.</p>
+
+      <h2>Domande Frequenti</h2>
+    </div>
+
+    <div class="faq reveal">
+      <details>
+        <summary>Qual e l'impatto dell'AI sul settore finanziario italiano?</summary>
+        <div class="faq__a">L'88% del settore finanziario e significativamente impattato dall'intelligenza artificiale. Le aree principali di applicazione sono: cybersecurity (51% di adozione), CRM e customer service (46%), antifrode e risk management, credit scoring e automazione back-office. Le funzioni finance e accounting registrano risparmi medi del 40% grazie all'automazione AI.</div>
+      </details>
+      <details>
+        <summary>Come funziona il credit scoring basato su AI?</summary>
+        <div class="faq__a">Il credit scoring AI analizza centinaia di variabili oltre ai tradizionali dati finanziari: comportamenti di pagamento, digital footprint, dati transazionali in tempo reale. I modelli di machine learning identificano pattern predittivi invisibili agli score tradizionali, migliorando l'accuratezza delle valutazioni e riducendo sia i falsi positivi che i falsi negativi. Il risultato: minori perdite su crediti e maggiore inclusione finanziaria.</div>
+      </details>
+      <details>
+        <summary>Quanto risparmia una banca con l'automazione AI del back-office?</summary>
+        <div class="faq__a">Le funzioni finance e accounting delle istituzioni finanziarie registrano risparmi medi del 40% grazie all'automazione AI. Un caso studio di una banca del Nord Italia mostra tempi di erogazione anticipo pensione ridotti a soli 11 minuti (da giorni), con l'87% del processo completamente automatizzato. I benefici includono riduzione errori umani, elaborazione 24/7, scalabilita immediata durante i picchi di richieste.</div>
+      </details>
+      <details>
+        <summary>Il robo-advisory sostituira i consulenti finanziari umani?</summary>
+        <div class="faq__a">No, il modello vincente e l'ibrido. I robo-advisor gestiscono efficacemente portafogli standard e clienti mass market, liberando i consulenti umani per la gestione patrimoniale complessa e la relazione con clienti high-net-worth. In Italia, la combinazione robo-advisor + consulente umano sta diventando lo standard nelle banche retail, offrendo personalizzazione scalabile senza perdere il valore della relazione personale.</div>
+      </details>
+    </div>
+
+    <nav class="artnav reveal" aria-label="Navigazione articoli">
+      <a href="ai-moda-lusso-made-italy.html">
+        <div class="artnav__k">Articolo Precedente</div>
+        <div class="artnav__t">AI Moda e Lusso: Made in Italy Digitale</div>
+      </a>
+      <a href="chatbot-ai-customer-service.html" class="next">
+        <div class="artnav__k">Prossimo Articolo</div>
+        <div class="artnav__t">Chatbot AI per il Customer Service</div>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec sec--dark">
+  <div class="shell">
+    <div class="shead reveal" style="margin-bottom:0">
+      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
+      <h2>Calcola il <span class="serif">ROI dell'AI</span> per la tua istituzione</h2>
+      <p class="shead__lead">Scopri quanto la tua banca, assicurazione o fintech potrebbe risparmiare con l'automazione AI, oppure parla con un nostro esperto.</p>
+      <div class="finale__cta" style="margin-top:32px">
+        <a href="../roi-calculator.html" class="btn btn--grad">Calcola il tuo ROI
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="../contatti.html" class="btn btn--ghost">Richiedi una consulenza</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
+        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h5>Soluzioni</h5>
+          <a href="../servizi.html">Servizi</a>
+          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
+          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
+          <a href="../acceleratore.html">Acceleratore</a>
         </div>
-    </article>
+        <div class="foot__col">
+          <h5>Azienda</h5>
+          <a href="../chi-siamo.html">Chi siamo</a>
+          <a href="../index.html#metaphor">L'Idea</a>
+          <a href="../index.html#process">Percorso</a>
+          <a href="../casi-studio.html">Casi studio</a>
+          <a href="../contatti.html">Contatti</a>
+        </div>
+        <div class="foot__col">
+          <h5>Legale</h5>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../cookie.html">Cookie</a>
+          <a href="../termini.html">Termini</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
+      <span>Conforme a GDPR e AI Act by design</span>
+    </div>
+  </div>
+</footer>
 
-    <footer id="footer-placeholder"></footer>
-    <script>
-        fetch('../src/components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').outerHTML = data;
-            });
-    </script>
+<script src="../src/assets/js/tree-canvas.js"></script>
+<script src="../src/assets/js/pugliai-landing.js"></script>
+<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>
