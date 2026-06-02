@@ -60,3 +60,53 @@
   .meta__tree,
   .mnode { animation: none !important; }
 }
+
+/* =====================================================================
+   INTERIOR PAGES — shared components on top of the landing system.
+   Interior pages reuse nav / footer / .sec / .shead / .cards3 / .gcard /
+   .pcard / .stats / .tcard from landing.css; these two are the only
+   additions they need.
+   ===================================================================== */
+
+/* Compact page header (interior hero — no full-height canvas). */
+.pagehead {
+  position: relative; overflow: hidden;
+  padding: calc(var(--nav-h) + 66px) 0 66px;
+  background:
+    radial-gradient(120% 90% at 85% -20%, rgba(19,92,169,.30), transparent 55%),
+    radial-gradient(90% 80% at -10% 120%, rgba(27,144,50,.24), transparent 55%),
+    var(--notte);
+}
+.pagehead .shell { position: relative; z-index: 3; }
+.pagehead .eyebrow-lux { margin-bottom: 18px; }
+.pagehead h1 {
+  font-size: clamp(34px, 5vw, 60px); font-weight: 700;
+  letter-spacing: -.03em; line-height: 1.04; max-width: 20ch; text-wrap: balance;
+}
+.pagehead h1 .serif { color: var(--green-400); }
+.pagehead__lead {
+  margin-top: 20px; font-size: clamp(17px, 1.6vw, 20px);
+  color: var(--txt-dim); max-width: 62ch; line-height: 1.6; text-wrap: pretty;
+}
+.pagehead__cta { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+.pagehead .stats { margin-top: 48px; }
+
+/* FAQ accordion (works on dark and on .sec--light). */
+.faq { max-width: 820px; margin: 0 auto; display: grid; gap: 12px; }
+.faq details {
+  border: 1px solid var(--hairline); border-radius: 14px;
+  background: rgba(255,255,255,.03); overflow: hidden;
+}
+.sec--light .faq details { border-color: var(--line); background: var(--white); }
+.faq summary {
+  cursor: pointer; list-style: none; padding: 20px 24px;
+  font-weight: 600; font-size: 16.5px; color: #fff;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.sec--light .faq summary { color: var(--ink); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 24px; line-height: 1; color: var(--green-400); transition: transform .3s var(--ease); flex: none; }
+.sec--light .faq summary::after { color: var(--green); }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq__a { padding: 0 24px 20px; color: var(--txt-dim); line-height: 1.65; font-size: 15px; }
+.sec--light .faq__a { color: var(--slate); }
