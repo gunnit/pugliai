@@ -32,851 +32,348 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.pugliai.com/en/accelerator-apply.html">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <style>
-        /* Multi-step form styles */
-        .form-steps {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 3rem;
-            position: relative;
-        }
 
-        .form-steps::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--glass-border);
-            z-index: 0;
-        }
-
-        .form-step-indicator {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--glass-bg);
-            border: 2px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-        }
-
-        .step-number.active {
-            background: var(--accent-gold);
-            border-color: var(--accent-gold);
-            color: var(--primary-navy);
-        }
-
-        .step-number.completed {
-            background: var(--accent-emerald);
-            border-color: var(--accent-emerald);
-            color: white;
-        }
-
-        .step-label {
-            margin-top: 0.5rem;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            text-align: center;
-        }
-
-        .step-label.active {
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
-
-        .form-section {
-            display: none;
-        }
-
-        .form-section.active {
-            display: block;
-        }
-
-        .form-navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            cursor: pointer;
-        }
-
-        .checkbox-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: var(--accent-gold);
-        }
-
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .radio-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            cursor: pointer;
-            padding: 1rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            transition: all 0.3s ease;
-        }
-
-        .radio-item:hover {
-            border-color: var(--accent-gold);
-        }
-
-        .radio-item input[type="radio"] {
-            width: 20px;
-            height: 20px;
-            accent-color: var(--accent-gold);
-        }
-
-        .radio-item.selected {
-            border-color: var(--accent-gold);
-            background: rgba(255, 215, 0, 0.05);
-        }
-
-        .form-help {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-        }
-
-        .char-counter {
-            text-align: right;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-        }
-
-        .sidebar-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .sidebar-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        .sidebar-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar-card li {
-            padding: 0.5rem 0;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .form-steps {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-
-            .form-steps::before {
-                display: none;
-            }
-
-            .form-step-indicator {
-                flex: 0 0 calc(33.333% - 0.67rem);
-            }
-
-            .step-label {
-                font-size: 0.65rem;
-            }
-        }
-    </style>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/brand.css">
+    <link rel="stylesheet" href="../src/assets/css/landing.css">
+    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
 </head>
 <body>
-    <!-- Dynamic Navigation - Generated by navigation.js -->
-    <div id="nav-placeholder"></div>
-    <script src="../src/assets/js/navigation.js"></script>
+<a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- Hero Section -->
-    <main role="main">
-    <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb container" style="padding-top: calc(80px + 1rem);" aria-label="Breadcrumb navigation">
-        <span class="breadcrumb-item"><a href="index.html">Home</a></span>
-        <span class="breadcrumb-separator"></span>
-        <span class="breadcrumb-item"><a href="accelerator.html">Accelerator</a></span>
-        <span class="breadcrumb-separator"></span>
-        <span class="breadcrumb-item active" aria-current="page">Apply</span>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html#metaphor">The Idea</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">On-Premise</a>
+      <a href="accelerator.html">Accelerator</a>
+      <a href="index.html#process">Process</a>
     </nav>
-    <section class="section" style="padding-top: 1rem; padding-bottom: 2rem; background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);" aria-labelledby="page-title">
-        <div class="container">
-            <div class="section-header" style="margin-bottom: 0;">
-                <span class="badge badge-warning mb-md animate-fade-in-up" style="display: inline-block;">APPLICATIONS OPEN 2026</span>
-                <h1 id="page-title" class="heading-2 mb-sm animate-fade-in-up" style="animation-delay: 0.1s;">
-                    Apply to PugliAI <span class="text-gradient-gold">Accelerator</span>
-                </h1>
-                <p class="body-medium animate-fade-in-up" style="animation-delay: 0.2s; color: var(--text-secondary);">
-                    Complete the form in 5-10 minutes to apply for the next cohort
-                </p>
-            </div>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Language">
+        <a href="../acceleratore-candidatura.html">IT</a>
+        <a href="accelerator-apply.html" class="on" aria-current="true">EN</a>
+      </div>
+      <a href="contact.html" class="btn btn--grad btn--sm nav__cta">Get a quote</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="index.html#metaphor">The Idea</a>
+  <a href="services.html">Services</a>
+  <a href="products.html">On-Premise</a>
+  <a href="accelerator.html">Accelerator</a>
+  <a href="index.html#process">Process</a>
+  <a href="contact.html">Get a quote</a>
+</div>
+
+<main id="main">
+
+<!-- PAGE HEADER -->
+<section class="pagehead">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <div class="eyebrow-lux">Applications open 2026</div>
+    <h1>Apply to PugliAI <span class="serif">Accelerator</span></h1>
+    <p class="pagehead__lead">16 weeks to turn a solo founder into an AI-driven company: over €100K in services and automations, dedicated mentorship and the bridge to Singapore through our ISSA partnership. Complete the form below in 5-10 minutes to apply for the next cohort.</p>
+    <div class="hero__trust">
+      <div class="ti"><b class="grad-text">16</b><span>weeks of program</span></div>
+      <div class="ti"><b class="grad-text">€100K+</b><span>in services and automations</span></div>
+      <div class="ti"><b>Singapore</b><span>Bridge via ISSA</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="sec sec--dark" id="application">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">Application</div>
+      <h2>Tell us about your <span class="serif">startup</span></h2>
+      <p class="shead__lead">One form, six sections. You'll receive email confirmation within 24 hours, then application review, a video interview with the team and a terms discussion.</p>
+    </div>
+
+    <form id="accelerator-application" action="https://formcarry.com/s/accelerator-pugliai" method="POST" class="form form--wide reveal">
+
+      <!-- Founder -->
+      <h3 class="serif" style="margin:8px 0 -2px">Founder information</h3>
+      <div class="form__row">
+        <div class="field">
+          <label for="founder_name">Full name *</label>
+          <input type="text" id="founder_name" name="founder_name" required aria-required="true">
         </div>
-    </section>
-
-    <!-- Application Form Section -->
-    <section class="section" style="padding-top: 2rem;">
-        <div class="container">
-            <div class="grid" style="display: grid; grid-template-columns: 1fr 320px; gap: 3rem;">
-                <!-- Main Form -->
-                <div>
-                    <!-- Progress Steps -->
-                    <div class="form-steps" role="navigation" aria-label="Form steps">
-                        <div class="form-step-indicator">
-                            <div class="step-number active" data-step="1">1</div>
-                            <span class="step-label active">Founder</span>
-                        </div>
-                        <div class="form-step-indicator">
-                            <div class="step-number" data-step="2">2</div>
-                            <span class="step-label">Team</span>
-                        </div>
-                        <div class="form-step-indicator">
-                            <div class="step-number" data-step="3">3</div>
-                            <span class="step-label">Company</span>
-                        </div>
-                        <div class="form-step-indicator">
-                            <div class="step-number" data-step="4">4</div>
-                            <span class="step-label">Product</span>
-                        </div>
-                        <div class="form-step-indicator">
-                            <div class="step-number" data-step="5">5</div>
-                            <span class="step-label">Fit</span>
-                        </div>
-                        <div class="form-step-indicator">
-                            <div class="step-number" data-step="6">6</div>
-                            <span class="step-label">Submit</span>
-                        </div>
-                    </div>
-
-                    <!-- Form -->
-                    <form id="accelerator-application" action="https://formcarry.com/s/accelerator-pugliai" method="POST" class="contact-form">
-                        <!-- Step 1: Founder Info -->
-                        <div class="form-section active" data-section="1">
-                            <h2 class="heading-3 mb-lg">Founder Information</h2>
-
-                            <div class="form-group">
-                                <label for="founder_name" class="form-label">Full Name *</label>
-                                <input type="text" id="founder_name" name="founder_name" class="form-input" required aria-required="true">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="founder_email" class="form-label">Email *</label>
-                                <input type="email" id="founder_email" name="founder_email" class="form-input" required aria-required="true">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="founder_phone" class="form-label">Phone *</label>
-                                <input type="tel" id="founder_phone" name="founder_phone" class="form-input" placeholder="+39 333 1234567" required aria-required="true">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="founder_linkedin" class="form-label">LinkedIn Profile *</label>
-                                <input type="url" id="founder_linkedin" name="founder_linkedin" class="form-input" placeholder="https://linkedin.com/in/yourprofile" required aria-required="true">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="founder_role" class="form-label">Current Role *</label>
-                                <select id="founder_role" name="founder_role" class="form-input" required aria-required="true">
-                                    <option value="">Select...</option>
-                                    <option value="full_time_founder">Full-Time Founder</option>
-                                    <option value="part_time_founder">Part-Time Founder (transitioning)</option>
-                                    <option value="employed">Employed (ready to leave)</option>
-                                    <option value="student">Student/Researcher</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="founder_experience" class="form-label">Previous Experience</label>
-                                <textarea id="founder_experience" name="founder_experience" class="form-input" rows="3" placeholder="Briefly describe your relevant entrepreneurial or professional experience..."></textarea>
-                                <p class="form-help">Previous startups, roles in tech companies, relevant projects</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 2: Team -->
-                        <div class="form-section" data-section="2">
-                            <h2 class="heading-3 mb-lg">Your Team</h2>
-
-                            <div class="form-group">
-                                <label for="team_size" class="form-label">Number of Co-Founders *</label>
-                                <select id="team_size" name="team_size" class="form-input" required>
-                                    <option value="">Select...</option>
-                                    <option value="1">Solo founder</option>
-                                    <option value="2">2 co-founders</option>
-                                    <option value="3">3 co-founders</option>
-                                    <option value="4">4 co-founders</option>
-                                    <option value="5+">5+ co-founders</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="team_members" class="form-label">Co-Founder Names and Roles</label>
-                                <textarea id="team_members" name="team_members" class="form-input" rows="4" placeholder="E.g.: John Smith - CTO, Jane Doe - COO..."></textarea>
-                                <p class="form-help">Leave blank if solo founder</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Technical Expertise in Team *</label>
-                                <div class="radio-group">
-                                    <label class="radio-item">
-                                        <input type="radio" name="tech_expertise" value="strong" required>
-                                        <div>
-                                            <strong>Strong</strong>
-                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">CTO or developer with AI/ML experience on the team</p>
-                                        </div>
-                                    </label>
-                                    <label class="radio-item">
-                                        <input type="radio" name="tech_expertise" value="moderate">
-                                        <div>
-                                            <strong>Moderate</strong>
-                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">General tech skills, looking for AI support</p>
-                                        </div>
-                                    </label>
-                                    <label class="radio-item">
-                                        <input type="radio" name="tech_expertise" value="low">
-                                        <div>
-                                            <strong>Limited</strong>
-                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">Primarily business team, looking for technical partner</p>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Full-Time Availability *</label>
-                                <div class="radio-group">
-                                    <label class="radio-item">
-                                        <input type="radio" name="full_time" value="yes" required>
-                                        <div>
-                                            <strong>Yes, at least one founder full-time</strong>
-                                        </div>
-                                    </label>
-                                    <label class="radio-item">
-                                        <input type="radio" name="full_time" value="soon">
-                                        <div>
-                                            <strong>By program start</strong>
-                                        </div>
-                                    </label>
-                                    <label class="radio-item">
-                                        <input type="radio" name="full_time" value="no">
-                                        <div>
-                                            <strong>No, all part-time</strong>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Company -->
-                        <div class="form-section" data-section="3">
-                            <h2 class="heading-3 mb-lg">Your Company</h2>
-
-                            <div class="form-group">
-                                <label for="company_name" class="form-label">Company/Project Name *</label>
-                                <input type="text" id="company_name" name="company_name" class="form-input" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="company_status" class="form-label">Registration Status *</label>
-                                <select id="company_status" name="company_status" class="form-input" required>
-                                    <option value="">Select...</option>
-                                    <option value="registered_italy">Registered in Italy</option>
-                                    <option value="registering">Currently registering</option>
-                                    <option value="will_register">Will register for the program</option>
-                                    <option value="registered_other">Registered in another EU country</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="company_website" class="form-label">Website or Demo URL</label>
-                                <input type="url" id="company_website" name="company_website" class="form-input" placeholder="https://...">
-                                <p class="form-help">Also landing page, prototype link, or video demo</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="company_sector" class="form-label">Sector/Industry *</label>
-                                <select id="company_sector" name="company_sector" class="form-input" required>
-                                    <option value="">Select...</option>
-                                    <option value="saas">SaaS / Software</option>
-                                    <option value="fintech">Fintech</option>
-                                    <option value="healthtech">Healthtech / Medtech</option>
-                                    <option value="ecommerce">E-commerce / Retail</option>
-                                    <option value="manufacturing">Manufacturing / Industry 4.0</option>
-                                    <option value="logistics">Logistics / Supply Chain</option>
-                                    <option value="edtech">Edtech</option>
-                                    <option value="proptech">Proptech</option>
-                                    <option value="greentech">Greentech / Sustainability</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="company_stage" class="form-label">Current Stage *</label>
-                                <select id="company_stage" name="company_stage" class="form-input" required>
-                                    <option value="">Select...</option>
-                                    <option value="idea">Idea (no product yet)</option>
-                                    <option value="prototype">Working prototype</option>
-                                    <option value="mvp">MVP with early users</option>
-                                    <option value="revenue">Revenue (even small)</option>
-                                    <option value="growth">Growth (product-market fit)</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="company_traction" class="form-label">Current Traction</label>
-                                <textarea id="company_traction" name="company_traction" class="form-input" rows="3" placeholder="Users, revenue, partnerships, key metrics..."></textarea>
-                                <p class="form-help">Specific numbers if available (users, MRR, clients, etc.)</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 4: Product & Market -->
-                        <div class="form-section" data-section="4">
-                            <h2 class="heading-3 mb-lg">Product and Market</h2>
-
-                            <div class="form-group">
-                                <label for="product_oneliner" class="form-label">One-Liner (max 140 characters) *</label>
-                                <input type="text" id="product_oneliner" name="product_oneliner" class="form-input" maxlength="140" required>
-                                <div class="char-counter"><span id="oneliner-count">0</span>/140</div>
-                                <p class="form-help">Describe your product in one sentence (tweet-style)</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="product_problem" class="form-label">Problem You Solve *</label>
-                                <textarea id="product_problem" name="product_problem" class="form-input" rows="4" required placeholder="What specific problem do you solve? Who has it? How urgent is it?"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="product_solution" class="form-label">Your AI Solution *</label>
-                                <textarea id="product_solution" name="product_solution" class="form-input" rows="4" required placeholder="How does your solution solve the problem? How do you use AI?"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="product_competition" class="form-label">Competition and Differentiation</label>
-                                <textarea id="product_competition" name="product_competition" class="form-input" rows="3" placeholder="Who are the competitors? What makes you different?"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="product_market_size" class="form-label">Market Size (optional)</label>
-                                <input type="text" id="product_market_size" name="product_market_size" class="form-input" placeholder="E.g.: TAM 5B, SAM 500M, SOM 50M">
-                            </div>
-                        </div>
-
-                        <!-- Step 5: Accelerator Fit -->
-                        <div class="form-section" data-section="5">
-                            <h2 class="heading-3 mb-lg">Accelerator Fit</h2>
-
-                            <div class="form-group">
-                                <label for="why_pugliai" class="form-label">Why PugliAI Accelerator? *</label>
-                                <textarea id="why_pugliai" name="why_pugliai" class="form-input" rows="4" required placeholder="What attracts you to our program? Why do you think it's right for you?"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="goals_16weeks" class="form-label">Goals for the 16 Weeks *</label>
-                                <textarea id="goals_16weeks" name="goals_16weeks" class="form-input" rows="4" required placeholder="What do you want to achieve during the program? What milestones?"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">AI Services of Interest *</label>
-                                <div class="checkbox-group">
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" name="services_interest" value="hr_automation">
-                                        HR Automation (recruiting, onboarding)
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" name="services_interest" value="sales_automation">
-                                        Sales Automation (lead scoring, outreach)
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" name="services_interest" value="marketing_automation">
-                                        Marketing Automation (content, social)
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" name="services_interest" value="voiceai">
-                                        VoiceAI On-Premise
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" name="services_interest" value="knowledgeai">
-                                        KnowledgeAI Enterprise (RAG)
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Interest in Singapore Expansion *</label>
-                                <div class="radio-group">
-                                    <label class="radio-item">
-                                        <input type="radio" name="singapore_interest" value="yes" required>
-                                        <div>
-                                            <strong>Yes, very interested</strong>
-                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">Asian expansion is a priority</p>
-                                        </div>
-                                    </label>
-                                    <label class="radio-item">
-                                        <input type="radio" name="singapore_interest" value="maybe">
-                                        <div>
-                                            <strong>Maybe, to be explored</strong>
-                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">We want to better understand the opportunities</p>
-                                        </div>
-                                    </label>
-                                    <label class="radio-item">
-                                        <input type="radio" name="singapore_interest" value="no">
-                                        <div>
-                                            <strong>No, focus on Italy/EU</strong>
-                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">For now we're focusing on the European market</p>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 6: Submit -->
-                        <div class="form-section" data-section="6">
-                            <h2 class="heading-3 mb-lg">Final Details</h2>
-
-                            <div class="form-group">
-                                <label for="video_pitch" class="form-label">Video Pitch URL (optional but recommended)</label>
-                                <input type="url" id="video_pitch" name="video_pitch" class="form-input" placeholder="https://www.youtube.com/... or https://www.loom.com/...">
-                                <p class="form-help">2 minutes max. Introduce yourself, describe the problem and solution. Increases your chances!</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="hear_about" class="form-label">How did you hear about us? *</label>
-                                <select id="hear_about" name="hear_about" class="form-input" required>
-                                    <option value="">Select...</option>
-                                    <option value="linkedin">LinkedIn</option>
-                                    <option value="google">Google Search</option>
-                                    <option value="referral">Referral/Word of mouth</option>
-                                    <option value="event">Event/Conference</option>
-                                    <option value="press">Article/Press</option>
-                                    <option value="issa">ISSA Network</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="additional_info" class="form-label">Anything Else You Want to Tell Us</label>
-                                <textarea id="additional_info" name="additional_info" class="form-input" rows="3" placeholder="Any additional information you consider relevant..."></textarea>
-                            </div>
-
-                            <div class="form-group" style="margin-top: 2rem; padding: 1.5rem; background: rgba(16, 185, 129, 0.05); border-radius: var(--radius-md); border: 1px solid rgba(16, 185, 129, 0.2);">
-                                <label class="checkbox-item" style="align-items: flex-start;">
-                                    <input type="checkbox" name="gdpr_consent" required style="margin-top: 4px;">
-                                    <span>I consent to the processing of my personal data according to PugliAI's <a href="privacy.html" target="_blank" style="color: var(--accent-gold);">Privacy Policy</a> for the management of my application. *</span>
-                                </label>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="marketing_consent">
-                                    <span>I consent to receive updates about PugliAI Accelerator and related initiatives.</span>
-                                </label>
-                            </div>
-
-                            <!-- Summary before submit -->
-                            <div style="margin-top: 2rem; padding: 1.5rem; background: var(--glass-bg); border-radius: var(--radius-md); border: 1px solid var(--glass-border);">
-                                <h4 style="margin-bottom: 1rem;">What Happens Next</h4>
-                                <ol style="padding-left: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;">
-                                    <li style="margin-bottom: 0.5rem;">You'll receive email confirmation within 24 hours</li>
-                                    <li style="margin-bottom: 0.5rem;">Application review (1 week)</li>
-                                    <li style="margin-bottom: 0.5rem;">Video interview with the team (30 min)</li>
-                                    <li style="margin-bottom: 0.5rem;">Final presentation and terms discussion</li>
-                                    <li>Decision and onboarding</li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <!-- Navigation Buttons -->
-                        <div class="form-navigation">
-                            <button type="button" class="btn btn-secondary" id="prevBtn" style="visibility: hidden;">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 0.5rem;"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back
-                            </button>
-                            <button type="button" class="btn btn-primary btn-lg" id="nextBtn">
-                                Next <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-left: 0.5rem;"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </button>
-                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn" style="display: none;">
-                                Submit Application <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-left: 0.5rem;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </button>
-                        </div>
-
-                        <!-- Hidden fields -->
-                        <input type="hidden" name="_gotcha">
-                        <input type="hidden" name="form_type" value="accelerator_application">
-                        <input type="hidden" name="language" value="en">
-                    </form>
-                </div>
-
-                <!-- Sidebar -->
-                <aside style="position: sticky; top: 100px; height: fit-content;">
-                    <div class="sidebar-card" style="border-color: var(--accent-gold); background: rgba(255, 215, 0, 0.02);">
-                        <h4 style="color: var(--accent-gold);">Important Dates</h4>
-                        <ul>
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-gold);"><path d="M8 2V6M16 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                Applications: Nov 2025
-                            </li>
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-gold);"><path d="M8 2V6M16 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                Selection: Dec 2025
-                            </li>
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-gold);"><path d="M8 2V6M16 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                Start: Jan 2026
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <h4>What to Prepare</h4>
-                        <ul>
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-emerald);"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                Updated LinkedIn profile
-                            </li>
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-emerald);"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                Demo/prototype link
-                            </li>
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-emerald);"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                Traction metrics
-                            </li>
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-emerald);"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                Video pitch (2 min) - optional
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <h4>Need Help?</h4>
-                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">
-                            Have questions about the application or program?
-                        </p>
-                        <a href="contact.html" class="btn btn-secondary btn-sm" style="width: 100%; text-align: center;">
-                            Contact Us
-                        </a>
-                    </div>
-                </aside>
-            </div>
+        <div class="field">
+          <label for="founder_email">Email *</label>
+          <input type="email" id="founder_email" name="founder_email" required aria-required="true">
         </div>
-    </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="../src/assets/img/pugliai_pittogramma.png" alt="PugliAI - Company logo" class="footer-logo-img">
-                </div>
-                <div class="footer-links" role="navigation" aria-label="Footer links">
-                    <a href="accelerator.html" class="footer-link">Accelerator</a>
-                    <a href="ai-infrastructure.html" class="footer-link">AI Infrastructure</a>
-                    <a href="ai-agents.html" class="footer-link">AI Agents</a>
-                    <a href="strategic-consulting.html" class="footer-link">Consulting</a>
-                    <a href="about-us.html" class="footer-link">About Us</a>
-                    <a href="contact.html" class="footer-link">Contact</a>
-                </div>
-                <div class="footer-text">
-                    <p>&copy; 2025 PugliAI S.r.l. - VAT IT02735920742</p>
-                    <p>Via Giovanni Forleo 45, 72022 Latiano (BR) | Via Angelo Maj 16, 24121 Bergamo</p>
-                    <p>
-                        <a href="privacy.html" class="footer-link">Privacy</a> |
-                        <a href="cookie.html" class="footer-link">Cookie</a> |
-                        <a href="terms.html" class="footer-link">Terms</a>
-                    </p>
-                </div>
-            </div>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="founder_phone">Phone *</label>
+          <input type="tel" id="founder_phone" name="founder_phone" placeholder="+39 333 1234567" required aria-required="true">
         </div>
-    </footer>
+        <div class="field">
+          <label for="founder_linkedin">LinkedIn profile *</label>
+          <input type="url" id="founder_linkedin" name="founder_linkedin" placeholder="https://linkedin.com/in/yourprofile" required aria-required="true">
+        </div>
+      </div>
+      <div class="field">
+        <label for="founder_role">Current role *</label>
+        <select id="founder_role" name="founder_role" required aria-required="true">
+          <option value="">Select...</option>
+          <option value="full_time_founder">Full-Time Founder</option>
+          <option value="part_time_founder">Part-Time Founder (transitioning)</option>
+          <option value="employed">Employed (ready to leave)</option>
+          <option value="student">Student/Researcher</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="founder_experience">Previous experience</label>
+        <textarea id="founder_experience" name="founder_experience" rows="3" placeholder="Briefly describe your relevant entrepreneurial or professional experience..."></textarea>
+        <p class="form__note">Previous startups, roles in tech companies, relevant projects.</p>
+      </div>
 
-    <!-- Scripts -->
-    <script src="../src/assets/js/form-security.js"></script>
-    <script>
-        // Multi-step form functionality
-        (function() {
-            const form = document.getElementById('accelerator-application');
-            const sections = document.querySelectorAll('.form-section');
-            const stepNumbers = document.querySelectorAll('.step-number');
-            const stepLabels = document.querySelectorAll('.step-label');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const submitBtn = document.getElementById('submitBtn');
+      <!-- Team -->
+      <h3 class="serif" style="margin:18px 0 -2px">Your team</h3>
+      <div class="field">
+        <label for="team_size">Number of co-founders *</label>
+        <select id="team_size" name="team_size" required aria-required="true">
+          <option value="">Select...</option>
+          <option value="1">Solo founder</option>
+          <option value="2">2 co-founders</option>
+          <option value="3">3 co-founders</option>
+          <option value="4">4 co-founders</option>
+          <option value="5+">5+ co-founders</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="team_members">Co-founder names and roles</label>
+        <textarea id="team_members" name="team_members" rows="4" placeholder="E.g.: John Smith - CTO, Jane Doe - COO..."></textarea>
+        <p class="form__note">Leave blank if solo founder.</p>
+      </div>
+      <fieldset class="field" style="border:0;padding:0;margin:0">
+        <legend style="font-size:13.5px;font-weight:600;color:#fff;padding:0">Technical expertise in team *</legend>
+        <label class="field--check"><input type="radio" name="tech_expertise" value="strong" required aria-required="true"><span><strong>Strong</strong> &mdash; CTO or developer with AI/ML experience on the team</span></label>
+        <label class="field--check"><input type="radio" name="tech_expertise" value="moderate"><span><strong>Moderate</strong> &mdash; general tech skills, looking for AI support</span></label>
+        <label class="field--check"><input type="radio" name="tech_expertise" value="low"><span><strong>Limited</strong> &mdash; primarily business team, looking for technical partner</span></label>
+      </fieldset>
+      <fieldset class="field" style="border:0;padding:0;margin:0">
+        <legend style="font-size:13.5px;font-weight:600;color:#fff;padding:0">Full-time availability *</legend>
+        <label class="field--check"><input type="radio" name="full_time" value="yes" required aria-required="true"><span>Yes, at least one founder full-time</span></label>
+        <label class="field--check"><input type="radio" name="full_time" value="soon"><span>By program start</span></label>
+        <label class="field--check"><input type="radio" name="full_time" value="no"><span>No, all part-time</span></label>
+      </fieldset>
 
-            let currentStep = 1;
-            const totalSteps = sections.length;
+      <!-- Company -->
+      <h3 class="serif" style="margin:18px 0 -2px">Your company</h3>
+      <div class="form__row">
+        <div class="field">
+          <label for="company_name">Company/Project name *</label>
+          <input type="text" id="company_name" name="company_name" required aria-required="true">
+        </div>
+        <div class="field">
+          <label for="company_status">Registration status *</label>
+          <select id="company_status" name="company_status" required aria-required="true">
+            <option value="">Select...</option>
+            <option value="registered_italy">Registered in Italy</option>
+            <option value="registering">Currently registering</option>
+            <option value="will_register">Will register for the program</option>
+            <option value="registered_other">Registered in another EU country</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="company_website">Website or demo URL</label>
+        <input type="url" id="company_website" name="company_website" placeholder="https://...">
+        <p class="form__note">Also landing page, prototype link, or video demo.</p>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="company_sector">Sector/Industry *</label>
+          <select id="company_sector" name="company_sector" required aria-required="true">
+            <option value="">Select...</option>
+            <option value="saas">SaaS / Software</option>
+            <option value="fintech">Fintech</option>
+            <option value="healthtech">Healthtech / Medtech</option>
+            <option value="ecommerce">E-commerce / Retail</option>
+            <option value="manufacturing">Manufacturing / Industry 4.0</option>
+            <option value="logistics">Logistics / Supply Chain</option>
+            <option value="edtech">Edtech</option>
+            <option value="proptech">Proptech</option>
+            <option value="greentech">Greentech / Sustainability</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="company_stage">Current stage *</label>
+          <select id="company_stage" name="company_stage" required aria-required="true">
+            <option value="">Select...</option>
+            <option value="idea">Idea (no product yet)</option>
+            <option value="prototype">Working prototype</option>
+            <option value="mvp">MVP with early users</option>
+            <option value="revenue">Revenue (even small)</option>
+            <option value="growth">Growth (product-market fit)</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="company_traction">Current traction</label>
+        <textarea id="company_traction" name="company_traction" rows="3" placeholder="Users, revenue, partnerships, key metrics..."></textarea>
+        <p class="form__note">Specific numbers if available (users, MRR, clients, etc.).</p>
+      </div>
 
-            function updateStepIndicators() {
-                stepNumbers.forEach((step, index) => {
-                    const stepNum = index + 1;
-                    step.classList.remove('active', 'completed');
-                    stepLabels[index].classList.remove('active');
+      <!-- Product & Market -->
+      <h3 class="serif" style="margin:18px 0 -2px">Product and market</h3>
+      <div class="field">
+        <label for="product_oneliner">One-liner (max 140 characters) *</label>
+        <input type="text" id="product_oneliner" name="product_oneliner" maxlength="140" required aria-required="true">
+        <p class="form__note"><span id="oneliner-count">0</span>/140 &middot; Describe your product in one sentence (tweet-style).</p>
+      </div>
+      <div class="field">
+        <label for="product_problem">Problem you solve *</label>
+        <textarea id="product_problem" name="product_problem" rows="4" required aria-required="true" placeholder="What specific problem do you solve? Who has it? How urgent is it?"></textarea>
+      </div>
+      <div class="field">
+        <label for="product_solution">Your AI solution *</label>
+        <textarea id="product_solution" name="product_solution" rows="4" required aria-required="true" placeholder="How does your solution solve the problem? How do you use AI?"></textarea>
+      </div>
+      <div class="field">
+        <label for="product_competition">Competition and differentiation</label>
+        <textarea id="product_competition" name="product_competition" rows="3" placeholder="Who are the competitors? What makes you different?"></textarea>
+      </div>
+      <div class="field">
+        <label for="product_market_size">Market size (optional)</label>
+        <input type="text" id="product_market_size" name="product_market_size" placeholder="E.g.: TAM 5B, SAM 500M, SOM 50M">
+      </div>
 
-                    if (stepNum < currentStep) {
-                        step.classList.add('completed');
-                        step.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-                    } else if (stepNum === currentStep) {
-                        step.classList.add('active');
-                        stepLabels[index].classList.add('active');
-                        step.textContent = stepNum;
-                    } else {
-                        step.textContent = stepNum;
-                    }
-                });
-            }
+      <!-- Accelerator Fit -->
+      <h3 class="serif" style="margin:18px 0 -2px">Accelerator fit</h3>
+      <div class="field">
+        <label for="why_pugliai">Why PugliAI Accelerator? *</label>
+        <textarea id="why_pugliai" name="why_pugliai" rows="4" required aria-required="true" placeholder="What attracts you to our program? Why do you think it's right for you?"></textarea>
+      </div>
+      <div class="field">
+        <label for="goals_16weeks">Goals for the 16 weeks *</label>
+        <textarea id="goals_16weeks" name="goals_16weeks" rows="4" required aria-required="true" placeholder="What do you want to achieve during the program? What milestones?"></textarea>
+      </div>
+      <fieldset class="field" style="border:0;padding:0;margin:0">
+        <legend style="font-size:13.5px;font-weight:600;color:#fff;padding:0">AI services of interest</legend>
+        <label class="field--check"><input type="checkbox" name="services_interest" value="hr_automation"><span>HR Automation (recruiting, onboarding)</span></label>
+        <label class="field--check"><input type="checkbox" name="services_interest" value="sales_automation"><span>Sales Automation (lead scoring, outreach)</span></label>
+        <label class="field--check"><input type="checkbox" name="services_interest" value="marketing_automation"><span>Marketing Automation (content, social)</span></label>
+        <label class="field--check"><input type="checkbox" name="services_interest" value="voiceai"><span>VoiceAI On-Premise</span></label>
+        <label class="field--check"><input type="checkbox" name="services_interest" value="knowledgeai"><span>KnowledgeAI Enterprise (RAG)</span></label>
+      </fieldset>
+      <fieldset class="field" style="border:0;padding:0;margin:0">
+        <legend style="font-size:13.5px;font-weight:600;color:#fff;padding:0">Interest in Singapore expansion *</legend>
+        <label class="field--check"><input type="radio" name="singapore_interest" value="yes" required aria-required="true"><span><strong>Yes, very interested</strong> &mdash; Asian expansion is a priority</span></label>
+        <label class="field--check"><input type="radio" name="singapore_interest" value="maybe"><span><strong>Maybe, to be explored</strong> &mdash; we want to better understand the opportunities</span></label>
+        <label class="field--check"><input type="radio" name="singapore_interest" value="no"><span><strong>No, focus on Italy/EU</strong> &mdash; for now we're focusing on the European market</span></label>
+      </fieldset>
 
-            function showStep(step) {
-                sections.forEach((section, index) => {
-                    section.classList.remove('active');
-                    if (index + 1 === step) {
-                        section.classList.add('active');
-                    }
-                });
+      <!-- Final details -->
+      <h3 class="serif" style="margin:18px 0 -2px">Final details</h3>
+      <div class="field">
+        <label for="video_pitch">Video pitch URL (optional but recommended)</label>
+        <input type="url" id="video_pitch" name="video_pitch" placeholder="https://www.youtube.com/... or https://www.loom.com/...">
+        <p class="form__note">2 minutes max. Introduce yourself, describe the problem and solution. Increases your chances.</p>
+      </div>
+      <div class="field">
+        <label for="hear_about">How did you hear about us? *</label>
+        <select id="hear_about" name="hear_about" required aria-required="true">
+          <option value="">Select...</option>
+          <option value="linkedin">LinkedIn</option>
+          <option value="google">Google Search</option>
+          <option value="referral">Referral/Word of mouth</option>
+          <option value="event">Event/Conference</option>
+          <option value="press">Article/Press</option>
+          <option value="issa">ISSA Network</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="additional_info">Anything else you want to tell us</label>
+        <textarea id="additional_info" name="additional_info" rows="3" placeholder="Any additional information you consider relevant..."></textarea>
+      </div>
 
-                prevBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
+      <div class="field--check">
+        <input type="checkbox" id="gdpr_consent" name="gdpr_consent" required aria-required="true">
+        <label for="gdpr_consent">I consent to the processing of my personal data according to PugliAI's <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> for the management of my application. *</label>
+      </div>
+      <div class="field--check">
+        <input type="checkbox" id="marketing_consent" name="marketing_consent">
+        <label for="marketing_consent">I consent to receive updates about PugliAI Accelerator and related initiatives.</label>
+      </div>
 
-                if (step === totalSteps) {
-                    nextBtn.style.display = 'none';
-                    submitBtn.style.display = 'inline-flex';
-                } else {
-                    nextBtn.style.display = 'inline-flex';
-                    submitBtn.style.display = 'none';
-                }
+      <!-- Hidden fields -->
+      <input type="hidden" name="_gotcha">
+      <input type="hidden" name="form_type" value="accelerator_application">
+      <input type="hidden" name="language" value="en">
 
-                updateStepIndicators();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+      <button class="btn btn--grad" type="submit">Submit application
+        <svg viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <p class="form__note">You'll receive email confirmation within 24 hours. Have questions? <a href="contact.html">Contact us</a>.</p>
+    </form>
+  </div>
+</section>
 
-            function validateCurrentStep() {
-                const currentSection = document.querySelector(`.form-section[data-section="${currentStep}"]`);
-                const requiredFields = currentSection.querySelectorAll('[required]');
-                let isValid = true;
+</main>
 
-                requiredFields.forEach(field => {
-                    if (!field.value || (field.type === 'checkbox' && !field.checked)) {
-                        isValid = false;
-                        field.style.borderColor = 'red';
-                    } else {
-                        field.style.borderColor = '';
-                    }
-                });
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
+        <p>Frontier AI, rooted in Italy. Practical, compliant, measured in real ROI.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h5>Solutions</h5>
+          <a href="services.html">Services</a>
+          <a href="voiceai-on-premise.html">VoiceAI On-Premise</a>
+          <a href="knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
+          <a href="accelerator.html">Accelerator</a>
+        </div>
+        <div class="foot__col">
+          <h5>Company</h5>
+          <a href="about-us.html">About us</a>
+          <a href="index.html#metaphor">The Idea</a>
+          <a href="index.html#process">Process</a>
+          <a href="case-studies.html">Case studies</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="foot__col">
+          <h5>Legal</h5>
+          <a href="privacy.html">Privacy</a>
+          <a href="cookie.html">Cookie</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
+      <span>GDPR &amp; AI Act compliant by design</span>
+    </div>
+  </div>
+</footer>
 
-                // Check radio buttons
-                const radioGroups = currentSection.querySelectorAll('.radio-group');
-                radioGroups.forEach(group => {
-                    const radios = group.querySelectorAll('input[type="radio"]');
-                    if (radios.length > 0 && radios[0].required) {
-                        const isChecked = Array.from(radios).some(r => r.checked);
-                        if (!isChecked) {
-                            isValid = false;
-                            group.style.border = '1px solid red';
-                            group.style.borderRadius = '8px';
-                            group.style.padding = '0.5rem';
-                        } else {
-                            group.style.border = '';
-                            group.style.padding = '';
-                        }
-                    }
-                });
-
-                return isValid;
-            }
-
-            nextBtn.addEventListener('click', () => {
-                if (validateCurrentStep() && currentStep < totalSteps) {
-                    currentStep++;
-                    showStep(currentStep);
-                }
-            });
-
-            prevBtn.addEventListener('click', () => {
-                if (currentStep > 1) {
-                    currentStep--;
-                    showStep(currentStep);
-                }
-            });
-
-            // Radio item styling
-            document.querySelectorAll('.radio-item input[type="radio"]').forEach(radio => {
-                radio.addEventListener('change', (e) => {
-                    const group = e.target.closest('.radio-group');
-                    group.querySelectorAll('.radio-item').forEach(item => {
-                        item.classList.remove('selected');
-                    });
-                    e.target.closest('.radio-item').classList.add('selected');
-                });
-            });
-
-            // Character counter
-            const oneliner = document.getElementById('product_oneliner');
-            const counter = document.getElementById('oneliner-count');
-            if (oneliner && counter) {
-                oneliner.addEventListener('input', () => {
-                    counter.textContent = oneliner.value.length;
-                });
-            }
-
-            // Form submission
-            form.addEventListener('submit', (e) => {
-                if (!validateCurrentStep()) {
-                    e.preventDefault();
-                    return;
-                }
-                // Form will submit normally to Formcarry
-            });
-
-            // Initialize
-            showStep(1);
-        })();
-    </script>
+<script src="../src/assets/js/tree-canvas.js"></script>
+<script src="../src/assets/js/pugliai-landing.js"></script>
+<script src="../src/assets/js/form-security.js"></script>
+<script>
+  (function(){
+    var ol = document.getElementById('product_oneliner');
+    var c = document.getElementById('oneliner-count');
+    if (ol && c) { ol.addEventListener('input', function(){ c.textContent = ol.value.length; }); }
+  })();
+</script>
+<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>

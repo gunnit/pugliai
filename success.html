@@ -15,88 +15,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messaggio Inviato - PugliAI</title>
     <meta name="description" content="Grazie per averci contattato. Il tuo messaggio è stato inviato con successo.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
-    <style>
-        .success-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: var(--space-4xl) var(--space-lg);
-        }
 
-        .success-icon {
-            font-size: 4rem;
-            color: var(--accent-emerald);
-            margin-bottom: var(--space-xl);
-            animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-        }
 
-        @keyframes pop-in {
-            0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .success-title {
-            font-size: var(--font-size-4xl);
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: var(--space-lg);
-        }
-
-        .success-message {
-            font-size: var(--font-size-lg);
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: var(--space-2xl);
-        }
-
-        .linkedin-cta {
-            margin-top: var(--space-2xl);
-            font-size: var(--font-size-base);
-            color: var(--text-muted);
-        }
-
-        .linkedin-cta a {
-            color: var(--accent-gold);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .linkedin-cta a:hover {
-            color: var(--accent-emerald);
-        }
-    </style>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/brand.css">
+    <link rel="stylesheet" href="src/assets/css/landing.css">
+    <link rel="stylesheet" href="src/assets/css/pugliai-site.css">
 </head>
 <body>
+<a href="#main" class="skip-link">Vai al contenuto</a>
 
-    <!-- Success Section -->
-    <section class="success-section">
-        <div class="success-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg></div>
-        <h1 class="success-title">Messaggio Inviato!</h1>
-        <p class="success-message">
-            Grazie per averci contattato. Abbiamo ricevuto il tuo messaggio e ti risponderemo il prima possibile.
-        </p>
-        <div class="cta-buttons">
-            <a href="index.html" class="btn btn-primary">Torna alla Home</a>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html" aria-label="PugliAI home"><img src="src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="index.html#metaphor">L'Idea</a>
+      <a href="servizi.html">Servizi</a>
+      <a href="prodotti.html">On-Premise</a>
+      <a href="acceleratore.html">Acceleratore</a>
+      <a href="index.html#process">Percorso</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Lingua">
+        <a href="success.html" class="on" aria-current="true">IT</a>
+        <a href="en/success.html">EN</a>
+      </div>
+      <a href="contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="index.html#metaphor">L'Idea</a>
+  <a href="servizi.html">Servizi</a>
+  <a href="prodotti.html">On-Premise</a>
+  <a href="acceleratore.html">Acceleratore</a>
+  <a href="index.html#process">Percorso</a>
+  <a href="contatti.html">Richiedi un preventivo</a>
+</div>
+
+<main id="main">
+
+<!-- THANK YOU -->
+<section class="pagehead" style="min-height:70vh;display:flex;align-items:center">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <div class="eyebrow-lux">Messaggio inviato</div>
+    <h1><span class="serif">Grazie!</span> Ti risponderemo presto</h1>
+    <p class="pagehead__lead">Abbiamo ricevuto il tuo messaggio e ti risponderemo il prima possibile. Nel frattempo, seguici su <a href="https://www.linkedin.com/company/pugliai/" target="_blank" rel="noopener noreferrer">LinkedIn</a> per rimanere aggiornato sulle nostre novità.</p>
+    <div class="pagehead__cta">
+      <a href="index.html" class="btn btn--grad">Torna alla home
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="servizi.html" class="btn btn--ghost">Scopri i servizi</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="src/assets/img/pugliai_logo.png" alt="PugliAI">
+        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h5>Soluzioni</h5>
+          <a href="servizi.html">Servizi</a>
+          <a href="voiceai-on-premise.html">VoiceAI On-Premise</a>
+          <a href="knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
+          <a href="acceleratore.html">Acceleratore</a>
         </div>
-        <p class="linkedin-cta">
-            Nel frattempo, seguici su <a href="https://www.linkedin.com/company/pugliai/" target="_blank" rel="noopener noreferrer">LinkedIn</a> per rimanere aggiornato sulle nostre novità.
-        </p>
-    </section>
+        <div class="foot__col">
+          <h5>Azienda</h5>
+          <a href="chi-siamo.html">Chi siamo</a>
+          <a href="index.html#metaphor">L'Idea</a>
+          <a href="index.html#process">Percorso</a>
+          <a href="casi-studio.html">Casi studio</a>
+          <a href="contatti.html">Contatti</a>
+        </div>
+        <div class="foot__col">
+          <h5>Legale</h5>
+          <a href="privacy.html">Privacy</a>
+          <a href="cookie.html">Cookie</a>
+          <a href="termini.html">Termini</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
+      <span>Conforme a GDPR e AI Act by design</span>
+    </div>
+  </div>
+</footer>
 
+<script src="src/assets/js/tree-canvas.js"></script>
+<script src="src/assets/js/pugliai-landing.js"></script>
+<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>

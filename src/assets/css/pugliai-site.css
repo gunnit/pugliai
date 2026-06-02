@@ -110,3 +110,49 @@
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq__a { padding: 0 24px 20px; color: var(--txt-dim); line-height: 1.65; font-size: 15px; }
 .sec--light .faq__a { color: var(--slate); }
+
+/* Forms — contact, application, login. Work on dark and on .sec--light. */
+.form { max-width: 640px; margin: 0 auto; display: grid; gap: 18px; }
+.form--wide { max-width: 840px; }
+.field { display: grid; gap: 7px; }
+.field > label { font-size: 13.5px; font-weight: 600; color: #fff; }
+.sec--light .field > label { color: var(--ink); }
+.field input, .field textarea, .field select {
+  width: 100%; font: inherit; font-size: 15px; color: #fff;
+  background: rgba(255,255,255,.04); border: 1px solid var(--hairline);
+  border-radius: 11px; padding: 13px 15px; transition: border-color .2s, background .2s;
+}
+.sec--light .field input, .sec--light .field textarea, .sec--light .field select {
+  color: var(--ink); background: var(--white); border-color: var(--line);
+}
+.field input::placeholder, .field textarea::placeholder { color: var(--txt-faint); }
+.sec--light .field input::placeholder, .sec--light .field textarea::placeholder { color: var(--mist); }
+.field input:focus, .field textarea:focus, .field select:focus {
+  outline: none; border-color: var(--green-400); background: rgba(255,255,255,.07);
+}
+.sec--light .field input:focus, .sec--light .field textarea:focus, .sec--light .field select:focus {
+  border-color: var(--green); background: var(--white);
+}
+.field textarea { min-height: 130px; resize: vertical; }
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 560px) { .form__row { grid-template-columns: 1fr; } }
+.field--check { grid-template-columns: auto 1fr; align-items: start; gap: 11px; }
+.field--check input { width: 18px; height: 18px; margin-top: 2px; }
+.field--check label { font-weight: 400; font-size: 13.5px; color: var(--txt-dim); }
+.sec--light .field--check label { color: var(--slate); }
+.form .btn { justify-self: start; }
+.form__note { font-size: 13px; color: var(--txt-faint); }
+
+/* Long-form / legal prose. */
+.prose { max-width: 768px; margin: 0 auto; }
+.prose h2 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; margin: 44px 0 14px; }
+.prose h3 { font-size: 19px; font-weight: 700; margin: 28px 0 10px; }
+.prose h2:first-child, .prose h3:first-child { margin-top: 0; }
+.prose p, .prose li { font-size: 16px; line-height: 1.72; color: var(--txt-dim); }
+.sec--light .prose p, .sec--light .prose li { color: var(--slate); }
+.prose ul, .prose ol { margin: 12px 0 16px 22px; display: grid; gap: 8px; }
+.prose a { color: var(--green-400); text-decoration: underline; }
+.sec--light .prose a { color: var(--blue); }
+.prose strong, .prose b { color: #fff; font-weight: 600; }
+.sec--light .prose strong, .sec--light .prose b { color: var(--ink); }
+.prose .muted { color: var(--txt-faint); font-size: 14px; }
