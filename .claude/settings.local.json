@@ -22,9 +22,15 @@
       "WebSearch",
       "WebFetch(domain:automa.site)",
       "Bash(python3:*)",
-      "WebFetch(domain:www.linkedin.com)"
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:is-sa.it)"
     ],
     "deny": [],
     "ask": []
+  },
+  "enabledPlugins": {
+    "github@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true
   }
 }
