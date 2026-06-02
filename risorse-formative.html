@@ -32,509 +32,10 @@
     <link rel="canonical" href="https://www.pugliai.com/risorse-formative.html">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+<!-- Stylesheet -->
 
-    <style>
-        /* Ensure proper font and base styles */
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Educational Resources Specific Styles */
-        .resources-hero {
-            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
-            padding: 120px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .resources-hero::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
-            top: -300px;
-            left: -300px;
-            animation: float 25s ease-in-out infinite;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #10B981, #D4A017);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: #94A3B8;
-            max-width: 800px;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .hero-stat {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(212, 160, 23, 0.2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #D4A017;
-            font-size: 1.5rem;
-        }
-
-        .stat-content {
-            color: white;
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #94A3B8;
-        }
-
-        /* Featured Resources */
-        .featured-section {
-            padding: 4rem 0;
-            background: white;
-        }
-
-        .section-header {
-            max-width: 1200px;
-            margin: 0 auto 3rem;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #0A1628;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            color: #64748B;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .featured-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .featured-card {
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .featured-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .featured-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: #10B981;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .featured-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-
-        .featured-content {
-            padding: 2rem;
-        }
-
-        .featured-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #0A1628;
-            margin-bottom: 1rem;
-        }
-
-        .featured-description {
-            color: #64748B;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .featured-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .featured-type {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #94A3B8;
-            font-size: 0.9rem;
-        }
-
-        .featured-cta {
-            color: #D4A017;
-            font-weight: 500;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
-        }
-
-        .featured-cta:hover {
-            gap: 0.75rem;
-        }
-
-        /* Resource Categories */
-        .categories-section {
-            padding: 4rem 0;
-            background: #F7F8FA;
-        }
-
-        .categories-tabs {
-            max-width: 1200px;
-            margin: 0 auto 3rem;
-            padding: 0 20px;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .category-tab {
-            padding: 0.75rem 1.5rem;
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            color: #64748B;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .category-tab:hover {
-            border-color: #D4A017;
-            color: #0A1628;
-        }
-
-        .category-tab.active {
-            background: #0A1628;
-            color: white;
-            border-color: #0A1628;
-        }
-
-        .resources-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .resource-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid #E5E7EB;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-            border-color: #D4A017;
-        }
-
-        .resource-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #0A1628, #1E293B);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .resource-icon.guide { color: #10B981; }
-        .resource-icon.video { color: #3B82F6; }
-        .resource-icon.whitepaper { color: #D4A017; }
-        .resource-icon.webinar { color: #EF4444; }
-        .resource-icon.course { color: #8B5CF6; }
-        .resource-icon.tool { color: #F59E0B; }
-
-        .resource-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #0A1628;
-            margin-bottom: 0.5rem;
-        }
-
-        .resource-description {
-            color: #64748B;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-
-        .resource-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid #F0F4F8;
-        }
-
-        .resource-duration {
-            color: #94A3B8;
-            font-size: 0.85rem;
-        }
-
-        .resource-level {
-            padding: 0.25rem 0.5rem;
-            background: #F0F4F8;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            color: #64748B;
-        }
-
-        /* Academy Programs */
-        .academy-section {
-            padding: 4rem 0;
-            background: white;
-        }
-
-        .programs-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .program-card {
-            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
-            border-radius: 16px;
-            padding: 2rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .program-card::before {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(212, 160, 23, 0.2) 0%, transparent 70%);
-            top: -100px;
-            right: -100px;
-        }
-
-        .program-header {
-            position: relative;
-            z-index: 1;
-            margin-bottom: 1.5rem;
-        }
-
-        .program-label {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: rgba(212, 160, 23, 0.2);
-            color: #D4A017;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .program-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .program-description {
-            color: #94A3B8;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .program-features {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 1.5rem;
-        }
-
-        .program-features li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            color: #CBD5E1;
-        }
-
-        .program-features li::before {
-            content: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>';
-            color: #10B981;
-            margin-right: 0.75rem;
-            font-weight: bold;
-        }
-
-        .program-cta {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #D4A017;
-            color: #0A1628;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .program-cta:hover {
-            background: #FFD700;
-            transform: translateY(-2px);
-        }
-
-        /* Newsletter Section */
-        .newsletter-section {
-            background: linear-gradient(135deg, #10B981 0%, #D4A017 100%);
-            padding: 4rem 0;
-        }
-
-        .newsletter-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .newsletter-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter-description {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 1rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .newsletter-button {
-            padding: 1rem 2rem;
-            background: #0A1628;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .newsletter-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2rem; }
-            .featured-grid { grid-template-columns: 1fr; }
-            .resources-grid { grid-template-columns: 1fr; }
-            .newsletter-form { flex-direction: column; }
-        }
-    </style>
-
-    <!-- Structured Data: WebPage + EducationalOrganization -->
+<!-- Structured Data: WebPage + EducationalOrganization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -703,386 +204,315 @@
       ]
     }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/brand.css">
+    <link rel="stylesheet" href="src/assets/css/landing.css">
+    <link rel="stylesheet" href="src/assets/css/pugliai-site.css">
 </head>
 <body>
-    <!-- Dynamic Navigation - Generated by navigation.js -->
-    <div id="nav-placeholder"></div>
-    <script src="src/assets/js/navigation.js"></script>
+<a href="#main" class="skip-link">Vai al contenuto</a>
 
-    <!-- Hero Section -->
-    <section class="resources-hero">
-        <div class="hero-content">
-            <h1 class="hero-title">PugliAI Academy & Knowledge Hub</h1>
-            <p class="hero-subtitle">
-                Il centro di eccellenza per la formazione AI in Italia. Guide pratiche, whitepaper strategici,
-                webinar con esperti e programmi formativi personalizzati per trasformare la vostra organizzazione.
-            </p>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="stat-icon">📚</div>
-                    <div class="stat-content">
-                        <div class="stat-number">150+</div>
-                        <div class="stat-label">Risorse Disponibili</div>
-                    </div>
-                </div>
-                <div class="hero-stat">
-                    <div class="stat-icon">🎓</div>
-                    <div class="stat-content">
-                        <div class="stat-number">2.500+</div>
-                        <div class="stat-label">Executive Formati</div>
-                    </div>
-                </div>
-                <div class="hero-stat">
-                    <div class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M6 9H4.5a2.5 2.5 0 010-5H6m12 0h1.5a2.5 2.5 0 110 5H18m-1.5 0H17v6a5 5 0 01-10 0V9h.5m3 7v6m-2 0h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg></div>
-                    <div class="stat-content">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Satisfaction Rate</div>
-                    </div>
-                </div>
-            </div>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html" aria-label="PugliAI home"><img src="src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="index.html#metaphor">L'Idea</a>
+      <a href="servizi.html">Servizi</a>
+      <a href="prodotti.html">On-Premise</a>
+      <a href="acceleratore.html">Acceleratore</a>
+      <a href="index.html#process">Percorso</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Lingua">
+        <a href="risorse-formative.html" class="on" aria-current="true">IT</a>
+        <a href="en/training-resources.html">EN</a>
+      </div>
+      <a href="contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="index.html#metaphor">L'Idea</a>
+  <a href="servizi.html">Servizi</a>
+  <a href="prodotti.html">On-Premise</a>
+  <a href="acceleratore.html">Acceleratore</a>
+  <a href="index.html#process">Percorso</a>
+  <a href="contatti.html">Richiedi un preventivo</a>
+</div>
+
+<main id="main">
+
+<!-- PAGE HEADER -->
+<section class="pagehead">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <div class="eyebrow-lux">Academy & Knowledge Hub</div>
+    <h1>Formazione AI concreta per la tua <span class="serif">organizzazione</span></h1>
+    <p class="pagehead__lead">Il centro di eccellenza per la formazione AI in Italia: guide pratiche, whitepaper strategici, webinar con esperti e programmi formativi personalizzati per portare la tua azienda nell'era dell'intelligenza artificiale.</p>
+    <div class="pagehead__cta">
+      <a href="contatti.html" class="btn btn--grad">Richiedi informazioni
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="guida-ai-ceo-2025.html" class="btn btn--ghost">Scarica la Guida CEO 2025</a>
+    </div>
+    <div class="hero__trust">
+      <div class="ti"><b class="grad-text">150+</b><span>Risorse disponibili</span></div>
+      <div class="ti"><b class="grad-text">2.500+</b><span>Executive formati</span></div>
+      <div class="ti"><b>98<span class="serif" style="font-size:18px">%</span></b><span>Tasso di soddisfazione</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED RESOURCES -->
+<section class="sec sec--dark" id="featured">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">Risorse in evidenza</div>
+      <h2>Le risorse più <span class="serif">scaricate</span></h2>
+      <p class="shead__lead">Le nostre guide e i nostri whitepaper più richiesti questo mese, pronti da consultare.</p>
+    </div>
+    <div class="cards3">
+      <a class="gcard reveal" data-d="1" href="guida-ai-ceo-2025.html">
+        <h3>Guida AI per CEO 2025</h3>
+        <p>Il report definitivo per i C-level che vogliono guidare la trasformazione AI. Include framework strategici, case studies e ROI calculator. PDF, 45 pagine.</p>
+        <span class="gcard__link">Scarica gratis <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="2" href="guida-ai/chatgpt-aziende-guida.html">
+        <h3>LLM in azienda: best practice</h3>
+        <p>Come implementare i Large Language Model in modo sicuro ed efficace: sicurezza, conformità GDPR e pattern di integrazione.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="3" href="roi-calculator.html">
+        <h3>AI Readiness Assessment</h3>
+        <p>Valuta la maturità AI della tua organizzazione con il nostro tool interattivo. Report personalizzato e roadmap implementativa.</p>
+        <span class="gcard__link">Inizia l'assessment <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- KNOWLEDGE BASE -->
+<section class="sec sec--darker" id="knowledge">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">Knowledge base completa</div>
+      <h2>Tutte le risorse, <span class="serif">per ogni esigenza</span></h2>
+      <p class="shead__lead">Guide pratiche, whitepaper, webinar, tool e corsi: esplora i contenuti organizzati per categoria.</p>
+    </div>
+    <div class="cards3">
+      <a class="gcard reveal" data-d="1" href="guida-ai/ai-manifatturiero-industria-40.html">
+        <h3>Computer Vision per la manifattura</h3>
+        <p>Guida completa per implementare sistemi di quality control con AI vision. 30 min di lettura · Livello intermedio.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="2" href="guida-ai/roi-intelligenza-artificiale-2026.html">
+        <h3>ROI dell'AI: metriche e KPI</h3>
+        <p>Framework per misurare e ottimizzare il ritorno sugli investimenti AI. 25 pagine · Livello executive.</p>
+        <span class="gcard__link">Leggi il whitepaper <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="3" href="guida-ai/ai-predittiva-data-analytics.html">
+        <h3>Azure AI vs AWS SageMaker</h3>
+        <p>Confronto sulle principali piattaforme cloud AI per le PMI. 90 min · Livello tecnico.</p>
+        <span class="gcard__link">Guarda il webinar <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="1" href="poc-framework.html">
+        <h3>AI Project Canvas</h3>
+        <p>Template per pianificare progetti AI con stakeholder e requisiti. Template pronto all'uso · Livello base.</p>
+        <span class="gcard__link">Usa il template <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="2" href="guida-ai/leadership-ai-trasformazione.html">
+        <h3>AI Leadership Masterclass</h3>
+        <p>Corso intensivo per C-level su strategia e governance AI. 3 giorni · Livello executive.</p>
+        <span class="gcard__link">Scopri il corso <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="3" href="guida-ai/gdpr-intelligenza-artificiale.html">
+        <h3>GDPR compliance per l'AI</h3>
+        <p>Checklist e best practice per sistemi AI conformi al GDPR. 45 min di lettura · Livello avanzato.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="1" href="manifatturiero.html">
+        <h3>Predictive Maintenance 4.0</h3>
+        <p>Studio sull'implementazione di IoT e AI per la manutenzione predittiva. 35 pagine · Livello tecnico.</p>
+        <span class="gcard__link">Leggi il whitepaper <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="2" href="agenti-ai.html">
+        <h3>LangChain per le PMI</h3>
+        <p>Sessione di live coding sulla creazione di applicazioni LLM pronte per la produzione. 2 ore · Livello avanzato.</p>
+        <span class="gcard__link">Guarda il webinar <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="3" href="guida-ai/ai-predittiva-data-analytics.html">
+        <h3>Data Quality Checklist</h3>
+        <p>Framework per validare i dataset prima del training dei modelli ML. Checklist pronta · Livello intermedio.</p>
+        <span class="gcard__link">Usa la checklist <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMY PROGRAMS -->
+<section class="sec sec--dark" id="programs">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">PugliAI Academy</div>
+      <h2>Percorsi formativi <span class="serif">strutturati</span></h2>
+      <p class="shead__lead">Programmi pensati per accelerare l'adozione dell'AI nella tua organizzazione, a ogni livello di competenza.</p>
+    </div>
+    <div class="cards3">
+      <article class="pcard pcard--g reveal" data-d="1">
+        <div class="pcard__glow"></div>
+        <div class="pcard__tag">EXECUTIVE PROGRAM</div>
+        <h3>AI <span class="serif">Leadership Track</span></h3>
+        <div class="pcard__price">Strategia, governance e change management</div>
+        <p>Programma intensivo per C-level e senior management che vogliono guidare l'azienda nell'era AI.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>3 moduli da 2 giorni</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Case studies settoriali</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sessioni di coaching 1-on-1</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI strategy framework</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Certificazione finale</span></li>
+        </ul>
+        <a href="contatti.html" class="btn btn--grad btn--sm">Richiedi info
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+      <article class="pcard pcard--b reveal" data-d="2">
+        <div class="pcard__glow"></div>
+        <div class="pcard__tag">TECHNICAL TRACK</div>
+        <h3>AI <span class="serif">Engineering Path</span></h3>
+        <div class="pcard__price">Da ML basics a production deployment</div>
+        <p>Formazione hands-on per sviluppatori e data scientist che vogliono portare i modelli in produzione.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>8 settimane part-time</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Lab pratici su cloud</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Progetti real-world</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Mentorship tecnica</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Accesso a tool professionali</span></li>
+        </ul>
+        <a href="contatti.html" class="btn btn--grad btn--sm">Iscriviti ora
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+      <article class="pcard pcard--g reveal" data-d="3">
+        <div class="pcard__glow"></div>
+        <div class="pcard__tag">CUSTOM PROGRAM</div>
+        <h3>Corporate <span class="serif">Training</span></h3>
+        <div class="pcard__price">Contenuti su misura per la tua azienda</div>
+        <p>Programmi personalizzati sui tuoi use case specifici, on-site o da remoto, per team da 10 a 100 persone.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Assessment iniziale</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Curriculum personalizzato</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>On-site o da remoto</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Team da 10 a 100 persone</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Supporto post-training</span></li>
+        </ul>
+        <a href="contatti.html" class="btn btn--grad btn--sm">Progetta con noi
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="sec sec--panel sec--tight">
+  <div class="shell">
+    <div class="stats">
+      <div class="stat reveal" data-d="1"><div class="n grad-text" data-count="150" data-suffix="+">150+</div><div class="l">Risorse disponibili</div><div class="s">Guide, webinar e tool</div></div>
+      <div class="stat reveal" data-d="2"><div class="n" data-count="2500" data-suffix="+">2.500+</div><div class="l">Executive formati</div><div class="s">In tutta Italia</div></div>
+      <div class="stat reveal" data-d="3"><div class="n" data-count="98" data-suffix="%">98%</div><div class="l">Tasso di soddisfazione</div><div class="s">Dai partecipanti</div></div>
+      <div class="stat reveal" data-d="4"><div class="n grad-text" data-count="3">3</div><div class="l">Percorsi formativi</div><div class="s">Per ogni livello</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec--light">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">Domande frequenti</div>
+      <h2>Tutto quello che <span class="serif">vuoi sapere</span></h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Che tipo di formazione AI offre PugliAI?</summary>
+        <div class="faq__a">PugliAI offre un programma formativo completo che include guide pratiche, whitepaper strategici, webinar con esperti, corsi executive e programmi certificati. L'Academy dispone di oltre 150 risorse e tre percorsi principali: AI Leadership Track per C-level e senior management, AI Engineering Path per sviluppatori e data scientist, e Corporate Training personalizzato per team aziendali.</div>
+      </details>
+      <details>
+        <summary>Quanto dura la formazione AI?</summary>
+        <div class="faq__a">La durata varia in base al percorso scelto. L'AI Leadership Track prevede 3 moduli da 2 giorni ciascuno. L'AI Engineering Path dura 8 settimane in modalità part-time. La AI Leadership Masterclass è un corso intensivo di 3 giorni. I programmi Corporate Training hanno durata personalizzata in base alle esigenze dell'azienda.</div>
+      </details>
+      <details>
+        <summary>La formazione è adatta a chi non ha competenze tecniche?</summary>
+        <div class="faq__a">Sì, assolutamente. L'AI Leadership Track è progettato specificamente per C-level e senior management senza background tecnico, con focus su strategia, governance e change management. Il Corporate Training può essere personalizzato per qualsiasi livello di competenza, dai principianti agli esperti, con team da 10 a 100 persone.</div>
+      </details>
+      <details>
+        <summary>Quali certificazioni si ottengono?</summary>
+        <div class="faq__a">Tutti i percorsi formativi principali includono una certificazione finale rilasciata da PugliAI Academy. L'AI Leadership Track prevede una certificazione sull'AI strategy framework. L'AI Engineering Path include accesso a tool professionali e una certificazione tecnica. Con oltre 2.500 executive già formati, le certificazioni PugliAI sono riconosciute nel settore AI italiano.</div>
+      </details>
+      <details>
+        <summary>Come si svolge la formazione?</summary>
+        <div class="faq__a">La formazione si svolge in modalità flessibile: i programmi Corporate Training possono essere erogati on-site presso la tua azienda o da remoto. I percorsi includono case studies settoriali, sessioni di coaching 1-on-1, lab pratici su cloud, progetti real-world e mentorship continua. Sono disponibili anche risorse on-demand come guide, whitepaper e webinar registrati.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec sec--dark">
+  <div class="shell">
+    <div class="shead reveal" style="margin-bottom:0">
+      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
+      <h2>Forma il tuo team <span class="serif">per l'era dell'AI</span></h2>
+      <p class="shead__lead">Raccontaci gli obiettivi della tua azienda e costruiamo insieme il percorso formativo su misura. Assessment iniziale e consulenza inclusi.</p>
+      <div class="finale__cta" style="margin-top:32px">
+        <a href="contatti.html" class="btn btn--grad">Richiedi informazioni
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="guida-ai-ceo-2025.html" class="btn btn--ghost">Scarica la Guida CEO 2025</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="src/assets/img/pugliai_logo.png" alt="PugliAI">
+        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h5>Soluzioni</h5>
+          <a href="servizi.html">Servizi</a>
+          <a href="voiceai-on-premise.html">VoiceAI On-Premise</a>
+          <a href="knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
+          <a href="acceleratore.html">Acceleratore</a>
         </div>
-    </section>
-
-    <!-- Featured Resources -->
-    <section class="featured-section">
-        <div class="section-header">
-            <h2 class="section-title">Risorse in Evidenza</h2>
-            <p class="section-subtitle">
-                Le nostre guide e whitepaper più scaricati questo mese
-            </p>
+        <div class="foot__col">
+          <h5>Azienda</h5>
+          <a href="chi-siamo.html">Chi siamo</a>
+          <a href="index.html#metaphor">L'Idea</a>
+          <a href="index.html#process">Percorso</a>
+          <a href="casi-studio.html">Casi studio</a>
+          <a href="contatti.html">Contatti</a>
         </div>
-        <div class="featured-grid">
-            <article class="featured-card">
-                <span class="featured-badge">Nuovo</span>
-                <div class="featured-image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M18.5 11.5L15 15l-3-3-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg></div>
-                <div class="featured-content">
-                    <h3 class="featured-title">Guida AI per CEO 2025</h3>
-                    <p class="featured-description">
-                        Il report definitivo per i C-level che vogliono guidare la trasformazione AI.
-                        Include framework strategici, case studies e ROI calculator.
-                    </p>
-                    <div class="featured-meta">
-                        <span class="featured-type">
-                            📄 PDF, 45 pagine
-                        </span>
-                        <a href="guida-ai-ceo-2025.html" class="featured-cta">
-                            Scarica Gratis <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="featured-card">
-                <span class="featured-badge" style="background: #D4A017;">Hot</span>
-                <div class="featured-image">🤖</div>
-                <div class="featured-content">
-                    <h3 class="featured-title">LLM in Azienda: Best Practices</h3>
-                    <p class="featured-description">
-                        Come implementare Large Language Models in modo sicuro ed efficace.
-                        Security, compliance GDPR e integration patterns.
-                    </p>
-                    <div class="featured-meta">
-                        <span class="featured-type">
-                            📹 Video, 2h 30min
-                        </span>
-                        <a href="#" class="featured-cta">
-                            Guarda Ora <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="featured-card">
-                <div class="featured-image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M9 18h6M10 22h4M12 2a7 7 0 015 11.9V17a2 2 0 01-2 2H9a2 2 0 01-2-2v-3.1A7 7 0 0112 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg></div>
-                <div class="featured-content">
-                    <h3 class="featured-title">AI Readiness Assessment Tool</h3>
-                    <p class="featured-description">
-                        Valuta la maturità AI della tua organizzazione con il nostro tool interattivo.
-                        Report personalizzato e roadmap implementativa.
-                    </p>
-                    <div class="featured-meta">
-                        <span class="featured-type">
-                            🛠️ Tool Online
-                        </span>
-                        <a href="#" class="featured-cta">
-                            Inizia Assessment <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-                        </a>
-                    </div>
-                </div>
-            </article>
+        <div class="foot__col">
+          <h5>Legale</h5>
+          <a href="privacy.html">Privacy</a>
+          <a href="cookie.html">Cookie</a>
+          <a href="termini.html">Termini</a>
         </div>
-    </section>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
+      <span>Conforme a GDPR e AI Act by design</span>
+    </div>
+  </div>
+</footer>
 
-    <!-- Resource Categories -->
-    <section class="categories-section">
-        <div class="section-header">
-            <h2 class="section-title">Knowledge Base Completa</h2>
-            <p class="section-subtitle">
-                Esplora tutte le nostre risorse organizzate per categoria
-            </p>
-        </div>
-
-        <div class="categories-tabs">
-            <button class="category-tab active" data-category="all">Tutte</button>
-            <button class="category-tab" data-category="guides">Guide Pratiche</button>
-            <button class="category-tab" data-category="whitepapers">Whitepaper</button>
-            <button class="category-tab" data-category="webinars">Webinar</button>
-            <button class="category-tab" data-category="tools">Tool & Template</button>
-            <button class="category-tab" data-category="courses">Corsi</button>
-        </div>
-
-        <div class="resources-grid">
-            <article class="resource-card" data-category="guides">
-                <div class="resource-icon guide"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg></div>
-                <h3 class="resource-title">Computer Vision per Manifattura</h3>
-                <p class="resource-description">
-                    Guida completa per implementare sistemi di quality control con AI vision
-                </p>
-                <div class="resource-footer">
-                    <span class="resource-duration">30 min lettura</span>
-                    <span class="resource-level">Intermedio</span>
-                </div>
-            </article>
-
-            <article class="resource-card" data-category="whitepapers">
-                <div class="resource-icon whitepaper">📄</div>
-                <h3 class="resource-title">ROI dell'AI: Metriche e KPI</h3>
-                <p class="resource-description">
-                    Framework per misurare e ottimizzare il ritorno sugli investimenti AI
-                </p>
-                <div class="resource-footer">
-                    <span class="resource-duration">25 pagine</span>
-                    <span class="resource-level">Executive</span>
-                </div>
-            </article>
-
-            <article class="resource-card" data-category="webinars">
-                <div class="resource-icon webinar">🎥</div>
-                <h3 class="resource-title">Azure AI vs AWS SageMaker</h3>
-                <p class="resource-description">
-                    Webinar comparativo sulle principali piattaforme cloud AI per PMI
-                </p>
-                <div class="resource-footer">
-                    <span class="resource-duration">90 min</span>
-                    <span class="resource-level">Tecnico</span>
-                </div>
-            </article>
-
-            <article class="resource-card" data-category="tools">
-                <div class="resource-icon tool">🛠️</div>
-                <h3 class="resource-title">AI Project Canvas</h3>
-                <p class="resource-description">
-                    Template per pianificare progetti AI con stakeholder e requirements
-                </p>
-                <div class="resource-footer">
-                    <span class="resource-duration">Template</span>
-                    <span class="resource-level">Base</span>
-                </div>
-            </article>
-
-            <article class="resource-card" data-category="courses">
-                <div class="resource-icon course">🎓</div>
-                <h3 class="resource-title">AI Leadership Masterclass</h3>
-                <p class="resource-description">
-                    Corso intensivo per C-level su strategia e governance AI
-                </p>
-                <div class="resource-footer">
-                    <span class="resource-duration">3 giorni</span>
-                    <span class="resource-level">Executive</span>
-                </div>
-            </article>
-
-            <article class="resource-card" data-category="guides">
-                <div class="resource-icon guide"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg></div>
-                <h3 class="resource-title">GDPR Compliance per AI</h3>
-                <p class="resource-description">
-                    Checklist e best practices per AI systems GDPR-compliant
-                </p>
-                <div class="resource-footer">
-                    <span class="resource-duration">45 min lettura</span>
-                    <span class="resource-level">Avanzato</span>
-                </div>
-            </article>
-
-            <article class="resource-card" data-category="whitepapers">
-                <div class="resource-icon whitepaper">📄</div>
-                <h3 class="resource-title">Predictive Maintenance 4.0</h3>
-                <p class="resource-description">
-                    Studio su implementazione IoT + AI per manutenzione predittiva
-                </p>
-                <div class="resource-footer">
-                    <span class="resource-duration">35 pagine</span>
-                    <span class="resource-level">Tecnico</span>
-                </div>
-            </article>
-
-            <article class="resource-card" data-category="webinars">
-                <div class="resource-icon webinar">🎥</div>
-                <h3 class="resource-title">LangChain per PMI</h3>
-                <p class="resource-description">
-                    Live coding session su building LLM applications production-ready
-                </p>
-                <div class="resource-footer">
-                    <span class="resource-duration">2 ore</span>
-                    <span class="resource-level">Avanzato</span>
-                </div>
-            </article>
-
-            <article class="resource-card" data-category="tools">
-                <div class="resource-icon tool">🛠️</div>
-                <h3 class="resource-title">Data Quality Checklist</h3>
-                <p class="resource-description">
-                    Framework per validare dataset prima del training modelli ML
-                </p>
-                <div class="resource-footer">
-                    <span class="resource-duration">Checklist</span>
-                    <span class="resource-level">Intermedio</span>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- Academy Programs -->
-    <section class="academy-section">
-        <div class="section-header">
-            <h2 class="section-title">PugliAI Academy Programs</h2>
-            <p class="section-subtitle">
-                Percorsi formativi strutturati per accelerare l'adozione AI nella vostra organizzazione
-            </p>
-        </div>
-
-        <div class="programs-grid">
-            <article class="program-card">
-                <div class="program-header">
-                    <span class="program-label">Executive Program</span>
-                    <h3 class="program-title">AI Leadership Track</h3>
-                </div>
-                <p class="program-description">
-                    Programma intensivo per C-level e senior management.
-                    Strategia, governance e change management per l'era AI.
-                </p>
-                <ul class="program-features">
-                    <li>3 moduli da 2 giorni</li>
-                    <li>Case studies settoriali</li>
-                    <li>1-on-1 coaching sessions</li>
-                    <li>AI strategy framework</li>
-                    <li>Certificazione finale</li>
-                </ul>
-                <a href="contatti.html" class="program-cta">Richiedi Info</a>
-            </article>
-
-            <article class="program-card">
-                <div class="program-header">
-                    <span class="program-label">Technical Track</span>
-                    <h3 class="program-title">AI Engineering Path</h3>
-                </div>
-                <p class="program-description">
-                    Formazione hands-on per sviluppatori e data scientist.
-                    Da ML basics a production deployment.
-                </p>
-                <ul class="program-features">
-                    <li>8 settimane part-time</li>
-                    <li>Lab pratici su cloud</li>
-                    <li>Progetti real-world</li>
-                    <li>Mentorship tecnica</li>
-                    <li>Accesso tool professionali</li>
-                </ul>
-                <a href="contatti.html" class="program-cta">Iscriviti Ora</a>
-            </article>
-
-            <article class="program-card">
-                <div class="program-header">
-                    <span class="program-label">Custom Program</span>
-                    <h3 class="program-title">Corporate Training</h3>
-                </div>
-                <p class="program-description">
-                    Programmi su misura per la vostra azienda.
-                    Contenuti personalizzati sui vostri use case specifici.
-                </p>
-                <ul class="program-features">
-                    <li>Assessment iniziale</li>
-                    <li>Curriculum customizzato</li>
-                    <li>On-site o remoto</li>
-                    <li>Team di 10-100 persone</li>
-                    <li>Support post-training</li>
-                </ul>
-                <a href="contatti.html" class="program-cta">Progetta con Noi</a>
-            </article>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter-section">
-        <div class="newsletter-content">
-            <h2 class="newsletter-title">AI Insights Newsletter</h2>
-            <p class="newsletter-description">
-                Ricevi ogni settimana le ultime novità, best practices e case studies
-                direttamente nella tua inbox. Unisciti a 5.000+ leader italiani.
-            </p>
-            <form class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="La tua email aziendale" required>
-                <button type="submit" class="newsletter-button">Iscriviti</button>
-            </form>
-        </div>
-    </section>
-
-    <script>
-        // Mobile menu toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-
-        navToggle?.addEventListener('click', () => {
-            navMenu?.classList.toggle('active');
-        });
-
-        // Category filter
-        const categoryTabs = document.querySelectorAll('.category-tab');
-        const resourceCards = document.querySelectorAll('.resource-card');
-
-        categoryTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Update active tab
-                categoryTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-
-                // Filter resources
-                const category = tab.dataset.category;
-                resourceCards.forEach(card => {
-                    if (category === 'all' || card.dataset.category === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Newsletter form
-        const newsletterForm = document.querySelector('.newsletter-form');
-        newsletterForm?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Grazie per l\'iscrizione! Riceverai a breve una email di conferma.');
-            e.target.reset();
-        });
-    </script>
+<script src="src/assets/js/tree-canvas.js"></script>
+<script src="src/assets/js/pugliai-landing.js"></script>
+<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>

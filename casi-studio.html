@@ -32,460 +32,10 @@
     <link rel="canonical" href="https://www.pugliai.com/casi-studio.html">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+<!-- Stylesheet -->
 
-    <style>
-        /* Ensure proper font and base styles */
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Case Studies Specific Styles */
-        .case-studies-hero {
-            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
-            padding: 120px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .case-studies-hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(212, 160, 23, 0.1) 0%, transparent 70%);
-            top: -250px;
-            right: -250px;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #D4A017, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: #94A3B8;
-            max-width: 700px;
-            line-height: 1.8;
-        }
-
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #D4A017;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #94A3B8;
-            font-size: 0.95rem;
-        }
-
-        /* Filters Section */
-        .filters-section {
-            background: #F7F8FA;
-            padding: 2rem 0;
-            border-bottom: 1px solid #E5E7EB;
-        }
-
-        .filters-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1.25rem;
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 24px;
-            color: #64748B;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .filter-btn:hover {
-            border-color: #D4A017;
-            color: #0A1628;
-        }
-
-        .filter-btn.active {
-            background: #0A1628;
-            color: white;
-            border-color: #0A1628;
-        }
-
-        /* Case Study Cards */
-        .case-studies-grid {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .case-study-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .case-study-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .case-study-header {
-            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
-            padding: 2rem;
-            position: relative;
-        }
-
-        .industry-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: rgba(212, 160, 23, 0.2);
-            color: #D4A017;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .company-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .case-study-subtitle {
-            color: #94A3B8;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .case-study-body {
-            padding: 2rem;
-        }
-
-        .challenge-section {
-            margin-bottom: 1.5rem;
-        }
-
-        .section-label {
-            font-size: 0.85rem;
-            color: #64748B;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .challenge-text {
-            color: #334155;
-            line-height: 1.6;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .result-item {
-            text-align: center;
-            padding: 1rem;
-            background: #F7F8FA;
-            border-radius: 8px;
-        }
-
-        .result-value {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #10B981;
-            margin-bottom: 0.25rem;
-        }
-
-        .result-label {
-            font-size: 0.85rem;
-            color: #64748B;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tech-tag {
-            padding: 0.25rem 0.75rem;
-            background: #F0F4F8;
-            color: #475569;
-            border-radius: 6px;
-            font-size: 0.85rem;
-        }
-
-        .case-study-footer {
-            padding: 1.5rem 2rem;
-            border-top: 1px solid #E5E7EB;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .read-more-btn {
-            color: #D4A017;
-            font-weight: 500;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
-        }
-
-        .read-more-btn:hover {
-            gap: 0.75rem;
-        }
-
-        .timeline-badge {
-            color: #64748B;
-            font-size: 0.9rem;
-        }
-
-        /* Detailed Case Study Modal */
-        .case-study-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background: white;
-            max-width: 900px;
-            margin: 2rem auto;
-            border-radius: 16px;
-            position: relative;
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
-            padding: 3rem;
-            border-radius: 16px 16px 0 0;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-
-        .close-modal:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .modal-body {
-            padding: 3rem;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-            margin: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 1rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #E5E7EB;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.25rem;
-            top: 0.5rem;
-            width: 12px;
-            height: 12px;
-            background: #D4A017;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px #F7F8FA;
-        }
-
-        .timeline-date {
-            font-size: 0.85rem;
-            color: #64748B;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content {
-            background: #F7F8FA;
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-
-        .timeline-title {
-            font-weight: 600;
-            color: #0A1628;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-description {
-            color: #64748B;
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
-            padding: 4rem 0;
-            margin-top: 4rem;
-        }
-
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .cta-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .cta-subtitle {
-            color: #94A3B8;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .cta-btn.primary {
-            background: #D4A017;
-            color: #0A1628;
-        }
-
-        .cta-btn.primary:hover {
-            background: #FFD700;
-            transform: translateY(-2px);
-        }
-
-        .cta-btn.secondary {
-            background: transparent;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .cta-btn.secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2rem; }
-            .case-studies-grid { grid-template-columns: 1fr; }
-            .results-grid { grid-template-columns: 1fr; }
-            .cta-buttons { flex-direction: column; }
-        }
-    </style>
-
-    <!-- Article Schema for Case Studies -->
+<!-- Article Schema for Case Studies -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -674,871 +224,231 @@
         ]
     }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/brand.css">
+    <link rel="stylesheet" href="src/assets/css/landing.css">
+    <link rel="stylesheet" href="src/assets/css/pugliai-site.css">
 </head>
 <body>
-    <!-- Dynamic Navigation - Generated by navigation.js -->
-    <div id="nav-placeholder"></div>
-    <script src="src/assets/js/navigation.js"></script>
+<a href="#main" class="skip-link">Vai al contenuto</a>
 
-    <!-- Hero Section -->
-    <section class="case-studies-hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Risultati Concreti con l'AI</h1>
-            <p class="hero-subtitle">
-                Scopri come abbiamo trasformato le sfide in opportunità per aziende leader in Italia.
-                Ogni caso studio documenta il percorso completo: dalla strategia all'implementazione,
-                con risultati misurabili e ROI verificato.
-            </p>
-            <div class="stats-row">
-                <div class="stat-card">
-                    <div class="stat-number">47</div>
-                    <div class="stat-label">Progetti Completati</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">€12M+</div>
-                    <div class="stat-label">Valore Generato</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">3.2x</div>
-                    <div class="stat-label">ROI Medio</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">8 Settimane</div>
-                    <div class="stat-label">Time to Value Medio</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Filters -->
-    <section class="filters-section">
-        <div class="filters-container">
-            <button class="filter-btn active" data-filter="all">Tutti i Casi</button>
-            <button class="filter-btn" data-filter="manifattura">Manifattura</button>
-            <button class="filter-btn" data-filter="finanza">Finanza</button>
-            <button class="filter-btn" data-filter="retail">Retail</button>
-            <button class="filter-btn" data-filter="healthcare">Healthcare</button>
-            <button class="filter-btn" data-filter="logistica">Logistica</button>
-        </div>
-    </section>
-
-    <!-- Case Studies Grid -->
-    <div class="case-studies-grid">
-        <!-- Case Study 1: Manifattura -->
-        <article class="case-study-card" data-category="manifattura">
-            <div class="case-study-header">
-                <span class="industry-badge">Manifattura</span>
-                <h3 class="company-name">Gruppo Tessile Lombardo</h3>
-                <p class="case-study-subtitle">Leader nella produzione tessile di lusso</p>
-            </div>
-            <div class="case-study-body">
-                <div class="challenge-section">
-                    <p class="section-label">La Sfida</p>
-                    <p class="challenge-text">
-                        Ottimizzare la produzione di 50.000 pezzi/mese riducendo scarti e
-                        migliorando il controllo qualità su tessuti pregiati.
-                    </p>
-                </div>
-                <div class="results-grid">
-                    <div class="result-item">
-                        <div class="result-value">-32%</div>
-                        <div class="result-label">Riduzione Scarti</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">+24%</div>
-                        <div class="result-label">Efficienza Produttiva</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">€2.1M</div>
-                        <div class="result-label">Risparmio Annuo</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">6 Settimane</div>
-                        <div class="result-label">Implementazione</div>
-                    </div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">Predictive Maintenance</span>
-                    <span class="tech-tag">Azure ML</span>
-                </div>
-            </div>
-            <div class="case-study-footer">
-                <span class="timeline-badge">Q3 2024</span>
-                <a href="#" class="read-more-btn" onclick="openModal('tessile'); return false;">
-                    Leggi il caso completo <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-                </a>
-            </div>
-        </article>
-
-        <!-- Case Study 2: Finanza -->
-        <article class="case-study-card" data-category="finanza">
-            <div class="case-study-header">
-                <span class="industry-badge">Finanza</span>
-                <h3 class="company-name">Banca Popolare del Nord</h3>
-                <p class="case-study-subtitle">Istituto bancario con 150 filiali</p>
-            </div>
-            <div class="case-study-body">
-                <div class="challenge-section">
-                    <p class="section-label">La Sfida</p>
-                    <p class="challenge-text">
-                        Automatizzare l'analisi creditizia e ridurre i tempi di approvazione
-                        mantenendo il controllo del rischio.
-                    </p>
-                </div>
-                <div class="results-grid">
-                    <div class="result-item">
-                        <div class="result-value">-75%</div>
-                        <div class="result-label">Tempo Approvazione</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">-18%</div>
-                        <div class="result-label">NPL Rate</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">€3.5M</div>
-                        <div class="result-label">Valore Recuperato</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">99.2%</div>
-                        <div class="result-label">Accuratezza</div>
-                    </div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">NLP</span>
-                    <span class="tech-tag">Risk Modeling</span>
-                    <span class="tech-tag">OpenAI GPT-4</span>
-                </div>
-            </div>
-            <div class="case-study-footer">
-                <span class="timeline-badge">Q2 2024</span>
-                <a href="#" class="read-more-btn" onclick="openModal('banca'); return false;">
-                    Leggi il caso completo <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-                </a>
-            </div>
-        </article>
-
-        <!-- Case Study 3: Retail -->
-        <article class="case-study-card" data-category="retail">
-            <div class="case-study-header">
-                <span class="industry-badge">Retail</span>
-                <h3 class="company-name">Catena Moda Milano</h3>
-                <p class="case-study-subtitle">85 punti vendita in Italia</p>
-            </div>
-            <div class="case-study-body">
-                <div class="challenge-section">
-                    <p class="section-label">La Sfida</p>
-                    <p class="challenge-text">
-                        Personalizzare l'esperienza cliente e ottimizzare l'inventario
-                        attraverso previsioni accurate della domanda.
-                    </p>
-                </div>
-                <div class="results-grid">
-                    <div class="result-item">
-                        <div class="result-value">+42%</div>
-                        <div class="result-label">Conversione Online</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">-28%</div>
-                        <div class="result-label">Stock Invenduto</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">€1.8M</div>
-                        <div class="result-label">Revenue Incrementale</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">4.7/5</div>
-                        <div class="result-label">Customer Score</div>
-                    </div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Recommendation Engine</span>
-                    <span class="tech-tag">Demand Forecasting</span>
-                    <span class="tech-tag">Claude 3</span>
-                </div>
-            </div>
-            <div class="case-study-footer">
-                <span class="timeline-badge">Q4 2024</span>
-                <a href="#" class="read-more-btn" onclick="openModal('retail'); return false;">
-                    Leggi il caso completo <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-                </a>
-            </div>
-        </article>
-
-        <!-- Case Study 4: Healthcare -->
-        <article class="case-study-card" data-category="healthcare">
-            <div class="case-study-header">
-                <span class="industry-badge">Healthcare</span>
-                <h3 class="company-name">Clinica San Giuseppe</h3>
-                <p class="case-study-subtitle">Struttura ospedaliera privata</p>
-            </div>
-            <div class="case-study-body">
-                <div class="challenge-section">
-                    <p class="section-label">La Sfida</p>
-                    <p class="challenge-text">
-                        Migliorare la diagnostica per immagini e ottimizzare i percorsi
-                        clinici per ridurre i tempi di attesa.
-                    </p>
-                </div>
-                <div class="results-grid">
-                    <div class="result-item">
-                        <div class="result-value">-45%</div>
-                        <div class="result-label">Tempo Diagnosi</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">+96%</div>
-                        <div class="result-label">Accuratezza</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">2.500</div>
-                        <div class="result-label">Pazienti/Anno</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">-30%</div>
-                        <div class="result-label">Costi Operativi</div>
-                    </div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Medical Imaging AI</span>
-                    <span class="tech-tag">Patient Flow</span>
-                    <span class="tech-tag">NVIDIA Clara</span>
-                </div>
-            </div>
-            <div class="case-study-footer">
-                <span class="timeline-badge">Q3 2024</span>
-                <a href="#" class="read-more-btn" onclick="openModal('healthcare'); return false;">
-                    Leggi il caso completo <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-                </a>
-            </div>
-        </article>
-
-        <!-- Case Study 5: Logistica -->
-        <article class="case-study-card" data-category="logistica">
-            <div class="case-study-header">
-                <span class="industry-badge">Logistica</span>
-                <h3 class="company-name">LogiTech Solutions</h3>
-                <p class="case-study-subtitle">Operatore logistico nazionale</p>
-            </div>
-            <div class="case-study-body">
-                <div class="challenge-section">
-                    <p class="section-label">La Sfida</p>
-                    <p class="challenge-text">
-                        Ottimizzare le rotte di consegna per 500+ veicoli e prevedere
-                        i picchi di domanda stagionali.
-                    </p>
-                </div>
-                <div class="results-grid">
-                    <div class="result-item">
-                        <div class="result-value">-22%</div>
-                        <div class="result-label">Costi Carburante</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">+35%</div>
-                        <div class="result-label">Consegne/Giorno</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">€2.8M</div>
-                        <div class="result-label">Risparmio Annuo</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">98.5%</div>
-                        <div class="result-label">On-Time Delivery</div>
-                    </div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Route Optimization</span>
-                    <span class="tech-tag">Demand Prediction</span>
-                    <span class="tech-tag">AWS SageMaker</span>
-                </div>
-            </div>
-            <div class="case-study-footer">
-                <span class="timeline-badge">Q1 2024</span>
-                <a href="#" class="read-more-btn" onclick="openModal('logistica'); return false;">
-                    Leggi il caso completo <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-                </a>
-            </div>
-        </article>
-
-        <!-- Case Study 6: Manifattura -->
-        <article class="case-study-card" data-category="manifattura">
-            <div class="case-study-header">
-                <span class="industry-badge">Manifattura</span>
-                <h3 class="company-name">Automotive Parts Italia</h3>
-                <p class="case-study-subtitle">Fornitore Tier 1 automotive</p>
-            </div>
-            <div class="case-study-body">
-                <div class="challenge-section">
-                    <p class="section-label">La Sfida</p>
-                    <p class="challenge-text">
-                        Implementare manutenzione predittiva su 200+ macchinari CNC
-                        per ridurre i fermi macchina non pianificati.
-                    </p>
-                </div>
-                <div class="results-grid">
-                    <div class="result-item">
-                        <div class="result-value">-67%</div>
-                        <div class="result-label">Downtime</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">+18%</div>
-                        <div class="result-label">OEE</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">€4.2M</div>
-                        <div class="result-label">Saving/Anno</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value">92%</div>
-                        <div class="result-label">Prediction Accuracy</div>
-                    </div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">IoT Sensors</span>
-                    <span class="tech-tag">Anomaly Detection</span>
-                    <span class="tech-tag">Edge AI</span>
-                </div>
-            </div>
-            <div class="case-study-footer">
-                <span class="timeline-badge">Q2 2024</span>
-                <a href="#" class="read-more-btn" onclick="openModal('automotive'); return false;">
-                    Leggi il caso completo <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-                </a>
-            </div>
-        </article>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html" aria-label="PugliAI home"><img src="src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="index.html#metaphor">L'Idea</a>
+      <a href="servizi.html">Servizi</a>
+      <a href="prodotti.html">On-Premise</a>
+      <a href="acceleratore.html">Acceleratore</a>
+      <a href="index.html#process">Percorso</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Lingua">
+        <a href="casi-studio.html" class="on" aria-current="true">IT</a>
+        <a href="en/case-studies.html">EN</a>
+      </div>
+      <a href="contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="index.html#metaphor">L'Idea</a>
+  <a href="servizi.html">Servizi</a>
+  <a href="prodotti.html">On-Premise</a>
+  <a href="acceleratore.html">Acceleratore</a>
+  <a href="index.html#process">Percorso</a>
+  <a href="contatti.html">Richiedi un preventivo</a>
+</div>
 
-    <!-- FAQ Section -->
-    <section class="section-padding" style="background: var(--primary-navy);">
-        <div class="container">
-            <h2 class="section-title text-center" style="color: var(--accent-platinum);">Domande Frequenti</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Quali risultati ottengono i clienti di PugliAI?</summary>
-                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">I clienti PugliAI ottengono risultati misurabili e concreti: ROI medio del 150%, riduzione dei costi operativi fino al 40%, aumento della produttivita del 25-35% e miglioramento della qualita fino al 90%. Oltre 200 PMI italiane hanno gia completato con successo la trasformazione digitale con le nostre soluzioni AI.</p>
-                </details>
-                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">In quali settori opera PugliAI?</summary>
-                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">PugliAI opera in tutti i principali settori dell'economia italiana: manifatturiero e Industria 4.0, moda e lusso, servizi finanziari e fintech, retail ed e-commerce, sanita, automotive e logistica. Per ogni settore offriamo soluzioni AI personalizzate basate su casi d'uso specifici e best practice di settore.</p>
-                </details>
-                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Quanto tempo serve per vedere il ROI dell'AI?</summary>
-                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Con il nostro approccio POC-first, i primi risultati misurabili si ottengono entro 90 giorni dall'avvio del progetto. Il ROI completo si raggiunge tipicamente entro 6-12 mesi, a seconda della complessita della soluzione e del settore. Ogni progetto include KPI definiti fin dall'inizio per monitorare il progresso in modo trasparente.</p>
-                </details>
-                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Come vengono misurati i risultati dei progetti AI?</summary>
-                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Ogni progetto PugliAI parte dalla definizione di KPI specifici e misurabili concordati con il cliente. Utilizziamo dashboard di monitoraggio in tempo reale, report periodici e analisi before/after per quantificare l'impatto. Le metriche tipiche includono riduzione costi, aumento efficienza, miglioramento qualita, tempi di risposta e soddisfazione cliente.</p>
-                </details>
-                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">PugliAI offre una consulenza gratuita iniziale?</summary>
-                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Si, PugliAI offre una consulenza gratuita iniziale per valutare il potenziale dell'AI nella tua azienda. Durante l'assessment analizziamo i tuoi processi, identifichiamo i casi d'uso a maggior impatto e stimiamo il ROI atteso. Non c'e alcun impegno: l'obiettivo e fornirti una roadmap chiara per la trasformazione digitale.</p>
-                </details>
-            </div>
-        </div>
-    </section>
+<main id="main">
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2 class="cta-title">Pronti a Scrivere il Vostro Caso di Successo?</h2>
-            <p class="cta-subtitle">
-                Ogni trasformazione inizia con una conversazione. Scoprite come l'AI può
-                rivoluzionare il vostro business con risultati misurabili e ROI garantito.
-            </p>
-            <div class="cta-buttons">
-                <a href="contatti.html" class="cta-btn primary">Richiedi Consulenza Gratuita</a>
-                <a href="roi-calculator.html" class="cta-btn secondary">Calcola il Tuo ROI</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal Template -->
-    <div id="caseModal" class="case-study-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="close-modal" onclick="closeModal()">✕</button>
-                <span class="industry-badge" id="modalIndustry">Industria</span>
-                <h2 class="company-name" id="modalCompany">Nome Azienda</h2>
-                <p class="case-study-subtitle" id="modalSubtitle">Sottotitolo</p>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Dynamic content loaded here -->
-            </div>
-        </div>
+<!-- PAGE HEADER -->
+<section class="pagehead">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <div class="eyebrow-lux">Casi studio</div>
+    <h1>Risultati concreti, <span class="serif">misurati in ROI</span></h1>
+    <p class="pagehead__lead">Scopri come abbiamo trasformato le sfide in opportunità per aziende leader in Italia. Ogni caso studio documenta il percorso completo, dalla strategia all'implementazione, con risultati misurabili e ROI verificato.</p>
+    <div class="pagehead__cta">
+      <a href="contatti.html" class="btn btn--grad">Richiedi una consulenza gratuita
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
     </div>
+    <div class="hero__trust">
+      <div class="ti"><b class="grad-text">47</b><span>Progetti completati</span></div>
+      <div class="ti"><b class="grad-text">€12M+</b><span>Valore generato</span></div>
+      <div class="ti"><b>3.2<span class="serif" style="font-size:18px">x</span></b><span>ROI medio</span></div>
+      <div class="ti"><b>8<span class="serif" style="font-size:18px"> sett.</span></b><span>Time to value medio</span></div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const caseStudies = document.querySelectorAll('.case-study-card');
+<!-- CASE STUDIES -->
+<section class="sec sec--dark" id="cases">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">Success story</div>
+      <h2>Trasformazioni AI <span class="serif">in ogni settore</span></h2>
+      <p class="shead__lead">Manifattura, finanza, retail, sanità e logistica: storie reali di PMI italiane con dati before/after verificati.</p>
+    </div>
+    <div class="cards3">
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active button
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+      <article class="gcard reveal" data-d="1">
+        <div class="eyebrow-lux">Manifattura · Q3 2024</div>
+        <h3>Gruppo Tessile <span class="serif">Lombardo</span></h3>
+        <p>Leader nella produzione tessile di lusso. La sfida: ottimizzare la produzione di 50.000 pezzi/mese riducendo gli scarti e migliorando il controllo qualità su tessuti pregiati.</p>
+        <p>Risultati: <b class="grad-text">-32%</b> scarti, <b class="grad-text">+24%</b> efficienza produttiva, <b class="grad-text">€2.1M</b> di risparmio annuo e implementazione in sole 6 settimane. Computer Vision, Predictive Maintenance e Azure ML.</p>
+        <a href="contatti.html" class="gcard__link">Parla con noi <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
 
-                // Filter cases
-                const filter = btn.dataset.filter;
-                caseStudies.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
+      <article class="gcard reveal" data-d="2">
+        <div class="eyebrow-lux">Finanza · Q2 2024</div>
+        <h3>Banca Popolare <span class="serif">del Nord</span></h3>
+        <p>Istituto bancario con 150 filiali. La sfida: automatizzare l'analisi creditizia e ridurre i tempi di approvazione mantenendo il controllo del rischio.</p>
+        <p>Risultati: <b class="grad-text">-75%</b> tempo di approvazione, <b class="grad-text">-18%</b> NPL rate, <b class="grad-text">€3.5M</b> di valore recuperato e 99.2% di accuratezza. NLP, Risk Modeling e OpenAI GPT-4.</p>
+        <a href="contatti.html" class="gcard__link">Parla con noi <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
 
-        // Modal functionality
-        const modalData = {
-            tessile: {
-                industry: 'Manifattura',
-                company: 'Gruppo Tessile Lombardo',
-                subtitle: 'Leader nella produzione tessile di lusso',
-                content: `
-                    <h3>Executive Summary</h3>
-                    <p>Il Gruppo Tessile Lombardo, con oltre 80 anni di storia nella produzione di tessuti di lusso,
-                    ha implementato una soluzione AI completa per ottimizzare la produzione e il controllo qualità.</p>
+      <article class="gcard reveal" data-d="3">
+        <div class="eyebrow-lux">Retail · Q4 2024</div>
+        <h3>Catena Moda <span class="serif">Milano</span></h3>
+        <p>85 punti vendita in Italia. La sfida: personalizzare l'esperienza cliente e ottimizzare l'inventario attraverso previsioni accurate della domanda.</p>
+        <p>Risultati: <b class="grad-text">+42%</b> conversione online, <b class="grad-text">-28%</b> stock invenduto, <b class="grad-text">€1.8M</b> di revenue incrementale e customer score 4.7/5. Recommendation Engine, Demand Forecasting e Claude 3.</p>
+        <a href="contatti.html" class="gcard__link">Parla con noi <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
 
-                    <h3>Timeline del Progetto</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">Settimana 1-2</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Assessment & Discovery</div>
-                                <div class="timeline-description">
-                                    Analisi dei processi produttivi, mappatura dei punti critici,
-                                    raccolta dati storici su 24 mesi di produzione.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Settimana 3-4</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Sviluppo POC</div>
-                                <div class="timeline-description">
-                                    Creazione sistema Computer Vision per rilevamento difetti,
-                                    test su linea pilota con 10.000 metri di tessuto.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Settimana 5-6</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Implementazione & Training</div>
-                                <div class="timeline-description">
-                                    Deploy su 8 linee produttive, formazione 45 operatori,
-                                    integrazione con sistema ERP esistente.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <article class="gcard reveal" data-d="1">
+        <div class="eyebrow-lux">Healthcare · Q3 2024</div>
+        <h3>Clinica San <span class="serif">Giuseppe</span></h3>
+        <p>Struttura ospedaliera privata. La sfida: migliorare la diagnostica per immagini e ottimizzare i percorsi clinici per ridurre i tempi di attesa.</p>
+        <p>Risultati: <b class="grad-text">-45%</b> tempo di diagnosi, <b class="grad-text">+96%</b> accuratezza, 2.500 pazienti/anno e <b class="grad-text">-30%</b> costi operativi. Medical Imaging AI, Patient Flow e NVIDIA Clara.</p>
+        <a href="contatti.html" class="gcard__link">Parla con noi <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
 
-                    <h3>Soluzione Tecnica</h3>
-                    <ul>
-                        <li>150 telecamere industriali ad alta risoluzione</li>
-                        <li>Modello CNN custom per rilevamento 23 tipi di difetti</li>
-                        <li>Edge computing per analisi real-time</li>
-                        <li>Dashboard predittiva per manutenzione telai</li>
-                    </ul>
+      <article class="gcard reveal" data-d="2">
+        <div class="eyebrow-lux">Logistica · Q1 2024</div>
+        <h3>LogiTech <span class="serif">Solutions</span></h3>
+        <p>Operatore logistico nazionale. La sfida: ottimizzare le rotte di consegna per oltre 500 veicoli e prevedere i picchi di domanda stagionali.</p>
+        <p>Risultati: <b class="grad-text">-22%</b> costi carburante, <b class="grad-text">+35%</b> consegne al giorno, <b class="grad-text">€2.8M</b> di risparmio annuo e 98.5% on-time delivery. Route Optimization, Demand Prediction e AWS SageMaker.</p>
+        <a href="contatti.html" class="gcard__link">Parla con noi <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
 
-                    <h3>Risultati Verificati</h3>
-                    <p>Dopo 6 mesi di operatività:</p>
-                    <ul>
-                        <li>Riduzione scarti da 8.2% a 5.6% (-32%)</li>
-                        <li>Aumento velocità produzione del 24%</li>
-                        <li>ROI raggiunto in 8 mesi</li>
-                        <li>Certificazione ISO 9001 mantenuta con 0 non-conformità</li>
-                    </ul>
-                `
-            },
-            banca: {
-                industry: 'Finanza',
-                company: 'Banca Popolare del Nord',
-                subtitle: 'Istituto bancario con 150 filiali',
-                content: `
-                    <h3>Executive Summary</h3>
-                    <p>La Banca Popolare del Nord ha rivoluzionato il processo di valutazione creditizia
-                    implementando un sistema AI che analizza documenti e predice il rischio in tempo reale.</p>
+      <article class="gcard reveal" data-d="3">
+        <div class="eyebrow-lux">Manifattura · Q2 2024</div>
+        <h3>Automotive Parts <span class="serif">Italia</span></h3>
+        <p>Fornitore Tier 1 automotive. La sfida: implementare manutenzione predittiva su oltre 200 macchinari CNC per ridurre i fermi macchina non pianificati.</p>
+        <p>Risultati: <b class="grad-text">-67%</b> downtime, <b class="grad-text">+18%</b> OEE, <b class="grad-text">€4.2M</b> di saving annuo e 92% di prediction accuracy. IoT Sensors, Anomaly Detection ed Edge AI.</p>
+        <a href="contatti.html" class="gcard__link">Parla con noi <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
 
-                    <h3>La Sfida Iniziale</h3>
-                    <p>Prima dell'implementazione:</p>
-                    <ul>
-                        <li>Tempo medio approvazione credito: 15 giorni lavorativi</li>
-                        <li>NPL rate al 4.8%, sopra la media di settore</li>
-                        <li>30% delle pratiche richiedevano rilavorazione</li>
-                        <li>Customer satisfaction al 62%</li>
-                    </ul>
+    </div>
+  </div>
+</section>
 
-                    <h3>Soluzione Implementata</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">Fase 1</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">NLP Document Processing</div>
-                                <div class="timeline-description">
-                                    Sistema OCR + NLP per estrazione automatica dati da bilanci,
-                                    visure, documenti fiscali con 99.5% accuratezza.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Fase 2</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Risk Scoring Engine</div>
-                                <div class="timeline-description">
-                                    Modello ML trainato su 10 anni di dati storici,
-                                    analisi 250+ variabili per scoring real-time.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Fase 3</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Decision Support System</div>
-                                <div class="timeline-description">
-                                    Dashboard interattiva per credit officer con spiegazioni AI,
-                                    simulazioni scenario, alert automatici.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- AGGREGATE RESULTS -->
+<section class="sec sec--panel sec--tight">
+  <div class="shell">
+    <div class="stats">
+      <div class="stat reveal" data-d="1"><div class="n grad-text" data-count="47">47</div><div class="l">Progetti completati</div><div class="s">In 5 settori</div></div>
+      <div class="stat reveal" data-d="2"><div class="n" data-count="12" data-prefix="€" data-suffix="M+">€12M+</div><div class="l">Valore generato</div><div class="s">Per i nostri clienti</div></div>
+      <div class="stat reveal" data-d="3"><div class="n grad-text" data-count="3" data-suffix=".2x">3.2x</div><div class="l">ROI medio</div><div class="s">Documentato</div></div>
+      <div class="stat reveal" data-d="4"><div class="n" data-count="8" data-suffix=" sett.">8 sett.</div><div class="l">Time to value medio</div><div class="s">Approccio POC-first</div></div>
+    </div>
+  </div>
+</section>
 
-                    <h3>Impatto Misurabile</h3>
-                    <ul>
-                        <li>Tempo approvazione: da 15 giorni a 3.5 giorni (-75%)</li>
-                        <li>NPL rate ridotto al 3.9% (-18%)</li>
-                        <li>€3.5M recuperati da crediti precedentemente rifiutati</li>
-                        <li>Customer satisfaction salita all'87%</li>
-                    </ul>
-                `
-            },
-            retail: {
-                industry: 'Retail',
-                company: 'Catena Moda Milano',
-                subtitle: '85 punti vendita in Italia',
-                content: `
-                    <h3>Executive Summary</h3>
-                    <p>Catena Moda Milano ha trasformato l'esperienza cliente implementando AI per
-                    personalizzazione, inventory management e demand forecasting across all channels.</p>
+<!-- FAQ -->
+<section class="sec sec--light">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">Domande frequenti</div>
+      <h2>Tutto quello che <span class="serif">vuoi sapere</span></h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Quali risultati ottengono i clienti di PugliAI?</summary>
+        <div class="faq__a">I clienti PugliAI ottengono risultati misurabili e concreti: ROI medio del 150%, riduzione dei costi operativi fino al 40%, aumento della produttività del 25-35% e miglioramento della qualità fino al 90%. Oltre 200 PMI italiane hanno già completato con successo la trasformazione digitale con le nostre soluzioni AI.</div>
+      </details>
+      <details>
+        <summary>In quali settori opera PugliAI?</summary>
+        <div class="faq__a">PugliAI opera in tutti i principali settori dell'economia italiana: manifatturiero e Industria 4.0, moda e lusso, servizi finanziari e fintech, retail ed e-commerce, sanità, automotive e logistica. Per ogni settore offriamo soluzioni AI personalizzate basate su casi d'uso specifici e best practice di settore.</div>
+      </details>
+      <details>
+        <summary>Quanto tempo serve per vedere il ROI dell'AI?</summary>
+        <div class="faq__a">Con il nostro approccio POC-first, i primi risultati misurabili si ottengono entro 90 giorni dall'avvio del progetto. Il ROI completo si raggiunge tipicamente entro 6-12 mesi, a seconda della complessità della soluzione e del settore. Ogni progetto include KPI definiti fin dall'inizio per monitorare il progresso in modo trasparente.</div>
+      </details>
+      <details>
+        <summary>Come vengono misurati i risultati dei progetti AI?</summary>
+        <div class="faq__a">Ogni progetto PugliAI parte dalla definizione di KPI specifici e misurabili concordati con il cliente. Utilizziamo dashboard di monitoraggio in tempo reale, report periodici e analisi before/after per quantificare l'impatto. Le metriche tipiche includono riduzione costi, aumento efficienza, miglioramento qualità, tempi di risposta e soddisfazione cliente.</div>
+      </details>
+      <details>
+        <summary>PugliAI offre una consulenza gratuita iniziale?</summary>
+        <div class="faq__a">Sì, PugliAI offre una consulenza gratuita iniziale per valutare il potenziale dell'AI nella tua azienda. Durante l'assessment analizziamo i tuoi processi, identifichiamo i casi d'uso a maggior impatto e stimiamo il ROI atteso. Non c'è alcun impegno: l'obiettivo è fornirti una roadmap chiara per la trasformazione digitale.</div>
+      </details>
+    </div>
+  </div>
+</section>
 
-                    <h3>Approccio Omnichannel AI</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">Sprint 1</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Customer 360° View</div>
-                                <div class="timeline-description">
-                                    Unificazione dati online/offline, creazione profili comportamentali,
-                                    segmentazione dinamica 2.3M clienti.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Sprint 2</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Recommendation Engine</div>
-                                <div class="timeline-description">
-                                    Collaborative filtering + content-based hybrid model,
-                                    personalizzazione real-time su web, app, email.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Sprint 3</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Inventory Optimization</div>
-                                <div class="timeline-description">
-                                    Demand forecasting per SKU/store, automated replenishment,
-                                    markdown optimization algorithm.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- CTA -->
+<section class="sec sec--dark">
+  <div class="shell">
+    <div class="shead reveal" style="margin-bottom:0">
+      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
+      <h2>Pronti a scrivere il vostro <span class="serif">caso di successo?</span></h2>
+      <p class="shead__lead">Ogni trasformazione inizia con una conversazione. Scoprite come l'AI può rivoluzionare il vostro business con risultati misurabili e ROI garantito.</p>
+      <div class="finale__cta" style="margin-top:32px">
+        <a href="contatti.html" class="btn btn--grad">Richiedi una consulenza gratuita
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <h3>Tecnologie Implementate</h3>
-                    <ul>
-                        <li>Claude 3 per conversational commerce e styling advice</li>
-                        <li>TensorFlow per recommendation engine</li>
-                        <li>Prophet per time series forecasting</li>
-                        <li>A/B testing framework per continuous optimization</li>
-                    </ul>
+</main>
 
-                    <h3>Risultati Q4 2024</h3>
-                    <ul>
-                        <li>Conversion rate e-commerce: 2.8% <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> 4.0% (+42%)</li>
-                        <li>Average order value: €124 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> €167 (+35%)</li>
-                        <li>Inventory turnover: 4.2x <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> 5.8x</li>
-                        <li>Riduzione stock obsoleto: -28%</li>
-                        <li>Net Promoter Score: 67 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> 82</li>
-                    </ul>
-                `
-            },
-            healthcare: {
-                industry: 'Healthcare',
-                company: 'Clinica San Giuseppe',
-                subtitle: 'Struttura ospedaliera privata',
-                content: `
-                    <h3>Executive Summary</h3>
-                    <p>La Clinica San Giuseppe ha implementato AI per diagnostica avanzata e
-                    ottimizzazione percorsi clinici, migliorando outcomes e efficienza operativa.</p>
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="src/assets/img/pugliai_logo.png" alt="PugliAI">
+        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h5>Soluzioni</h5>
+          <a href="servizi.html">Servizi</a>
+          <a href="voiceai-on-premise.html">VoiceAI On-Premise</a>
+          <a href="knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
+          <a href="acceleratore.html">Acceleratore</a>
+        </div>
+        <div class="foot__col">
+          <h5>Azienda</h5>
+          <a href="chi-siamo.html">Chi siamo</a>
+          <a href="index.html#metaphor">L'Idea</a>
+          <a href="index.html#process">Percorso</a>
+          <a href="casi-studio.html">Casi studio</a>
+          <a href="contatti.html">Contatti</a>
+        </div>
+        <div class="foot__col">
+          <h5>Legale</h5>
+          <a href="privacy.html">Privacy</a>
+          <a href="cookie.html">Cookie</a>
+          <a href="termini.html">Termini</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
+      <span>Conforme a GDPR e AI Act by design</span>
+    </div>
+  </div>
+</footer>
 
-                    <h3>Aree di Intervento</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">Modulo 1</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">AI Diagnostic Imaging</div>
-                                <div class="timeline-description">
-                                    Sistema NVIDIA Clara per analisi TAC/RMN, detection automatica
-                                    anomalie, prioritizzazione casi urgenti.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Modulo 2</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Patient Flow Optimization</div>
-                                <div class="timeline-description">
-                                    Predizione tempi attesa, scheduling intelligente,
-                                    allocazione risorse dinamica basata su ML.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Modulo 3</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Clinical Decision Support</div>
-                                <div class="timeline-description">
-                                    Knowledge base con 50K+ casi clinici, suggerimenti
-                                    evidence-based, alert interazioni farmacologiche.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>Compliance & Sicurezza</h3>
-                    <ul>
-                        <li>GDPR compliant con privacy by design</li>
-                        <li>Certificazione ISO 27001 per data security</li>
-                        <li>Audit trail completo per medical device regulation</li>
-                        <li>Federated learning per protezione dati pazienti</li>
-                    </ul>
-
-                    <h3>Impatto Clinico Verificato</h3>
-                    <ul>
-                        <li>Tempo medio refertazione: 48h <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> 26h (-45%)</li>
-                        <li>Accuratezza diagnostica: 89% <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> 96%</li>
-                        <li>Riduzione re-admission rate: -22%</li>
-                        <li>Patient satisfaction: 4.1 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> 4.7/5.0</li>
-                        <li>ROI: €1.8M saving operativi anno 1</li>
-                    </ul>
-                `
-            },
-            logistica: {
-                industry: 'Logistica',
-                company: 'LogiTech Solutions',
-                subtitle: 'Operatore logistico nazionale',
-                content: `
-                    <h3>Executive Summary</h3>
-                    <p>LogiTech Solutions ha rivoluzionato le operazioni implementando AI per
-                    route optimization, demand prediction e warehouse automation.</p>
-
-                    <h3>Challenge Tecnica</h3>
-                    <p>Gestione complessa di:</p>
-                    <ul>
-                        <li>500+ veicoli su territorio nazionale</li>
-                        <li>15.000 consegne/giorno</li>
-                        <li>8 hub logistici interconnessi</li>
-                        <li>Vincoli: ZTL, orari consegna, capacità veicoli</li>
-                    </ul>
-
-                    <h3>Soluzione Multi-Layer</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">Layer 1</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Dynamic Route Optimization</div>
-                                <div class="timeline-description">
-                                    Algoritmo genetico + reinforcement learning,
-                                    real-time traffic integration, multi-depot VRP solver.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Layer 2</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Demand Forecasting</div>
-                                <div class="timeline-description">
-                                    LSTM networks per prediction volumetrica,
-                                    seasonal decomposition, external factors integration.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Layer 3</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Warehouse Intelligence</div>
-                                <div class="timeline-description">
-                                    Computer vision per tracking merci, robotic process
-                                    automation, predictive maintenance equipment.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>KPI Performance</h3>
-                    <ul>
-                        <li>Riduzione km percorsi: -18% (2.1M km/anno risparmiati)</li>
-                        <li>Fuel cost reduction: €520K/anno (-22%)</li>
-                        <li>Delivery capacity: +35% same fleet size</li>
-                        <li>On-time delivery: 94.1% <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> 98.5%</li>
-                        <li>Warehouse throughput: +42%</li>
-                        <li>Total savings: €2.8M/anno</li>
-                    </ul>
-                `
-            },
-            automotive: {
-                industry: 'Manifattura',
-                company: 'Automotive Parts Italia',
-                subtitle: 'Fornitore Tier 1 automotive',
-                content: `
-                    <h3>Executive Summary</h3>
-                    <p>Automotive Parts Italia ha implementato un sistema completo di predictive
-                    maintenance su 200+ macchinari CNC eliminando virtualmente i fermi non pianificati.</p>
-
-                    <h3>Situazione Pre-Implementazione</h3>
-                    <ul>
-                        <li>18% downtime non pianificato</li>
-                        <li>€8M/anno costi manutenzione</li>
-                        <li>OEE medio: 68%</li>
-                        <li>MTBF: 320 ore</li>
-                    </ul>
-
-                    <h3>Architettura IoT + AI</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">Fase 1: Sensing</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">IoT Infrastructure</div>
-                                <div class="timeline-description">
-                                    1200+ sensori (vibrazione, temperatura, corrente),
-                                    edge gateways con pre-processing, 5G private network.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Fase 2: Analytics</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">ML Pipeline</div>
-                                <div class="timeline-description">
-                                    Anomaly detection con isolation forest, RUL prediction
-                                    con LSTM, pattern recognition per failure modes.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Fase 3: Action</div>
-                            <div class="timeline-content">
-                                <div class="timeline-title">Maintenance Orchestration</div>
-                                <div class="timeline-description">
-                                    Auto-ticketing CMMS, spare parts optimization,
-                                    technician scheduling con skill matching.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>Edge AI Implementation</h3>
-                    <ul>
-                        <li>NVIDIA Jetson per inferenza locale</li>
-                        <li>Latenza < 10ms per critical alerts</li>
-                        <li>Federated learning per model improvement</li>
-                        <li>Digital twin per simulation scenari</li>
-                    </ul>
-
-                    <h3>Risultati Dopo 12 Mesi</h3>
-                    <ul>
-                        <li>Downtime non pianificato: 18% <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> 6% (-67%)</li>
-                        <li>OEE improvement: 68% <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> 86% (+18%)</li>
-                        <li>Costi manutenzione: -35% (€2.8M saving)</li>
-                        <li>MTBF: 320h <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> 890h</li>
-                        <li>Prediction accuracy: 92%</li>
-                        <li>ROI: 7 mesi</li>
-                    </ul>
-                `
-            }
-        };
-
-        function openModal(caseId) {
-            const modal = document.getElementById('caseModal');
-            const data = modalData[caseId];
-
-            if (data) {
-                document.getElementById('modalIndustry').textContent = data.industry;
-                document.getElementById('modalCompany').textContent = data.company;
-                document.getElementById('modalSubtitle').textContent = data.subtitle;
-                document.getElementById('modalBody').innerHTML = data.content;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('caseModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal on outside click
-        window.onclick = function(event) {
-            const modal = document.getElementById('caseModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // Mobile menu toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-
-        navToggle?.addEventListener('click', () => {
-            navMenu?.classList.toggle('active');
-        });
-    </script>
+<script src="src/assets/js/tree-canvas.js"></script>
+<script src="src/assets/js/pugliai-landing.js"></script>
+<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>

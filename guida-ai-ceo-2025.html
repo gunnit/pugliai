@@ -37,9 +37,9 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.pugliai.com/guida-ai-ceo-2025.html">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- Schema.org Structured Data - CollectionPage -->
     <script type="application/ld+json">
@@ -155,882 +155,290 @@
         ]
     }
     </script>
-
-    <style>
-        /* Hub Page Specific Styles */
-        .guide-hero {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 50%, #374151 100%);
-            padding: 160px 20px 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .guide-hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 160, 23, 0.1) 0%, transparent 70%);
-            animation: pulse 15s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .guide-hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .guide-badge {
-            display: inline-block;
-            background: var(--gradient-gold);
-            color: var(--primary-navy);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .guide-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: white;
-            margin-bottom: 24px;
-            line-height: 1.2;
-        }
-
-        .guide-hero h1 span {
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .guide-hero p {
-            font-size: 1.25rem;
-            color: var(--accent-platinum);
-            max-width: 700px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-        }
-
-        .guide-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .guide-stat {
-            text-align: center;
-        }
-
-        .guide-stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-        }
-
-        .guide-stat-label {
-            font-size: 0.9rem;
-            color: var(--accent-platinum);
-            margin-top: 4px;
-        }
-
-        /* Articles Section */
-        .articles-section {
-            padding: 80px 20px;
-            background: #f8fafc;
-        }
-
-        .articles-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary-navy);
-            margin-bottom: 16px;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Category Sections */
-        .category-section {
-            margin-bottom: 60px;
-        }
-
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 30px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-
-        .category-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-gold);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .category-icon svg {
-            width: 24px;
-            height: 24px;
-            color: var(--primary-navy);
-        }
-
-        .category-header h3 {
-            font-size: 1.5rem;
-            color: var(--primary-navy);
-            margin: 0;
-        }
-
-        /* Article Cards Grid */
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 24px;
-        }
-
-        .article-card {
-            background: white;
-            border-radius: 16px;
-            padding: 28px;
-            box-shadow: 0 4px 20px rgba(10, 22, 40, 0.08);
-            border: 1px solid rgba(212, 160, 23, 0.1);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-        }
-
-        .article-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(212, 160, 23, 0.15);
-            border-color: var(--accent-gold);
-        }
-
-        .article-number {
-            width: 36px;
-            height: 36px;
-            background: var(--gradient-emerald);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-        }
-
-        .article-card h4 {
-            font-size: 1.15rem;
-            color: var(--primary-navy);
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .article-card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            flex-grow: 1;
-            margin-bottom: 16px;
-        }
-
-        .article-meta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .article-meta span {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .read-more {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent-emerald);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: auto;
-        }
-
-        .read-more svg {
-            transition: transform 0.3s ease;
-        }
-
-        .article-card:hover .read-more svg {
-            transform: translateX(4px);
-        }
-
-        /* Key Stats Banner */
-        .stats-banner {
-            background: var(--gradient-primary);
-            padding: 60px 20px;
-            margin: 0;
-        }
-
-        .stats-banner-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .stats-banner h2 {
-            text-align: center;
-            color: white;
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(212, 160, 23, 0.2);
-        }
-
-        .stat-item .number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            margin-bottom: 8px;
-        }
-
-        .stat-item .label {
-            font-size: 0.95rem;
-            color: var(--accent-platinum);
-        }
-
-        /* CTA Section */
-        .guide-cta {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(212, 160, 23, 0.1) 100%);
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .guide-cta-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .guide-cta h2 {
-            font-size: 2rem;
-            color: var(--primary-navy);
-            margin-bottom: 16px;
-        }
-
-        .guide-cta p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        @media (max-width: 768px) {
-            .guide-stats {
-                gap: 24px;
-            }
-
-            .articles-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .category-header {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/brand.css">
+    <link rel="stylesheet" href="src/assets/css/landing.css">
+    <link rel="stylesheet" href="src/assets/css/pugliai-site.css">
 </head>
 <body>
-    <!-- Dynamic Navigation -->
-    <div id="nav-placeholder"></div>
-    <script src="src/assets/js/navigation.js"></script>
+<a href="#main" class="skip-link">Vai al contenuto</a>
 
-    <!-- Hero Section -->
-    <section class="guide-hero">
-        <div class="guide-hero-content">
-            <span class="guide-badge">Aggiornata Dicembre 2025</span>
-            <h1>Guida AI per <span>CEO Italiani</span></h1>
-            <p>30 articoli essenziali per comprendere, implementare e sfruttare l'intelligenza artificiale nella tua PMI. Dalla normativa AI Act alle strategie pratiche, tutto quello che un imprenditore deve sapere.</p>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="index.html" aria-label="PugliAI home"><img src="src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="index.html#metaphor">L'Idea</a>
+      <a href="servizi.html">Servizi</a>
+      <a href="prodotti.html">On-Premise</a>
+      <a href="acceleratore.html">Acceleratore</a>
+      <a href="index.html#process">Percorso</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Lingua">
+        <a href="guida-ai-ceo-2025.html" class="on" aria-current="true">IT</a>
+        <a href="en/ceo-ai-guide-2025.html">EN</a>
+      </div>
+      <a href="contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="index.html#metaphor">L'Idea</a>
+  <a href="servizi.html">Servizi</a>
+  <a href="prodotti.html">On-Premise</a>
+  <a href="acceleratore.html">Acceleratore</a>
+  <a href="index.html#process">Percorso</a>
+  <a href="contatti.html">Richiedi un preventivo</a>
+</div>
 
-            <div class="guide-stats">
-                <div class="guide-stat">
-                    <div class="guide-stat-number">30</div>
-                    <div class="guide-stat-label">Articoli Approfonditi</div>
-                </div>
-                <div class="guide-stat">
-                    <div class="guide-stat-number">1,2B</div>
-                    <div class="guide-stat-label">Mercato AI Italia 2024</div>
-                </div>
-                <div class="guide-stat">
-                    <div class="guide-stat-number">+58%</div>
-                    <div class="guide-stat-label">Crescita Anno su Anno</div>
-                </div>
-                <div class="guide-stat">
-                    <div class="guide-stat-number">1,7x</div>
-                    <div class="guide-stat-label">ROI Medio Progetti AI</div>
-                </div>
-            </div>
+<main id="main">
+
+<!-- PAGE HEADER -->
+<section class="pagehead">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <div class="shell">
+    <div class="eyebrow-lux">Guida AI per CEO &middot; Aggiornata 2026</div>
+    <h1>La guida all'AI per i <span class="serif">CEO italiani</span></h1>
+    <p class="pagehead__lead">33 articoli essenziali per comprendere, implementare e sfruttare l'intelligenza artificiale nella tua PMI. Dalla normativa AI Act alle strategie pratiche, tutto ciò che un imprenditore deve sapere, con dati aggiornati ed esempi italiani.</p>
+    <div class="pagehead__cta">
+      <a href="contatti.html" class="btn btn--grad">Richiedi una consulenza
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
+    </div>
+    <div class="hero__trust">
+      <div class="ti"><b class="grad-text">33</b><span>Articoli approfonditi</span></div>
+      <div class="ti"><b class="grad-text">1,2B</b><span>Mercato AI Italia 2024</span></div>
+      <div class="ti"><b>1,7<span class="serif" style="font-size:18px">x</span></b><span>ROI medio progetti AI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATE OF AI IN ITALY -->
+<section class="sec sec--panel sec--tight">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">Lo stato dell'AI</div>
+      <h2>L'AI nelle PMI italiane <span class="serif">nel 2025</span></h2>
+      <p class="shead__lead">L'adozione accelera, ma il vantaggio resta a chi si muove per primo. I numeri che ogni CEO dovrebbe conoscere.</p>
+    </div>
+    <div class="stats">
+      <div class="stat reveal" data-d="1"><div class="n grad-text" data-count="26.7" data-suffix="%">26,7%</div><div class="l">PMI che usano l'AI</div><div class="s">+50% rispetto al 2024</div></div>
+      <div class="stat reveal" data-d="2"><div class="n" data-count="46" data-suffix="%">46%</div><div class="l">Lavoratori italiani con l'AI</div><div class="s">In crescita costante</div></div>
+      <div class="stat reveal" data-d="3"><div class="n" data-count="312" data-suffix="B">312B</div><div class="l">Potenziale impatto sul PIL</div><div class="s">Stima a regime</div></div>
+      <div class="stat reveal" data-d="4"><div class="n grad-text" data-count="64" data-suffix="%">64%</div><div class="l">Italiani in formazione AI</div><div class="s">Upskilling in corso</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY TAKEAWAYS / PILLARS -->
+<section class="sec sec--dark">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">I pilastri della guida</div>
+      <h2>Tutto parte da <span class="serif">quattro temi</span></h2>
+      <p class="shead__lead">La guida è organizzata per categoria, dalla teoria alla pratica. Ecco i quattro filoni che ogni imprenditore dovrebbe padroneggiare prima di investire.</p>
+    </div>
+    <div class="cards3">
+      <a class="gcard reveal" data-d="1" href="guida-ai/cos-e-intelligenza-artificiale-pmi.html">
+        <h3>Fondamenti per le imprese</h3>
+        <p>Cos'è l'intelligenza artificiale per le PMI, come funzionano machine learning e AI generativa e perché sono cruciali per la competitività.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="2" href="guida-ai/ai-act-pmi-italiane.html">
+        <h3>Normativa e compliance</h3>
+        <p>AI Act e GDPR spiegati in modo pratico: scadenze, obblighi, classificazione dei rischi e sanzioni. Come prepararsi senza stress.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="3" href="guida-ai/roi-intelligenza-artificiale.html">
+        <h3>ROI e investimenti</h3>
+        <p>Come calcolare e massimizzare il ritorno: metriche chiave, budget realistici, incentivi Transizione 5.0 e crediti d'imposta fino al 45%.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP / FIRST STEPS -->
+<section class="sec sec--darker">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">Come iniziare</div>
+      <h2>Quattro passi per <span class="serif">partire bene</span></h2>
+      <p class="shead__lead">L'85% delle aziende inizia da customer service e marketing. Ecco la sequenza pratica per avviare il percorso AI nella tua PMI.</p>
+    </div>
+    <div class="proc">
+      <div class="pstep reveal" data-d="1">
+        <div class="pstep__dot"><b>1</b></div>
+        <div class="wk">Valutazione</div>
+        <h4>Maturità digitale</h4>
+        <p>Misura le capacità attuali e definisci una visione strategica. Da dove parti e dove vuoi arrivare.</p>
+      </div>
+      <div class="pstep reveal" data-d="2">
+        <div class="pstep__dot"><b>2</b></div>
+        <div class="wk">Priorità</div>
+        <h4>Casi d'uso ad alto ROI</h4>
+        <p>Identifica 2-3 opportunità con ritorno chiaro e misurabile: chatbot, automazione email, analisi dati.</p>
+      </div>
+      <div class="pstep reveal" data-d="3">
+        <div class="pstep__dot"><b>3</b></div>
+        <div class="wk">Pilota</div>
+        <h4>Progetti dimostrativi</h4>
+        <p>Avvia un progetto pilota focalizzato per dimostrare valore in fretta e costruire fiducia interna.</p>
+      </div>
+      <div class="pstep reveal" data-d="4">
+        <div class="pstep__dot"><b>4</b></div>
+        <div class="wk">Scala</div>
+        <h4>Governance e metriche</h4>
+        <p>Forma il team, stabilisci una governance chiara e monitora i KPI per iterare e crescere con metodo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED 2026 ARTICLES -->
+<section class="sec sec--dark">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">Novità 2026</div>
+      <h2>I temi più caldi <span class="serif">per le PMI</span></h2>
+      <p class="shead__lead">Agenti AI, conformità normativa e misurazione del ROI: gli articoli aggiornati con i dati più recenti.</p>
+    </div>
+    <div class="cards3">
+      <a class="gcard reveal" data-d="1" href="guida-ai/agenti-ai-pmi-2026.html">
+        <h3>Agenti AI per le PMI 2026</h3>
+        <p>Dai chatbot agli agenti autonomi: cosa sono, quanto costano e come implementarli. Casi studio italiani e ROI atteso del 200-500%.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="2" href="guida-ai/ai-act-conformita-pmi-2026.html">
+        <h3>AI Act 2026: checklist conformità</h3>
+        <p>Scadenza 2 agosto 2026. Checklist operativa in 10 passi, sanzioni fino a 35M euro e confronto tra AI Act e Legge 132/2025.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="3" href="guida-ai/roi-intelligenza-artificiale-2026.html">
+        <h3>ROI dell'AI 2026</h3>
+        <p>Il 95% dei progetti AI fallisce. Framework pratico per PMI: KPI, formula di calcolo, benchmark per settore e 7 strategie vincenti.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="sec sec--panel">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">AI per settore</div>
+      <h2>Strategie su misura <span class="serif">per il tuo mercato</span></h2>
+      <p class="shead__lead">Ogni settore ha le sue priorità. La guida dedica capitoli specifici alle filiere chiave del Made in Italy.</p>
+    </div>
+    <div class="cards3">
+      <a class="gcard reveal" data-d="1" href="guida-ai/ai-manifatturiero-industria-40.html">
+        <h3>Manifatturiero</h3>
+        <p>Manutenzione predittiva, controllo qualità e ottimizzazione della supply chain, con gli incentivi Transizione 5.0.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="2" href="guida-ai/ai-moda-lusso-made-italy.html">
+        <h3>Moda e lusso</h3>
+        <p>Design, personalizzazione, anticontraffazione e customer experience per i brand del Made in Italy digitale.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="gcard reveal" data-d="3" href="guida-ai/ai-servizi-finanziari.html">
+        <h3>Servizi finanziari</h3>
+        <p>Antifrode, credit scoring, robo-advisory e automazione del back-office per banche e assicurazioni.</p>
+        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec--light">
+  <div class="shell">
+    <div class="shead reveal">
+      <div class="eyebrow-lux" style="justify-content:center">Domande frequenti</div>
+      <h2>Tutto quello che <span class="serif">vuoi sapere</span></h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Cos'è l'intelligenza artificiale per le PMI?</summary>
+        <div class="faq__a">L'intelligenza artificiale per le PMI comprende tecnologie come machine learning, AI generativa e automazione intelligente che permettono alle piccole e medie imprese di ottimizzare processi, ridurre costi e aumentare la competitività. Nel 2025, il 26,7% delle PMI italiane utilizza già strumenti AI.</div>
+      </details>
+      <details>
+        <summary>Quanto costa implementare l'AI in una PMI italiana?</summary>
+        <div class="faq__a">I costi variano da 100 euro al mese per un chatbot base a 15.000-50.000 euro per progetti completi. ChatGPT Team costa 25 euro per utente al mese. Il ROI medio è di 1,7 volte l'investimento, con risparmi fino al 40% sui costi operativi.</div>
+      </details>
+      <details>
+        <summary>Cosa prevede l'AI Act per le PMI italiane?</summary>
+        <div class="faq__a">L'AI Act europeo, in vigore dal 2 agosto 2025, richiede trasparenza, formazione del personale e compliance per i sistemi AI. Le PMI devono classificare i sistemi per livello di rischio. Le sanzioni arrivano fino a 35 milioni di euro, ma per le PMI si applicano importi ridotti.</div>
+      </details>
+      <details>
+        <summary>Quali sono i primi passi per implementare l'AI in azienda?</summary>
+        <div class="faq__a">Valutare la maturità digitale, identificare casi d'uso ad alto ROI, partire con progetti pilota (chatbot, automazione email), formare il team e stabilire governance e metriche. L'85% delle aziende inizia con customer service e marketing.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec sec--dark">
+  <div class="shell">
+    <div class="shead reveal" style="margin-bottom:0">
+      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
+      <h2>Pronto a portare l'AI <span class="serif">nella tua azienda?</span></h2>
+      <p class="shead__lead">Dopo la guida, il passo successivo è agire. PugliAI offre consulenze gratuite per identificare le opportunità AI più adatte alla tua PMI.</p>
+      <div class="finale__cta" style="margin-top:32px">
+        <a href="contatti.html" class="btn btn--grad">Richiedi una consulenza
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="src/assets/img/pugliai_logo.png" alt="PugliAI">
+        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h5>Soluzioni</h5>
+          <a href="servizi.html">Servizi</a>
+          <a href="voiceai-on-premise.html">VoiceAI On-Premise</a>
+          <a href="knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
+          <a href="acceleratore.html">Acceleratore</a>
         </div>
-    </section>
-
-    <!-- Key Stats Banner -->
-    <section class="stats-banner">
-        <div class="stats-banner-container">
-            <h2>Lo Stato dell'AI nelle PMI Italiane - 2025</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="number">26,7%</div>
-                    <div class="label">PMI che usano AI (+50% vs 2024)</div>
-                </div>
-                <div class="stat-item">
-                    <div class="number">46%</div>
-                    <div class="label">Lavoratori italiani con AI</div>
-                </div>
-                <div class="stat-item">
-                    <div class="number">312B</div>
-                    <div class="label">Potenziale impatto sul PIL</div>
-                </div>
-                <div class="stat-item">
-                    <div class="number">64%</div>
-                    <div class="label">Italiani in formazione AI</div>
-                </div>
-            </div>
+        <div class="foot__col">
+          <h5>Azienda</h5>
+          <a href="chi-siamo.html">Chi siamo</a>
+          <a href="index.html#metaphor">L'Idea</a>
+          <a href="index.html#process">Percorso</a>
+          <a href="casi-studio.html">Casi studio</a>
+          <a href="contatti.html">Contatti</a>
         </div>
-    </section>
-
-    <!-- Articles Section -->
-    <section class="articles-section">
-        <div class="articles-container">
-            <div class="section-header">
-                <h2>Esplora la Guida Completa</h2>
-                <p>Articoli organizzati per categoria, dalla teoria alla pratica. Ogni articolo include dati aggiornati, esempi italiani e azioni concrete.</p>
-            </div>
-
-            <!-- Category: Fondamenti -->
-            <div class="category-section">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    </div>
-                    <h3>Fondamenti dell'AI per le Imprese</h3>
-                </div>
-                <div class="articles-grid">
-                    <a href="guida-ai/cos-e-intelligenza-artificiale-pmi.html" class="article-card">
-                        <div class="article-number">1</div>
-                        <h4>Cos'e l'Intelligenza Artificiale per le PMI: Guida Completa 2025</h4>
-                        <p>Definizioni chiare, tipologie di AI (machine learning, deep learning, AI generativa) e perche sono cruciali per la competitivita delle piccole e medie imprese italiane.</p>
-                        <div class="article-meta">
-                            <span>12 min lettura</span>
-                            <span>Livello: Base</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-generativa-aziende.html" class="article-card">
-                        <div class="article-number">2</div>
-                        <h4>AI Generativa: Cos'e e Come Usarla in Azienda nel 2025</h4>
-                        <p>ChatGPT, Claude, Gemini: come funzionano gli strumenti di AI generativa e quali applicazioni concrete offrono per marketing, vendite e operazioni aziendali.</p>
-                        <div class="article-meta">
-                            <span>15 min lettura</span>
-                            <span>Livello: Base</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Category: Normativa e Compliance -->
-            <div class="category-section">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    </div>
-                    <h3>Normativa e Compliance</h3>
-                </div>
-                <div class="articles-grid">
-                    <a href="guida-ai/ai-act-pmi-italiane.html" class="article-card">
-                        <div class="article-number">3</div>
-                        <h4>AI Act 2025: Cosa Devono Sapere le PMI Italiane</h4>
-                        <p>La normativa europea sull'AI spiegata in modo pratico: scadenze, obblighi, classificazione dei rischi e sanzioni. Come prepararsi senza stress.</p>
-                        <div class="article-meta">
-                            <span>18 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/gdpr-intelligenza-artificiale.html" class="article-card">
-                        <div class="article-number">4</div>
-                        <h4>GDPR e Intelligenza Artificiale: Come Garantire la Compliance</h4>
-                        <p>L'intersezione tra privacy e AI: come usare strumenti di intelligenza artificiale rispettando il GDPR. Checklist pratica per le aziende italiane.</p>
-                        <div class="article-meta">
-                            <span>14 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Category: Implementazione Pratica -->
-            <div class="category-section">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    </div>
-                    <h3>Implementazione Pratica</h3>
-                </div>
-                <div class="articles-grid">
-                    <a href="guida-ai/come-iniziare-ai-pmi.html" class="article-card">
-                        <div class="article-number">5</div>
-                        <h4>Come Iniziare con l'AI: 7 Primi Passi per le PMI</h4>
-                        <p>Guida step-by-step per avviare il percorso AI: dalla valutazione della maturita digitale ai primi progetti pilota. Con checklist scaricabile.</p>
-                        <div class="article-meta">
-                            <span>16 min lettura</span>
-                            <span>Livello: Base</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/chatgpt-aziende-guida.html" class="article-card">
-                        <div class="article-number">6</div>
-                        <h4>ChatGPT per Aziende: Guida Pratica all'Implementazione</h4>
-                        <p>Come integrare ChatGPT nei processi aziendali: piani disponibili, casi d'uso, prompt efficaci e best practice per massimizzare i risultati.</p>
-                        <div class="article-meta">
-                            <span>20 min lettura</span>
-                            <span>Livello: Base</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/agenti-ai-automazione.html" class="article-card">
-                        <div class="article-number">7</div>
-                        <h4>Agenti AI: Come Automatizzare i Processi Aziendali</h4>
-                        <p>La nuova frontiera dell'automazione intelligente: cosa sono gli agenti AI, come funzionano e quali processi possono gestire autonomamente.</p>
-                        <div class="article-meta">
-                            <span>17 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Category: ROI e Investimenti -->
-            <div class="category-section">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3>ROI e Investimenti</h3>
-                </div>
-                <div class="articles-grid">
-                    <a href="guida-ai/roi-intelligenza-artificiale.html" class="article-card">
-                        <div class="article-number">8</div>
-                        <h4>ROI dell'Intelligenza Artificiale: Come Calcolarlo e Massimizzarlo</h4>
-                        <p>Metodologie per misurare il ritorno sull'investimento AI: metriche chiave, benchmark di settore e strategie per accelerare il payback.</p>
-                        <div class="article-meta">
-                            <span>15 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/costi-ai-pmi-budget.html" class="article-card">
-                        <div class="article-number">9</div>
-                        <h4>Quanto Costa l'AI per una PMI? Budget e Investimenti 2025</h4>
-                        <p>Analisi dettagliata dei costi: licenze software, implementazione, formazione e manutenzione. Come pianificare il budget AI in modo realistico.</p>
-                        <div class="article-meta">
-                            <span>14 min lettura</span>
-                            <span>Livello: Base</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-incentivi-finanziamenti-italia.html" class="article-card">
-                        <div class="article-number">10</div>
-                        <h4>Incentivi e Finanziamenti AI Italia 2025: Transizione 5.0 e Agevolazioni</h4>
-                        <p>Guida completa a Transizione 5.0, crediti d'imposta fino al 45%, bandi regionali e fondi europei. Come finanziare i progetti AI nella tua PMI.</p>
-                        <div class="article-meta">
-                            <span>18 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Category: Competenze e Formazione -->
-            <div class="category-section">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                    </div>
-                    <h3>Competenze e Formazione</h3>
-                </div>
-                <div class="articles-grid">
-                    <a href="guida-ai/formazione-ai-dipendenti.html" class="article-card">
-                        <div class="article-number">11</div>
-                        <h4>Formazione AI per Dipendenti: Come Preparare il Team</h4>
-                        <p>Strategie di upskilling e reskilling per preparare i collaboratori all'era dell'AI. Programmi formativi, risorse gratuite e best practice.</p>
-                        <div class="article-meta">
-                            <span>13 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/competenze-digitali-ai.html" class="article-card">
-                        <div class="article-number">12</div>
-                        <h4>Competenze Digitali AI: Quali Servono nel 2025</h4>
-                        <p>Mappa delle competenze richieste dal mercato: dall'AI literacy alle skill tecniche avanzate. Come colmare il gap di competenze in azienda.</p>
-                        <div class="article-meta">
-                            <span>12 min lettura</span>
-                            <span>Livello: Base</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Category: AI per Settore -->
-            <div class="category-section">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                    </div>
-                    <h3>AI per Settore</h3>
-                </div>
-                <div class="articles-grid">
-                    <a href="guida-ai/ai-manifatturiero-industria-40.html" class="article-card">
-                        <div class="article-number">13</div>
-                        <h4>AI nel Manifatturiero: Industria 4.0 per le PMI Italiane</h4>
-                        <p>Applicazioni concrete dell'AI nella produzione: manutenzione predittiva, controllo qualita, ottimizzazione supply chain. Con incentivi Transizione 5.0.</p>
-                        <div class="article-meta">
-                            <span>18 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-moda-lusso-made-italy.html" class="article-card">
-                        <div class="article-number">14</div>
-                        <h4>AI nel Settore Moda e Lusso: Made in Italy Digitale</h4>
-                        <p>Come i brand italiani stanno usando l'AI: design, personalizzazione, anticontraffazione e customer experience. Case study Prada e altri.</p>
-                        <div class="article-meta">
-                            <span>16 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-servizi-finanziari.html" class="article-card">
-                        <div class="article-number">15</div>
-                        <h4>AI per i Servizi Finanziari: Innovazione nel Settore Bancario</h4>
-                        <p>L'AI nel fintech italiano: antifrode, credit scoring, robo-advisory e automazione back-office. Compliance e opportunita per banche e assicurazioni.</p>
-                        <div class="article-meta">
-                            <span>15 min lettura</span>
-                            <span>Livello: Avanzato</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-agroalimentare-made-italy.html" class="article-card">
-                        <div class="article-number">16</div>
-                        <h4>AI nell'Agroalimentare: Made in Italy e Agricoltura 4.0</h4>
-                        <p>Tracciabilita blockchain, precision farming, controllo qualita e lotta all'Italian sounding. Come l'AI protegge e valorizza il food italiano.</p>
-                        <div class="article-meta">
-                            <span>17 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-turismo-hospitality.html" class="article-card">
-                        <div class="article-number">17</div>
-                        <h4>AI nel Turismo e Hospitality: Innovare l'Accoglienza Italiana</h4>
-                        <p>Concierge virtuali, dynamic pricing, personalizzazione esperienze e revenue management. L'AI per hotel, ristoranti e tour operator.</p>
-                        <div class="article-meta">
-                            <span>16 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-sanita-healthcare.html" class="article-card">
-                        <div class="article-number">18</div>
-                        <h4>AI nella Sanita: Healthcare Italiano tra Innovazione e Privacy</h4>
-                        <p>Diagnostica AI, telemedicina, gestione cartelle cliniche e ottimizzazione risorse. Come le strutture sanitarie italiane adottano l'AI.</p>
-                        <div class="article-meta">
-                            <span>19 min lettura</span>
-                            <span>Livello: Avanzato</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-retail-ecommerce.html" class="article-card">
-                        <div class="article-number">19</div>
-                        <h4>AI per Retail ed E-commerce: Trasformare le Vendite</h4>
-                        <p>Personalizzazione, gestione inventario, pricing dinamico e customer experience omnicanale. L'AI per negozi fisici e online.</p>
-                        <div class="article-meta">
-                            <span>16 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-studi-professionali.html" class="article-card">
-                        <div class="article-number">20</div>
-                        <h4>AI per Studi Professionali: Avvocati, Commercialisti e Consulenti</h4>
-                        <p>Legal tech, automazione contabile, due diligence e gestione documentale. Come l'AI trasforma il lavoro dei professionisti italiani.</p>
-                        <div class="article-meta">
-                            <span>15 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Category: Applicazioni Aziendali -->
-            <div class="category-section">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <h3>Applicazioni Aziendali</h3>
-                </div>
-                <div class="articles-grid">
-                    <a href="guida-ai/chatbot-ai-customer-service.html" class="article-card">
-                        <div class="article-number">21</div>
-                        <h4>Chatbot AI per Customer Service: Guida Completa PMI</h4>
-                        <p>Come implementare chatbot efficaci: piattaforme consigliate, integrazione con CRM, metriche di successo. Da assistente base ad agente conversazionale.</p>
-                        <div class="article-meta">
-                            <span>19 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-marketing-vendite.html" class="article-card">
-                        <div class="article-number">22</div>
-                        <h4>AI per Marketing e Vendite: Strategie che Funzionano</h4>
-                        <p>Personalizzazione, lead scoring, content creation e campagne automatizzate. Come l'AI sta trasformando il marketing delle PMI italiane.</p>
-                        <div class="article-meta">
-                            <span>17 min lettura</span>
-                            <span>Livello: Base</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/automazione-ai-processi.html" class="article-card">
-                        <div class="article-number">23</div>
-                        <h4>Automazione AI: Processi Aziendali da Automatizzare</h4>
-                        <p>I 10 processi con maggiore potenziale di automazione: dall'amministrazione alle vendite. ROI atteso e complessita di implementazione.</p>
-                        <div class="article-meta">
-                            <span>14 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-hr-recruiting.html" class="article-card">
-                        <div class="article-number">24</div>
-                        <h4>AI per HR e Recruiting: Rivoluzionare la Gestione delle Risorse Umane</h4>
-                        <p>Screening CV automatico, analisi predittiva turnover, onboarding intelligente e gestione performance. L'AI per HR nelle PMI italiane.</p>
-                        <div class="article-meta">
-                            <span>17 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-cybersecurity-aziendale.html" class="article-card">
-                        <div class="article-number">25</div>
-                        <h4>AI e Cybersecurity Aziendale: Proteggere l'Impresa nell'Era Digitale</h4>
-                        <p>Threat detection, risposta automatica agli incidenti, antifrode e protezione dati. Come l'AI difende le PMI dalle minacce cyber.</p>
-                        <div class="article-meta">
-                            <span>18 min lettura</span>
-                            <span>Livello: Avanzato</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/ai-predittiva-data-analytics.html" class="article-card">
-                        <div class="article-number">26</div>
-                        <h4>AI Predittiva e Data Analytics: Decisioni Basate sui Dati</h4>
-                        <p>Forecasting, analisi tendenze, manutenzione predittiva e business intelligence. Come trasformare i dati aziendali in vantaggio competitivo.</p>
-                        <div class="article-meta">
-                            <span>16 min lettura</span>
-                            <span>Livello: Avanzato</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Category: Leadership e Cultura -->
-            <div class="category-section">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    </div>
-                    <h3>Leadership e Cultura</h3>
-                </div>
-                <div class="articles-grid">
-                    <a href="guida-ai/leadership-ai-trasformazione.html" class="article-card">
-                        <div class="article-number">27</div>
-                        <h4>Leadership AI: Come Guidare la Trasformazione Digitale</h4>
-                        <p>Il ruolo del CEO nell'era dell'AI: vision, comunicazione, governance e decisioni strategiche. Framework per leader che vogliono fare la differenza.</p>
-                        <div class="article-meta">
-                            <span>15 min lettura</span>
-                            <span>Livello: Avanzato</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/cultura-aziendale-ai.html" class="article-card">
-                        <div class="article-number">28</div>
-                        <h4>Cultura Aziendale e AI: Superare le Resistenze al Cambiamento</h4>
-                        <p>Come affrontare le paure dei dipendenti, costruire fiducia e creare una cultura che abbraccia l'innovazione. Strategie di change management.</p>
-                        <div class="article-meta">
-                            <span>13 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Category: Trend e Futuro -->
-            <div class="category-section">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                    </div>
-                    <h3>Trend e Futuro</h3>
-                </div>
-                <div class="articles-grid">
-                    <a href="guida-ai/ai-sostenibilita-esg.html" class="article-card">
-                        <div class="article-number">29</div>
-                        <h4>AI per la Sostenibilita e ESG: Innovazione Responsabile</h4>
-                        <p>Ottimizzazione energetica, economia circolare, supply chain sostenibile e reporting ESG automatizzato. L'AI al servizio della transizione green.</p>
-                        <div class="article-meta">
-                            <span>17 min lettura</span>
-                            <span>Livello: Intermedio</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                    <a href="guida-ai/trend-ai-2025-2026.html" class="article-card">
-                        <div class="article-number">30</div>
-                        <h4>Trend AI 2025-2026: Cosa Aspettarsi per le PMI Italiane</h4>
-                        <p>Le tendenze emergenti: AI agentica, multimodalita, edge AI e democratizzazione. Come prepararsi oggi per le opportunita di domani.</p>
-                        <div class="article-meta">
-                            <span>16 min lettura</span>
-                            <span>Livello: Avanzato</span>
-                        </div>
-                        <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                    </a>
-                </div>
-            </div>
-
+        <div class="foot__col">
+          <h5>Legale</h5>
+          <a href="privacy.html">Privacy</a>
+          <a href="cookie.html">Cookie</a>
+          <a href="termini.html">Termini</a>
         </div>
-    </section>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
+      <span>Conforme a GDPR e AI Act by design</span>
+    </div>
+  </div>
+</footer>
 
-    <!-- Novita 2026 - Featured Section -->
-    <section style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(212, 160, 23, 0.08) 100%); padding: 80px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 48px;">
-                <span style="display: inline-block; background: var(--gradient-emerald); color: white; padding: 6px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px;">Novita Marzo 2026</span>
-                <h2 style="font-size: 2rem; color: var(--primary-navy); margin-bottom: 12px;">Articoli Aggiornati al 2026</h2>
-                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">I temi piu caldi per le PMI italiane: agenti AI, conformita normativa e misurazione del ROI.</p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-                <a href="guida-ai/agenti-ai-pmi-2026.html" class="article-card" style="border-left: 4px solid var(--accent-emerald);">
-                    <span class="category-badge" style="background: var(--gradient-emerald); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; display: inline-block; margin-bottom: 12px;">NUOVO - Automazione</span>
-                    <h4>Agenti AI per le PMI Italiane nel 2026: Guida Completa</h4>
-                    <p>Dagli chatbot agli agenti autonomi: cosa sono, quanto costano e come implementarli. Casi studio italiani e ROI atteso del 200-500%.</p>
-                    <div class="article-meta">
-                        <span>18 min lettura</span>
-                        <span>Livello: Intermedio</span>
-                    </div>
-                    <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                </a>
-                <a href="guida-ai/ai-act-conformita-pmi-2026.html" class="article-card" style="border-left: 4px solid var(--accent-emerald);">
-                    <span class="category-badge" style="background: var(--gradient-emerald); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; display: inline-block; margin-bottom: 12px;">NUOVO - Compliance</span>
-                    <h4>AI Act 2026: Checklist di Conformita per le PMI Italiane</h4>
-                    <p>Scadenza 2 agosto 2026. Checklist operativa in 10 passi, sanzioni fino a 35M euro, confronto AI Act vs Legge 132/2025.</p>
-                    <div class="article-meta">
-                        <span>20 min lettura</span>
-                        <span>Livello: Avanzato</span>
-                    </div>
-                    <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                </a>
-                <a href="guida-ai/roi-intelligenza-artificiale-2026.html" class="article-card" style="border-left: 4px solid var(--accent-emerald);">
-                    <span class="category-badge" style="background: var(--gradient-emerald); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; display: inline-block; margin-bottom: 12px;">NUOVO - Strategia e ROI</span>
-                    <h4>ROI dell'Intelligenza Artificiale 2026: Come Misurare e Massimizzare il Ritorno</h4>
-                    <p>Il 95% dei progetti AI fallisce. Framework pratico per PMI: KPI, formula di calcolo, benchmark per settore e 7 strategie vincenti.</p>
-                    <div class="article-meta">
-                        <span>16 min lettura</span>
-                        <span>Livello: Intermedio</span>
-                    </div>
-                    <span class="read-more">Leggi l'articolo <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="guide-cta">
-        <div class="guide-cta-content">
-            <h2>Pronto a Implementare l'AI nella Tua Azienda?</h2>
-            <p>Dopo aver letto la guida, il passo successivo e passare all'azione. PugliAI offre consulenze gratuite per aiutarti a identificare le opportunita AI piu adatte alla tua PMI.</p>
-            <div class="cta-buttons">
-                <a href="roi-calculator.html" class="btn btn-primary btn-lg">Calcola il Tuo ROI</a>
-                <a href="contatti.html" class="btn btn-secondary btn-lg">Richiedi Consulenza</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer-placeholder"></footer>
-    <script>
-        fetch('src/components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').outerHTML = data;
-            });
-    </script>
+<script src="src/assets/js/tree-canvas.js"></script>
+<script src="src/assets/js/pugliai-landing.js"></script>
+<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>
