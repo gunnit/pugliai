@@ -33,10 +33,8 @@
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/ai-turismo-hospitality.html">
 
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/brand.css">
-    <link rel="stylesheet" href="../src/assets/css/landing.css">
-    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <script type="application/ld+json">
@@ -102,391 +100,346 @@
         ]
     }
     </script>
+
+    <style>
+        .article-hero { background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%); padding: 140px 20px 80px; position: relative; overflow: hidden; }
+        .article-hero::before { content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%); }
+        .article-hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+        .article-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; font-size: 0.9rem; }
+        .article-breadcrumb a { color: var(--accent-platinum); text-decoration: none; transition: color 0.3s; }
+        .article-breadcrumb a:hover { color: var(--accent-gold); }
+        .article-breadcrumb span { color: var(--accent-gold); }
+        .article-category { display: inline-block; background: var(--gradient-emerald); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
+        .article-hero h1 { font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 20px; line-height: 1.2; }
+        .article-meta-hero { display: flex; flex-wrap: wrap; gap: 24px; color: var(--accent-platinum); font-size: 0.95rem; }
+        .article-meta-hero span { display: flex; align-items: center; gap: 6px; }
+        .article-container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .article-content { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); }
+        .article-content h2 { font-size: 1.8rem; color: var(--primary-navy); margin: 48px 0 24px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-gold); }
+        .article-content h3 { font-size: 1.4rem; color: var(--secondary-navy); margin: 36px 0 16px; }
+        .article-content p { margin-bottom: 20px; }
+        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 24px; }
+        .article-content li { margin-bottom: 12px; }
+        .highlight-box { background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%); border-left: 4px solid var(--accent-gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 12px 12px 0; }
+        .highlight-box h4 { color: var(--primary-navy); margin-bottom: 12px; font-size: 1.1rem; }
+        .stat-highlight { background: var(--gradient-primary); color: white; padding: 32px; border-radius: 16px; margin: 32px 0; text-align: center; }
+        .stat-highlight .number { font-size: 3rem; font-weight: 800; color: var(--accent-gold); display: block; margin-bottom: 8px; }
+        .stat-highlight .label { font-size: 1.1rem; opacity: 0.9; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.95rem; }
+        .comparison-table th { background: var(--primary-navy); color: white; padding: 16px; text-align: left; }
+        .comparison-table td { padding: 14px 16px; border-bottom: 1px solid #e5e7eb; }
+        .comparison-table tr:nth-child(even) { background: #f8fafc; }
+        .faq-section { margin: 48px 0; }
+        .faq-item { border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+        .faq-question { background: #f8fafc; padding: 20px 24px; font-weight: 600; color: var(--primary-navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 20px 24px; border-top: 1px solid #e5e7eb; }
+        .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; padding-top: 40px; border-top: 2px solid #e5e7eb; }
+        .article-nav a { padding: 24px; background: #f8fafc; border-radius: 12px; text-decoration: none; transition: all 0.3s; border: 1px solid transparent; }
+        .article-nav a:hover { border-color: var(--accent-gold); background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .article-nav .label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+        .article-nav .title { color: var(--primary-navy); font-weight: 600; }
+        .article-nav .next { text-align: right; }
+        .cta-box { background: var(--gradient-primary); padding: 40px; border-radius: 16px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: white; margin-bottom: 16px; }
+        .cta-box p { color: var(--accent-platinum); margin-bottom: 24px; }
+        @media (max-width: 768px) { .article-nav { grid-template-columns: 1fr; } .article-nav .next { text-align: left; } }
+    </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Vai al contenuto</a>
+    <div id="nav-placeholder"></div>
+    <script src="../src/assets/js/navigation.js"></script>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Principale">
-      <a href="../index.html#metaphor">L'Idea</a>
-      <a href="../servizi.html">Servizi</a>
-      <a href="../prodotti.html">On-Premise</a>
-      <a href="../acceleratore.html">Acceleratore</a>
-      <a href="../index.html#process">Percorso</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua">
-        <a href="ai-turismo-hospitality.html" class="on" aria-current="true">IT</a>
-        <a href="../en/ceo-ai-guide-2025.html">EN</a>
-      </div>
-      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="../index.html#metaphor">L'Idea</a>
-  <a href="../servizi.html">Servizi</a>
-  <a href="../prodotti.html">On-Premise</a>
-  <a href="../acceleratore.html">Acceleratore</a>
-  <a href="../index.html#process">Percorso</a>
-  <a href="../contatti.html">Richiedi un preventivo</a>
-</div>
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-content">
+                <nav class="article-breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
+                    <span>/</span>
+                    <span>AI Turismo e Hospitality</span>
+                </nav>
+                <span class="article-category">AI per Settore</span>
+                <h1>AI nel Turismo e Hospitality: Guida per Albergatori Italiani 2025</h1>
+                <div class="article-meta-hero">
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 14 min lettura</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Dicembre 2025</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
+                </div>
+            </div>
+        </header>
 
-<main id="main">
+        <div class="article-container">
+            <div class="article-content">
+                <p><strong>L'Italia e salita al secondo posto mondiale come destinazione turistica, superando Turchia e Francia.</strong> Con oltre 10,6 milioni di visitatori solo ad aprile 2025 (+13% rispetto al 2024) e 19 milioni di passeggeri negli aeroporti, il settore turistico italiano sta vivendo un boom senza precedenti. Ma la competizione e feroce e le aspettative degli ospiti sono cambiate: il <strong>78% dei viaggiatori</strong> vuole che l'AI faccia parte della loro esperienza.</p>
 
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><i>/</i>
-      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
-      <span>AI Turismo e Hospitality</span>
-    </nav>
-    <div class="eyebrow-lux">AI per Settore</div>
-    <h1>AI nel <span class="serif">Turismo e Hospitality</span>: Guida per Albergatori Italiani 2025</h1>
-    <p class="pagehead__lead">Come l'intelligenza artificiale sta trasformando hotel e turismo italiano: revenue management, chatbot concierge, personalizzazione guest experience. Strumenti pratici e strategie per la tua struttura.</p>
-    <div class="pagehead__meta">
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 14 min lettura</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Dicembre 2025</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
-    </div>
-  </div>
-</section>
+                <p>Per albergatori e operatori turistici italiani, l'intelligenza artificiale non e piu un optional ma una necessita competitiva. Questo articolo esplora come l'AI sta trasformando hospitality e turismo, con strumenti pratici e strategie per implementarla nella tua struttura.</p>
 
-<!-- ARTICLE -->
-<section class="sec sec--light">
-  <div class="shell">
-    <div class="prose reveal">
+                <div class="stat-highlight">
+                    <span class="number">13,9 mld USD</span>
+                    <span class="label">Mercato globale AI nel turismo entro il 2030 (CAGR 26,7%)</span>
+                </div>
 
-      <p><strong>L'Italia e salita al secondo posto mondiale come destinazione turistica, superando Turchia e Francia.</strong> Con oltre 10,6 milioni di visitatori solo ad aprile 2025 (+13% rispetto al 2024) e 19 milioni di passeggeri negli aeroporti, il settore turistico italiano sta vivendo un boom senza precedenti. Ma la competizione e feroce e le aspettative degli ospiti sono cambiate: il <strong>78% dei viaggiatori</strong> vuole che l'AI faccia parte della loro esperienza.</p>
+                <h2>L'Italia Turistica nel 2025: I Numeri</h2>
 
-      <p>Per albergatori e operatori turistici italiani, l'intelligenza artificiale non e piu un optional ma una necessita competitiva. Questo articolo esplora come l'AI sta trasformando hospitality e turismo, con strumenti pratici e strategie per implementarla nella tua struttura.</p>
+                <div class="highlight-box">
+                    <h4>Performance Italia Aprile 2025</h4>
+                    <ul>
+                        <li><strong>10,6 milioni</strong> di visitatori (+13,14% YoY)</li>
+                        <li><strong>29,8 milioni</strong> di pernottamenti (record europeo)</li>
+                        <li><strong>19 milioni</strong> di passeggeri aeroportuali (+7,3%)</li>
+                        <li><strong>2° posto</strong> mondiale come destinazione turistica</li>
+                        <li><strong>Dolomiti</strong> tra le top emerging destinations (Tripadvisor)</li>
+                    </ul>
+                </div>
 
-      <div class="statbox">
-        <span class="statbox__n">13,9 mld USD</span>
-        <span class="statbox__l">Mercato globale AI nel turismo entro il 2030 (CAGR 26,7%)</span>
-      </div>
+                <h2>Come l'AI Sta Trasformando l'Hospitality</h2>
 
-      <h2>L'Italia Turistica nel 2025: I Numeri</h2>
+                <p>L'AI sta rivoluzionando ogni touchpoint dell'esperienza ospite. Ecco le applicazioni piu impattanti:</p>
 
-      <div class="callout">
-        <h4>Performance Italia Aprile 2025</h4>
-        <ul>
-          <li><strong>10,6 milioni</strong> di visitatori (+13,14% YoY)</li>
-          <li><strong>29,8 milioni</strong> di pernottamenti (record europeo)</li>
-          <li><strong>19 milioni</strong> di passeggeri aeroportuali (+7,3%)</li>
-          <li><strong>2° posto</strong> mondiale come destinazione turistica</li>
-          <li><strong>Dolomiti</strong> tra le top emerging destinations (Tripadvisor)</li>
-        </ul>
-      </div>
+                <h3>1. Revenue Management Intelligente</h3>
 
-      <h2>Come l'AI Sta Trasformando l'Hospitality</h2>
+                <p>Il pricing dinamico basato su AI analizza centinaia di variabili per ottimizzare le tariffe in tempo reale:</p>
 
-      <p>L'AI sta rivoluzionando ogni touchpoint dell'esperienza ospite. Ecco le applicazioni piu impattanti:</p>
+                <ul>
+                    <li><strong>Demand forecasting:</strong> Previsione domanda basata su eventi, stagionalita, trend</li>
+                    <li><strong>Competitive pricing:</strong> Monitoraggio automatico tariffe competitor</li>
+                    <li><strong>Dynamic packaging:</strong> Bundle personalizzati per massimizzare revenue</li>
+                    <li><strong>Overbooking intelligente:</strong> Gestione ottimale della capacita</li>
+                </ul>
 
-      <h3>1. Revenue Management Intelligente</h3>
+                <p><strong>Risultato tipico:</strong> +5-15% di fatturato con stesse camere e stessi costi.</p>
 
-      <p>Il pricing dinamico basato su AI analizza centinaia di variabili per ottimizzare le tariffe in tempo reale:</p>
+                <h3>2. Chatbot e Virtual Concierge</h3>
 
-      <ul>
-        <li><strong>Demand forecasting:</strong> Previsione domanda basata su eventi, stagionalita, trend</li>
-        <li><strong>Competitive pricing:</strong> Monitoraggio automatico tariffe competitor</li>
-        <li><strong>Dynamic packaging:</strong> Bundle personalizzati per massimizzare revenue</li>
-        <li><strong>Overbooking intelligente:</strong> Gestione ottimale della capacita</li>
-      </ul>
+                <p>I chatbot AI gestiscono le interazioni con gli ospiti 24/7, in qualsiasi lingua:</p>
 
-      <p><strong>Risultato tipico:</strong> +5-15% di fatturato con stesse camere e stessi costi.</p>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Funzione</th>
+                            <th>Senza AI</th>
+                            <th>Con AI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Risposta richieste ospiti</td>
+                            <td>Solo orario reception</td>
+                            <td>24/7, istantanea</td>
+                        </tr>
+                        <tr>
+                            <td>Lingue supportate</td>
+                            <td>2-3 (staff)</td>
+                            <td>100+ automatiche</td>
+                        </tr>
+                        <tr>
+                            <td>Prenotazione servizi</td>
+                            <td>Telefono, email</td>
+                            <td>Chat, voice, app</td>
+                        </tr>
+                        <tr>
+                            <td>Raccomandazioni locali</td>
+                            <td>Generiche</td>
+                            <td>Personalizzate su preferenze</td>
+                        </tr>
+                        <tr>
+                            <td>Gestione reclami</td>
+                            <td>Reattiva</td>
+                            <td>Proattiva (sentiment analysis)</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-      <h3>2. Chatbot e Virtual Concierge</h3>
+                <div class="stat-highlight">
+                    <span class="number">11%</span>
+                    <span class="label">degli hotel europei usa gia AI (fine 2023), in rapida crescita</span>
+                </div>
 
-      <p>I chatbot AI gestiscono le interazioni con gli ospiti 24/7, in qualsiasi lingua:</p>
+                <h3>3. Personalizzazione Guest Experience</h3>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Funzione</th>
-            <th>Senza AI</th>
-            <th>Con AI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Risposta richieste ospiti</td>
-            <td>Solo orario reception</td>
-            <td>24/7, istantanea</td>
-          </tr>
-          <tr>
-            <td>Lingue supportate</td>
-            <td>2-3 (staff)</td>
-            <td>100+ automatiche</td>
-          </tr>
-          <tr>
-            <td>Prenotazione servizi</td>
-            <td>Telefono, email</td>
-            <td>Chat, voice, app</td>
-          </tr>
-          <tr>
-            <td>Raccomandazioni locali</td>
-            <td>Generiche</td>
-            <td>Personalizzate su preferenze</td>
-          </tr>
-          <tr>
-            <td>Gestione reclami</td>
-            <td>Reattiva</td>
-            <td>Proattiva (sentiment analysis)</td>
-          </tr>
-        </tbody>
-      </table>
+                <p>L'AI crea esperienze su misura per ogni ospite:</p>
 
-      <div class="statbox">
-        <span class="statbox__n">11%</span>
-        <span class="statbox__l">degli hotel europei usa gia AI (fine 2023), in rapida crescita</span>
-      </div>
+                <ul>
+                    <li><strong>Pre-stay:</strong> Email personalizzate con suggerimenti basati su storico e preferenze</li>
+                    <li><strong>Check-in:</strong> Riconoscimento ospiti, assegnazione camera ottimale</li>
+                    <li><strong>In-stay:</strong> Raccomandazioni real-time (ristoranti, attivita, spa)</li>
+                    <li><strong>Post-stay:</strong> Follow-up personalizzato, offerte mirate per ritorno</li>
+                </ul>
 
-      <h3>3. Personalizzazione Guest Experience</h3>
+                <h3>4. Automazione Operativa</h3>
 
-      <p>L'AI crea esperienze su misura per ogni ospite:</p>
+                <ul>
+                    <li><strong>Housekeeping optimization:</strong> Scheduling pulizie basato su check-out e preferenze</li>
+                    <li><strong>Energy management:</strong> Climatizzazione intelligente (-20% consumi)</li>
+                    <li><strong>Inventory management:</strong> Previsione consumi F&B e amenities</li>
+                    <li><strong>Staff scheduling:</strong> Pianificazione turni basata su domanda prevista</li>
+                </ul>
 
-      <ul>
-        <li><strong>Pre-stay:</strong> Email personalizzate con suggerimenti basati su storico e preferenze</li>
-        <li><strong>Check-in:</strong> Riconoscimento ospiti, assegnazione camera ottimale</li>
-        <li><strong>In-stay:</strong> Raccomandazioni real-time (ristoranti, attivita, spa)</li>
-        <li><strong>Post-stay:</strong> Follow-up personalizzato, offerte mirate per ritorno</li>
-      </ul>
+                <h2>Cosa Vogliono i Viaggiatori dall'AI</h2>
 
-      <h3>4. Automazione Operativa</h3>
+                <p>Le ricerche mostrano aspettative chiare dei viaggiatori:</p>
 
-      <ul>
-        <li><strong>Housekeeping optimization:</strong> Scheduling pulizie basato su check-out e preferenze</li>
-        <li><strong>Energy management:</strong> Climatizzazione intelligente (-20% consumi)</li>
-        <li><strong>Inventory management:</strong> Previsione consumi F&B e amenities</li>
-        <li><strong>Staff scheduling:</strong> Pianificazione turni basata su domanda prevista</li>
-      </ul>
+                <ul>
+                    <li><strong>35%</strong> vuole tracking budget in tempo reale</li>
+                    <li><strong>30%</strong> desidera raccomandazioni ristoranti basate su dieta</li>
+                    <li><strong>29%</strong> cerca suggerimenti destinazioni basati su salute/energia</li>
+                    <li><strong>60%</strong> dei viaggiatori under 45 usa AI per ispirazione e pianificazione</li>
+                </ul>
 
-      <h2>Cosa Vogliono i Viaggiatori dall'AI</h2>
+                <div class="highlight-box">
+                    <h4>L'Ospite Digitale 2025</h4>
+                    <p>I viaggiatori 2025 sono <strong>altamente digitali</strong>: usano AI per pianificare itinerari, app di traduzione, recensioni online. Si aspettano risposte immediate, personalizzazione, e esperienze seamless. Gli hotel che non si adeguano rischiano di perdere competitivita.</p>
+                </div>
 
-      <p>Le ricerche mostrano aspettative chiare dei viaggiatori:</p>
+                <h2>Strumenti AI per Hotel: Cosa Scegliere</h2>
 
-      <ul>
-        <li><strong>35%</strong> vuole tracking budget in tempo reale</li>
-        <li><strong>30%</strong> desidera raccomandazioni ristoranti basate su dieta</li>
-        <li><strong>29%</strong> cerca suggerimenti destinazioni basati su salute/energia</li>
-        <li><strong>60%</strong> dei viaggiatori under 45 usa AI per ispirazione e pianificazione</li>
-      </ul>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Strumento</th>
+                            <th>Funzione</th>
+                            <th>Costo/mese</th>
+                            <th>Ideale per</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Duetto</td>
+                            <td>Revenue management</td>
+                            <td>Da 300 euro</td>
+                            <td>Hotel 50+ camere</td>
+                        </tr>
+                        <tr>
+                            <td>HiJiffy</td>
+                            <td>Chatbot hospitality</td>
+                            <td>Da 150 euro</td>
+                            <td>Qualsiasi dimensione</td>
+                        </tr>
+                        <tr>
+                            <td>Revinate</td>
+                            <td>Guest data platform</td>
+                            <td>Da 200 euro</td>
+                            <td>Catene e gruppi</td>
+                        </tr>
+                        <tr>
+                            <td>Oaky</td>
+                            <td>Upselling automatico</td>
+                            <td>Commission-based</td>
+                            <td>Revenue incrementale</td>
+                        </tr>
+                        <tr>
+                            <td>Whistle</td>
+                            <td>Guest messaging</td>
+                            <td>Da 100 euro</td>
+                            <td>Boutique hotel</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-      <div class="callout">
-        <h4>L'Ospite Digitale 2025</h4>
-        <p>I viaggiatori 2025 sono <strong>altamente digitali</strong>: usano AI per pianificare itinerari, app di traduzione, recensioni online. Si aspettano risposte immediate, personalizzazione, e esperienze seamless. Gli hotel che non si adeguano rischiano di perdere competitivita.</p>
-      </div>
+                <h2>Caso Studio: Boutique Hotel Toscano</h2>
 
-      <h2>Strumenti AI per Hotel: Cosa Scegliere</h2>
+                <div class="highlight-box">
+                    <h4>Villa Belvedere - 28 camere, Chianti</h4>
+                    <p><strong>Sfida:</strong> Staff ridotto, ospiti internazionali, necessita di personalizzazione</p>
+                    <p><strong>Soluzioni implementate:</strong></p>
+                    <ul>
+                        <li>Chatbot WhatsApp multilingua (HiJiffy)</li>
+                        <li>Revenue management entry-level (Duetto Lite)</li>
+                        <li>Upselling automatico (Oaky)</li>
+                    </ul>
+                    <p><strong>Risultati dopo 8 mesi:</strong></p>
+                    <ul>
+                        <li>+12% RevPAR</li>
+                        <li>+35% revenue ancillare (wine tour, spa, upgrade)</li>
+                        <li>-40% chiamate reception</li>
+                        <li>+18 punti NPS (guest satisfaction)</li>
+                        <li>Investimento: 650 euro/mese - ROI 400%</li>
+                    </ul>
+                </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Strumento</th>
-            <th>Funzione</th>
-            <th>Costo/mese</th>
-            <th>Ideale per</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Duetto</td>
-            <td>Revenue management</td>
-            <td>Da 300 euro</td>
-            <td>Hotel 50+ camere</td>
-          </tr>
-          <tr>
-            <td>HiJiffy</td>
-            <td>Chatbot hospitality</td>
-            <td>Da 150 euro</td>
-            <td>Qualsiasi dimensione</td>
-          </tr>
-          <tr>
-            <td>Revinate</td>
-            <td>Guest data platform</td>
-            <td>Da 200 euro</td>
-            <td>Catene e gruppi</td>
-          </tr>
-          <tr>
-            <td>Oaky</td>
-            <td>Upselling automatico</td>
-            <td>Commission-based</td>
-            <td>Revenue incrementale</td>
-          </tr>
-          <tr>
-            <td>Whistle</td>
-            <td>Guest messaging</td>
-            <td>Da 100 euro</td>
-            <td>Boutique hotel</td>
-          </tr>
-        </tbody>
-      </table>
+                <h2>Come Iniziare: 5 Step per Albergatori</h2>
 
-      <h2>Caso Studio: Boutique Hotel Toscano</h2>
+                <ol>
+                    <li><strong>Analizza i pain point:</strong> Dove perdi tempo? Revenue? Guest satisfaction?</li>
+                    <li><strong>Parti dal chatbot:</strong> Implementazione rapida, ROI immediato, rischio minimo</li>
+                    <li><strong>Aggiungi revenue management:</strong> Il secondo step piu impattante</li>
+                    <li><strong>Integra con il PMS:</strong> Assicurati che gli strumenti AI comunichino con il gestionale</li>
+                    <li><strong>Monitora e ottimizza:</strong> Traccia metriche chiave, affina le configurazioni</li>
+                </ol>
 
-      <div class="callout">
-        <h4>Villa Belvedere - 28 camere, Chianti</h4>
-        <p><strong>Sfida:</strong> Staff ridotto, ospiti internazionali, necessita di personalizzazione</p>
-        <p><strong>Soluzioni implementate:</strong></p>
-        <ul>
-          <li>Chatbot WhatsApp multilingua (HiJiffy)</li>
-          <li>Revenue management entry-level (Duetto Lite)</li>
-          <li>Upselling automatico (Oaky)</li>
-        </ul>
-        <p><strong>Risultati dopo 8 mesi:</strong></p>
-        <ul>
-          <li>+12% RevPAR</li>
-          <li>+35% revenue ancillare (wine tour, spa, upgrade)</li>
-          <li>-40% chiamate reception</li>
-          <li>+18 punti NPS (guest satisfaction)</li>
-          <li>Investimento: 650 euro/mese - ROI 400%</li>
-        </ul>
-      </div>
+                <h2>Il Futuro: AI Agentica nell'Hospitality</h2>
 
-      <h2>Come Iniziare: 5 Step per Albergatori</h2>
-    </div>
+                <p>Il prossimo passo e l'AI agentica: sistemi che non solo rispondono ma <strong>agiscono autonomamente</strong>:</p>
 
-    <div class="proc">
-      <div class="pstep reveal" data-d="1">
-        <div class="pstep__dot"><b>1</b></div>
-        <div class="wk">Step 1</div>
-        <h4>Analizza i pain point</h4>
-        <p>Dove perdi tempo? Revenue? Guest satisfaction?</p>
-      </div>
-      <div class="pstep reveal" data-d="2">
-        <div class="pstep__dot"><b>2</b></div>
-        <div class="wk">Step 2</div>
-        <h4>Parti dal chatbot</h4>
-        <p>Implementazione rapida, ROI immediato, rischio minimo.</p>
-      </div>
-      <div class="pstep reveal" data-d="3">
-        <div class="pstep__dot"><b>3</b></div>
-        <div class="wk">Step 3</div>
-        <h4>Aggiungi revenue management</h4>
-        <p>Il secondo step piu impattante.</p>
-      </div>
-      <div class="pstep reveal" data-d="4">
-        <div class="pstep__dot"><b>4</b></div>
-        <div class="wk">Step 4</div>
-        <h4>Integra con il PMS</h4>
-        <p>Assicurati che gli strumenti AI comunichino con il gestionale.</p>
-      </div>
-      <div class="pstep reveal" data-d="5">
-        <div class="pstep__dot"><b>5</b></div>
-        <div class="wk">Step 5</div>
-        <h4>Monitora e ottimizza</h4>
-        <p>Traccia metriche chiave, affina le configurazioni.</p>
-      </div>
-    </div>
+                <ul>
+                    <li>Gestione completa delle prenotazioni senza intervento umano</li>
+                    <li>Risoluzione automatica di problemi operativi</li>
+                    <li>Negoziazione con OTA e partner</li>
+                    <li>Creazione e ottimizzazione contenuti marketing</li>
+                </ul>
 
-    <div class="prose reveal">
-      <h2>Il Futuro: AI Agentica nell'Hospitality</h2>
+                <section class="faq-section">
+                    <h2>Domande Frequenti</h2>
 
-      <p>Il prossimo passo e l'AI agentica: sistemi che non solo rispondono ma <strong>agiscono autonomamente</strong>:</p>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Come l'AI puo aiutare un hotel italiano?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>L'AI aiuta gli hotel in molteplici modi: revenue management con pricing dinamico che aumenta il fatturato del 5-15%, chatbot che gestiscono il 70% delle richieste ospiti H24, personalizzazione dell'esperienza basata su preferenze, automazione di check-in/out, e previsione della domanda per ottimizzare staff e risorse.</p>
+                        </div>
+                    </div>
 
-      <ul>
-        <li>Gestione completa delle prenotazioni senza intervento umano</li>
-        <li>Risoluzione automatica di problemi operativi</li>
-        <li>Negoziazione con OTA e partner</li>
-        <li>Creazione e ottimizzazione contenuti marketing</li>
-      </ul>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quanto costa implementare l'AI in un hotel?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>I costi variano in base alla dimensione: chatbot base da 100-300 euro/mese, revenue management da 200-1.000 euro/mese, suite complete da 500-2.000 euro/mese. Per un hotel 50 camere, un budget di 500-1.000 euro/mese copre le esigenze principali con ROI tipico del 300-500% in 12 mesi.</p>
+                        </div>
+                    </div>
 
-      <h2>Domande Frequenti</h2>
-    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            I viaggiatori vogliono davvero l'AI?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Si, il 78% dei viaggiatori desidera che l'AI giochi un ruolo nella loro esperienza di viaggio. Le richieste principali includono: tracking budget in tempo reale (35%), raccomandazioni ristoranti basate su preferenze alimentari (30%), suggerimenti destinazioni basati su salute ed energia (29%).</p>
+                        </div>
+                    </div>
+                </section>
 
-    <div class="faq reveal">
-      <details>
-        <summary>Come l'AI puo aiutare un hotel italiano?</summary>
-        <div class="faq__a">L'AI aiuta gli hotel in molteplici modi: revenue management con pricing dinamico che aumenta il fatturato del 5-15%, chatbot che gestiscono il 70% delle richieste ospiti H24, personalizzazione dell'esperienza basata su preferenze, automazione di check-in/out, e previsione della domanda per ottimizzare staff e risorse.</div>
-      </details>
-      <details>
-        <summary>Quanto costa implementare l'AI in un hotel?</summary>
-        <div class="faq__a">I costi variano in base alla dimensione: chatbot base da 100-300 euro/mese, revenue management da 200-1.000 euro/mese, suite complete da 500-2.000 euro/mese. Per un hotel 50 camere, un budget di 500-1.000 euro/mese copre le esigenze principali con ROI tipico del 300-500% in 12 mesi.</div>
-      </details>
-      <details>
-        <summary>I viaggiatori vogliono davvero l'AI?</summary>
-        <div class="faq__a">Si, il 78% dei viaggiatori desidera che l'AI giochi un ruolo nella loro esperienza di viaggio. Le richieste principali includono: tracking budget in tempo reale (35%), raccomandazioni ristoranti basate su preferenze alimentari (30%), suggerimenti destinazioni basati su salute ed energia (29%).</div>
-      </details>
-    </div>
+                <div class="cta-box">
+                    <h3 style="color: white; margin-top: 0;">Pronto a Trasformare la Tua Struttura?</h3>
+                    <p>Scopri come l'AI puo aumentare revenue e guest satisfaction nel tuo hotel.</p>
+                    <a href="../contatti.html" class="btn btn-primary btn-lg">Richiedi Consulenza</a>
+                </div>
 
-    <nav class="artnav reveal" aria-label="Navigazione articoli">
-      <a href="ai-agroalimentare-made-italy.html">
-        <div class="artnav__k">Articolo Precedente</div>
-        <div class="artnav__t">AI nel Settore Agroalimentare</div>
-      </a>
-      <a href="ai-sanita-healthcare.html" class="next">
-        <div class="artnav__k">Prossimo Articolo</div>
-        <div class="artnav__t">AI nella Sanita</div>
-      </a>
-    </nav>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div class="shead reveal" style="margin-bottom:0">
-      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
-      <h2>Pronto a trasformare la tua <span class="serif">struttura</span>?</h2>
-      <p class="shead__lead">Scopri come l'AI puo aumentare revenue e guest satisfaction nel tuo hotel.</p>
-      <div class="finale__cta" style="margin-top:32px">
-        <a href="../contatti.html" class="btn btn--grad">Richiedi Consulenza
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="../roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Soluzioni</h5>
-          <a href="../servizi.html">Servizi</a>
-          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="../acceleratore.html">Acceleratore</a>
+                <nav class="article-nav">
+                    <a href="ai-agroalimentare-made-italy.html">
+                        <div class="label">Articolo Precedente</div>
+                        <div class="title">AI nel Settore Agroalimentare</div>
+                    </a>
+                    <a href="ai-sanita-healthcare.html" class="next">
+                        <div class="label">Prossimo Articolo</div>
+                        <div class="title">AI nella Sanita</div>
+                    </a>
+                </nav>
+            </div>
         </div>
-        <div class="foot__col">
-          <h5>Azienda</h5>
-          <a href="../chi-siamo.html">Chi siamo</a>
-          <a href="../index.html#metaphor">L'Idea</a>
-          <a href="../index.html#process">Percorso</a>
-          <a href="../casi-studio.html">Casi studio</a>
-          <a href="../contatti.html">Contatti</a>
-        </div>
-        <div class="foot__col">
-          <h5>Legale</h5>
-          <a href="../privacy.html">Privacy</a>
-          <a href="../cookie.html">Cookie</a>
-          <a href="../termini.html">Termini</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>Conforme a GDPR e AI Act by design</span>
-    </div>
-  </div>
-</footer>
+    </article>
 
-<script src="../src/assets/js/tree-canvas.js"></script>
-<script src="../src/assets/js/pugliai-landing.js"></script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+    <footer id="footer-placeholder"></footer>
+    <script>
+        fetch('../src/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
 </body>
 </html>

@@ -24,10 +24,8 @@
     <meta property="og:locale" content="it_IT">
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/ai-retail-ecommerce.html">
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/brand.css">
-    <link rel="stylesheet" href="../src/assets/css/landing.css">
-    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <script type="application/ld+json">
@@ -42,317 +40,272 @@
         "dateModified": "2026-02-28"
     }
     </script>
+
+    <style>
+        .article-hero { background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%); padding: 140px 20px 80px; position: relative; overflow: hidden; }
+        .article-hero::before { content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%); }
+        .article-hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+        .article-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; font-size: 0.9rem; }
+        .article-breadcrumb a { color: var(--accent-platinum); text-decoration: none; }
+        .article-breadcrumb span { color: var(--accent-gold); }
+        .article-category { display: inline-block; background: var(--gradient-emerald); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
+        .article-hero h1 { font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 20px; line-height: 1.2; }
+        .article-meta-hero { display: flex; flex-wrap: wrap; gap: 24px; color: var(--accent-platinum); font-size: 0.95rem; }
+        .article-meta-hero span { display: flex; align-items: center; gap: 6px; }
+        .article-container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .article-content { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); }
+        .article-content h2 { font-size: 1.8rem; color: var(--primary-navy); margin: 48px 0 24px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-gold); }
+        .article-content h3 { font-size: 1.4rem; color: var(--secondary-navy); margin: 36px 0 16px; }
+        .article-content p { margin-bottom: 20px; }
+        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 24px; }
+        .article-content li { margin-bottom: 12px; }
+        .highlight-box { background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%); border-left: 4px solid var(--accent-gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 12px 12px 0; }
+        .highlight-box h4 { color: var(--primary-navy); margin-bottom: 12px; font-size: 1.1rem; }
+        .stat-highlight { background: var(--gradient-primary); color: white; padding: 32px; border-radius: 16px; margin: 32px 0; text-align: center; }
+        .stat-highlight .number { font-size: 3rem; font-weight: 800; color: var(--accent-gold); display: block; margin-bottom: 8px; }
+        .stat-highlight .label { font-size: 1.1rem; opacity: 0.9; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.95rem; }
+        .comparison-table th { background: var(--primary-navy); color: white; padding: 16px; text-align: left; }
+        .comparison-table td { padding: 14px 16px; border-bottom: 1px solid #e5e7eb; }
+        .comparison-table tr:nth-child(even) { background: #f8fafc; }
+        .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; padding-top: 40px; border-top: 2px solid #e5e7eb; }
+        .article-nav a { padding: 24px; background: #f8fafc; border-radius: 12px; text-decoration: none; transition: all 0.3s; border: 1px solid transparent; }
+        .article-nav a:hover { border-color: var(--accent-gold); background: white; }
+        .article-nav .label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+        .article-nav .title { color: var(--primary-navy); font-weight: 600; }
+        .article-nav .next { text-align: right; }
+        .cta-box { background: var(--gradient-primary); padding: 40px; border-radius: 16px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: white; margin-bottom: 16px; }
+        .cta-box p { color: var(--accent-platinum); margin-bottom: 24px; }
+        @media (max-width: 768px) { .article-nav { grid-template-columns: 1fr; } .article-nav .next { text-align: left; } }
+    </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Vai al contenuto</a>
+    <div id="nav-placeholder"></div>
+    <script src="../src/assets/js/navigation.js"></script>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Principale">
-      <a href="../index.html#metaphor">L'Idea</a>
-      <a href="../servizi.html">Servizi</a>
-      <a href="../prodotti.html">On-Premise</a>
-      <a href="../acceleratore.html">Acceleratore</a>
-      <a href="../index.html#process">Percorso</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua">
-        <a href="ai-retail-ecommerce.html" class="on" aria-current="true">IT</a>
-        <a href="../en/ceo-ai-guide-2025.html">EN</a>
-      </div>
-      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="../index.html#metaphor">L'Idea</a>
-  <a href="../servizi.html">Servizi</a>
-  <a href="../prodotti.html">On-Premise</a>
-  <a href="../acceleratore.html">Acceleratore</a>
-  <a href="../index.html#process">Percorso</a>
-  <a href="../contatti.html">Richiedi un preventivo</a>
-</div>
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-content">
+                <nav class="article-breadcrumb">
+                    <a href="../index.html">Home</a><span>/</span>
+                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><span>/</span>
+                    <span>AI Retail E-commerce</span>
+                </nav>
+                <span class="article-category">AI per Settore</span>
+                <h1>AI per Retail ed E-commerce: Strategie Omnichannel Italia 2025</h1>
+                <div class="article-meta-hero">
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 14 min lettura</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Dicembre 2025</span>
+                    <span>Livello: Intermedio</span>
+                </div>
+            </div>
+        </header>
 
-<main id="main">
+        <div class="article-container">
+            <div class="article-content">
+                <p><strong>Il mercato e-commerce italiano vale 110 miliardi di euro nel 2025 e crescera fino a 178 miliardi entro il 2030.</strong> Con 35,2 milioni di consumatori online (+1,5 milioni rispetto al 2024), il retail digitale italiano e in piena espansione. L'intelligenza artificiale e il motore di questa trasformazione: nel 2025, solo il 4,4% dei retailer non usa AI nel marketing omnichannel, rispetto al 20,7% dell'anno precedente.</p>
 
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><i>/</i>
-      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
-      <span>AI Retail E-commerce</span>
-    </nav>
-    <div class="eyebrow-lux">AI per Settore</div>
-    <h1>AI per Retail ed <span class="serif">E-commerce</span>: Strategie Omnichannel Italia 2025</h1>
-    <p class="pagehead__lead">Come l'intelligenza artificiale sta trasformando retail ed e-commerce in Italia: personalizzazione, inventory management, pricing dinamico. Dati di mercato 2025 e casi di successo.</p>
-    <div class="pagehead__meta">
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 14 min lettura</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Dicembre 2025</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
-    </div>
-  </div>
-</section>
+                <p>Questa guida esplora come l'AI sta rivoluzionando retail ed e-commerce in Italia, con strategie pratiche per PMI che vogliono competere nell'era dell'iper-personalizzazione.</p>
 
-<!-- ARTICLE -->
-<section class="sec sec--light">
-  <div class="shell">
-    <div class="prose reveal">
+                <div class="stat-highlight">
+                    <span class="number">110 mld euro</span>
+                    <span class="label">Valore mercato e-commerce Italia 2025 (CAGR 9,74%)</span>
+                </div>
 
-      <p><strong>Il mercato e-commerce italiano vale 110 miliardi di euro nel 2025 e crescera fino a 178 miliardi entro il 2030.</strong> Con 35,2 milioni di consumatori online (+1,5 milioni rispetto al 2024), il retail digitale italiano e in piena espansione. L'intelligenza artificiale e il motore di questa trasformazione: nel 2025, solo il 4,4% dei retailer non usa AI nel marketing omnichannel, rispetto al 20,7% dell'anno precedente.</p>
+                <h2>E-commerce Italia: I Numeri 2025</h2>
 
-      <p>Questa guida esplora come l'AI sta rivoluzionando retail ed e-commerce in Italia, con strategie pratiche per PMI che vogliono competere nell'era dell'iper-personalizzazione.</p>
+                <div class="highlight-box">
+                    <h4>Panoramica del Mercato</h4>
+                    <ul>
+                        <li><strong>62 miliardi euro:</strong> Acquisti B2C online 2025 (+6% YoY)</li>
+                        <li><strong>40 miliardi:</strong> Prodotti | <strong>22 miliardi:</strong> Servizi</li>
+                        <li><strong>35,2 milioni:</strong> Consumatori online italiani</li>
+                        <li><strong>55,2%:</strong> Transazioni da smartphone</li>
+                        <li><strong>67%:</strong> Under 34 preferisce digital wallet</li>
+                        <li><strong>19,1%:</strong> PMI che vendono online (vs 99% del tessuto imprenditoriale)</li>
+                    </ul>
+                </div>
 
-      <div class="statbox">
-        <span class="statbox__n">110 mld euro</span>
-        <span class="statbox__l">Valore mercato e-commerce Italia 2025 (CAGR 9,74%)</span>
-      </div>
+                <h2>Come l'AI Trasforma il Retail</h2>
 
-      <h2>E-commerce Italia: I Numeri 2025</h2>
+                <h3>1. Personalizzazione Avanzata</h3>
 
-      <div class="callout">
-        <h4>Panoramica del Mercato</h4>
-        <ul>
-          <li><strong>62 miliardi euro:</strong> Acquisti B2C online 2025 (+6% YoY)</li>
-          <li><strong>40 miliardi:</strong> Prodotti | <strong>22 miliardi:</strong> Servizi</li>
-          <li><strong>35,2 milioni:</strong> Consumatori online italiani</li>
-          <li><strong>55,2%:</strong> Transazioni da smartphone</li>
-          <li><strong>67%:</strong> Under 34 preferisce digital wallet</li>
-          <li><strong>19,1%:</strong> PMI che vendono online (vs 99% del tessuto imprenditoriale)</li>
-        </ul>
-      </div>
+                <p>L'AI permette di creare esperienze uniche per ogni cliente:</p>
 
-      <h2>Come l'AI Trasforma il Retail</h2>
+                <ul>
+                    <li><strong>Product recommendations:</strong> Suggerimenti basati su comportamento e preferenze</li>
+                    <li><strong>Dynamic content:</strong> Homepage e email personalizzate per ogni utente</li>
+                    <li><strong>Personalized pricing:</strong> Offerte su misura (nel rispetto delle normative)</li>
+                    <li><strong>Size & fit prediction:</strong> Riduzione resi tramite AI per taglie</li>
+                </ul>
 
-      <h3>1. Personalizzazione Avanzata</h3>
+                <p><strong>Impatto:</strong> I retailer che usano personalizzazione AI vedono +20-30% di conversion rate.</p>
 
-      <p>L'AI permette di creare esperienze uniche per ogni cliente:</p>
+                <h3>2. Pricing Dinamico</h3>
 
-      <ul>
-        <li><strong>Product recommendations:</strong> Suggerimenti basati su comportamento e preferenze</li>
-        <li><strong>Dynamic content:</strong> Homepage e email personalizzate per ogni utente</li>
-        <li><strong>Personalized pricing:</strong> Offerte su misura (nel rispetto delle normative)</li>
-        <li><strong>Size &amp; fit prediction:</strong> Riduzione resi tramite AI per taglie</li>
-      </ul>
+                <p>Algoritmi che ottimizzano i prezzi in tempo reale:</p>
 
-      <p><strong>Impatto:</strong> I retailer che usano personalizzazione AI vedono +20-30% di conversion rate.</p>
+                <ul>
+                    <li><strong>Competitive monitoring:</strong> Aggiustamento automatico vs competitor</li>
+                    <li><strong>Demand-based pricing:</strong> Prezzi che seguono la domanda</li>
+                    <li><strong>Inventory optimization:</strong> Sconti intelligenti per stock in eccesso</li>
+                    <li><strong>Margin protection:</strong> Limiti automatici per proteggere la redditivita</li>
+                </ul>
 
-      <h3>2. Pricing Dinamico</h3>
+                <h3>3. Inventory Management AI</h3>
 
-      <p>Algoritmi che ottimizzano i prezzi in tempo reale:</p>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Funzione</th>
+                            <th>Beneficio</th>
+                            <th>Risparmio Tipico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Demand forecasting</td>
+                            <td>Previsione vendite accurata</td>
+                            <td>-25% overstock</td>
+                        </tr>
+                        <tr>
+                            <td>Reorder automation</td>
+                            <td>Riordini automatici ottimali</td>
+                            <td>-30% stockout</td>
+                        </tr>
+                        <tr>
+                            <td>Warehouse optimization</td>
+                            <td>Layout e picking intelligente</td>
+                            <td>-20% costi logistici</td>
+                        </tr>
+                        <tr>
+                            <td>Returns prediction</td>
+                            <td>Anticipo resi per categoria</td>
+                            <td>-15% resi</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-      <ul>
-        <li><strong>Competitive monitoring:</strong> Aggiustamento automatico vs competitor</li>
-        <li><strong>Demand-based pricing:</strong> Prezzi che seguono la domanda</li>
-        <li><strong>Inventory optimization:</strong> Sconti intelligenti per stock in eccesso</li>
-        <li><strong>Margin protection:</strong> Limiti automatici per proteggere la redditivita</li>
-      </ul>
+                <h3>4. Marketing AI-Powered</h3>
 
-      <h3>3. Inventory Management AI</h3>
+                <p>Le applicazioni piu diffuse nel retail italiano:</p>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Funzione</th>
-            <th>Beneficio</th>
-            <th>Risparmio Tipico</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Demand forecasting</td>
-            <td>Previsione vendite accurata</td>
-            <td>-25% overstock</td>
-          </tr>
-          <tr>
-            <td>Reorder automation</td>
-            <td>Riordini automatici ottimali</td>
-            <td>-30% stockout</td>
-          </tr>
-          <tr>
-            <td>Warehouse optimization</td>
-            <td>Layout e picking intelligente</td>
-            <td>-20% costi logistici</td>
-          </tr>
-          <tr>
-            <td>Returns prediction</td>
-            <td>Anticipo resi per categoria</td>
-            <td>-15% resi</td>
-          </tr>
-        </tbody>
-      </table>
+                <ul>
+                    <li><strong>Email optimization (58,9%):</strong> Subject line, timing, contenuto ottimizzati</li>
+                    <li><strong>Content creation (54%):</strong> Descrizioni prodotto, post social, ads</li>
+                    <li><strong>Customer segmentation:</strong> Cluster automatici per targeting</li>
+                    <li><strong>Ad optimization:</strong> Budget allocation automatica tra canali</li>
+                </ul>
 
-      <h3>4. Marketing AI-Powered</h3>
+                <div class="stat-highlight">
+                    <span class="number">95,6%</span>
+                    <span class="label">Retailer che usano AI nel marketing omnichannel 2025</span>
+                </div>
 
-      <p>Le applicazioni piu diffuse nel retail italiano:</p>
+                <h2>Chatbot e Customer Service AI</h2>
 
-      <ul>
-        <li><strong>Email optimization (58,9%):</strong> Subject line, timing, contenuto ottimizzati</li>
-        <li><strong>Content creation (54%):</strong> Descrizioni prodotto, post social, ads</li>
-        <li><strong>Customer segmentation:</strong> Cluster automatici per targeting</li>
-        <li><strong>Ad optimization:</strong> Budget allocation automatica tra canali</li>
-      </ul>
+                <p>L'AI sta rivoluzionando il customer service nel retail:</p>
 
-      <div class="statbox">
-        <span class="statbox__n">95,6%</span>
-        <span class="statbox__l">Retailer che usano AI nel marketing omnichannel 2025</span>
-      </div>
+                <ul>
+                    <li><strong>Disponibilita 24/7:</strong> Risposte immediate a qualsiasi ora</li>
+                    <li><strong>Gestione ordini:</strong> Tracking, modifiche, cancellazioni automatiche</li>
+                    <li><strong>FAQ automation:</strong> 70%+ delle richieste gestite senza operatore</li>
+                    <li><strong>Handoff intelligente:</strong> Escalation a umani per casi complessi</li>
+                </ul>
 
-      <h2>Chatbot e Customer Service AI</h2>
+                <h2>Il Consumatore Italiano e l'AI</h2>
 
-      <p>L'AI sta rivoluzionando il customer service nel retail:</p>
+                <div class="highlight-box">
+                    <h4>Apertura all'AI</h4>
+                    <p>I consumatori italiani sono sempre piu aperti all'AI nel retail: quasi la meta dichiara di essere disponibile a usare strumenti di AI generativa per ricercare prodotti. L'AI e accettata soprattutto per chatbot ed elettronica, mentre per il food prevale ancora la preferenza per interazioni umane.</p>
+                </div>
 
-      <ul>
-        <li><strong>Disponibilita 24/7:</strong> Risposte immediate a qualsiasi ora</li>
-        <li><strong>Gestione ordini:</strong> Tracking, modifiche, cancellazioni automatiche</li>
-        <li><strong>FAQ automation:</strong> 70%+ delle richieste gestite senza operatore</li>
-        <li><strong>Handoff intelligente:</strong> Escalation a umani per casi complessi</li>
-      </ul>
+                <h2>Strumenti AI per Retail PMI</h2>
 
-      <h2>Il Consumatore Italiano e l'AI</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Strumento</th>
+                            <th>Funzione</th>
+                            <th>Costo/mese</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Shopify AI</td>
+                            <td>E-commerce completo</td>
+                            <td>Da 29 euro</td>
+                        </tr>
+                        <tr>
+                            <td>Nosto</td>
+                            <td>Personalizzazione</td>
+                            <td>Da 200 euro</td>
+                        </tr>
+                        <tr>
+                            <td>Prisync</td>
+                            <td>Dynamic pricing</td>
+                            <td>Da 99 euro</td>
+                        </tr>
+                        <tr>
+                            <td>Tidio</td>
+                            <td>Chatbot e-commerce</td>
+                            <td>Da 29 euro</td>
+                        </tr>
+                        <tr>
+                            <td>Mailchimp AI</td>
+                            <td>Email marketing</td>
+                            <td>Da 13 euro</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-      <div class="callout">
-        <h4>Apertura all'AI</h4>
-        <p>I consumatori italiani sono sempre piu aperti all'AI nel retail: quasi la meta dichiara di essere disponibile a usare strumenti di AI generativa per ricercare prodotti. L'AI e accettata soprattutto per chatbot ed elettronica, mentre per il food prevale ancora la preferenza per interazioni umane.</p>
-      </div>
+                <h2>Incentivi per la Digitalizzazione</h2>
 
-      <h2>Strumenti AI per Retail PMI</h2>
+                <p>Per le PMI retail che vogliono digitalizzarsi:</p>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Strumento</th>
-            <th>Funzione</th>
-            <th>Costo/mese</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Shopify AI</td>
-            <td>E-commerce completo</td>
-            <td>Da 29 euro</td>
-          </tr>
-          <tr>
-            <td>Nosto</td>
-            <td>Personalizzazione</td>
-            <td>Da 200 euro</td>
-          </tr>
-          <tr>
-            <td>Prisync</td>
-            <td>Dynamic pricing</td>
-            <td>Da 99 euro</td>
-          </tr>
-          <tr>
-            <td>Tidio</td>
-            <td>Chatbot e-commerce</td>
-            <td>Da 29 euro</td>
-          </tr>
-          <tr>
-            <td>Mailchimp AI</td>
-            <td>Email marketing</td>
-            <td>Da 13 euro</td>
-          </tr>
-        </tbody>
-      </table>
+                <ul>
+                    <li><strong>Spinta Digitale:</strong> Rimborso fino al 50% per piattaforme e-commerce (400 mln euro disponibili)</li>
+                    <li><strong>Transizione 5.0:</strong> Crediti d'imposta per software AI</li>
+                    <li><strong>Nuova Sabatini:</strong> Agevolazioni per beni strumentali digitali</li>
+                    <li><strong>Bandi camerali:</strong> Contributi locali per e-commerce</li>
+                </ul>
 
-      <h2>Incentivi per la Digitalizzazione</h2>
+                <h2>Come Iniziare: 5 Step</h2>
 
-      <p>Per le PMI retail che vogliono digitalizzarsi:</p>
+                <ol>
+                    <li><strong>Analizza i dati che hai:</strong> Vendite, clienti, comportamenti - sono la base dell'AI</li>
+                    <li><strong>Parti dalla personalizzazione:</strong> Recommendations e email sono il primo step</li>
+                    <li><strong>Aggiungi un chatbot:</strong> Customer service 24/7 con investimento minimo</li>
+                    <li><strong>Implementa dynamic pricing:</strong> Ottimizza margini e competitivita</li>
+                    <li><strong>Integra inventory AI:</strong> Riduci sprechi e stockout</li>
+                </ol>
 
-      <ul>
-        <li><strong>Spinta Digitale:</strong> Rimborso fino al 50% per piattaforme e-commerce (400 mln euro disponibili)</li>
-        <li><strong>Transizione 5.0:</strong> Crediti d'imposta per software AI</li>
-        <li><strong>Nuova Sabatini:</strong> Agevolazioni per beni strumentali digitali</li>
-        <li><strong>Bandi camerali:</strong> Contributi locali per e-commerce</li>
-      </ul>
+                <div class="cta-box">
+                    <h3 style="color: white; margin-top: 0;">Vuoi Trasformare il Tuo Retail con l'AI?</h3>
+                    <p>Scopri come aumentare vendite e ridurre costi con l'intelligenza artificiale.</p>
+                    <a href="../contatti.html" class="btn btn-primary btn-lg">Richiedi Consulenza</a>
+                </div>
 
-      <h2>Come Iniziare: 5 Step</h2>
-
-      <ol>
-        <li><strong>Analizza i dati che hai:</strong> Vendite, clienti, comportamenti - sono la base dell'AI</li>
-        <li><strong>Parti dalla personalizzazione:</strong> Recommendations e email sono il primo step</li>
-        <li><strong>Aggiungi un chatbot:</strong> Customer service 24/7 con investimento minimo</li>
-        <li><strong>Implementa dynamic pricing:</strong> Ottimizza margini e competitivita</li>
-        <li><strong>Integra inventory AI:</strong> Riduci sprechi e stockout</li>
-      </ol>
-
-    </div>
-
-    <nav class="artnav reveal" aria-label="Navigazione articoli">
-      <a href="ai-incentivi-finanziamenti-italia.html">
-        <div class="artnav__k">Articolo Precedente</div>
-        <div class="artnav__t">Incentivi e Finanziamenti AI</div>
-      </a>
-      <a href="ai-sostenibilita-esg.html" class="next">
-        <div class="artnav__k">Prossimo Articolo</div>
-        <div class="artnav__t">AI per Sostenibilita e ESG</div>
-      </a>
-    </nav>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div class="shead reveal" style="margin-bottom:0">
-      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
-      <h2>Vuoi trasformare il tuo <span class="serif">retail</span> con l'AI?</h2>
-      <p class="shead__lead">Scopri come aumentare vendite e ridurre costi con l'intelligenza artificiale.</p>
-      <div class="finale__cta" style="margin-top:32px">
-        <a href="../contatti.html" class="btn btn--grad">Richiedi Consulenza
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="../roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Soluzioni</h5>
-          <a href="../servizi.html">Servizi</a>
-          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="../acceleratore.html">Acceleratore</a>
+                <nav class="article-nav">
+                    <a href="ai-incentivi-finanziamenti-italia.html">
+                        <div class="label">Articolo Precedente</div>
+                        <div class="title">Incentivi e Finanziamenti AI</div>
+                    </a>
+                    <a href="ai-sostenibilita-esg.html" class="next">
+                        <div class="label">Prossimo Articolo</div>
+                        <div class="title">AI per Sostenibilita e ESG</div>
+                    </a>
+                </nav>
+            </div>
         </div>
-        <div class="foot__col">
-          <h5>Azienda</h5>
-          <a href="../chi-siamo.html">Chi siamo</a>
-          <a href="../index.html#metaphor">L'Idea</a>
-          <a href="../index.html#process">Percorso</a>
-          <a href="../casi-studio.html">Casi studio</a>
-          <a href="../contatti.html">Contatti</a>
-        </div>
-        <div class="foot__col">
-          <h5>Legale</h5>
-          <a href="../privacy.html">Privacy</a>
-          <a href="../cookie.html">Cookie</a>
-          <a href="../termini.html">Termini</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>Conforme a GDPR e AI Act by design</span>
-    </div>
-  </div>
-</footer>
+    </article>
 
-<script src="../src/assets/js/tree-canvas.js"></script>
-<script src="../src/assets/js/pugliai-landing.js"></script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+    <footer id="footer-placeholder"></footer>
+    <script>
+        fetch('../src/components/footer.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('footer-placeholder').outerHTML = data; });
+    </script>
 </body>
 </html>

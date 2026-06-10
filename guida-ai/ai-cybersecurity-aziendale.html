@@ -33,6 +33,10 @@
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/ai-cybersecurity-aziendale.html">
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -97,354 +101,343 @@
     }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/brand.css">
-    <link rel="stylesheet" href="../src/assets/css/landing.css">
-    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        .article-hero {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+            padding: 140px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .article-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%);
+        }
+        .article-hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+        .article-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; font-size: 0.9rem; }
+        .article-breadcrumb a { color: var(--accent-platinum); text-decoration: none; transition: color 0.3s; }
+        .article-breadcrumb a:hover { color: var(--accent-gold); }
+        .article-breadcrumb span { color: var(--accent-gold); }
+        .article-category { display: inline-block; background: var(--gradient-emerald); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
+        .article-hero h1 { font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 20px; line-height: 1.2; }
+        .article-meta-hero { display: flex; flex-wrap: wrap; gap: 24px; color: var(--accent-platinum); font-size: 0.95rem; }
+        .article-meta-hero span { display: flex; align-items: center; gap: 6px; }
+        .article-container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .article-content { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); }
+        .article-content h2 { font-size: 1.8rem; color: var(--primary-navy); margin: 48px 0 24px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-gold); }
+        .article-content h3 { font-size: 1.4rem; color: var(--secondary-navy); margin: 36px 0 16px; }
+        .article-content p { margin-bottom: 20px; }
+        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 24px; }
+        .article-content li { margin-bottom: 12px; }
+        .highlight-box { background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%); border-left: 4px solid var(--accent-gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 12px 12px 0; }
+        .highlight-box h4 { color: var(--primary-navy); margin-bottom: 12px; font-size: 1.1rem; }
+        .stat-highlight { background: var(--gradient-primary); color: white; padding: 32px; border-radius: 16px; margin: 32px 0; text-align: center; }
+        .stat-highlight .number { font-size: 3rem; font-weight: 800; color: var(--accent-gold); display: block; margin-bottom: 8px; }
+        .stat-highlight .label { font-size: 1.1rem; opacity: 0.9; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.95rem; }
+        .comparison-table th { background: var(--primary-navy); color: white; padding: 16px; text-align: left; }
+        .comparison-table td { padding: 14px 16px; border-bottom: 1px solid #e5e7eb; }
+        .comparison-table tr:nth-child(even) { background: #f8fafc; }
+        .faq-section { margin: 48px 0; }
+        .faq-item { border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+        .faq-question { background: #f8fafc; padding: 20px 24px; font-weight: 600; color: var(--primary-navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 20px 24px; border-top: 1px solid #e5e7eb; }
+        .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; padding-top: 40px; border-top: 2px solid #e5e7eb; }
+        .article-nav a { padding: 24px; background: #f8fafc; border-radius: 12px; text-decoration: none; transition: all 0.3s; border: 1px solid transparent; }
+        .article-nav a:hover { border-color: var(--accent-gold); background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .article-nav .label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+        .article-nav .title { color: var(--primary-navy); font-weight: 600; }
+        .article-nav .next { text-align: right; }
+        .cta-box { background: var(--gradient-primary); padding: 40px; border-radius: 16px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: white; margin-bottom: 16px; }
+        .cta-box p { color: var(--accent-platinum); margin-bottom: 24px; }
+        @media (max-width: 768px) { .article-nav { grid-template-columns: 1fr; } .article-nav .next { text-align: left; } }
+    </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Vai al contenuto</a>
+    <div id="nav-placeholder"></div>
+    <script src="../src/assets/js/navigation.js"></script>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Principale">
-      <a href="../index.html#metaphor">L'Idea</a>
-      <a href="../servizi.html">Servizi</a>
-      <a href="../prodotti.html">On-Premise</a>
-      <a href="../acceleratore.html">Acceleratore</a>
-      <a href="../index.html#process">Percorso</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua">
-        <a href="ai-cybersecurity-aziendale.html" class="on" aria-current="true">IT</a>
-        <a href="../en/ceo-ai-guide-2025.html">EN</a>
-      </div>
-      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="../index.html#metaphor">L'Idea</a>
-  <a href="../servizi.html">Servizi</a>
-  <a href="../prodotti.html">On-Premise</a>
-  <a href="../acceleratore.html">Acceleratore</a>
-  <a href="../index.html#process">Percorso</a>
-  <a href="../contatti.html">Richiedi un preventivo</a>
-</div>
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-content">
+                <nav class="article-breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
+                    <span>/</span>
+                    <span>AI e Cybersecurity</span>
+                </nav>
+                <span class="article-category">AI per Settore</span>
+                <h1>AI e Cybersecurity Aziendale: Proteggere la Tua PMI nel 2025</h1>
+                <div class="article-meta-hero">
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 15 min lettura</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Dicembre 2025</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
+                </div>
+            </div>
+        </header>
 
-<main id="main">
+        <div class="article-container">
+            <div class="article-content">
+                <p><strong>L'Italia e il quarto paese piu attaccato al mondo e il primo in Europa per cyberattacchi.</strong> Nel 2022, la Polizia Postale ha gestito quasi 13.000 attacchi significativi. Per le PMI italiane, la cybersecurity non e piu un optional: e una necessita di sopravvivenza. L'intelligenza artificiale sta cambiando le regole del gioco, permettendo anche alle piccole aziende di difendersi con strumenti enterprise-grade.</p>
 
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><i>/</i>
-      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
-      <span>AI e Cybersecurity</span>
-    </nav>
-    <div class="eyebrow-lux">AI per Settore</div>
-    <h1>AI e <span class="serif">Cybersecurity</span> Aziendale: Proteggere la Tua PMI nel 2025</h1>
-    <p class="pagehead__lead">Come l'intelligenza artificiale rivoluziona la sicurezza informatica per le PMI italiane: rilevamento minacce, risposta automatica, prevenzione proattiva e compliance.</p>
-    <div class="pagehead__meta">
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 15 min lettura</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Dicembre 2025</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
-    </div>
-  </div>
-</section>
+                <p>Il mercato italiano dell'AI nella cybersecurity sta crescendo a un ritmo del 16,54% annuo e l'87% delle aziende italiane prevede di aumentare il budget per la sicurezza IT del 10% nel 2024. Questo articolo spiega come l'AI puo proteggere la tua PMI e quali soluzioni adottare.</p>
 
-<!-- ARTICLE -->
-<section class="sec sec--light">
-  <div class="shell">
-    <div class="prose reveal">
+                <div class="stat-highlight">
+                    <span class="number">1 mld euro</span>
+                    <span class="label">Investimento CDP in cybersecurity e AI nei prossimi 5 anni</span>
+                </div>
 
-      <p><strong>L'Italia e il quarto paese piu attaccato al mondo e il primo in Europa per cyberattacchi.</strong> Nel 2022, la Polizia Postale ha gestito quasi 13.000 attacchi significativi. Per le PMI italiane, la cybersecurity non e piu un optional: e una necessita di sopravvivenza. L'intelligenza artificiale sta cambiando le regole del gioco, permettendo anche alle piccole aziende di difendersi con strumenti enterprise-grade.</p>
+                <h2>Perche le PMI Sono nel Mirino</h2>
 
-      <p>Il mercato italiano dell'AI nella cybersecurity sta crescendo a un ritmo del 16,54% annuo e l'87% delle aziende italiane prevede di aumentare il budget per la sicurezza IT del 10% nel 2024. Questo articolo spiega come l'AI puo proteggere la tua PMI e quali soluzioni adottare.</p>
+                <p>Le PMI rappresentano un bersaglio appetibile per i cybercriminali per diversi motivi:</p>
 
-      <div class="statbox">
-        <span class="statbox__n">1 mld euro</span>
-        <span class="statbox__l">Investimento CDP in cybersecurity e AI nei prossimi 5 anni</span>
-      </div>
+                <ul>
+                    <li><strong>Difese piu deboli:</strong> Budget limitati e competenze interne scarse</li>
+                    <li><strong>Dati preziosi:</strong> Informazioni su clienti, fornitori e transazioni finanziarie</li>
+                    <li><strong>Gateway per aziende piu grandi:</strong> Attacchi alla supply chain tramite fornitori</li>
+                    <li><strong>Riscatti pagabili:</strong> Abbastanza grandi da pagare, abbastanza piccole da cedere</li>
+                </ul>
 
-      <h2>Perche le PMI Sono nel Mirino</h2>
+                <div class="highlight-box">
+                    <h4>Dato Allarmante per le PMI</h4>
+                    <p>Il costo medio di un data breach per una PMI supera i <strong>100.000 euro</strong>, considerando: fermo attivita, recupero dati, danni reputazionali, sanzioni GDPR e perdita clienti. Il 60% delle PMI che subisce un attacco grave chiude entro 6 mesi.</p>
+                </div>
 
-      <p>Le PMI rappresentano un bersaglio appetibile per i cybercriminali per diversi motivi:</p>
+                <h2>Come l'AI Rivoluziona la Cybersecurity</h2>
 
-      <ul>
-        <li><strong>Difese piu deboli:</strong> Budget limitati e competenze interne scarse</li>
-        <li><strong>Dati preziosi:</strong> Informazioni su clienti, fornitori e transazioni finanziarie</li>
-        <li><strong>Gateway per aziende piu grandi:</strong> Attacchi alla supply chain tramite fornitori</li>
-        <li><strong>Riscatti pagabili:</strong> Abbastanza grandi da pagare, abbastanza piccole da cedere</li>
-      </ul>
+                <h3>1. Rilevamento Minacce in Tempo Reale</h3>
 
-      <div class="callout callout--warn">
-        <h4>Dato Allarmante per le PMI</h4>
-        <p>Il costo medio di un data breach per una PMI supera i <strong>100.000 euro</strong>, considerando: fermo attivita, recupero dati, danni reputazionali, sanzioni GDPR e perdita clienti. Il 60% delle PMI che subisce un attacco grave chiude entro 6 mesi.</p>
-      </div>
+                <p>I sistemi AI analizzano milioni di eventi al secondo, identificando pattern anomali che indicano attacchi in corso. Mentre un analista umano puo monitorare decine di alert al giorno, l'AI ne gestisce migliaia senza stancarsi.</p>
 
-      <h2>Come l'AI Rivoluziona la Cybersecurity</h2>
+                <p><strong>Capacita chiave:</strong></p>
+                <ul>
+                    <li>Analisi comportamentale di utenti e sistemi (UEBA)</li>
+                    <li>Rilevamento di malware zero-day mai visti prima</li>
+                    <li>Identificazione di movimenti laterali nella rete</li>
+                    <li>Correlazione di eventi apparentemente scollegati</li>
+                </ul>
 
-      <h3>1. Rilevamento Minacce in Tempo Reale</h3>
+                <h3>2. Risposta Automatica agli Incidenti</h3>
 
-      <p>I sistemi AI analizzano milioni di eventi al secondo, identificando pattern anomali che indicano attacchi in corso. Mentre un analista umano puo monitorare decine di alert al giorno, l'AI ne gestisce migliaia senza stancarsi.</p>
+                <p>L'AI non solo rileva le minacce, ma puo rispondere automaticamente:</p>
+                <ul>
+                    <li>Isolamento automatico di endpoint compromessi</li>
+                    <li>Blocco di IP e domini malevoli in tempo reale</li>
+                    <li>Terminazione di processi sospetti</li>
+                    <li>Rollback automatico di modifiche dannose</li>
+                </ul>
 
-      <p><strong>Capacita chiave:</strong></p>
-      <ul>
-        <li>Analisi comportamentale di utenti e sistemi (UEBA)</li>
-        <li>Rilevamento di malware zero-day mai visti prima</li>
-        <li>Identificazione di movimenti laterali nella rete</li>
-        <li>Correlazione di eventi apparentemente scollegati</li>
-      </ul>
+                <p>Il tempo di risposta passa da ore o giorni a <strong>millisecondi</strong>, limitando drasticamente i danni.</p>
 
-      <h3>2. Risposta Automatica agli Incidenti</h3>
+                <h3>3. Prevenzione Proattiva</h3>
 
-      <p>L'AI non solo rileva le minacce, ma puo rispondere automaticamente:</p>
-      <ul>
-        <li>Isolamento automatico di endpoint compromessi</li>
-        <li>Blocco di IP e domini malevoli in tempo reale</li>
-        <li>Terminazione di processi sospetti</li>
-        <li>Rollback automatico di modifiche dannose</li>
-      </ul>
+                <p>L'AI predittiva analizza pattern storici per anticipare futuri attacchi:</p>
+                <ul>
+                    <li>Identificazione di vulnerabilita prima che vengano sfruttate</li>
+                    <li>Previsione di campagne di phishing basate su trend</li>
+                    <li>Valutazione del rischio di singoli utenti o sistemi</li>
+                    <li>Simulazione di scenari di attacco per testare le difese</li>
+                </ul>
 
-      <p>Il tempo di risposta passa da ore o giorni a <strong>millisecondi</strong>, limitando drasticamente i danni.</p>
+                <h2>Le Principali Minacce 2025</h2>
 
-      <h3>3. Prevenzione Proattiva</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Minaccia</th>
+                            <th>Incidenza</th>
+                            <th>Come l'AI Aiuta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ransomware</td>
+                            <td>40% degli attacchi</td>
+                            <td>Rilevamento comportamentale pre-cifratura</td>
+                        </tr>
+                        <tr>
+                            <td>Phishing avanzato (con AI)</td>
+                            <td>In crescita del 200%</td>
+                            <td>Analisi linguistica e detection di anomalie</td>
+                        </tr>
+                        <tr>
+                            <td>Attacchi supply chain</td>
+                            <td>25% dei casi</td>
+                            <td>Monitoraggio continuo fornitori e terze parti</td>
+                        </tr>
+                        <tr>
+                            <td>Business Email Compromise</td>
+                            <td>Danni medi 150K euro</td>
+                            <td>Verifica identita e analisi comunicazioni</td>
+                        </tr>
+                        <tr>
+                            <td>Insider threats</td>
+                            <td>20% degli incidenti</td>
+                            <td>UEBA per comportamenti anomali dipendenti</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-      <p>L'AI predittiva analizza pattern storici per anticipare futuri attacchi:</p>
-      <ul>
-        <li>Identificazione di vulnerabilita prima che vengano sfruttate</li>
-        <li>Previsione di campagne di phishing basate su trend</li>
-        <li>Valutazione del rischio di singoli utenti o sistemi</li>
-        <li>Simulazione di scenari di attacco per testare le difese</li>
-      </ul>
+                <div class="highlight-box">
+                    <h4>Il Pericolo del Phishing con AI Generativa</h4>
+                    <p>I criminali ora usano ChatGPT e strumenti simili per creare email di phishing perfette, senza errori grammaticali e altamente personalizzate. Le difese tradizionali basate su regole statiche non bastano piu: serve AI per contrastare AI.</p>
+                </div>
 
-      <h2>Le Principali Minacce 2025</h2>
+                <h2>Soluzioni AI per PMI: Cosa Scegliere</h2>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Minaccia</th>
-            <th>Incidenza</th>
-            <th>Come l'AI Aiuta</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Ransomware</td>
-            <td>40% degli attacchi</td>
-            <td>Rilevamento comportamentale pre-cifratura</td>
-          </tr>
-          <tr>
-            <td>Phishing avanzato (con AI)</td>
-            <td>In crescita del 200%</td>
-            <td>Analisi linguistica e detection di anomalie</td>
-          </tr>
-          <tr>
-            <td>Attacchi supply chain</td>
-            <td>25% dei casi</td>
-            <td>Monitoraggio continuo fornitori e terze parti</td>
-          </tr>
-          <tr>
-            <td>Business Email Compromise</td>
-            <td>Danni medi 150K euro</td>
-            <td>Verifica identita e analisi comunicazioni</td>
-          </tr>
-          <tr>
-            <td>Insider threats</td>
-            <td>20% degli incidenti</td>
-            <td>UEBA per comportamenti anomali dipendenti</td>
-          </tr>
-        </tbody>
-      </table>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Soluzione</th>
+                            <th>Tipo</th>
+                            <th>Costo/mese</th>
+                            <th>Ideale per</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Microsoft Defender for Business</td>
+                            <td>EDR + AI</td>
+                            <td>3 euro/utente</td>
+                            <td>PMI Microsoft 365</td>
+                        </tr>
+                        <tr>
+                            <td>CrowdStrike Falcon Go</td>
+                            <td>EDR avanzato</td>
+                            <td>8 euro/endpoint</td>
+                            <td>PMI 25-250 dipendenti</td>
+                        </tr>
+                        <tr>
+                            <td>SentinelOne Singularity</td>
+                            <td>XDR con AI</td>
+                            <td>6-12 euro/endpoint</td>
+                            <td>Protezione autonoma</td>
+                        </tr>
+                        <tr>
+                            <td>Sophos Intercept X</td>
+                            <td>EDR + MTR</td>
+                            <td>5 euro/endpoint</td>
+                            <td>PMI senza team IT</td>
+                        </tr>
+                        <tr>
+                            <td>Darktrace DETECT</td>
+                            <td>NDR con AI</td>
+                            <td>Da 1.000 euro</td>
+                            <td>Reti complesse</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-      <div class="callout callout--warn">
-        <h4>Il Pericolo del Phishing con AI Generativa</h4>
-        <p>I criminali ora usano ChatGPT e strumenti simili per creare email di phishing perfette, senza errori grammaticali e altamente personalizzate. Le difese tradizionali basate su regole statiche non bastano piu: serve AI per contrastare AI.</p>
-      </div>
+                <h2>Investimenti Pubblici in Italia</h2>
 
-      <h2>Soluzioni AI per PMI: Cosa Scegliere</h2>
+                <p>Il Governo italiano sta investendo massicciamente in cybersecurity:</p>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Soluzione</th>
-            <th>Tipo</th>
-            <th>Costo/mese</th>
-            <th>Ideale per</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Microsoft Defender for Business</td>
-            <td>EDR + AI</td>
-            <td>3 euro/utente</td>
-            <td>PMI Microsoft 365</td>
-          </tr>
-          <tr>
-            <td>CrowdStrike Falcon Go</td>
-            <td>EDR avanzato</td>
-            <td>8 euro/endpoint</td>
-            <td>PMI 25-250 dipendenti</td>
-          </tr>
-          <tr>
-            <td>SentinelOne Singularity</td>
-            <td>XDR con AI</td>
-            <td>6-12 euro/endpoint</td>
-            <td>Protezione autonoma</td>
-          </tr>
-          <tr>
-            <td>Sophos Intercept X</td>
-            <td>EDR + MTR</td>
-            <td>5 euro/endpoint</td>
-            <td>PMI senza team IT</td>
-          </tr>
-          <tr>
-            <td>Darktrace DETECT</td>
-            <td>NDR con AI</td>
-            <td>Da 1.000 euro</td>
-            <td>Reti complesse</td>
-          </tr>
-        </tbody>
-      </table>
+                <ul>
+                    <li><strong>ACN (Agenzia per la Cybersicurezza Nazionale):</strong> Fondata nel 2021, coordina la strategia nazionale</li>
+                    <li><strong>Strategia Nazionale:</strong> Oltre 80 iniziative da implementare entro il 2026</li>
+                    <li><strong>Budget pubblico:</strong> 2,2 miliardi di dollari + stanziamenti annuali aggiuntivi</li>
+                    <li><strong>CDP Venture Capital:</strong> 1 miliardo di euro in cybersecurity e AI nei prossimi 5 anni</li>
+                </ul>
 
-      <h2>Investimenti Pubblici in Italia</h2>
+                <h2>Checklist Cybersecurity AI per PMI</h2>
 
-      <p>Il Governo italiano sta investendo massicciamente in cybersecurity:</p>
+                <div class="highlight-box">
+                    <h4>I 7 Passi Essenziali</h4>
+                    <ol>
+                        <li><strong>Inventario asset:</strong> Mappa tutti i dispositivi, sistemi e dati critici</li>
+                        <li><strong>EDR su tutti gli endpoint:</strong> Antivirus tradizionale non basta piu</li>
+                        <li><strong>MFA obbligatorio:</strong> Autenticazione multi-fattore su tutto</li>
+                        <li><strong>Backup 3-2-1:</strong> 3 copie, 2 media diversi, 1 offsite (e offline)</li>
+                        <li><strong>Formazione continua:</strong> Il 90% degli attacchi inizia con errore umano</li>
+                        <li><strong>Piano di risposta:</strong> Cosa fare quando (non "se") succede</li>
+                        <li><strong>Test periodici:</strong> Penetration test e simulazioni phishing</li>
+                    </ol>
+                </div>
 
-      <ul>
-        <li><strong>ACN (Agenzia per la Cybersicurezza Nazionale):</strong> Fondata nel 2021, coordina la strategia nazionale</li>
-        <li><strong>Strategia Nazionale:</strong> Oltre 80 iniziative da implementare entro il 2026</li>
-        <li><strong>Budget pubblico:</strong> 2,2 miliardi di dollari + stanziamenti annuali aggiuntivi</li>
-        <li><strong>CDP Venture Capital:</strong> 1 miliardo di euro in cybersecurity e AI nei prossimi 5 anni</li>
-      </ul>
+                <h2>Il ROI della Cybersecurity AI</h2>
 
-      <h2>Checklist Cybersecurity AI per PMI</h2>
+                <p>Investire in sicurezza AI non e un costo, ma un investimento con ROI misurabile:</p>
 
-      <div class="callout">
-        <h4>I 7 Passi Essenziali</h4>
-        <ol>
-          <li><strong>Inventario asset:</strong> Mappa tutti i dispositivi, sistemi e dati critici</li>
-          <li><strong>EDR su tutti gli endpoint:</strong> Antivirus tradizionale non basta piu</li>
-          <li><strong>MFA obbligatorio:</strong> Autenticazione multi-fattore su tutto</li>
-          <li><strong>Backup 3-2-1:</strong> 3 copie, 2 media diversi, 1 offsite (e offline)</li>
-          <li><strong>Formazione continua:</strong> Il 90% degli attacchi inizia con errore umano</li>
-          <li><strong>Piano di risposta:</strong> Cosa fare quando (non "se") succede</li>
-          <li><strong>Test periodici:</strong> Penetration test e simulazioni phishing</li>
-        </ol>
-      </div>
+                <div class="stat-highlight">
+                    <span class="number">36%</span>
+                    <span class="label">Risparmio sui costi HR con AI cybersecurity in Europa</span>
+                </div>
 
-      <h2>Il ROI della Cybersecurity AI</h2>
+                <ul>
+                    <li><strong>Prevenzione perdite:</strong> Evitare un solo ransomware ripaga anni di investimento</li>
+                    <li><strong>Compliance:</strong> Evitare sanzioni GDPR (fino al 4% del fatturato)</li>
+                    <li><strong>Reputazione:</strong> Clienti e partner richiedono certificazioni di sicurezza</li>
+                    <li><strong>Assicurazioni:</strong> Premi cyber insurance ridotti con protezioni adeguate</li>
+                    <li><strong>Efficienza:</strong> Team IT libero da alert ripetitivi, focus su progetti strategici</li>
+                </ul>
 
-      <p>Investire in sicurezza AI non e un costo, ma un investimento con ROI misurabile:</p>
+                <section class="faq-section">
+                    <h2>Domande Frequenti</h2>
 
-      <div class="statbox">
-        <span class="statbox__n">36%</span>
-        <span class="statbox__l">Risparmio sui costi HR con AI cybersecurity in Europa</span>
-      </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Come l'AI migliora la cybersecurity aziendale?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>L'AI analizza milioni di eventi in tempo reale per identificare minacce che sfuggirebbero all'analisi umana. Rileva anomalie nel comportamento degli utenti, blocca attacchi automaticamente, e riduce il tempo di risposta agli incidenti da ore a secondi. Le soluzioni AI-powered possono prevenire fino al 95% degli attacchi noti.</p>
+                        </div>
+                    </div>
 
-      <ul>
-        <li><strong>Prevenzione perdite:</strong> Evitare un solo ransomware ripaga anni di investimento</li>
-        <li><strong>Compliance:</strong> Evitare sanzioni GDPR (fino al 4% del fatturato)</li>
-        <li><strong>Reputazione:</strong> Clienti e partner richiedono certificazioni di sicurezza</li>
-        <li><strong>Assicurazioni:</strong> Premi cyber insurance ridotti con protezioni adeguate</li>
-        <li><strong>Efficienza:</strong> Team IT libero da alert ripetitivi, focus su progetti strategici</li>
-      </ul>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quanto costa la cybersecurity AI per una PMI?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Le soluzioni partono da 5-15 euro/endpoint/mese per protezione base fino a 50-100 euro/endpoint per suite complete. Per una PMI con 50 endpoint, il costo varia da 250 a 5.000 euro/mese. Il ROI e significativo considerando che il costo medio di un data breach per le PMI supera i 100.000 euro.</p>
+                        </div>
+                    </div>
 
-      <h2>Domande Frequenti</h2>
-    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quali sono le principali minacce per le PMI italiane?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nel 2025, le minacce principali sono: ransomware (40% degli attacchi), phishing avanzato con AI generativa, attacchi alla supply chain, e compromissione delle email aziendali (BEC). L'Italia e il quarto paese piu attaccato al mondo e primo in Europa per numero di cyberattacchi.</p>
+                        </div>
+                    </div>
+                </section>
 
-    <div class="faq reveal">
-      <details>
-        <summary>Come l'AI migliora la cybersecurity aziendale?</summary>
-        <div class="faq__a">L'AI analizza milioni di eventi in tempo reale per identificare minacce che sfuggirebbero all'analisi umana. Rileva anomalie nel comportamento degli utenti, blocca attacchi automaticamente, e riduce il tempo di risposta agli incidenti da ore a secondi. Le soluzioni AI-powered possono prevenire fino al 95% degli attacchi noti.</div>
-      </details>
-      <details>
-        <summary>Quanto costa la cybersecurity AI per una PMI?</summary>
-        <div class="faq__a">Le soluzioni partono da 5-15 euro/endpoint/mese per protezione base fino a 50-100 euro/endpoint per suite complete. Per una PMI con 50 endpoint, il costo varia da 250 a 5.000 euro/mese. Il ROI e significativo considerando che il costo medio di un data breach per le PMI supera i 100.000 euro.</div>
-      </details>
-      <details>
-        <summary>Quali sono le principali minacce per le PMI italiane?</summary>
-        <div class="faq__a">Nel 2025, le minacce principali sono: ransomware (40% degli attacchi), phishing avanzato con AI generativa, attacchi alla supply chain, e compromissione delle email aziendali (BEC). L'Italia e il quarto paese piu attaccato al mondo e primo in Europa per numero di cyberattacchi.</div>
-      </details>
-    </div>
+                <div class="cta-box">
+                    <h3 style="color: white; margin-top: 0;">Preoccupato per la Sicurezza della Tua Azienda?</h3>
+                    <p>Richiedi una valutazione gratuita del tuo livello di protezione cyber.</p>
+                    <a href="../contatti.html" class="btn btn-primary btn-lg">Richiedi Assessment</a>
+                </div>
 
-    <nav class="artnav reveal" aria-label="Navigazione articoli">
-      <a href="ai-hr-recruiting.html">
-        <div class="artnav__k">Articolo Precedente</div>
-        <div class="artnav__t">AI per HR e Recruiting</div>
-      </a>
-      <a href="ai-agroalimentare-made-italy.html" class="next">
-        <div class="artnav__k">Prossimo Articolo</div>
-        <div class="artnav__t">AI nel Settore Agroalimentare</div>
-      </a>
-    </nav>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div class="shead reveal" style="margin-bottom:0">
-      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
-      <h2>Preoccupato per la <span class="serif">sicurezza</span> della tua azienda?</h2>
-      <p class="shead__lead">Richiedi una valutazione gratuita del tuo livello di protezione cyber.</p>
-      <div class="finale__cta" style="margin-top:32px">
-        <a href="../contatti.html" class="btn btn--grad">Richiedi Assessment
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="../servizi.html" class="btn btn--ghost">Scopri i nostri servizi</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Soluzioni</h5>
-          <a href="../servizi.html">Servizi</a>
-          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="../acceleratore.html">Acceleratore</a>
+                <nav class="article-nav">
+                    <a href="ai-hr-recruiting.html">
+                        <div class="label">Articolo Precedente</div>
+                        <div class="title">AI per HR e Recruiting</div>
+                    </a>
+                    <a href="ai-agroalimentare-made-italy.html" class="next">
+                        <div class="label">Prossimo Articolo</div>
+                        <div class="title">AI nel Settore Agroalimentare</div>
+                    </a>
+                </nav>
+            </div>
         </div>
-        <div class="foot__col">
-          <h5>Azienda</h5>
-          <a href="../chi-siamo.html">Chi siamo</a>
-          <a href="../index.html#metaphor">L'Idea</a>
-          <a href="../index.html#process">Percorso</a>
-          <a href="../casi-studio.html">Casi studio</a>
-          <a href="../contatti.html">Contatti</a>
-        </div>
-        <div class="foot__col">
-          <h5>Legale</h5>
-          <a href="../privacy.html">Privacy</a>
-          <a href="../cookie.html">Cookie</a>
-          <a href="../termini.html">Termini</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>Conforme a GDPR e AI Act by design</span>
-    </div>
-  </div>
-</footer>
+    </article>
 
-<script src="../src/assets/js/tree-canvas.js"></script>
-<script src="../src/assets/js/pugliai-landing.js"></script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+    <footer id="footer-placeholder"></footer>
+    <script>
+        fetch('../src/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
 </body>
 </html>

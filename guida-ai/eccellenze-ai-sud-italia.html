@@ -33,10 +33,8 @@
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/eccellenze-ai-sud-italia.html">
 
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/brand.css">
-    <link rel="stylesheet" href="../src/assets/css/landing.css">
-    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <script type="application/ld+json">
@@ -118,435 +116,446 @@
         ]
     }
     </script>
+
+    <style>
+        .article-hero { background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%); padding: 140px 20px 80px; position: relative; overflow: hidden; }
+        .article-hero::before { content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%); }
+        .article-hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+        .article-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; font-size: 0.9rem; flex-wrap: wrap; }
+        .article-breadcrumb a { color: var(--accent-platinum); text-decoration: none; transition: color 0.3s; }
+        .article-breadcrumb a:hover { color: var(--accent-gold); }
+        .article-breadcrumb span { color: var(--accent-gold); }
+        .article-category { display: inline-block; background: var(--gradient-emerald); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
+        .article-hero h1 { font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 20px; line-height: 1.2; }
+        .article-meta-hero { display: flex; flex-wrap: wrap; gap: 24px; color: var(--accent-platinum); font-size: 0.95rem; }
+        .article-meta-hero span { display: flex; align-items: center; gap: 6px; }
+        .article-container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .article-content { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); }
+        .article-content h2 { font-size: 1.8rem; color: var(--primary-navy); margin: 48px 0 24px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-gold); }
+        .article-content h3 { font-size: 1.4rem; color: var(--secondary-navy); margin: 36px 0 16px; }
+        .article-content p { margin-bottom: 20px; }
+        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 24px; }
+        .article-content li { margin-bottom: 12px; }
+        .highlight-box { background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%); border-left: 4px solid var(--accent-gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 12px 12px 0; }
+        .highlight-box h4 { color: var(--primary-navy); margin-bottom: 12px; font-size: 1.1rem; }
+        .stat-highlight { background: var(--gradient-primary); color: white; padding: 32px; border-radius: 16px; margin: 32px 0; text-align: center; }
+        .stat-highlight .number { font-size: 3rem; font-weight: 800; color: var(--accent-gold); display: block; margin-bottom: 8px; }
+        .stat-highlight .label { font-size: 1.1rem; opacity: 0.9; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.95rem; }
+        .comparison-table th { background: var(--primary-navy); color: white; padding: 16px; text-align: left; }
+        .comparison-table td { padding: 14px 16px; border-bottom: 1px solid #e5e7eb; }
+        .comparison-table tr:nth-child(even) { background: #f8fafc; }
+        .faq-section { margin: 48px 0; }
+        .faq-item { border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+        .faq-question { background: #f8fafc; padding: 20px 24px; font-weight: 600; color: var(--primary-navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 20px 24px; border-top: 1px solid #e5e7eb; }
+        .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; padding-top: 40px; border-top: 2px solid #e5e7eb; }
+        .article-nav a { padding: 24px; background: #f8fafc; border-radius: 12px; text-decoration: none; transition: all 0.3s; border: 1px solid transparent; }
+        .article-nav a:hover { border-color: var(--accent-gold); background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .article-nav .label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+        .article-nav .title { color: var(--primary-navy); font-weight: 600; }
+        .article-nav .next { text-align: right; }
+        .cta-box { background: var(--gradient-primary); padding: 40px; border-radius: 16px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: white; margin-bottom: 16px; }
+        .cta-box p { color: var(--accent-platinum); margin-bottom: 24px; }
+        .sector-card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin: 16px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .sector-card h4 { color: var(--primary-navy); margin-bottom: 12px; font-size: 1.2rem; }
+        .sector-card .emoji { font-size: 2rem; margin-bottom: 12px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 32px 0; }
+        .stat-card { background: #f8fafc; border-radius: 12px; padding: 24px; text-align: center; }
+        .stat-card .value { font-size: 2rem; font-weight: 700; color: var(--accent-emerald); }
+        .stat-card .description { font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; }
+        @media (max-width: 768px) { .article-nav { grid-template-columns: 1fr; } .article-nav .next { text-align: left; } }
+    </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Vai al contenuto</a>
+    <div id="nav-placeholder"></div>
+    <script src="../src/assets/js/navigation.js"></script>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Principale">
-      <a href="../index.html#metaphor">L'Idea</a>
-      <a href="../servizi.html">Servizi</a>
-      <a href="../prodotti.html">On-Premise</a>
-      <a href="../acceleratore.html">Acceleratore</a>
-      <a href="../index.html#process">Percorso</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua">
-        <a href="eccellenze-ai-sud-italia.html" class="on" aria-current="true">IT</a>
-        <a href="../en/ceo-ai-guide-2025.html">EN</a>
-      </div>
-      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="../index.html#metaphor">L'Idea</a>
-  <a href="../servizi.html">Servizi</a>
-  <a href="../prodotti.html">On-Premise</a>
-  <a href="../acceleratore.html">Acceleratore</a>
-  <a href="../index.html#process">Percorso</a>
-  <a href="../contatti.html">Richiedi un preventivo</a>
-</div>
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-content">
+                <nav class="article-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
+                    <span>/</span>
+                    <span>Eccellenze AI Sud Italia</span>
+                </nav>
+                <span class="article-category">AI in Italia</span>
+                <h1>Eccellenze AI nel Sud Italia: Puglia Leader dell'Innovazione</h1>
+                <div class="article-meta-hero">
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 16 min lettura</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Gennaio 2025</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Focus: Mezzogiorno</span>
+                </div>
+            </div>
+        </header>
 
-<main id="main">
+        <div class="article-container">
+            <div class="article-content">
+                <p><strong>Dimentica lo stereotipo del Sud Italia tecnologicamente arretrato.</strong> Nel 2025, la Puglia sta emergendo come uno dei poli AI piu dinamici del Paese, sfidando la tradizionale supremazia del triangolo Milano-Torino-Roma nel settore dell'innovazione tecnologica.</p>
 
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><i>/</i>
-      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
-      <span>Eccellenze AI Sud Italia</span>
-    </nav>
-    <div class="eyebrow-lux">AI in Italia</div>
-    <h1>Eccellenze AI nel Sud Italia: <span class="serif">Puglia</span> Leader dell'Innovazione</h1>
-    <p class="pagehead__lead">La Puglia emerge come polo dell'intelligenza artificiale nel Sud Italia: eccellenze tech, settori trainanti, universita e perche investire in AI nel Mezzogiorno.</p>
-    <div class="pagehead__meta">
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 16 min lettura</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Gennaio 2025</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Focus: Mezzogiorno</span>
-    </div>
-  </div>
-</section>
+                <p>Questa trasformazione non e casuale. E il risultato di una convergenza strategica tra universita di eccellenza, incentivi regionali mirati, costi competitivi e un nuovo fenomeno: il "ritorno dei cervelli" attratti dalla qualita della vita e dalle opportunita di un ecosistema in fermento.</p>
 
-<!-- ARTICLE -->
-<section class="sec sec--light">
-  <div class="shell">
-    <div class="prose reveal">
+                <div class="stat-highlight">
+                    <span class="number">+127%</span>
+                    <span class="label">Crescita delle startup tech in Puglia dal 2020 al 2025 (Registro Imprese)</span>
+                </div>
 
-      <p><strong>Dimentica lo stereotipo del Sud Italia tecnologicamente arretrato.</strong> Nel 2025, la Puglia sta emergendo come uno dei poli AI piu dinamici del Paese, sfidando la tradizionale supremazia del triangolo Milano-Torino-Roma nel settore dell'innovazione tecnologica.</p>
+                <h2>La Puglia: Un Ecosistema AI in Ascesa</h2>
 
-      <p>Questa trasformazione non e casuale. E il risultato di una convergenza strategica tra universita di eccellenza, incentivi regionali mirati, costi competitivi e un nuovo fenomeno: il "ritorno dei cervelli" attratti dalla qualita della vita e dalle opportunita di un ecosistema in fermento.</p>
+                <p>La Puglia si sta affermando come la regione leader del Sud Italia per l'innovazione tecnologica. Ma cosa la distingue dalle altre regioni del Mezzogiorno?</p>
 
-      <div class="statbox">
-        <span class="statbox__n">+127%</span>
-        <span class="statbox__l">Crescita delle startup tech in Puglia dal 2020 al 2025 (Registro Imprese)</span>
-      </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="value">230+</div>
+                        <div class="description">Startup innovative registrate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="value">1.500+</div>
+                        <div class="description">Laureati STEM ogni anno</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="value">680M</div>
+                        <div class="description">Euro fondi innovazione 2021-2027</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="value">45%</div>
+                        <div class="description">Crescita aziende AI in 3 anni</div>
+                    </div>
+                </div>
 
-      <h2>La Puglia: Un Ecosistema AI in Ascesa</h2>
+                <h3>I Pilastri dell'Ecosistema</h3>
 
-      <p>La Puglia si sta affermando come la regione leader del Sud Italia per l'innovazione tecnologica. Ma cosa la distingue dalle altre regioni del Mezzogiorno?</p>
-    </div>
+                <p>L'ecosistema AI pugliese si fonda su quattro pilastri interconnessi:</p>
 
-    <div class="stats">
-      <div class="stat reveal" data-d="1"><div class="n grad-text">230+</div><div class="l">Startup innovative</div><div class="s">registrate</div></div>
-      <div class="stat reveal" data-d="2"><div class="n">1.500+</div><div class="l">Laureati STEM</div><div class="s">ogni anno</div></div>
-      <div class="stat reveal" data-d="3"><div class="n grad-text">680M</div><div class="l">Euro fondi innovazione</div><div class="s">2021-2027</div></div>
-      <div class="stat reveal" data-d="4"><div class="n">45%</div><div class="l">Crescita aziende AI</div><div class="s">in 3 anni</div></div>
-    </div>
+                <ul>
+                    <li><strong>Formazione di eccellenza:</strong> Politecnico di Bari e Universita del Salento producono talenti tech di alto livello</li>
+                    <li><strong>Ricerca applicata:</strong> Laboratori universitari e centri di competenza collegati alle imprese</li>
+                    <li><strong>Imprenditorialita:</strong> Acceleratori, incubatori e una crescente cultura startup</li>
+                    <li><strong>Supporto istituzionale:</strong> Regione e camere di commercio investono massicciamente in innovazione</li>
+                </ul>
 
-    <div class="prose reveal">
-      <h3>I Pilastri dell'Ecosistema</h3>
+                <h2>Universita e Centri di Ricerca AI</h2>
 
-      <p>L'ecosistema AI pugliese si fonda su quattro pilastri interconnessi:</p>
+                <p>Il capitale intellettuale e il vero motore dell'ecosistema AI pugliese. Ecco i principali attori:</p>
 
-      <ul>
-        <li><strong>Formazione di eccellenza:</strong> Politecnico di Bari e Universita del Salento producono talenti tech di alto livello</li>
-        <li><strong>Ricerca applicata:</strong> Laboratori universitari e centri di competenza collegati alle imprese</li>
-        <li><strong>Imprenditorialita:</strong> Acceleratori, incubatori e una crescente cultura startup</li>
-        <li><strong>Supporto istituzionale:</strong> Regione e camere di commercio investono massicciamente in innovazione</li>
-      </ul>
+                <h3>Politecnico di Bari</h3>
 
-      <h2>Universita e Centri di Ricerca AI</h2>
+                <p>Il <strong>Politecnico di Bari</strong> e il cuore dell'innovazione tecnologica pugliese. Con oltre 11.000 studenti e una forte vocazione alla ricerca applicata, ospita:</p>
 
-      <p>Il capitale intellettuale e il vero motore dell'ecosistema AI pugliese. Ecco i principali attori:</p>
+                <ul>
+                    <li><strong>Laboratorio di Intelligenza Artificiale:</strong> Ricerca su machine learning, deep learning e NLP</li>
+                    <li><strong>Centro SisInf:</strong> Sistemi informativi e data science</li>
+                    <li><strong>Lab IoT e Cyber-Physical Systems:</strong> Integrazione AI con sistemi industriali</li>
+                    <li><strong>Collaborazioni industriali:</strong> Partnership con Leonardo, Exprivia, Bosch e altre multinazionali</li>
+                </ul>
 
-      <h3>Politecnico di Bari</h3>
+                <p>Il Politecnico ha lanciato nel 2024 un nuovo corso di laurea magistrale in "Artificial Intelligence and Data Science" interamente in inglese, per attrarre talenti internazionali.</p>
 
-      <p>Il <strong>Politecnico di Bari</strong> e il cuore dell'innovazione tecnologica pugliese. Con oltre 11.000 studenti e una forte vocazione alla ricerca applicata, ospita:</p>
+                <h3>Universita del Salento</h3>
 
-      <ul>
-        <li><strong>Laboratorio di Intelligenza Artificiale:</strong> Ricerca su machine learning, deep learning e NLP</li>
-        <li><strong>Centro SisInf:</strong> Sistemi informativi e data science</li>
-        <li><strong>Lab IoT e Cyber-Physical Systems:</strong> Integrazione AI con sistemi industriali</li>
-        <li><strong>Collaborazioni industriali:</strong> Partnership con Leonardo, Exprivia, Bosch e altre multinazionali</li>
-      </ul>
+                <p>L'<strong>Universita del Salento</strong> a Lecce si distingue per la ricerca interdisciplinare che combina AI con humanities e scienze sociali:</p>
 
-      <p>Il Politecnico ha lanciato nel 2024 un nuovo corso di laurea magistrale in "Artificial Intelligence and Data Science" interamente in inglese, per attrarre talenti internazionali.</p>
+                <ul>
+                    <li><strong>Centro di Ricerca AI e Robotica:</strong> Focus su robotica cognitiva e interazione uomo-macchina</li>
+                    <li><strong>Digital Humanities Lab:</strong> AI applicata a beni culturali e turismo</li>
+                    <li><strong>BioRobotica:</strong> Collaborazione con l'Istituto Italiano di Tecnologia</li>
+                </ul>
 
-      <h3>Universita del Salento</h3>
+                <h3>Centri di Competenza e DIH</h3>
 
-      <p>L'<strong>Universita del Salento</strong> a Lecce si distingue per la ricerca interdisciplinare che combina AI con humanities e scienze sociali:</p>
+                <p>I <strong>Digital Innovation Hub (DIH)</strong> fungono da ponte tra ricerca e imprese:</p>
 
-      <ul>
-        <li><strong>Centro di Ricerca AI e Robotica:</strong> Focus su robotica cognitiva e interazione uomo-macchina</li>
-        <li><strong>Digital Humanities Lab:</strong> AI applicata a beni culturali e turismo</li>
-        <li><strong>BioRobotica:</strong> Collaborazione con l'Istituto Italiano di Tecnologia</li>
-      </ul>
+                <ul>
+                    <li><strong>DIH Puglia:</strong> Supporto alle PMI per progetti Industria 4.0 e AI</li>
+                    <li><strong>CINI Puglia:</strong> Nodo locale del Consorzio Interuniversitario Nazionale per l'Informatica</li>
+                    <li><strong>Competence Center SMACT:</strong> Accesso a tecnologie AI per manifatturiero e servizi</li>
+                </ul>
 
-      <h3>Centri di Competenza e DIH</h3>
+                <div class="highlight-box">
+                    <h4>Il Modello Pugliese: Ricerca che Diventa Impresa</h4>
+                    <p>Negli ultimi 5 anni, sono nate oltre 40 spin-off universitari in ambito AI e tech dalle universita pugliesi. Questo tasso di "tech transfer" e tra i piu alti d'Italia, favorito da politiche regionali che incentivano la creazione d'impresa da parte di ricercatori e dottorandi.</p>
+                </div>
 
-      <p>I <strong>Digital Innovation Hub (DIH)</strong> fungono da ponte tra ricerca e imprese:</p>
+                <h2>Settori di Eccellenza</h2>
 
-      <ul>
-        <li><strong>DIH Puglia:</strong> Supporto alle PMI per progetti Industria 4.0 e AI</li>
-        <li><strong>CINI Puglia:</strong> Nodo locale del Consorzio Interuniversitario Nazionale per l'Informatica</li>
-        <li><strong>Competence Center SMACT:</strong> Accesso a tecnologie AI per manifatturiero e servizi</li>
-      </ul>
+                <p>L'AI pugliese si sta sviluppando in settori che riflettono le vocazioni economiche del territorio, creando sinergie virtuose tra tradizione e innovazione.</p>
 
-      <div class="callout">
-        <h4>Il Modello Pugliese: Ricerca che Diventa Impresa</h4>
-        <p>Negli ultimi 5 anni, sono nate oltre 40 spin-off universitari in ambito AI e tech dalle universita pugliesi. Questo tasso di "tech transfer" e tra i piu alti d'Italia, favorito da politiche regionali che incentivano la creazione d'impresa da parte di ricercatori e dottorandi.</p>
-      </div>
+                <div class="sector-card">
+                    <h4>Agroalimentare e AgriTech</h4>
+                    <p>La Puglia e il secondo produttore agricolo italiano. L'AI sta rivoluzionando il settore:</p>
+                    <ul>
+                        <li><strong>Agricoltura di precisione:</strong> Droni e sensori AI per ottimizzare irrigazione e trattamenti nell'olivicoltura e viticoltura</li>
+                        <li><strong>Tracciabilita blockchain:</strong> Certificazione dell'origine per olio extravergine DOP/IGP</li>
+                        <li><strong>Previsione fitopatie:</strong> Machine learning per anticipare malattie delle colture (es. Xylella)</li>
+                        <li><strong>Controllo qualita:</strong> Computer vision per selezione automatica di prodotti ortofrutticoli</li>
+                    </ul>
+                    <p><strong>Player di riferimento:</strong> xFarm, Agricolus (con progetti in Puglia), startup locali come OlivAI</p>
+                </div>
 
-      <h2>Settori di Eccellenza</h2>
+                <div class="sector-card">
+                    <h4>Aerospazio e Difesa</h4>
+                    <p>Il distretto aerospaziale pugliese, con epicentro a Grottaglie e Brindisi, e tra i piu importanti d'Europa:</p>
+                    <ul>
+                        <li><strong>Leonardo:</strong> Stabilimenti a Grottaglie per produzione fusoliere Boeing 787 con processi AI-driven</li>
+                        <li><strong>Manutenzione predittiva:</strong> AI per monitoraggio componenti aeronautici</li>
+                        <li><strong>Digital twin:</strong> Simulazione avanzata per progettazione e testing</li>
+                        <li><strong>Indotto qualificato:</strong> Decine di PMI specializzate in tecnologie avanzate</li>
+                    </ul>
+                    <p><strong>Occupati nel settore:</strong> Oltre 6.000 addetti diretti, 15.000 nell'indotto</p>
+                </div>
 
-      <p>L'AI pugliese si sta sviluppando in settori che riflettono le vocazioni economiche del territorio, creando sinergie virtuose tra tradizione e innovazione.</p>
-    </div>
+                <div class="sector-card">
+                    <h4>Turismo e Hospitality</h4>
+                    <p>Con oltre 15 milioni di presenze turistiche annue, la Puglia e un laboratorio ideale per l'AI turistica:</p>
+                    <ul>
+                        <li><strong>Revenue management AI:</strong> Pricing dinamico per hotel e strutture ricettive</li>
+                        <li><strong>Chatbot multilingue:</strong> Assistenza turisti in tempo reale</li>
+                        <li><strong>Personalizzazione esperienze:</strong> Raccomandazioni basate su preferenze e comportamenti</li>
+                        <li><strong>Gestione flussi:</strong> AI per distribuire i turisti e ridurre l'overtourism</li>
+                    </ul>
+                    <p><strong>Opportunita:</strong> Il settore e ancora poco digitalizzato, con enormi margini di crescita</p>
+                </div>
 
-    <div class="cards3">
-      <div class="gcard reveal" data-d="1">
-        <h3>Agroalimentare e AgriTech</h3>
-        <p>La Puglia e il secondo produttore agricolo italiano. L'AI sta rivoluzionando il settore:</p>
-        <ul>
-          <li><strong>Agricoltura di precisione:</strong> Droni e sensori AI per ottimizzare irrigazione e trattamenti nell'olivicoltura e viticoltura</li>
-          <li><strong>Tracciabilita blockchain:</strong> Certificazione dell'origine per olio extravergine DOP/IGP</li>
-          <li><strong>Previsione fitopatie:</strong> Machine learning per anticipare malattie delle colture (es. Xylella)</li>
-          <li><strong>Controllo qualita:</strong> Computer vision per selezione automatica di prodotti ortofrutticoli</li>
-        </ul>
-        <p><strong>Player di riferimento:</strong> xFarm, Agricolus (con progetti in Puglia), startup locali come OlivAI</p>
-      </div>
-      <div class="gcard reveal" data-d="2">
-        <h3>Aerospazio e Difesa</h3>
-        <p>Il distretto aerospaziale pugliese, con epicentro a Grottaglie e Brindisi, e tra i piu importanti d'Europa:</p>
-        <ul>
-          <li><strong>Leonardo:</strong> Stabilimenti a Grottaglie per produzione fusoliere Boeing 787 con processi AI-driven</li>
-          <li><strong>Manutenzione predittiva:</strong> AI per monitoraggio componenti aeronautici</li>
-          <li><strong>Digital twin:</strong> Simulazione avanzata per progettazione e testing</li>
-          <li><strong>Indotto qualificato:</strong> Decine di PMI specializzate in tecnologie avanzate</li>
-        </ul>
-        <p><strong>Occupati nel settore:</strong> Oltre 6.000 addetti diretti, 15.000 nell'indotto</p>
-      </div>
-      <div class="gcard reveal" data-d="3">
-        <h3>Turismo e Hospitality</h3>
-        <p>Con oltre 15 milioni di presenze turistiche annue, la Puglia e un laboratorio ideale per l'AI turistica:</p>
-        <ul>
-          <li><strong>Revenue management AI:</strong> Pricing dinamico per hotel e strutture ricettive</li>
-          <li><strong>Chatbot multilingue:</strong> Assistenza turisti in tempo reale</li>
-          <li><strong>Personalizzazione esperienze:</strong> Raccomandazioni basate su preferenze e comportamenti</li>
-          <li><strong>Gestione flussi:</strong> AI per distribuire i turisti e ridurre l'overtourism</li>
-        </ul>
-        <p><strong>Opportunita:</strong> Il settore e ancora poco digitalizzato, con enormi margini di crescita</p>
-      </div>
-      <div class="gcard reveal" data-d="1">
-        <h3>Manifatturiero e Meccanica</h3>
-        <p>I distretti industriali di Bari, Taranto e Foggia stanno abbracciando l'Industria 4.0:</p>
-        <ul>
-          <li><strong>Manutenzione predittiva:</strong> Riduzione fermi macchina del 30-40%</li>
-          <li><strong>Controllo qualita visivo:</strong> Ispezione automatica con computer vision</li>
-          <li><strong>Ottimizzazione energetica:</strong> AI per ridurre consumi e costi</li>
-          <li><strong>Supply chain intelligente:</strong> Previsione domanda e gestione scorte</li>
-        </ul>
-        <p><strong>Settori trainanti:</strong> Componentistica auto, meccanica di precisione, packaging</p>
-      </div>
-      <div class="gcard reveal" data-d="2">
-        <h3>Moda, Tessile e Calzaturiero</h3>
-        <p>Il distretto della moda pugliese (Casarano, Martina Franca) si sta rinnovando con l'AI:</p>
-        <ul>
-          <li><strong>Trend forecasting:</strong> Previsione tendenze con analisi social e dati vendita</li>
-          <li><strong>Design generativo:</strong> Supporto alla creativita con AI generativa</li>
-          <li><strong>Ottimizzazione taglie:</strong> Riduzione resi e-commerce con AI sizing</li>
-          <li><strong>Sostenibilita:</strong> AI per ottimizzare uso materiali e ridurre sprechi</li>
-        </ul>
-        <p><strong>Brand di riferimento:</strong> Molte maison di lusso producono in Puglia</p>
-      </div>
-    </div>
+                <div class="sector-card">
+                    <h4>Manifatturiero e Meccanica</h4>
+                    <p>I distretti industriali di Bari, Taranto e Foggia stanno abbracciando l'Industria 4.0:</p>
+                    <ul>
+                        <li><strong>Manutenzione predittiva:</strong> Riduzione fermi macchina del 30-40%</li>
+                        <li><strong>Controllo qualita visivo:</strong> Ispezione automatica con computer vision</li>
+                        <li><strong>Ottimizzazione energetica:</strong> AI per ridurre consumi e costi</li>
+                        <li><strong>Supply chain intelligente:</strong> Previsione domanda e gestione scorte</li>
+                    </ul>
+                    <p><strong>Settori trainanti:</strong> Componentistica auto, meccanica di precisione, packaging</p>
+                </div>
 
-    <div class="prose reveal">
-      <h2>Il Vantaggio Puglia: Perche Investire Qui</h2>
+                <div class="sector-card">
+                    <h4>Moda, Tessile e Calzaturiero</h4>
+                    <p>Il distretto della moda pugliese (Casarano, Martina Franca) si sta rinnovando con l'AI:</p>
+                    <ul>
+                        <li><strong>Trend forecasting:</strong> Previsione tendenze con analisi social e dati vendita</li>
+                        <li><strong>Design generativo:</strong> Supporto alla creativita con AI generativa</li>
+                        <li><strong>Ottimizzazione taglie:</strong> Riduzione resi e-commerce con AI sizing</li>
+                        <li><strong>Sostenibilita:</strong> AI per ottimizzare uso materiali e ridurre sprechi</li>
+                    </ul>
+                    <p><strong>Brand di riferimento:</strong> Molte maison di lusso producono in Puglia</p>
+                </div>
 
-      <p>Per un'azienda che vuole sviluppare progetti AI, la Puglia offre vantaggi competitivi concreti rispetto ad altri poli italiani:</p>
+                <h2>Il Vantaggio Puglia: Perche Investire Qui</h2>
 
-      <h3>1. Costi Competitivi</h3>
+                <p>Per un'azienda che vuole sviluppare progetti AI, la Puglia offre vantaggi competitivi concreti rispetto ad altri poli italiani:</p>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Voce di Costo</th>
-            <th>Milano</th>
-            <th>Roma</th>
-            <th>Bari</th>
-            <th>Risparmio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Sviluppatore AI Junior (RAL)</td>
-            <td>35-40K</td>
-            <td>32-38K</td>
-            <td>28-32K</td>
-            <td>-20%</td>
-          </tr>
-          <tr>
-            <td>Data Scientist Senior (RAL)</td>
-            <td>55-70K</td>
-            <td>50-65K</td>
-            <td>42-55K</td>
-            <td>-25%</td>
-          </tr>
-          <tr>
-            <td>Ufficio (euro/mq/anno)</td>
-            <td>400-600</td>
-            <td>350-500</td>
-            <td>150-250</td>
-            <td>-55%</td>
-          </tr>
-          <tr>
-            <td>Consulenza AI (giornata)</td>
-            <td>800-1.200</td>
-            <td>700-1.000</td>
-            <td>500-800</td>
-            <td>-30%</td>
-          </tr>
-        </tbody>
-      </table>
+                <h3>1. Costi Competitivi</h3>
 
-      <h3>2. Qualita della Vita</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Voce di Costo</th>
+                            <th>Milano</th>
+                            <th>Roma</th>
+                            <th>Bari</th>
+                            <th>Risparmio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sviluppatore AI Junior (RAL)</td>
+                            <td>35-40K</td>
+                            <td>32-38K</td>
+                            <td>28-32K</td>
+                            <td>-20%</td>
+                        </tr>
+                        <tr>
+                            <td>Data Scientist Senior (RAL)</td>
+                            <td>55-70K</td>
+                            <td>50-65K</td>
+                            <td>42-55K</td>
+                            <td>-25%</td>
+                        </tr>
+                        <tr>
+                            <td>Ufficio (euro/mq/anno)</td>
+                            <td>400-600</td>
+                            <td>350-500</td>
+                            <td>150-250</td>
+                            <td>-55%</td>
+                        </tr>
+                        <tr>
+                            <td>Consulenza AI (giornata)</td>
+                            <td>800-1.200</td>
+                            <td>700-1.000</td>
+                            <td>500-800</td>
+                            <td>-30%</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-      <p>Il "Puglia factor" attrae talenti che cercano un migliore equilibrio vita-lavoro:</p>
+                <h3>2. Qualita della Vita</h3>
 
-      <ul>
-        <li><strong>Clima:</strong> 300 giorni di sole all'anno, inverni miti</li>
-        <li><strong>Mare:</strong> 865 km di costa, alcune delle spiagge piu belle d'Italia</li>
-        <li><strong>Enogastronomia:</strong> Cucina mediterranea di eccellenza a prezzi accessibili</li>
-        <li><strong>Costo della vita:</strong> 30-40% inferiore rispetto a Milano</li>
-        <li><strong>Connettivita:</strong> Aeroporti di Bari e Brindisi con collegamenti nazionali e internazionali</li>
-      </ul>
+                <p>Il "Puglia factor" attrae talenti che cercano un migliore equilibrio vita-lavoro:</p>
 
-      <h3>3. Supporto Istituzionale</h3>
+                <ul>
+                    <li><strong>Clima:</strong> 300 giorni di sole all'anno, inverni miti</li>
+                    <li><strong>Mare:</strong> 865 km di costa, alcune delle spiagge piu belle d'Italia</li>
+                    <li><strong>Enogastronomia:</strong> Cucina mediterranea di eccellenza a prezzi accessibili</li>
+                    <li><strong>Costo della vita:</strong> 30-40% inferiore rispetto a Milano</li>
+                    <li><strong>Connettivita:</strong> Aeroporti di Bari e Brindisi con collegamenti nazionali e internazionali</li>
+                </ul>
 
-      <p>La Regione Puglia ha fatto dell'innovazione una priorita strategica:</p>
+                <h3>3. Supporto Istituzionale</h3>
 
-      <ul>
-        <li><strong>680 milioni di euro</strong> per innovazione e digitalizzazione 2021-2027</li>
-        <li><strong>Voucher digitalizzazione</strong> fino a 10.000 euro per PMI</li>
-        <li><strong>Contratti di Programma</strong> per investimenti strutturali</li>
-        <li><strong>Incentivi all'assunzione</strong> di profili tech</li>
-        <li><strong>Zone Economiche Speciali</strong> con agevolazioni fiscali</li>
-      </ul>
+                <p>La Regione Puglia ha fatto dell'innovazione una priorita strategica:</p>
 
-      <h3>4. Il Fenomeno South Working</h3>
+                <ul>
+                    <li><strong>680 milioni di euro</strong> per innovazione e digitalizzazione 2021-2027</li>
+                    <li><strong>Voucher digitalizzazione</strong> fino a 10.000 euro per PMI</li>
+                    <li><strong>Contratti di Programma</strong> per investimenti strutturali</li>
+                    <li><strong>Incentivi all'assunzione</strong> di profili tech</li>
+                    <li><strong>Zone Economiche Speciali</strong> con agevolazioni fiscali</li>
+                </ul>
 
-      <p>La Puglia e stata pioniera del <strong>South Working</strong>, il movimento di professionisti del Nord che scelgono di lavorare da remoto dal Sud:</p>
+                <h3>4. Il Fenomeno South Working</h3>
 
-      <ul>
-        <li>Migliaia di digital nomad e remote worker si sono trasferiti in Puglia</li>
-        <li>Nascita di hub di coworking a Bari, Lecce, Polignano, Ostuni</li>
-        <li>Comunita internazionali di tech professionals</li>
-        <li>Effetto volano sull'ecosistema startup locale</li>
-      </ul>
+                <p>La Puglia e stata pioniera del <strong>South Working</strong>, il movimento di professionisti del Nord che scelgono di lavorare da remoto dal Sud:</p>
 
-      <div class="callout">
-        <h4>Testimonianza: CTO di una Startup AI</h4>
-        <p>"Dopo 8 anni a Milano, ho spostato la sede della mia startup a Bari. Stesso talento, costi dimezzati, qualita della vita incomparabile. I miei sviluppatori sono piu motivati e il turnover e crollato. Non tornerei indietro." - Marco R., founder di una startup AI nel settore fintech</p>
-      </div>
+                <ul>
+                    <li>Migliaia di digital nomad e remote worker si sono trasferiti in Puglia</li>
+                    <li>Nascita di hub di coworking a Bari, Lecce, Polignano, Ostuni</li>
+                    <li>Comunita internazionali di tech professionals</li>
+                    <li>Effetto volano sull'ecosistema startup locale</li>
+                </ul>
 
-      <h2>Come Collaborare con l'Ecosistema AI Pugliese</h2>
+                <div class="highlight-box">
+                    <h4>Testimonianza: CTO di una Startup AI</h4>
+                    <p>"Dopo 8 anni a Milano, ho spostato la sede della mia startup a Bari. Stesso talento, costi dimezzati, qualita della vita incomparabile. I miei sviluppatori sono piu motivati e il turnover e crollato. Non tornerei indietro." - Marco R., founder di una startup AI nel settore fintech</p>
+                </div>
 
-      <p>Se vuoi sfruttare le opportunita dell'ecosistema AI pugliese, ecco le principali modalita di collaborazione:</p>
+                <h2>Come Collaborare con l'Ecosistema AI Pugliese</h2>
 
-      <h3>Per Aziende che Cercano Partner AI</h3>
+                <p>Se vuoi sfruttare le opportunita dell'ecosistema AI pugliese, ecco le principali modalita di collaborazione:</p>
 
-      <ul>
-        <li><strong>Consulenti locali:</strong> Aziende come <a href="../contatti.html">PugliAI</a> offrono servizi di consulenza e implementazione AI</li>
-        <li><strong>Partnership universitarie:</strong> Progetti di ricerca applicata con Politecnico e UniSalento</li>
-        <li><strong>Collaborazioni con startup:</strong> Accesso a soluzioni innovative attraverso acceleratori locali</li>
-      </ul>
+                <h3>Per Aziende che Cercano Partner AI</h3>
 
-      <h3>Per Startup e Investitori</h3>
+                <ul>
+                    <li><strong>Consulenti locali:</strong> Aziende come <a href="../contatti.html">PugliAI</a> offrono servizi di consulenza e implementazione AI</li>
+                    <li><strong>Partnership universitarie:</strong> Progetti di ricerca applicata con Politecnico e UniSalento</li>
+                    <li><strong>Collaborazioni con startup:</strong> Accesso a soluzioni innovative attraverso acceleratori locali</li>
+                </ul>
 
-      <ul>
-        <li><strong>Incubatori:</strong> The Qube (Bari), Contamination Lab (Lecce), Brindisi Hub</li>
-        <li><strong>Acceleratori:</strong> Programmi regionali e nazionali con focus su AI</li>
-        <li><strong>Eventi:</strong> Digithon (la piu grande maratona digitale del Sud), TEDx Bari, Startup Weekend</li>
-        <li><strong>Networking:</strong> Community tech attive su LinkedIn e Meetup</li>
-      </ul>
+                <h3>Per Startup e Investitori</h3>
 
-      <h3>Per Professionisti e Talenti</h3>
+                <ul>
+                    <li><strong>Incubatori:</strong> The Qube (Bari), Contamination Lab (Lecce), Brindisi Hub</li>
+                    <li><strong>Acceleratori:</strong> Programmi regionali e nazionali con focus su AI</li>
+                    <li><strong>Eventi:</strong> Digithon (la piu grande maratona digitale del Sud), TEDx Bari, Startup Weekend</li>
+                    <li><strong>Networking:</strong> Community tech attive su LinkedIn e Meetup</li>
+                </ul>
 
-      <ul>
-        <li><strong>Opportunita di lavoro:</strong> Crescente domanda di profili AI in aziende locali e multinazionali</li>
-        <li><strong>Remote working:</strong> Possibilita di lavorare per aziende nazionali/internazionali dalla Puglia</li>
-        <li><strong>Imprenditorialita:</strong> Ecosistema favorevole alla creazione di startup</li>
-        <li><strong>Formazione continua:</strong> Master, corsi e certificazioni AI disponibili localmente</li>
-      </ul>
+                <h3>Per Professionisti e Talenti</h3>
 
-      <h2>Il Futuro: Puglia 2030</h2>
+                <ul>
+                    <li><strong>Opportunita di lavoro:</strong> Crescente domanda di profili AI in aziende locali e multinazionali</li>
+                    <li><strong>Remote working:</strong> Possibilita di lavorare per aziende nazionali/internazionali dalla Puglia</li>
+                    <li><strong>Imprenditorialita:</strong> Ecosistema favorevole alla creazione di startup</li>
+                    <li><strong>Formazione continua:</strong> Master, corsi e certificazioni AI disponibili localmente</li>
+                </ul>
 
-      <p>Guardando ai prossimi anni, la Puglia ha tutte le carte in regola per consolidare la propria posizione di hub AI del Mezzogiorno:</p>
+                <h2>Il Futuro: Puglia 2030</h2>
 
-      <ul>
-        <li><strong>Investimenti previsti:</strong> Oltre 1 miliardo di euro in innovazione entro il 2030</li>
-        <li><strong>Nuove infrastrutture:</strong> Data center regionali e reti 5G in espansione</li>
-        <li><strong>Attrazione talenti:</strong> Programmi per il rientro dei "cervelli" pugliesi dall'estero</li>
-        <li><strong>Specializzazione settoriale:</strong> Focus su AI per agrotech, turismo e aerospazio</li>
-        <li><strong>Internazionalizzazione:</strong> Partnership con hub tech europei e mediterranei</li>
-      </ul>
+                <p>Guardando ai prossimi anni, la Puglia ha tutte le carte in regola per consolidare la propria posizione di hub AI del Mezzogiorno:</p>
 
-      <p>La sfida sara mantenere il momentum e costruire un ecosistema sostenibile nel lungo periodo, evitando la dipendenza dai fondi pubblici e sviluppando un mercato maturo di servizi AI per le imprese.</p>
+                <ul>
+                    <li><strong>Investimenti previsti:</strong> Oltre 1 miliardo di euro in innovazione entro il 2030</li>
+                    <li><strong>Nuove infrastrutture:</strong> Data center regionali e reti 5G in espansione</li>
+                    <li><strong>Attrazione talenti:</strong> Programmi per il rientro dei "cervelli" pugliesi dall'estero</li>
+                    <li><strong>Specializzazione settoriale:</strong> Focus su AI per agrotech, turismo e aerospazio</li>
+                    <li><strong>Internazionalizzazione:</strong> Partnership con hub tech europei e mediterranei</li>
+                </ul>
 
-      <h2>Domande Frequenti</h2>
-    </div>
+                <p>La sfida sara mantenere il momentum e costruire un ecosistema sostenibile nel lungo periodo, evitando la dipendenza dai fondi pubblici e sviluppando un mercato maturo di servizi AI per le imprese.</p>
 
-    <div class="faq reveal">
-      <details>
-        <summary>Perche la Puglia sta emergendo come hub AI nel Sud Italia?</summary>
-        <div class="faq__a">La Puglia combina diversi fattori favorevoli: universita di eccellenza (Politecnico di Bari, UniSalento), costi operativi competitivi (20-30% inferiori al Nord), qualita della vita attrattiva per talenti, incentivi regionali dedicati, e un tessuto imprenditoriale dinamico nei settori agroalimentare, turismo e manifatturiero.</div>
-      </details>
-      <details>
-        <summary>Quali sono i principali centri di ricerca AI in Puglia?</summary>
-        <div class="faq__a">I principali centri includono: Politecnico di Bari con i laboratori di AI e Machine Learning, Universita del Salento con il centro di Intelligenza Artificiale e Robotica, CINI (Consorzio Interuniversitario Nazionale Informatica), e diversi centri di competenza Industria 4.0 come il DIH Puglia.</div>
-      </details>
-      <details>
-        <summary>Quali settori pugliesi sono leader nell'adozione AI?</summary>
-        <div class="faq__a">I settori trainanti sono: agroalimentare (tracciabilita, agricoltura di precisione per olio e vino), aerospazio (cluster Leonardo e indotto), turismo e hospitality (personalizzazione, revenue management), manifatturiero (manutenzione predittiva), e moda/tessile (trend forecasting, design).</div>
-      </details>
-      <details>
-        <summary>Quali vantaggi offre la Puglia rispetto ad altri poli AI italiani?</summary>
-        <div class="faq__a">La Puglia offre: costi del lavoro e operativi inferiori del 20-30%, qualita della vita superiore che attrae talenti, forte supporto istituzionale con incentivi dedicati, connessione con il mercato mediterraneo, e un ecosistema startup in crescita con oltre 200 aziende tech innovative.</div>
-      </details>
-      <details>
-        <summary>Come posso collaborare con l'ecosistema AI pugliese?</summary>
-        <div class="faq__a">Le opzioni includono: partnership con universita per progetti di ricerca applicata, collaborazione con startup e acceleratori locali, utilizzo di consulenti AI pugliesi come PugliAI, partecipazione a eventi e networking (es. Digithon, South Working), e accesso a fondi regionali per progetti congiunti.</div>
-      </details>
-    </div>
+                <section class="faq-section">
+                    <h2>Domande Frequenti</h2>
 
-    <nav class="artnav reveal" aria-label="Navigazione articoli">
-      <a href="trasformazione-digitale-pmi-puglia.html">
-        <div class="artnav__k">Articolo Precedente</div>
-        <div class="artnav__t">Trasformazione Digitale PMI Pugliesi</div>
-      </a>
-      <a href="../guida-ai-ceo-2025.html" class="next">
-        <div class="artnav__k">Indice</div>
-        <div class="artnav__t">Torna alla Guida Completa</div>
-      </a>
-    </nav>
-  </div>
-</section>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Perche la Puglia sta emergendo come hub AI nel Sud Italia?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>La Puglia combina diversi fattori favorevoli: universita di eccellenza (Politecnico di Bari, UniSalento), costi operativi competitivi (20-30% inferiori al Nord), qualita della vita attrattiva per talenti, incentivi regionali dedicati, e un tessuto imprenditoriale dinamico nei settori agroalimentare, turismo e manifatturiero.</p>
+                        </div>
+                    </div>
 
-<!-- CTA -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div class="shead reveal" style="margin-bottom:0">
-      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
-      <h2>Vuoi esplorare le opportunita <span class="serif">AI in Puglia</span>?</h2>
-      <p class="shead__lead">PugliAI e il tuo punto di accesso all'ecosistema AI pugliese. Contattaci per scoprire come possiamo supportare i tuoi progetti.</p>
-      <div class="finale__cta" style="margin-top:32px">
-        <a href="../contatti.html" class="btn btn--grad">Parliamo del Tuo Progetto
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="../roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
-      </div>
-    </div>
-  </div>
-</section>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quali sono i principali centri di ricerca AI in Puglia?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>I principali centri includono: Politecnico di Bari con i laboratori di AI e Machine Learning, Universita del Salento con il centro di Intelligenza Artificiale e Robotica, CINI (Consorzio Interuniversitario Nazionale Informatica), e diversi centri di competenza Industria 4.0 come il DIH Puglia.</p>
+                        </div>
+                    </div>
 
-</main>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quali settori pugliesi sono leader nell'adozione AI?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>I settori trainanti sono: agroalimentare (tracciabilita, agricoltura di precisione per olio e vino), aerospazio (cluster Leonardo e indotto), turismo e hospitality (personalizzazione, revenue management), manifatturiero (manutenzione predittiva), e moda/tessile (trend forecasting, design).</p>
+                        </div>
+                    </div>
 
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Soluzioni</h5>
-          <a href="../servizi.html">Servizi</a>
-          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="../acceleratore.html">Acceleratore</a>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quali vantaggi offre la Puglia rispetto ad altri poli AI italiani?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>La Puglia offre: costi del lavoro e operativi inferiori del 20-30%, qualita della vita superiore che attrae talenti, forte supporto istituzionale con incentivi dedicati, connessione con il mercato mediterraneo, e un ecosistema startup in crescita con oltre 200 aziende tech innovative.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Come posso collaborare con l'ecosistema AI pugliese?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Le opzioni includono: partnership con universita per progetti di ricerca applicata, collaborazione con startup e acceleratori locali, utilizzo di consulenti AI pugliesi come PugliAI, partecipazione a eventi e networking (es. Digithon, South Working), e accesso a fondi regionali per progetti congiunti.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="cta-box">
+                    <h3 style="color: white; margin-top: 0;">Vuoi Esplorare le Opportunita AI in Puglia?</h3>
+                    <p>PugliAI e il tuo punto di accesso all'ecosistema AI pugliese. Contattaci per scoprire come possiamo supportare i tuoi progetti.</p>
+                    <a href="../contatti.html" class="btn btn-primary btn-lg">Parliamo del Tuo Progetto</a>
+                </div>
+
+                <nav class="article-nav" aria-label="Navigazione articoli">
+                    <a href="trasformazione-digitale-pmi-puglia.html">
+                        <div class="label">Articolo Precedente</div>
+                        <div class="title">Trasformazione Digitale PMI Pugliesi</div>
+                    </a>
+                    <a href="../guida-ai-ceo-2025.html" class="next">
+                        <div class="label">Indice</div>
+                        <div class="title">Torna alla Guida Completa</div>
+                    </a>
+                </nav>
+            </div>
         </div>
-        <div class="foot__col">
-          <h5>Azienda</h5>
-          <a href="../chi-siamo.html">Chi siamo</a>
-          <a href="../index.html#metaphor">L'Idea</a>
-          <a href="../index.html#process">Percorso</a>
-          <a href="../casi-studio.html">Casi studio</a>
-          <a href="../contatti.html">Contatti</a>
-        </div>
-        <div class="foot__col">
-          <h5>Legale</h5>
-          <a href="../privacy.html">Privacy</a>
-          <a href="../cookie.html">Cookie</a>
-          <a href="../termini.html">Termini</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>Conforme a GDPR e AI Act by design</span>
-    </div>
-  </div>
-</footer>
+    </article>
 
-<script src="../src/assets/js/tree-canvas.js"></script>
-<script src="../src/assets/js/pugliai-landing.js"></script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+    <footer id="footer-placeholder"></footer>
+    <script>
+        fetch('../src/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
 </body>
 </html>

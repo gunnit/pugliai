@@ -33,6 +33,10 @@
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/ai-manifatturiero-industria-40.html">
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -119,452 +123,914 @@
     }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/brand.css">
-    <link rel="stylesheet" href="../src/assets/css/landing.css">
-    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        .article-hero {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+            padding: 140px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .article-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%);
+        }
+        .article-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .article-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+        .article-breadcrumb a {
+            color: var(--accent-platinum);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .article-breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+        .article-breadcrumb span {
+            color: var(--accent-gold);
+        }
+        .article-category {
+            display: inline-block;
+            background: var(--gradient-emerald);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .article-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .article-meta-hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            color: var(--accent-platinum);
+            font-size: 0.95rem;
+        }
+        .article-meta-hero span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .article-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            margin: 48px 0 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            color: var(--secondary-navy);
+            margin: 36px 0 16px;
+        }
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 24px;
+        }
+        .article-content li {
+            margin-bottom: 12px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
+            border-left: 4px solid var(--accent-gold);
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .highlight-box h4 {
+            color: var(--primary-navy);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .stat-highlight {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 32px;
+            border-radius: 16px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .stat-highlight .number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 8px;
+        }
+        .stat-highlight .label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+        }
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 8px;
+        }
+        .stat-card .label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            font-size: 0.95rem;
+        }
+        .comparison-table th {
+            background: var(--primary-navy);
+            color: white;
+            padding: 16px;
+            text-align: left;
+        }
+        .comparison-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .comparison-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        .use-case-card {
+            background: white;
+            border: 2px solid var(--accent-emerald);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+            position: relative;
+        }
+        .use-case-card::before {
+            content: attr(data-use-case);
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            background: var(--accent-emerald);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .use-case-card h4 {
+            color: var(--primary-navy);
+            margin-bottom: 16px;
+            font-size: 1.3rem;
+        }
+        .use-case-card .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .use-case-card .benefit {
+            text-align: center;
+        }
+        .use-case-card .benefit-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-emerald);
+            display: block;
+        }
+        .use-case-card .benefit-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .incentive-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.04) 100%);
+            border-left: 4px solid var(--accent-emerald);
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .incentive-card h4 {
+            color: var(--accent-emerald);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .incentive-card .deadline {
+            background: #dc2626;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 12px;
+        }
+        .faq-section {
+            margin: 48px 0;
+        }
+        .faq-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .faq-question {
+            background: #f8fafc;
+            padding: 20px 24px;
+            font-weight: 600;
+            color: var(--primary-navy);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 20px 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .article-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid #e5e7eb;
+        }
+        .article-nav a {
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        .article-nav a:hover {
+            border-color: var(--accent-gold);
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .article-nav .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .article-nav .title {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        .article-nav .next {
+            text-align: right;
+        }
+        .cta-box {
+            background: var(--gradient-primary);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 48px 0;
+        }
+        .cta-box h3 {
+            color: white;
+            margin-bottom: 16px;
+        }
+        .cta-box p {
+            color: var(--accent-platinum);
+            margin-bottom: 24px;
+        }
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 32px 0;
+        }
+        .process-step {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-gold);
+        }
+        .process-step .step-number {
+            background: var(--accent-gold);
+            color: var(--primary-navy);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .process-step .step-content h4 {
+            color: var(--primary-navy);
+            margin-bottom: 8px;
+        }
+        .process-step .step-content p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.04) 100%);
+            border-left: 4px solid #ef4444;
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .warning-box h4 {
+            color: #dc2626;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+        .tech-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+        .tech-item:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .tech-item h5 {
+            color: var(--primary-navy);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tech-item .icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .priority-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+        .priority-badge.high {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-emerald);
+        }
+        .priority-badge.medium {
+            background: rgba(212, 160, 23, 0.15);
+            color: #b8860b;
+        }
+        .roadmap-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 32px 0;
+        }
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-gold), var(--accent-emerald));
+        }
+        .roadmap-item {
+            position: relative;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 28px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .roadmap-item .phase {
+            font-size: 0.85rem;
+            color: var(--accent-emerald);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .roadmap-item h5 {
+            color: var(--primary-navy);
+            margin-bottom: 8px;
+        }
+        @media (max-width: 768px) {
+            .article-nav {
+                grid-template-columns: 1fr;
+            }
+            .article-nav .next {
+                text-align: left;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Vai al contenuto</a>
+    <div id="nav-placeholder"></div>
+    <script src="../src/assets/js/navigation.js"></script>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Principale">
-      <a href="../index.html#metaphor">L'Idea</a>
-      <a href="../servizi.html">Servizi</a>
-      <a href="../prodotti.html">On-Premise</a>
-      <a href="../acceleratore.html">Acceleratore</a>
-      <a href="../index.html#process">Percorso</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua">
-        <a href="ai-manifatturiero-industria-40.html" class="on" aria-current="true">IT</a>
-        <a href="../en/ceo-ai-guide-2025.html">EN</a>
-      </div>
-      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="../index.html#metaphor">L'Idea</a>
-  <a href="../servizi.html">Servizi</a>
-  <a href="../prodotti.html">On-Premise</a>
-  <a href="../acceleratore.html">Acceleratore</a>
-  <a href="../index.html#process">Percorso</a>
-  <a href="../contatti.html">Richiedi un preventivo</a>
-</div>
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-content">
+                <nav class="article-breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
+                    <span>/</span>
+                    <span>AI nel Manifatturiero</span>
+                </nav>
+                <span class="article-category">AI per Settore</span>
+                <h1>AI nel Manifatturiero: Industria 4.0 per le PMI Italiane</h1>
+                <div class="article-meta-hero">
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 18 min lettura</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Novembre 2025</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
+                </div>
+            </div>
+        </header>
 
-<main id="main">
+        <div class="article-container">
+            <div class="article-content">
+                <p><strong>Solo il 10% delle aziende italiane ha adottato l'intelligenza artificiale in modo sistematico.</strong> Un dato che dovrebbe far riflettere ogni imprenditore manifatturiero: mentre la maggioranza aspetta, chi agisce ora costruisce un vantaggio competitivo difficile da colmare.</p>
 
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><i>/</i>
-      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
-      <span>AI nel Manifatturiero</span>
-    </nav>
-    <div class="eyebrow-lux">AI per Settore</div>
-    <h1>AI nel <span class="serif">Manifatturiero</span>: Industria 4.0 per le PMI Italiane</h1>
-    <p class="pagehead__lead">Come l'AI trasforma il manifatturiero italiano: manutenzione predittiva, controllo qualita automatizzato, ottimizzazione supply chain. Con focus sugli incentivi Transizione 5.0 fino al 27 novembre 2025.</p>
-    <div class="pagehead__meta">
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 18 min lettura</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Novembre 2025</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
-    </div>
-  </div>
-</section>
+                <p>I numeri parlano chiaro: secondo Microsoft, l'AI puo generare <strong>384 miliardi di euro di impatto economico</strong> nel settore manifatturiero europeo. E il manifatturiero italiano non fa eccezione: il 45% delle aziende hi-tech e manufacturing sta gia guidando l'adozione AI, posizionandosi come settore leader nella trasformazione digitale.</p>
 
-<!-- ARTICLE -->
-<section class="sec sec--light">
-  <div class="shell">
-    <div class="prose reveal">
+                <p>In questa guida scoprirai come l'AI sta rivoluzionando il manifatturiero italiano: dalla manutenzione predittiva che elimina i fermi macchina imprevisti, al controllo qualita automatizzato che azzera i difetti, fino all'ottimizzazione della supply chain che riduce costi e sprechi. Con un focus particolare sugli incentivi Transizione 5.0, disponibili fino al <strong>27 novembre 2025</strong>.</p>
 
-      <p><strong>Solo il 10% delle aziende italiane ha adottato l'intelligenza artificiale in modo sistematico.</strong> Un dato che dovrebbe far riflettere ogni imprenditore manifatturiero: mentre la maggioranza aspetta, chi agisce ora costruisce un vantaggio competitivo difficile da colmare.</p>
+                <div class="stat-highlight">
+                    <span class="number">384B</span>
+                    <span class="label">euro di impatto potenziale dell'AI nel manifatturiero europeo (Microsoft)</span>
+                </div>
 
-      <p>I numeri parlano chiaro: secondo Microsoft, l'AI puo generare <strong>384 miliardi di euro di impatto economico</strong> nel settore manifatturiero europeo. E il manifatturiero italiano non fa eccezione: il 45% delle aziende hi-tech e manufacturing sta gia guidando l'adozione AI, posizionandosi come settore leader nella trasformazione digitale.</p>
+                <h2>Qual e lo Stato dell'AI nel Manifatturiero Italiano?</h2>
 
-      <p>In questa guida scoprirai come l'AI sta rivoluzionando il manifatturiero italiano: dalla manutenzione predittiva che elimina i fermi macchina imprevisti, al controllo qualita automatizzato che azzera i difetti, fino all'ottimizzazione della supply chain che riduce costi e sprechi. Con un focus particolare sugli incentivi Transizione 5.0, disponibili fino al <strong>27 novembre 2025</strong>.</p>
+                <p>Il settore manifatturiero italiano vive un paradosso: alta consapevolezza del potenziale dell'AI, ma adozione ancora limitata. Comprendere questo divario e il primo passo per colmarlo.</p>
 
-      <div class="statbox">
-        <span class="statbox__n">384B</span>
-        <span class="statbox__l">euro di impatto potenziale dell'AI nel manifatturiero europeo (Microsoft)</span>
-      </div>
+                <p>I dati 2025 fotografano una situazione in rapida evoluzione:</p>
 
-      <h2>Qual e lo Stato dell'AI nel Manifatturiero Italiano?</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="number">10%</span>
+                        <span class="label">Aziende con adozione AI sistematica</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">73%</span>
+                        <span class="label">Manufacturer fiduciosi nell'impatto AI</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">40%</span>
+                        <span class="label">Hanno gia avviato applicazioni AI</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">45%</span>
+                        <span class="label">Hi-tech/manufacturing guida l'adozione</span>
+                    </div>
+                </div>
 
-      <p>Il settore manifatturiero italiano vive un paradosso: alta consapevolezza del potenziale dell'AI, ma adozione ancora limitata. Comprendere questo divario e il primo passo per colmarlo.</p>
+                <p>Il divario tra il 73% di fiducia e il 10% di adozione sistematica rappresenta un'opportunita straordinaria. Le aziende che superano le barriere all'implementazione oggi si posizionano come leader di domani.</p>
 
-      <p>I dati 2025 fotografano una situazione in rapida evoluzione:</p>
-    </div>
+                <div class="highlight-box">
+                    <h4>Il Paradosso Italiano</h4>
+                    <p>L'Italia ha una delle basi manifatturiere piu forti d'Europa, ma sconta un ritardo nell'adozione AI rispetto a Germania e Francia. Il punto critico: il <strong>52% delle aziende fatica a trovare talenti</strong> con competenze AI. Chi investe in formazione e partnership strategiche ora costruisce un vantaggio competitivo duraturo.</p>
+                </div>
 
-    <div class="stats">
-      <div class="stat reveal" data-d="1"><div class="n grad-text">10%</div><div class="l">Aziende con adozione AI sistematica</div></div>
-      <div class="stat reveal" data-d="2"><div class="n">73%</div><div class="l">Manufacturer fiduciosi nell'impatto AI</div></div>
-      <div class="stat reveal" data-d="3"><div class="n grad-text">40%</div><div class="l">Hanno gia avviato applicazioni AI</div></div>
-      <div class="stat reveal" data-d="4"><div class="n">45%</div><div class="l">Hi-tech/manufacturing guida l'adozione</div></div>
-    </div>
+                <h3>Cosa Cercano le Aziende Manifatturiere?</h3>
 
-    <div class="prose reveal">
-      <p>Il divario tra il 73% di fiducia e il 10% di adozione sistematica rappresenta un'opportunita straordinaria. Le aziende che superano le barriere all'implementazione oggi si posizionano come leader di domani.</p>
+                <p>Le priorita tecnologiche del settore sono chiare. Secondo le ricerche piu recenti:</p>
 
-      <div class="callout">
-        <h4>Il Paradosso Italiano</h4>
-        <p>L'Italia ha una delle basi manifatturiere piu forti d'Europa, ma sconta un ritardo nell'adozione AI rispetto a Germania e Francia. Il punto critico: il <strong>52% delle aziende fatica a trovare talenti</strong> con competenze AI. Chi investe in formazione e partnership strategiche ora costruisce un vantaggio competitivo duraturo.</p>
-      </div>
+                <ul>
+                    <li><strong>44% prioritizza la robotica</strong> - Automazione avanzata dei processi produttivi</li>
+                    <li><strong>41% investe in AI/ML</strong> - Machine learning per ottimizzazione e predizione</li>
+                    <li><strong>Controllo qualita automatizzato</strong> - Computer vision per ispezione visiva</li>
+                    <li><strong>Manutenzione predittiva</strong> - Anticipare guasti prima che accadano</li>
+                </ul>
 
-      <h3>Cosa Cercano le Aziende Manifatturiere?</h3>
+                <p>Queste tecnologie non sono separate: la vera trasformazione avviene quando robotica, AI e IoT convergono nella smart factory.</p>
 
-      <p>Le priorita tecnologiche del settore sono chiare. Secondo le ricerche piu recenti:</p>
+                <h2>Quali Sono le Applicazioni Chiave dell'AI nel Manifatturiero?</h2>
 
-      <ul>
-        <li><strong>44% prioritizza la robotica</strong> - Automazione avanzata dei processi produttivi</li>
-        <li><strong>41% investe in AI/ML</strong> - Machine learning per ottimizzazione e predizione</li>
-        <li><strong>Controllo qualita automatizzato</strong> - Computer vision per ispezione visiva</li>
-        <li><strong>Manutenzione predittiva</strong> - Anticipare guasti prima che accadano</li>
-      </ul>
+                <p>L'AI nel manifatturiero non e un concetto astratto. Si traduce in applicazioni concrete con ROI misurabile. Analizziamo le tre aree con maggiore impatto.</p>
 
-      <p>Queste tecnologie non sono separate: la vera trasformazione avviene quando robotica, AI e IoT convergono nella smart factory.</p>
+                <div class="use-case-card" data-use-case="Applicazione 1">
+                    <h4>Manutenzione Predittiva: Addio Fermi Imprevisti</h4>
+                    <p>La manutenzione predittiva usa sensori IoT e algoritmi AI per monitorare lo stato dei macchinari in tempo reale. Analizzando vibrazioni, temperature, consumi energetici e altri parametri, l'AI prevede i guasti <strong>giorni o settimane prima</strong> che accadano.</p>
+                    <p><strong>Come funziona:</strong> sensori installati sulle macchine critiche raccolgono dati continuamente. Gli algoritmi ML identificano pattern anomali e calcolano la probabilita di guasto. Il sistema genera alert con raccomandazioni di intervento, permettendo di pianificare la manutenzione durante i periodi di bassa produzione.</p>
+                    <div class="benefits">
+                        <div class="benefit">
+                            <span class="benefit-value">30-50%</span>
+                            <span class="benefit-label">Riduzione fermi macchina</span>
+                        </div>
+                        <div class="benefit">
+                            <span class="benefit-value">20-25%</span>
+                            <span class="benefit-label">Risparmio costi manutenzione</span>
+                        </div>
+                        <div class="benefit">
+                            <span class="benefit-value">10-20%</span>
+                            <span class="benefit-label">Estensione vita utile asset</span>
+                        </div>
+                    </div>
+                </div>
 
-      <h2>Quali Sono le Applicazioni Chiave dell'AI nel Manifatturiero?</h2>
+                <div class="use-case-card" data-use-case="Applicazione 2">
+                    <h4>Controllo Qualita Automatizzato: Zero Difetti</h4>
+                    <p>La computer vision alimentata da AI ispeziona prodotti alla velocita della linea di produzione, identificando difetti invisibili all'occhio umano. Dalle microfratture nei componenti meccanici alle imperfezioni estetiche nei prodotti di consumo.</p>
+                    <p><strong>Come funziona:</strong> telecamere ad alta risoluzione catturano immagini dei prodotti. Algoritmi di deep learning, addestrati su migliaia di esempi, classificano ogni pezzo come conforme o difettoso. Il sistema impara continuamente, migliorando l'accuratezza nel tempo.</p>
+                    <div class="benefits">
+                        <div class="benefit">
+                            <span class="benefit-value">20-40%</span>
+                            <span class="benefit-label">Riduzione scarti</span>
+                        </div>
+                        <div class="benefit">
+                            <span class="benefit-value">99.5%+</span>
+                            <span class="benefit-label">Accuratezza rilevamento</span>
+                        </div>
+                        <div class="benefit">
+                            <span class="benefit-value">10x</span>
+                            <span class="benefit-label">Velocita vs ispezione manuale</span>
+                        </div>
+                    </div>
+                </div>
 
-      <p>L'AI nel manifatturiero non e un concetto astratto. Si traduce in applicazioni concrete con ROI misurabile. Analizziamo le tre aree con maggiore impatto.</p>
-    </div>
+                <div class="use-case-card" data-use-case="Applicazione 3">
+                    <h4>Ottimizzazione Supply Chain: Efficienza Totale</h4>
+                    <p>L'AI analizza domanda storica, trend di mercato, dati esterni (meteo, eventi, social) per prevedere la domanda futura e ottimizzare inventario, produzione e logistica. Il risultato: meno sprechi, meno stockout, costi ridotti.</p>
+                    <p><strong>Come funziona:</strong> algoritmi ML processano dati da ERP, CRM, fonti esterne per generare previsioni di domanda accurate. Il sistema ottimizza automaticamente livelli di scorta, scheduling produzione, routing logistico. Digital twin simulano scenari what-if per decisioni strategiche.</p>
+                    <div class="benefits">
+                        <div class="benefit">
+                            <span class="benefit-value">15-25%</span>
+                            <span class="benefit-label">Riduzione costi inventario</span>
+                        </div>
+                        <div class="benefit">
+                            <span class="benefit-value">20-30%</span>
+                            <span class="benefit-label">Miglioramento previsioni</span>
+                        </div>
+                        <div class="benefit">
+                            <span class="benefit-value">6.5M</span>
+                            <span class="benefit-label">Ore risparmiate annualmente</span>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="cards3">
-      <div class="gcard reveal" data-d="1">
-        <h3>Manutenzione Predittiva: Addio Fermi Imprevisti</h3>
-        <p>La manutenzione predittiva usa sensori IoT e algoritmi AI per monitorare lo stato dei macchinari in tempo reale. Analizzando vibrazioni, temperature, consumi energetici e altri parametri, l'AI prevede i guasti <strong>giorni o settimane prima</strong> che accadano.</p>
-        <p><strong>Come funziona:</strong> sensori installati sulle macchine critiche raccolgono dati continuamente. Gli algoritmi ML identificano pattern anomali e calcolano la probabilita di guasto. Il sistema genera alert con raccomandazioni di intervento, permettendo di pianificare la manutenzione durante i periodi di bassa produzione.</p>
-        <p><strong>30-50%</strong> riduzione fermi macchina · <strong>20-25%</strong> risparmio costi manutenzione · <strong>10-20%</strong> estensione vita utile asset</p>
-      </div>
-      <div class="gcard reveal" data-d="2">
-        <h3>Controllo Qualita Automatizzato: Zero Difetti</h3>
-        <p>La computer vision alimentata da AI ispeziona prodotti alla velocita della linea di produzione, identificando difetti invisibili all'occhio umano. Dalle microfratture nei componenti meccanici alle imperfezioni estetiche nei prodotti di consumo.</p>
-        <p><strong>Come funziona:</strong> telecamere ad alta risoluzione catturano immagini dei prodotti. Algoritmi di deep learning, addestrati su migliaia di esempi, classificano ogni pezzo come conforme o difettoso. Il sistema impara continuamente, migliorando l'accuratezza nel tempo.</p>
-        <p><strong>20-40%</strong> riduzione scarti · <strong>99.5%+</strong> accuratezza rilevamento · <strong>10x</strong> velocita vs ispezione manuale</p>
-      </div>
-      <div class="gcard reveal" data-d="3">
-        <h3>Ottimizzazione Supply Chain: Efficienza Totale</h3>
-        <p>L'AI analizza domanda storica, trend di mercato, dati esterni (meteo, eventi, social) per prevedere la domanda futura e ottimizzare inventario, produzione e logistica. Il risultato: meno sprechi, meno stockout, costi ridotti.</p>
-        <p><strong>Come funziona:</strong> algoritmi ML processano dati da ERP, CRM, fonti esterne per generare previsioni di domanda accurate. Il sistema ottimizza automaticamente livelli di scorta, scheduling produzione, routing logistico. Digital twin simulano scenari what-if per decisioni strategiche.</p>
-        <p><strong>15-25%</strong> riduzione costi inventario · <strong>20-30%</strong> miglioramento previsioni · <strong>6.5M</strong> ore risparmiate annualmente</p>
-      </div>
-    </div>
+                <div class="stat-highlight">
+                    <span class="number">6.5M</span>
+                    <span class="label">ore risparmiate annualmente grazie all'ottimizzazione AI della supply chain</span>
+                </div>
 
-    <div class="prose reveal">
-      <div class="statbox">
-        <span class="statbox__n">6.5M</span>
-        <span class="statbox__l">ore risparmiate annualmente grazie all'ottimizzazione AI della supply chain</span>
-      </div>
+                <h2>Quali Incentivi Sono Disponibili per l'AI nel Manifatturiero?</h2>
 
-      <h2>Quali Incentivi Sono Disponibili per l'AI nel Manifatturiero?</h2>
+                <p>L'Italia offre un ecosistema di incentivi robusto per supportare la trasformazione digitale del manifatturiero. Conoscerli e sfruttarli puo ridurre significativamente l'investimento richiesto.</p>
 
-      <p>L'Italia offre un ecosistema di incentivi robusto per supportare la trasformazione digitale del manifatturiero. Conoscerli e sfruttarli puo ridurre significativamente l'investimento richiesto.</p>
+                <div class="incentive-card">
+                    <h4>Piano Transizione 5.0: Fino al 45% di Credito d'Imposta</h4>
+                    <p>Il Piano Transizione 5.0 e il principale strumento di incentivazione per investimenti in digitalizzazione ed efficienza energetica. Copre beni strumentali 4.0, software, formazione e consulenza per la trasformazione digitale.</p>
+                    <p><strong>Cosa finanzia:</strong></p>
+                    <ul>
+                        <li>Beni strumentali materiali e immateriali 4.0</li>
+                        <li>Software per l'intelligenza artificiale</li>
+                        <li>Sistemi di monitoraggio e controllo</li>
+                        <li>Formazione del personale</li>
+                    </ul>
+                    <p><strong>Aliquote:</strong> dal 35% al 45% in base alla classe di risparmio energetico conseguito</p>
+                    <span class="deadline">Scadenza comunicazione completamento: 27 Novembre 2025</span>
+                </div>
 
-      <div class="callout">
-        <h4>Piano Transizione 5.0: Fino al 45% di Credito d'Imposta</h4>
-        <p>Il Piano Transizione 5.0 e il principale strumento di incentivazione per investimenti in digitalizzazione ed efficienza energetica. Copre beni strumentali 4.0, software, formazione e consulenza per la trasformazione digitale.</p>
-        <p><strong>Cosa finanzia:</strong></p>
-        <ul>
-          <li>Beni strumentali materiali e immateriali 4.0</li>
-          <li>Software per l'intelligenza artificiale</li>
-          <li>Sistemi di monitoraggio e controllo</li>
-          <li>Formazione del personale</li>
-        </ul>
-        <p><strong>Aliquote:</strong> dal 35% al 45% in base alla classe di risparmio energetico conseguito</p>
-        <p><strong>Scadenza comunicazione completamento: 27 Novembre 2025</strong></p>
-      </div>
+                <div class="incentive-card">
+                    <h4>Progetto AI Matters: 60 Milioni per le PMI</h4>
+                    <p>AI Matters e un'iniziativa europea con <strong>60 milioni di euro</strong> e <strong>24 partner</strong> dedicata specificamente alle PMI manifatturiere. Offre supporto tecnico, finanziamenti e accesso a competenze AI che le piccole aziende non potrebbero permettersi autonomamente.</p>
+                    <p><strong>Cosa offre:</strong></p>
+                    <ul>
+                        <li>Assessment gratuito della maturita AI</li>
+                        <li>Supporto tecnico per progetti pilota</li>
+                        <li>Accesso a piattaforme AI pre-configurate</li>
+                        <li>Networking con centri di ricerca europei</li>
+                    </ul>
+                </div>
 
-      <div class="callout">
-        <h4>Progetto AI Matters: 60 Milioni per le PMI</h4>
-        <p>AI Matters e un'iniziativa europea con <strong>60 milioni di euro</strong> e <strong>24 partner</strong> dedicata specificamente alle PMI manifatturiere. Offre supporto tecnico, finanziamenti e accesso a competenze AI che le piccole aziende non potrebbero permettersi autonomamente.</p>
-        <p><strong>Cosa offre:</strong></p>
-        <ul>
-          <li>Assessment gratuito della maturita AI</li>
-          <li>Supporto tecnico per progetti pilota</li>
-          <li>Accesso a piattaforme AI pre-configurate</li>
-          <li>Networking con centri di ricerca europei</li>
-        </ul>
-      </div>
+                <div class="warning-box">
+                    <h4>Attenzione alla Scadenza</h4>
+                    <p>La comunicazione di completamento dei progetti Transizione 5.0 deve essere inviata entro il <strong>27 novembre 2025</strong>. Pianifica l'implementazione AI tenendo conto di questa deadline critica. I progetti avviati ma non completati entro tale data non potranno beneficiare degli incentivi.</p>
+                </div>
 
-      <div class="callout callout--warn">
-        <h4>Attenzione alla Scadenza</h4>
-        <p>La comunicazione di completamento dei progetti Transizione 5.0 deve essere inviata entro il <strong>27 novembre 2025</strong>. Pianifica l'implementazione AI tenendo conto di questa deadline critica. I progetti avviati ma non completati entro tale data non potranno beneficiare degli incentivi.</p>
-      </div>
+                <h3>Altri Incentivi Disponibili</h3>
 
-      <h3>Altri Incentivi Disponibili</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Incentivo</th>
+                            <th>Copertura</th>
+                            <th>Applicazione</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Credito R&S</strong></td>
+                            <td>20-25%</td>
+                            <td>Sviluppo algoritmi AI proprietari</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Formazione 4.0</strong></td>
+                            <td>30-60%</td>
+                            <td>Training dipendenti su AI</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nuova Sabatini</strong></td>
+                            <td>Contributo interessi</td>
+                            <td>Acquisto macchinari AI-ready</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fondo Innovazione</strong></td>
+                            <td>Fino a 75%</td>
+                            <td>PMI innovative del Sud</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Incentivo</th>
-            <th>Copertura</th>
-            <th>Applicazione</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Credito R&S</strong></td>
-            <td>20-25%</td>
-            <td>Sviluppo algoritmi AI proprietari</td>
-          </tr>
-          <tr>
-            <td><strong>Formazione 4.0</strong></td>
-            <td>30-60%</td>
-            <td>Training dipendenti su AI</td>
-          </tr>
-          <tr>
-            <td><strong>Nuova Sabatini</strong></td>
-            <td>Contributo interessi</td>
-            <td>Acquisto macchinari AI-ready</td>
-          </tr>
-          <tr>
-            <td><strong>Fondo Innovazione</strong></td>
-            <td>Fino a 75%</td>
-            <td>PMI innovative del Sud</td>
-          </tr>
-        </tbody>
-      </table>
+                <h2>Come Iniziare con l'AI nel Manifatturiero?</h2>
 
-      <h2>Come Iniziare con l'AI nel Manifatturiero?</h2>
+                <p>La trasformazione AI non avviene in un giorno. Serve un approccio strutturato che bilanci quick win e visione strategica. Ecco la roadmap consigliata per le PMI manifatturiere italiane.</p>
 
-      <p>La trasformazione AI non avviene in un giorno. Serve un approccio strutturato che bilanci quick win e visione strategica. Ecco la roadmap consigliata per le PMI manifatturiere italiane.</p>
-    </div>
+                <div class="roadmap-timeline">
+                    <div class="roadmap-item">
+                        <div class="phase">Fase 1: Assessment (1-2 mesi)</div>
+                        <h5>Valuta la Maturita Digitale</h5>
+                        <p>Analizza i dati disponibili (storico guasti, parametri macchine, dati qualita). Identifica le criticita con maggiore impatto economico. Valuta l'infrastruttura IT esistente e il gap da colmare. Output: mappa delle opportunita prioritizzate per ROI.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="phase">Fase 2: Pilota (3-6 mesi)</div>
+                        <h5>Inizia con un Quick Win</h5>
+                        <p>Seleziona un caso d'uso ad alto impatto e basso rischio. La manutenzione predittiva su un macchinario critico e spesso la scelta ideale. Implementa sensori IoT, configura la piattaforma AI, valida i risultati. Output: PoC funzionante con ROI documentato.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="phase">Fase 3: Scaling (6-12 mesi)</div>
+                        <h5>Estendi a Tutta la Linea</h5>
+                        <p>Con il PoC validato, estendi la soluzione ad altri macchinari e processi. Integra con ERP e MES esistenti. Forma il personale operativo. Output: sistema AI in produzione su scala significativa.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="phase">Fase 4: Ottimizzazione (12+ mesi)</div>
+                        <h5>Verso la Smart Factory</h5>
+                        <p>Integra le diverse applicazioni AI (manutenzione, qualita, supply chain) in un ecosistema coerente. Implementa digital twin per simulazione e ottimizzazione continua. Output: fabbrica intelligente con miglioramento continuo.</p>
+                    </div>
+                </div>
 
-    <div class="proc">
-      <div class="pstep reveal" data-d="1">
-        <div class="pstep__dot"><b>1</b></div>
-        <div class="wk">Fase 1: Assessment (1-2 mesi)</div>
-        <h4>Valuta la Maturita Digitale</h4>
-        <p>Analizza i dati disponibili (storico guasti, parametri macchine, dati qualita). Identifica le criticita con maggiore impatto economico. Valuta l'infrastruttura IT esistente e il gap da colmare. Output: mappa delle opportunita prioritizzate per ROI.</p>
-      </div>
-      <div class="pstep reveal" data-d="2">
-        <div class="pstep__dot"><b>2</b></div>
-        <div class="wk">Fase 2: Pilota (3-6 mesi)</div>
-        <h4>Inizia con un Quick Win</h4>
-        <p>Seleziona un caso d'uso ad alto impatto e basso rischio. La manutenzione predittiva su un macchinario critico e spesso la scelta ideale. Implementa sensori IoT, configura la piattaforma AI, valida i risultati. Output: PoC funzionante con ROI documentato.</p>
-      </div>
-      <div class="pstep reveal" data-d="3">
-        <div class="pstep__dot"><b>3</b></div>
-        <div class="wk">Fase 3: Scaling (6-12 mesi)</div>
-        <h4>Estendi a Tutta la Linea</h4>
-        <p>Con il PoC validato, estendi la soluzione ad altri macchinari e processi. Integra con ERP e MES esistenti. Forma il personale operativo. Output: sistema AI in produzione su scala significativa.</p>
-      </div>
-      <div class="pstep reveal" data-d="4">
-        <div class="pstep__dot"><b>4</b></div>
-        <div class="wk">Fase 4: Ottimizzazione (12+ mesi)</div>
-        <h4>Verso la Smart Factory</h4>
-        <p>Integra le diverse applicazioni AI (manutenzione, qualita, supply chain) in un ecosistema coerente. Implementa digital twin per simulazione e ottimizzazione continua. Output: fabbrica intelligente con miglioramento continuo.</p>
-      </div>
-    </div>
+                <h3>Da Dove Iniziare: Le Tecnologie Prioritarie</h3>
 
-    <div class="prose reveal">
-      <h3>Da Dove Iniziare: Le Tecnologie Prioritarie</h3>
-    </div>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <h5>
+                            <span class="icon"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg></span>
+                            Sensori IoT
+                            <span class="priority-badge high">Priorita Alta</span>
+                        </h5>
+                        <p>La base di ogni progetto AI: sensori per raccogliere dati da macchinari, linee, ambiente. Senza dati, niente AI.</p>
+                    </div>
+                    <div class="tech-item">
+                        <h5>
+                            <span class="icon"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg></span>
+                            Piattaforma AI Cloud
+                            <span class="priority-badge high">Priorita Alta</span>
+                        </h5>
+                        <p>Servizi cloud pre-configurati per ML riducono tempi e costi di implementazione. AWS, Azure, Google offrono soluzioni manufacturing-ready.</p>
+                    </div>
+                    <div class="tech-item">
+                        <h5>
+                            <span class="icon"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></span>
+                            Computer Vision
+                            <span class="priority-badge medium">Priorita Media</span>
+                        </h5>
+                        <p>Sistemi di ispezione visiva AI per controllo qualita automatizzato. ROI elevato dove l'ispezione manuale e un collo di bottiglia.</p>
+                    </div>
+                    <div class="tech-item">
+                        <h5>
+                            <span class="icon"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg></span>
+                            Digital Twin
+                            <span class="priority-badge medium">Priorita Media</span>
+                        </h5>
+                        <p>Replica digitale di impianti e processi per simulazione, ottimizzazione e training. Investimento strategico per il lungo termine.</p>
+                    </div>
+                </div>
 
-    <div class="cards3">
-      <div class="gcard reveal" data-d="1">
-        <h3>Sensori IoT</h3>
-        <p><strong>Priorita Alta.</strong> La base di ogni progetto AI: sensori per raccogliere dati da macchinari, linee, ambiente. Senza dati, niente AI.</p>
-      </div>
-      <div class="gcard reveal" data-d="2">
-        <h3>Piattaforma AI Cloud</h3>
-        <p><strong>Priorita Alta.</strong> Servizi cloud pre-configurati per ML riducono tempi e costi di implementazione. AWS, Azure, Google offrono soluzioni manufacturing-ready.</p>
-      </div>
-      <div class="gcard reveal" data-d="3">
-        <h3>Computer Vision</h3>
-        <p><strong>Priorita Media.</strong> Sistemi di ispezione visiva AI per controllo qualita automatizzato. ROI elevato dove l'ispezione manuale e un collo di bottiglia.</p>
-      </div>
-      <div class="gcard reveal" data-d="4">
-        <h3>Digital Twin</h3>
-        <p><strong>Priorita Media.</strong> Replica digitale di impianti e processi per simulazione, ottimizzazione e training. Investimento strategico per il lungo termine.</p>
-      </div>
-    </div>
+                <div class="highlight-box">
+                    <h4>Consiglio Pratico: Inizia dai Dati</h4>
+                    <p>Prima di acquistare piattaforme AI costose, verifica la qualita dei dati disponibili. Il 28% dei fallimenti AI dipende da dati inadeguati. Investi prima nella raccolta e pulizia dati: sensori affidabili, integrazione ERP/MES, governance dati strutturata. Un modello AI mediocre con dati eccellenti batte un modello eccellente con dati mediocri.</p>
+                </div>
 
-    <div class="prose reveal">
-      <div class="callout">
-        <h4>Consiglio Pratico: Inizia dai Dati</h4>
-        <p>Prima di acquistare piattaforme AI costose, verifica la qualita dei dati disponibili. Il 28% dei fallimenti AI dipende da dati inadeguati. Investi prima nella raccolta e pulizia dati: sensori affidabili, integrazione ERP/MES, governance dati strutturata. Un modello AI mediocre con dati eccellenti batte un modello eccellente con dati mediocri.</p>
-      </div>
+                <h2>Quali Errori Evitare nell'AI Manifatturiera?</h2>
 
-      <h2>Quali Errori Evitare nell'AI Manifatturiera?</h2>
+                <p>Imparare dagli errori altrui e il modo piu economico per evitare i propri. Ecco le trappole piu comuni e come aggirarle.</p>
 
-      <p>Imparare dagli errori altrui e il modo piu economico per evitare i propri. Ecco le trappole piu comuni e come aggirarle.</p>
+                <div class="warning-box">
+                    <h4>Errore #1: Partire dalla Tecnologia</h4>
+                    <p>"Vogliamo implementare l'AI" e l'approccio sbagliato. Parti sempre da un problema di business concreto: quale processo costa troppo? Dove perdiamo qualita? Quale macchinario causa piu fermi? La tecnologia e il mezzo, non il fine. I progetti AI guidati dal business hanno tassi di successo 3 volte superiori.</p>
+                </div>
 
-      <div class="callout callout--warn">
-        <h4>Errore #1: Partire dalla Tecnologia</h4>
-        <p>"Vogliamo implementare l'AI" e l'approccio sbagliato. Parti sempre da un problema di business concreto: quale processo costa troppo? Dove perdiamo qualita? Quale macchinario causa piu fermi? La tecnologia e il mezzo, non il fine. I progetti AI guidati dal business hanno tassi di successo 3 volte superiori.</p>
-      </div>
+                <div class="warning-box">
+                    <h4>Errore #2: Sottovalutare l'Integrazione</h4>
+                    <p>L'AI deve dialogare con ERP, MES, SCADA esistenti. Il 22% dei fallimenti AI dipende da problemi di integrazione. Pianifica l'integrazione dall'inizio, non come ripensamento. Budget almeno il 30-40% del progetto per integrazione e change management.</p>
+                </div>
 
-      <div class="callout callout--warn">
-        <h4>Errore #2: Sottovalutare l'Integrazione</h4>
-        <p>L'AI deve dialogare con ERP, MES, SCADA esistenti. Il 22% dei fallimenti AI dipende da problemi di integrazione. Pianifica l'integrazione dall'inizio, non come ripensamento. Budget almeno il 30-40% del progetto per integrazione e change management.</p>
-      </div>
+                <div class="warning-box">
+                    <h4>Errore #3: Ignorare il Fattore Umano</h4>
+                    <p>L'operatore che non si fida dell'AI la ignora. Il manutentore che non capisce gli alert li disattiva. L'88% degli executive italiani ritiene fondamentale comunicare la strategia AI ai dipendenti. Coinvolgi il personale operativo dal giorno uno, forma adeguatamente, celebra i successi.</p>
+                </div>
 
-      <div class="callout callout--warn">
-        <h4>Errore #3: Ignorare il Fattore Umano</h4>
-        <p>L'operatore che non si fida dell'AI la ignora. Il manutentore che non capisce gli alert li disattiva. L'88% degli executive italiani ritiene fondamentale comunicare la strategia AI ai dipendenti. Coinvolgi il personale operativo dal giorno uno, forma adeguatamente, celebra i successi.</p>
-      </div>
+                <div class="warning-box">
+                    <h4>Errore #4: Aspettare la Perfezione</h4>
+                    <p>L'AI migliora con i dati e l'uso. Aspettare di avere tutto perfetto prima di partire significa non partire mai. Inizia con un pilota imperfetto, impara, itera. Il 40% delle aziende manifatturiere ha gia avviato applicazioni AI: chi aspetta accumula ritardo.</p>
+                </div>
 
-      <div class="callout callout--warn">
-        <h4>Errore #4: Aspettare la Perfezione</h4>
-        <p>L'AI migliora con i dati e l'uso. Aspettare di avere tutto perfetto prima di partire significa non partire mai. Inizia con un pilota imperfetto, impara, itera. Il 40% delle aziende manifatturiere ha gia avviato applicazioni AI: chi aspetta accumula ritardo.</p>
-      </div>
+                <div class="stat-highlight">
+                    <span class="number">73%</span>
+                    <span class="label">dei manufacturer e fiducioso nell'impatto positivo dell'AI</span>
+                </div>
 
-      <div class="statbox">
-        <span class="statbox__n">73%</span>
-        <span class="statbox__l">dei manufacturer e fiducioso nell'impatto positivo dell'AI</span>
-      </div>
+                <h2>Qual e il ROI dell'AI nel Manifatturiero?</h2>
 
-      <h2>Qual e il ROI dell'AI nel Manifatturiero?</h2>
+                <p>Il settore manifatturiero offre alcuni dei ROI piu elevati per gli investimenti AI. Questo perche opera su volumi elevati dove anche piccoli miglioramenti percentuali generano risparmi significativi.</p>
 
-      <p>Il settore manifatturiero offre alcuni dei ROI piu elevati per gli investimenti AI. Questo perche opera su volumi elevati dove anche piccoli miglioramenti percentuali generano risparmi significativi.</p>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Applicazione</th>
+                            <th>ROI Tipico</th>
+                            <th>Time-to-Value</th>
+                            <th>Investimento Iniziale PMI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Manutenzione Predittiva</strong></td>
+                            <td>2.5-4x</td>
+                            <td>6-12 mesi</td>
+                            <td>30-80K euro</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quality Control AI</strong></td>
+                            <td>2-3x</td>
+                            <td>3-9 mesi</td>
+                            <td>50-150K euro</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Supply Chain Optimization</strong></td>
+                            <td>1.5-2.5x</td>
+                            <td>9-18 mesi</td>
+                            <td>40-120K euro</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Energy Optimization</strong></td>
+                            <td>2-3x</td>
+                            <td>6-12 mesi</td>
+                            <td>25-70K euro</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Applicazione</th>
-            <th>ROI Tipico</th>
-            <th>Time-to-Value</th>
-            <th>Investimento Iniziale PMI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Manutenzione Predittiva</strong></td>
-            <td>2.5-4x</td>
-            <td>6-12 mesi</td>
-            <td>30-80K euro</td>
-          </tr>
-          <tr>
-            <td><strong>Quality Control AI</strong></td>
-            <td>2-3x</td>
-            <td>3-9 mesi</td>
-            <td>50-150K euro</td>
-          </tr>
-          <tr>
-            <td><strong>Supply Chain Optimization</strong></td>
-            <td>1.5-2.5x</td>
-            <td>9-18 mesi</td>
-            <td>40-120K euro</td>
-          </tr>
-          <tr>
-            <td><strong>Energy Optimization</strong></td>
-            <td>2-3x</td>
-            <td>6-12 mesi</td>
-            <td>25-70K euro</td>
-          </tr>
-        </tbody>
-      </table>
+                <p>Con gli incentivi Transizione 5.0 (fino al 45% di credito d'imposta), l'investimento netto si riduce significativamente, migliorando ulteriormente il ROI.</p>
 
-      <p>Con gli incentivi Transizione 5.0 (fino al 45% di credito d'imposta), l'investimento netto si riduce significativamente, migliorando ulteriormente il ROI.</p>
+                <div class="highlight-box">
+                    <h4>Calcolo Rapido del ROI</h4>
+                    <p>Una PMI manifatturiera con 10 macchinari critici che subisce 50 ore/anno di fermi non pianificati (costo medio 500 euro/ora = 25.000 euro/anno di perdite). Con manutenzione predittiva AI (riduzione fermi del 40%), risparmia 10.000 euro/anno. Su un investimento di 40.000 euro (22.000 euro netti con Transizione 5.0), il payback e di circa 2 anni.</p>
+                </div>
 
-      <div class="callout">
-        <h4>Calcolo Rapido del ROI</h4>
-        <p>Una PMI manifatturiera con 10 macchinari critici che subisce 50 ore/anno di fermi non pianificati (costo medio 500 euro/ora = 25.000 euro/anno di perdite). Con manutenzione predittiva AI (riduzione fermi del 40%), risparmia 10.000 euro/anno. Su un investimento di 40.000 euro (22.000 euro netti con Transizione 5.0), il payback e di circa 2 anni.</p>
-      </div>
+                <section class="faq-section">
+                    <h2>Domande Frequenti sull'AI nel Manifatturiero</h2>
 
-      <p>Per approfondire come le competenze digitali influenzano l'adozione AI nelle aziende, leggi <a href="competenze-digitali-ai.html">Competenze Digitali AI: Quali Servono nel 2025</a>. Se operi nel settore moda e lusso, consulta la guida dedicata <a href="ai-moda-lusso-made-italy.html">AI nel Fashion e Lusso: Proteggere il Made in Italy</a>.</p>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quanto puo risparmiare una PMI manifatturiera con l'AI?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>L'impatto economico e significativo: secondo Microsoft, l'AI puo generare <strong>384 miliardi di euro di valore</strong> nel manifatturiero europeo. Per una PMI italiana media, la manutenzione predittiva riduce i fermi macchina del 30-50%, il controllo qualita automatizzato taglia gli scarti del 20-40%, e l'ottimizzazione supply chain migliora l'efficienza del 15-25%. Il ROI tipico per progetti AI nel manifatturiero e <strong>2.5-4x l'investimento</strong> in 12-18 mesi.</p>
+                        </div>
+                    </div>
 
-      <h2>Domande Frequenti sull'AI nel Manifatturiero</h2>
-    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quali incentivi esistono per l'AI nel manifatturiero italiano?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Il principale incentivo e il <strong>Piano Transizione 5.0</strong>, con scadenza 27 novembre 2025 per la comunicazione di completamento progetti. Copre fino al 45% degli investimenti in tecnologie AI per l'efficienza energetica e la digitalizzazione. Inoltre, il progetto europeo <strong>AI Matters</strong> (60 milioni di euro, 24 partner) supporta specificamente le PMI manifatturiere nell'adozione AI. Sono disponibili anche crediti d'imposta per R&S e formazione 4.0.</p>
+                        </div>
+                    </div>
 
-    <div class="faq reveal">
-      <details>
-        <summary>Quanto puo risparmiare una PMI manifatturiera con l'AI?</summary>
-        <div class="faq__a">L'impatto economico e significativo: secondo Microsoft, l'AI puo generare <strong>384 miliardi di euro di valore</strong> nel manifatturiero europeo. Per una PMI italiana media, la manutenzione predittiva riduce i fermi macchina del 30-50%, il controllo qualita automatizzato taglia gli scarti del 20-40%, e l'ottimizzazione supply chain migliora l'efficienza del 15-25%. Il ROI tipico per progetti AI nel manifatturiero e <strong>2.5-4x l'investimento</strong> in 12-18 mesi.</div>
-      </details>
-      <details>
-        <summary>Quali incentivi esistono per l'AI nel manifatturiero italiano?</summary>
-        <div class="faq__a">Il principale incentivo e il <strong>Piano Transizione 5.0</strong>, con scadenza 27 novembre 2025 per la comunicazione di completamento progetti. Copre fino al 45% degli investimenti in tecnologie AI per l'efficienza energetica e la digitalizzazione. Inoltre, il progetto europeo <strong>AI Matters</strong> (60 milioni di euro, 24 partner) supporta specificamente le PMI manifatturiere nell'adozione AI. Sono disponibili anche crediti d'imposta per R&S e formazione 4.0.</div>
-      </details>
-      <details>
-        <summary>Da dove iniziare con l'AI in un'azienda manifatturiera?</summary>
-        <div class="faq__a">Il punto di partenza ideale dipende dalle criticita aziendali. Per la maggior parte delle PMI, la <strong>manutenzione predittiva</strong> offre il miglior rapporto costo-beneficio: richiede sensori IoT sui macchinari critici e genera ROI rapido (3-6 mesi). Il 44% delle aziende manifatturiere prioritizza la robotica e il 41% AI/ML. Inizia con un assessment dei dati disponibili (storico guasti, parametri macchine) e identifica il macchinario con maggiore impatto sui fermi produttivi.</div>
-      </details>
-      <details>
-        <summary>Perche solo il 10% delle aziende italiane ha adottato l'AI sistematicamente?</summary>
-        <div class="faq__a">Le barriere principali sono: mancanza di competenze interne (52% delle aziende fatica a trovare talenti), costi percepiti elevati, difficolta nell'integrare l'AI con sistemi legacy, e incertezza sul ROI. Tuttavia, il <strong>73% dei manufacturer e fiducioso</strong> sull'impatto positivo dell'AI e il <strong>40% ha gia avviato applicazioni</strong> concrete. Il divario tra consapevolezza e adozione rappresenta un'opportunita: chi agisce ora ottiene vantaggio competitivo significativo mentre la maggioranza aspetta.</div>
-      </details>
-    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Da dove iniziare con l'AI in un'azienda manifatturiera?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Il punto di partenza ideale dipende dalle criticita aziendali. Per la maggior parte delle PMI, la <strong>manutenzione predittiva</strong> offre il miglior rapporto costo-beneficio: richiede sensori IoT sui macchinari critici e genera ROI rapido (3-6 mesi). Il 44% delle aziende manifatturiere prioritizza la robotica e il 41% AI/ML. Inizia con un assessment dei dati disponibili (storico guasti, parametri macchine) e identifica il macchinario con maggiore impatto sui fermi produttivi.</p>
+                        </div>
+                    </div>
 
-    <nav class="artnav reveal" aria-label="Navigazione articoli">
-      <a href="competenze-digitali-ai.html">
-        <div class="artnav__k">Articolo Precedente</div>
-        <div class="artnav__t">Competenze Digitali AI: Quali Servono</div>
-      </a>
-      <a href="ai-moda-lusso-made-italy.html" class="next">
-        <div class="artnav__k">Prossimo Articolo</div>
-        <div class="artnav__t">AI nel Fashion e Lusso Made in Italy</div>
-      </a>
-    </nav>
-  </div>
-</section>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Perche solo il 10% delle aziende italiane ha adottato l'AI sistematicamente?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Le barriere principali sono: mancanza di competenze interne (52% delle aziende fatica a trovare talenti), costi percepiti elevati, difficolta nell'integrare l'AI con sistemi legacy, e incertezza sul ROI. Tuttavia, il <strong>73% dei manufacturer e fiducioso</strong> sull'impatto positivo dell'AI e il <strong>40% ha gia avviato applicazioni</strong> concrete. Il divario tra consapevolezza e adozione rappresenta un'opportunita: chi agisce ora ottiene vantaggio competitivo significativo mentre la maggioranza aspetta.</p>
+                        </div>
+                    </div>
+                </section>
 
-<!-- CTA -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div class="shead reveal" style="margin-bottom:0">
-      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
-      <h2>Vuoi valutare l'impatto dell'<span class="serif">AI</span> nella tua azienda manifatturiera?</h2>
-      <p class="shead__lead">Calcola il potenziale risparmio da manutenzione predittiva, quality control e ottimizzazione supply chain con il nostro calcolatore gratuito.</p>
-      <div class="finale__cta" style="margin-top:32px">
-        <a href="../roi-calculator.html" class="btn btn--grad">Calcola il tuo ROI
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="../contatti.html" class="btn btn--ghost">Richiedi una consulenza</a>
-      </div>
-    </div>
-  </div>
-</section>
+                <div class="cta-box">
+                    <h3 style="color: white; margin-top: 0;">Vuoi Valutare l'Impatto dell'AI nella Tua Azienda Manifatturiera?</h3>
+                    <p>Calcola il potenziale risparmio da manutenzione predittiva, quality control e ottimizzazione supply chain con il nostro calcolatore gratuito.</p>
+                    <a href="../roi-calculator.html" class="btn btn-primary btn-lg">Calcola il Tuo ROI</a>
+                </div>
 
-</main>
+                <p>Per approfondire come le competenze digitali influenzano l'adozione AI nelle aziende, leggi <a href="competenze-digitali-ai.html">Competenze Digitali AI: Quali Servono nel 2025</a>. Se operi nel settore moda e lusso, consulta la guida dedicata <a href="ai-moda-lusso-made-italy.html">AI nel Fashion e Lusso: Proteggere il Made in Italy</a>.</p>
 
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Soluzioni</h5>
-          <a href="../servizi.html">Servizi</a>
-          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="../acceleratore.html">Acceleratore</a>
+                <nav class="article-nav">
+                    <a href="competenze-digitali-ai.html">
+                        <div class="label">Articolo Precedente</div>
+                        <div class="title">Competenze Digitali AI: Quali Servono</div>
+                    </a>
+                    <a href="ai-moda-lusso-made-italy.html" class="next">
+                        <div class="label">Prossimo Articolo</div>
+                        <div class="title">AI nel Fashion e Lusso Made in Italy</div>
+                    </a>
+                </nav>
+            </div>
         </div>
-        <div class="foot__col">
-          <h5>Azienda</h5>
-          <a href="../chi-siamo.html">Chi siamo</a>
-          <a href="../index.html#metaphor">L'Idea</a>
-          <a href="../index.html#process">Percorso</a>
-          <a href="../casi-studio.html">Casi studio</a>
-          <a href="../contatti.html">Contatti</a>
-        </div>
-        <div class="foot__col">
-          <h5>Legale</h5>
-          <a href="../privacy.html">Privacy</a>
-          <a href="../cookie.html">Cookie</a>
-          <a href="../termini.html">Termini</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>Conforme a GDPR e AI Act by design</span>
-    </div>
-  </div>
-</footer>
+    </article>
 
-<script src="../src/assets/js/tree-canvas.js"></script>
-<script src="../src/assets/js/pugliai-landing.js"></script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+    <footer id="footer-placeholder"></footer>
+    <script>
+        fetch('../src/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
 </body>
 </html>

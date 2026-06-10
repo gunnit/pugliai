@@ -39,10 +39,8 @@
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/brand.css">
-    <link rel="stylesheet" href="../src/assets/css/landing.css">
-    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- Article Schema -->
@@ -183,318 +181,514 @@
         ]
     }
     </script>
+
+    <style>
+        .article-hero {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+            padding: 140px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .article-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%);
+        }
+        .article-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .article-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+        .article-breadcrumb a {
+            color: var(--accent-platinum);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .article-breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+        .article-breadcrumb span {
+            color: var(--accent-gold);
+        }
+        .article-category {
+            display: inline-block;
+            background: var(--gradient-emerald);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .article-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .article-meta-hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            color: var(--accent-platinum);
+            font-size: 0.95rem;
+        }
+        .article-meta-hero span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .article-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            margin: 48px 0 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            color: var(--secondary-navy);
+            margin: 36px 0 16px;
+        }
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 24px;
+        }
+        .article-content li {
+            margin-bottom: 12px;
+        }
+        .article-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid #e5e7eb;
+        }
+        .article-nav a {
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        .article-nav a:hover {
+            border-color: var(--accent-gold);
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .article-nav .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .article-nav .title {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        .article-nav .next {
+            text-align: right;
+        }
+        .cta-box {
+            background: var(--gradient-primary);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 48px 0;
+        }
+        .cta-box h3 {
+            color: white;
+            margin-bottom: 16px;
+        }
+        .cta-box p {
+            color: var(--accent-platinum);
+            margin-bottom: 24px;
+        }
+        @media (max-width: 768px) {
+            .article-nav {
+                grid-template-columns: 1fr;
+            }
+            .article-nav .next {
+                text-align: left;
+            }
+        }
+        .criteria-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .criteria-card h3 {
+            color: var(--accent-emerald);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .criteria-card .number {
+            background: var(--accent-gold);
+            color: var(--primary-navy);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .red-flag {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .red-flag::before {
+            content: "⚠️ ";
+        }
+        .green-flag {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .green-flag::before {
+            content: "✅ ";
+        }
+        .checklist-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .checklist-box h3 {
+            color: var(--accent-gold);
+            margin-top: 0;
+        }
+        .checklist-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist-box li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .checklist-box li:last-child {
+            border-bottom: none;
+        }
+        .checklist-box li::before {
+            content: "☐ ";
+            color: var(--accent-gold);
+        }
+        .question-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3B82F6;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Vai al contenuto</a>
+    <div id="nav-placeholder"></div>
+    <script src="../src/assets/js/navigation.js"></script>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Principale">
-      <a href="../index.html#metaphor">L'Idea</a>
-      <a href="../servizi.html">Servizi</a>
-      <a href="../prodotti.html">On-Premise</a>
-      <a href="../acceleratore.html">Acceleratore</a>
-      <a href="../index.html#process">Percorso</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua">
-        <a href="come-scegliere-consulenza-ai-italia.html" class="on" aria-current="true">IT</a>
-        <a href="../en/ceo-ai-guide-2025.html">EN</a>
-      </div>
-      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="../index.html#metaphor">L'Idea</a>
-  <a href="../servizi.html">Servizi</a>
-  <a href="../prodotti.html">On-Premise</a>
-  <a href="../acceleratore.html">Acceleratore</a>
-  <a href="../index.html#process">Percorso</a>
-  <a href="../contatti.html">Richiedi un preventivo</a>
-</div>
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-content">
+                <nav class="article-breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
+                    <span>/</span>
+                    <span>Come Scegliere Consulenza AI</span>
+                </nav>
+                <span class="article-category">Guida Pratica</span>
+                <h1>Come Scegliere una Societa di Consulenza AI in Italia: Guida Definitiva 2025</h1>
+                <div class="article-meta-hero">
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 12 min lettura</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Dicembre 2025</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
+                </div>
+            </div>
+        </header>
 
-<main id="main">
+        <div class="article-container">
+            <div class="article-content">
+                <p><strong>Scegliere il partner AI sbagliato puo costare caro: progetti falliti, budget bruciato, opportunita perse.</strong> In questa guida ti mostro esattamente come valutare e selezionare la societa di consulenza AI giusta per la tua azienda, con checklist pratiche e domande da fare.</p>
+                <h2>Perche la Scelta del Partner AI e Critica</h2>
+                <p>
+                    Secondo McKinsey, il <strong>70% dei progetti AI fallisce</strong> o non raggiunge gli obiettivi previsti. La causa principale? Una scelta sbagliata del partner di implementazione. Per le PMI italiane, dove ogni investimento deve essere oculato, scegliere la giusta societa di consulenza AI puo fare la differenza tra trasformazione digitale e spreco di risorse.
+                </p>
 
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><i>/</i>
-      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
-      <span>Come Scegliere Consulenza AI</span>
-    </nav>
-    <div class="eyebrow-lux">Guida Pratica</div>
-    <h1>Come Scegliere una Societa di <span class="serif">Consulenza AI</span> in Italia: Guida Definitiva 2025</h1>
-    <p class="pagehead__lead">Scegliere il partner AI sbagliato puo costare caro: progetti falliti, budget bruciato, opportunita perse. Ti mostriamo come valutare e selezionare la societa di consulenza AI giusta, con checklist pratiche e domande da fare.</p>
-    <div class="pagehead__meta">
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 12 min lettura</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Dicembre 2025</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
-    </div>
-  </div>
-</section>
+                <h2>I 10 Criteri per Scegliere il Partner AI Giusto</h2>
 
-<!-- ARTICLE -->
-<section class="sec sec--light">
-  <div class="shell">
-    <div class="prose reveal">
+                <div class="criteria-card">
+                    <h3><span class="number">1</span> Specializzazione nel Tuo Segmento</h3>
+                    <p>
+                        Non tutte le societa AI sono uguali. Alcune sono specializzate in enterprise, altre in startup, altre ancora in PMI. <strong>Cerca un partner che parli la tua lingua aziendale</strong>.
+                    </p>
+                    <div class="green-flag">
+                        PugliAI si concentra esclusivamente su PMI italiane da 10-250 dipendenti, con pacchetti pensati per le esigenze e i budget delle piccole e medie imprese.
+                    </div>
+                </div>
 
-      <p><strong>Scegliere il partner AI sbagliato puo costare caro: progetti falliti, budget bruciato, opportunita perse.</strong> In questa guida ti mostro esattamente come valutare e selezionare la societa di consulenza AI giusta per la tua azienda, con checklist pratiche e domande da fare.</p>
+                <div class="criteria-card">
+                    <h3><span class="number">2</span> Case Study Verificabili</h3>
+                    <p>
+                        Chiedi sempre esempi concreti di progetti completati. I case study devono includere: settore, sfida, soluzione implementata, e <strong>risultati misurabili</strong>.
+                    </p>
+                    <div class="question-box">
+                        <strong>Domanda da fare:</strong> "Potete mostrarmi 3 case study di aziende simili alla mia, con risultati documentati?"
+                    </div>
+                </div>
 
-      <h2>Perche la Scelta del Partner AI e Critica</h2>
-      <p>Secondo McKinsey, il <strong>70% dei progetti AI fallisce</strong> o non raggiunge gli obiettivi previsti. La causa principale? Una scelta sbagliata del partner di implementazione. Per le PMI italiane, dove ogni investimento deve essere oculato, scegliere la giusta societa di consulenza AI puo fare la differenza tra trasformazione digitale e spreco di risorse.</p>
+                <div class="criteria-card">
+                    <h3><span class="number">3</span> Garanzie sul ROI</h3>
+                    <p>
+                        Le migliori societa di consulenza AI offrono <strong>garanzie contrattuali sui risultati</strong>. Se non sono disposte a mettere nero su bianco i risultati attesi, e un red flag.
+                    </p>
+                    <div class="green-flag">
+                        PugliAI e l'unica societa italiana a offrire garanzia contrattuale del 150% ROI. Se non raggiungi l'obiettivo, continuano a lavorare gratuitamente.
+                    </div>
+                </div>
 
-      <h2>I 10 Criteri per Scegliere il Partner AI Giusto</h2>
-    </div>
+                <div class="criteria-card">
+                    <h3><span class="number">4</span> Trasparenza sui Prezzi</h3>
+                    <p>
+                        Diffida di preventivi vaghi o "da definire". Un buon partner AI ti fornisce un <strong>prezzo chiaro con scope definito</strong> fin dall'inizio.
+                    </p>
+                    <div class="question-box">
+                        <strong>Domanda da fare:</strong> "Qual e il prezzo totale del progetto? Cosa e incluso e cosa no?"
+                    </div>
+                </div>
 
-    <div class="proc">
-      <div class="pstep reveal" data-d="1">
-        <div class="pstep__dot"><b>1</b></div>
-        <div class="wk">Criterio</div>
-        <h4>Specializzazione nel Tuo Segmento</h4>
-        <p>Non tutte le societa AI sono uguali. Alcune sono specializzate in enterprise, altre in startup, altre ancora in PMI. <strong>Cerca un partner che parli la tua lingua aziendale</strong>.</p>
-        <div class="callout"><p>PugliAI si concentra esclusivamente su PMI italiane da 10-250 dipendenti, con pacchetti pensati per le esigenze e i budget delle piccole e medie imprese.</p></div>
-      </div>
-      <div class="pstep reveal" data-d="2">
-        <div class="pstep__dot"><b>2</b></div>
-        <div class="wk">Criterio</div>
-        <h4>Case Study Verificabili</h4>
-        <p>Chiedi sempre esempi concreti di progetti completati. I case study devono includere: settore, sfida, soluzione implementata, e <strong>risultati misurabili</strong>.</p>
-        <div class="callout"><p><strong>Domanda da fare:</strong> "Potete mostrarmi 3 case study di aziende simili alla mia, con risultati documentati?"</p></div>
-      </div>
-      <div class="pstep reveal" data-d="3">
-        <div class="pstep__dot"><b>3</b></div>
-        <div class="wk">Criterio</div>
-        <h4>Garanzie sul ROI</h4>
-        <p>Le migliori societa di consulenza AI offrono <strong>garanzie contrattuali sui risultati</strong>. Se non sono disposte a mettere nero su bianco i risultati attesi, e un red flag.</p>
-        <div class="callout"><p>PugliAI e l'unica societa italiana a offrire garanzia contrattuale del 150% ROI. Se non raggiungi l'obiettivo, continuano a lavorare gratuitamente.</p></div>
-      </div>
-      <div class="pstep reveal" data-d="4">
-        <div class="pstep__dot"><b>4</b></div>
-        <div class="wk">Criterio</div>
-        <h4>Trasparenza sui Prezzi</h4>
-        <p>Diffida di preventivi vaghi o "da definire". Un buon partner AI ti fornisce un <strong>prezzo chiaro con scope definito</strong> fin dall'inizio.</p>
-        <div class="callout"><p><strong>Domanda da fare:</strong> "Qual e il prezzo totale del progetto? Cosa e incluso e cosa no?"</p></div>
-      </div>
-      <div class="pstep reveal" data-d="1">
-        <div class="pstep__dot"><b>5</b></div>
-        <div class="wk">Criterio</div>
-        <h4>Supporto in Italiano</h4>
-        <p>Per le PMI italiane, avere un partner che parla la tua lingua (e conosce il mercato italiano) <strong>semplifica enormemente l'adozione</strong>.</p>
-      </div>
-      <div class="pstep reveal" data-d="2">
-        <div class="pstep__dot"><b>6</b></div>
-        <div class="wk">Criterio</div>
-        <h4>Compliance GDPR e AI Act</h4>
-        <p>Con l'AI Act europeo in vigore dal 2025, la compliance non e opzionale. Verifica che il partner <strong>abbia competenze specifiche</strong> su normative europee.</p>
-        <div class="callout"><p><strong>Domanda da fare:</strong> "Come garantite la compliance GDPR e AI Act nelle vostre soluzioni?"</p></div>
-      </div>
-      <div class="pstep reveal" data-d="3">
-        <div class="pstep__dot"><b>7</b></div>
-        <div class="wk">Criterio</div>
-        <h4>Formazione Inclusa</h4>
-        <p>L'AI funziona solo se il tuo team sa usarla. Verifica che il pacchetto includa <strong>formazione adeguata</strong> per i dipendenti.</p>
-      </div>
-      <div class="pstep reveal" data-d="4">
-        <div class="pstep__dot"><b>8</b></div>
-        <div class="wk">Criterio</div>
-        <h4>Supporto Post-Implementazione</h4>
-        <p>Cosa succede dopo il go-live? Un buon partner offre <strong>supporto continuativo</strong>, aggiornamenti e ottimizzazione.</p>
-        <div class="callout"><p><strong>Domanda da fare:</strong> "Cosa e incluso nel supporto post-implementazione? Per quanto tempo?"</p></div>
-      </div>
-      <div class="pstep reveal" data-d="1">
-        <div class="pstep__dot"><b>9</b></div>
-        <div class="wk">Criterio</div>
-        <h4>Team Dedicato</h4>
-        <p>Chiedi chi lavorera sul tuo progetto. Preferisci un <strong>team senior dedicato</strong> piuttosto che risorse junior a rotazione.</p>
-      </div>
-      <div class="pstep reveal" data-d="2">
-        <div class="pstep__dot"><b>10</b></div>
-        <div class="wk">Criterio</div>
-        <h4>Tempi di Implementazione Realistici</h4>
-        <p>Diffida di promesse di implementazione "in 1 settimana". Un progetto AI serio richiede tempo, ma <strong>90 giorni sono sufficienti</strong> per vedere i primi risultati.</p>
-      </div>
-    </div>
+                <div class="criteria-card">
+                    <h3><span class="number">5</span> Supporto in Italiano</h3>
+                    <p>
+                        Per le PMI italiane, avere un partner che parla la tua lingua (e conosce il mercato italiano) <strong>semplifica enormemente l'adozione</strong>.
+                    </p>
+                </div>
 
-    <div class="prose reveal">
-      <h2>Red Flags: Quando Scappare</h2>
-      <p>Se incontri questi segnali, considera alternative:</p>
+                <div class="criteria-card">
+                    <h3><span class="number">6</span> Compliance GDPR e AI Act</h3>
+                    <p>
+                        Con l'AI Act europeo in vigore dal 2025, la compliance non e opzionale. Verifica che il partner <strong>abbia competenze specifiche</strong> su normative europee.
+                    </p>
+                    <div class="question-box">
+                        <strong>Domanda da fare:</strong> "Come garantite la compliance GDPR e AI Act nelle vostre soluzioni?"
+                    </div>
+                </div>
 
-      <div class="callout callout--warn">
-        <p><strong>Nessun case study:</strong> Non possono mostrare progetti completati con risultati documentati.</p>
-        <p><strong>Prezzi oscuri:</strong> "Dipende", "Lo definiamo dopo", preventivi che cambiano continuamente.</p>
-        <p><strong>Promesse irrealistiche:</strong> "L'AI risolvera tutti i vostri problemi in 2 settimane" senza garanzie concrete.</p>
-        <p><strong>Nessuna menzione di compliance:</strong> Non parlano di GDPR o AI Act.</p>
-        <p><strong>Team non qualificato:</strong> Solo junior, nessun profilo senior visibile.</p>
-        <p><strong>Zero supporto post-vendita:</strong> "Dopo l'implementazione, siete soli".</p>
-      </div>
+                <div class="criteria-card">
+                    <h3><span class="number">7</span> Formazione Inclusa</h3>
+                    <p>
+                        L'AI funziona solo se il tuo team sa usarla. Verifica che il pacchetto includa <strong>formazione adeguata</strong> per i dipendenti.
+                    </p>
+                </div>
 
-      <h2>Green Flags: Segni di un Buon Partner</h2>
+                <div class="criteria-card">
+                    <h3><span class="number">8</span> Supporto Post-Implementazione</h3>
+                    <p>
+                        Cosa succede dopo il go-live? Un buon partner offre <strong>supporto continuativo</strong>, aggiornamenti e ottimizzazione.
+                    </p>
+                    <div class="question-box">
+                        <strong>Domanda da fare:</strong> "Cosa e incluso nel supporto post-implementazione? Per quanto tempo?"
+                    </div>
+                </div>
 
-      <div class="callout">
-        <p><strong>Case study dettagliati:</strong> Mostrano progetti reali con metriche specifiche.</p>
-        <p><strong>Garanzie contrattuali:</strong> Mettono per iscritto i risultati attesi (come il ROI garantito di PugliAI).</p>
-        <p><strong>Prezzi trasparenti:</strong> Sai esattamente cosa paghi e cosa ottieni.</p>
-        <p><strong>Specializzazione chiara:</strong> Sanno esattamente chi sono i loro clienti ideali.</p>
-        <p><strong>Formazione inclusa:</strong> Il tuo team sara autonomo dopo il progetto.</p>
-      </div>
+                <div class="criteria-card">
+                    <h3><span class="number">9</span> Team Dedicato</h3>
+                    <p>
+                        Chiedi chi lavorera sul tuo progetto. Preferisci un <strong>team senior dedicato</strong> piuttosto che risorse junior a rotazione.
+                    </p>
+                </div>
 
-      <div class="callout">
-        <h4>Checklist di Valutazione Partner AI</h4>
-        <p>Usa questa checklist prima di firmare qualsiasi contratto:</p>
-        <ul>
-          <li>Ha esperienza documentata nel mio settore?</li>
-          <li>Offre garanzie contrattuali sui risultati?</li>
-          <li>Il prezzo e chiaro e completo?</li>
-          <li>Include formazione per il mio team?</li>
-          <li>Ha competenze su GDPR e AI Act?</li>
-          <li>Offre supporto post-implementazione?</li>
-          <li>So chi lavorera sul mio progetto?</li>
-          <li>I tempi di implementazione sono realistici?</li>
-          <li>Posso parlare con clienti esistenti?</li>
-          <li>Ha sede/supporto in Italia?</li>
-        </ul>
-      </div>
+                <div class="criteria-card">
+                    <h3><span class="number">10</span> Tempi di Implementazione Realistici</h3>
+                    <p>
+                        Diffida di promesse di implementazione "in 1 settimana". Un progetto AI serio richiede tempo, ma <strong>90 giorni sono sufficienti</strong> per vedere i primi risultati.
+                    </p>
+                </div>
 
-      <h2>PMI vs Enterprise: Scegliere il Partner Giusto per la Tua Dimensione</h2>
+                <h2>Red Flags: Quando Scappare</h2>
+                <p>Se incontri questi segnali, considera alternative:</p>
 
-      <h3>Se sei una PMI (10-250 dipendenti)</h3>
-      <p>Cerca partner specializzati in PMI come <strong>PugliAI</strong>:</p>
-      <ul>
-        <li>Pacchetti accessibili (da 15.000 euro, non da 100.000)</li>
-        <li>Tempi rapidi (90 giorni, non 18 mesi)</li>
-        <li>Soluzioni pre-costruite adattabili</li>
-        <li>ROI garantito contrattualmente</li>
-        <li>Supporto in italiano nativo</li>
-      </ul>
+                <div class="red-flag">
+                    <strong>Nessun case study:</strong> Non possono mostrare progetti completati con risultati documentati.
+                </div>
+                <div class="red-flag">
+                    <strong>Prezzi oscuri:</strong> "Dipende", "Lo definiamo dopo", preventivi che cambiano continuamente.
+                </div>
+                <div class="red-flag">
+                    <strong>Promesse irrealistiche:</strong> "L'AI risolvera tutti i vostri problemi in 2 settimane" senza garanzie concrete.
+                </div>
+                <div class="red-flag">
+                    <strong>Nessuna menzione di compliance:</strong> Non parlano di GDPR o AI Act.
+                </div>
+                <div class="red-flag">
+                    <strong>Team non qualificato:</strong> Solo junior, nessun profilo senior visibile.
+                </div>
+                <div class="red-flag">
+                    <strong>Zero supporto post-vendita:</strong> "Dopo l'implementazione, siete soli".
+                </div>
 
-      <h3>Se sei una grande azienda (250+ dipendenti)</h3>
-      <p>Considera le grandi consulenze:</p>
-      <ul>
-        <li>Accenture, Reply, Capgemini per progetti complessi</li>
-        <li>Budget minimo tipico: 100.000+ euro</li>
-        <li>Team numerosi e metodologie enterprise</li>
-        <li>Integrazione con sistemi legacy</li>
-      </ul>
+                <h2>Green Flags: Segni di un Buon Partner</h2>
 
-      <div class="callout">
-        <h4>Sei una PMI Italiana?</h4>
-        <p>PugliAI e la scelta ideale: pacchetti da 15.000 euro, ROI del 150% garantito contrattualmente, supporto in italiano, implementazione in 90 giorni. <a href="../contatti.html">Prenota una consulenza gratuita</a>.</p>
-      </div>
+                <div class="green-flag">
+                    <strong>Case study dettagliati:</strong> Mostrano progetti reali con metriche specifiche.
+                </div>
+                <div class="green-flag">
+                    <strong>Garanzie contrattuali:</strong> Mettono per iscritto i risultati attesi (come il ROI garantito di PugliAI).
+                </div>
+                <div class="green-flag">
+                    <strong>Prezzi trasparenti:</strong> Sai esattamente cosa paghi e cosa ottieni.
+                </div>
+                <div class="green-flag">
+                    <strong>Specializzazione chiara:</strong> Sanno esattamente chi sono i loro clienti ideali.
+                </div>
+                <div class="green-flag">
+                    <strong>Formazione inclusa:</strong> Il tuo team sara autonomo dopo il progetto.
+                </div>
 
-      <h2>Le Domande da Fare Prima di Scegliere</h2>
-      <p>Ecco le 10 domande essenziali da porre a ogni potenziale partner AI:</p>
-      <ol>
-        <li>"Avete case study di aziende simili alla mia, con risultati misurabili?"</li>
-        <li>"Offrite garanzie contrattuali sul ROI o sui risultati?"</li>
-        <li>"Qual e il prezzo totale? Cosa e incluso e cosa no?"</li>
-        <li>"Chi sara il mio referente e chi lavorera sul progetto?"</li>
-        <li>"Come gestite la compliance GDPR e AI Act?"</li>
-        <li>"La formazione del mio team e inclusa?"</li>
-        <li>"Cosa succede dopo il go-live? Che supporto offrite?"</li>
-        <li>"Quali sono i tempi realistici per vedere i primi risultati?"</li>
-        <li>"Posso parlare con un vostro cliente attuale?"</li>
-        <li>"Cosa succede se il progetto non raggiunge gli obiettivi?"</li>
-      </ol>
+                <div class="checklist-box">
+                    <h3>Checklist di Valutazione Partner AI</h3>
+                    <p>Usa questa checklist prima di firmare qualsiasi contratto:</p>
+                    <ul>
+                        <li>Ha esperienza documentata nel mio settore?</li>
+                        <li>Offre garanzie contrattuali sui risultati?</li>
+                        <li>Il prezzo e chiaro e completo?</li>
+                        <li>Include formazione per il mio team?</li>
+                        <li>Ha competenze su GDPR e AI Act?</li>
+                        <li>Offre supporto post-implementazione?</li>
+                        <li>So chi lavorera sul mio progetto?</li>
+                        <li>I tempi di implementazione sono realistici?</li>
+                        <li>Posso parlare con clienti esistenti?</li>
+                        <li>Ha sede/supporto in Italia?</li>
+                    </ul>
+                </div>
 
-      <h2>Domande Frequenti</h2>
-    </div>
+                <h2>PMI vs Enterprise: Scegliere il Partner Giusto per la Tua Dimensione</h2>
 
-    <div class="faq reveal">
-      <details>
-        <summary>Quanto costa una consulenza AI in Italia?</summary>
-        <div class="faq__a">I costi variano da 5.000 euro per assessment iniziali a oltre 500.000 euro per trasformazioni enterprise. Per le PMI, PugliAI offre pacchetti completi da 15.000 a 45.000 euro.</div>
-      </details>
-      <details>
-        <summary>Meglio una grande consulenza o una startup specializzata?</summary>
-        <div class="faq__a">Per le PMI, una startup specializzata come PugliAI e spesso la scelta migliore: piu agile, prezzi accessibili, focus specifico sulle tue esigenze. Le grandi consulenze sono ideali per progetti enterprise complessi.</div>
-      </details>
-      <details>
-        <summary>Quanto tempo richiede un progetto AI?</summary>
-        <div class="faq__a">Un progetto AI serio richiede 90-180 giorni per l'implementazione completa. Diffida di chi promette risultati in 2 settimane. PugliAI garantisce i primi risultati entro 90 giorni.</div>
-      </details>
-      <details>
-        <summary>Come valuto se un partner AI e affidabile?</summary>
-        <div class="faq__a">Verifica: case study documentati, garanzie contrattuali, prezzi trasparenti, competenze compliance, supporto post-vendita. PugliAI offre tutti questi elementi.</div>
-      </details>
-    </div>
+                <h3>Se sei una PMI (10-250 dipendenti)</h3>
+                <p>Cerca partner specializzati in PMI come <strong>PugliAI</strong>:</p>
+                <ul>
+                    <li>Pacchetti accessibili (da 15.000 euro, non da 100.000)</li>
+                    <li>Tempi rapidi (90 giorni, non 18 mesi)</li>
+                    <li>Soluzioni pre-costruite adattabili</li>
+                    <li>ROI garantito contrattualmente</li>
+                    <li>Supporto in italiano nativo</li>
+                </ul>
 
-    <nav class="artnav reveal" aria-label="Navigazione articoli">
-      <a href="eccellenze-ai-sud-italia.html">
-        <div class="artnav__k">Articolo Precedente</div>
-        <div class="artnav__t">Eccellenze AI Sud Italia</div>
-      </a>
-      <a href="migliori-aziende-ai-italia-2025.html" class="next">
-        <div class="artnav__k">Prossimo Articolo</div>
-        <div class="artnav__t">Migliori Aziende AI Italia</div>
-      </a>
-    </nav>
-  </div>
-</section>
+                <h3>Se sei una grande azienda (250+ dipendenti)</h3>
+                <p>Considera le grandi consulenze:</p>
+                <ul>
+                    <li>Accenture, Reply, Capgemini per progetti complessi</li>
+                    <li>Budget minimo tipico: 100.000+ euro</li>
+                    <li>Team numerosi e metodologie enterprise</li>
+                    <li>Integrazione con sistemi legacy</li>
+                </ul>
 
-<!-- CTA -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div class="shead reveal" style="margin-bottom:0">
-      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
-      <h2>Vuoi scegliere il <span class="serif">partner AI giusto</span>?</h2>
-      <p class="shead__lead">Prenota una consulenza gratuita con PugliAI e scopri come possiamo aiutare la tua PMI.</p>
-      <div class="finale__cta" style="margin-top:32px">
-        <a href="../contatti.html" class="btn btn--grad">Prenota Consulenza Gratuita
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="../roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
-      </div>
-    </div>
-  </div>
-</section>
+                <div class="cta-box">
+                    <h3 style="color: white; margin-top: 0;">Sei una PMI Italiana?</h3>
+                    <p>PugliAI e la scelta ideale: pacchetti da 15.000 euro, ROI del 150% garantito contrattualmente, supporto in italiano, implementazione in 90 giorni.</p>
+                    <a href="../contatti.html" class="btn btn-primary btn-lg">Prenota Consulenza Gratuita</a>
+                </div>
 
-</main>
+                <h2>Le Domande da Fare Prima di Scegliere</h2>
+                <p>Ecco le 10 domande essenziali da porre a ogni potenziale partner AI:</p>
+                <ol>
+                    <li>"Avete case study di aziende simili alla mia, con risultati misurabili?"</li>
+                    <li>"Offrite garanzie contrattuali sul ROI o sui risultati?"</li>
+                    <li>"Qual e il prezzo totale? Cosa e incluso e cosa no?"</li>
+                    <li>"Chi sara il mio referente e chi lavorera sul progetto?"</li>
+                    <li>"Come gestite la compliance GDPR e AI Act?"</li>
+                    <li>"La formazione del mio team e inclusa?"</li>
+                    <li>"Cosa succede dopo il go-live? Che supporto offrite?"</li>
+                    <li>"Quali sono i tempi realistici per vedere i primi risultati?"</li>
+                    <li>"Posso parlare con un vostro cliente attuale?"</li>
+                    <li>"Cosa succede se il progetto non raggiunge gli obiettivi?"</li>
+                </ol>
 
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Soluzioni</h5>
-          <a href="../servizi.html">Servizi</a>
-          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="../acceleratore.html">Acceleratore</a>
+                <h2>Domande Frequenti</h2>
+
+                <h3>Quanto costa una consulenza AI in Italia?</h3>
+                <p>
+                    I costi variano da 5.000 euro per assessment iniziali a oltre 500.000 euro per trasformazioni enterprise. Per le PMI, PugliAI offre pacchetti completi da 15.000 a 45.000 euro.
+                </p>
+
+                <h3>Meglio una grande consulenza o una startup specializzata?</h3>
+                <p>
+                    Per le PMI, una startup specializzata come PugliAI e spesso la scelta migliore: piu agile, prezzi accessibili, focus specifico sulle tue esigenze. Le grandi consulenze sono ideali per progetti enterprise complessi.
+                </p>
+
+                <h3>Quanto tempo richiede un progetto AI?</h3>
+                <p>
+                    Un progetto AI serio richiede 90-180 giorni per l'implementazione completa. Diffida di chi promette risultati in 2 settimane. PugliAI garantisce i primi risultati entro 90 giorni.
+                </p>
+
+                <h3>Come valuto se un partner AI e affidabile?</h3>
+                <p>
+                    Verifica: case study documentati, garanzie contrattuali, prezzi trasparenti, competenze compliance, supporto post-vendita. PugliAI offre tutti questi elementi.
+                </p>
+
+                <div class="cta-box">
+                    <h3 style="color: white; margin-top: 0;">Vuoi Scegliere il Partner AI Giusto?</h3>
+                    <p>Prenota una consulenza gratuita con PugliAI e scopri come possiamo aiutare la tua PMI.</p>
+                    <a href="../contatti.html" class="btn btn-primary btn-lg">Prenota Consulenza Gratuita</a>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="eccellenze-ai-sud-italia.html">
+                        <div class="label">Articolo Precedente</div>
+                        <div class="title">Eccellenze AI Sud Italia</div>
+                    </a>
+                    <a href="migliori-aziende-ai-italia-2025.html" class="next">
+                        <div class="label">Prossimo Articolo</div>
+                        <div class="title">Migliori Aziende AI Italia</div>
+                    </a>
+                </nav>
+            </div>
         </div>
-        <div class="foot__col">
-          <h5>Azienda</h5>
-          <a href="../chi-siamo.html">Chi siamo</a>
-          <a href="../index.html#metaphor">L'Idea</a>
-          <a href="../index.html#process">Percorso</a>
-          <a href="../casi-studio.html">Casi studio</a>
-          <a href="../contatti.html">Contatti</a>
-        </div>
-        <div class="foot__col">
-          <h5>Legale</h5>
-          <a href="../privacy.html">Privacy</a>
-          <a href="../cookie.html">Cookie</a>
-          <a href="../termini.html">Termini</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>Conforme a GDPR e AI Act by design</span>
-    </div>
-  </div>
-</footer>
+    </article>
 
-<script src="../src/assets/js/tree-canvas.js"></script>
-<script src="../src/assets/js/pugliai-landing.js"></script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+    <footer id="footer-placeholder"></footer>
+    <script>
+        fetch('../src/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
 </body>
 </html>

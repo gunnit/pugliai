@@ -48,12 +48,3 @@ screenshots/
 
 # Misc
 image.png
-
-# Local build/preview artifacts (not for deploy)
-_build/
-*.orig
-.claude/launch.json
-
-# Impeccable design skill — local tooling, not site content
-.claude/skills/
-.claude/agents/impeccable-*.md

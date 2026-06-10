@@ -41,10 +41,408 @@
     <link rel="canonical" href="https://www.pugliai.com/en/technical-architecture.html">
 
     <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- Stylesheet -->
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
 
-<!-- Structured Data - WebPage + Service -->
+    <style>
+        /* Ensure proper font and base styles */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Technical Architecture Specific Styles */
+        .tech-hero {
+            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(212, 160, 23, 0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #10B981, #D4A017);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #94A3B8;
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        /* Architecture Diagram Section */
+        .architecture-section {
+            padding: 4rem 0;
+            background: #F7F8FA;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0A1628;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .architecture-diagram {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .layer-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .layer-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        .layer-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #0A1628, #1E293B);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: #D4A017;
+            font-size: 1.5rem;
+        }
+
+        .layer-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0A1628;
+        }
+
+        .layer-description {
+            color: #64748B;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .tech-item {
+            background: #F7F8FA;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            border-color: #D4A017;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 160, 23, 0.1);
+        }
+
+        .tech-name {
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-category {
+            font-size: 0.85rem;
+            color: #64748B;
+        }
+
+        /* Stack Cards */
+        .stack-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .stack-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .stack-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .stack-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .stack-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #0A1628, #1E293B);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .stack-icon.ai { color: #10B981; }
+        .stack-icon.cloud { color: #3B82F6; }
+        .stack-icon.data { color: #D4A017; }
+        .stack-icon.security { color: #EF4444; }
+        .stack-icon.devops { color: #8B5CF6; }
+        .stack-icon.monitoring { color: #F59E0B; }
+
+        .stack-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 1rem;
+        }
+
+        .stack-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .stack-list li {
+            padding: 0.5rem 0;
+            color: #64748B;
+            display: flex;
+            align-items: center;
+        }
+
+        .stack-list li::before {
+            content: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>';
+            color: #10B981;
+            margin-right: 0.5rem;
+        }
+
+        /* Security Section */
+        .security-section {
+            background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .security-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .security-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .security-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #D4A017;
+        }
+
+        .security-description {
+            color: #94A3B8;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Integration Section */
+        .integration-section {
+            padding: 4rem 0;
+            background: #F7F8FA;
+        }
+
+        .integration-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .integration-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+        }
+
+        .integration-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .integration-logo {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .integration-name {
+            font-weight: 500;
+            color: #0A1628;
+            font-size: 0.95rem;
+        }
+
+        /* Performance Metrics */
+        .metrics-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .metrics-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 2rem;
+            background: #F7F8FA;
+            border-radius: 12px;
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #64748B;
+            font-size: 1rem;
+        }
+
+        .metric-description {
+            color: #94A3B8;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #10B981 0%, #D4A017 100%);
+            padding: 4rem 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #0A1628;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .tech-grid { grid-template-columns: 1fr; }
+            .stack-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <!-- Structured Data - WebPage + Service -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -131,381 +529,492 @@
       ]
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/brand.css">
-    <link rel="stylesheet" href="../src/assets/css/landing.css">
-    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to content</a>
+    <!-- Dynamic Navigation - Generated by navigation.js -->
+    <div id="nav-placeholder"></div>
+    <script src="../src/assets/js/navigation.js"></script>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="index.html#metaphor">The Idea</a>
-      <a href="services.html">Services</a>
-      <a href="products.html">On-Premise</a>
-      <a href="accelerator.html">Accelerator</a>
-      <a href="index.html#process">Process</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Language">
-        <a href="../architettura-tecnica.html">IT</a>
-        <a href="technical-architecture.html" class="on" aria-current="true">EN</a>
-      </div>
-      <a href="contact.html" class="btn btn--grad btn--sm nav__cta">Get a quote</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="index.html#metaphor">The Idea</a>
-  <a href="services.html">Services</a>
-  <a href="products.html">On-Premise</a>
-  <a href="accelerator.html">Accelerator</a>
-  <a href="index.html#process">Process</a>
-  <a href="contact.html">Get a quote</a>
-</div>
-
-<main id="main">
-
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <div class="eyebrow-lux">AI technical architecture</div>
-    <h1>The AI technology stack for your <span class="serif">SME</span></h1>
-    <p class="pagehead__lead">A cloud-native architecture built for scalable, secure and high-performance AI solutions. Reliable, compliant and integrated without friction into the systems you already use.</p>
-    <div class="pagehead__cta">
-      <a href="contact.html" class="btn btn--grad">Request an architecture review
-        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="services.html" class="btn btn--ghost">See all services</a>
-    </div>
-    <div class="hero__trust">
-      <div class="ti"><b class="grad-text">99.99%</b><span>Uptime SLA</span></div>
-      <div class="ti"><b class="grad-text">10M+</b><span>Requests per day</span></div>
-      <div class="ti"><b>&lt;100<span class="serif" style="font-size:18px"> ms</span></b><span>API latency</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ARCHITECTURE LAYERS -->
-<section class="sec sec--dark" id="architecture">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Multi-layer architecture</div>
-      <h2>Five layers, <span class="serif">one cohesive system</span></h2>
-      <p class="shead__lead">From presentation to infrastructure: every layer is designed for reliability, maintainability and growth, built on proven technologies and industry standards.</p>
-    </div>
-    <div class="cards3">
-      <article class="gcard reveal" data-d="1">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-        <h3>Presentation Layer</h3>
-        <p>Intuitive, responsive interfaces for frictionless interaction with AI systems: real-time dashboards, advanced visualizations and RESTful APIs for integration. React / Next.js, Streamlit, Grafana, PowerBI.</p>
-      </article>
-      <article class="gcard reveal" data-d="2">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 13a1.6 1.6 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.6 1.6 0 00-2.7 1.1V20a2 2 0 11-4 0v-.1A1.6 1.6 0 005 18.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.6 1.6 0 00-1.1-2.7H1a2 2 0 110-4h.1A1.6 1.6 0 002.8 5l-.1-.1A2 2 0 115.5 2l.1.1a1.6 1.6 0 002.7-1.1V1a2 2 0 114 0v.1A1.6 1.6 0 0019 2.8l.1-.1A2 2 0 1122 5.5l-.1.1a1.6 1.6 0 001.1 2.7H23a2 2 0 110 4h-.1a1.6 1.6 0 00-1.5 1z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Application Layer</h3>
-        <p>Scalable microservices for AI model orchestration, business logic and workflow automation. A container-based architecture for flexible deployment and simple maintenance. FastAPI, Kubernetes, Apache Airflow, RabbitMQ.</p>
-      </article>
-      <article class="gcard reveal" data-d="3">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><path d="M9.5 2a3 3 0 00-3 3 3 3 0 00-2 5.2A3 3 0 004 16a3 3 0 003 3 3 3 0 005 0 3 3 0 003-3 3 3 0 00.5-5.8A3 3 0 0015.5 5a3 3 0 00-3-3 3 3 0 00-3 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>AI / ML Layer</h3>
-        <p>Core AI capabilities with state-of-the-art models, training pipelines and inference optimization. Support for LLMs, computer vision, NLP and custom models. OpenAI GPT-4, Claude 3, TensorFlow, PyTorch, Hugging Face, LangChain, NVIDIA Triton, MLflow.</p>
-      </article>
-      <article class="gcard reveal" data-d="1">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="1.8"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" stroke="currentColor" stroke-width="1.8"/></svg></div>
-        <h3>Data Layer</h3>
-        <p>Robust data management with support for structured and unstructured data, real-time streaming and a data lake architecture for advanced analytics. PostgreSQL, MongoDB, Pinecone, Redis, Apache Kafka, Databricks, Apache Spark, MinIO.</p>
-      </article>
-      <article class="gcard reveal" data-d="2">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Infrastructure Layer</h3>
-        <p>Cloud-native infrastructure with auto-scaling, high availability and disaster recovery. A multi-cloud strategy for vendor independence and cost optimization. Azure, AWS, Docker, Terraform, GitHub Actions, ArgoCD, Prometheus, ELK Stack.</p>
-      </article>
-      <article class="gcard reveal" data-d="3">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 8.5L14 13l-3-3-4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Monitoring &amp; Analytics</h3>
-        <p>Real-time performance metrics, model drift detection, business KPI dashboards and alert management. Built-in cost optimization and user analytics for data-driven decisions.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- TECHNOLOGY STACK -->
-<section class="sec sec--panel" id="stack">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Technology stack</div>
-      <h2>Technology optimized <span class="serif">for SMEs</span></h2>
-      <p class="shead__lead">Mature, proven components, chosen for the right balance of enterprise power with costs and complexity proportional to your company's size.</p>
-    </div>
-    <div class="cards3">
-      <article class="pcard pcard--g reveal" data-d="1">
-        <div class="pcard__glow"></div>
-        <div class="pcard__tag">AI &amp; ML</div>
-        <h3>AI &amp; Machine <span class="serif">Learning</span></h3>
-        <div class="pcard__price">State-of-the-art models</div>
-        <p>The artificial intelligence capabilities at the heart of every solution, from language generation to computer vision.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Large Language Models (GPT-4, Claude)</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Computer Vision (YOLO, ResNet)</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>NLP &amp; text analytics</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reinforcement learning</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AutoML pipelines</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Federated learning</span></li>
-        </ul>
-      </article>
-      <article class="pcard pcard--b reveal" data-d="2">
-        <div class="pcard__glow"></div>
-        <div class="pcard__tag">Cloud</div>
-        <h3>Cloud &amp; <span class="serif">Infrastructure</span></h3>
-        <div class="pcard__price">Multi-cloud and hybrid</div>
-        <p>Elastic infrastructure that scales with your business, with no upfront hardware investment.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Azure AI Services</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AWS SageMaker</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Google Cloud AI Platform</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Hybrid cloud solutions</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Edge computing</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>5G private networks</span></li>
-        </ul>
-      </article>
-      <article class="pcard pcard--g reveal" data-d="3">
-        <div class="pcard__glow"></div>
-        <div class="pcard__tag">Data</div>
-        <h3>Data <span class="serif">Engineering</span></h3>
-        <div class="pcard__price">Data ready for AI</div>
-        <p>Reliable pipelines that turn raw data into value, with quality and governance at their core.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ETL/ELT pipelines</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Real-time data streaming</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Data quality management</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Feature engineering</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Data versioning (DVC)</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Data governance</span></li>
-        </ul>
-      </article>
-      <article class="pcard pcard--b reveal" data-d="1">
-        <div class="pcard__glow"></div>
-        <div class="pcard__tag">Security</div>
-        <h3>Security &amp; <span class="serif">Compliance</span></h3>
-        <div class="pcard__price">Security by design</div>
-        <p>Protection integrated at every layer, with a Zero Trust approach and native regulatory compliance.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>End-to-end encryption</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Zero Trust architecture</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>GDPR compliance tools</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Audit logging</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Identity management (OAuth, SAML)</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Vulnerability scanning</span></li>
-        </ul>
-      </article>
-      <article class="pcard pcard--g reveal" data-d="2">
-        <div class="pcard__glow"></div>
-        <div class="pcard__tag">DevOps</div>
-        <h3>DevOps &amp; <span class="serif">MLOps</span></h3>
-        <div class="pcard__price">Zero-downtime deploys</div>
-        <p>Automation across the lifecycle of code and models, for fast, safe and repeatable releases.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>CI/CD pipelines</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Model registry &amp; versioning</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A/B testing framework</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Blue-green deployments</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Infrastructure as Code</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Automated testing</span></li>
-        </ul>
-      </article>
-      <article class="pcard pcard--b reveal" data-d="3">
-        <div class="pcard__glow"></div>
-        <div class="pcard__tag">Monitoring</div>
-        <h3>Monitoring &amp; <span class="serif">Analytics</span></h3>
-        <div class="pcard__price">Continuous visibility</div>
-        <p>Observability across systems and models, to catch drift and opportunities before they become problems.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Real-time performance metrics</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Model drift detection</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Business KPI dashboards</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Alert management</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cost optimization</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>User analytics</span></li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- SECURITY & COMPLIANCE -->
-<section class="sec sec--darker" id="security">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Security &amp; compliance</div>
-      <h2>Protection at <span class="serif">every layer</span></h2>
-      <p class="shead__lead">Security is not a final add-on: it is built into the architecture with a Zero Trust approach and Privacy by Design, compliant with European regulations.</p>
-    </div>
-    <div class="cards3">
-      <article class="gcard reveal" data-d="1">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
-        <h3>Data protection</h3>
-        <p>Encryption at rest and in transit, data masking, tokenization and secure key management with HSM compliance.</p>
-      </article>
-      <article class="gcard reveal" data-d="2">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-        <h3>Privacy by design</h3>
-        <p>Integrated GDPR compliance, data minimization, consent management and right-to-be-forgotten implementation.</p>
-      </article>
-      <article class="gcard reveal" data-d="3">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><path d="M16 11a4 4 0 10-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-        <h3>Access control</h3>
-        <p>Role-based access control (RBAC), multi-factor authentication, privileged access management and complete audit trails.</p>
-      </article>
-    </div>
-    <div class="soverign reveal" data-d="2">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <p><b>Compliance standards.</b> ISO 27001, SOC 2 Type II, HIPAA ready and PCI DSS compatible: maximum regulatory compliance for your data and your customers'.</p>
-    </div>
-  </div>
-</section>
-
-<!-- INTEGRATIONS -->
-<section class="sec sec--dark" id="integrations">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Integrations</div>
-      <h2>Connected to the systems <span class="serif">you already use</span></h2>
-      <p class="shead__lead">Seamless integration with major business systems, to maximize the value of existing investments and accelerate time-to-value.</p>
-    </div>
-    <div class="cards3">
-      <a class="gcard reveal" data-d="1" href="contact.html">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.8"/></svg></div>
-        <h3>ERP &amp; back-office</h3>
-        <p>Native connectors for SAP, Oracle and leading ERPs, to bring AI inside your core processes.</p>
-        <span class="gcard__link">Let's talk <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-      <a class="gcard reveal" data-d="2" href="contact.html">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg></div>
-        <h3>CRM &amp; sales</h3>
-        <p>Salesforce, HubSpot and ServiceNow: customer data and sales workflows enriched by AI.</p>
-        <span class="gcard__link">Let's talk <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-      <a class="gcard reveal" data-d="3" href="contact.html">
-        <div class="gcard__ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V8l7-4 7 4v13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="9" y="11" width="6" height="6" stroke="currentColor" stroke-width="1.8"/></svg></div>
-        <h3>Productivity &amp; industry</h3>
-        <p>Microsoft 365, Slack and industrial platforms such as Siemens MindSphere, for end-to-end data and collaboration.</p>
-        <span class="gcard__link">Let's talk <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- PERFORMANCE METRICS -->
-<section class="sec sec--panel sec--tight" id="performance">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Performance &amp; reliability</div>
-      <h2>Numbers that <span class="serif">hold under load</span></h2>
-    </div>
-    <div class="stats">
-      <div class="stat reveal" data-d="1"><div class="n grad-text" data-count="99.99" data-suffix="%">99.99%</div><div class="l">Uptime SLA</div><div class="s">Multi-region redundancy</div></div>
-      <div class="stat reveal" data-d="2"><div class="n" data-count="100" data-prefix="&lt;" data-suffix="ms">&lt;100ms</div><div class="l">API latency</div><div class="s">95th percentile</div></div>
-      <div class="stat reveal" data-d="3"><div class="n grad-text" data-count="10" data-suffix="M+">10M+</div><div class="l">Requests per day</div><div class="s">With auto-scaling</div></div>
-      <div class="stat reveal" data-d="4"><div class="n">PB</div><div class="l">Data processing</div><div class="s">Petabyte-scale big data</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="sec sec--light" id="faq">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Frequently asked</div>
-      <h2>Everything you <span class="serif">want to know</span></h2>
-    </div>
-    <div class="faq reveal">
-      <details>
-        <summary>What is an AI technical architecture and why is it important?</summary>
-        <div class="faq__a">An AI technical architecture is a multi-layer structure comprising presentation layer, application layer, AI/ML layer, data layer, and infrastructure layer. It defines how software components, artificial intelligence models, and cloud infrastructure interact to deliver scalable, secure, and high-performance AI solutions. It is crucial because it ensures AI systems are reliable, maintainable, and ready for business growth.</div>
-      </details>
-      <details>
-        <summary>Why do Italian SMEs need a dedicated AI architecture?</summary>
-        <div class="faq__a">Italian SMEs need an optimized AI architecture because it enables integration of artificial intelligence with existing business systems such as SAP, Salesforce, and Microsoft 365, while maintaining GDPR compliance. A well-designed architecture allows SMEs to obtain enterprise AI benefits (microservices, automation, advanced analytics) with costs and complexity proportional to their size.</div>
-      </details>
-      <details>
-        <summary>Is cloud or on-premise AI architecture better for an SME?</summary>
-        <div class="faq__a">PugliAI adopts a cloud-native approach with multi-cloud support (Azure, AWS) that offers auto-scaling, high availability, and disaster recovery without upfront hardware investments. However, for specific compliance or latency requirements, hybrid solutions with edge computing are available. The multi-cloud strategy ensures vendor independence and cost optimization, ideal for SMEs looking to scale gradually.</div>
-      </details>
-      <details>
-        <summary>How is security ensured in the AI architecture?</summary>
-        <div class="faq__a">Security is integrated at every level of the architecture with a Zero Trust approach: encryption at rest and in transit, data masking, tokenization, RBAC (Role-Based Access Control), multi-factor authentication, and complete audit trails. The architecture includes Privacy by Design with integrated GDPR compliance, data minimization, and consent management. Supported standards include ISO 27001, SOC 2 Type II, HIPAA, and PCI DSS.</div>
-      </details>
-      <details>
-        <summary>How is scalability guaranteed in the AI architecture?</summary>
-        <div class="faq__a">Scalability is guaranteed through a microservices architecture with Kubernetes orchestration, Docker containers, and automatic auto-scaling. The system supports over 10 million requests per day with API latency under 100ms and a 99.99% uptime SLA. The data layer handles petabyte-scale data with real-time streaming via Apache Kafka and distributed processing with Apache Spark.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div class="shead reveal" style="margin-bottom:0">
-      <div class="eyebrow-lux" style="justify-content:center">Let's talk</div>
-      <h2>Future-ready <span class="serif">architecture</span></h2>
-      <p class="shead__lead">Discover how our SME-optimized architecture can transform your AI infrastructure and accelerate innovation. A free architecture review is included.</p>
-      <div class="finale__cta" style="margin-top:32px">
-        <a href="contact.html" class="btn btn--grad">Request an architecture review
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="services.html" class="btn btn--ghost">See all services</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>Frontier AI, rooted in Italy. Practical, compliant, measured in real ROI.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Solutions</h5>
-          <a href="services.html">Services</a>
-          <a href="voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="accelerator.html">Accelerator</a>
+    <main role="main">
+    <!-- Hero Section -->
+    <section class="tech-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">AI Architecture for SMEs</h1>
+            <p class="hero-subtitle">
+                Cutting-edge technology stack for scalable, secure, and high-performance AI solutions.
+                Cloud-native architecture focused on reliability, compliance, and seamless integration
+                with existing systems.
+            </p>
         </div>
-        <div class="foot__col">
-          <h5>Company</h5>
-          <a href="about-us.html">About us</a>
-          <a href="index.html#metaphor">The Idea</a>
-          <a href="index.html#process">Process</a>
-          <a href="case-studies.html">Case studies</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="foot__col">
-          <h5>Legal</h5>
-          <a href="privacy.html">Privacy</a>
-          <a href="cookie.html">Cookie</a>
-          <a href="terms.html">Terms</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>GDPR &amp; AI Act compliant by design</span>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<script src="../src/assets/js/tree-canvas.js"></script>
-<script src="../src/assets/js/pugliai-landing.js"></script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+    <!-- Architecture Layers -->
+    <section class="architecture-section">
+        <h2 class="section-title">Multi-Layer Architecture</h2>
+        <div class="architecture-diagram">
+            <!-- Presentation Layer -->
+            <div class="layer-container">
+                <div class="layer-header">
+                    <div class="layer-icon">🖥️</div>
+                    <h3 class="layer-title">Presentation Layer</h3>
+                </div>
+                <p class="layer-description">
+                    Intuitive and responsive user interfaces for seamless interaction with AI systems.
+                    Real-time dashboards, advanced visualizations, and RESTful APIs for integration.
+                </p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-name">React / Next.js</div>
+                        <div class="tech-category">Frontend Framework</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Streamlit</div>
+                        <div class="tech-category">Data Apps</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Grafana</div>
+                        <div class="tech-category">Monitoring Dashboard</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">PowerBI</div>
+                        <div class="tech-category">Business Intelligence</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Layer -->
+            <div class="layer-container">
+                <div class="layer-header">
+                    <div class="layer-icon">⚙️</div>
+                    <h3 class="layer-title">Application Layer</h3>
+                </div>
+                <p class="layer-description">
+                    Scalable microservices for AI model orchestration, business logic, and workflow automation.
+                    Container-based architecture for flexible deployment and simplified maintenance.
+                </p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-name">FastAPI</div>
+                        <div class="tech-category">API Framework</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Kubernetes</div>
+                        <div class="tech-category">Orchestration</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Apache Airflow</div>
+                        <div class="tech-category">Workflow Management</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">RabbitMQ</div>
+                        <div class="tech-category">Message Queue</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI/ML Layer -->
+            <div class="layer-container">
+                <div class="layer-header">
+                    <div class="layer-icon">🧠</div>
+                    <h3 class="layer-title">AI/ML Layer</h3>
+                </div>
+                <p class="layer-description">
+                    Core AI capabilities with state-of-the-art models, training pipelines, and inference optimization.
+                    Support for LLMs, computer vision, NLP, and custom models.
+                </p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-name">OpenAI GPT-4</div>
+                        <div class="tech-category">Language Model</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Claude 3</div>
+                        <div class="tech-category">Language Model</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">TensorFlow</div>
+                        <div class="tech-category">ML Framework</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">PyTorch</div>
+                        <div class="tech-category">Deep Learning</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Hugging Face</div>
+                        <div class="tech-category">Model Hub</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">LangChain</div>
+                        <div class="tech-category">LLM Framework</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">NVIDIA Triton</div>
+                        <div class="tech-category">Inference Server</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">MLflow</div>
+                        <div class="tech-category">ML Lifecycle</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Layer -->
+            <div class="layer-container">
+                <div class="layer-header">
+                    <div class="layer-icon">💾</div>
+                    <h3 class="layer-title">Data Layer</h3>
+                </div>
+                <p class="layer-description">
+                    Robust data management with support for structured/unstructured data, real-time streaming,
+                    and data lake architecture for advanced analytics.
+                </p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-name">PostgreSQL</div>
+                        <div class="tech-category">Relational DB</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">MongoDB</div>
+                        <div class="tech-category">NoSQL DB</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Pinecone</div>
+                        <div class="tech-category">Vector DB</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Redis</div>
+                        <div class="tech-category">Cache</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Apache Kafka</div>
+                        <div class="tech-category">Streaming</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Databricks</div>
+                        <div class="tech-category">Data Lakehouse</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Apache Spark</div>
+                        <div class="tech-category">Processing</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">MinIO</div>
+                        <div class="tech-category">Object Storage</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Infrastructure Layer -->
+            <div class="layer-container">
+                <div class="layer-header">
+                    <div class="layer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+                    <h3 class="layer-title">Infrastructure Layer</h3>
+                </div>
+                <p class="layer-description">
+                    Cloud-native infrastructure with auto-scaling, high availability, and disaster recovery.
+                    Multi-cloud strategy for vendor independence and cost optimization.
+                </p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-name">Azure</div>
+                        <div class="tech-category">Cloud Platform</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">AWS</div>
+                        <div class="tech-category">Cloud Platform</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Docker</div>
+                        <div class="tech-category">Containerization</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Terraform</div>
+                        <div class="tech-category">IaC</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">GitHub Actions</div>
+                        <div class="tech-category">CI/CD</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">ArgoCD</div>
+                        <div class="tech-category">GitOps</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">Prometheus</div>
+                        <div class="tech-category">Monitoring</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">ELK Stack</div>
+                        <div class="tech-category">Logging</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="stack-section">
+        <h2 class="section-title">Technology Stack Optimized for SMEs</h2>
+        <div class="stack-grid">
+            <div class="stack-card">
+                <div class="stack-icon ai">🤖</div>
+                <h3 class="stack-title">AI & Machine Learning</h3>
+                <ul class="stack-list">
+                    <li>Large Language Models (GPT-4, Claude)</li>
+                    <li>Computer Vision (YOLO, ResNet)</li>
+                    <li>NLP & Text Analytics</li>
+                    <li>Reinforcement Learning</li>
+                    <li>AutoML Pipelines</li>
+                    <li>Federated Learning</li>
+                </ul>
+            </div>
+
+            <div class="stack-card">
+                <div class="stack-icon cloud"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+                <h3 class="stack-title">Cloud & Infrastructure</h3>
+                <ul class="stack-list">
+                    <li>Azure AI Services</li>
+                    <li>AWS SageMaker</li>
+                    <li>Google Cloud AI Platform</li>
+                    <li>Hybrid Cloud Solutions</li>
+                    <li>Edge Computing</li>
+                    <li>5G Private Networks</li>
+                </ul>
+            </div>
+
+            <div class="stack-card">
+                <div class="stack-icon data"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18.5 11.5L15 15l-3-3-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+                <h3 class="stack-title">Data Engineering</h3>
+                <ul class="stack-list">
+                    <li>ETL/ELT Pipelines</li>
+                    <li>Real-time Data Streaming</li>
+                    <li>Data Quality Management</li>
+                    <li>Feature Engineering</li>
+                    <li>Data Versioning (DVC)</li>
+                    <li>Data Governance</li>
+                </ul>
+            </div>
+
+            <div class="stack-card">
+                <div class="stack-icon security"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+                <h3 class="stack-title">Security & Compliance</h3>
+                <ul class="stack-list">
+                    <li>End-to-end Encryption</li>
+                    <li>Zero Trust Architecture</li>
+                    <li>GDPR Compliance Tools</li>
+                    <li>Audit Logging</li>
+                    <li>Identity Management (OAuth, SAML)</li>
+                    <li>Vulnerability Scanning</li>
+                </ul>
+            </div>
+
+            <div class="stack-card">
+                <div class="stack-icon devops"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a1.96 1.96 0 00-2.91-.09z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+                <h3 class="stack-title">DevOps & MLOps</h3>
+                <ul class="stack-list">
+                    <li>CI/CD Pipelines</li>
+                    <li>Model Registry & Versioning</li>
+                    <li>A/B Testing Framework</li>
+                    <li>Blue-Green Deployments</li>
+                    <li>Infrastructure as Code</li>
+                    <li>Automated Testing</li>
+                </ul>
+            </div>
+
+            <div class="stack-card">
+                <div class="stack-icon monitoring"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="16 7 22 7 22 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+                <h3 class="stack-title">Monitoring & Analytics</h3>
+                <ul class="stack-list">
+                    <li>Real-time Performance Metrics</li>
+                    <li>Model Drift Detection</li>
+                    <li>Business KPI Dashboards</li>
+                    <li>Alert Management</li>
+                    <li>Cost Optimization</li>
+                    <li>User Analytics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section">
+        <h2 class="section-title" style="color: white;">Security & Compliance First</h2>
+        <div class="security-grid">
+            <div class="security-card">
+                <h3 class="security-title">Data Protection</h3>
+                <p class="security-description">
+                    Encryption at rest and in transit, data masking, tokenization, and secure key management
+                    with HSM compliance.
+                </p>
+            </div>
+            <div class="security-card">
+                <h3 class="security-title">Privacy by Design</h3>
+                <p class="security-description">
+                    Integrated GDPR compliance, data minimization, consent management, and right to be forgotten
+                    implementation.
+                </p>
+            </div>
+            <div class="security-card">
+                <h3 class="security-title">Access Control</h3>
+                <p class="security-description">
+                    Role-based access control (RBAC), multi-factor authentication, privileged access management,
+                    and complete audit trails.
+                </p>
+            </div>
+            <div class="security-card">
+                <h3 class="security-title">Compliance Standards</h3>
+                <p class="security-description">
+                    ISO 27001, SOC 2 Type II, HIPAA ready, PCI DSS compatible for maximum regulatory compliance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section class="integration-section">
+        <h2 class="section-title">SME Integrations</h2>
+        <div class="integration-container">
+            <p style="text-align: center; color: #64748B; max-width: 800px; margin: 0 auto 2rem;">
+                Seamless integration with major business systems to maximize the value
+                of existing investments and accelerate time-to-value.
+            </p>
+            <div class="integration-grid">
+                <div class="integration-item">
+                    <div class="integration-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18.5 11.5L15 15l-3-3-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+                    <div class="integration-name">SAP</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+                    <div class="integration-name">Salesforce</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="16 7 22 7 22 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+                    <div class="integration-name">Oracle</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 21V5a2 2 0 012-2h4a2 2 0 012 2v16" stroke="currentColor" stroke-width="2"/>
+                    </svg></div>
+                    <div class="integration-name">Microsoft 365</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+                    <div class="integration-name">ServiceNow</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg></div>
+                    <div class="integration-name">Slack</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="2"/>
+            </svg></div>
+                    <div class="integration-name">HubSpot</div>
+                </div>
+                <div class="integration-item">
+                    <div class="integration-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="9" y="9" width="4" height="4" stroke="currentColor" stroke-width="2"/>
+                <rect x="9" y="14" width="4" height="4" stroke="currentColor" stroke-width="2"/>
+            </svg></div>
+                    <div class="integration-name">Siemens MindSphere</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="metrics-section">
+        <h2 class="section-title">Performance & Reliability</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">99.99%</div>
+                <div class="metric-label">Uptime SLA</div>
+                <div class="metric-description">Guaranteed availability with multi-region redundancy</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value"><100ms</div>
+                <div class="metric-label">API Latency</div>
+                <div class="metric-description">Response time for 95th percentile of requests</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">10M+</div>
+                <div class="metric-label">Requests/Day</div>
+                <div class="metric-description">Request handling capacity with auto-scaling</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">PB Scale</div>
+                <div class="metric-label">Data Processing</div>
+                <div class="metric-description">Petabyte-scale big data management</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Future-Ready Architecture</h2>
+            <p class="cta-subtitle">
+                Discover how our SME-optimized architecture can transform
+                your AI infrastructure and accelerate innovation.
+            </p>
+            <a href="contact.html" class="cta-button">Request Architecture Review</a>
+        </div>
+    </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle?.addEventListener('click', () => {
+            navMenu?.classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

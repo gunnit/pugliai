@@ -43,9 +43,10 @@
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -211,251 +212,905 @@
         ]
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/assets/css/brand.css">
-    <link rel="stylesheet" href="src/assets/css/landing.css">
-    <link rel="stylesheet" href="src/assets/css/pugliai-site.css">
+
+    <style>
+        /* Enhanced navbar styles for this page */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-cta {
+            background: var(--gradient-gold);
+            color: var(--primary-navy);
+            padding: 0.625rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Hero section with animated background */
+        .hero-section {
+            padding: 10rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            animation: gradient-shift 20s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20px, -20px) scale(1.1); }
+            66% { transform: translate(20px, -10px) scale(0.95); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-gold) 50%, var(--accent-emerald) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Enhanced service cards */
+        .services-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .services-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .services-intro h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .services-intro p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .enhanced-services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .enhanced-services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .enhanced-service-card {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, var(--glass-bg) 0%, rgba(255, 255, 255, 0.05) 100%);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .enhanced-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .enhanced-service-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .enhanced-service-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.4);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+        }
+
+        .enhanced-service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .enhanced-service-card:hover::after {
+            opacity: 1;
+        }
+
+        .service-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-gold);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .enhanced-service-card:hover .service-icon-wrapper {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0 12px 32px rgba(255, 215, 0, 0.4);
+        }
+
+        .service-icon-wrapper svg {
+            width: 48px;
+            height: 48px;
+            color: var(--primary-navy);
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .enhanced-service-card:hover .service-features li {
+            color: var(--text-primary);
+            transform: translateX(4px);
+        }
+
+        .service-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+
+        .service-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-action svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .enhanced-service-card:hover .service-action {
+            gap: 1rem;
+        }
+
+        .enhanced-service-card:hover .service-action svg {
+            transform: translateX(4px);
+        }
+
+        /* Trust indicators section */
+        .trust-section {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .trust-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trust-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--accent-gold);
+        }
+
+        .trust-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .trust-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 4rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border: 2px solid var(--glass-border);
+            border-radius: 2rem;
+            position: relative;
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+        }
+
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-gold);
+            border-radius: 2rem;
+            opacity: 0.5;
+            z-index: -1;
+            animation: pulse-border 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.01); }
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--gradient-gold);
+            color: var(--primary-navy);
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--glass-border);
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-secondary:hover {
+            background: var(--glass-bg);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .enhanced-services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-container {
+                padding: 2rem;
+            }
+
+            .cta-title {
+                font-size: 1.875rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Vai al contenuto</a>
+    <!-- Dynamic Navigation - Generated by navigation.js -->
+    <div id="nav-placeholder"></div>
+    <script src="src/assets/js/navigation.js"></script>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="index.html" aria-label="PugliAI home"><img src="src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Principale">
-      <a href="index.html#metaphor">L'Idea</a>
-      <a href="servizi.html">Servizi</a>
-      <a href="prodotti.html">On-Premise</a>
-      <a href="acceleratore.html">Acceleratore</a>
-      <a href="index.html#process">Percorso</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua">
-        <a href="servizi.html" class="on" aria-current="true">IT</a>
-        <a href="en/services.html">EN</a>
-      </div>
-      <a href="contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="index.html#metaphor">L'Idea</a>
-  <a href="servizi.html">Servizi</a>
-  <a href="prodotti.html">On-Premise</a>
-  <a href="acceleratore.html">Acceleratore</a>
-  <a href="index.html#process">Percorso</a>
-  <a href="contatti.html">Richiedi un preventivo</a>
-</div>
-
-<main id="main">
-
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <div class="eyebrow-lux">Pacchetti AI per PMI</div>
-    <h1>Pacchetti AI completi per far crescere la tua <span class="serif">PMI</span></h1>
-    <p class="pagehead__lead">Non solo software, ma un percorso completo: consulenza strategica continua, automazioni pronte all'uso, formazione del team e supporto dedicato. Tutto in un unico pacchetto, da 15K€.</p>
-    <div class="pagehead__cta">
-      <a href="contatti.html" class="btn btn--grad">Richiedi una demo gratuita
-        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="investimenti-ai.html" class="btn btn--ghost">Vedi tutti i pacchetti</a>
-    </div>
-    <div class="hero__trust">
-      <div class="ti"><b class="grad-text">250+</b><span>PMI trasformate</span></div>
-      <div class="ti"><b class="grad-text">150%</b><span>ROI garantito</span></div>
-      <div class="ti"><b>2–4<span class="serif" style="font-size:18px"> sett.</span></b><span>ai primi risultati</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- PACKAGES -->
-<section class="sec sec--dark" id="packages">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Scegli il tuo percorso</div>
-      <h2>Il pacchetto giusto <span class="serif">per ogni ambizione</span></h2>
-      <p class="shead__lead">Tutto ciò che serve per riuscire con l'AI: strategia, automazioni, formazione e supporto continuo.</p>
-    </div>
-    <div class="cards3">
-      <article class="pcard pcard--g reveal" data-d="1">
-        <div class="pcard__glow"></div>
-        <div class="pcard__tag">15K€ – 25K€</div>
-        <h3>AI <span class="serif">Accelerator</span></h3>
-        <div class="pcard__price">Entry-level — 3 mesi di trasformazione guidata</div>
-        <p>Perfetto per le PMI che vogliono iniziare con l'AI e vedere risultati immediati.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>3 mesi di consulenza strategica</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>2–3 automazioni pre-costruite (vendite/marketing)</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Formazione team fino a 5 persone</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ROI garantito 150% anno 1</span></li>
-        </ul>
-        <a href="infrastrutture-ai.html" class="btn btn--grad btn--sm">Esplora le soluzioni
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </article>
-      <article class="pcard pcard--b reveal" data-d="2">
-        <div class="pcard__glow"></div>
-        <div class="pcard__tag">50K€ – 70K€</div>
-        <h3>AI <span class="serif">Transformation</span></h3>
-        <div class="pcard__price">6 mesi di accompagnamento completo</div>
-        <p>Per le PMI pronte alla trasformazione digitale, con risultati straordinari.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>6 mesi di trasformazione completa</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>5–7 automazioni pre-costruite</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sviluppo 2–3 soluzioni custom</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Formazione e certificazione fino a 15 persone</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ROI garantito 200% anno 1</span></li>
-        </ul>
-        <a href="agenti-ai.html" class="btn btn--grad btn--sm">Scopri gli agenti AI
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </article>
-      <article class="pcard pcard--g reveal" data-d="3">
-        <div class="pcard__glow"></div>
-        <div class="pcard__tag">100K€ +</div>
-        <h3>AI <span class="serif">Partnership</span></h3>
-        <div class="pcard__price">12 mesi di innovazione continua</div>
-        <p>Partnership strategica per le PMI ambiziose che vogliono dominare il mercato.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>12 mesi di partnership strategica</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Automazioni illimitate</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sviluppo modelli AI custom</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Strategista AI dedicato</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ROI garantito 250%+ anno 1</span></li>
-        </ul>
-        <a href="consulenza-strategica.html" class="btn btn--grad btn--sm">Inizia la trasformazione
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST -->
-<section class="sec sec--panel sec--tight">
-  <div class="shell">
-    <div class="stats">
-      <div class="stat reveal" data-d="1"><div class="n grad-text" data-count="250" data-suffix="+">250+</div><div class="l">PMI trasformate</div><div class="s">Dal 2023</div></div>
-      <div class="stat reveal" data-d="2"><div class="n" data-count="150" data-suffix="%">150%</div><div class="l">ROI minimo garantito</div><div class="s">Contrattualmente</div></div>
-      <div class="stat reveal" data-d="3"><div class="n" data-count="100" data-suffix="%">100%</div><div class="l">Conformità GDPR</div><div class="s">By design</div></div>
-      <div class="stat reveal" data-d="4"><div class="n grad-text" data-count="4" data-prefix="2–">2–4</div><div class="l">Settimane ai risultati</div><div class="s">Con automazioni pronte</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div class="shead reveal" style="margin-bottom:0">
-      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
-      <h2>Scegli il pacchetto giusto <span class="serif">per la tua PMI</span></h2>
-      <p class="shead__lead">Non sai quale pacchetto fa per te? Raccontaci le tue esigenze e troviamo insieme la soluzione perfetta. Demo gratuita e assessment inclusi.</p>
-      <div class="finale__cta" style="margin-top:32px">
-        <a href="contatti.html" class="btn btn--grad">Richiedi una demo gratuita
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="investimenti-ai.html" class="btn btn--ghost">Vedi tutti i pacchetti</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INSIGHTS -->
-<section class="sec sec--darker">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Approfondimenti</div>
-      <h2>Risorse per <span class="serif">decidere meglio</span></h2>
-    </div>
-    <div class="cards3">
-      <a class="gcard reveal" data-d="1" href="guida-ai/costi-ai-pmi-budget.html">
-        <h3>Costi AI per PMI</h3>
-        <p>Guida completa ai costi e al budget per progetti di intelligenza artificiale nelle PMI.</p>
-        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-      <a class="gcard reveal" data-d="2" href="guida-ai/come-iniziare-ai-pmi.html">
-        <h3>Come iniziare con l'AI</h3>
-        <p>I primi passi pratici per introdurre l'intelligenza artificiale nella tua azienda.</p>
-        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-      <a class="gcard reveal" data-d="3" href="guida-ai/roi-intelligenza-artificiale-2026.html">
-        <h3>ROI dell'AI nel 2026</h3>
-        <p>Dati aggiornati sul ritorno dell'investimento in intelligenza artificiale per le imprese.</p>
-        <span class="gcard__link">Leggi la guida <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="sec sec--light">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Domande frequenti</div>
-      <h2>Tutto quello che <span class="serif">vuoi sapere</span></h2>
-    </div>
-    <div class="faq reveal">
-      <details>
-        <summary>Qual è il pacchetto AI migliore per una PMI che inizia?</summary>
-        <div class="faq__a">Per le PMI che iniziano con l'AI consigliamo il pacchetto AI Accelerator (15.000–25.000€). Include 3 mesi di consulenza, automazioni pre-costruite e formazione del team. È il punto di partenza ideale, con ROI garantito del 150%.</div>
-      </details>
-      <details>
-        <summary>Cosa include il pacchetto AI Accelerator?</summary>
-        <div class="faq__a">Audit AI gratuito, 3 automazioni personalizzate, consulenza strategica per 3 mesi, formazione fino a 10 persone, supporto tecnico dedicato e una dashboard di monitoraggio del ROI.</div>
-      </details>
-      <details>
-        <summary>Come funziona la garanzia ROI del 150%?</summary>
-        <div class="faq__a">La garanzia è contrattuale: definiamo insieme KPI misurabili (risparmio di tempo, riduzione costi, aumento vendite). Se non raggiungi il 150% di ROI entro 12 mesi, continuiamo a lavorare senza costi aggiuntivi fino all'obiettivo.</div>
-      </details>
-      <details>
-        <summary>Quali settori servite con i vostri pacchetti AI?</summary>
-        <div class="faq__a">Serviamo PMI in tutti i settori: manifatturiero, moda e lusso, servizi finanziari, sanità, turismo, agroalimentare, retail e studi professionali. Ogni pacchetto è personalizzato per le esigenze del settore.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Soluzioni</h5>
-          <a href="servizi.html">Servizi</a>
-          <a href="voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="acceleratore.html">Acceleratore</a>
+    <main role="main">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                    </svg>
+                    <span>Pacchetti AI per PMI</span>
+                </div>
+                <h1 class="hero-title">Pacchetti AI Completi per Far Crescere la Tua PMI</h1>
+                <p class="hero-description">
+                    Non solo software, ma un percorso completo: consulenza strategica continua, automazioni pronte all'uso,
+                    formazione del team e supporto dedicato. Tutto in un unico pacchetto da €15K.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">250+</div>
+                        <div class="stat-label">PMI Trasformate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">150%</div>
+                        <div class="stat-label">ROI Garantito</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2-4</div>
+                        <div class="stat-label">Settimane ai Risultati</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="foot__col">
-          <h5>Azienda</h5>
-          <a href="chi-siamo.html">Chi siamo</a>
-          <a href="index.html#metaphor">L'Idea</a>
-          <a href="index.html#process">Percorso</a>
-          <a href="casi-studio.html">Casi studio</a>
-          <a href="contatti.html">Contatti</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="services-intro">
+                <h2>Scegli il Pacchetto Giusto per la Tua PMI</h2>
+                <p>Tutto quello che serve per il successo con l'AI: strategia, automazioni, formazione e supporto continuo</p>
+            </div>
+
+            <div class="enhanced-services-grid">
+                <!-- AI Infrastructure -->
+                <a href="infrastrutture-ai.html" class="enhanced-service-card">
+                    <div class="service-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="4" y="14" width="16" height="8"/>
+                            <path d="M8 14V10M12 14V8M16 14V6"/>
+                            <path d="M12 8L8 10M12 8L16 6"/>
+                            <path d="M2 22H22" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">AI Accelerator - €15K-25K</h3>
+                        <p class="service-description">
+                            Pacchetto entry-level perfetto per PMI che vogliono iniziare con l'AI.
+                            3 mesi di trasformazione guidata con risultati immediati.
+                        </p>
+                        <ul class="service-features">
+                            <li>3 mesi di consulenza strategica</li>
+                            <li>2-3 automazioni pre-costruite (vendite/marketing)</li>
+                            <li>Implementazione 1 soluzione core</li>
+                            <li>Formazione team fino a 5 persone</li>
+                            <li>ROI garantito 150% anno 1</li>
+                        </ul>
+                    </div>
+                    <div class="service-action">
+                        <span>Esplora le soluzioni</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- AI Agents -->
+                <a href="agenti-ai.html" class="enhanced-service-card">
+                    <div class="service-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="10" rx="2"/>
+                            <circle cx="8" cy="16" r="1.5" fill="currentColor"/>
+                            <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
+                            <path d="M8 11V9C8 7.89543 8.89543 7 10 7H14C15.1046 7 16 7.89543 16 9V11"/>
+                            <circle cx="12" cy="4" r="2"/>
+                            <path d="M6 4H8M16 4H18" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">AI Transformation - €50K-70K</h3>
+                        <p class="service-description">
+                            Pacchetto completo per PMI pronte alla trasformazione digitale.
+                            6 mesi di accompagnamento per risultati straordinari.
+                        </p>
+                        <ul class="service-features">
+                            <li>6 mesi di trasformazione completa</li>
+                            <li>5-7 automazioni pre-costruite</li>
+                            <li>Sviluppo 2-3 soluzioni custom</li>
+                            <li>Formazione e certificazione fino a 15 persone</li>
+                            <li>ROI garantito 200% anno 1</li>
+                        </ul>
+                    </div>
+                    <div class="service-action">
+                        <span>Scopri gli agenti AI</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Strategic Consulting -->
+                <a href="consulenza-strategica.html" class="enhanced-service-card">
+                    <div class="service-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3v18h18" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 16V12M12 16V8M17 16V4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">AI Partnership - €100K+</h3>
+                        <p class="service-description">
+                            Partnership strategica per PMI ambiziose che vogliono dominare il mercato.
+                            12 mesi di innovazione continua.
+                        </p>
+                        <ul class="service-features">
+                            <li>12 mesi di partnership strategica</li>
+                            <li>Automazioni illimitate</li>
+                            <li>Sviluppo modelli AI custom</li>
+                            <li>Strategista AI dedicato</li>
+                            <li>ROI garantito 250%+ anno 1</li>
+                        </ul>
+                    </div>
+                    <div class="service-action">
+                        <span>Inizia la trasformazione</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
         </div>
-        <div class="foot__col">
-          <h5>Legale</h5>
-          <a href="privacy.html">Privacy</a>
-          <a href="cookie.html">Cookie</a>
-          <a href="termini.html">Termini</a>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <div class="trust-value">250+</div>
+                    <div class="trust-label">PMI Trasformate</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <div class="trust-value">150%</div>
+                    <div class="trust-label">ROI Minimo Garantito</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                        </svg>
+                    </div>
+                    <div class="trust-value">100%</div>
+                    <div class="trust-label">Conformità GDPR</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                    </div>
+                    <div class="trust-value">2-4</div>
+                    <div class="trust-label">Settimane ai Risultati</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h2 class="cta-title">Scegli il Pacchetto Giusto per la Tua PMI</h2>
+                <p class="cta-description">
+                    Non sai quale pacchetto fa per te? Parliamo delle tue esigenze e troviamo insieme
+                    la soluzione perfetta. Demo gratuita e assessment incluso.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contatti.html" class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        Richiedi Demo Gratuita
+                    </a>
+                    <a href="investimenti-ai.html" class="btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Vedi Tutti i Pacchetti
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approfondimenti -->
+    <section class="section-padding">
+      <div class="container">
+        <h2 class="section-title text-center">Approfondimenti</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+          <a href="guida-ai/costi-ai-pmi-budget.html" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: border-color 0.3s;">
+            <h3 style="color: var(--accent-gold); font-size: 1rem; margin-bottom: 0.5rem;">Costi AI per PMI</h3>
+            <p style="color: var(--accent-platinum); font-size: 0.9rem; opacity: 0.8;">Guida completa ai costi e al budget per progetti di intelligenza artificiale nelle PMI.</p>
+          </a>
+          <a href="guida-ai/come-iniziare-ai-pmi.html" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: border-color 0.3s;">
+            <h3 style="color: var(--accent-gold); font-size: 1rem; margin-bottom: 0.5rem;">Come Iniziare con l'AI</h3>
+            <p style="color: var(--accent-platinum); font-size: 0.9rem; opacity: 0.8;">Primi passi pratici per introdurre l'intelligenza artificiale nella tua azienda.</p>
+          </a>
+          <a href="guida-ai/roi-intelligenza-artificiale-2026.html" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: border-color 0.3s;">
+            <h3 style="color: var(--accent-gold); font-size: 1rem; margin-bottom: 0.5rem;">ROI dell'AI nel 2026</h3>
+            <p style="color: var(--accent-platinum); font-size: 0.9rem; opacity: 0.8;">Dati aggiornati sul ritorno dell'investimento in intelligenza artificiale per le imprese.</p>
+          </a>
         </div>
       </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>Conforme a GDPR e AI Act by design</span>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<script src="src/assets/js/tree-canvas.js"></script>
-<script src="src/assets/js/pugliai-landing.js"></script>
+    <!-- FAQ Section -->
+    <section class="section-padding" style="background: var(--primary-navy);">
+      <div class="container">
+        <h2 class="section-title text-center" style="color: var(--accent-platinum);">Domande Frequenti</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Qual e il pacchetto AI migliore per una PMI che inizia?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Per le PMI che iniziano con l'AI, consigliamo il pacchetto AI Accelerator da €15.000-25.000. Include 3 mesi di consulenza, automazioni pre-costruite e formazione team. E il punto di partenza ideale con ROI garantito del 150%.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Cosa include il pacchetto AI Accelerator?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Il pacchetto AI Accelerator include: audit AI gratuito, 3 automazioni personalizzate, consulenza strategica per 3 mesi, formazione per 10 dipendenti, supporto tecnico dedicato e dashboard di monitoraggio ROI.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Come funziona la garanzia ROI del 150%?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">La garanzia ROI e contrattuale: definiamo insieme KPI misurabili (risparmio tempo, riduzione costi, aumento vendite). Se non raggiungi il 150% di ROI entro 12 mesi, continuiamo a lavorare gratuitamente fino al raggiungimento dell'obiettivo.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Quali settori servite con i vostri pacchetti AI?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Serviamo PMI in tutti i settori: manifatturiero, moda e lusso, servizi finanziari, sanita, turismo, agroalimentare, retail e studi professionali. Ogni pacchetto viene personalizzato per le esigenze specifiche del settore.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="src/assets/img/pugliai_pittogramma.png" alt="PugliAI" class="footer-logo-img">
+                </div>
+                <div class="footer-links">
+                    <a href="infrastrutture-ai.html" class="footer-link">Infrastrutture AI</a>
+                    <a href="agenti-ai.html" class="footer-link">Agenti AI</a>
+                    <a href="consulenza-strategica.html" class="footer-link">Consulenza</a>
+                    <a href="settori.html" class="footer-link">Settori</a>
+                    <a href="chi-siamo.html" class="footer-link">Chi Siamo</a>
+                    <a href="contatti.html" class="footer-link">Contatti</a>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2025 PugliAI S.r.l. - P.IVA  IT02735920742</p>
+                    <p>Via Giovanni Forleo 45, 72022 Latiano (BR) | Via Angelo Maj 16, 24121 Bergamo</p>
+                    <p>
+                        <a href="privacy.html" class="footer-link">Privacy</a> | 
+                        <a href="cookie.html" class="footer-link">Cookie</a> | 
+                        <a href="termini.html" class="footer-link">Termini</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
+        }
+
+        // Dropdown toggle for mobile
+        const dropdowns = document.querySelectorAll('.has-dropdown');
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            }
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 <script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
 </body>
 </html>

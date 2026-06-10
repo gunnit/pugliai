@@ -32,12 +32,208 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.pugliai.com/acceleratore-candidatura.html">
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
+    <style>
+        /* Multi-step form styles */
+        .form-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+        }
 
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+        .form-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--glass-border);
+            z-index: 0;
+        }
 
+        .form-step-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
 
-<!-- WebPage Schema -->
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .step-number.active {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--primary-navy);
+        }
+
+        .step-number.completed {
+            background: var(--accent-emerald);
+            border-color: var(--accent-emerald);
+            color: white;
+        }
+
+        .step-label {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .step-label.active {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-gold);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            padding: 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+        }
+
+        .radio-item:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .radio-item input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-gold);
+        }
+
+        .radio-item.selected {
+            border-color: var(--accent-gold);
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .form-help {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .char-counter {
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .sidebar-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .sidebar-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-card li {
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-steps {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .form-steps::before {
+                display: none;
+            }
+
+            .form-step-indicator {
+                flex: 0 0 calc(33.333% - 0.67rem);
+            }
+
+            .step-label {
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+
+    <!-- WebPage Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -80,344 +276,650 @@
         ]
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/assets/css/brand.css">
-    <link rel="stylesheet" href="src/assets/css/landing.css">
-    <link rel="stylesheet" href="src/assets/css/pugliai-site.css">
 </head>
 <body>
-<a href="#main" class="skip-link">Vai al contenuto</a>
+    <!-- Dynamic Navigation - Generated by navigation.js -->
+    <div id="nav-placeholder"></div>
+    <script src="src/assets/js/navigation.js"></script>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="index.html" aria-label="PugliAI home"><img src="src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Principale">
-      <a href="index.html#metaphor">L'Idea</a>
-      <a href="servizi.html">Servizi</a>
-      <a href="prodotti.html">On-Premise</a>
-      <a href="acceleratore.html">Acceleratore</a>
-      <a href="index.html#process">Percorso</a>
+    <!-- Hero Section -->
+    <main role="main">
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb container" style="padding-top: calc(80px + 1rem);" aria-label="Percorso di navigazione">
+        <span class="breadcrumb-item"><a href="index.html">Home</a></span>
+        <span class="breadcrumb-separator"></span>
+        <span class="breadcrumb-item"><a href="acceleratore.html">Acceleratore</a></span>
+        <span class="breadcrumb-separator"></span>
+        <span class="breadcrumb-item active" aria-current="page">Candidatura</span>
     </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua">
-        <a href="acceleratore-candidatura.html" class="on" aria-current="true">IT</a>
-        <a href="en/accelerator-apply.html">EN</a>
-      </div>
-      <a href="contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="index.html#metaphor">L'Idea</a>
-  <a href="servizi.html">Servizi</a>
-  <a href="prodotti.html">On-Premise</a>
-  <a href="acceleratore.html">Acceleratore</a>
-  <a href="index.html#process">Percorso</a>
-  <a href="contatti.html">Richiedi un preventivo</a>
-</div>
-
-<main id="main">
-
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <div class="eyebrow-lux">Candidature aperte 2026</div>
-    <h1>Candidati al PugliAI <span class="serif">Accelerator</span></h1>
-    <p class="pagehead__lead">16 settimane per trasformare un solo founder in un'azienda AI-driven: oltre 100.000€ in servizi e automazioni, mentorship dedicata e il ponte verso Singapore tramite la partnership ISSA. Compila il form qui sotto in 5-10 minuti per candidarti al prossimo cohort.</p>
-    <div class="hero__trust">
-      <div class="ti"><b class="grad-text">16</b><span>settimane di programma</span></div>
-      <div class="ti"><b class="grad-text">€100K+</b><span>in servizi e automazioni</span></div>
-      <div class="ti"><b>Singapore</b><span>Bridge via ISSA</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- APPLICATION FORM -->
-<section class="sec sec--dark" id="candidatura">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Candidatura</div>
-      <h2>Raccontaci la tua <span class="serif">startup</span></h2>
-      <p class="shead__lead">Un solo form, sei sezioni. Riceverai conferma via email entro 24 ore, poi revisione della candidatura, video interview con il team e discussione dei termini.</p>
-    </div>
-
-    <form id="accelerator-application" action="https://formcarry.com/s/accelerator-pugliai" method="POST" class="form form--wide reveal">
-
-      <!-- Founder -->
-      <h3 class="serif" style="margin:8px 0 -2px">Informazioni sul founder</h3>
-      <div class="form__row">
-        <div class="field">
-          <label for="founder_name">Nome e cognome *</label>
-          <input type="text" id="founder_name" name="founder_name" required aria-required="true">
+    <section class="section" style="padding-top: 1rem; padding-bottom: 2rem; background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);" aria-labelledby="page-title">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 0;">
+                <span class="badge badge-warning mb-md animate-fade-in-up" style="display: inline-block;">CANDIDATURE APERTE 2026</span>
+                <h1 id="page-title" class="heading-2 mb-sm animate-fade-in-up" style="animation-delay: 0.1s;">
+                    Candidati al PugliAI <span class="text-gradient-gold">Accelerator</span>
+                </h1>
+                <p class="body-medium animate-fade-in-up" style="animation-delay: 0.2s; color: var(--text-secondary);">
+                    Compila il form in 5-10 minuti per candidarti al prossimo cohort
+                </p>
+            </div>
         </div>
-        <div class="field">
-          <label for="founder_email">Email *</label>
-          <input type="email" id="founder_email" name="founder_email" required aria-required="true">
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="section" style="padding-top: 2rem;">
+        <div class="container">
+            <div class="grid" style="display: grid; grid-template-columns: 1fr 320px; gap: 3rem;">
+                <!-- Main Form -->
+                <div>
+                    <!-- Progress Steps -->
+                    <div class="form-steps" role="navigation" aria-label="Fasi del form">
+                        <div class="form-step-indicator">
+                            <div class="step-number active" data-step="1">1</div>
+                            <span class="step-label active">Founder</span>
+                        </div>
+                        <div class="form-step-indicator">
+                            <div class="step-number" data-step="2">2</div>
+                            <span class="step-label">Team</span>
+                        </div>
+                        <div class="form-step-indicator">
+                            <div class="step-number" data-step="3">3</div>
+                            <span class="step-label">Azienda</span>
+                        </div>
+                        <div class="form-step-indicator">
+                            <div class="step-number" data-step="4">4</div>
+                            <span class="step-label">Prodotto</span>
+                        </div>
+                        <div class="form-step-indicator">
+                            <div class="step-number" data-step="5">5</div>
+                            <span class="step-label">Fit</span>
+                        </div>
+                        <div class="form-step-indicator">
+                            <div class="step-number" data-step="6">6</div>
+                            <span class="step-label">Invio</span>
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <form id="accelerator-application" action="https://formcarry.com/s/accelerator-pugliai" method="POST" class="contact-form">
+                        <!-- Step 1: Founder Info -->
+                        <div class="form-section active" data-section="1">
+                            <h2 class="heading-3 mb-lg">Informazioni sul Founder</h2>
+
+                            <div class="form-group">
+                                <label for="founder_name" class="form-label">Nome e Cognome *</label>
+                                <input type="text" id="founder_name" name="founder_name" class="form-input" required aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="founder_email" class="form-label">Email *</label>
+                                <input type="email" id="founder_email" name="founder_email" class="form-input" required aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="founder_phone" class="form-label">Telefono *</label>
+                                <input type="tel" id="founder_phone" name="founder_phone" class="form-input" placeholder="+39 333 1234567" required aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="founder_linkedin" class="form-label">Profilo LinkedIn *</label>
+                                <input type="url" id="founder_linkedin" name="founder_linkedin" class="form-input" placeholder="https://linkedin.com/in/tuoprofilo" required aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="founder_role" class="form-label">Ruolo Attuale *</label>
+                                <select id="founder_role" name="founder_role" class="form-input" required aria-required="true">
+                                    <option value="">Seleziona...</option>
+                                    <option value="full_time_founder">Founder Full-Time</option>
+                                    <option value="part_time_founder">Founder Part-Time (transizione in corso)</option>
+                                    <option value="employed">Dipendente (pronto a lasciare)</option>
+                                    <option value="student">Studente/Ricercatore</option>
+                                    <option value="other">Altro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="founder_experience" class="form-label">Esperienza Precedente</label>
+                                <textarea id="founder_experience" name="founder_experience" class="form-input" rows="3" placeholder="Descrivi brevemente la tua esperienza imprenditoriale o professionale rilevante..."></textarea>
+                                <p class="form-help">Startup precedenti, ruoli in aziende tech, progetti rilevanti</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Team -->
+                        <div class="form-section" data-section="2">
+                            <h2 class="heading-3 mb-lg">Il Tuo Team</h2>
+
+                            <div class="form-group">
+                                <label for="team_size" class="form-label">Numero di Co-Founder *</label>
+                                <select id="team_size" name="team_size" class="form-input" required>
+                                    <option value="">Seleziona...</option>
+                                    <option value="1">Solo founder</option>
+                                    <option value="2">2 co-founder</option>
+                                    <option value="3">3 co-founder</option>
+                                    <option value="4">4 co-founder</option>
+                                    <option value="5+">5+ co-founder</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="team_members" class="form-label">Nomi e Ruoli dei Co-Founder</label>
+                                <textarea id="team_members" name="team_members" class="form-input" rows="4" placeholder="Es: Mario Rossi - CTO, Anna Bianchi - COO..."></textarea>
+                                <p class="form-help">Lascia vuoto se sei solo founder</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Competenze Tecniche nel Team *</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="tech_expertise" value="strong" required>
+                                        <div>
+                                            <strong>Forti</strong>
+                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">CTO o developer con esperienza AI/ML nel team</p>
+                                        </div>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="tech_expertise" value="moderate">
+                                        <div>
+                                            <strong>Moderate</strong>
+                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">Competenze tech generali, in cerca di supporto AI</p>
+                                        </div>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="tech_expertise" value="low">
+                                        <div>
+                                            <strong>Limitate</strong>
+                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">Team principalmente business, cerchiamo partner tecnico</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Disponibilita Full-Time *</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="full_time" value="yes" required>
+                                        <div>
+                                            <strong>Si, almeno un founder full-time</strong>
+                                        </div>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="full_time" value="soon">
+                                        <div>
+                                            <strong>Entro l'inizio del programma</strong>
+                                        </div>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="full_time" value="no">
+                                        <div>
+                                            <strong>No, tutti part-time</strong>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Company -->
+                        <div class="form-section" data-section="3">
+                            <h2 class="heading-3 mb-lg">La Tua Azienda</h2>
+
+                            <div class="form-group">
+                                <label for="company_name" class="form-label">Nome Azienda/Progetto *</label>
+                                <input type="text" id="company_name" name="company_name" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company_status" class="form-label">Stato Registrazione *</label>
+                                <select id="company_status" name="company_status" class="form-input" required>
+                                    <option value="">Seleziona...</option>
+                                    <option value="registered_italy">Registrata in Italia</option>
+                                    <option value="registering">In fase di registrazione</option>
+                                    <option value="will_register">Registreremo per il programma</option>
+                                    <option value="registered_other">Registrata in altro paese EU</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company_website" class="form-label">Website o Demo URL</label>
+                                <input type="url" id="company_website" name="company_website" class="form-input" placeholder="https://...">
+                                <p class="form-help">Anche landing page, prototype link, o video demo</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company_sector" class="form-label">Settore/Industria *</label>
+                                <select id="company_sector" name="company_sector" class="form-input" required>
+                                    <option value="">Seleziona...</option>
+                                    <option value="saas">SaaS / Software</option>
+                                    <option value="fintech">Fintech</option>
+                                    <option value="healthtech">Healthtech / Medtech</option>
+                                    <option value="ecommerce">E-commerce / Retail</option>
+                                    <option value="manufacturing">Manifatturiero / Industry 4.0</option>
+                                    <option value="logistics">Logistica / Supply Chain</option>
+                                    <option value="edtech">Edtech</option>
+                                    <option value="proptech">Proptech</option>
+                                    <option value="greentech">Greentech / Sustainability</option>
+                                    <option value="other">Altro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company_stage" class="form-label">Stage Attuale *</label>
+                                <select id="company_stage" name="company_stage" class="form-input" required>
+                                    <option value="">Seleziona...</option>
+                                    <option value="idea">Idea (no prodotto ancora)</option>
+                                    <option value="prototype">Prototipo funzionante</option>
+                                    <option value="mvp">MVP con primi utenti</option>
+                                    <option value="revenue">Revenue (anche piccolo)</option>
+                                    <option value="growth">Crescita (product-market fit)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company_traction" class="form-label">Traction Attuale</label>
+                                <textarea id="company_traction" name="company_traction" class="form-input" rows="3" placeholder="Utenti, revenue, partnership, metriche chiave..."></textarea>
+                                <p class="form-help">Numeri specifici se disponibili (utenti, MRR, clienti, etc.)</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Product & Market -->
+                        <div class="form-section" data-section="4">
+                            <h2 class="heading-3 mb-lg">Prodotto e Mercato</h2>
+
+                            <div class="form-group">
+                                <label for="product_oneliner" class="form-label">One-Liner (max 140 caratteri) *</label>
+                                <input type="text" id="product_oneliner" name="product_oneliner" class="form-input" maxlength="140" required>
+                                <div class="char-counter"><span id="oneliner-count">0</span>/140</div>
+                                <p class="form-help">Descrivi il tuo prodotto in una frase (stile tweet)</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="product_problem" class="form-label">Problema che Risolvi *</label>
+                                <textarea id="product_problem" name="product_problem" class="form-input" rows="4" required placeholder="Quale problema specifico risolvi? Chi lo ha? Quanto e urgente?"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="product_solution" class="form-label">La Tua Soluzione AI *</label>
+                                <textarea id="product_solution" name="product_solution" class="form-input" rows="4" required placeholder="Come la tua soluzione risolve il problema? Come usi l'AI?"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="product_competition" class="form-label">Concorrenza e Differenziazione</label>
+                                <textarea id="product_competition" name="product_competition" class="form-input" rows="3" placeholder="Chi sono i competitor? Cosa ti rende diverso?"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="product_market_size" class="form-label">Dimensione del Mercato (opzionale)</label>
+                                <input type="text" id="product_market_size" name="product_market_size" class="form-input" placeholder="Es: TAM 5B, SAM 500M, SOM 50M">
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Accelerator Fit -->
+                        <div class="form-section" data-section="5">
+                            <h2 class="heading-3 mb-lg">Fit con l'Accelerator</h2>
+
+                            <div class="form-group">
+                                <label for="why_pugliai" class="form-label">Perche PugliAI Accelerator? *</label>
+                                <textarea id="why_pugliai" name="why_pugliai" class="form-input" rows="4" required placeholder="Cosa ti attrae del nostro programma? Perche pensi sia giusto per te?"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="goals_16weeks" class="form-label">Obiettivi per le 16 Settimane *</label>
+                                <textarea id="goals_16weeks" name="goals_16weeks" class="form-input" rows="4" required placeholder="Cosa vuoi ottenere durante il programma? Quali milestone?"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Servizi AI di Interesse *</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="services_interest" value="hr_automation">
+                                        HR Automation (recruiting, onboarding)
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="services_interest" value="sales_automation">
+                                        Sales Automation (lead scoring, outreach)
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="services_interest" value="marketing_automation">
+                                        Marketing Automation (content, social)
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="services_interest" value="voiceai">
+                                        VoiceAI On-Premise
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="services_interest" value="knowledgeai">
+                                        KnowledgeAI Enterprise (RAG)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Interesse Espansione Singapore *</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="singapore_interest" value="yes" required>
+                                        <div>
+                                            <strong>Si, molto interessati</strong>
+                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">L'espansione asiatica e una priorita</p>
+                                        </div>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="singapore_interest" value="maybe">
+                                        <div>
+                                            <strong>Forse, da esplorare</strong>
+                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">Vogliamo capire meglio le opportunita</p>
+                                        </div>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="singapore_interest" value="no">
+                                        <div>
+                                            <strong>No, focus Italia/EU</strong>
+                                            <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">Per ora ci concentriamo sul mercato europeo</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 6: Submit -->
+                        <div class="form-section" data-section="6">
+                            <h2 class="heading-3 mb-lg">Ultimi Dettagli</h2>
+
+                            <div class="form-group">
+                                <label for="video_pitch" class="form-label">Video Pitch URL (opzionale ma consigliato)</label>
+                                <input type="url" id="video_pitch" name="video_pitch" class="form-input" placeholder="https://www.youtube.com/... o https://www.loom.com/...">
+                                <p class="form-help">2 minuti max. Presentati, descrivi il problema e la soluzione. Aumenta le tue chance!</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hear_about" class="form-label">Come hai saputo di noi? *</label>
+                                <select id="hear_about" name="hear_about" class="form-input" required>
+                                    <option value="">Seleziona...</option>
+                                    <option value="linkedin">LinkedIn</option>
+                                    <option value="google">Ricerca Google</option>
+                                    <option value="referral">Referral/Passaparola</option>
+                                    <option value="event">Evento/Conferenza</option>
+                                    <option value="press">Articolo/Press</option>
+                                    <option value="issa">ISSA Network</option>
+                                    <option value="other">Altro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="additional_info" class="form-label">Altro che Vuoi Dirci</label>
+                                <textarea id="additional_info" name="additional_info" class="form-input" rows="3" placeholder="Qualsiasi informazione aggiuntiva che ritieni rilevante..."></textarea>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 2rem; padding: 1.5rem; background: rgba(16, 185, 129, 0.05); border-radius: var(--radius-md); border: 1px solid rgba(16, 185, 129, 0.2);">
+                                <label class="checkbox-item" style="align-items: flex-start;">
+                                    <input type="checkbox" name="gdpr_consent" required style="margin-top: 4px;">
+                                    <span>Acconsento al trattamento dei miei dati personali secondo la <a href="privacy.html" target="_blank" style="color: var(--accent-gold);">Privacy Policy</a> di PugliAI per la gestione della mia candidatura. *</span>
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="marketing_consent">
+                                    <span>Acconsento a ricevere aggiornamenti su PugliAI Accelerator e iniziative correlate.</span>
+                                </label>
+                            </div>
+
+                            <!-- Summary before submit -->
+                            <div style="margin-top: 2rem; padding: 1.5rem; background: var(--glass-bg); border-radius: var(--radius-md); border: 1px solid var(--glass-border);">
+                                <h4 style="margin-bottom: 1rem;">Cosa Succede Dopo</h4>
+                                <ol style="padding-left: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+                                    <li style="margin-bottom: 0.5rem;">Riceverai conferma via email entro 24 ore</li>
+                                    <li style="margin-bottom: 0.5rem;">Revisione della candidatura (1 settimana)</li>
+                                    <li style="margin-bottom: 0.5rem;">Video interview con il team (30 min)</li>
+                                    <li style="margin-bottom: 0.5rem;">Presentazione finale e discussione termini</li>
+                                    <li>Decisione e onboarding</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-secondary" id="prevBtn" style="visibility: hidden;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 0.5rem;"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Indietro
+                            </button>
+                            <button type="button" class="btn btn-primary btn-lg" id="nextBtn">
+                                Avanti <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-left: 0.5rem;"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn" style="display: none;">
+                                Invia Candidatura <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-left: 0.5rem;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                        </div>
+
+                        <!-- Hidden fields -->
+                        <input type="hidden" name="_gotcha">
+                        <input type="hidden" name="form_type" value="accelerator_application">
+                    </form>
+                </div>
+
+                <!-- Sidebar -->
+                <aside style="position: sticky; top: 100px; height: fit-content;">
+                    <div class="sidebar-card" style="border-color: var(--accent-gold); background: rgba(255, 215, 0, 0.02);">
+                        <h4 style="color: var(--accent-gold);">Date Importanti</h4>
+                        <ul>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-gold);"><path d="M8 2V6M16 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Candidature: Nov 2025
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-gold);"><path d="M8 2V6M16 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Selezioni: Dic 2025
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-gold);"><path d="M8 2V6M16 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Inizio: Gen 2026
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h4>Cosa Preparare</h4>
+                        <ul>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-emerald);"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Profilo LinkedIn aggiornato
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-emerald);"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Link a demo/prototype
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-emerald);"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Metriche di traction
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent-emerald);"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Video pitch (2 min) - opzionale
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h4>Serve Aiuto?</h4>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                            Hai domande sulla candidatura o sul programma?
+                        </p>
+                        <a href="contatti.html" class="btn btn-secondary btn-sm" style="width: 100%; text-align: center;">
+                            Contattaci
+                        </a>
+                    </div>
+                </aside>
+            </div>
         </div>
-      </div>
-      <div class="form__row">
-        <div class="field">
-          <label for="founder_phone">Telefono *</label>
-          <input type="tel" id="founder_phone" name="founder_phone" placeholder="+39 333 1234567" required aria-required="true">
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="src/assets/img/pugliai_pittogramma.png" alt="PugliAI - Logo aziendale" class="footer-logo-img">
+                </div>
+                <div class="footer-links" role="navigation" aria-label="Link footer">
+                    <a href="acceleratore.html" class="footer-link">Acceleratore</a>
+                    <a href="infrastrutture-ai.html" class="footer-link">Infrastrutture AI</a>
+                    <a href="agenti-ai.html" class="footer-link">Agenti AI</a>
+                    <a href="consulenza-strategica.html" class="footer-link">Consulenza</a>
+                    <a href="chi-siamo.html" class="footer-link">Chi Siamo</a>
+                    <a href="contatti.html" class="footer-link">Contatti</a>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2025 PugliAI S.r.l. - P.IVA IT02735920742</p>
+                    <p>Via Giovanni Forleo 45, 72022 Latiano (BR) | Via Angelo Maj 16, 24121 Bergamo</p>
+                    <p>
+                        <a href="privacy.html" class="footer-link">Privacy</a> |
+                        <a href="cookie.html" class="footer-link">Cookie</a> |
+                        <a href="termini.html" class="footer-link">Termini</a>
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="field">
-          <label for="founder_linkedin">Profilo LinkedIn *</label>
-          <input type="url" id="founder_linkedin" name="founder_linkedin" placeholder="https://linkedin.com/in/tuoprofilo" required aria-required="true">
-        </div>
-      </div>
-      <div class="field">
-        <label for="founder_role">Ruolo attuale *</label>
-        <select id="founder_role" name="founder_role" required aria-required="true">
-          <option value="">Seleziona...</option>
-          <option value="full_time_founder">Founder Full-Time</option>
-          <option value="part_time_founder">Founder Part-Time (transizione in corso)</option>
-          <option value="employed">Dipendente (pronto a lasciare)</option>
-          <option value="student">Studente/Ricercatore</option>
-          <option value="other">Altro</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="founder_experience">Esperienza precedente</label>
-        <textarea id="founder_experience" name="founder_experience" rows="3" placeholder="Descrivi brevemente la tua esperienza imprenditoriale o professionale rilevante..."></textarea>
-        <p class="form__note">Startup precedenti, ruoli in aziende tech, progetti rilevanti.</p>
-      </div>
+    </footer>
 
-      <!-- Team -->
-      <h3 class="serif" style="margin:18px 0 -2px">Il tuo team</h3>
-      <div class="field">
-        <label for="team_size">Numero di co-founder *</label>
-        <select id="team_size" name="team_size" required aria-required="true">
-          <option value="">Seleziona...</option>
-          <option value="1">Solo founder</option>
-          <option value="2">2 co-founder</option>
-          <option value="3">3 co-founder</option>
-          <option value="4">4 co-founder</option>
-          <option value="5+">5+ co-founder</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="team_members">Nomi e ruoli dei co-founder</label>
-        <textarea id="team_members" name="team_members" rows="4" placeholder="Es: Mario Rossi - CTO, Anna Bianchi - COO..."></textarea>
-        <p class="form__note">Lascia vuoto se sei solo founder.</p>
-      </div>
-      <fieldset class="field" style="border:0;padding:0;margin:0">
-        <legend style="font-size:13.5px;font-weight:600;color:#fff;padding:0">Competenze tecniche nel team *</legend>
-        <label class="field--check"><input type="radio" name="tech_expertise" value="strong" required aria-required="true"><span><strong>Forti</strong> &mdash; CTO o developer con esperienza AI/ML nel team</span></label>
-        <label class="field--check"><input type="radio" name="tech_expertise" value="moderate"><span><strong>Moderate</strong> &mdash; competenze tech generali, in cerca di supporto AI</span></label>
-        <label class="field--check"><input type="radio" name="tech_expertise" value="low"><span><strong>Limitate</strong> &mdash; team principalmente business, cerchiamo partner tecnico</span></label>
-      </fieldset>
-      <fieldset class="field" style="border:0;padding:0;margin:0">
-        <legend style="font-size:13.5px;font-weight:600;color:#fff;padding:0">Disponibilita full-time *</legend>
-        <label class="field--check"><input type="radio" name="full_time" value="yes" required aria-required="true"><span>Si, almeno un founder full-time</span></label>
-        <label class="field--check"><input type="radio" name="full_time" value="soon"><span>Entro l'inizio del programma</span></label>
-        <label class="field--check"><input type="radio" name="full_time" value="no"><span>No, tutti part-time</span></label>
-      </fieldset>
+    <!-- Scripts -->
+    <script src="src/assets/js/form-security.js"></script>
+    <script>
+        // Multi-step form functionality
+        (function() {
+            const form = document.getElementById('accelerator-application');
+            const sections = document.querySelectorAll('.form-section');
+            const stepNumbers = document.querySelectorAll('.step-number');
+            const stepLabels = document.querySelectorAll('.step-label');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
 
-      <!-- Company -->
-      <h3 class="serif" style="margin:18px 0 -2px">La tua azienda</h3>
-      <div class="form__row">
-        <div class="field">
-          <label for="company_name">Nome azienda/progetto *</label>
-          <input type="text" id="company_name" name="company_name" required aria-required="true">
-        </div>
-        <div class="field">
-          <label for="company_status">Stato registrazione *</label>
-          <select id="company_status" name="company_status" required aria-required="true">
-            <option value="">Seleziona...</option>
-            <option value="registered_italy">Registrata in Italia</option>
-            <option value="registering">In fase di registrazione</option>
-            <option value="will_register">Registreremo per il programma</option>
-            <option value="registered_other">Registrata in altro paese EU</option>
-          </select>
-        </div>
-      </div>
-      <div class="field">
-        <label for="company_website">Website o demo URL</label>
-        <input type="url" id="company_website" name="company_website" placeholder="https://...">
-        <p class="form__note">Anche landing page, prototype link o video demo.</p>
-      </div>
-      <div class="form__row">
-        <div class="field">
-          <label for="company_sector">Settore/Industria *</label>
-          <select id="company_sector" name="company_sector" required aria-required="true">
-            <option value="">Seleziona...</option>
-            <option value="saas">SaaS / Software</option>
-            <option value="fintech">Fintech</option>
-            <option value="healthtech">Healthtech / Medtech</option>
-            <option value="ecommerce">E-commerce / Retail</option>
-            <option value="manufacturing">Manifatturiero / Industry 4.0</option>
-            <option value="logistics">Logistica / Supply Chain</option>
-            <option value="edtech">Edtech</option>
-            <option value="proptech">Proptech</option>
-            <option value="greentech">Greentech / Sustainability</option>
-            <option value="other">Altro</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="company_stage">Stage attuale *</label>
-          <select id="company_stage" name="company_stage" required aria-required="true">
-            <option value="">Seleziona...</option>
-            <option value="idea">Idea (no prodotto ancora)</option>
-            <option value="prototype">Prototipo funzionante</option>
-            <option value="mvp">MVP con primi utenti</option>
-            <option value="revenue">Revenue (anche piccolo)</option>
-            <option value="growth">Crescita (product-market fit)</option>
-          </select>
-        </div>
-      </div>
-      <div class="field">
-        <label for="company_traction">Traction attuale</label>
-        <textarea id="company_traction" name="company_traction" rows="3" placeholder="Utenti, revenue, partnership, metriche chiave..."></textarea>
-        <p class="form__note">Numeri specifici se disponibili (utenti, MRR, clienti, ecc.).</p>
-      </div>
+            let currentStep = 1;
+            const totalSteps = sections.length;
 
-      <!-- Product & Market -->
-      <h3 class="serif" style="margin:18px 0 -2px">Prodotto e mercato</h3>
-      <div class="field">
-        <label for="product_oneliner">One-liner (max 140 caratteri) *</label>
-        <input type="text" id="product_oneliner" name="product_oneliner" maxlength="140" required aria-required="true">
-        <p class="form__note"><span id="oneliner-count">0</span>/140 &middot; Descrivi il tuo prodotto in una frase (stile tweet).</p>
-      </div>
-      <div class="field">
-        <label for="product_problem">Problema che risolvi *</label>
-        <textarea id="product_problem" name="product_problem" rows="4" required aria-required="true" placeholder="Quale problema specifico risolvi? Chi lo ha? Quanto e urgente?"></textarea>
-      </div>
-      <div class="field">
-        <label for="product_solution">La tua soluzione AI *</label>
-        <textarea id="product_solution" name="product_solution" rows="4" required aria-required="true" placeholder="Come la tua soluzione risolve il problema? Come usi l'AI?"></textarea>
-      </div>
-      <div class="field">
-        <label for="product_competition">Concorrenza e differenziazione</label>
-        <textarea id="product_competition" name="product_competition" rows="3" placeholder="Chi sono i competitor? Cosa ti rende diverso?"></textarea>
-      </div>
-      <div class="field">
-        <label for="product_market_size">Dimensione del mercato (opzionale)</label>
-        <input type="text" id="product_market_size" name="product_market_size" placeholder="Es: TAM 5B, SAM 500M, SOM 50M">
-      </div>
+            function updateStepIndicators() {
+                stepNumbers.forEach((step, index) => {
+                    const stepNum = index + 1;
+                    step.classList.remove('active', 'completed');
+                    stepLabels[index].classList.remove('active');
 
-      <!-- Accelerator Fit -->
-      <h3 class="serif" style="margin:18px 0 -2px">Fit con l'Accelerator</h3>
-      <div class="field">
-        <label for="why_pugliai">Perche PugliAI Accelerator? *</label>
-        <textarea id="why_pugliai" name="why_pugliai" rows="4" required aria-required="true" placeholder="Cosa ti attrae del nostro programma? Perche pensi sia giusto per te?"></textarea>
-      </div>
-      <div class="field">
-        <label for="goals_16weeks">Obiettivi per le 16 settimane *</label>
-        <textarea id="goals_16weeks" name="goals_16weeks" rows="4" required aria-required="true" placeholder="Cosa vuoi ottenere durante il programma? Quali milestone?"></textarea>
-      </div>
-      <fieldset class="field" style="border:0;padding:0;margin:0">
-        <legend style="font-size:13.5px;font-weight:600;color:#fff;padding:0">Servizi AI di interesse</legend>
-        <label class="field--check"><input type="checkbox" name="services_interest" value="hr_automation"><span>HR Automation (recruiting, onboarding)</span></label>
-        <label class="field--check"><input type="checkbox" name="services_interest" value="sales_automation"><span>Sales Automation (lead scoring, outreach)</span></label>
-        <label class="field--check"><input type="checkbox" name="services_interest" value="marketing_automation"><span>Marketing Automation (content, social)</span></label>
-        <label class="field--check"><input type="checkbox" name="services_interest" value="voiceai"><span>VoiceAI On-Premise</span></label>
-        <label class="field--check"><input type="checkbox" name="services_interest" value="knowledgeai"><span>KnowledgeAI Enterprise (RAG)</span></label>
-      </fieldset>
-      <fieldset class="field" style="border:0;padding:0;margin:0">
-        <legend style="font-size:13.5px;font-weight:600;color:#fff;padding:0">Interesse espansione Singapore *</legend>
-        <label class="field--check"><input type="radio" name="singapore_interest" value="yes" required aria-required="true"><span><strong>Si, molto interessati</strong> &mdash; l'espansione asiatica e una priorita</span></label>
-        <label class="field--check"><input type="radio" name="singapore_interest" value="maybe"><span><strong>Forse, da esplorare</strong> &mdash; vogliamo capire meglio le opportunita</span></label>
-        <label class="field--check"><input type="radio" name="singapore_interest" value="no"><span><strong>No, focus Italia/EU</strong> &mdash; per ora ci concentriamo sul mercato europeo</span></label>
-      </fieldset>
+                    if (stepNum < currentStep) {
+                        step.classList.add('completed');
+                        step.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+                    } else if (stepNum === currentStep) {
+                        step.classList.add('active');
+                        stepLabels[index].classList.add('active');
+                        step.textContent = stepNum;
+                    } else {
+                        step.textContent = stepNum;
+                    }
+                });
+            }
 
-      <!-- Final details -->
-      <h3 class="serif" style="margin:18px 0 -2px">Ultimi dettagli</h3>
-      <div class="field">
-        <label for="video_pitch">Video pitch URL (opzionale ma consigliato)</label>
-        <input type="url" id="video_pitch" name="video_pitch" placeholder="https://www.youtube.com/... o https://www.loom.com/...">
-        <p class="form__note">2 minuti max. Presentati, descrivi il problema e la soluzione. Aumenta le tue chance.</p>
-      </div>
-      <div class="field">
-        <label for="hear_about">Come hai saputo di noi? *</label>
-        <select id="hear_about" name="hear_about" required aria-required="true">
-          <option value="">Seleziona...</option>
-          <option value="linkedin">LinkedIn</option>
-          <option value="google">Ricerca Google</option>
-          <option value="referral">Referral/Passaparola</option>
-          <option value="event">Evento/Conferenza</option>
-          <option value="press">Articolo/Press</option>
-          <option value="issa">ISSA Network</option>
-          <option value="other">Altro</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="additional_info">Altro che vuoi dirci</label>
-        <textarea id="additional_info" name="additional_info" rows="3" placeholder="Qualsiasi informazione aggiuntiva che ritieni rilevante..."></textarea>
-      </div>
+            function showStep(step) {
+                sections.forEach((section, index) => {
+                    section.classList.remove('active');
+                    if (index + 1 === step) {
+                        section.classList.add('active');
+                    }
+                });
 
-      <div class="field--check">
-        <input type="checkbox" id="gdpr_consent" name="gdpr_consent" required aria-required="true">
-        <label for="gdpr_consent">Acconsento al trattamento dei miei dati personali secondo la <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> di PugliAI per la gestione della mia candidatura. *</label>
-      </div>
-      <div class="field--check">
-        <input type="checkbox" id="marketing_consent" name="marketing_consent">
-        <label for="marketing_consent">Acconsento a ricevere aggiornamenti su PugliAI Accelerator e iniziative correlate.</label>
-      </div>
+                prevBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
 
-      <!-- Hidden fields -->
-      <input type="hidden" name="_gotcha">
-      <input type="hidden" name="form_type" value="accelerator_application">
+                if (step === totalSteps) {
+                    nextBtn.style.display = 'none';
+                    submitBtn.style.display = 'inline-flex';
+                } else {
+                    nextBtn.style.display = 'inline-flex';
+                    submitBtn.style.display = 'none';
+                }
 
-      <button class="btn btn--grad" type="submit">Invia candidatura
-        <svg viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <p class="form__note">Riceverai conferma via email entro 24 ore. Hai domande? <a href="contatti.html">Contattaci</a>.</p>
-    </form>
-  </div>
-</section>
+                updateStepIndicators();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
 
-</main>
+            function validateCurrentStep() {
+                const currentSection = document.querySelector(`.form-section[data-section="${currentStep}"]`);
+                const requiredFields = currentSection.querySelectorAll('[required]');
+                let isValid = true;
 
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Soluzioni</h5>
-          <a href="servizi.html">Servizi</a>
-          <a href="voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="acceleratore.html">Acceleratore</a>
-        </div>
-        <div class="foot__col">
-          <h5>Azienda</h5>
-          <a href="chi-siamo.html">Chi siamo</a>
-          <a href="index.html#metaphor">L'Idea</a>
-          <a href="index.html#process">Percorso</a>
-          <a href="casi-studio.html">Casi studio</a>
-          <a href="contatti.html">Contatti</a>
-        </div>
-        <div class="foot__col">
-          <h5>Legale</h5>
-          <a href="privacy.html">Privacy</a>
-          <a href="cookie.html">Cookie</a>
-          <a href="termini.html">Termini</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>Conforme a GDPR e AI Act by design</span>
-    </div>
-  </div>
-</footer>
+                requiredFields.forEach(field => {
+                    if (!field.value || (field.type === 'checkbox' && !field.checked)) {
+                        isValid = false;
+                        field.style.borderColor = 'red';
+                    } else {
+                        field.style.borderColor = '';
+                    }
+                });
 
-<script src="src/assets/js/tree-canvas.js"></script>
-<script src="src/assets/js/pugliai-landing.js"></script>
-<script src="src/assets/js/form-security.js"></script>
-<script>
-  (function(){
-    var ol = document.getElementById('product_oneliner');
-    var c = document.getElementById('oneliner-count');
-    if (ol && c) { ol.addEventListener('input', function(){ c.textContent = ol.value.length; }); }
-  })();
-</script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+                // Check radio buttons
+                const radioGroups = currentSection.querySelectorAll('.radio-group');
+                radioGroups.forEach(group => {
+                    const radios = group.querySelectorAll('input[type="radio"]');
+                    if (radios.length > 0 && radios[0].required) {
+                        const isChecked = Array.from(radios).some(r => r.checked);
+                        if (!isChecked) {
+                            isValid = false;
+                            group.style.border = '1px solid red';
+                            group.style.borderRadius = '8px';
+                            group.style.padding = '0.5rem';
+                        } else {
+                            group.style.border = '';
+                            group.style.padding = '';
+                        }
+                    }
+                });
+
+                return isValid;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (validateCurrentStep() && currentStep < totalSteps) {
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            });
+
+            // Radio item styling
+            document.querySelectorAll('.radio-item input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const group = e.target.closest('.radio-group');
+                    group.querySelectorAll('.radio-item').forEach(item => {
+                        item.classList.remove('selected');
+                    });
+                    e.target.closest('.radio-item').classList.add('selected');
+                });
+            });
+
+            // Character counter
+            const oneliner = document.getElementById('product_oneliner');
+            const counter = document.getElementById('oneliner-count');
+            if (oneliner && counter) {
+                oneliner.addEventListener('input', () => {
+                    counter.textContent = oneliner.value.length;
+                });
+            }
+
+            // Form submission
+            form.addEventListener('submit', (e) => {
+                if (!validateCurrentStep()) {
+                    e.preventDefault();
+                    return;
+                }
+                // Form will submit normally to Formcarry
+            });
+
+            // Initialize
+            showStep(1);
+        })();
+    </script>
 </body>
 </html>

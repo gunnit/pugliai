@@ -33,6 +33,10 @@
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/gdpr-intelligenza-artificiale.html">
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -119,451 +123,682 @@
     }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/brand.css">
-    <link rel="stylesheet" href="../src/assets/css/landing.css">
-    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        .article-hero {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+            padding: 140px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .article-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%);
+        }
+        .article-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .article-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+        .article-breadcrumb a {
+            color: var(--accent-platinum);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .article-breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+        .article-breadcrumb span {
+            color: var(--accent-gold);
+        }
+        .article-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .article-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .article-meta-hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            color: var(--accent-platinum);
+            font-size: 0.95rem;
+        }
+        .article-meta-hero span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .article-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            margin: 48px 0 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            color: var(--secondary-navy);
+            margin: 36px 0 16px;
+        }
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 24px;
+        }
+        .article-content li {
+            margin-bottom: 12px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
+            border-left: 4px solid var(--accent-gold);
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .highlight-box h4 {
+            color: var(--primary-navy);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(239, 68, 68, 0.05) 100%);
+            border-left: 4px solid #dc2626;
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .warning-box h4 {
+            color: #dc2626;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .stat-highlight {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 32px;
+            border-radius: 16px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .stat-highlight .number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 8px;
+        }
+        .stat-highlight .label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            font-size: 0.95rem;
+        }
+        .comparison-table th {
+            background: var(--primary-navy);
+            color: white;
+            padding: 16px;
+            text-align: left;
+        }
+        .comparison-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .comparison-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        .checklist-box {
+            background: #f0fdf4;
+            border: 2px solid #22c55e;
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+        .checklist-box h4 {
+            color: #15803d;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        .checklist-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist-box li {
+            padding: 12px 0;
+            padding-left: 36px;
+            position: relative;
+            border-bottom: 1px solid #dcfce7;
+        }
+        .checklist-box li:last-child {
+            border-bottom: none;
+        }
+        .checklist-box li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #22c55e;
+            border-radius: 4px;
+        }
+        .faq-section {
+            margin: 48px 0;
+        }
+        .faq-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .faq-question {
+            background: #f8fafc;
+            padding: 20px 24px;
+            font-weight: 600;
+            color: var(--primary-navy);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 20px 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .article-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid #e5e7eb;
+        }
+        .article-nav a {
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        .article-nav a:hover {
+            border-color: var(--accent-gold);
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .article-nav .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .article-nav .title {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        .article-nav .next {
+            text-align: right;
+        }
+        .cta-box {
+            background: var(--gradient-primary);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 48px 0;
+        }
+        .cta-box h3 {
+            color: white;
+            margin-bottom: 16px;
+        }
+        .cta-box p {
+            color: var(--accent-platinum);
+            margin-bottom: 24px;
+        }
+        .timeline-box {
+            background: #fefce8;
+            border-left: 4px solid #eab308;
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .timeline-box h4 {
+            color: #a16207;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        @media (max-width: 768px) {
+            .article-nav {
+                grid-template-columns: 1fr;
+            }
+            .article-nav .next {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Vai al contenuto</a>
-
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Principale">
-      <a href="../index.html#metaphor">L'Idea</a>
-      <a href="../servizi.html">Servizi</a>
-      <a href="../prodotti.html">On-Premise</a>
-      <a href="../acceleratore.html">Acceleratore</a>
-      <a href="../index.html#process">Percorso</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua">
-        <a href="gdpr-intelligenza-artificiale.html" class="on" aria-current="true">IT</a>
-        <a href="../en/ceo-ai-guide-2025.html">EN</a>
-      </div>
-      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="../index.html#metaphor">L'Idea</a>
-  <a href="../servizi.html">Servizi</a>
-  <a href="../prodotti.html">On-Premise</a>
-  <a href="../acceleratore.html">Acceleratore</a>
-  <a href="../index.html#process">Percorso</a>
-  <a href="../contatti.html">Richiedi un preventivo</a>
-</div>
-
-<main id="main">
-
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><i>/</i>
-      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
-      <span>GDPR e Intelligenza Artificiale</span>
-    </nav>
-    <div class="eyebrow-lux">Normativa e Compliance</div>
-    <h1>GDPR e <span class="serif">Intelligenza Artificiale</span>: Come Garantire la Compliance</h1>
-    <p class="pagehead__lead">Principi di minimizzazione, Legge 132/2025, piano ispezioni del Garante Privacy, integrazione NIS 2 e checklist pratica per le PMI italiane.</p>
-    <div class="pagehead__meta">
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 14 min lettura</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Novembre 2025</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
-    </div>
-  </div>
-</section>
-
-<!-- ARTICLE -->
-<section class="sec sec--light">
-  <div class="shell">
-    <div class="prose reveal">
-
-      <p><strong>L'intelligenza artificiale promette efficienza e innovazione, ma porta con se rischi significativi per la privacy.</strong> Per le PMI italiane che adottano strumenti AI, la compliance GDPR non e un optional: le sanzioni possono raggiungere cifre che mettono a rischio la sopravvivenza stessa dell'azienda.</p>
-
-      <p>Nel 2025, con l'entrata in vigore della <strong>Legge 132/2025</strong> e il nuovo piano ispettivo del Garante Privacy focalizzato su AI e dati biometrici, la pressione regolatoria e ai massimi storici. Questa guida ti spiega come navigare il complesso intreccio tra GDPR e intelligenza artificiale, proteggendo la tua azienda e i dati dei tuoi clienti.</p>
-
-      <div class="statbox">
-        <span class="statbox__n">20M euro</span>
-        <span class="statbox__l">Sanzione massima GDPR: 20 milioni di euro o 4% del fatturato globale</span>
-      </div>
-
-      <h2>Quali Sono i Principi GDPR Applicati all'Intelligenza Artificiale?</h2>
-
-      <p>Il GDPR non menziona esplicitamente l'intelligenza artificiale - e stato scritto nel 2016, prima dell'esplosione dell'AI generativa. Tuttavia, i suoi principi fondamentali si applicano direttamente a qualsiasi sistema che tratta dati personali, compresi gli strumenti AI.</p>
-
-      <h3>Minimizzazione dei dati</h3>
-
-      <p>Il principio di <strong>minimizzazione</strong> (art. 5.1.c GDPR) richiede di raccogliere solo i dati strettamente necessari per lo scopo dichiarato. Per l'AI, questo significa:</p>
-
-      <ul>
-        <li><strong>Non alimentare i modelli AI con dati non necessari</strong> - Se il tuo chatbot non ha bisogno della data di nascita del cliente, non chiederla</li>
-        <li><strong>Anonimizzare quando possibile</strong> - I dati aggregati o pseudonimizzati riducono il rischio</li>
-        <li><strong>Definire retention policy chiare</strong> - I dati usati per training non devono essere conservati indefinitamente</li>
-      </ul>
-
-      <p><strong>Dato chiave:</strong> Il 67% delle violazioni GDPR legate all'AI deriva da raccolta eccessiva di dati o mancata definizione delle finalita del trattamento (fonte: EDPB, 2025).</p>
-
-      <h3>Trasparenza algoritmica</h3>
-
-      <p>Gli articoli 13-14 del GDPR richiedono di informare gli interessati su come vengono trattati i loro dati. Con l'AI, questo si traduce in:</p>
-
-      <ul>
-        <li><strong>Informare che e in uso un sistema AI</strong> - Il cliente deve sapere se sta parlando con un bot</li>
-        <li><strong>Spiegare la logica del trattamento</strong> - Come l'AI elabora i dati e prende decisioni</li>
-        <li><strong>Comunicare le conseguenze</strong> - Cosa comporta per l'utente essere profilato dall'AI</li>
-      </ul>
-
-      <div class="callout">
-        <h4>Caso OpenAI e Garante Italiano</h4>
-        <p>Nel 2023, il Garante Privacy italiano ha bloccato ChatGPT per mancanza di trasparenza. OpenAI e stata obbligata a implementare una <strong>campagna di sensibilizzazione di 6 mesi</strong> e modificare le proprie policy. Questo precedente dimostra che anche i giganti tech devono rispettare il GDPR quando operano in Italia.</p>
-      </div>
-
-      <h3>Diritto alla spiegazione (art. 22)</h3>
-
-      <p>L'articolo 22 del GDPR garantisce il diritto a non essere sottoposto a decisioni basate unicamente sul trattamento automatizzato. Per le PMI che usano AI per decisioni che impattano i clienti (es: scoring creditizio, selezione candidati), questo significa:</p>
-
-      <ul>
-        <li>Prevedere sempre un <strong>intervento umano</strong> nelle decisioni significative</li>
-        <li>Permettere agli interessati di <strong>contestare la decisione</strong></li>
-        <li>Essere in grado di <strong>spiegare come l'AI e arrivata</strong> a quella conclusione</li>
-      </ul>
-
-      <div class="statbox">
-        <span class="statbox__n">72 ore</span>
-        <span class="statbox__l">Tempo massimo per notificare un data breach al Garante Privacy</span>
-      </div>
-
-      <h2>Cosa Prevede la Legge 132/2025 per AI e Dati Personali?</h2>
-
-      <p>La <strong>Legge 132/2025</strong> (conversione del DL 73/2025) introduce il primo framework normativo italiano specifico per l'intelligenza artificiale, integrando e rafforzando il GDPR con requisiti aggiuntivi.</p>
-
-      <h3>Requisiti chiave per le PMI</h3>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Requisito</th>
-            <th>Descrizione</th>
-            <th>Applicabilita PMI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Trasparenza algoritmica</td>
-            <td>Obbligo di documentare la logica dei sistemi AI che trattano dati personali</td>
-            <td>Tutte le PMI</td>
-          </tr>
-          <tr>
-            <td>Valutazione d'impatto AI</td>
-            <td>DPIA obbligatoria per sistemi AI ad alto rischio</td>
-            <td>PMI con sistemi HR, scoring, biometrici</td>
-          </tr>
-          <tr>
-            <td>Registro trattamenti AI</td>
-            <td>Estensione del registro ex art. 30 GDPR per includere sistemi AI</td>
-            <td>PMI con &gt;250 dipendenti (o trattamenti rischiosi)</td>
-          </tr>
-          <tr>
-            <td>Responsabile AI</td>
-            <td>Designazione di figura responsabile per la governance AI</td>
-            <td>Facoltativo per PMI, raccomandato</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Semplificazioni proposte per le PMI</h3>
-
-      <p>La riforma in discussione prevede <strong>semplificazioni significative per aziende fino a 750 dipendenti</strong>:</p>
-
-      <ul>
-        <li>DPIA semplificata per sistemi AI a rischio medio</li>
-        <li>Modelli di documentazione standardizzati</li>
-        <li>Periodo transitorio esteso per l'adeguamento</li>
-        <li>Supporto consulenziale gratuito tramite Camere di Commercio</li>
-      </ul>
-
-      <div class="callout callout--warn">
-        <h4>Attenzione: i Principi Fondamentali Restano</h4>
-        <p>Le semplificazioni riguardano gli adempimenti burocratici, non i principi di protezione. Anche le micro-imprese devono garantire minimizzazione, trasparenza e sicurezza dei dati trattati dall'AI. Le sanzioni si applicano a prescindere dalle dimensioni aziendali.</p>
-      </div>
-
-      <h2>Cosa Prevede il Piano Ispezioni 2025 del Garante Privacy?</h2>
-
-      <p>Il piano ispettivo del Garante Privacy per il 2025 si concentra su tre aree critiche dove AI e privacy si intersecano. Conoscerle ti permette di prepararti ed evitare sorprese.</p>
-
-      <div class="statbox">
-        <span class="statbox__n">+340%</span>
-        <span class="statbox__l">Aumento ispezioni su sistemi AI rispetto al 2024 (piano Garante 2025)</span>
-      </div>
-
-      <h3>1. Dati biometrici e riconoscimento facciale</h3>
-
-      <p>I sistemi di <strong>rilevazione presenze biometrici</strong> (impronte digitali, riconoscimento facciale) sono sotto la lente del Garante. Se la tua PMI usa questi sistemi:</p>
-
-      <ul>
-        <li>Verifica di avere una <strong>base giuridica valida</strong> (il consenso del dipendente spesso non basta)</li>
-        <li>Assicurati che esistano <strong>alternative meno invasive</strong> offerte ai dipendenti</li>
-        <li>Documenta la <strong>necessita e proporzionalita</strong> del trattamento</li>
-      </ul>
-
-      <p><strong>Dato chiave:</strong> Nel 2024, il Garante ha sanzionato 12 aziende italiane per uso improprio di sistemi biometrici, con multe tra 30.000 e 120.000 euro.</p>
-
-      <h3>2. Videosorveglianza intelligente</h3>
-
-      <p>I sistemi di videosorveglianza con <strong>analisi comportamentale AI</strong> (rilevamento assembramenti, tracciamento movimenti, heat mapping) richiedono attenzione particolare:</p>
-
-      <ul>
-        <li>Informativa estesa che spieghi le funzionalita AI</li>
-        <li>Segnaletica visibile con indicazione delle funzioni di analisi</li>
-        <li>DPIA obbligatoria per sistemi con profilazione</li>
-        <li>Retention dei dati limitata e documentata</li>
-      </ul>
-
-      <h3>3. Cookie e profilazione avanzata</h3>
-
-      <p>I sistemi di <strong>profilazione AI-driven</strong> su siti web e app sono un focus prioritario:</p>
-
-      <ul>
-        <li>Cookie wall che forzano il consenso sono illegali</li>
-        <li>La profilazione cross-site richiede consenso esplicito</li>
-        <li>I dark pattern per ottenere consensi sono sanzionabili</li>
-      </ul>
-
-      <div class="callout">
-        <h4>Timeline Ispezioni 2025</h4>
-        <p><strong>Q1-Q2:</strong> Focus su grandi aziende e settore sanitario<br>
-        <strong>Q3:</strong> PMI settore retail e manifatturiero<br>
-        <strong>Q4:</strong> Settore servizi e professionisti</p>
-      </div>
-
-      <h2>Quali Requisiti di Protezione Dati si Applicano agli Strumenti AI?</h2>
-
-      <p>Quando adotti strumenti AI (ChatGPT, Claude, Copilot, o soluzioni verticali), devi considerare diversi aspetti di protezione dati.</p>
-
-      <h3>Valutazione del fornitore AI</h3>
-
-      <p>Prima di adottare qualsiasi strumento AI che tratta dati personali:</p>
-
-      <ul>
-        <li><strong>Verifica la localizzazione dei dati</strong> - Dove vengono elaborati e conservati?</li>
-        <li><strong>Controlla le certificazioni</strong> - ISO 27001, SOC 2, conformita GDPR dichiarata</li>
-        <li><strong>Analizza i termini di servizio</strong> - I tuoi dati vengono usati per training?</li>
-        <li><strong>Richiedi la DPA</strong> - Data Processing Agreement conforme all'art. 28 GDPR</li>
-      </ul>
-
-      <p><strong>Dato chiave:</strong> Solo il 23% delle PMI italiane verifica la compliance GDPR dei fornitori AI prima dell'adozione (Osservatorio Politecnico di Milano, 2025).</p>
-
-      <h3>Configurazioni privacy raccomandate</h3>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Strumento</th>
-            <th>Configurazione Privacy</th>
-            <th>Rischio Residuo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ChatGPT Enterprise</td>
-            <td>Opt-out training, EU data residency</td>
-            <td>Basso</td>
-          </tr>
-          <tr>
-            <td>Claude for Business</td>
-            <td>No training su dati aziendali di default</td>
-            <td>Basso</td>
-          </tr>
-          <tr>
-            <td>ChatGPT Free/Plus</td>
-            <td>Disabilita "Chat history &amp; training"</td>
-            <td>Medio</td>
-          </tr>
-          <tr>
-            <td>Copilot Microsoft 365</td>
-            <td>Usa tenant aziendale con DPA</td>
-            <td>Basso</td>
-          </tr>
-          <tr>
-            <td>AI open-source on-premise</td>
-            <td>Dati mai escono dall'infrastruttura</td>
-            <td>Minimo</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="callout">
-        <h4>Best Practice: Policy Aziendale AI</h4>
-        <p>Implementa una <strong>policy interna sull'uso dell'AI</strong> che specifichi: quali strumenti sono autorizzati, quali dati possono essere inseriti, chi e responsabile della compliance, e come gestire incidenti. Il 78% delle PMI che hanno subito sanzioni GDPR legate all'AI non aveva policy formali.</p>
-      </div>
-
-      <h2>Come si Integrano NIS 2 e GDPR per la Sicurezza AI?</h2>
-
-      <p>La <strong>Direttiva NIS 2</strong> (Network and Information Security), in vigore da ottobre 2024, introduce requisiti di cybersicurezza che si sovrappongono al GDPR, specialmente per i sistemi AI.</p>
-
-      <div class="statbox">
-        <span class="statbox__n">85%</span>
-        <span class="statbox__l">delle PMI italiane non e ancora conforme ai requisiti NIS 2 (ENISA, 2025)</span>
-      </div>
-
-      <h3>Sovrapposizioni chiave NIS 2 - GDPR</h3>
-
-      <ul>
-        <li><strong>Gestione del rischio:</strong> Entrambe richiedono analisi e mitigazione dei rischi</li>
-        <li><strong>Notifica incidenti:</strong> NIS 2 richiede notifica entro 24 ore, GDPR entro 72 ore</li>
-        <li><strong>Misure tecniche:</strong> Crittografia, access control, logging sono requisiti comuni</li>
-        <li><strong>Catena di fornitura:</strong> Entrambe richiedono due diligence sui fornitori</li>
-      </ul>
-
-      <h3>Requisiti specifici per sistemi AI</h3>
-
-      <p>I sistemi AI che trattano dati personali devono soddisfare requisiti di entrambe le normative:</p>
-
-      <ul>
-        <li><strong>Sicurezza by design:</strong> L'AI deve essere progettata con sicurezza integrata</li>
-        <li><strong>Monitoraggio continuo:</strong> Logging e audit trail delle operazioni AI</li>
-        <li><strong>Resilienza:</strong> Capacita di operare anche in caso di attacco</li>
-        <li><strong>Incident response:</strong> Procedure per gestire compromissioni dei sistemi AI</li>
-      </ul>
-
-      <p><strong>Dato chiave:</strong> Le aziende conformi sia a NIS 2 che a GDPR hanno il 73% in meno di probabilita di subire data breach significativi.</p>
-
-      <h2>Checklist Compliance GDPR-AI per PMI</h2>
-
-      <p>Usa questa checklist per verificare lo stato di conformita della tua PMI. Ogni punto non spuntato rappresenta un'area di rischio da affrontare.</p>
-
-      <div class="callout">
-        <h4>Checklist Compliance GDPR e AI - PMI 2025</h4>
-        <ul>
-          <li><strong>Mappatura strumenti AI:</strong> Ho un inventario di tutti gli strumenti AI che trattano dati personali</li>
-          <li><strong>Base giuridica:</strong> Per ogni strumento AI, ho identificato la base giuridica del trattamento (consenso, contratto, legittimo interesse)</li>
-          <li><strong>Informativa aggiornata:</strong> La privacy policy menziona l'uso di sistemi AI e le relative finalita</li>
-          <li><strong>DPA fornitori:</strong> Ho Data Processing Agreement firmati con tutti i fornitori AI</li>
-          <li><strong>Localizzazione dati:</strong> So dove vengono elaborati i dati (UE/extra-UE) per ogni strumento</li>
-          <li><strong>Opt-out training:</strong> Ho disabilitato l'uso dei dati aziendali per training dove possibile</li>
-          <li><strong>DPIA:</strong> Ho effettuato valutazione d'impatto per sistemi AI ad alto rischio</li>
-          <li><strong>Registro trattamenti:</strong> Il registro ex art. 30 include i trattamenti AI</li>
-          <li><strong>Policy interna:</strong> Esiste una policy aziendale sull'uso dell'AI</li>
-          <li><strong>Formazione:</strong> I dipendenti sono formati su uso sicuro dell'AI</li>
-          <li><strong>Intervento umano:</strong> Le decisioni automatizzate prevedono revisione umana</li>
-          <li><strong>Procedura breach:</strong> Esiste una procedura per data breach legati ad AI</li>
-          <li><strong>Diritti interessati:</strong> Sono in grado di rispondere a richieste di accesso/cancellazione per dati trattati da AI</li>
-          <li><strong>Audit periodici:</strong> Effettuo verifiche periodiche sulla compliance AI</li>
-        </ul>
-      </div>
-
-      <h3>Priorita d'intervento</h3>
-
-      <p>Se non sei conforme su tutti i punti, ecco l'ordine di priorita:</p>
-
-      <ol>
-        <li><strong>Alta priorita (rischio sanzioni immediate):</strong> Informativa, base giuridica, DPA fornitori</li>
-        <li><strong>Media priorita (rischio medio-termine):</strong> DPIA, registro trattamenti, policy interna</li>
-        <li><strong>Priorita standard (miglioramento continuo):</strong> Formazione, audit periodici, ottimizzazioni</li>
-      </ol>
-
-      <p>Questo articolo fa parte della <a href="../guida-ai-ceo-2025.html">Guida AI per CEO 2025</a>. Per approfondire il framework normativo europeo, leggi l'articolo precedente sull'<a href="ai-act-pmi-italiane.html">AI Act e le PMI Italiane</a>. Per i prossimi passi pratici, prosegui con <a href="come-iniziare-ai-pmi.html">Come Iniziare con l'AI: Guida Pratica per PMI</a>.</p>
-
-      <h2>Domande Frequenti su GDPR e AI</h2>
-    </div>
-
-    <div class="faq reveal">
-      <details>
-        <summary>Quali sono le sanzioni GDPR per uso improprio dell'AI?</summary>
-        <div class="faq__a">Le sanzioni per violazioni GDPR nell'uso dell'AI possono raggiungere <strong>20 milioni di euro o il 4% del fatturato annuo globale</strong>, a seconda di quale importo sia maggiore. Per le PMI italiane, le multe tipiche per violazioni gravi oscillano tra 50.000 e 500.000 euro. Il Garante Privacy ha gia sanzionato aziende per uso improprio di dati biometrici e profilazione senza consenso.</div>
-      </details>
-      <details>
-        <summary>Devo notificare il Garante se uso ChatGPT in azienda?</summary>
-        <div class="faq__a">L'uso standard di ChatGPT o altri strumenti AI <strong>non richiede notifica al Garante</strong>. Tuttavia, se i dati personali dei tuoi clienti vengono elaborati da sistemi AI (es: chatbot con dati sensibili), devi aggiornare l'informativa privacy e, in alcuni casi, effettuare una DPIA (Valutazione d'Impatto). In caso di data breach che coinvolga dati trattati dall'AI, hai <strong>72 ore per notificare il Garante</strong>.</div>
-      </details>
-      <details>
-        <summary>Come la Legge 132/2025 impatta l'uso dell'AI nelle PMI?</summary>
-        <div class="faq__a">La Legge 132/2025 introduce requisiti specifici per l'AI che tratta dati personali: <strong>obbligo di trasparenza algoritmica</strong> (spiegare come l'AI prende decisioni), <strong>diritto all'intervento umano</strong> nelle decisioni automatizzate, e <strong>requisiti di documentazione</strong> per i sistemi AI. Per le PMI, la riforma proposta prevede semplificazioni per aziende fino a 750 dipendenti, ma i principi fondamentali restano applicabili.</div>
-      </details>
-      <details>
-        <summary>Cosa prevede il piano ispezioni 2025 del Garante Privacy per l'AI?</summary>
-        <div class="faq__a">Il piano ispettivo 2025 del Garante Privacy si concentra su <strong>tre aree chiave</strong> legate all'AI: dati biometrici (riconoscimento facciale, impronte), videosorveglianza intelligente con analisi comportamentale, e cookie/profilazione avanzata. Le PMI che usano sistemi di rilevazione presenze biometrici o videosorveglianza AI sono particolarmente esposte a controlli.</div>
-      </details>
-    </div>
-
-    <nav class="artnav reveal" aria-label="Navigazione articoli">
-      <a href="ai-act-pmi-italiane.html">
-        <div class="artnav__k">Articolo Precedente</div>
-        <div class="artnav__t">AI Act e PMI Italiane: Guida alla Conformita</div>
-      </a>
-      <a href="come-iniziare-ai-pmi.html" class="next">
-        <div class="artnav__k">Prossimo Articolo</div>
-        <div class="artnav__t">Come Iniziare con l'AI: Guida Pratica per PMI</div>
-      </a>
-    </nav>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div class="shead reveal" style="margin-bottom:0">
-      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
-      <h2>Hai bisogno di supporto per la <span class="serif">compliance</span>?</h2>
-      <p class="shead__lead">PugliAI offre assessment gratuiti per valutare il livello di conformita GDPR dei tuoi sistemi AI.</p>
-      <div class="finale__cta" style="margin-top:32px">
-        <a href="../contatti.html" class="btn btn--grad">Richiedi Assessment Gratuito
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="../guida-ai-ceo-2025.html" class="btn btn--ghost">Torna alla Guida Completa</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Soluzioni</h5>
-          <a href="../servizi.html">Servizi</a>
-          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="../acceleratore.html">Acceleratore</a>
+    <div id="nav-placeholder"></div>
+    <script src="../src/assets/js/navigation.js"></script>
+
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-content">
+                <nav class="article-breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
+                    <span>/</span>
+                    <span>GDPR e Intelligenza Artificiale</span>
+                </nav>
+                <span class="article-category">Normativa e Compliance</span>
+                <h1>GDPR e Intelligenza Artificiale: Come Garantire la Compliance</h1>
+                <div class="article-meta-hero">
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 14 min lettura</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Novembre 2025</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Intermedio</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="article-container">
+            <div class="article-content">
+                <p><strong>L'intelligenza artificiale promette efficienza e innovazione, ma porta con se rischi significativi per la privacy.</strong> Per le PMI italiane che adottano strumenti AI, la compliance GDPR non e un optional: le sanzioni possono raggiungere cifre che mettono a rischio la sopravvivenza stessa dell'azienda.</p>
+
+                <p>Nel 2025, con l'entrata in vigore della <strong>Legge 132/2025</strong> e il nuovo piano ispettivo del Garante Privacy focalizzato su AI e dati biometrici, la pressione regolatoria e ai massimi storici. Questa guida ti spiega come navigare il complesso intreccio tra GDPR e intelligenza artificiale, proteggendo la tua azienda e i dati dei tuoi clienti.</p>
+
+                <div class="stat-highlight">
+                    <span class="number">20M euro</span>
+                    <span class="label">Sanzione massima GDPR: 20 milioni di euro o 4% del fatturato globale</span>
+                </div>
+
+                <h2>Quali Sono i Principi GDPR Applicati all'Intelligenza Artificiale?</h2>
+
+                <p>Il GDPR non menziona esplicitamente l'intelligenza artificiale - e stato scritto nel 2016, prima dell'esplosione dell'AI generativa. Tuttavia, i suoi principi fondamentali si applicano direttamente a qualsiasi sistema che tratta dati personali, compresi gli strumenti AI.</p>
+
+                <h3>Minimizzazione dei dati</h3>
+
+                <p>Il principio di <strong>minimizzazione</strong> (art. 5.1.c GDPR) richiede di raccogliere solo i dati strettamente necessari per lo scopo dichiarato. Per l'AI, questo significa:</p>
+
+                <ul>
+                    <li><strong>Non alimentare i modelli AI con dati non necessari</strong> - Se il tuo chatbot non ha bisogno della data di nascita del cliente, non chiederla</li>
+                    <li><strong>Anonimizzare quando possibile</strong> - I dati aggregati o pseudonimizzati riducono il rischio</li>
+                    <li><strong>Definire retention policy chiare</strong> - I dati usati per training non devono essere conservati indefinitamente</li>
+                </ul>
+
+                <p><strong>Dato chiave:</strong> Il 67% delle violazioni GDPR legate all'AI deriva da raccolta eccessiva di dati o mancata definizione delle finalita del trattamento (fonte: EDPB, 2025).</p>
+
+                <h3>Trasparenza algoritmica</h3>
+
+                <p>Gli articoli 13-14 del GDPR richiedono di informare gli interessati su come vengono trattati i loro dati. Con l'AI, questo si traduce in:</p>
+
+                <ul>
+                    <li><strong>Informare che e in uso un sistema AI</strong> - Il cliente deve sapere se sta parlando con un bot</li>
+                    <li><strong>Spiegare la logica del trattamento</strong> - Come l'AI elabora i dati e prende decisioni</li>
+                    <li><strong>Comunicare le conseguenze</strong> - Cosa comporta per l'utente essere profilato dall'AI</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>Caso OpenAI e Garante Italiano</h4>
+                    <p>Nel 2023, il Garante Privacy italiano ha bloccato ChatGPT per mancanza di trasparenza. OpenAI e stata obbligata a implementare una <strong>campagna di sensibilizzazione di 6 mesi</strong> e modificare le proprie policy. Questo precedente dimostra che anche i giganti tech devono rispettare il GDPR quando operano in Italia.</p>
+                </div>
+
+                <h3>Diritto alla spiegazione (art. 22)</h3>
+
+                <p>L'articolo 22 del GDPR garantisce il diritto a non essere sottoposto a decisioni basate unicamente sul trattamento automatizzato. Per le PMI che usano AI per decisioni che impattano i clienti (es: scoring creditizio, selezione candidati), questo significa:</p>
+
+                <ul>
+                    <li>Prevedere sempre un <strong>intervento umano</strong> nelle decisioni significative</li>
+                    <li>Permettere agli interessati di <strong>contestare la decisione</strong></li>
+                    <li>Essere in grado di <strong>spiegare come l'AI e arrivata</strong> a quella conclusione</li>
+                </ul>
+
+                <div class="stat-highlight">
+                    <span class="number">72 ore</span>
+                    <span class="label">Tempo massimo per notificare un data breach al Garante Privacy</span>
+                </div>
+
+                <h2>Cosa Prevede la Legge 132/2025 per AI e Dati Personali?</h2>
+
+                <p>La <strong>Legge 132/2025</strong> (conversione del DL 73/2025) introduce il primo framework normativo italiano specifico per l'intelligenza artificiale, integrando e rafforzando il GDPR con requisiti aggiuntivi.</p>
+
+                <h3>Requisiti chiave per le PMI</h3>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Requisito</th>
+                            <th>Descrizione</th>
+                            <th>Applicabilita PMI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Trasparenza algoritmica</td>
+                            <td>Obbligo di documentare la logica dei sistemi AI che trattano dati personali</td>
+                            <td>Tutte le PMI</td>
+                        </tr>
+                        <tr>
+                            <td>Valutazione d'impatto AI</td>
+                            <td>DPIA obbligatoria per sistemi AI ad alto rischio</td>
+                            <td>PMI con sistemi HR, scoring, biometrici</td>
+                        </tr>
+                        <tr>
+                            <td>Registro trattamenti AI</td>
+                            <td>Estensione del registro ex art. 30 GDPR per includere sistemi AI</td>
+                            <td>PMI con >250 dipendenti (o trattamenti rischiosi)</td>
+                        </tr>
+                        <tr>
+                            <td>Responsabile AI</td>
+                            <td>Designazione di figura responsabile per la governance AI</td>
+                            <td>Facoltativo per PMI, raccomandato</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Semplificazioni proposte per le PMI</h3>
+
+                <p>La riforma in discussione prevede <strong>semplificazioni significative per aziende fino a 750 dipendenti</strong>:</p>
+
+                <ul>
+                    <li>DPIA semplificata per sistemi AI a rischio medio</li>
+                    <li>Modelli di documentazione standardizzati</li>
+                    <li>Periodo transitorio esteso per l'adeguamento</li>
+                    <li>Supporto consulenziale gratuito tramite Camere di Commercio</li>
+                </ul>
+
+                <div class="warning-box">
+                    <h4>Attenzione: i Principi Fondamentali Restano</h4>
+                    <p>Le semplificazioni riguardano gli adempimenti burocratici, non i principi di protezione. Anche le micro-imprese devono garantire minimizzazione, trasparenza e sicurezza dei dati trattati dall'AI. Le sanzioni si applicano a prescindere dalle dimensioni aziendali.</p>
+                </div>
+
+                <h2>Cosa Prevede il Piano Ispezioni 2025 del Garante Privacy?</h2>
+
+                <p>Il piano ispettivo del Garante Privacy per il 2025 si concentra su tre aree critiche dove AI e privacy si intersecano. Conoscerle ti permette di prepararti ed evitare sorprese.</p>
+
+                <div class="stat-highlight">
+                    <span class="number">+340%</span>
+                    <span class="label">Aumento ispezioni su sistemi AI rispetto al 2024 (piano Garante 2025)</span>
+                </div>
+
+                <h3>1. Dati biometrici e riconoscimento facciale</h3>
+
+                <p>I sistemi di <strong>rilevazione presenze biometrici</strong> (impronte digitali, riconoscimento facciale) sono sotto la lente del Garante. Se la tua PMI usa questi sistemi:</p>
+
+                <ul>
+                    <li>Verifica di avere una <strong>base giuridica valida</strong> (il consenso del dipendente spesso non basta)</li>
+                    <li>Assicurati che esistano <strong>alternative meno invasive</strong> offerte ai dipendenti</li>
+                    <li>Documenta la <strong>necessita e proporzionalita</strong> del trattamento</li>
+                </ul>
+
+                <p><strong>Dato chiave:</strong> Nel 2024, il Garante ha sanzionato 12 aziende italiane per uso improprio di sistemi biometrici, con multe tra 30.000 e 120.000 euro.</p>
+
+                <h3>2. Videosorveglianza intelligente</h3>
+
+                <p>I sistemi di videosorveglianza con <strong>analisi comportamentale AI</strong> (rilevamento assembramenti, tracciamento movimenti, heat mapping) richiedono attenzione particolare:</p>
+
+                <ul>
+                    <li>Informativa estesa che spieghi le funzionalita AI</li>
+                    <li>Segnaletica visibile con indicazione delle funzioni di analisi</li>
+                    <li>DPIA obbligatoria per sistemi con profilazione</li>
+                    <li>Retention dei dati limitata e documentata</li>
+                </ul>
+
+                <h3>3. Cookie e profilazione avanzata</h3>
+
+                <p>I sistemi di <strong>profilazione AI-driven</strong> su siti web e app sono un focus prioritario:</p>
+
+                <ul>
+                    <li>Cookie wall che forzano il consenso sono illegali</li>
+                    <li>La profilazione cross-site richiede consenso esplicito</li>
+                    <li>I dark pattern per ottenere consensi sono sanzionabili</li>
+                </ul>
+
+                <div class="timeline-box">
+                    <h4>Timeline Ispezioni 2025</h4>
+                    <p><strong>Q1-Q2:</strong> Focus su grandi aziende e settore sanitario<br>
+                    <strong>Q3:</strong> PMI settore retail e manifatturiero<br>
+                    <strong>Q4:</strong> Settore servizi e professionisti</p>
+                </div>
+
+                <h2>Quali Requisiti di Protezione Dati si Applicano agli Strumenti AI?</h2>
+
+                <p>Quando adotti strumenti AI (ChatGPT, Claude, Copilot, o soluzioni verticali), devi considerare diversi aspetti di protezione dati.</p>
+
+                <h3>Valutazione del fornitore AI</h3>
+
+                <p>Prima di adottare qualsiasi strumento AI che tratta dati personali:</p>
+
+                <ul>
+                    <li><strong>Verifica la localizzazione dei dati</strong> - Dove vengono elaborati e conservati?</li>
+                    <li><strong>Controlla le certificazioni</strong> - ISO 27001, SOC 2, conformita GDPR dichiarata</li>
+                    <li><strong>Analizza i termini di servizio</strong> - I tuoi dati vengono usati per training?</li>
+                    <li><strong>Richiedi la DPA</strong> - Data Processing Agreement conforme all'art. 28 GDPR</li>
+                </ul>
+
+                <p><strong>Dato chiave:</strong> Solo il 23% delle PMI italiane verifica la compliance GDPR dei fornitori AI prima dell'adozione (Osservatorio Politecnico di Milano, 2025).</p>
+
+                <h3>Configurazioni privacy raccomandate</h3>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Strumento</th>
+                            <th>Configurazione Privacy</th>
+                            <th>Rischio Residuo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ChatGPT Enterprise</td>
+                            <td>Opt-out training, EU data residency</td>
+                            <td>Basso</td>
+                        </tr>
+                        <tr>
+                            <td>Claude for Business</td>
+                            <td>No training su dati aziendali di default</td>
+                            <td>Basso</td>
+                        </tr>
+                        <tr>
+                            <td>ChatGPT Free/Plus</td>
+                            <td>Disabilita "Chat history & training"</td>
+                            <td>Medio</td>
+                        </tr>
+                        <tr>
+                            <td>Copilot Microsoft 365</td>
+                            <td>Usa tenant aziendale con DPA</td>
+                            <td>Basso</td>
+                        </tr>
+                        <tr>
+                            <td>AI open-source on-premise</td>
+                            <td>Dati mai escono dall'infrastruttura</td>
+                            <td>Minimo</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <h4>Best Practice: Policy Aziendale AI</h4>
+                    <p>Implementa una <strong>policy interna sull'uso dell'AI</strong> che specifichi: quali strumenti sono autorizzati, quali dati possono essere inseriti, chi e responsabile della compliance, e come gestire incidenti. Il 78% delle PMI che hanno subito sanzioni GDPR legate all'AI non aveva policy formali.</p>
+                </div>
+
+                <h2>Come si Integrano NIS 2 e GDPR per la Sicurezza AI?</h2>
+
+                <p>La <strong>Direttiva NIS 2</strong> (Network and Information Security), in vigore da ottobre 2024, introduce requisiti di cybersicurezza che si sovrappongono al GDPR, specialmente per i sistemi AI.</p>
+
+                <div class="stat-highlight">
+                    <span class="number">85%</span>
+                    <span class="label">delle PMI italiane non e ancora conforme ai requisiti NIS 2 (ENISA, 2025)</span>
+                </div>
+
+                <h3>Sovrapposizioni chiave NIS 2 - GDPR</h3>
+
+                <ul>
+                    <li><strong>Gestione del rischio:</strong> Entrambe richiedono analisi e mitigazione dei rischi</li>
+                    <li><strong>Notifica incidenti:</strong> NIS 2 richiede notifica entro 24 ore, GDPR entro 72 ore</li>
+                    <li><strong>Misure tecniche:</strong> Crittografia, access control, logging sono requisiti comuni</li>
+                    <li><strong>Catena di fornitura:</strong> Entrambe richiedono due diligence sui fornitori</li>
+                </ul>
+
+                <h3>Requisiti specifici per sistemi AI</h3>
+
+                <p>I sistemi AI che trattano dati personali devono soddisfare requisiti di entrambe le normative:</p>
+
+                <ul>
+                    <li><strong>Sicurezza by design:</strong> L'AI deve essere progettata con sicurezza integrata</li>
+                    <li><strong>Monitoraggio continuo:</strong> Logging e audit trail delle operazioni AI</li>
+                    <li><strong>Resilienza:</strong> Capacita di operare anche in caso di attacco</li>
+                    <li><strong>Incident response:</strong> Procedure per gestire compromissioni dei sistemi AI</li>
+                </ul>
+
+                <p><strong>Dato chiave:</strong> Le aziende conformi sia a NIS 2 che a GDPR hanno il 73% in meno di probabilita di subire data breach significativi.</p>
+
+                <h2>Checklist Compliance GDPR-AI per PMI</h2>
+
+                <p>Usa questa checklist per verificare lo stato di conformita della tua PMI. Ogni punto non spuntato rappresenta un'area di rischio da affrontare.</p>
+
+                <div class="checklist-box">
+                    <h4>Checklist Compliance GDPR e AI - PMI 2025</h4>
+                    <ul>
+                        <li><strong>Mappatura strumenti AI:</strong> Ho un inventario di tutti gli strumenti AI che trattano dati personali</li>
+                        <li><strong>Base giuridica:</strong> Per ogni strumento AI, ho identificato la base giuridica del trattamento (consenso, contratto, legittimo interesse)</li>
+                        <li><strong>Informativa aggiornata:</strong> La privacy policy menziona l'uso di sistemi AI e le relative finalita</li>
+                        <li><strong>DPA fornitori:</strong> Ho Data Processing Agreement firmati con tutti i fornitori AI</li>
+                        <li><strong>Localizzazione dati:</strong> So dove vengono elaborati i dati (UE/extra-UE) per ogni strumento</li>
+                        <li><strong>Opt-out training:</strong> Ho disabilitato l'uso dei dati aziendali per training dove possibile</li>
+                        <li><strong>DPIA:</strong> Ho effettuato valutazione d'impatto per sistemi AI ad alto rischio</li>
+                        <li><strong>Registro trattamenti:</strong> Il registro ex art. 30 include i trattamenti AI</li>
+                        <li><strong>Policy interna:</strong> Esiste una policy aziendale sull'uso dell'AI</li>
+                        <li><strong>Formazione:</strong> I dipendenti sono formati su uso sicuro dell'AI</li>
+                        <li><strong>Intervento umano:</strong> Le decisioni automatizzate prevedono revisione umana</li>
+                        <li><strong>Procedura breach:</strong> Esiste una procedura per data breach legati ad AI</li>
+                        <li><strong>Diritti interessati:</strong> Sono in grado di rispondere a richieste di accesso/cancellazione per dati trattati da AI</li>
+                        <li><strong>Audit periodici:</strong> Effettuo verifiche periodiche sulla compliance AI</li>
+                    </ul>
+                </div>
+
+                <h3>Priorita d'intervento</h3>
+
+                <p>Se non sei conforme su tutti i punti, ecco l'ordine di priorita:</p>
+
+                <ol>
+                    <li><strong>Alta priorita (rischio sanzioni immediate):</strong> Informativa, base giuridica, DPA fornitori</li>
+                    <li><strong>Media priorita (rischio medio-termine):</strong> DPIA, registro trattamenti, policy interna</li>
+                    <li><strong>Priorita standard (miglioramento continuo):</strong> Formazione, audit periodici, ottimizzazioni</li>
+                </ol>
+
+                <div class="cta-box">
+                    <h3 style="color: white; margin-top: 0;">Hai Bisogno di Supporto per la Compliance?</h3>
+                    <p>PugliAI offre assessment gratuiti per valutare il livello di conformita GDPR dei tuoi sistemi AI.</p>
+                    <a href="../contatti.html" class="btn btn-primary btn-lg">Richiedi Assessment Gratuito</a>
+                </div>
+
+                <section class="faq-section">
+                    <h2>Domande Frequenti su GDPR e AI</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quali sono le sanzioni GDPR per uso improprio dell'AI?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Le sanzioni per violazioni GDPR nell'uso dell'AI possono raggiungere <strong>20 milioni di euro o il 4% del fatturato annuo globale</strong>, a seconda di quale importo sia maggiore. Per le PMI italiane, le multe tipiche per violazioni gravi oscillano tra 50.000 e 500.000 euro. Il Garante Privacy ha gia sanzionato aziende per uso improprio di dati biometrici e profilazione senza consenso.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Devo notificare il Garante se uso ChatGPT in azienda?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>L'uso standard di ChatGPT o altri strumenti AI <strong>non richiede notifica al Garante</strong>. Tuttavia, se i dati personali dei tuoi clienti vengono elaborati da sistemi AI (es: chatbot con dati sensibili), devi aggiornare l'informativa privacy e, in alcuni casi, effettuare una DPIA (Valutazione d'Impatto). In caso di data breach che coinvolga dati trattati dall'AI, hai <strong>72 ore per notificare il Garante</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Come la Legge 132/2025 impatta l'uso dell'AI nelle PMI?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>La Legge 132/2025 introduce requisiti specifici per l'AI che tratta dati personali: <strong>obbligo di trasparenza algoritmica</strong> (spiegare come l'AI prende decisioni), <strong>diritto all'intervento umano</strong> nelle decisioni automatizzate, e <strong>requisiti di documentazione</strong> per i sistemi AI. Per le PMI, la riforma proposta prevede semplificazioni per aziende fino a 750 dipendenti, ma i principi fondamentali restano applicabili.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Cosa prevede il piano ispezioni 2025 del Garante Privacy per l'AI?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Il piano ispettivo 2025 del Garante Privacy si concentra su <strong>tre aree chiave</strong> legate all'AI: dati biometrici (riconoscimento facciale, impronte), videosorveglianza intelligente con analisi comportamentale, e cookie/profilazione avanzata. Le PMI che usano sistemi di rilevazione presenze biometrici o videosorveglianza AI sono particolarmente esposte a controlli.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="highlight-box">
+                    <h4>Continua il Tuo Percorso</h4>
+                    <p>Questo articolo fa parte della <a href="../guida-ai-ceo-2025.html">Guida AI per CEO 2025</a>. Per approfondire il framework normativo europeo, leggi l'articolo precedente sull'<a href="ai-act-pmi-italiane.html">AI Act e le PMI Italiane</a>. Per i prossimi passi pratici, prosegui con <a href="come-iniziare-ai-pmi.html">Come Iniziare con l'AI: Guida Pratica per PMI</a>.</p>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="ai-act-pmi-italiane.html">
+                        <div class="label">Articolo Precedente</div>
+                        <div class="title">AI Act e PMI Italiane: Guida alla Conformita</div>
+                    </a>
+                    <a href="come-iniziare-ai-pmi.html" class="next">
+                        <div class="label">Prossimo Articolo</div>
+                        <div class="title">Come Iniziare con l'AI: Guida Pratica per PMI</div>
+                    </a>
+                </nav>
+            </div>
         </div>
-        <div class="foot__col">
-          <h5>Azienda</h5>
-          <a href="../chi-siamo.html">Chi siamo</a>
-          <a href="../index.html#metaphor">L'Idea</a>
-          <a href="../index.html#process">Percorso</a>
-          <a href="../casi-studio.html">Casi studio</a>
-          <a href="../contatti.html">Contatti</a>
-        </div>
-        <div class="foot__col">
-          <h5>Legale</h5>
-          <a href="../privacy.html">Privacy</a>
-          <a href="../cookie.html">Cookie</a>
-          <a href="../termini.html">Termini</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>Conforme a GDPR e AI Act by design</span>
-    </div>
-  </div>
-</footer>
+    </article>
 
-<script src="../src/assets/js/tree-canvas.js"></script>
-<script src="../src/assets/js/pugliai-landing.js"></script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+    <footer id="footer-placeholder"></footer>
+    <script>
+        fetch('../src/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
 </body>
 </html>

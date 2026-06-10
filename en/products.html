@@ -43,9 +43,10 @@
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -136,215 +137,537 @@
         ]
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/brand.css">
-    <link rel="stylesheet" href="../src/assets/css/landing.css">
-    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
+
+    <style>
+        /* Hero section with animated background */
+        .hero-section {
+            padding: 10rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            animation: gradient-shift 20s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20px, -20px) scale(1.1); }
+            66% { transform: translate(20px, -10px) scale(0.95); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-gold) 50%, var(--accent-emerald) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        /* Products section */
+        .products-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .products-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .products-intro h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .products-intro p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, var(--glass-bg) 0%, rgba(255, 255, 255, 0.05) 100%);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-gold);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover .product-icon-wrapper {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .product-icon-wrapper svg {
+            width: 48px;
+            height: 48px;
+            color: var(--primary-navy);
+        }
+
+        .product-content {
+            flex: 1;
+        }
+
+        .product-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .product-features li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-features li {
+            color: var(--text-primary);
+            transform: translateX(4px);
+        }
+
+        .product-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+
+        .product-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .product-action svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-action {
+            gap: 1rem;
+        }
+
+        .product-card:hover .product-action svg {
+            transform: translateX(4px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 4rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border: 2px solid var(--glass-border);
+            border-radius: 2rem;
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--gradient-gold);
+            color: var(--primary-navy);
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .cta-container {
+                padding: 2rem;
+            }
+            .cta-title {
+                font-size: 1.875rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+            }
+            .btn-primary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to content</a>
+    <!-- Dynamic Navigation - Generated by navigation.js -->
+    <div id="nav-placeholder"></div>
+    <script src="../src/assets/js/navigation.js"></script>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="index.html#metaphor">The Idea</a>
-      <a href="services.html">Services</a>
-      <a href="products.html">On-Premise</a>
-      <a href="accelerator.html">Accelerator</a>
-      <a href="index.html#process">Process</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Language">
-        <a href="../prodotti.html">IT</a>
-        <a href="products.html" class="on" aria-current="true">EN</a>
-      </div>
-      <a href="contact.html" class="btn btn--grad btn--sm nav__cta">Get a quote</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="index.html#metaphor">The Idea</a>
-  <a href="services.html">Services</a>
-  <a href="products.html">On-Premise</a>
-  <a href="accelerator.html">Accelerator</a>
-  <a href="index.html#process">Process</a>
-  <a href="contact.html">Get a quote</a>
-</div>
-
-<main id="main">
-
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <div class="eyebrow-lux">On-Premise AI Products</div>
-    <h1>AI solutions that respect your <span class="serif">privacy</span></h1>
-    <p class="pagehead__lead">Our AI products are installed directly in your infrastructure. Your data never leaves your company, with maximum privacy and native GDPR compliance.</p>
-    <div class="pagehead__cta">
-      <a href="contact.html" class="btn btn--grad">Request a free demo
-        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="#products" class="btn btn--ghost">See the products</a>
-    </div>
-    <div class="hero__trust">
-      <div class="ti"><b class="grad-text">100%</b><span>Data stays in-house</span></div>
-      <div class="ti"><b class="grad-text">70–90%</b><span>Fewer hallucinations</span></div>
-      <div class="ti"><b>24/7</b><span>Voice availability</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section class="sec sec--dark" id="products">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Our products</div>
-      <h2>Two enterprise <span class="serif">AI solutions</span></h2>
-      <p class="shead__lead">Designed for Italian SMBs that won't compromise on privacy and data sovereignty.</p>
-    </div>
-    <div class="cards3">
-      <article class="pcard pcard--g reveal" data-d="1">
-        <div class="pcard__glow"></div>
-        <div class="pcard__tag">On-Premise</div>
-        <h3>VoiceAI <span class="serif">On-Premise</span></h3>
-        <div class="pcard__price">From €25,000 to €75,000</div>
-        <p>AI voice assistant for intelligent switchboard and automated customer service. 24/7 availability, CRM/ERP integration, zero latency.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>24/7 intelligent switchboard</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Automated customer service</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>CRM, ERP, ticketing integration</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Voice data stays in-house</span></li>
-        </ul>
-        <a href="voiceai-on-premise.html" class="btn btn--grad btn--sm">Discover VoiceAI
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </article>
-      <article class="pcard pcard--b reveal" data-d="2">
-        <div class="pcard__glow"></div>
-        <div class="pcard__tag">On-Premise</div>
-        <h3>KnowledgeAI <span class="serif">Enterprise</span></h3>
-        <div class="pcard__price">From €30,000 to €85,000</div>
-        <p>Enterprise AI chat with RAG technology to query internal documents. 70-90% reduction in AI hallucinations.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Chat on company documents</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Anti-hallucination RAG technology</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Supports PDF, Word, Excel, email</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Always up-to-date knowledge base</span></li>
-        </ul>
-        <a href="knowledgeai-enterprise.html" class="btn btn--grad btn--sm">Discover KnowledgeAI
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </article>
-    </div>
-    <div class="soverign reveal">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v5c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6l-8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <p><b>Digital sovereignty by design.</b> Installed on your own servers, data that never leaves the company, native GDPR compliance. The ideal choice for anyone handling sensitive information.</p>
-    </div>
-  </div>
-</section>
-
-<!-- WHY ON-PREMISE -->
-<section class="sec sec--panel sec--tight">
-  <div class="shell">
-    <div class="stats">
-      <div class="stat reveal" data-d="1"><div class="n grad-text" data-count="100" data-suffix="%">100%</div><div class="l">Data stays in-house</div><div class="s">Nothing sent to the cloud</div></div>
-      <div class="stat reveal" data-d="2"><div class="n" data-count="100" data-suffix="%">100%</div><div class="l">GDPR compliance</div><div class="s">Native, by design</div></div>
-      <div class="stat reveal" data-d="3"><div class="n grad-text" data-count="90" data-prefix="70–" data-suffix="%">70–90%</div><div class="l">Fewer AI hallucinations</div><div class="s">With RAG technology</div></div>
-      <div class="stat reveal" data-d="4"><div class="n" data-count="0" data-suffix=" ms">0 ms</div><div class="l">Added latency</div><div class="s">Local processing</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div class="shead reveal" style="margin-bottom:0">
-      <div class="eyebrow-lux" style="justify-content:center">Let's talk</div>
-      <h2>Ready for on-premise <span class="serif">AI</span>?</h2>
-      <p class="shead__lead">Book a free demo and discover how VoiceAI and KnowledgeAI can transform your business while you keep total control over your data.</p>
-      <div class="finale__cta" style="margin-top:32px">
-        <a href="contact.html" class="btn btn--grad">Request a free demo
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="services.html" class="btn btn--ghost">See the packages</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="sec sec--light">
-  <div class="shell">
-    <div class="shead reveal">
-      <div class="eyebrow-lux" style="justify-content:center">Frequently asked</div>
-      <h2>Everything you <span class="serif">want to know</span></h2>
-    </div>
-    <div class="faq reveal">
-      <details>
-        <summary>What are on-premise AI products?</summary>
-        <div class="faq__a">On-premise AI products are artificial intelligence solutions installed directly on your company's infrastructure, rather than running in the cloud. This means your data never leaves your servers, ensuring maximum privacy, full GDPR compliance and complete data sovereignty. PugliAI offers two on-premise products: VoiceAI for intelligent voice assistance and KnowledgeAI for enterprise document chat.</div>
-      </details>
-      <details>
-        <summary>Why choose on-premise AI over cloud solutions?</summary>
-        <div class="faq__a">On-premise AI offers several advantages for SMBs: your sensitive data stays within your company walls ensuring native GDPR compliance, you keep total control over your AI systems, there is zero latency since processing happens locally, and you avoid ongoing cloud subscription costs. This is especially critical for industries handling confidential customer data, financial records or proprietary manufacturing processes.</div>
-      </details>
-      <details>
-        <summary>What products does PugliAI offer?</summary>
-        <div class="faq__a">PugliAI offers two enterprise on-premise AI products designed for Italian SMBs. VoiceAI On-Premise is an AI voice assistant for intelligent switchboard and automated customer service with 24/7 availability and CRM/ERP integration, priced from €25,000 to €75,000. KnowledgeAI Enterprise is an AI-powered chat system using RAG technology to query internal documents like PDFs, Word, Excel and emails with a 70-90% reduction in AI hallucinations, priced from €30,000 to €85,000.</div>
-      </details>
-      <details>
-        <summary>How much do on-premise AI solutions cost?</summary>
-        <div class="faq__a">PugliAI's on-premise AI solutions are competitively priced for SMBs. VoiceAI On-Premise ranges from €25,000 to €75,000 depending on the scope of integration and number of channels. KnowledgeAI Enterprise ranges from €30,000 to €85,000 based on document volume and complexity. Both products include installation, configuration and integration with your existing systems like CRM, ERP and ticketing platforms.</div>
-      </details>
-      <details>
-        <summary>Can on-premise AI products integrate with existing systems?</summary>
-        <div class="faq__a">Yes, both PugliAI products are designed to integrate seamlessly with your existing business systems. VoiceAI On-Premise connects with CRM, ERP and ticketing systems for intelligent call routing and customer service automation. KnowledgeAI Enterprise supports multiple document formats including PDF, Word, Excel and email, and maintains an always up-to-date knowledge base from your internal documents. Both solutions are tailored to fit your specific infrastructure.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>Frontier AI, rooted in Italy. Practical, compliant, measured in real ROI.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Solutions</h5>
-          <a href="services.html">Services</a>
-          <a href="voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="accelerator.html">Accelerator</a>
+    <main role="main">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                    </svg>
+                    <span>On-Premise AI Products</span>
+                </div>
+                <h1 class="hero-title">AI Solutions That Respect Your Privacy</h1>
+                <p class="hero-description">
+                    Our AI products are installed directly in your infrastructure.
+                    Your data never leaves your company, ensuring maximum privacy and native GDPR compliance.
+                </p>
+            </div>
         </div>
-        <div class="foot__col">
-          <h5>Company</h5>
-          <a href="about-us.html">About us</a>
-          <a href="index.html#metaphor">The Idea</a>
-          <a href="index.html#process">Process</a>
-          <a href="case-studies.html">Case studies</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="foot__col">
-          <h5>Legal</h5>
-          <a href="privacy.html">Privacy</a>
-          <a href="cookie.html">Cookie</a>
-          <a href="terms.html">Terms</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>GDPR &amp; AI Act compliant by design</span>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<script src="../src/assets/js/tree-canvas.js"></script>
-<script src="../src/assets/js/pugliai-landing.js"></script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-intro">
+                <h2>Our Products</h2>
+                <p>Two enterprise AI solutions designed for Italian SMBs that won't compromise on privacy and data sovereignty</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- VoiceAI On-Premise -->
+                <a href="voiceai-on-premise.html" class="product-card">
+                    <div class="product-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            <line x1="12" y1="19" x2="12" y2="23"/>
+                            <line x1="8" y1="23" x2="16" y2="23"/>
+                        </svg>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">VoiceAI On-Premise</h3>
+                        <p class="product-description">
+                            AI voice assistant for intelligent switchboard and automated customer service.
+                            24/7 availability, CRM/ERP integration, zero latency.
+                        </p>
+                        <ul class="product-features">
+                            <li>24/7 intelligent switchboard</li>
+                            <li>Automated customer service</li>
+                            <li>CRM, ERP, ticketing integration</li>
+                            <li>Voice data stays in-house</li>
+                            <li>From EUR 25,000 to EUR 75,000</li>
+                        </ul>
+                    </div>
+                    <div class="product-action">
+                        <span>Discover VoiceAI</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- KnowledgeAI Enterprise -->
+                <a href="knowledgeai-enterprise.html" class="product-card">
+                    <div class="product-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            <path d="M8 7h8M8 11h8M8 15h4"/>
+                        </svg>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">KnowledgeAI Enterprise</h3>
+                        <p class="product-description">
+                            Enterprise AI chat with RAG technology to query internal documents.
+                            70-90% reduction in AI hallucinations.
+                        </p>
+                        <ul class="product-features">
+                            <li>Chat on company documents</li>
+                            <li>Anti-hallucination RAG technology</li>
+                            <li>Supports PDF, Word, Excel, email</li>
+                            <li>Always up-to-date knowledge base</li>
+                            <li>From EUR 30,000 to EUR 85,000</li>
+                        </ul>
+                    </div>
+                    <div class="product-action">
+                        <span>Discover KnowledgeAI</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h2 class="cta-title">Ready for On-Premise AI?</h2>
+                <p class="cta-description">
+                    Book a free demo and discover how VoiceAI and KnowledgeAI can
+                    transform your business while maintaining total control over your data.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        Request Free Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding" style="background: var(--primary-navy);">
+        <div class="container">
+            <h2 class="section-title text-center" style="color: var(--accent-platinum);">Frequently Asked Questions</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">What are on-premise AI products?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">On-premise AI products are artificial intelligence solutions installed directly on your company's infrastructure, rather than running in the cloud. This means your data never leaves your servers, ensuring maximum privacy, full GDPR compliance, and complete data sovereignty. PugliAI offers two on-premise products: VoiceAI for intelligent voice assistance and KnowledgeAI for enterprise document chat.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Why choose on-premise AI over cloud solutions?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">On-premise AI offers several advantages for SMBs: your sensitive data stays within your company walls ensuring native GDPR compliance, you maintain total control over your AI systems, there is zero latency since processing happens locally, and you avoid ongoing cloud subscription costs. This is especially critical for industries handling confidential customer data, financial records, or proprietary manufacturing processes.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">What products does PugliAI offer?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">PugliAI offers two enterprise on-premise AI products designed for Italian SMBs. VoiceAI On-Premise is an AI voice assistant for intelligent switchboard and automated customer service with 24/7 availability and CRM/ERP integration, priced from EUR 25,000 to EUR 75,000. KnowledgeAI Enterprise is an AI-powered chat system using RAG technology to query internal documents like PDFs, Word, Excel, and emails with 70-90% reduction in AI hallucinations, priced from EUR 30,000 to EUR 85,000.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">How much do on-premise AI solutions cost?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">PugliAI's on-premise AI solutions are competitively priced for SMBs. VoiceAI On-Premise ranges from EUR 25,000 to EUR 75,000 depending on the scope of integration and number of channels. KnowledgeAI Enterprise ranges from EUR 30,000 to EUR 85,000 based on document volume and complexity. Both products include installation, configuration, and integration with your existing systems like CRM, ERP, and ticketing platforms.</p>
+                </details>
+                <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Can on-premise AI products integrate with existing systems?</summary>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Yes, both PugliAI products are designed to integrate seamlessly with your existing business systems. VoiceAI On-Premise connects with CRM, ERP, and ticketing systems for intelligent call routing and customer service automation. KnowledgeAI Enterprise supports multiple document formats including PDF, Word, Excel, and email, and maintains an always up-to-date knowledge base from your internal documents. Both solutions are tailored to fit your specific infrastructure.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../src/assets/img/pugliai_pittogramma.png" alt="PugliAI" class="footer-logo-img">
+                </div>
+                <div class="footer-links">
+                    <a href="ai-infrastructure.html" class="footer-link">AI Infrastructure</a>
+                    <a href="ai-agents.html" class="footer-link">AI Agents</a>
+                    <a href="strategic-consulting.html" class="footer-link">Consulting</a>
+                    <a href="sectors.html" class="footer-link">Sectors</a>
+                    <a href="about-us.html" class="footer-link">About Us</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2025 PugliAI S.r.l. - VAT IT02735920742</p>
+                    <p>Via Giovanni Forleo 45, 72022 Latiano (BR) | Via Angelo Maj 16, 24121 Bergamo</p>
+                    <p>
+                        <a href="privacy.html" class="footer-link">Privacy</a> |
+                        <a href="cookie.html" class="footer-link">Cookie</a> |
+                        <a href="terms.html" class="footer-link">Terms</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <!-- Scripts -->
+    <script>
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>

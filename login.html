@@ -14,126 +14,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - PugliAI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/assets/css/brand.css">
-    <link rel="stylesheet" href="src/assets/css/landing.css">
-    <link rel="stylesheet" href="src/assets/css/pugliai-site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: var(--gradient-primary);
+        }
+        .login-modal {
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            width: 100%;
+            max-width: 400px;
+            box-shadow: var(--shadow-2xl);
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        .login-title {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+        .login-subtitle {
+            color: var(--text-secondary);
+        }
+        .error-message {
+            background: rgba(239, 68, 68, 0.2);
+            color: #EF4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Vai al contenuto</a>
-
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="index.html" aria-label="PugliAI home"><img src="src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Principale">
-      <a href="index.html#metaphor">L'Idea</a>
-      <a href="servizi.html">Servizi</a>
-      <a href="prodotti.html">On-Premise</a>
-      <a href="acceleratore.html">Acceleratore</a>
-      <a href="index.html#process">Percorso</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua">
-        <a href="login.html" class="on" aria-current="true">IT</a>
-        <a href="en/index.html">EN</a>
-      </div>
-      <a href="contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="index.html#metaphor">L'Idea</a>
-  <a href="servizi.html">Servizi</a>
-  <a href="prodotti.html">On-Premise</a>
-  <a href="acceleratore.html">Acceleratore</a>
-  <a href="index.html#process">Percorso</a>
-  <a href="contatti.html">Richiedi un preventivo</a>
-</div>
-
-<main id="main">
-
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <div class="eyebrow-lux">Area clienti</div>
-    <h1>Accesso <span class="serif">riservato</span></h1>
-    <p class="pagehead__lead">Inserisci le tue credenziali per accedere all'area riservata PugliAI.</p>
-  </div>
-</section>
-
-<!-- LOGIN FORM -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div id="error-message" class="form__note" style="display:none;max-width:640px;margin:0 auto 14px;color:#ef4444;text-align:center">
-      Username o password errati.
-    </div>
-    <form id="login-form" class="form">
-      <div class="field">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" autocomplete="username" required>
-      </div>
-      <div class="field">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" autocomplete="current-password" required>
-      </div>
-      <button class="btn btn--grad" type="submit">Accedi
-        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-    </form>
-  </div>
-</section>
-
-</main>
-
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Soluzioni</h5>
-          <a href="servizi.html">Servizi</a>
-          <a href="voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="acceleratore.html">Acceleratore</a>
+    <div class="login-modal">
+        <div class="login-header">
+            <h1 class="login-title">Accesso Riservato</h1>
+            <p class="login-subtitle">Inserisci le tue credenziali</p>
         </div>
-        <div class="foot__col">
-          <h5>Azienda</h5>
-          <a href="chi-siamo.html">Chi siamo</a>
-          <a href="index.html#metaphor">L'Idea</a>
-          <a href="index.html#process">Percorso</a>
-          <a href="casi-studio.html">Casi studio</a>
-          <a href="contatti.html">Contatti</a>
+        <div id="error-message" class="error-message">
+            Username o password errati.
         </div>
-        <div class="foot__col">
-          <h5>Legale</h5>
-          <a href="privacy.html">Privacy</a>
-          <a href="cookie.html">Cookie</a>
-          <a href="termini.html">Termini</a>
-        </div>
-      </div>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-input" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Accedi</button>
+        </form>
     </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>Conforme a GDPR e AI Act by design</span>
-    </div>
-  </div>
-</footer>
 
-<script>
-  document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    document.getElementById('error-message').style.display = 'block';
-  });
-</script>
-<script src="src/assets/js/tree-canvas.js"></script>
-<script src="src/assets/js/pugliai-landing.js"></script>
-<script src="src/assets/js/form-security.js"></script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('error-message').style.display = 'block';
+        });
+    </script>
 </body>
 </html>

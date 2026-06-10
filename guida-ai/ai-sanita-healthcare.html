@@ -33,10 +33,8 @@
 
     <link rel="canonical" href="https://www.pugliai.com/guida-ai/ai-sanita-healthcare.html">
 
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/assets/css/brand.css">
-    <link rel="stylesheet" href="../src/assets/css/landing.css">
-    <link rel="stylesheet" href="../src/assets/css/pugliai-site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <script type="application/ld+json">
@@ -102,341 +100,323 @@
         ]
     }
     </script>
+
+    <style>
+        .article-hero { background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%); padding: 140px 20px 80px; position: relative; overflow: hidden; }
+        .article-hero::before { content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: radial-gradient(circle at 70% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 60%); }
+        .article-hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+        .article-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; font-size: 0.9rem; }
+        .article-breadcrumb a { color: var(--accent-platinum); text-decoration: none; transition: color 0.3s; }
+        .article-breadcrumb a:hover { color: var(--accent-gold); }
+        .article-breadcrumb span { color: var(--accent-gold); }
+        .article-category { display: inline-block; background: var(--gradient-emerald); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
+        .article-hero h1 { font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 20px; line-height: 1.2; }
+        .article-meta-hero { display: flex; flex-wrap: wrap; gap: 24px; color: var(--accent-platinum); font-size: 0.95rem; }
+        .article-meta-hero span { display: flex; align-items: center; gap: 6px; }
+        .article-container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .article-content { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); }
+        .article-content h2 { font-size: 1.8rem; color: var(--primary-navy); margin: 48px 0 24px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-gold); }
+        .article-content h3 { font-size: 1.4rem; color: var(--secondary-navy); margin: 36px 0 16px; }
+        .article-content p { margin-bottom: 20px; }
+        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 24px; }
+        .article-content li { margin-bottom: 12px; }
+        .highlight-box { background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%); border-left: 4px solid var(--accent-gold); padding: 24px 28px; margin: 32px 0; border-radius: 0 12px 12px 0; }
+        .highlight-box h4 { color: var(--primary-navy); margin-bottom: 12px; font-size: 1.1rem; }
+        .stat-highlight { background: var(--gradient-primary); color: white; padding: 32px; border-radius: 16px; margin: 32px 0; text-align: center; }
+        .stat-highlight .number { font-size: 3rem; font-weight: 800; color: var(--accent-gold); display: block; margin-bottom: 8px; }
+        .stat-highlight .label { font-size: 1.1rem; opacity: 0.9; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.95rem; }
+        .comparison-table th { background: var(--primary-navy); color: white; padding: 16px; text-align: left; }
+        .comparison-table td { padding: 14px 16px; border-bottom: 1px solid #e5e7eb; }
+        .comparison-table tr:nth-child(even) { background: #f8fafc; }
+        .faq-section { margin: 48px 0; }
+        .faq-item { border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+        .faq-question { background: #f8fafc; padding: 20px 24px; font-weight: 600; color: var(--primary-navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 20px 24px; border-top: 1px solid #e5e7eb; }
+        .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; padding-top: 40px; border-top: 2px solid #e5e7eb; }
+        .article-nav a { padding: 24px; background: #f8fafc; border-radius: 12px; text-decoration: none; transition: all 0.3s; border: 1px solid transparent; }
+        .article-nav a:hover { border-color: var(--accent-gold); background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .article-nav .label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+        .article-nav .title { color: var(--primary-navy); font-weight: 600; }
+        .article-nav .next { text-align: right; }
+        .cta-box { background: var(--gradient-primary); padding: 40px; border-radius: 16px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: white; margin-bottom: 16px; }
+        .cta-box p { color: var(--accent-platinum); margin-bottom: 24px; }
+        @media (max-width: 768px) { .article-nav { grid-template-columns: 1fr; } .article-nav .next { text-align: left; } }
+    </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Vai al contenuto</a>
+    <div id="nav-placeholder"></div>
+    <script src="../src/assets/js/navigation.js"></script>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="nav__logo" href="../index.html" aria-label="PugliAI home"><img src="../src/assets/img/pugliai_logo.png" alt="PugliAI"></a>
-    <nav class="nav__links" aria-label="Principale">
-      <a href="../index.html#metaphor">L'Idea</a>
-      <a href="../servizi.html">Servizi</a>
-      <a href="../prodotti.html">On-Premise</a>
-      <a href="../acceleratore.html">Acceleratore</a>
-      <a href="../index.html#process">Percorso</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua">
-        <a href="ai-sanita-healthcare.html" class="on" aria-current="true">IT</a>
-        <a href="../en/ceo-ai-guide-2025.html">EN</a>
-      </div>
-      <a href="../contatti.html" class="btn btn--grad btn--sm nav__cta">Richiedi un preventivo</a>
-      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<div class="mmenu" id="mmenu">
-  <a href="../index.html#metaphor">L'Idea</a>
-  <a href="../servizi.html">Servizi</a>
-  <a href="../prodotti.html">On-Premise</a>
-  <a href="../acceleratore.html">Acceleratore</a>
-  <a href="../index.html#process">Percorso</a>
-  <a href="../contatti.html">Richiedi un preventivo</a>
-</div>
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-content">
+                <nav class="article-breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a>
+                    <span>/</span>
+                    <span>AI nella Sanita</span>
+                </nav>
+                <span class="article-category">AI per Settore</span>
+                <h1>AI nella Sanita: Opportunita per Aziende Healthcare Italia 2025</h1>
+                <div class="article-meta-hero">
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 15 min lettura</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Dicembre 2025</span>
+                    <span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Avanzato</span>
+                </div>
+            </div>
+        </header>
 
-<main id="main">
+        <div class="article-container">
+            <div class="article-content">
+                <p><strong>La sanita italiana sta vivendo una trasformazione digitale senza precedenti, accelerata dal PNRR e dalla necessita di modernizzare un sistema frammentato.</strong> Il mercato dell'AI & Analytics sanitario in Italia vale 228 milioni di euro nel 2025, con una crescita del 90% in soli tre anni. Per le aziende che operano nel settore healthcare - dalle cliniche private ai fornitori di tecnologie mediche - l'AI rappresenta un'opportunita strategica.</p>
 
-<!-- PAGE HEADER -->
-<section class="pagehead">
-  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
-  <div class="grain"></div>
-  <div class="shell">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><i>/</i>
-      <a href="../guida-ai-ceo-2025.html">Guida AI CEO</a><i>/</i>
-      <span>AI nella Sanita</span>
-    </nav>
-    <div class="eyebrow-lux">AI per Settore</div>
-    <h1>AI nella <span class="serif">Sanita</span>: Opportunita per Aziende Healthcare Italia 2025</h1>
-    <p class="pagehead__lead">Come l'intelligenza artificiale sta trasformando la sanita italiana. Digital health, telemedicina AI, diagnostica avanzata. Dati mercato 2025 e opportunita per aziende del settore.</p>
-    <div class="pagehead__meta">
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 15 min lettura</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Aggiornato: Dicembre 2025</span>
-      <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Livello: Avanzato</span>
-    </div>
-  </div>
-</section>
+                <p>In questo articolo esploriamo lo stato dell'AI nella sanita italiana, le applicazioni concrete, le sfide normative e le opportunita di business per imprenditori e manager del settore.</p>
 
-<!-- ARTICLE -->
-<section class="sec sec--light">
-  <div class="shell">
-    <div class="prose reveal">
+                <div class="stat-highlight">
+                    <span class="number">228 mln euro</span>
+                    <span class="label">Mercato AI & Analytics sanita Italia 2025 (+90% dal 2022)</span>
+                </div>
 
-      <p><strong>La sanita italiana sta vivendo una trasformazione digitale senza precedenti, accelerata dal PNRR e dalla necessita di modernizzare un sistema frammentato.</strong> Il mercato dell'AI & Analytics sanitario in Italia vale 228 milioni di euro nel 2025, con una crescita del 90% in soli tre anni. Per le aziende che operano nel settore healthcare - dalle cliniche private ai fornitori di tecnologie mediche - l'AI rappresenta un'opportunita strategica.</p>
+                <h2>Il Mercato AI Healthcare in Italia</h2>
 
-      <p>In questo articolo esploriamo lo stato dell'AI nella sanita italiana, le applicazioni concrete, le sfide normative e le opportunita di business per imprenditori e manager del settore.</p>
+                <h3>Crescita e Proiezioni</h3>
 
-      <div class="statbox">
-        <span class="statbox__n">228 mln euro</span>
-        <span class="statbox__l">Mercato AI &amp; Analytics sanita Italia 2025 (+90% dal 2022)</span>
-      </div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Anno</th>
+                            <th>Valore Mercato</th>
+                            <th>Crescita YoY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022</td>
+                            <td>120,9 mln euro</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>2023</td>
+                            <td>153,8 mln euro</td>
+                            <td>+27%</td>
+                        </tr>
+                        <tr>
+                            <td>2024</td>
+                            <td>191 mln euro</td>
+                            <td>+24%</td>
+                        </tr>
+                        <tr>
+                            <td>2025</td>
+                            <td>228,1 mln euro</td>
+                            <td>+19%</td>
+                        </tr>
+                        <tr>
+                            <td>2030 (proiezione)</td>
+                            <td>3,19 mld USD</td>
+                            <td>CAGR 44,72%</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-      <h2>Il Mercato AI Healthcare in Italia</h2>
+                <h3>Digital Health in Italia</h3>
 
-      <h3>Crescita e Proiezioni</h3>
+                <div class="highlight-box">
+                    <h4>Lo Stato della Sanita Digitale</h4>
+                    <ul>
+                        <li><strong>2,3 miliardi di euro:</strong> Mercato digital health Italia 2023</li>
+                        <li><strong>72%:</strong> Strutture sanitarie che usano telemedicina</li>
+                        <li><strong>80%:</strong> Regioni focalizzate su integrazione dati e strategie digitali</li>
+                        <li><strong>83%:</strong> Regioni che pianificano piattaforme AI per supporto terapeutico</li>
+                        <li><strong>23 milioni:</strong> Italiani che hanno consentito al FSE 2.0</li>
+                    </ul>
+                </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Anno</th>
-            <th>Valore Mercato</th>
-            <th>Crescita YoY</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2022</td>
-            <td>120,9 mln euro</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>2023</td>
-            <td>153,8 mln euro</td>
-            <td>+27%</td>
-          </tr>
-          <tr>
-            <td>2024</td>
-            <td>191 mln euro</td>
-            <td>+24%</td>
-          </tr>
-          <tr>
-            <td>2025</td>
-            <td>228,1 mln euro</td>
-            <td>+19%</td>
-          </tr>
-          <tr>
-            <td>2030 (proiezione)</td>
-            <td>3,19 mld USD</td>
-            <td>CAGR 44,72%</td>
-          </tr>
-        </tbody>
-      </table>
+                <h2>Applicazioni AI nella Sanita</h2>
 
-      <h3>Digital Health in Italia</h3>
+                <h3>1. Diagnostica per Immagini</h3>
 
-      <div class="callout">
-        <h4>Lo Stato della Sanita Digitale</h4>
-        <ul>
-          <li><strong>2,3 miliardi di euro:</strong> Mercato digital health Italia 2023</li>
-          <li><strong>72%:</strong> Strutture sanitarie che usano telemedicina</li>
-          <li><strong>80%:</strong> Regioni focalizzate su integrazione dati e strategie digitali</li>
-          <li><strong>83%:</strong> Regioni che pianificano piattaforme AI per supporto terapeutico</li>
-          <li><strong>23 milioni:</strong> Italiani che hanno consentito al FSE 2.0</li>
-        </ul>
-      </div>
+                <p>L'AI sta rivoluzionando la radiologia e l'imaging medico:</p>
 
-      <h2>Applicazioni AI nella Sanita</h2>
+                <ul>
+                    <li><strong>Radiologia:</strong> Rilevamento automatico di anomalie in raggi X, TAC, risonanze</li>
+                    <li><strong>Dermatologia:</strong> Screening tumori cutanei da immagini smartphone</li>
+                    <li><strong>Oftalmologia:</strong> Diagnosi retinopatia diabetica e degenerazione maculare</li>
+                    <li><strong>Patologia:</strong> Analisi vetrini istologici per tumori</li>
+                </ul>
 
-      <h3>1. Diagnostica per Immagini</h3>
+                <p><strong>Precisione:</strong> Alcuni sistemi AI raggiungono accuratezza superiore al 95%, paragonabile o superiore a specialisti umani.</p>
 
-      <p>L'AI sta rivoluzionando la radiologia e l'imaging medico:</p>
+                <h3>2. Supporto alle Decisioni Cliniche</h3>
 
-      <ul>
-        <li><strong>Radiologia:</strong> Rilevamento automatico di anomalie in raggi X, TAC, risonanze</li>
-        <li><strong>Dermatologia:</strong> Screening tumori cutanei da immagini smartphone</li>
-        <li><strong>Oftalmologia:</strong> Diagnosi retinopatia diabetica e degenerazione maculare</li>
-        <li><strong>Patologia:</strong> Analisi vetrini istologici per tumori</li>
-      </ul>
+                <p>Sistemi che assistono i medici nelle scelte terapeutiche:</p>
 
-      <p><strong>Precisione:</strong> Alcuni sistemi AI raggiungono accuratezza superiore al 95%, paragonabile o superiore a specialisti umani.</p>
+                <ul>
+                    <li><strong>Drug interactions:</strong> Alert automatici su interazioni farmacologiche</li>
+                    <li><strong>Treatment recommendations:</strong> Suggerimenti terapeutici basati su evidence</li>
+                    <li><strong>Risk stratification:</strong> Identificazione pazienti ad alto rischio</li>
+                    <li><strong>Clinical pathways:</strong> Ottimizzazione percorsi di cura</li>
+                </ul>
 
-      <h3>2. Supporto alle Decisioni Cliniche</h3>
+                <h3>3. Telemedicina Intelligente</h3>
 
-      <p>Sistemi che assistono i medici nelle scelte terapeutiche:</p>
+                <p>L'AI potenzia le visite a distanza:</p>
 
-      <ul>
-        <li><strong>Drug interactions:</strong> Alert automatici su interazioni farmacologiche</li>
-        <li><strong>Treatment recommendations:</strong> Suggerimenti terapeutici basati su evidence</li>
-        <li><strong>Risk stratification:</strong> Identificazione pazienti ad alto rischio</li>
-        <li><strong>Clinical pathways:</strong> Ottimizzazione percorsi di cura</li>
-      </ul>
+                <ul>
+                    <li><strong>Triage automatizzato:</strong> Pre-screening sintomi prima della visita</li>
+                    <li><strong>Monitoraggio remoto:</strong> Analisi dati da dispositivi wearable</li>
+                    <li><strong>Chatbot sanitari:</strong> Risposta a domande comuni e prenotazioni</li>
+                    <li><strong>Traduzione real-time:</strong> Visite con pazienti stranieri</li>
+                </ul>
 
-      <h3>3. Telemedicina Intelligente</h3>
+                <h3>4. Gestione Paziente Cronico</h3>
 
-      <p>L'AI potenzia le visite a distanza:</p>
+                <ul>
+                    <li><strong>Prediction models:</strong> Previsione riacutizzazioni e ricoveri</li>
+                    <li><strong>Adherence monitoring:</strong> Controllo aderenza terapeutica</li>
+                    <li><strong>Personalized care plans:</strong> Piani di cura individualizzati</li>
+                    <li><strong>Early warning:</strong> Alert precoce su deterioramento condizioni</li>
+                </ul>
 
-      <ul>
-        <li><strong>Triage automatizzato:</strong> Pre-screening sintomi prima della visita</li>
-        <li><strong>Monitoraggio remoto:</strong> Analisi dati da dispositivi wearable</li>
-        <li><strong>Chatbot sanitari:</strong> Risposta a domande comuni e prenotazioni</li>
-        <li><strong>Traduzione real-time:</strong> Visite con pazienti stranieri</li>
-      </ul>
+                <div class="stat-highlight">
+                    <span class="number">16.500</span>
+                    <span class="label">Medici che mancheranno all'Italia entro il 2025</span>
+                </div>
 
-      <h3>4. Gestione Paziente Cronico</h3>
+                <h2>Il Fascicolo Sanitario Elettronico 2.0</h2>
 
-      <ul>
-        <li><strong>Prediction models:</strong> Previsione riacutizzazioni e ricoveri</li>
-        <li><strong>Adherence monitoring:</strong> Controllo aderenza terapeutica</li>
-        <li><strong>Personalized care plans:</strong> Piani di cura individualizzati</li>
-        <li><strong>Early warning:</strong> Alert precoce su deterioramento condizioni</li>
-      </ul>
+                <p>Il FSE 2.0 e il pilastro della digitalizzazione sanitaria italiana, finanziato dal PNRR:</p>
 
-      <div class="statbox">
-        <span class="statbox__n">16.500</span>
-        <span class="statbox__l">Medici che mancheranno all'Italia entro il 2025</span>
-      </div>
+                <ul>
+                    <li><strong>Obiettivo:</strong> Un unico fascicolo sanitario nazionale interoperabile</li>
+                    <li><strong>Consensi:</strong> Oltre 23 milioni di italiani hanno gia aderito</li>
+                    <li><strong>Evoluzione:</strong> Integrazione di dati genetici e ambientali</li>
+                    <li><strong>AI-ready:</strong> Infrastruttura predisposta per analytics avanzate</li>
+                </ul>
 
-      <h2>Il Fascicolo Sanitario Elettronico 2.0</h2>
+                <h3>European Health Data Space (EHDS)</h3>
 
-      <p>Il FSE 2.0 e il pilastro della digitalizzazione sanitaria italiana, finanziato dal PNRR:</p>
+                <p>Dal 2025 e in vigore lo Spazio Europeo dei Dati Sanitari, che permettera:</p>
 
-      <ul>
-        <li><strong>Obiettivo:</strong> Un unico fascicolo sanitario nazionale interoperabile</li>
-        <li><strong>Consensi:</strong> Oltre 23 milioni di italiani hanno gia aderito</li>
-        <li><strong>Evoluzione:</strong> Integrazione di dati genetici e ambientali</li>
-        <li><strong>AI-ready:</strong> Infrastruttura predisposta per analytics avanzate</li>
-      </ul>
+                <ul>
+                    <li>Condivisione dati sanitari tra stati membri UE</li>
+                    <li>Accesso per ricerca e innovazione (con consenso)</li>
+                    <li>Standard comuni di interoperabilita</li>
+                    <li>Nuove opportunita per sviluppatori AI</li>
+                </ul>
 
-      <h3>European Health Data Space (EHDS)</h3>
+                <h2>Sfide e Barriere</h2>
 
-      <p>Dal 2025 e in vigore lo Spazio Europeo dei Dati Sanitari, che permettera:</p>
+                <h3>Frammentazione Regionale</h3>
 
-      <ul>
-        <li>Condivisione dati sanitari tra stati membri UE</li>
-        <li>Accesso per ricerca e innovazione (con consenso)</li>
-        <li>Standard comuni di interoperabilita</li>
-        <li>Nuove opportunita per sviluppatori AI</li>
-      </ul>
+                <p>La principale debolezza del sistema italiano e la frammentazione: 20 regioni operano con sistemi indipendenti, senza un'infrastruttura centralizzata per i dati sanitari. Questo limita le possibilita di sviluppo AI su larga scala.</p>
 
-      <h2>Sfide e Barriere</h2>
+                <h3>Gap di Investimenti</h3>
 
-      <h3>Frammentazione Regionale</h3>
+                <p>Solo il <strong>26%</strong> delle aziende sanitarie italiane pianificava investimenti AI nel 2023, evidenziando una resistenza culturale e organizzativa significativa.</p>
 
-      <p>La principale debolezza del sistema italiano e la frammentazione: 20 regioni operano con sistemi indipendenti, senza un'infrastruttura centralizzata per i dati sanitari. Questo limita le possibilita di sviluppo AI su larga scala.</p>
+                <h3>Compliance e Regolamentazione</h3>
 
-      <h3>Gap di Investimenti</h3>
+                <p>L'AI sanitario e classificato come "alto rischio" dall'AI Act, con requisiti stringenti di:</p>
 
-      <p>Solo il <strong>26%</strong> delle aziende sanitarie italiane pianificava investimenti AI nel 2023, evidenziando una resistenza culturale e organizzativa significativa.</p>
+                <ul>
+                    <li>Trasparenza algoritmica</li>
+                    <li>Supervisione umana obbligatoria</li>
+                    <li>Documentazione completa</li>
+                    <li>Valutazione d'impatto</li>
+                </ul>
 
-      <h3>Compliance e Regolamentazione</h3>
+                <h2>Opportunita per le Aziende</h2>
 
-      <p>L'AI sanitario e classificato come "alto rischio" dall'AI Act, con requisiti stringenti di:</p>
+                <h3>Per Fornitori di Tecnologie</h3>
 
-      <ul>
-        <li>Trasparenza algoritmica</li>
-        <li>Supervisione umana obbligatoria</li>
-        <li>Documentazione completa</li>
-        <li>Valutazione d'impatto</li>
-      </ul>
+                <ul>
+                    <li><strong>Integrazione FSE 2.0:</strong> Sviluppo soluzioni compatibili con il nuovo fascicolo</li>
+                    <li><strong>Telemedicina AI-powered:</strong> Piattaforme evolute per visite remote</li>
+                    <li><strong>Medical devices:</strong> Dispositivi con AI embedded</li>
+                    <li><strong>Analytics sanitarie:</strong> Dashboard e reporting per direzioni sanitarie</li>
+                </ul>
 
-      <h2>Opportunita per le Aziende</h2>
+                <h3>Per Cliniche Private</h3>
 
-      <h3>Per Fornitori di Tecnologie</h3>
+                <ul>
+                    <li><strong>Differenziazione:</strong> Servizi diagnostici AI-enhanced</li>
+                    <li><strong>Efficienza:</strong> Automazione amministrativa e scheduling</li>
+                    <li><strong>Patient experience:</strong> Chatbot e portali intelligenti</li>
+                    <li><strong>Marketing:</strong> Posizionamento come struttura innovativa</li>
+                </ul>
 
-      <ul>
-        <li><strong>Integrazione FSE 2.0:</strong> Sviluppo soluzioni compatibili con il nuovo fascicolo</li>
-        <li><strong>Telemedicina AI-powered:</strong> Piattaforme evolute per visite remote</li>
-        <li><strong>Medical devices:</strong> Dispositivi con AI embedded</li>
-        <li><strong>Analytics sanitarie:</strong> Dashboard e reporting per direzioni sanitarie</li>
-      </ul>
+                <h3>Per Farmaceutiche e Biotech</h3>
 
-      <h3>Per Cliniche Private</h3>
+                <ul>
+                    <li><strong>Drug discovery:</strong> AI per accelerare R&D</li>
+                    <li><strong>Clinical trials:</strong> Reclutamento e monitoraggio intelligente</li>
+                    <li><strong>Real-world evidence:</strong> Analisi dati post-marketing</li>
+                </ul>
 
-      <ul>
-        <li><strong>Differenziazione:</strong> Servizi diagnostici AI-enhanced</li>
-        <li><strong>Efficienza:</strong> Automazione amministrativa e scheduling</li>
-        <li><strong>Patient experience:</strong> Chatbot e portali intelligenti</li>
-        <li><strong>Marketing:</strong> Posizionamento come struttura innovativa</li>
-      </ul>
+                <section class="faq-section">
+                    <h2>Domande Frequenti</h2>
 
-      <h3>Per Farmaceutiche e Biotech</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quanto vale il mercato AI nella sanita italiana?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Il mercato italiano dell'AI & Analytics nella sanita vale 228 milioni di euro nel 2025, in crescita del 90% rispetto al 2022. Le proiezioni indicano una crescita a 3,19 miliardi di dollari entro il 2030 con un CAGR del 44,72%.</p>
+                        </div>
+                    </div>
 
-      <ul>
-        <li><strong>Drug discovery:</strong> AI per accelerare R&amp;D</li>
-        <li><strong>Clinical trials:</strong> Reclutamento e monitoraggio intelligente</li>
-        <li><strong>Real-world evidence:</strong> Analisi dati post-marketing</li>
-      </ul>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Quali sono le principali applicazioni AI nella sanita?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Le applicazioni principali sono: diagnostica per immagini (radiologia, dermatologia, oftalmologia), supporto alla decisione clinica, telemedicina intelligente, gestione del paziente cronico, drug discovery, e ottimizzazione delle operazioni ospedaliere. Il 72% delle strutture italiane usa gia telemedicina.</p>
+                        </div>
+                    </div>
 
-      <h2>Domande Frequenti</h2>
-    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Cos'e il Fascicolo Sanitario Elettronico 2.0?
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Il FSE 2.0 e la nuova versione del Fascicolo Sanitario Elettronico nazionale, finanziato dal PNRR. Oltre 23 milioni di italiani hanno gia dato il consenso. Integrera dati genetici e ambientali, e l'83% delle regioni pianifica piattaforme AI per supportare le decisioni terapeutiche.</p>
+                        </div>
+                    </div>
+                </section>
 
-    <div class="faq reveal">
-      <details>
-        <summary>Quanto vale il mercato AI nella sanita italiana?</summary>
-        <div class="faq__a">Il mercato italiano dell'AI &amp; Analytics nella sanita vale 228 milioni di euro nel 2025, in crescita del 90% rispetto al 2022. Le proiezioni indicano una crescita a 3,19 miliardi di dollari entro il 2030 con un CAGR del 44,72%.</div>
-      </details>
-      <details>
-        <summary>Quali sono le principali applicazioni AI nella sanita?</summary>
-        <div class="faq__a">Le applicazioni principali sono: diagnostica per immagini (radiologia, dermatologia, oftalmologia), supporto alla decisione clinica, telemedicina intelligente, gestione del paziente cronico, drug discovery, e ottimizzazione delle operazioni ospedaliere. Il 72% delle strutture italiane usa gia telemedicina.</div>
-      </details>
-      <details>
-        <summary>Cos'e il Fascicolo Sanitario Elettronico 2.0?</summary>
-        <div class="faq__a">Il FSE 2.0 e la nuova versione del Fascicolo Sanitario Elettronico nazionale, finanziato dal PNRR. Oltre 23 milioni di italiani hanno gia dato il consenso. Integrera dati genetici e ambientali, e l'83% delle regioni pianifica piattaforme AI per supportare le decisioni terapeutiche.</div>
-      </details>
-    </div>
+                <div class="cta-box">
+                    <h3 style="color: white; margin-top: 0;">Vuoi Innovare la Tua Azienda Healthcare?</h3>
+                    <p>Scopri come l'AI puo trasformare i tuoi servizi sanitari e creare vantaggio competitivo.</p>
+                    <a href="../contatti.html" class="btn btn-primary btn-lg">Richiedi Consulenza</a>
+                </div>
 
-    <nav class="artnav reveal" aria-label="Navigazione articoli">
-      <a href="ai-turismo-hospitality.html">
-        <div class="artnav__k">Articolo Precedente</div>
-        <div class="artnav__t">AI nel Turismo e Hospitality</div>
-      </a>
-      <a href="ai-incentivi-finanziamenti-italia.html" class="next">
-        <div class="artnav__k">Prossimo Articolo</div>
-        <div class="artnav__t">Incentivi e Finanziamenti AI</div>
-      </a>
-    </nav>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="sec sec--dark">
-  <div class="shell">
-    <div class="shead reveal" style="margin-bottom:0">
-      <div class="eyebrow-lux" style="justify-content:center">Parliamone</div>
-      <h2>Vuoi Innovare la Tua <span class="serif">Azienda Healthcare</span>?</h2>
-      <p class="shead__lead">Scopri come l'AI puo trasformare i tuoi servizi sanitari e creare vantaggio competitivo.</p>
-      <div class="finale__cta" style="margin-top:32px">
-        <a href="../contatti.html" class="btn btn--grad">Richiedi Consulenza
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="../roi-calculator.html" class="btn btn--ghost">Calcola il tuo ROI</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="foot">
-  <div class="shell">
-    <div class="foot__top">
-      <div class="foot__brand">
-        <img src="../src/assets/img/pugliai_logo.png" alt="PugliAI">
-        <p>AI di frontiera, radicata in Italia. Concreta, conforme, misurata in ROI reale.</p>
-      </div>
-      <div class="foot__cols">
-        <div class="foot__col">
-          <h5>Soluzioni</h5>
-          <a href="../servizi.html">Servizi</a>
-          <a href="../voiceai-on-premise.html">VoiceAI On-Premise</a>
-          <a href="../knowledgeai-enterprise.html">KnowledgeAI Enterprise</a>
-          <a href="../acceleratore.html">Acceleratore</a>
+                <nav class="article-nav">
+                    <a href="ai-turismo-hospitality.html">
+                        <div class="label">Articolo Precedente</div>
+                        <div class="title">AI nel Turismo e Hospitality</div>
+                    </a>
+                    <a href="ai-incentivi-finanziamenti-italia.html" class="next">
+                        <div class="label">Prossimo Articolo</div>
+                        <div class="title">Incentivi e Finanziamenti AI</div>
+                    </a>
+                </nav>
+            </div>
         </div>
-        <div class="foot__col">
-          <h5>Azienda</h5>
-          <a href="../chi-siamo.html">Chi siamo</a>
-          <a href="../index.html#metaphor">L'Idea</a>
-          <a href="../index.html#process">Percorso</a>
-          <a href="../casi-studio.html">Casi studio</a>
-          <a href="../contatti.html">Contatti</a>
-        </div>
-        <div class="foot__col">
-          <h5>Legale</h5>
-          <a href="../privacy.html">Privacy</a>
-          <a href="../cookie.html">Cookie</a>
-          <a href="../termini.html">Termini</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot__bar">
-      <span>© 2026 PugliAI S.r.l. — Latiano (BR) · Bergamo (BG)</span>
-      <span>Conforme a GDPR e AI Act by design</span>
-    </div>
-  </div>
-</footer>
+    </article>
 
-<script src="../src/assets/js/tree-canvas.js"></script>
-<script src="../src/assets/js/pugliai-landing.js"></script>
-<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>
+    <footer id="footer-placeholder"></footer>
+    <script>
+        fetch('../src/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').outerHTML = data;
+            });
+    </script>
 </body>
 </html>
