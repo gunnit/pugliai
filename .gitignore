@@ -43,11 +43,20 @@ test-results/
 .playwright-mcp/
 screenshots/
 
-# Claude Code local settings & tooling (kept local, not part of the deployed site)
+# AI agent tooling & local settings (kept local, not part of the deployed site)
 .claude/settings.local.json
 .claude/skills/
 .claude/launch.json
-.impeccable/live/sessions/
+.impeccable/
+.agents/
+.codex/
+AGENTS.md
+GEMINI.md
+DESIGN.md
+PRODUCT.md
+audit-screenshots/
+aeo.json
+aeo copy.json
 
 # Backup files from prior revert operations
 *.orig
