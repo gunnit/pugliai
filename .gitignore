@@ -43,8 +43,18 @@ test-results/
 .playwright-mcp/
 screenshots/
 
-# Claude Code local settings
+# Claude Code local settings & tooling (kept local, not part of the deployed site)
 .claude/settings.local.json
+.claude/skills/
+.claude/launch.json
+.impeccable/live/sessions/
+
+# Backup files from prior revert operations
+*.orig
+
+# Build output (generated page fragments)
+_build/
 
 # Misc
 image.png
+.claude/agents/impeccable-manual-edit-applier.md

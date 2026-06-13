@@ -15,6 +15,20 @@
     const basePath = isEnglish ? '../' : '';
     const linkPrefix = isEnglish ? '' : '';
 
+    // Content subdirectories (e.g. /guida-ai/) use the root (Italian) config but
+    // live one level deep, so root-relative links and assets need a '../' prefix.
+    // English pages bake '../' into their own config, so they get no extra prefix.
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    const dirDepth = Math.max(0, pathSegments.length - 1);
+    const subdirPrefix = (!isEnglish && dirDepth >= 1) ? '../'.repeat(dirDepth) : '';
+
+    // Prefix a relative (non-absolute, non-external) href/src for the current depth.
+    function withPrefix(path) {
+        if (!subdirPrefix || !path) return path;
+        if (/^(https?:|\/|#|mailto:|tel:)/.test(path)) return path;
+        return subdirPrefix + path;
+    }
+
     // Navigation configuration - EDIT THIS TO UPDATE ALL MENUS
     const navConfig = {
         it: {
@@ -130,18 +144,18 @@
             const submenuLabel = item.label + ' submenu';
             let submenuHtml = item.submenu.map(sub => {
                 const subActive = isActivePage(sub.href);
-                return `<li role="none"><a href="${sub.href}" class="dropdown-link${subActive ? ' active' : ''}" role="menuitem">${sub.label}</a></li>`;
+                return `<li role="none"><a href="${withPrefix(sub.href)}" class="dropdown-link${subActive ? ' active' : ''}" role="menuitem">${sub.label}</a></li>`;
             }).join('\n                                ');
 
             return `<li class="has-dropdown">
-                            <a href="${item.href}" class="nav-link${activeClass}" aria-haspopup="true" aria-expanded="false"${highlightStyle}>${iconHtml}${item.label} <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
+                            <a href="${withPrefix(item.href)}" class="nav-link${activeClass}" aria-haspopup="true" aria-expanded="false"${highlightStyle}>${iconHtml}${item.label} <span class="dropdown-arrow" aria-hidden="true">▼</span></a>
                             <ul class="dropdown-menu" role="menu" aria-label="${submenuLabel}">
                                 ${submenuHtml}
                             </ul>
                         </li>`;
         }
 
-        return `<li><a href="${item.href}" class="nav-link${activeClass}"${ariaCurrent}${highlightStyle}>${iconHtml}${item.label}</a></li>`;
+        return `<li><a href="${withPrefix(item.href)}" class="nav-link${activeClass}"${ariaCurrent}${highlightStyle}>${iconHtml}${item.label}</a></li>`;
     }
 
     // Generate Italian language switcher (dropdown style)
@@ -233,8 +247,8 @@
     <header class="header" role="banner">
         <div class="container">
             <div class="nav-container">
-                <a href="${config.logo.href}" class="logo" aria-label="${config.logo.ariaLabel}">
-                    <img src="${config.logo.imgSrc}" alt="${config.logo.imgAlt}" class="logo-img">
+                <a href="${withPrefix(config.logo.href)}" class="logo" aria-label="${config.logo.ariaLabel}">
+                    <img src="${withPrefix(config.logo.imgSrc)}" alt="${config.logo.imgAlt}" class="logo-img">
                     <span class="logo-text">${config.logo.text}</span>
                 </a>
                 <nav role="navigation" aria-label="${config.menuLabel}">
@@ -248,7 +262,7 @@
                     </ul>
                 </nav>
                 ${langSwitcher}
-                <a href="${config.cta.href}" class="cta-button" aria-label="${config.cta.ariaLabel}">${config.cta.label}</a>
+                <a href="${withPrefix(config.cta.href)}" class="cta-button" aria-label="${config.cta.ariaLabel}">${config.cta.label}</a>
             </div>
         </div>
     </header>`;
@@ -264,6 +278,25 @@
         } else {
             // Insert at the beginning of body (after any existing skip links)
             document.body.insertAdjacentHTML('afterbegin', generateNavigation());
+        }
+
+        // Ensure the skip link has a valid target: most pages never declared
+        // id="main-content", which left the injected skip link pointing nowhere.
+        // Prefer the primary content landmark, then the first content block after
+        // the header, so the link never jumps to a trailing FAQ/footer section.
+        if (!document.getElementById('main-content')) {
+            const header = document.querySelector('header.header');
+            const target = document.querySelector('main, [role="main"], article')
+                || (header && header.nextElementSibling
+                    && header.nextElementSibling.matches('section, div.container, .page-header')
+                    ? header.nextElementSibling : null)
+                || document.querySelector('section, .page-header');
+            if (target) {
+                target.id = 'main-content';
+                if (!target.hasAttribute('tabindex')) {
+                    target.setAttribute('tabindex', '-1');
+                }
+            }
         }
 
         // Initialize mobile menu toggle
