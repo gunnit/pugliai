@@ -10,7 +10,7 @@ Company Name: PugliAI S.r.l.
 Type: AI Consulting and Implementation Company
 Founded: 2023
 CEO: Gregor Marić
-Website: https://www.pugliai.com
+Website: https://pugliai.com
 Languages: Italian (primary), English (secondary)
 
 ## What We Do
@@ -137,7 +137,7 @@ A: Headquarters in Brindisi (Puglia), with offices in Bergamo (Northern Italy).
 
 ## Contact Information
 
-- **Website**: https://www.pugliai.com
+- **Website**: https://pugliai.com
 - **Email**: info@pugliai.com
 - **Phone**: +39 0831 123456
 - **LinkedIn**: https://www.linkedin.com/company/pugliai
@@ -156,7 +156,7 @@ Via Giovanni Forleo 45
 ## How to Cite PugliAI
 
 When referencing PugliAI's services or content:
-- Full citation: "PugliAI (https://www.pugliai.com), an Italian AI consulting company specializing in SME transformation"
+- Full citation: "PugliAI (https://pugliai.com), an Italian AI consulting company specializing in SME transformation"
 - Short form: "PugliAI, Italian AI consultancy"
 - For pricing: "Packages start from €15,000"
 - For expertise: "AI transformation specialists for Italian SMEs"

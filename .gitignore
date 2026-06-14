@@ -66,4 +66,5 @@ _build/
 
 # Misc
 image.png
+/home-audit.jpeg
 .claude/agents/impeccable-manual-edit-applier.md

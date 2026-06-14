@@ -1,5 +1,5 @@
 # robots.txt for PugliAI
-# https://www.pugliai.com
+# https://pugliai.com
 
 User-agent: *
 Allow: /
@@ -7,11 +7,11 @@ Disallow: /src/tests/
 Disallow: /src/components/
 
 # Sitemap location
-Sitemap: https://www.pugliai.com/sitemap.xml
+Sitemap: https://pugliai.com/sitemap.xml
 
 # LLMs.txt for AI systems (GPT, Claude, Perplexity, etc.)
 # https://llmstxt.org
-LLMsTxt: https://www.pugliai.com/llms.txt
+LLMsTxt: https://pugliai.com/llms.txt
 
 # Crawl-delay for responsible crawling
 Crawl-delay: 1
