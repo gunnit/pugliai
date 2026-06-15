@@ -963,6 +963,14 @@
             position: relative;
         }
 
+        /* Legacy utility used by Approfondimenti/FAQ blocks. Without this it
+           resolves to zero padding, so those blocks render flush against each
+           other; mirror .section so they keep the same vertical rhythm. */
+        .section-padding {
+            padding: clamp(3.5rem, 7vw, 6rem) 0;
+            position: relative;
+        }
+
         .section--compact {
             padding: clamp(2.5rem, 5vw, 4rem) 0;
         }
@@ -2504,9 +2512,12 @@
     height: 120px;
     margin-right: 2rem;
     object-fit: contain;
-    background-color: rgba(255, 255, 255, 0.05);
+    /* White chip keeps dark-on-transparent logos (navy, teal, pink) legible
+       on the dark card background and unifies the mismatched source logos. */
+    background-color: #ffffff;
+    border: 1px solid var(--glass-border);
     border-radius: 0.75rem;
-    padding: 1rem;
+    padding: 0.85rem;
 }
 
 .partner-logo-placeholder {
@@ -2515,7 +2526,45 @@
     height: 120px;
     margin-right: 2rem;
     background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
     border-radius: 0.75rem;
+}
+
+@media (max-width: 640px) {
+    .partner-logo,
+    .partner-logo-placeholder {
+        width: 84px;
+        height: 84px;
+        margin-right: 1.25rem;
+        padding: 0.6rem;
+    }
+
+    /* Stack the logo above the text on narrow screens so it no longer floats
+       in the vertical centre of a tall paragraph. */
+    .flex.items-center:has(.partner-logo) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .flex.items-center:has(.partner-logo) .partner-logo {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Small partner logo chip used inside timeline milestones */
+.timeline-logo {
+    height: 30px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    background-color: #ffffff;
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 5px 9px;
+    margin-top: 0.85rem;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Page Header Styles */

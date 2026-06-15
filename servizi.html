@@ -214,57 +214,6 @@
     </script>
 
     <style>
-        /* Enhanced navbar styles for this page */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(10, 22, 40, 0.95);
-            -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.5rem;
-        }
-
-        .nav-brand {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-cta {
-            background: var(--gradient-gold);
-            color: var(--primary-navy);
-            padding: 0.625rem 1.5rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.875rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.5);
-        }
-
         /* Hero section with animated background */
         .hero-section {
             padding: 10rem 0 6rem;
@@ -843,7 +792,7 @@
                             <li>2-3 automazioni pre-costruite (vendite/marketing)</li>
                             <li>Implementazione 1 soluzione core</li>
                             <li>Formazione team fino a 5 persone</li>
-                            <li><a href="roi-calculator.html" style="color: var(--accent-gold);">ROI garantito 150%</a> anno 1</li>
+                            <li>ROI garantito 150% anno 1</li>
                         </ul>
                     </div>
                     <div class="service-action">
@@ -1036,6 +985,27 @@
           </details>
         </div>
       </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-banner" role="region" aria-label="Call to action">
+        <div class="container cta-banner-content">
+            <h2 class="heading-2">Pronto a Iniziare il Tuo Percorso AI?</h2>
+            <p class="body-large">
+                Prenota una consulenza gratuita: analizziamo i tuoi processi e scegliamo insieme il pacchetto con il ROI più alto per la tua PMI.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contatti.html" class="btn btn-primary btn-lg" style="background: var(--primary-navy); color: white;">
+                    Richiedi una Consulenza Gratuita
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="roi-calculator.html" class="btn btn-secondary btn-lg" style="background: transparent; border: 2px solid var(--primary-navy); color: var(--primary-navy);">
+                    Calcola il Tuo ROI
+                </a>
+            </div>
+        </div>
     </section>
     </main>
 
