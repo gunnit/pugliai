@@ -12,6 +12,7 @@
         'index.html': 'index.html',
         'chi-siamo.html': 'about-us.html',
         'contatti.html': 'contact.html',
+        'sessione-strategica.html': 'strategy-session.html',
 
         // Services
         'servizi.html': 'services.html',
