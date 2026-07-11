@@ -275,11 +275,13 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-gold) 50%, var(--accent-emerald) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
+            text-wrap: balance;
             animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero-title .accent {
+            color: var(--accent-gold-light);
         }
 
         .hero-description {
@@ -307,10 +309,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 800;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent-gold-light);
             margin-bottom: 0.5rem;
         }
 
@@ -594,18 +593,10 @@
             backdrop-filter: blur(20px);
         }
 
-        .cta-container::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: var(--gradient-gold);
-            border-radius: 2rem;
-            opacity: 0.5;
-            z-index: -1;
-            animation: pulse-border 3s ease-in-out infinite;
+        /* Gold border accent only: the old full-panel gold overlay washed the
+           gray description text below AA contrast. */
+        .cta-container {
+            border-color: rgba(212, 160, 23, 0.45);
         }
 
         @keyframes pulse-border {
@@ -739,7 +730,7 @@
                     </svg>
                     <span>Pacchetti AI per PMI</span>
                 </div>
-                <h1 class="hero-title">Pacchetti AI Completi per Far Crescere la Tua PMI</h1>
+                <h1 class="hero-title">Pacchetti AI Completi per <span class="accent">Far Crescere la Tua PMI</span></h1>
                 <p class="hero-description">
                     Non solo software, ma un percorso completo: consulenza strategica continua, automazioni pronte all'uso,
                     formazione del team e supporto dedicato. Tutto in un unico pacchetto da €15K.
@@ -918,10 +909,10 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-container">
-                <h2 class="cta-title">Scegli il Pacchetto Giusto per la Tua PMI</h2>
+                <h2 class="cta-title">Non sai quale pacchetto scegliere?</h2>
                 <p class="cta-description">
-                    Non sai quale pacchetto fa per te? Parliamo delle tue esigenze e troviamo insieme
-                    la soluzione perfetta. Demo gratuita e assessment incluso.
+                    Parliamo delle tue esigenze e troviamo insieme
+                    la soluzione più adatta. Demo gratuita e assessment incluso.
                 </p>
                 <div class="cta-buttons">
                     <a href="contatti.html" class="btn-primary">

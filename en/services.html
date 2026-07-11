@@ -283,11 +283,13 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-gold) 50%, var(--accent-emerald) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
+            text-wrap: balance;
             animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero-title .accent {
+            color: var(--accent-gold-light);
         }
 
         .hero-description {
@@ -315,10 +317,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 800;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent-gold-light);
             margin-bottom: 0.5rem;
         }
 
@@ -602,18 +601,10 @@
             backdrop-filter: blur(20px);
         }
 
-        .cta-container::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: var(--gradient-gold);
-            border-radius: 2rem;
-            opacity: 0.5;
-            z-index: -1;
-            animation: pulse-border 3s ease-in-out infinite;
+        /* Gold border accent only: the old full-panel gold overlay washed the
+           gray description text below AA contrast. */
+        .cta-container {
+            border-color: rgba(212, 160, 23, 0.45);
         }
 
         @keyframes pulse-border {
@@ -730,40 +721,6 @@
             }
         }
 
-        /* Language switcher styles */
-        .language-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-            display: flex;
-            gap: 10px;
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 8px;
-            border-radius: 8px;
-            border: 1px solid var(--glass-border);
-        }
-
-        .language-switcher a {
-            padding: 6px 12px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .language-switcher a:hover {
-            background: var(--glass-bg);
-            color: var(--text-primary);
-        }
-
-        .language-switcher a.active {
-            background: var(--gradient-gold);
-            color: var(--primary-navy);
-        }
     </style>
 </head>
 <body>
@@ -782,7 +739,7 @@
                     </svg>
                     <span>AI Packages for SMEs</span>
                 </div>
-                <h1 class="hero-title">Complete AI Packages to Grow Your SME</h1>
+                <h1 class="hero-title">Complete AI Packages to <span class="accent">Grow Your SME</span></h1>
                 <p class="hero-description">
                     Not just software, but a complete journey: continuous strategic consulting, ready-to-use automation,
                     team training and dedicated support. Everything in a single package from €15K.
@@ -961,10 +918,10 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-container">
-                <h2 class="cta-title">Choose the Right Package for Your SME</h2>
+                <h2 class="cta-title">Not sure which package to choose?</h2>
                 <p class="cta-description">
-                    Not sure which package is right for you? Let's discuss your needs and find
-                    the perfect solution together. Free demo and assessment included.
+                    Let's discuss your needs and find
+                    the best fit together. Free demo and assessment included.
                 </p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="btn-primary">

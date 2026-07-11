@@ -96,26 +96,21 @@
 
         if (!langToggle || !langOption) return;
 
-        // Update toggle button to show current language
-        const flagSpan = langToggle.querySelector('.lang-flag');
+        // Flags/codes are rendered by navigation.js as inline SVGs (emoji flags
+        // degrade to bare letters on Windows); only fix up the per-page URL
+        // mapping and labels here.
         const codeSpan = langToggle.querySelector('.lang-code');
 
         if (isEnglish) {
-            // Show EN flag in toggle
-            flagSpan.textContent = '🇬🇧';
             codeSpan.textContent = 'EN';
-            // Update dropdown to show Italian option
+            // Update dropdown to point at the Italian equivalent of this page
             langOption.href = getAlternateUrl(currentPage, false);
-            langOption.querySelector('.lang-flag').textContent = '🇮🇹';
             langOption.querySelector('span:last-child').textContent = 'Italiano';
             langOption.setAttribute('aria-label', 'Passa all\'italiano');
         } else {
-            // Show IT flag in toggle
-            flagSpan.textContent = '🇮🇹';
             codeSpan.textContent = 'IT';
-            // Update dropdown to show English option
+            // Update dropdown to point at the English equivalent of this page
             langOption.href = getAlternateUrl(currentPage, true);
-            langOption.querySelector('.lang-flag').textContent = '🇬🇧';
             langOption.querySelector('span:last-child').textContent = 'English';
             langOption.setAttribute('aria-label', 'Switch to English');
         }

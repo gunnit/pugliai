@@ -486,11 +486,23 @@
     <main id="main-content" role="main">
     <section class="section split-hero" aria-labelledby="hero-title">
         <!-- Branded ambient background loop (Higgsfield-generated olive-tree network) -->
-        <video class="split-hero-bg" autoplay muted loop playsinline preload="auto"
+        <video class="split-hero-bg" muted loop playsinline preload="none"
                poster="../src/assets/video/hero-poster.jpg" aria-hidden="true" tabindex="-1">
             <source src="../src/assets/video/hero-loop.webm" type="video/webm">
             <source src="../src/assets/video/hero-loop.mp4" type="video/mp4">
         </video>
+        <script>
+        // Load/play the ambient loop only where it is actually shown: the CSS
+        // hides it under 600px and for reduced motion, but display:none alone
+        // does not stop the download (preload="auto" + autoplay did).
+        (function() {
+            var v = document.querySelector('.split-hero-bg');
+            if (v && window.matchMedia('(min-width: 601px)').matches
+                  && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                v.play().catch(function() {});
+            }
+        })();
+        </script>
         <div class="split-hero-scrim" aria-hidden="true"></div>
         <div class="container">
             <div class="split-hero-header animate-fade-in-up">
@@ -687,7 +699,7 @@
             <div class="grid grid-cols-2" style="gap: 2rem;">
                 <!-- VoiceAI Card -->
                 <div class="service-card scroll-animate" style="border: 2px solid rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.02);">
-                    <div class="card-icon" aria-hidden="true" style="color: var(--accent-emerald);">
+                    <div class="card-icon" aria-hidden="true">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2C13.1 2 14 2.9 14 4V11C14 12.1 13.1 13 12 13C10.9 13 10 12.1 10 11V4C10 2.9 10.9 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M19 10V11C19 14.87 15.87 18 12 18C8.13 18 5 14.87 5 11V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -721,7 +733,7 @@
 
                 <!-- KnowledgeAI Card -->
                 <div class="service-card scroll-animate" style="animation-delay: 0.1s; border: 2px solid rgba(255, 215, 0, 0.3); background: rgba(255, 215, 0, 0.02);">
-                    <div class="card-icon" aria-hidden="true" style="color: var(--accent-gold);">
+                    <div class="card-icon" aria-hidden="true">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -795,7 +807,7 @@
                     <p style="font-size: 0.875rem; color: var(--text-secondary);">Certified</p>
                 </div>
                 <div class="cert-badge" style="text-align: center;">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M12 2L2 7V11C2 16.55 5.84 21.74 11 23C16.16 21.74 20 16.55 20 11V7L12 2Z" stroke="#10B981" stroke-width="2" fill="rgba(16, 185, 129, 0.1)"/>
                         <path d="M12 8V12M12 16H12.01" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -803,7 +815,7 @@
                     <p style="font-size: 0.875rem; color: var(--text-secondary);">Compliant</p>
                 </div>
                 <div class="cert-badge" style="text-align: center;">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M12 2L2 7V11C2 16.55 5.84 21.74 11 23C16.16 21.74 20 16.55 20 11V7L12 2Z" stroke="#E5E7EB" stroke-width="2" fill="rgba(229, 231, 235, 0.1)"/>
                         <path d="M12 6V18M8 12H16" stroke="#E5E7EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -811,7 +823,7 @@
                     <p style="font-size: 0.875rem; color: var(--text-secondary);">Ready</p>
                 </div>
                 <div class="cert-badge" style="text-align: center;">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M12 2L2 7V11C2 16.55 5.84 21.74 11 23C16.16 21.74 20 16.55 20 11V7L12 2Z" stroke="#FFD700" stroke-width="2" fill="rgba(255, 215, 0, 0.1)"/>
                         <path d="M8 12H16" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -822,22 +834,10 @@
 
             <div class="tech-partners" style="text-align: center;">
                 <h3 style="font-size: 1.25rem; margin-bottom: 2rem; color: var(--text-primary);">Technology Partners</h3>
-                <div style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap;">
-                    <div style="opacity: 0.8; transition: opacity 0.3s;">
-                        <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <text x="10" y="25" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#6B7280">Microsoft Partner</text>
-                        </svg>
-                    </div>
-                    <div style="opacity: 0.8; transition: opacity 0.3s;">
-                        <svg width="100" height="40" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <text x="10" y="25" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#6B7280">AWS Partner</text>
-                        </svg>
-                    </div>
-                    <div style="opacity: 0.8; transition: opacity 0.3s;">
-                        <svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <text x="10" y="25" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#6B7280">Google Cloud Partner</text>
-                        </svg>
-                    </div>
+                <div class="tech-partner-chips">
+                    <span class="tech-chip">Microsoft Partner</span>
+                    <span class="tech-chip">AWS Partner</span>
+                    <span class="tech-chip">Google Cloud Partner</span>
                 </div>
             </div>
         </div>
@@ -952,7 +952,8 @@
                 <div class="carousel-logo">
                     <img src="../src/assets/img/clients/maxlube_logo300.png" alt="MaxLube" loading="lazy" width="100" height="50">
                 </div>
-                <!-- Duplicate set for infinite scroll -->
+                <!-- Duplicate set for infinite scroll (hidden from assistive tech) -->
+                <div style="display: contents" aria-hidden="true">
                 <div class="carousel-logo">
                     <img data-src="../src/assets/img/clients/Bvlgari-Logo.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50'%3E%3C/svg%3E" alt="Bvlgari" loading="lazy" width="100" height="50">
                 </div>
@@ -976,6 +977,7 @@
                 </div>
                 <div class="carousel-logo">
                     <img src="../src/assets/img/clients/SOOURCE.png" alt="SOOURCE" loading="lazy" width="100" height="50">
+                </div>
                 </div>
             </div>
         </div>
@@ -1024,7 +1026,8 @@
                 <div class="carousel-logo">
                     <img src="../src/assets/img/partners/Tavola disegno 6 copia 5.png" alt="Partner" loading="lazy" width="100" height="50">
                 </div>
-                <!-- Duplicate set for infinite scroll -->
+                <!-- Duplicate set for infinite scroll (hidden from assistive tech) -->
+                <div style="display: contents" aria-hidden="true">
                 <div class="carousel-logo">
                     <img src="../src/assets/img/partners/universita_bari_logo.png" alt="University of Bari" loading="lazy" width="100" height="50">
                 </div>
@@ -1048,6 +1051,7 @@
                 </div>
                 <div class="carousel-logo">
                     <img src="../src/assets/img/partners/Tavola disegno 5.png" alt="Partner" loading="lazy" width="100" height="50">
+                </div>
                 </div>
             </div>
         </div>
@@ -1083,11 +1087,8 @@
                             </a>
                         </div>
                         <div class="testimonial-rating">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
+                            <span class="sr-only">Rating: 5 out of 5</span>
+                            <span aria-hidden="true"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span>
                         </div>
                     </div>
                 </div>
@@ -1111,11 +1112,8 @@
                             </a>
                         </div>
                         <div class="testimonial-rating">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
+                            <span class="sr-only">Rating: 5 out of 5</span>
+                            <span aria-hidden="true"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span>
                         </div>
                     </div>
                 </div>
@@ -1339,7 +1337,7 @@
                         </p>
                     </div>
                     <!-- Floating badge -->
-                    <div style="position: absolute; top: -20px; right: -20px; background: var(--accent-emerald); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.875rem;">
+                    <div class="corner-badge">
                         FREE
                     </div>
                 </div>
@@ -1535,7 +1533,7 @@
                 <path d="M9 7h6M9 12h6M9 17h4M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
                 </a>
-                <a href="contact.html" class="btn btn-secondary btn-lg" style="background: transparent; border: 2px solid white;">
+                <a href="contact.html" class="btn btn-secondary btn-lg" style="background: transparent; border: 2px solid var(--primary-navy); color: var(--primary-navy);">
                     Request Demo <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -1700,11 +1698,14 @@
             });
         }, observerOptions);
 
-        // Observe all animated elements
-        document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+        // Observe all animated elements. Initial hidden state is set from JS so
+        // content stays visible when JS is unavailable (no CSS-gated reveals).
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.querySelectorAll('.animate-fade-in-up, .scroll-animate').forEach(el => {
+            if (reduceMotion) return;
             el.style.opacity = '0';
             el.style.transform = 'translateY(40px)';
-            el.style.transition = 'all 0.6s ease-out';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
             observer.observe(el);
         });
 
@@ -1755,9 +1756,9 @@
 </div>
 
 <!-- Cookie Preferences Modal -->
-<div id="cookieModal" class="cookie-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 10001;">
+<div id="cookieModal" class="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 10001;">
     <div class="cookie-modal-content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border-radius: 12px; padding: 2rem; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;">
-        <h2 style="color: var(--primary-navy); margin-bottom: 1rem;">Cookie Management</h2>
+        <h2 id="cookie-modal-title" style="color: var(--primary-navy); margin-bottom: 1rem;">Cookie Management</h2>
 
         <div style="margin-bottom: 1.5rem;">
             <label style="display: flex; align-items: center; margin-bottom: 1rem; cursor: pointer;">

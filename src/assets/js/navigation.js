@@ -29,6 +29,13 @@
         return subdirPrefix + path;
     }
 
+    // Inline SVG flags: emoji flags (🇮🇹/🇬🇧) render as bare letter pairs on
+    // Windows, so the toggle used to read "IT IT". SVGs render everywhere.
+    const FLAGS = {
+        it: `<svg viewBox="0 0 20 14" width="18" height="13" aria-hidden="true" focusable="false"><rect width="20" height="14" rx="2" fill="#FFFFFF"/><path d="M0 2a2 2 0 012-2h4.67v14H2a2 2 0 01-2-2V2z" fill="#009246"/><path d="M13.33 0H18a2 2 0 012 2v10a2 2 0 01-2 2h-4.67V0z" fill="#CE2B37"/></svg>`,
+        gb: `<svg viewBox="0 0 20 14" width="18" height="13" aria-hidden="true" focusable="false"><defs><clipPath id="pgai-flag-gb"><rect width="20" height="14" rx="2"/></clipPath></defs><g clip-path="url(#pgai-flag-gb)"><rect width="20" height="14" fill="#012169"/><path d="M0 0l20 14M20 0L0 14" stroke="#FFFFFF" stroke-width="2.8"/><path d="M0 0l20 14M20 0L0 14" stroke="#C8102E" stroke-width="1.2"/><rect x="8.4" width="3.2" height="14" fill="#FFFFFF"/><rect y="5.4" width="20" height="3.2" fill="#FFFFFF"/><rect x="9.1" width="1.8" height="14" fill="#C8102E"/><rect y="6.1" width="20" height="1.8" fill="#C8102E"/></g></svg>`
+    };
+
     // Navigation configuration - EDIT THIS TO UPDATE ALL MENUS
     const navConfig = {
         it: {
@@ -53,8 +60,8 @@
                 ariaLabel: 'Prenota una sessione strategica gratuita'
             },
             langSwitcher: {
-                current: { flag: '🇮🇹', code: 'IT' },
-                alternate: { flag: '🇬🇧', label: 'English', href: '/en/index.html' },
+                current: { flag: FLAGS.it, code: 'IT' },
+                alternate: { flag: FLAGS.gb, label: 'English', href: '/en/index.html' },
                 ariaLabel: 'Selettore lingua',
                 toggleLabel: 'Cambia lingua'
             },
@@ -85,8 +92,8 @@
                 ariaLabel: 'Book a free strategic session'
             },
             langSwitcher: {
-                current: { flag: '🇬🇧', code: 'EN' },
-                alternate: { flag: '🇮🇹', label: 'IT', href: '/index.html' },
+                current: { flag: FLAGS.gb, code: 'EN' },
+                alternate: { flag: FLAGS.it, label: 'IT', href: '/index.html' },
                 ariaLabel: 'Language selector'
             },
             skipLink: {

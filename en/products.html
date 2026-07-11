@@ -200,11 +200,13 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-gold) 50%, var(--accent-emerald) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
+            text-wrap: balance;
             animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero-title .accent {
+            color: var(--accent-gold-light);
         }
 
         .hero-description {
@@ -454,6 +456,29 @@
             box-shadow: 0 8px 32px rgba(255, 215, 0, 0.5);
         }
 
+        /* The secondary CTA had no local definition, so it rendered as a bare
+           link on the global .btn-secondary background. */
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--glass-border);
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-secondary:hover {
+            background: var(--glass-bg);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 768px) {
             .cta-container {
                 padding: 2rem;
@@ -464,7 +489,8 @@
             .cta-buttons {
                 flex-direction: column;
             }
-            .btn-primary {
+            .btn-primary,
+            .btn-secondary {
                 width: 100%;
                 justify-content: center;
             }
@@ -487,7 +513,7 @@
                     </svg>
                     <span>On-Premise AI Products</span>
                 </div>
-                <h1 class="hero-title">AI Solutions That Respect Your Privacy</h1>
+                <h1 class="hero-title">AI Solutions That <span class="accent">Respect Your Privacy</span></h1>
                 <p class="hero-description">
                     Our AI products are installed directly in your infrastructure.
                     Your data never leaves your company: native GDPR compliance and full control, always.
