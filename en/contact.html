@@ -66,8 +66,7 @@
                 "url": "https://pugliai.com/src/assets/img/pugliai_pittogramma.png"
             },
             "image": "https://pugliai.com/src/assets/img/pugliai-og-image.jpg",
-            "telephone": "+39-0831-123-4567",
-            "email": "brindisi@pugliai.it",
+            "email": "sales@pugliai.com",
             "priceRange": "€15,000 - €100,000+",
             "paymentAccepted": "Cash, Credit Card, Bank Transfer",
             "currenciesAccepted": "EUR",
@@ -79,9 +78,7 @@
                 "addressLocality": "Latiano",
                 "addressRegion": "BR",
                 "postalCode": "72022",
-                "addressCountry": "IT",
-                "telephone": "+39-0831-123-4567",
-                "email": "brindisi@pugliai.it"
+                "addressCountry": "IT"
             }, {
                 "@type": "PostalAddress",
                 "name": "Bergamo Office",
@@ -89,42 +86,14 @@
                 "addressLocality": "Bergamo",
                 "addressRegion": "BG",
                 "postalCode": "24121",
-                "addressCountry": "IT",
-                "telephone": "+39-035-234-5678",
-                "email": "bergamo@pugliai.it"
+                "addressCountry": "IT"
             }],
             "contactPoint": [{
                 "@type": "ContactPoint",
-                "telephone": "+39-0831-123-4567",
-                "contactType": "customer service",
+                "contactType": "sales",
                 "areaServed": "IT",
                 "availableLanguage": ["it", "en"],
-                "email": "brindisi@pugliai.it",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Latiano",
-                    "addressRegion": "BR"
-                }
-            }, {
-                "@type": "ContactPoint",
-                "telephone": "+39-035-234-5678",
-                "contactType": "customer service",
-                "areaServed": "IT",
-                "availableLanguage": ["it", "en"],
-                "email": "bergamo@pugliai.it",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Bergamo",
-                    "addressRegion": "BG"
-                }
-            }, {
-                "@type": "ContactPoint",
-                "telephone": "+39-800-AI-PUGLIA",
-                "contactType": "technical support",
-                "areaServed": "IT",
-                "availableLanguage": ["it", "en"],
-                "email": "support@pugliai.it",
-                "hoursAvailable": "24/7 for SME clients"
+                "email": "sales@pugliai.com"
             }],
             "geo": [{
                 "@type": "GeoCoordinates",
@@ -266,7 +235,7 @@
         <div class="container">
             <div class="section-header">
                 <h1 id="page-title" class="heading-1 mb-lg animate-fade-in-up">
-                    Start Your <span class="text-gradient-emerald">AI</span> Journey
+                    Contact Us for a <span class="text-gradient-emerald">Free AI Consultation</span>
                 </h1>
                 <p class="body-large mb-2xl animate-fade-in-up" style="animation-delay: 0.2s;">
                     Book your personalized strategic session and discover how artificial intelligence can transform your business.
@@ -282,25 +251,26 @@
                 <div>
                     <h2 class="heading-2 mb-lg">Talk to an Expert</h2>
                     <p class="body-medium mb-lg" style="color: var(--text-secondary);">We respond within 2 business hours, Mon&ndash;Fri 9:00&ndash;18:00. For urgent requests, leave your phone number.</p>
-                    <form action="https://formcarry.com/s/xWKwXtJvS4C" method="POST" class="contact-form" id="contact-form">
+                    <form action="https://formcarry.com/s/xWKwXtJvS4C" method="POST" class="contact-form" id="contact-form" data-ajax="true">
+                        <input type="hidden" name="source" value="en-contact">
                         <div class="form-group">
                             <label for="name" class="form-label form-label--required">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required aria-required="true" aria-describedby="name-error">
+                            <input type="text" id="name" name="name" class="form-input" autocomplete="name" required aria-required="true" aria-describedby="name-error">
                             <span id="name-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label form-label--required">Business Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required aria-required="true" aria-describedby="email-error">
+                            <input type="email" id="email" name="email" class="form-input" autocomplete="email" required aria-required="true" aria-describedby="email-error">
                             <span id="email-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="company" class="form-label form-label--required">Company</label>
-                            <input type="text" id="company" name="company" class="form-input" required aria-required="true" aria-describedby="company-error">
+                            <input type="text" id="company" name="company" class="form-input" autocomplete="organization" required aria-required="true" aria-describedby="company-error">
                             <span id="company-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="phone" class="form-label">Phone</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+39 333 1234567">
+                            <input type="tel" id="phone" name="phone" class="form-input" autocomplete="tel" placeholder="+39 333 1234567">
                             <span class="form-hint">Optional - for phone callback</span>
                         </div>
                         <div class="form-group">
@@ -311,12 +281,12 @@
                         <div class="form-checkbox-group required">
                             <input type="checkbox" id="privacy-consent" name="privacy_consent" class="form-checkbox" required aria-required="true" aria-describedby="privacy-error">
                             <label for="privacy-consent" class="form-checkbox-label">
-                                I have read and accept the <a href="privacy.html" target="_blank">Privacy Policy</a> and consent to the processing of my personal data to respond to my request, in accordance with GDPR (EU Reg. 2016/679)
+                                I have read and accept the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and consent to the processing of my personal data to respond to my request, in accordance with GDPR (EU Reg. 2016/679)
                             </label>
                         </div>
                         <span id="privacy-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                            Send Request
+                            Request Your Free Consultation
                         </button>
                     </form>
                     <div id="form-success" class="form-success-message" style="display: none;">
@@ -326,31 +296,34 @@
                 </div>
 
                 <div>
-                    <h2 class="heading-2 mb-lg">Our Offices</h2>
+                    <h2 class="heading-2 mb-lg">Direct Contact</h2>
+                    <div class="card mb-lg">
+                        <h3 class="card-title">Email</h3>
+                        <p class="body-medium">
+                            <a href="mailto:sales@pugliai.com" style="color: var(--accent-gold); text-decoration: underline;">sales@pugliai.com</a><br>
+                            We respond within 2 business hours, Mon&ndash;Fri 9:00&ndash;18:00.
+                        </p>
+                    </div>
+                    <div class="card mb-lg">
+                        <h3 class="card-title">What happens after you send?</h3>
+                        <ol class="body-medium" style="margin: 0; padding-left: 1.25rem; display: grid; gap: 0.5rem;">
+                            <li>We reply within 2 business hours.</li>
+                            <li>We schedule your free 45&ndash;60 minute strategic session.</li>
+                            <li>You receive a written report with AI opportunities and an ROI estimate.</li>
+                        </ol>
+                    </div>
                     <div class="card mb-lg">
                         <h3 class="card-title">Brindisi Office</h3>
                         <p class="body-medium">
                             Via Giovanni Forleo, 45<br>
-                            72022 Latiano (BR), Italy<br>
-                            Tel: +39 0831 123 4567<br>
-                            Email: brindisi@pugliai.it
-                        </p>
-                    </div>
-                    <div class="card mb-lg">
-                        <h3 class="card-title">Bergamo Office</h3>
-                        <p class="body-medium">
-                            Via Angelo Maj, 16<br>
-                            24121 Bergamo (BG), Italy<br>
-                            Tel: +39 035 234 5678<br>
-                            Email: bergamo@pugliai.it
+                            72022 Latiano (BR), Italy
                         </p>
                     </div>
                     <div class="card">
-                        <h3 class="card-title">Premium Support</h3>
+                        <h3 class="card-title">Bergamo Office</h3>
                         <p class="body-medium">
-                            Available 24/7 for our SME clients<br>
-                            Hotline: +39 800 AI PUGLIA<br>
-                            Email: support@pugliai.it
+                            Via Angelo Maj, 16<br>
+                            24121 Bergamo (BG), Italy
                         </p>
                     </div>
                 </div>
@@ -358,6 +331,55 @@
         </div>
     </section>
 
+    <!-- Insights -->
+    <section class="section-padding">
+      <div class="container">
+        <h2 class="section-title text-center">Insights</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+          <a href="ceo-ai-guide-2025.html" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: border-color 0.3s;">
+            <h3 style="color: var(--accent-gold); font-size: 1rem; margin-bottom: 0.5rem;">CEO AI Guide</h3>
+            <p style="color: var(--accent-platinum); font-size: 0.9rem; opacity: 0.8;">Practical guide for CEOs and founders planning AI adoption in their company.</p>
+          </a>
+          <a href="case-studies.html" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: border-color 0.3s;">
+            <h3 style="color: var(--accent-gold); font-size: 1rem; margin-bottom: 0.5rem;">Case Studies</h3>
+            <p style="color: var(--accent-platinum); font-size: 0.9rem; opacity: 0.8;">Real results from AI projects delivered for small and medium enterprises.</p>
+          </a>
+          <a href="roi-calculator.html" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: border-color 0.3s;">
+            <h3 style="color: var(--accent-gold); font-size: 1rem; margin-bottom: 0.5rem;">Calculate Your ROI</h3>
+            <p style="color: var(--accent-platinum); font-size: 0.9rem; opacity: 0.8;">Estimate the potential return of AI for your company in minutes with our calculator.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding" style="background: var(--primary-navy);">
+      <div class="container">
+        <h2 class="section-title text-center" style="color: var(--accent-platinum);">Frequently Asked Questions</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">How much does the free AI strategic session cost?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">The AI strategic session is completely free and lasts 45-60 minutes. It includes a preliminary assessment, analysis of specific AI opportunities for your sector, indicative ROI estimate, and high-level roadmap. No purchase obligation, it's our investment to let you discover AI's potential for your SME.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">How quickly will I receive a response to my message?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">We respond to all requests within 2 business hours, often much sooner. For urgent requests, include your phone number and we'll call you back within 30 minutes. Saturday and Sunday we respond within 4 hours for priority requests.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Is the consulting suitable for my specific SME?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">We work with SMEs across all sectors from 10 to 500 employees: manufacturing, retail, services, healthcare, logistics, fintech. Each consultation is customized for sector, size, and specific objectives. During the first call, we assess together the suitability and most promising opportunities for your case.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">What should I prepare for the strategic session?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Bring: overview of main processes, key operational challenges, growth objectives, indicative innovation budget, and information about any digital tools already in use. No detailed technical data needed, focus on business and operations.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">What happens after the free session?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">You'll receive a written report with priority AI opportunities, preliminary ROI estimates, and recommended next steps. If you decide to proceed, we'll design together the most suitable path: POC Framework, complete packages, or strategic consulting. Zero sales pressure, only value and total transparency.</p>
+          </details>
+        </div>
+      </div>
+    </section>
     </main>
 
     <!-- Footer -->
@@ -399,7 +421,20 @@
             mobileMenuToggle.classList.toggle('active');
         });
 
-
+        // Fire a GA4 lead event when the AJAX form success message appears
+        (function() {
+            var success = document.getElementById('form-success');
+            if (!success || typeof MutationObserver === 'undefined') return;
+            var fired = false;
+            new MutationObserver(function() {
+                if (!fired && success.style.display !== 'none') {
+                    fired = true;
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', { source: 'en-contact' });
+                    }
+                }
+            }).observe(success, { attributes: true, attributeFilter: ['style'] });
+        })();
     </script>
 
     <!-- Form Security Script -->

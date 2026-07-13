@@ -66,8 +66,7 @@
                 "url": "https://pugliai.com/src/assets/img/pugliai_pittogramma.png"
             },
             "image": "https://pugliai.com/src/assets/img/pugliai-og-image.jpg",
-            "telephone": "+39-0831-123-4567",
-            "email": "brindisi@pugliai.it",
+            "email": "sales@pugliai.com",
             "priceRange": "€15,000 - €100,000+",
             "paymentAccepted": "Cash, Credit Card, Bank Transfer",
             "currenciesAccepted": "EUR",
@@ -79,9 +78,7 @@
                 "addressLocality": "Latiano",
                 "addressRegion": "BR",
                 "postalCode": "72022",
-                "addressCountry": "IT",
-                "telephone": "+39-0831-123-4567",
-                "email": "brindisi@pugliai.it"
+                "addressCountry": "IT"
             }, {
                 "@type": "PostalAddress",
                 "name": "Sede di Bergamo",
@@ -89,42 +86,14 @@
                 "addressLocality": "Bergamo",
                 "addressRegion": "BG",
                 "postalCode": "24121",
-                "addressCountry": "IT",
-                "telephone": "+39-035-234-5678",
-                "email": "bergamo@pugliai.it"
+                "addressCountry": "IT"
             }],
             "contactPoint": [{
                 "@type": "ContactPoint",
-                "telephone": "+39-0831-123-4567",
-                "contactType": "customer service",
+                "contactType": "sales",
                 "areaServed": "IT",
                 "availableLanguage": ["it", "en"],
-                "email": "brindisi@pugliai.it",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Latiano",
-                    "addressRegion": "BR"
-                }
-            }, {
-                "@type": "ContactPoint",
-                "telephone": "+39-035-234-5678",
-                "contactType": "customer service",
-                "areaServed": "IT",
-                "availableLanguage": ["it", "en"],
-                "email": "bergamo@pugliai.it",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Bergamo",
-                    "addressRegion": "BG"
-                }
-            }, {
-                "@type": "ContactPoint",
-                "telephone": "+39-800-AI-PUGLIA",
-                "contactType": "technical support",
-                "areaServed": "IT",
-                "availableLanguage": ["it", "en"],
-                "email": "support@pugliai.it",
-                "hoursAvailable": "24/7 per clienti PMI"
+                "email": "sales@pugliai.com"
             }],
             "geo": [{
                 "@type": "GeoCoordinates",
@@ -224,7 +193,7 @@
           "name": "In quanto tempo ricevo risposta al mio messaggio?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Rispondiamo a tutte le richieste entro 2 ore lavorative, spesso molto prima. Per le richieste urgenti, include il tuo numero di telefono e ti richiameremo entro 30 minuti. Sabato e domenica rispondiamo entro 4 ore per le richieste prioritarie."
+            "text": "Rispondiamo a tutte le richieste entro 2 ore lavorative, spesso molto prima. Per le richieste urgenti, includi il tuo numero di telefono e ti richiameremo entro 30 minuti. Sabato e domenica rispondiamo entro 4 ore per le richieste prioritarie."
           }
         },
         {
@@ -232,7 +201,7 @@
           "name": "La consulenza è adatta alla mia PMI specifica?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Lavoriamo con PMI di tutti i settori da 10 a 500 dipendenti: manifatturiero, retail, servizi, sanità, logistics, fintech. Ogni consulenza è personalizzata su settore, dimensioni e obiettivi specifici. Durante la prima call valutiamo insieme l'idoneità e le opportunità più promettenti per il tuo caso."
+            "text": "Lavoriamo con PMI di tutti i settori da 10 a 500 dipendenti: manifatturiero, retail, servizi, sanità, logistica, fintech. Ogni consulenza è personalizzata su settore, dimensioni e obiettivi specifici. Durante la prima call valutiamo insieme l'idoneità e le opportunità più promettenti per il tuo caso."
           }
         },
         {
@@ -240,7 +209,7 @@
           "name": "Cosa devo preparare per la sessione strategica?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Porta: panoramica dei processi principali, principali challenge operative, obiettivi di crescita, budget indicativo per innovazione e informazioni su eventuali strumenti digitali già in uso. Non servono dati tecnici dettagliati, focus su business e operatività."
+            "text": "Porta: panoramica dei processi principali, principali sfide operative, obiettivi di crescita, budget indicativo per innovazione e informazioni su eventuali strumenti digitali già in uso. Non servono dati tecnici dettagliati, focus su business e operatività."
           }
         },
         {
@@ -282,25 +251,26 @@
                 <div>
                     <h2 class="heading-2 mb-lg">Parla con un Esperto</h2>
                     <p class="body-medium mb-lg" style="color: var(--text-secondary);">Rispondiamo entro 2 ore lavorative, Lun&ndash;Ven 9:00&ndash;18:00. Per le richieste urgenti lascia il tuo numero di telefono.</p>
-                    <form action="https://formcarry.com/s/xWKwXtJvS4C" method="POST" class="contact-form" id="contact-form">
+                    <form action="https://formcarry.com/s/xWKwXtJvS4C" method="POST" class="contact-form" id="contact-form" data-ajax="true">
+                        <input type="hidden" name="source" value="contatti">
                         <div class="form-group">
                             <label for="name" class="form-label form-label--required">Nome e Cognome</label>
-                            <input type="text" id="name" name="name" class="form-input" required aria-required="true" aria-describedby="name-error">
+                            <input type="text" id="name" name="name" class="form-input" autocomplete="name" required aria-required="true" aria-describedby="name-error">
                             <span id="name-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label form-label--required">Email Aziendale</label>
-                            <input type="email" id="email" name="email" class="form-input" required aria-required="true" aria-describedby="email-error">
+                            <input type="email" id="email" name="email" class="form-input" autocomplete="email" required aria-required="true" aria-describedby="email-error">
                             <span id="email-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="company" class="form-label form-label--required">Azienda</label>
-                            <input type="text" id="company" name="company" class="form-input" required aria-required="true" aria-describedby="company-error">
+                            <input type="text" id="company" name="company" class="form-input" autocomplete="organization" required aria-required="true" aria-describedby="company-error">
                             <span id="company-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="phone" class="form-label">Telefono</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+39 333 1234567">
+                            <input type="tel" id="phone" name="phone" class="form-input" autocomplete="tel" placeholder="+39 333 1234567">
                             <span class="form-hint">Opzionale - per essere ricontattato telefonicamente</span>
                         </div>
                         <div class="form-group">
@@ -311,12 +281,12 @@
                         <div class="form-checkbox-group required">
                             <input type="checkbox" id="privacy-consent" name="privacy_consent" class="form-checkbox" required aria-required="true" aria-describedby="privacy-error">
                             <label for="privacy-consent" class="form-checkbox-label">
-                                Ho letto e accetto la <a href="privacy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati personali per rispondere alla mia richiesta, ai sensi del GDPR (Reg. UE 2016/679)
+                                Ho letto e accetto la <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> e acconsento al trattamento dei miei dati personali per rispondere alla mia richiesta, ai sensi del GDPR (Reg. UE 2016/679)
                             </label>
                         </div>
                         <span id="privacy-error" class="form-error" style="display: none;" aria-live="polite"></span>
                         <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                            Invia Richiesta
+                            Richiedi la Consulenza Gratuita
                         </button>
                     </form>
                     <div id="form-success" class="form-success-message" style="display: none;">
@@ -326,31 +296,34 @@
                 </div>
 
                 <div>
-                    <h2 class="heading-2 mb-lg">I Nostri Uffici</h2>
+                    <h2 class="heading-2 mb-lg">Contatti Diretti</h2>
+                    <div class="card mb-lg">
+                        <h3 class="card-title">Email</h3>
+                        <p class="body-medium">
+                            <a href="mailto:sales@pugliai.com" style="color: var(--accent-gold); text-decoration: underline;">sales@pugliai.com</a><br>
+                            Rispondiamo entro 2 ore lavorative, Lun&ndash;Ven 9:00&ndash;18:00.
+                        </p>
+                    </div>
+                    <div class="card mb-lg">
+                        <h3 class="card-title">Cosa succede dopo l'invio?</h3>
+                        <ol class="body-medium" style="margin: 0; padding-left: 1.25rem; display: grid; gap: 0.5rem;">
+                            <li>Ti rispondiamo entro 2 ore lavorative.</li>
+                            <li>Fissiamo la sessione strategica gratuita di 45&ndash;60 minuti.</li>
+                            <li>Ricevi un report scritto con opportunit&agrave; AI e stima ROI.</li>
+                        </ol>
+                    </div>
                     <div class="card mb-lg">
                         <h3 class="card-title">Sede di Brindisi</h3>
                         <p class="body-medium">
                             Via Giovanni Forleo, 45<br>
-                            72022 Latiano (BR), Italia<br>
-                            Tel: +39 0831 123 4567<br>
-                            Email: brindisi@pugliai.it
-                        </p>
-                    </div>
-                    <div class="card mb-lg">
-                        <h3 class="card-title">Sede di Bergamo</h3>
-                        <p class="body-medium">
-                            Via Angelo Maj, 16<br>
-                            24121 Bergamo (BG), Italia<br>
-                            Tel: +39 035 234 5678<br>
-                            Email: bergamo@pugliai.it
+                            72022 Latiano (BR), Italia
                         </p>
                     </div>
                     <div class="card">
-                        <h3 class="card-title">Supporto premium</h3>
+                        <h3 class="card-title">Sede di Bergamo</h3>
                         <p class="body-medium">
-                            Disponibile 24/7 per i nostri clienti PMI<br>
-                            Hotline: +39 800 AI PUGLIA<br>
-                            Email: support@pugliai.it
+                            Via Angelo Maj, 16<br>
+                            24121 Bergamo (BG), Italia
                         </p>
                     </div>
                 </div>
@@ -390,15 +363,15 @@
           </details>
           <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">In quanto tempo ricevo risposta al mio messaggio?</summary>
-            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Rispondiamo a tutte le richieste entro 2 ore lavorative, spesso molto prima. Per le richieste urgenti, include il tuo numero di telefono e ti richiameremo entro 30 minuti. Sabato e domenica rispondiamo entro 4 ore per le richieste prioritarie.</p>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Rispondiamo a tutte le richieste entro 2 ore lavorative, spesso molto prima. Per le richieste urgenti, includi il tuo numero di telefono e ti richiameremo entro 30 minuti. Sabato e domenica rispondiamo entro 4 ore per le richieste prioritarie.</p>
           </details>
           <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">La consulenza è adatta alla mia PMI specifica?</summary>
-            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Lavoriamo con PMI di tutti i settori da 10 a 500 dipendenti: manifatturiero, retail, servizi, sanità, logistics, fintech. Ogni consulenza è personalizzata su settore, dimensioni e obiettivi specifici. Durante la prima call valutiamo insieme l'idoneità e le opportunità più promettenti per il tuo caso.</p>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Lavoriamo con PMI di tutti i settori da 10 a 500 dipendenti: manifatturiero, retail, servizi, sanità, logistica, fintech. Ogni consulenza è personalizzata su settore, dimensioni e obiettivi specifici. Durante la prima call valutiamo insieme l'idoneità e le opportunità più promettenti per il tuo caso.</p>
           </details>
           <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Cosa devo preparare per la sessione strategica?</summary>
-            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Porta: panoramica dei processi principali, principali challenge operative, obiettivi di crescita, budget indicativo per innovazione e informazioni su eventuali strumenti digitali già in uso. Non servono dati tecnici dettagliati, focus su business e operatività.</p>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Porta: panoramica dei processi principali, principali sfide operative, obiettivi di crescita, budget indicativo per innovazione e informazioni su eventuali strumenti digitali già in uso. Non servono dati tecnici dettagliati, focus su business e operatività.</p>
           </details>
           <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Dopo la sessione gratuita cosa succede?</summary>
@@ -448,7 +421,20 @@
             mobileMenuToggle.classList.toggle('active');
         });
 
-        
+        // Fire a GA4 lead event when the AJAX form success message appears
+        (function() {
+            var success = document.getElementById('form-success');
+            if (!success || typeof MutationObserver === 'undefined') return;
+            var fired = false;
+            new MutationObserver(function() {
+                if (!fired && success.style.display !== 'none') {
+                    fired = true;
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', { source: 'contatti' });
+                    }
+                }
+            }).observe(success, { attributes: true, attributeFilter: ['style'] });
+        })();
     </script>
     
     <!-- Form Security Script -->
