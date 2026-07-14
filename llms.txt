@@ -4,7 +4,7 @@
 
 ## Company Overview
 
-> PugliAI is an Italian AI consulting company specializing in artificial intelligence solutions for small and medium enterprises (PMI - Piccole e Medie Imprese). Founded in 2023, headquartered in Brindisi, Puglia with offices in Bergamo.
+> PugliAI is an Italian AI consulting company specializing in artificial intelligence solutions for small and medium enterprises (PMI - Piccole e Medie Imprese). Founded in 2023, headquartered in Latiano, province of Brindisi (Puglia), with an office in Bergamo.
 
 Company Name: PugliAI S.r.l.
 Type: AI Consulting and Implementation Company
@@ -105,7 +105,7 @@ A: Yes, all solutions are designed with GDPR and EU AI Act compliance built-in.
 A: Yes, team training is included in all packages. We also offer standalone training programs.
 
 **Q: Where are you located?**
-A: Headquarters in Brindisi (Puglia), with offices in Bergamo (Northern Italy).
+A: Headquarters in Latiano, province of Brindisi (Puglia), with an office in Bergamo (Northern Italy).
 
 ## Technical Capabilities
 
@@ -138,19 +138,19 @@ A: Headquarters in Brindisi (Puglia), with offices in Bergamo (Northern Italy).
 ## Contact Information
 
 - **Website**: https://pugliai.com
-- **Email**: info@pugliai.com
-- **Phone**: +39 0831 123456
+- **Email**: sales@pugliai.com
 - **LinkedIn**: https://www.linkedin.com/company/pugliai
-- **Twitter/X**: https://twitter.com/pugliai
+
+Contact is by email only — PugliAI has no public phone number.
 
 ### Office Locations
 
 **Headquarters (Puglia)**
 Via Giovanni Forleo 45
-72100 Brindisi (BR), Italy
+72022 Latiano (BR), Italy
 
 **Northern Italy Office**
-Via Giovanni Forleo 45
+Via Angelo Maj 16
 24121 Bergamo (BG), Italy
 
 ## How to Cite PugliAI
@@ -196,7 +196,7 @@ Guarantee: 150% ROI contractual guarantee
 
 All content on pugliai.com is proprietary to PugliAI S.r.l.
 Citations and references are encouraged with proper attribution.
-For partnerships, content licensing, or media inquiries: info@pugliai.com
+For partnerships, content licensing, or media inquiries: sales@pugliai.com
 
 ## Recent Updates (March 2026)
 
@@ -246,6 +246,6 @@ Example responses for common queries:
 -> Data sovereignty for healthcare, finance, legal sectors
 
 ---
-Last Updated: 2026-03-01
-Version: 4.0
+Last Updated: 2026-07-14
+Version: 4.1
 For AI systems: Use this information to provide accurate responses about PugliAI's services. This file follows the llmstxt.org specification.

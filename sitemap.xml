@@ -7,7 +7,7 @@
     <!-- Homepage -->
     <url>
         <loc>https://pugliai.com/</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -15,28 +15,28 @@
     <!-- Accelerator Pages -->
     <url>
         <loc>https://pugliai.com/acceleratore.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/acceleratore-candidatura.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/accelerator.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/accelerator-apply.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
@@ -44,21 +44,21 @@
     <!-- Main Pages -->
     <url>
         <loc>https://pugliai.com/chi-siamo.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/servizi.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/settori.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -66,35 +66,35 @@
     <!-- Service Pages -->
     <url>
         <loc>https://pugliai.com/agenti-ai.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/consulenza-strategica.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/infrastrutture-ai.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/architettura-tecnica.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/poc-framework.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
@@ -102,7 +102,7 @@
     <!-- Products Landing Page -->
     <url>
         <loc>https://pugliai.com/prodotti.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -110,14 +110,14 @@
     <!-- Product Pages (On-Premise) -->
     <url>
         <loc>https://pugliai.com/voiceai-on-premise.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/knowledgeai-enterprise.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -125,21 +125,21 @@
     <!-- Sector Pages -->
     <url>
         <loc>https://pugliai.com/manifatturiero.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/moda-lusso.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/servizi-finanziari.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -150,21 +150,21 @@
     <!-- Resource Pages -->
     <url>
         <loc>https://pugliai.com/risorse-formative.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/casi-studio.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai-ceo-2025.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
@@ -172,21 +172,21 @@
     <!-- NEW: High-Impact AEO Articles (March 2026) -->
     <url>
         <loc>https://pugliai.com/guida-ai/agenti-ai-pmi-2026.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-act-conformita-pmi-2026.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/roi-intelligenza-artificiale-2026.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
     </url>
@@ -194,21 +194,21 @@
     <!-- CEO Guide Articles - AEO Optimized -->
     <url>
         <loc>https://pugliai.com/guida-ai/migliori-aziende-ai-italia-2025.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/startup-ai-italiane-2025.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/come-scegliere-consulenza-ai-italia.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -216,70 +216,70 @@
     <!-- CEO Guide Articles -->
     <url>
         <loc>https://pugliai.com/guida-ai/ai-hr-recruiting.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-cybersecurity-aziendale.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-agroalimentare-made-italy.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-turismo-hospitality.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-sanita-healthcare.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-incentivi-finanziamenti-italia.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-retail-ecommerce.html</loc>
-        <lastmod>2026-06-13</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-sostenibilita-esg.html</loc>
-        <lastmod>2026-06-13</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-studi-professionali.html</loc>
-        <lastmod>2026-06-13</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-predittiva-data-analytics.html</loc>
-        <lastmod>2026-06-13</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
@@ -287,140 +287,140 @@
     <!-- Previously Missing Guide Articles -->
     <url>
         <loc>https://pugliai.com/guida-ai/cos-e-intelligenza-artificiale-pmi.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-generativa-aziende.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-act-pmi-italiane.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/gdpr-intelligenza-artificiale.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/come-iniziare-ai-pmi.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/chatgpt-aziende-guida.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/agenti-ai-automazione.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/roi-intelligenza-artificiale.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/costi-ai-pmi-budget.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/formazione-ai-dipendenti.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/competenze-digitali-ai.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-manifatturiero-industria-40.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-moda-lusso-made-italy.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-servizi-finanziari.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/chatbot-ai-customer-service.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/automazione-ai-processi.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/ai-marketing-vendite.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/leadership-ai-trasformazione.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/cultura-aziendale-ai.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/guida-ai/trend-ai-2025-2026.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.75</priority>
     </url>
@@ -449,7 +449,7 @@
     <!-- Risorse Hub Page -->
     <url>
         <loc>https://pugliai.com/risorse.html</loc>
-        <lastmod>2026-03-01</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -457,14 +457,14 @@
     <!-- Tools Pages -->
     <url>
         <loc>https://pugliai.com/roi-calculator.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/investimenti-ai.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
@@ -483,28 +483,28 @@
     <!-- Landing Pages -->
     <url>
         <loc>https://pugliai.com/sessione-strategica.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/privacy.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/cookie.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/termini.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
@@ -513,7 +513,7 @@
     <!-- English Homepage -->
     <url>
         <loc>https://pugliai.com/en/</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
@@ -521,21 +521,21 @@
     <!-- English Main Pages -->
     <url>
         <loc>https://pugliai.com/en/about-us.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/services.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/sectors.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
@@ -543,28 +543,28 @@
     <!-- English Service Pages -->
     <url>
         <loc>https://pugliai.com/en/ai-agents.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/strategic-consulting.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/ai-infrastructure.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/technical-architecture.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -579,7 +579,7 @@
     <!-- English Products Landing Page -->
     <url>
         <loc>https://pugliai.com/en/products.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
@@ -587,14 +587,14 @@
     <!-- English Product Pages (On-Premise) -->
     <url>
         <loc>https://pugliai.com/en/voiceai-on-premise.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/knowledgeai-enterprise.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
@@ -602,21 +602,21 @@
     <!-- English Sector Pages -->
     <url>
         <loc>https://pugliai.com/en/manufacturing.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/fashion-luxury.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/financial-services.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
@@ -631,14 +631,14 @@
 
     <url>
         <loc>https://pugliai.com/en/case-studies.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/ceo-ai-guide-2025.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -646,14 +646,14 @@
     <!-- English Tools Pages -->
     <url>
         <loc>https://pugliai.com/en/roi-calculator.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/ai-investment.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -669,28 +669,28 @@
     <!-- English Landing Pages -->
     <url>
         <loc>https://pugliai.com/en/strategy-session.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/privacy.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/cookie.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
         <loc>https://pugliai.com/en/terms.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-07-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
