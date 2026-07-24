@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7711R1PDP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L7711R1PDP');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hosting MCP On-Premise: Server MCP Gestiti per la Tua AI | PugliAI</title>
+    <meta name="description" content="Hosting e gestione di server MCP (Model Context Protocol) sulla tua infrastruttura. Collega in sicurezza AI e agenti autonomi a gestionale, CRM ed ERP. GDPR nativo, da €290/mese.">
+
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="it-IT" href="https://pugliai.com/hosting-mcp.html">
+    <link rel="alternate" hreflang="en" href="https://pugliai.com/en/mcp-hosting.html">
+    <link rel="alternate" hreflang="x-default" href="https://pugliai.com/hosting-mcp.html">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Hosting MCP On-Premise | Server MCP Gestiti per la Tua AI | PugliAI">
+    <meta property="og:description" content="Colleghi in sicurezza modelli AI e agenti autonomi ai tuoi sistemi aziendali con server MCP gestiti on-premise. GDPR nativo, dati sempre in azienda.">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://pugliai.com/hosting-mcp.html">
+    <meta property="og:image" content="https://pugliai.com/src/assets/img/pugliai-og-image.jpg">
+    <meta property="og:site_name" content="PugliAI">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hosting MCP On-Premise | Server MCP Gestiti per la Tua AI">
+    <meta name="twitter:description" content="Server MCP gestiti sulla tua infrastruttura: la tua AI accede a gestionale, CRM ed ERP in sicurezza. GDPR nativo, da €290/mese.">
+    <meta name="twitter:image" content="https://pugliai.com/src/assets/img/pugliai-og-image.jpg">
+    <meta name="twitter:site" content="@PugliAI">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://pugliai.com/hosting-mcp.html">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/stylesheet.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Product Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Hosting MCP On-Premise",
+        "description": "Hosting e gestione di server MCP (Model Context Protocol) sulla tua infrastruttura. Collega in sicurezza modelli AI e agenti autonomi a gestionale, CRM, ERP e documenti aziendali, senza che i dati lascino l'azienda. GDPR nativo.",
+        "url": "https://pugliai.com/hosting-mcp.html",
+        "image": "https://pugliai.com/src/assets/img/pugliai-og-image.jpg",
+        "brand": {
+            "@type": "Organization",
+            "name": "PugliAI"
+        },
+        "category": "AI Infrastructure",
+        "offers": {
+            "@type": "Offer",
+            "url": "https://pugliai.com/hosting-mcp.html",
+            "priceCurrency": "EUR",
+            "price": "290",
+            "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "290",
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                    "@type": "QuantitativeValue",
+                    "value": "1",
+                    "unitCode": "MON"
+                }
+            }
+        },
+        "audience": {
+            "@type": "Audience",
+            "name": "PMI Italiane",
+            "description": "Piccole e medie imprese italiane che vogliono collegare l'AI ai propri sistemi mantenendo la sovranità dei dati"
+        }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://pugliai.com/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Prodotti",
+          "item": "https://pugliai.com/prodotti.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Hosting MCP On-Premise",
+          "item": "https://pugliai.com/hosting-mcp.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Che cos'è il Model Context Protocol (MCP)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il Model Context Protocol (MCP) e uno standard aperto che permette ai modelli di intelligenza artificiale di collegarsi a strumenti, dati e applicazioni aziendali in modo uniforme e sicuro. Un server MCP espone in modo controllato le funzioni di un sistema (per esempio il gestionale, il CRM o un archivio documenti) affinche un modello AI o un agente autonomo possa leggerle e usarle senza integrazioni su misura per ogni singolo strumento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Cosa significa hosting MCP on-premise?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hosting MCP on-premise significa che i server MCP vengono installati e gestiti sulla tua infrastruttura (server aziendali o cloud privato che controlli tu), non su servizi esterni. In questo modo i dati a cui accede l'AI non lasciano mai l'azienda: PugliAI si occupa di installazione, configurazione, aggiornamenti e monitoraggio, tu mantieni il pieno controllo e la conformita GDPR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto costa l'hosting MCP di PugliAI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il servizio parte da 290 euro al mese per il piano Starter (un server MCP gestito e fino a due connettori standard), 590 euro al mese per il piano Business (fino a cinque connettori, SSO, audit log e SLA) e prezzo personalizzato per il piano Enterprise con connettori illimitati e integrazioni su misura. I prezzi sono mensili e includono aggiornamenti e monitoraggio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A quali sistemi aziendali si puo collegare un server MCP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un server MCP puo collegare l'AI a gestionali ed ERP italiani (Zucchetti, TeamSystem, SAP), CRM (Salesforce, HubSpot, Zoho), archivi documentali, database SQL, email e strumenti interni tramite API REST. PugliAI sviluppa i connettori necessari al tuo caso d'uso e li mantiene aggiornati."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'hosting MCP e conforme al GDPR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si. Poiche i server MCP girano sulla tua infrastruttura, i dati aziendali non vengono trasferiti a cloud esterni o fuori dall'Unione Europea. Ogni accesso dell'AI passa attraverso il server MCP, che applica permessi granulari e registra un audit trail completo delle operazioni, requisiti fondamentali per la conformita GDPR e per eventuali ispezioni del Garante Privacy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Che differenza c'e tra hosting MCP e agenti AI autonomi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'hosting MCP e l'infrastruttura che collega l'AI ai tuoi dati e strumenti; gli agenti AI autonomi sono i sistemi che usano quell'infrastruttura per ragionare ed eseguire attivita. In pratica il server MCP e il ponte sicuro verso i tuoi sistemi, mentre l'agente e cio che attraversa quel ponte per completare un compito. I due servizi funzionano bene insieme ma possono essere adottati anche separatamente."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Dynamic Navigation - Generated by navigation.js -->
+    <div id="nav-placeholder"></div>
+    <script src="src/assets/js/navigation.js"></script>
+
+    <main id="main-content">
+    <!-- Hero Section -->
+    <section class="section" style="padding-top: calc(80px + 4rem); background: linear-gradient(135deg, #0A1628 0%, #1E293B 50%, #374151 100%);">
+        <div class="container">
+            <div class="hero-with-image">
+                <div class="hero-content">
+                    <div class="badge mb-lg" style="background: rgba(16, 185, 129, 0.2); color: #10B981;">Prodotto On-Premise · Novità 2026</div>
+                    <h1 class="heading-1 mb-lg animate-fade-in-up">
+                        Hosting <span class="text-gradient-gold">MCP On-Premise</span>
+                    </h1>
+                    <p class="body-large mb-md animate-fade-in-up" style="animation-delay: 0.1s; font-size: 1.5rem; font-weight: 600; color: #10B981;">
+                        Collega la tua AI ai sistemi aziendali — senza far uscire i dati dall'azienda
+                    </p>
+                    <p class="body-large mb-2xl animate-fade-in-up" style="animation-delay: 0.2s;">
+                        Ospitiamo e gestiamo i server MCP (Model Context Protocol) sulla tua infrastruttura. I tuoi modelli AI e agenti autonomi accedono a gestionale, CRM, ERP e documenti in modo controllato e tracciato, con conformità GDPR nativa.
+                    </p>
+
+                    <!-- Key Benefits Pills -->
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem;" class="animate-fade-in-up">
+                        <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;" aria-hidden="true" focusable="false">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Dati sempre in azienda
+                        </span>
+                        <span style="background: rgba(212, 160, 23, 0.15); color: #D4A017; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(212, 160, 23, 0.3);">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;" aria-hidden="true" focusable="false">
+                                <rect x="3" y="4" width="18" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <rect x="3" y="13" width="18" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Server gestiti
+                        </span>
+                        <span style="background: rgba(99, 102, 241, 0.15); color: #818CF8; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(99, 102, 241, 0.3);">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;" aria-hidden="true" focusable="false">
+                                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            GDPR nativo
+                        </span>
+                        <span style="background: rgba(236, 72, 153, 0.15); color: #F472B6; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(236, 72, 153, 0.3);">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;" aria-hidden="true" focusable="false">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Audit trail completo
+                        </span>
+                    </div>
+
+                    <div style="display: flex; gap: var(--space-lg); flex-wrap: wrap;" class="animate-fade-in-up">
+                        <a href="contatti.html" class="btn btn-primary btn-lg">Richiedi una valutazione gratuita</a>
+                        <a href="#prezzi" class="btn btn-outline btn-lg">Vedi i prezzi</a>
+                    </div>
+                </div>
+                <div class="hero-image animate-fade-in-up">
+                    <img src="src/assets/img/pugliai_pittogramma.png" alt="Hosting MCP On-Premise — server MCP gestiti che collegano l'AI ai sistemi aziendali" width="380" height="380" loading="eager">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is MCP — answer-first, citation-ready -->
+    <section class="section" id="cos-e-mcp">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cos'è il Model Context Protocol (MCP)?</h2>
+            </div>
+            <div style="max-width: 820px; margin: 0 auto;">
+                <p class="body-large mb-lg">
+                    Il <strong>Model Context Protocol (MCP)</strong> è uno <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener" style="color: var(--accent-gold);">standard aperto</a> che permette ai modelli di intelligenza artificiale di collegarsi a strumenti, dati e applicazioni aziendali in modo uniforme e sicuro. Invece di costruire un'integrazione su misura per ogni sistema, un <strong>server MCP</strong> espone in modo controllato le funzioni di un'applicazione — per esempio il gestionale, il CRM o un archivio documenti — così che un modello AI o un agente autonomo possa leggerle e usarle attraverso un'unica interfaccia standard.
+                </p>
+                <p class="body-large mb-lg">
+                    <strong>L'hosting MCP</strong> è il servizio con cui PugliAI installa, configura e gestisce questi server MCP sulla <em>tua</em> infrastruttura. Il risultato: la tua AI diventa davvero utile perché "vede" i dati reali dell'azienda, ma quei dati non lasciano mai i tuoi sistemi. È la base infrastrutturale che rende sicuri e affidabili gli <a href="agenti-ai.html" style="color: var(--accent-gold);">agenti AI autonomi</a> e le soluzioni come <a href="knowledgeai-enterprise.html" style="color: var(--accent-gold);">KnowledgeAI Enterprise</a>.
+                </p>
+                <div style="background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10B981; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0;">
+                    <p style="margin: 0; color: var(--text-secondary);">
+                        <strong style="color: #10B981;">In breve:</strong> il server MCP è un ponte sicuro tra i modelli AI e i tuoi sistemi. L'hosting MCP on-premise mette quel ponte sotto il tuo controllo, con permessi granulari e tracciamento completo di ogni accesso.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section" style="background: rgba(16, 185, 129, 0.05);" id="come-funziona">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Come funziona l'hosting MCP</h2>
+                <p class="section-subtitle">Dall'analisi al server in produzione, gestito e monitorato per te.</p>
+            </div>
+            <div class="grid grid-cols-4" style="gap: 2rem; max-width: 1100px; margin: 0 auto;">
+                <div class="card">
+                    <div style="font-size: 2rem; font-weight: 800; color: #10B981; margin-bottom: 0.5rem;">1</div>
+                    <h3 class="card-title">Analisi dei sistemi</h3>
+                    <p class="card-description">Mappiamo i sistemi da collegare (gestionale, CRM, ERP, documenti) e i casi d'uso AI prioritari per la tua azienda.</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 2rem; font-weight: 800; color: #10B981; margin-bottom: 0.5rem;">2</div>
+                    <h3 class="card-title">Deploy on-premise</h3>
+                    <p class="card-description">Installiamo i server MCP sulla tua infrastruttura o su un cloud privato che controlli tu, con permessi granulari per ogni connettore.</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 2rem; font-weight: 800; color: #10B981; margin-bottom: 0.5rem;">3</div>
+                    <h3 class="card-title">Connettori sicuri</h3>
+                    <p class="card-description">Colleghiamo i tuoi strumenti tramite connettori MCP dedicati, con autenticazione, controllo degli accessi e audit log.</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 2rem; font-weight: 800; color: #10B981; margin-bottom: 0.5rem;">4</div>
+                    <h3 class="card-title">Gestione continua</h3>
+                    <p class="card-description">Monitoriamo, aggiorniamo e mettiamo in sicurezza i server nel tempo. Tu ti concentri sul business, non sull'infrastruttura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's included -->
+    <section class="section" id="cosa-include">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cosa include il servizio</h2>
+                <p class="section-subtitle">Un servizio gestito end-to-end: ti diamo l'infrastruttura MCP pronta e la manteniamo.</p>
+            </div>
+            <div class="grid grid-cols-3" style="gap: 2rem;">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <rect x="3" y="4" width="18" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <rect x="3" y="13" width="18" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M7 7.5h.01M7 16.5h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Server MCP gestiti</h3>
+                    <p class="card-description">Installazione, configurazione e gestione dei server MCP sulla tua infrastruttura, con aggiornamenti e patch di sicurezza inclusi.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Connettori su misura</h3>
+                    <p class="card-description">Sviluppiamo i connettori verso i tuoi sistemi: gestionali ed ERP italiani, CRM, database, archivi documentali, API interne.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Controllo accessi e audit</h3>
+                    <p class="card-description">Permessi granulari per strumento e per operazione, autenticazione e audit trail completo di ogni accesso dell'AI ai dati.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Monitoraggio 24/7</h3>
+                    <p class="card-description">Monitoraggio di disponibilità e performance dei server MCP, con alert proattivi e report periodici sull'utilizzo.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <rect x="5" y="7" width="14" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 3v4M9 12h.01M15 12h.01M9 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Pronto per gli agenti AI</h3>
+                    <p class="card-description">Infrastruttura compatibile con agenti AI autonomi e assistenti conversazionali: l'AI usa i tuoi strumenti in sicurezza.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Supporto e formazione</h3>
+                    <p class="card-description">Affiancamento del tuo team tecnico e documentazione, così l'azienda capisce e governa la propria infrastruttura AI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use cases -->
+    <section class="section" style="background: rgba(16, 185, 129, 0.05);" id="casi-uso">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Casi d'uso dell'hosting MCP</h2>
+                <p class="section-subtitle">Esempi concreti di cosa diventa possibile quando l'AI accede in sicurezza ai tuoi sistemi.</p>
+            </div>
+            <div class="grid grid-cols-3" style="gap: 2rem;">
+                <div class="card">
+                    <h3 class="card-title">Assistente sul gestionale</h3>
+                    <p class="card-description">Un agente AI che legge ordini, giacenze e scadenze dal gestionale e risponde alle domande del team in linguaggio naturale — con i dati che restano in azienda.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Customer service collegato al CRM</h3>
+                    <p class="card-description">L'AI consulta lo storico cliente nel CRM per rispondere con contesto, aprire ticket e aggiornare i dati, senza copiare informazioni su servizi esterni.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Ricerca sui documenti interni</h3>
+                    <p class="card-description">Un connettore MCP verso l'archivio documentale alimenta risposte precise su contratti, procedure e manuali, con tracciamento di cosa è stato consultato.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & GDPR -->
+    <section class="section" id="sicurezza">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sicurezza e conformità GDPR</h2>
+            </div>
+            <div style="max-width: 820px; margin: 0 auto;">
+                <p class="body-large mb-lg">
+                    Con l'hosting MCP on-premise i server girano sulla tua infrastruttura, quindi i dati aziendali <strong>non vengono trasferiti a cloud esterni né fuori dall'Unione Europea</strong>. Ogni accesso dell'AI passa attraverso il server MCP, che applica permessi granulari e registra un audit trail completo — requisiti fondamentali per la conformità al <a href="https://gdpr.eu/" target="_blank" rel="noopener" style="color: var(--accent-gold);">GDPR</a> e per eventuali ispezioni del Garante per la protezione dei dati personali.
+                </p>
+                <div class="grid grid-cols-2" style="gap: 1.5rem;">
+                    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                        <span style="color: #10B981; font-size: 1.25rem;">✓</span>
+                        <p style="margin: 0; color: var(--text-secondary);">Dati e documenti non lasciano mai la tua infrastruttura</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                        <span style="color: #10B981; font-size: 1.25rem;">✓</span>
+                        <p style="margin: 0; color: var(--text-secondary);">Permessi per strumento e per operazione, principio del privilegio minimo</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                        <span style="color: #10B981; font-size: 1.25rem;">✓</span>
+                        <p style="margin: 0; color: var(--text-secondary);">Audit trail completo di ogni accesso dell'AI ai dati</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                        <span style="color: #10B981; font-size: 1.25rem;">✓</span>
+                        <p style="margin: 0; color: var(--text-secondary);">Nessun vendor lock-in: l'infrastruttura resta di tua proprietà</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" style="background: rgba(16, 185, 129, 0.05);" id="prezzi">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Prezzi dell'hosting MCP</h2>
+                <p class="section-subtitle">Un servizio gestito e accessibile, con canone mensile trasparente. Aggiornamenti e monitoraggio sempre inclusi.</p>
+            </div>
+            <div class="grid grid-cols-3" style="gap: 2rem; max-width: 1200px; margin: 0 auto;">
+                <!-- Starter -->
+                <div class="card" style="border: 2px solid rgba(255, 255, 255, 0.1);">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(99, 102, 241, 0.2); color: #818CF8; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; font-weight: 600;">STARTER</span>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="font-size: 3rem; font-weight: 800; color: #E5E7EB;">290</span>
+                        <span style="font-size: 1.25rem; color: #9CA3AF;"> EUR/mese</span>
+                    </div>
+                    <p style="text-align: center; color: #9CA3AF; margin-bottom: 1.5rem;">Per iniziare a collegare l'AI ai primi sistemi</p>
+                    <ul class="feature-list" style="margin-bottom: 2rem;">
+                        <li>1 server MCP gestito</li>
+                        <li>Fino a 2 connettori standard</li>
+                        <li>Aggiornamenti e patch di sicurezza</li>
+                        <li>Monitoraggio disponibilità</li>
+                        <li>Audit log accessi</li>
+                        <li>Supporto email</li>
+                    </ul>
+                    <a href="contatti.html" class="btn btn-outline" style="width: 100%;">Richiedi una valutazione</a>
+                </div>
+
+                <!-- Business - Highlighted -->
+                <div class="card" style="border: 2px solid #D4A017; position: relative; transform: scale(1.05);">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #D4A017, #FFD700); color: #0A1628; padding: 0.25rem 1rem; border-radius: 12px; font-size: 0.85rem; font-weight: 700;">PIÙ SCELTO</div>
+                    <div style="text-align: center; margin-bottom: 1.5rem; margin-top: 0.5rem;">
+                        <span style="background: rgba(212, 160, 23, 0.2); color: #D4A017; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; font-weight: 600;">BUSINESS</span>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="font-size: 3rem; font-weight: 800; color: #D4A017;">590</span>
+                        <span style="font-size: 1.25rem; color: #9CA3AF;"> EUR/mese</span>
+                    </div>
+                    <p style="text-align: center; color: #9CA3AF; margin-bottom: 1.5rem;">Per collegare più sistemi e più team</p>
+                    <ul class="feature-list" style="margin-bottom: 2rem;">
+                        <li><strong>Fino a 5 connettori</strong></li>
+                        <li>Server MCP in alta affidabilità</li>
+                        <li>Single Sign-On (SSO)</li>
+                        <li>Audit log avanzato</li>
+                        <li>SLA garantito</li>
+                        <li>Supporto prioritario</li>
+                        <li>Report di utilizzo mensili</li>
+                    </ul>
+                    <a href="contatti.html" class="btn btn-primary" style="width: 100%;">Richiedi una demo</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="card" style="border: 2px solid rgba(16, 185, 129, 0.3);">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(16, 185, 129, 0.2); color: #10B981; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; font-weight: 600;">ENTERPRISE</span>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span style="font-size: 3rem; font-weight: 800; color: #10B981;">Su misura</span>
+                    </div>
+                    <p style="text-align: center; color: #9CA3AF; margin-bottom: 1.5rem;">Per infrastrutture complesse e multi-sede</p>
+                    <ul class="feature-list" style="margin-bottom: 2rem;">
+                        <li><strong>Connettori illimitati</strong></li>
+                        <li>Integrazioni custom su misura</li>
+                        <li>Alta disponibilità e ridondanza</li>
+                        <li>Governance e policy avanzate</li>
+                        <li>Supporto dedicato</li>
+                        <li>Consulenza strategica inclusa</li>
+                    </ul>
+                    <a href="contatti.html" class="btn btn-outline" style="width: 100%; border-color: #10B981; color: #10B981;">Contatta il team</a>
+                </div>
+            </div>
+
+            <!-- Bundle offer -->
+            <div style="margin-top: 3rem; text-align: center; padding: 2rem; background: rgba(212, 160, 23, 0.1); border-radius: 16px; border: 1px solid rgba(212, 160, 23, 0.3);">
+                <h3 style="color: #D4A017; margin-bottom: 0.5rem; font-size: 1.25rem;">Meglio insieme</h3>
+                <p style="color: #E5E7EB; margin-bottom: 1rem;">Abbina l'hosting MCP agli <strong>Agenti AI Autonomi</strong> per far eseguire attività end-to-end sui tuoi sistemi, in totale sicurezza.</p>
+                <a href="agenti-ai.html" class="btn btn-outline" style="border-color: #D4A017; color: #D4A017;">Scopri gli Agenti AI Autonomi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Domande frequenti sull'hosting MCP</h2>
+            </div>
+            <div style="max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem;">
+                <div class="card">
+                    <h3 class="card-title" style="font-size: 1.15rem;">Che cos'è il Model Context Protocol (MCP)?</h3>
+                    <p class="card-description">Il Model Context Protocol (MCP) è uno standard aperto che permette ai modelli di AI di collegarsi a strumenti, dati e applicazioni aziendali in modo uniforme e sicuro. Un server MCP espone in modo controllato le funzioni di un sistema (gestionale, CRM, archivio documenti) affinché un modello AI o un agente autonomo possa usarle senza integrazioni su misura per ogni singolo strumento.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title" style="font-size: 1.15rem;">Cosa significa hosting MCP on-premise?</h3>
+                    <p class="card-description">Significa che i server MCP vengono installati e gestiti sulla tua infrastruttura (server aziendali o cloud privato che controlli tu), non su servizi esterni. Così i dati a cui accede l'AI non lasciano mai l'azienda: PugliAI cura installazione, configurazione, aggiornamenti e monitoraggio, tu mantieni il pieno controllo e la conformità GDPR.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title" style="font-size: 1.15rem;">Quanto costa l'hosting MCP di PugliAI?</h3>
+                    <p class="card-description">Il servizio parte da 290 €/mese per il piano Starter (un server MCP gestito e fino a due connettori standard), 590 €/mese per il piano Business (fino a cinque connettori, SSO, audit log e SLA) e prezzo personalizzato per il piano Enterprise con connettori illimitati e integrazioni su misura. I prezzi sono mensili e includono aggiornamenti e monitoraggio.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title" style="font-size: 1.15rem;">A quali sistemi aziendali si può collegare un server MCP?</h3>
+                    <p class="card-description">A gestionali ed ERP italiani (Zucchetti, TeamSystem, SAP), CRM (Salesforce, HubSpot, Zoho), archivi documentali, database SQL, email e strumenti interni tramite API REST. PugliAI sviluppa i connettori necessari al tuo caso d'uso e li mantiene aggiornati.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title" style="font-size: 1.15rem;">Che differenza c'è tra hosting MCP e agenti AI autonomi?</h3>
+                    <p class="card-description">L'hosting MCP è l'infrastruttura che collega l'AI ai tuoi dati e strumenti; gli agenti AI autonomi sono i sistemi che usano quell'infrastruttura per ragionare ed eseguire attività. Il server MCP è il ponte sicuro verso i tuoi sistemi, l'agente è ciò che attraversa quel ponte per completare un compito. Funzionano bene insieme, ma possono essere adottati anche separatamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pronto a collegare la tua AI ai sistemi aziendali?</h2>
+                <p class="section-subtitle mb-2xl">
+                    Richiedi una valutazione gratuita: analizziamo i tuoi sistemi e ti diciamo quali connettori MCP portano più valore, con tempi e costi chiari — a cura del team PugliAI, specializzato in AI on-premise per le PMI italiane. <a href="chi-siamo.html" style="color: var(--accent-gold);">Scopri chi siamo</a>.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contatti.html" class="btn btn-primary btn-lg">Richiedi una valutazione gratuita</a>
+                    <a href="prodotti.html" class="btn btn-outline btn-lg">Tutti i prodotti AI</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="src/assets/img/pugliai_pittogramma.png" alt="PugliAI" class="footer-logo-img">
+                </div>
+                <div class="footer-links">
+                    <a href="hosting-mcp.html" class="footer-link">Hosting MCP On-Premise</a>
+                    <a href="agenti-ai.html" class="footer-link">Agenti AI Autonomi</a>
+                    <a href="voiceai-on-premise.html" class="footer-link">VoiceAI On-Premise</a>
+                    <a href="knowledgeai-enterprise.html" class="footer-link">KnowledgeAI Enterprise</a>
+                    <a href="prodotti.html" class="footer-link">Prodotti</a>
+                    <a href="contatti.html" class="footer-link">Contatti</a>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2026 PugliAI S.r.l. - P.IVA IT02735920742</p>
+                    <p>Via Giovanni Forleo 45, 72022 Latiano (BR) | Via Angelo Maj 16, 24121 Bergamo</p>
+                    <p>
+                        <a href="privacy.html" class="footer-link">Privacy</a> |
+                        <a href="cookie.html" class="footer-link">Cookie</a> |
+                        <a href="termini.html" class="footer-link">Termini</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">&#8593;</div>
+
+    <!-- Scripts -->
+    <script>
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animate elements on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+        document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

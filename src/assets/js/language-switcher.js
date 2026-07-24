@@ -24,6 +24,7 @@
         'prodotti.html': 'products.html',
         'voiceai-on-premise.html': 'voiceai-on-premise.html',
         'knowledgeai-enterprise.html': 'knowledgeai-enterprise.html',
+        'hosting-mcp.html': 'mcp-hosting.html',
 
         // Sectors
         'settori.html': 'sectors.html',

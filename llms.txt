@@ -17,9 +17,10 @@ Languages: Italian (primary), English (secondary)
 
 PugliAI helps Italian SMBs adopt AI through:
 - **AI Infrastructure**: Scalable architectures, ISO 27001 certified, 40% TCO reduction guaranteed
-- **AI Agents**: Custom chatbots, RPA automation, computer vision, NLP solutions
+- **MCP Hosting**: Managed Model Context Protocol servers on-premise, connecting AI to business systems securely (from €290/month)
+- **Autonomous AI Agents**: Agents that reason, plan and execute end-to-end tasks across business tools via MCP (from €490/month)
 - **Strategic Consulting**: AI roadmaps, change management, team training
-- **On-Premise Products**: VoiceAI and KnowledgeAI enterprise solutions for data sovereignty
+- **On-Premise Products**: VoiceAI, KnowledgeAI, MCP hosting and autonomous agents for data sovereignty
 
 ## Service Packages (2026)
 
@@ -52,6 +53,22 @@ Enterprise knowledge base with AI-powered search and retrieval:
 - On-premise deployment option
 - Integration with existing document systems
 - Maximum data sovereignty
+
+### MCP Hosting On-Premise
+Managed MCP (Model Context Protocol) servers hosted on the client's own infrastructure. MCP is an open standard that lets AI models connect to business tools and data in a uniform, secure way. Features:
+- Securely connects AI and autonomous agents to ERP, CRM, databases and documents
+- Servers run on-premise; data never leaves the company (native GDPR)
+- Granular access control and full audit trail of every AI access
+- Managed service: installation, connectors, updates and monitoring
+- Pricing from €290/month (Starter), €590/month (Business), custom (Enterprise)
+- URL: https://pugliai.com/hosting-mcp.html (EN: https://pugliai.com/en/mcp-hosting.html)
+
+### Autonomous AI Agents
+AI agents that reason, plan and execute end-to-end tasks across business tools, integrating with company systems via MCP servers. Not just chatbots:
+- Execute multi-step processes autonomously, not only answer questions
+- Human-in-the-loop oversight on critical steps
+- Built on secure on-premise MCP infrastructure
+- URL: https://pugliai.com/agenti-ai.html (EN: https://pugliai.com/en/ai-agents.html)
 
 ## Industries We Serve
 

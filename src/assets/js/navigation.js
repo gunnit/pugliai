@@ -168,6 +168,11 @@
     // Generate Italian language switcher (dropdown style)
     function generateItalianLangSwitcher() {
         const ls = config.langSwitcher;
+        // Compute the English equivalent page so the toggle lands on the matching
+        // page, not always the English homepage. Falls back to the configured
+        // homepage href when the current page has no English mirror.
+        const enPage = getEnglishEquivalent(getCurrentPage());
+        const enHref = enPage ? `/en/${enPage}` : ls.alternate.href;
         return `<div class="language-switcher" role="navigation" aria-label="${ls.ariaLabel}">
                     <div class="lang-toggle" aria-label="${ls.toggleLabel}" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
                         <span class="lang-flag">${ls.current.flag}</span>
@@ -175,7 +180,7 @@
                         <span class="lang-arrow">▼</span>
                     </div>
                     <div class="lang-dropdown" role="menu">
-                        <a href="${ls.alternate.href}" class="lang-option" role="menuitem" aria-label="Switch to ${ls.alternate.label}">
+                        <a href="${enHref}" class="lang-option" role="menuitem" aria-label="Switch to ${ls.alternate.label}">
                             <span class="lang-flag">${ls.alternate.flag}</span>
                             <span>${ls.alternate.label}</span>
                         </a>
@@ -227,11 +232,44 @@
             'financial-services.html': 'servizi-finanziari.html',
             'voiceai-on-premise.html': 'voiceai-on-premise.html',
             'knowledgeai-enterprise.html': 'knowledgeai-enterprise.html',
+            'mcp-hosting.html': 'hosting-mcp.html',
             'privacy.html': 'privacy.html',
             'cookie.html': 'cookie.html',
             'terms.html': 'termini.html'
         };
         return pageMap[enPage] || enPage;
+    }
+
+    // Map Italian pages to English equivalents (inverse of getItalianEquivalent).
+    // Returns null when no English mirror exists, so the IT switcher falls back
+    // to the English homepage instead of linking to a non-existent page.
+    function getEnglishEquivalent(itPage) {
+        const pageMap = {
+            'index.html': 'index.html',
+            'chi-siamo.html': 'about-us.html',
+            'contatti.html': 'contact.html',
+            'servizi.html': 'services.html',
+            'prodotti.html': 'products.html',
+            'infrastrutture-ai.html': 'ai-infrastructure.html',
+            'agenti-ai.html': 'ai-agents.html',
+            'consulenza-strategica.html': 'strategic-consulting.html',
+            'investimenti-ai.html': 'ai-investment.html',
+            'guida-ai-ceo-2025.html': 'ceo-ai-guide-2025.html',
+            'acceleratore.html': 'accelerator.html',
+            'acceleratore-candidatura.html': 'accelerator-apply.html',
+            'acceleratore-success.html': 'accelerator-success.html',
+            'settori.html': 'sectors.html',
+            'manifatturiero.html': 'manufacturing.html',
+            'moda-lusso.html': 'fashion-luxury.html',
+            'servizi-finanziari.html': 'financial-services.html',
+            'voiceai-on-premise.html': 'voiceai-on-premise.html',
+            'knowledgeai-enterprise.html': 'knowledgeai-enterprise.html',
+            'hosting-mcp.html': 'mcp-hosting.html',
+            'privacy.html': 'privacy.html',
+            'cookie.html': 'cookie.html',
+            'termini.html': 'terms.html'
+        };
+        return pageMap[itPage] || null;
     }
 
     // Generate full navigation HTML

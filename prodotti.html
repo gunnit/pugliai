@@ -56,21 +56,103 @@
         "name": "Prodotti AI On-Premise PugliAI",
         "description": "Soluzioni AI on-premise per PMI italiane",
         "url": "https://pugliai.com/prodotti.html",
-        "numberOfItems": 2,
+        "numberOfItems": 4,
         "itemListElement": [
             {
                 "@type": "Product",
                 "position": 1,
                 "name": "VoiceAI On-Premise",
                 "description": "Assistente vocale AI con deployment on-premise per centralino intelligente e customer service automatizzato.",
-                "url": "https://pugliai.com/voiceai-on-premise.html"
+                "url": "https://pugliai.com/voiceai-on-premise.html",
+                "image": "https://pugliai.com/src/assets/img/voicecheck.png",
+                "brand": {
+                    "@type": "Brand",
+                    "name": "PugliAI"
+                },
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "url": "https://pugliai.com/voiceai-on-premise.html",
+                    "priceCurrency": "EUR",
+                    "lowPrice": "25000",
+                    "highPrice": "75000",
+                    "offerCount": "3"
+                }
             },
             {
                 "@type": "Product",
                 "position": 2,
                 "name": "KnowledgeAI Enterprise",
                 "description": "Chat AI aziendale con RAG on-premise per interrogare documenti interni senza inviare dati al cloud.",
-                "url": "https://pugliai.com/knowledgeai-enterprise.html"
+                "url": "https://pugliai.com/knowledgeai-enterprise.html",
+                "image": "https://pugliai.com/src/assets/img/bookandbrain.png",
+                "brand": {
+                    "@type": "Brand",
+                    "name": "PugliAI"
+                },
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "url": "https://pugliai.com/knowledgeai-enterprise.html",
+                    "priceCurrency": "EUR",
+                    "lowPrice": "30000",
+                    "highPrice": "85000",
+                    "offerCount": "3"
+                }
+            },
+            {
+                "@type": "Product",
+                "position": 3,
+                "name": "Hosting MCP On-Premise",
+                "description": "Server MCP (Model Context Protocol) gestiti on-premise che collegano l'AI ai sistemi aziendali in sicurezza, senza far uscire i dati dall'azienda.",
+                "url": "https://pugliai.com/hosting-mcp.html",
+                "image": "https://pugliai.com/src/assets/img/pugliai-og-image.jpg",
+                "brand": {
+                    "@type": "Brand",
+                    "name": "PugliAI"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "url": "https://pugliai.com/hosting-mcp.html",
+                    "priceCurrency": "EUR",
+                    "price": "290",
+                    "priceSpecification": {
+                        "@type": "UnitPriceSpecification",
+                        "price": "290",
+                        "priceCurrency": "EUR",
+                        "referenceQuantity": {
+                            "@type": "QuantitativeValue",
+                            "value": "1",
+                            "unitCode": "MON"
+                        }
+                    }
+                }
+            },
+            {
+                "@type": "Product",
+                "position": 4,
+                "name": "Agenti AI Autonomi",
+                "description": "Agenti AI che ragionano, pianificano ed eseguono attività end-to-end sui tuoi sistemi aziendali, integrandosi tramite server MCP.",
+                "url": "https://pugliai.com/agenti-ai.html",
+                "image": "https://pugliai.com/src/assets/img/pugliai-og-image.jpg",
+                "brand": {
+                    "@type": "Brand",
+                    "name": "PugliAI"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "url": "https://pugliai.com/agenti-ai.html",
+                    "priceCurrency": "EUR",
+                    "price": "490",
+                    "priceSpecification": {
+                        "@type": "UnitPriceSpecification",
+                        "price": "490",
+                        "priceCurrency": "EUR",
+                        "referenceQuantity": {
+                            "@type": "QuantitativeValue",
+                            "value": "1",
+                            "unitCode": "MON"
+                        }
+                    }
+                }
             }
         ]
     }
@@ -125,7 +207,7 @@
                 "name": "Quali prodotti AI offre PugliAI?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "PugliAI offre due prodotti AI on-premise: VoiceAI On-Premise, un assistente vocale AI per centralino intelligente e customer service automatizzato 24/7, e KnowledgeAI Enterprise, una chat AI aziendale con tecnologia RAG per interrogare documenti interni con riduzione del 70-90% delle allucinazioni AI."
+                    "text": "PugliAI offre quattro prodotti AI on-premise: VoiceAI On-Premise (assistente vocale per centralino intelligente e customer service automatizzato 24/7), KnowledgeAI Enterprise (chat aziendale con tecnologia RAG per interrogare i documenti interni, riduzione 70-90% delle allucinazioni AI), Hosting MCP On-Premise (server MCP gestiti che collegano l'AI ai sistemi aziendali in sicurezza) e Agenti AI Autonomi (agenti che ragionano ed eseguono attività end-to-end tramite MCP)."
                 }
             },
             {
@@ -536,7 +618,7 @@
         <div class="container">
             <div class="products-intro">
                 <h2>I Nostri Prodotti</h2>
-                <p>Due soluzioni AI enterprise progettate per PMI italiane che mettono privacy e sovranità dei dati al primo posto. Cerchi invece consulenza e automazioni su misura? <a href="servizi.html" style="color: var(--accent-gold);">Scopri i servizi AI &rarr;</a></p>
+                <p>Quattro soluzioni AI enterprise progettate per PMI italiane che mettono privacy e sovranità dei dati al primo posto. Cerchi invece consulenza e automazioni su misura? <a href="servizi.html" style="color: var(--accent-gold);">Scopri i servizi AI &rarr;</a></p>
             </div>
 
             <div class="products-grid">
@@ -602,6 +684,69 @@
                         </svg>
                     </div>
                 </a>
+
+                <!-- Hosting MCP On-Premise -->
+                <a href="hosting-mcp.html" class="product-card">
+                    <div class="product-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                            <rect x="3" y="4" width="18" height="7" rx="2"/>
+                            <rect x="3" y="13" width="18" height="7" rx="2"/>
+                            <line x1="7" y1="7.5" x2="7.01" y2="7.5"/>
+                            <line x1="7" y1="16.5" x2="7.01" y2="16.5"/>
+                        </svg>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Hosting MCP On-Premise</h3>
+                        <p class="product-description">
+                            Server MCP gestiti sulla tua infrastruttura: la tua AI accede a gestionale, CRM ed ERP in sicurezza, senza far uscire i dati dall'azienda.
+                        </p>
+                        <ul class="product-features">
+                            <li>Colleghi l'AI ai sistemi aziendali via MCP</li>
+                            <li>Server gestiti, aggiornati e monitorati</li>
+                            <li>Controllo accessi e audit trail completo</li>
+                            <li>GDPR nativo — dati sempre in azienda</li>
+                            <li>Da €290/mese</li>
+                        </ul>
+                    </div>
+                    <div class="product-action">
+                        <span>Scopri l'Hosting MCP</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Agenti AI Autonomi -->
+                <a href="agenti-ai.html" class="product-card">
+                    <div class="product-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                            <rect x="5" y="7" width="14" height="12" rx="2"/>
+                            <path d="M12 3v4"/>
+                            <line x1="9" y1="12" x2="9.01" y2="12"/>
+                            <line x1="15" y1="12" x2="15.01" y2="12"/>
+                            <path d="M9 16h6"/>
+                        </svg>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Agenti AI Autonomi</h3>
+                        <p class="product-description">
+                            Non semplici chatbot: agenti che ragionano, pianificano ed eseguono attività end-to-end sui tuoi strumenti, con supervisione umana dove conta.
+                        </p>
+                        <ul class="product-features">
+                            <li>Eseguono processi end-to-end</li>
+                            <li>Si integrano ai tuoi strumenti via MCP</li>
+                            <li>Human-in-the-loop sui passaggi critici</li>
+                            <li>Automazione affidabile e tracciata</li>
+                            <li>Da €490/mese</li>
+                        </ul>
+                    </div>
+                    <div class="product-action">
+                        <span>Scopri gli Agenti AI</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -648,7 +793,7 @@
                 </details>
                 <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                     <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Quali prodotti AI offre PugliAI?</summary>
-                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">PugliAI offre due prodotti AI on-premise: VoiceAI On-Premise, un assistente vocale AI per centralino intelligente e customer service automatizzato 24/7, e KnowledgeAI Enterprise, una chat AI aziendale con tecnologia RAG per interrogare documenti interni con riduzione del 70-90% delle allucinazioni AI.</p>
+                    <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">PugliAI offre quattro prodotti AI on-premise: VoiceAI On-Premise (assistente vocale per centralino intelligente e customer service automatizzato 24/7), KnowledgeAI Enterprise (chat aziendale con tecnologia RAG per interrogare i documenti interni, riduzione 70-90% delle allucinazioni AI), Hosting MCP On-Premise (server MCP gestiti che collegano l'AI ai sistemi aziendali in sicurezza) e Agenti AI Autonomi (agenti che ragionano ed eseguono attività end-to-end tramite MCP).</p>
                 </details>
                 <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                     <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Quanto costano i prodotti AI on-premise di PugliAI?</summary>

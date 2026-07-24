@@ -362,57 +362,6 @@
     }
     </script>
 
-    <!-- Review Schema - Testimonials -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "PugliAI",
-      "url": "https://pugliai.com",
-      "review": [
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Pietro Ruffoni",
-            "jobTitle": "CEO & Founder",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "My CIA"
-            }
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "reviewBody": "PugliAI completely transformed the way we manage our digital menus. With the AI Accelerator we automated menu digitization and multilingual translations, reducing time by 60%. In 6 months we increased partner restaurants by 40% with concrete and measurable data.",
-          "datePublished": "2024-09-15"
-        },
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Michele Pomposo",
-            "jobTitle": "Co-Founder & COO",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Tiledesk"
-            },
-            "sameAs": "https://www.linkedin.com/in/michelepomposo/"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "reviewBody": "With PugliAI we revolutionized our customer service. The AI Agents we implemented handle 70% of requests 24/7, improving customer satisfaction by 45%. The AI conversational platform reduced response times by 80% with measurable and documented results.",
-          "datePublished": "2024-10-20"
-        }
-      ]
-    }
-    </script>
-
     <!-- Product Schema - VoiceAI On-Premise -->
     <script type="application/ld+json">
     {
@@ -420,22 +369,20 @@
       "@type": "Product",
       "name": "VoiceAI On-Premise",
       "description": "AI voice assistant that answers for your company 24/7. Intelligent switchboard, automated customer service, voice documentation. All on your servers, no voice data on external clouds. Native GDPR compliance.",
+      "image": "https://pugliai.com/src/assets/img/voicecheck.png",
+      "url": "https://pugliai.com/en/voiceai-on-premise.html",
       "brand": {
         "@type": "Brand",
         "name": "PugliAI"
       },
       "category": "Software > Artificial Intelligence > Voice AI",
       "offers": {
-        "@type": "Offer",
+        "@type": "AggregateOffer",
         "url": "https://pugliai.com/en/voiceai-on-premise.html",
         "priceCurrency": "EUR",
-        "price": "25000",
-        "priceValidUntil": "2026-12-31",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "PugliAI"
-        }
+        "lowPrice": "25000",
+        "highPrice": "75000",
+        "offerCount": "3"
       }
     }
     </script>
@@ -447,21 +394,85 @@
       "@type": "Product",
       "name": "KnowledgeAI Enterprise",
       "description": "Business chat that queries your documents with RAG technology. Internal knowledge base, technical documentation assistant, contract search. Precise answers from your data, zero hallucination. Complete audit trail for compliance.",
+      "image": "https://pugliai.com/src/assets/img/bookandbrain.png",
+      "url": "https://pugliai.com/en/knowledgeai-enterprise.html",
       "brand": {
         "@type": "Brand",
         "name": "PugliAI"
       },
       "category": "Software > Artificial Intelligence > RAG Systems",
       "offers": {
-        "@type": "Offer",
+        "@type": "AggregateOffer",
         "url": "https://pugliai.com/en/knowledgeai-enterprise.html",
         "priceCurrency": "EUR",
-        "price": "30000",
-        "priceValidUntil": "2026-12-31",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "PugliAI"
+        "lowPrice": "30000",
+        "highPrice": "85000",
+        "offerCount": "3"
+      }
+    }
+    </script>
+
+    <!-- Product Schema - MCP Hosting On-Premise -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "MCP Hosting On-Premise",
+      "description": "Hosting and management of MCP (Model Context Protocol) servers on your own infrastructure. Securely connect AI models and autonomous agents to your ERP, CRM and business documents, without data ever leaving your company. Native GDPR.",
+      "image": "https://pugliai.com/src/assets/img/pugliai-og-image.jpg",
+      "url": "https://pugliai.com/en/mcp-hosting.html",
+      "brand": {
+        "@type": "Brand",
+        "name": "PugliAI"
+      },
+      "category": "Software > Artificial Intelligence > AI Infrastructure",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://pugliai.com/en/mcp-hosting.html",
+        "priceCurrency": "EUR",
+        "price": "290",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "290",
+          "priceCurrency": "EUR",
+          "referenceQuantity": {
+            "@type": "QuantitativeValue",
+            "value": "1",
+            "unitCode": "MON"
+          }
+        }
+      }
+    }
+    </script>
+
+    <!-- Product Schema - Autonomous AI Agents -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Autonomous AI Agents",
+      "description": "AI agents that reason, plan and execute end-to-end tasks across your business tools, integrating with your systems via MCP servers. Human-in-the-loop oversight on critical steps.",
+      "image": "https://pugliai.com/src/assets/img/pugliai-og-image.jpg",
+      "url": "https://pugliai.com/en/ai-agents.html",
+      "brand": {
+        "@type": "Brand",
+        "name": "PugliAI"
+      },
+      "category": "Software > Artificial Intelligence > Autonomous Agents",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://pugliai.com/en/ai-agents.html",
+        "priceCurrency": "EUR",
+        "price": "490",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "490",
+          "priceCurrency": "EUR",
+          "referenceQuantity": {
+            "@type": "QuantitativeValue",
+            "value": "1",
+            "unitCode": "MON"
+          }
         }
       }
     }
@@ -504,7 +515,7 @@
                     AI for Italy: <span class="text-gradient-gold">choose your path</span>
                 </h1>
                 <p class="hero-subtitle body-large" style="margin-top: 1rem; color: var(--text-secondary); max-width: 700px; margin-left: auto; margin-right: auto;">
-                    Specialized AI consulting for Italian SMEs. Complete packages from €15,000 with 150% ROI contractually guaranteed. Automations active in 2-4 weeks.
+                    Specialized AI consulting for Italian SMEs: autonomous AI agents, MCP hosting and ready-to-use automations. Complete packages from €15,000 with 150% ROI contractually guaranteed. Active in 2-4 weeks.
                 </p>
             </div>
 
@@ -685,7 +696,7 @@
                 <span class="badge badge-success mb-md" style="display: inline-block;">ON-PREMISE</span>
                 <h2 id="products-title" class="section-title">On-Premise AI: Your Data Stays Yours</h2>
                 <p class="section-subtitle">
-                    Enterprise AI solutions that run on your servers. Zero cloud data, zero latency, maximum control.
+                    Autonomous AI agents, MCP hosting and enterprise solutions that run on your servers. Zero cloud data, zero latency, maximum control.
                 </p>
             </div>
 
@@ -756,6 +767,72 @@
                     <a href="knowledgeai-enterprise.html" class="btn btn-primary btn-sm" style="background: var(--accent-gold); color: var(--primary-navy);" aria-label="Discover KnowledgeAI Enterprise">Discover KnowledgeAI <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;" aria-hidden="true" focusable="false">
                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg></a>
+                </div>
+
+                <!-- MCP Server Hosting Card -->
+                <div class="service-card scroll-animate" style="animation-delay: 0.2s; border: 2px solid rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.02);">
+                    <div class="card-icon" aria-hidden="true">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <rect x="3" y="4" width="18" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <rect x="3" y="13" width="18" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M7 7.5h.01M7 16.5h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span class="badge badge-success mb-sm" style="font-size: 0.7rem;">NEW 2026 · FROM €290/MONTH</span>
+                    <h3 class="card-title">MCP Hosting On-Premise</h3>
+                    <p class="card-description">
+                        The Model Context Protocol (MCP) is the standard that connects AI models to your tools and data. We host and manage MCP servers on your infrastructure, so your AI agents securely access your ERP, CRM and documents.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin: 1rem 0; font-size: 0.9rem;">
+                        <li style="padding: 0.25rem 0; color: var(--text-secondary);">
+                            <span style="color: var(--accent-emerald); margin-right: 0.5rem;">✓</span>
+                            Connect AI to your ERP, CRM and business systems securely
+                        </li>
+                        <li style="padding: 0.25rem 0; color: var(--text-secondary);">
+                            <span style="color: var(--accent-emerald); margin-right: 0.5rem;">✓</span>
+                            Servers managed, monitored and updated for you
+                        </li>
+                        <li style="padding: 0.25rem 0; color: var(--text-secondary);">
+                            <span style="color: var(--accent-emerald); margin-right: 0.5rem;">✓</span>
+                            Native GDPR — data never leaves your company
+                        </li>
+                    </ul>
+                    <a href="mcp-hosting.html" class="btn btn-primary btn-sm" aria-label="Discover MCP Hosting On-Premise">Discover MCP Hosting <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;" aria-hidden="true" focusable="false">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg></a>
+                </div>
+
+                <!-- Autonomous AI Agents Card -->
+                <div class="service-card scroll-animate" style="animation-delay: 0.3s; border: 2px solid rgba(255, 215, 0, 0.3); background: rgba(255, 215, 0, 0.02);">
+                    <div class="card-icon" aria-hidden="true">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <rect x="5" y="7" width="14" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 3v4M9 12h.01M15 12h.01M9 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M2 13h3M19 13h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span class="badge badge-warning mb-sm" style="font-size: 0.7rem;">NEW 2026 · FROM €490/MONTH</span>
+                    <h3 class="card-title">Autonomous AI Agents</h3>
+                    <p class="card-description">
+                        Not just chatbots: agents that reason, plan and execute. They read your systems, complete end-to-end tasks across multiple tools and report back — with human oversight where it matters.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin: 1rem 0; font-size: 0.9rem;">
+                        <li style="padding: 0.25rem 0; color: var(--text-secondary);">
+                            <span style="color: var(--accent-gold); margin-right: 0.5rem;">✓</span>
+                            Execute end-to-end processes, not just answer
+                        </li>
+                        <li style="padding: 0.25rem 0; color: var(--text-secondary);">
+                            <span style="color: var(--accent-gold); margin-right: 0.5rem;">✓</span>
+                            Integrate with your tools via MCP
+                        </li>
+                        <li style="padding: 0.25rem 0; color: var(--text-secondary);">
+                            <span style="color: var(--accent-gold); margin-right: 0.5rem;">✓</span>
+                            Human-in-the-loop on critical steps
+                        </li>
+                    </ul>
+                    <a href="ai-agents.html" class="btn btn-primary btn-sm" style="background: var(--accent-gold); color: var(--primary-navy);" aria-label="Discover Autonomous AI Agents">Discover AI Agents <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;" aria-hidden="true" focusable="false">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg></a>
                 </div>
             </div>
 
