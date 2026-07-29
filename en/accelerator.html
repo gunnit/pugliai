@@ -69,50 +69,95 @@
     <!-- FAQ Schema -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How long is the PugliAI Accelerator program?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The program lasts 16 weeks (4 months) divided into 4 phases: Foundation (weeks 1-4), Build (weeks 5-10), Scale (weeks 11-14), and Launch (weeks 15-16) culminating in Demo Day."
-          }
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How long is the program?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The program lasts 16 weeks (4 months), divided into 4 phases: Foundation (weeks 1-4), Build (5-10), Scale (11-14), and Launch (15-16). Each phase has specific goals to take your startup from concept to market."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the eligibility requirements?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We look for teams of 1-5 people with an AI/tech-enabled product or service. You must be willing to register (or already have) an Italian entity, have at least one full-time founder, and have a prototype or MVP (even early stage)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does it cost to participate?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We don't have a fixed model. We evaluate each project individually based on stage, team, market and needs. Terms (equity, fee, revenue share, or combination) are discussed during the selection process."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to relocate to Brindisi or Bergamo?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, the program is hybrid. Mentorship sessions are primarily virtual, with some optional in-person events (kickoff, Demo Day). We offer access to PugliAI offices for those who want to work on-site."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the Singapore Bridge?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Through our partnership with ISSA (Italian-Singapore Strategic Alliance), we offer selected startups access to 500+ Asian investors, Singapore incorporation support, office space, and a \"Soft Landing\" week for the top 3 startups of each cohort."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "When does the next cohort start?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The first cohort starts in January 2026. Applications open in November 2025. Subsequently we will have 2 cohorts per year (spring and fall)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many startups do you select per cohort?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We select 8-10 startups per cohort. This allows us to offer personalized attention to each team, with weekly 1:1 mentorship and dedicated support."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens after the program?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "After Demo Day, startups join our Alumni Network with permanent access to the AI Founders Italia community, mentorship opportunities for future cohorts, and ongoing support for fundraising and international expansion."
+                }
+            }
+        ]
+    }
+    </script>
+    <!-- Speakable + entity disambiguation for answer engines -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://pugliai.com/en/accelerator.html#webpage",
+        "url": "https://pugliai.com/en/accelerator.html",
+        "inLanguage": "en",
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".answer-block__lead", ".answer-block__facts"]
         },
-        {
-          "@type": "Question",
-          "name": "What are the eligibility requirements?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We look for teams of 1-5 people with an AI/tech-enabled product or service, willing to register (or already registered) as an Italian entity, with at least one full-time founder and a prototype or MVP."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does it cost to participate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We don't have a fixed model. We evaluate each project individually based on stage, team, market and needs. Terms (equity, fee, revenue share, or mix) are discussed during the selection process."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does the program include?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The program includes over 50,000 euros in AI services (HR, Sales, Marketing automation), weekly mentorship, Advisory Board access, support for Italian and European grants, and the bridge to Singapore through our ISSA partnership."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the Singapore Bridge via ISSA?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Through our partnership with ISSA (Italian-Singapore Strategic Alliance), we offer selected startups access to over 500 Asian investors, Singapore incorporation support, office space, and a soft landing week for top performers."
-          }
+        "about": {
+            "@type": "Organization",
+            "@id": "https://pugliai.com/#organization",
+            "name": "PugliAI",
+            "url": "https://pugliai.com",
+            "sameAs": ["https://www.linkedin.com/company/pugliai","https://www.youtube.com/c/RPAChampion","https://x.com/gregormaric"]
         }
-      ]
     }
     </script>
 </head>
@@ -128,7 +173,7 @@
             <div class="section-header">
                 <span class="badge badge-warning mb-md animate-fade-in-up" style="display: inline-block; font-size: 0.875rem;">APPLICATIONS OPEN 2026</span>
                 <h1 id="page-title" class="heading-1 mb-lg animate-fade-in-up" style="animation-delay: 0.1s;">
-                    PugliAI <span class="text-gradient-gold">Accelerator</span>
+                    PugliAI <span class="text-gradient-gold">Accelerator</span>: 16 weeks to build your AI startup
                 </h1>
                 <p class="body-large mb-lg animate-fade-in-up" style="animation-delay: 0.2s; max-width: 800px; margin-left: auto; margin-right: auto;">
                     <strong style="color: var(--accent-gold); font-size: 1.25em;">One Founder, Many AI</strong>: Transform a solo founder into an AI-powered team.
@@ -173,6 +218,33 @@
     <!-- Program Overview Section -->
     <section class="section" id="program">
         <div class="container">
+            <!-- Answer block: self-contained summary that answer engines can quote whole -->
+            <div class="answer-block">
+                <p class="answer-block__lead">
+                    The <strong>PugliAI Accelerator</strong> is a 16-week acceleration programme for AI
+                    startups, run by PugliAI in Italy. Each cohort selects 8-10 startups and includes over
+                    €100,000 in total value, weekly mentorship and a bridge to Singapore through the
+                    ISSA partnership.
+                </p>
+                <dl class="answer-block__facts">
+                    <dt>Duration</dt>
+                    <dd>16 weeks, structured in 4 phases.</dd>
+                    <dt>Cohort</dt>
+                    <dd>8-10 selected startups. Applications open for 2026.</dd>
+                    <dt>Value included</dt>
+                    <dd>Over €100,000 in total: €50,000+ in AI services (HR, sales and marketing automations, VoiceAI and KnowledgeAI trials, technical implementation) and up to €50,000 of support on Italian and European grants.</dd>
+                    <dt>Cost to take part</dt>
+                    <dd>No fixed model. Terms (equity, fee, revenue share or a mix) are agreed case by case during selection.</dd>
+                    <dt>Singapore Bridge</dt>
+                    <dd>Through ISSA (Italian-Singapore Strategic Alliance): access to 500+ Asian investors, support for incorporating in Singapore, office space and a soft-landing week for top performers.</dd>
+                    <dt>How to apply</dt>
+                    <dd><a href="accelerator-apply.html">Online application form</a>; selection assesses stage, team and market.</dd>
+                </dl>
+                <p class="answer-block__meta">
+                    By the PugliAI editorial team · Last updated: 27 July 2026
+                </p>
+            </div>
+
             <div class="section-header">
                 <h2 class="section-title">The 4-Phase Journey</h2>
                 <p class="section-subtitle">

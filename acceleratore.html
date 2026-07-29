@@ -69,50 +69,95 @@
     <!-- FAQ Schema -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Quanto dura il programma PugliAI Accelerator?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Il programma dura 16 settimane (4 mesi) divise in 4 fasi: Foundation (settimane 1-4), Build (settimane 5-10), Scale (settimane 11-14), e Launch (settimane 15-16) che culmina con il Demo Day."
-          }
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quanto dura il programma?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Il programma dura 16 settimane (4 mesi), diviso in 4 fasi: Foundation (settimane 1-4), Build (5-10), Scale (11-14), e Launch (15-16). Ogni fase ha obiettivi specifici per portare la tua startup dal concetto al mercato."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quali sono i requisiti per candidarsi?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Cerchiamo team di 1-5 persone con un prodotto o servizio AI/tech-enabled. Devi essere disposto a registrare (o avere già) un'entita italiana, avere almeno un founder full-time, e avere un prototipo o MVP (anche in fase iniziale)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto costa partecipare?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Non abbiamo un modello fisso. Valutiamo ogni progetto individualmente in base allo stage, al team, al mercato e alle necessità. I termini (equity, fee, revenue share, o combinazione) vengono discussi durante il processo di selezione."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Devo trasferirmi a Brindisi o Bergamo?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, il programma e ibrido. Le sessioni di mentorship sono principalmente virtuali, con alcuni eventi in presenza opzionali (kickoff, Demo Day). Offriamo accesso agli uffici PugliAI per chi vuole lavorare on-site."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Cos'è il Singapore Bridge?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Grazie alla nostra partnership con ISSA (Italian-Singapore Strategic Alliance), offriamo alle startup selezionate accesso a 500+ investitori asiatici, supporto per l'incorporazione a Singapore, spazi ufficio, e una settimana di \"Soft Landing\" per le top 3 startup di ogni cohort."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quando parte il prossimo cohort?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Il primo cohort parte a Gennaio 2026. Le candidature aprono a Novembre 2025. Successivamente avremo 2 cohort all'anno (primavera e autunno)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quante startup selezionate per cohort?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Selezioniamo 8-10 startup per cohort. Questo ci permette di offrire attenzione personalizzata a ogni team, con mentorship 1:1 settimanale e supporto dedicato."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Cosa succede dopo il programma?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Dopo il Demo Day, le startup entrano nel nostro Alumni Network con accesso permanente alla community AI Founders Italia, opportunità di mentorship per cohort future, e supporto continuo per fundraising e espansione internazionale."
+                }
+            }
+        ]
+    }
+    </script>
+    <!-- Speakable + entity disambiguation for answer engines -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://pugliai.com/acceleratore.html#webpage",
+        "url": "https://pugliai.com/acceleratore.html",
+        "inLanguage": "it-IT",
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".answer-block__lead", ".answer-block__facts"]
         },
-        {
-          "@type": "Question",
-          "name": "Quali sono i requisiti per candidarsi?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cerchiamo team di 1-5 persone con un prodotto o servizio AI/tech-enabled, disposti a registrare (o con già registrata) un'entita italiana, con almeno un founder full-time e un prototipo o MVP."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Quanto costa partecipare al programma?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Non abbiamo un modello fisso. Valutiamo ogni progetto individualmente in base allo stage, al team, al mercato e alle necessita. I termini (equity, fee, revenue share, o mix) vengono discussi durante il processo di selezione."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Cosa include il programma?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Il programma include oltre 50.000 euro in servizi AI (automazioni HR, Sales, Marketing), mentorship settimanale, accesso all'Advisory Board, supporto per grant italiani ed europei, e il ponte verso Singapore tramite la nostra partnership con ISSA."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Cos'è il Singapore Bridge via ISSA?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Grazie alla nostra partnership con ISSA (Italian-Singapore Strategic Alliance), offriamo alle startup selezionate accesso a oltre 500 investitori asiatici, supporto per l'incorporazione a Singapore, spazi ufficio, e una settimana di soft landing per i top performer."
-          }
+        "about": {
+            "@type": "Organization",
+            "@id": "https://pugliai.com/#organization",
+            "name": "PugliAI",
+            "url": "https://pugliai.com",
+            "sameAs": ["https://www.linkedin.com/company/pugliai","https://www.youtube.com/c/RPAChampion","https://x.com/gregormaric"]
         }
-      ]
     }
     </script>
 </head>
@@ -128,7 +173,7 @@
             <div class="section-header">
                 <span class="badge badge-warning mb-md animate-fade-in-up" style="display: inline-block; font-size: 0.875rem;">CANDIDATURE APERTE 2026</span>
                 <h1 id="page-title" class="heading-1 mb-lg animate-fade-in-up" style="animation-delay: 0.1s;">
-                    PugliAI <span class="text-gradient-gold">Accelerator</span>
+                    PugliAI <span class="text-gradient-gold">Accelerator</span>: 16 settimane per la tua startup AI
                 </h1>
                 <p class="body-large mb-lg animate-fade-in-up" style="animation-delay: 0.2s; max-width: 800px; margin-left: auto; margin-right: auto;">
                     <strong style="color: var(--accent-gold); font-size: 1.25em;">One Founder, Many AI</strong>: Trasforma un solo founder in un team potenziato dall'AI.
@@ -173,6 +218,33 @@
     <!-- Program Overview Section -->
     <section class="section" id="programma">
         <div class="container">
+            <!-- Answer block: self-contained summary that answer engines can quote whole -->
+            <div class="answer-block">
+                <p class="answer-block__lead">
+                    Il <strong>PugliAI Accelerator</strong> è un programma di accelerazione di 16 settimane
+                    per startup AI, gestito da PugliAI in Italia. Ogni cohort seleziona 8-10 startup e
+                    include oltre €100.000 di valore complessivo, mentorship settimanale e un ponte verso
+                    Singapore tramite la partnership ISSA.
+                </p>
+                <dl class="answer-block__facts">
+                    <dt>Durata</dt>
+                    <dd>16 settimane, articolate in 4 fasi.</dd>
+                    <dt>Cohort</dt>
+                    <dd>8-10 startup selezionate. Candidature aperte per il 2026.</dd>
+                    <dt>Valore incluso</dt>
+                    <dd>Oltre €100.000 complessivi: €50.000+ in servizi AI (automazioni HR, sales e marketing, trial di VoiceAI e KnowledgeAI, implementazione tecnica) e fino a €50.000 di supporto su grant italiani ed europei.</dd>
+                    <dt>Costo di partecipazione</dt>
+                    <dd>Nessun modello fisso. I termini (equity, fee, revenue share o un mix) si definiscono caso per caso durante la selezione.</dd>
+                    <dt>Singapore Bridge</dt>
+                    <dd>Tramite ISSA (Italian-Singapore Strategic Alliance): accesso a 500+ investitori asiatici, supporto all'incorporazione a Singapore, spazi ufficio e una settimana di soft landing per i top performer.</dd>
+                    <dt>Come candidarsi</dt>
+                    <dd><a href="acceleratore-candidatura.html">Modulo di candidatura online</a>; la selezione valuta stage, team e mercato.</dd>
+                </dl>
+                <p class="answer-block__meta">
+                    A cura della redazione PugliAI · Ultimo aggiornamento: 27 luglio 2026
+                </p>
+            </div>
+
             <div class="section-header">
                 <h2 class="section-title">Il Percorso in 4 Fasi</h2>
                 <p class="section-subtitle">
@@ -659,7 +731,7 @@
                     </summary>
                     <p style="margin-top: 1rem; color: var(--text-secondary);">
                         Non abbiamo un modello fisso. Valutiamo ogni progetto individualmente in base allo stage, al team,
-                        al mercato e alle necessita. I termini (equity, fee, revenue share, o combinazione) vengono discussi
+                        al mercato e alle necessità. I termini (equity, fee, revenue share, o combinazione) vengono discussi
                         durante il processo di selezione.
                     </p>
                 </details>

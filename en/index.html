@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="../src/assets/css/stylesheet.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <!-- Structured Data - WebSite Schema with SearchAction -->
+    <!-- Structured Data - WebSite Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -54,14 +54,6 @@
       "url": "https://pugliai.com",
       "description": "AI consulting for Italian SMEs. Complete artificial intelligence packages from €15K with guaranteed ROI.",
       "inLanguage": ["it-IT", "en"],
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://pugliai.com/en/ceo-ai-guide-2025.html?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      },
       "publisher": {
         "@type": "Organization",
         "name": "PugliAI",
@@ -195,90 +187,74 @@
     <!-- FAQ Schema - Complete with all 10 questions -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How much do AI packages for SMEs cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our AI packages for SMEs start from €15,000 and include everything: strategic consulting, pre-built automations, team training, and support. Each package is designed to generate a 150% ROI contractually guaranteed within 12 months."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do you guarantee 150% ROI on your AI packages?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We guarantee ROI through concrete and measurable metrics: operating cost reduction (20-40%), productivity increase (25-35%), error reduction (60-80%). We document every metric before and after implementation. If we don't reach the promised ROI, we continue working for free until objectives are achieved."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does it take to implement AI in my SME?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Standard implementation takes 90 days from contract signing: initial assessment (2 weeks), development and configuration (6-8 weeks), testing and training (2-3 weeks), go-live with intensive support (1 week). For urgent projects, we offer an accelerated 45-day path with a dedicated team."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are AI packages suitable for all SME sizes?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, our packages are specifically designed for SMEs from 10 to 250 employees. We have scalable solutions for micro-enterprises, small and medium businesses, with customized automations and consulting for each business size."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What exactly does a complete AI package include?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Each package includes: pre-built AI automations for marketing and sales, continuous strategic consulting with monthly sessions, complete training for up to 15 team members, dedicated technical support, and always accessible educational materials."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What are the minimum technical requirements to start with AI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No complex technical prerequisites are required. You only need: stable internet connection, access to existing business systems (ERP, CRM if present), team availability for training. Our cloud infrastructure handles everything else. No need to purchase additional hardware or software."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Will AI replace my company's employees?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely not. AI empowers your team, it doesn't replace it. It automates repetitive tasks allowing employees to focus on higher value-added activities. 95% of our implementations have led to staff growth thanks to increased business, not reductions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do you protect sensitive business data?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Security and privacy are absolute priorities. We use end-to-end encryption, hosting in European data centers (GDPR compliant), redundant automatic backups, complete audit logs, ISO 27001 certifications. Your data always remains your property. We sign NDAs and confidentiality agreements before every project."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I start with a pilot project before full investment?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Certainly! We offer a 30-day POC (Proof of Concept) for €5,000 (deductible from the complete package). It includes implementation of a specific use case, measurable results in 30 days, detailed report with complete roadmap. It's the perfect way to experience AI benefits hands-on before the full investment."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which industries have the best results with AI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "All industries benefit from AI, but we see exceptional results in: manufacturing (efficiency +40%), retail (sales +30%), financial services (processing time -75%), logistics (route optimization +35%), private healthcare (wait reduction -50%). The key is customizing AI for the specific needs of each industry and company."
-          }
-        }
-      ]
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How long does AI package implementation take?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Standard implementation takes 90 days from contract signing. This includes initial assessment (2 weeks), development and configuration (6-8 weeks), testing and training (2-3 weeks), and go-live with intensive support (1 week). For urgent projects, we offer a 45-day accelerated path with dedicated team."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the minimum technical requirements to start?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No complex technical prerequisites are required. You only need: stable internet connection, access to existing business systems (ERP, CRM if present), team availability for training. Our cloud infrastructure handles everything else. No need to purchase additional hardware or software."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do you calculate the guaranteed 150% ROI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ROI is calculated on concrete and measurable metrics: operating cost reduction (20-40%), productivity increase (25-35%), error reduction (60-80%), time freed for strategic activities (30%). We document every metric before and after implementation. If we don't reach promised ROI, we continue working for free until objectives are achieved."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will AI replace our employees?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely not. AI empowers your team, doesn't replace it. It automates repetitive tasks allowing employees to focus on higher value-added activities. 95% of our implementations have led to staff growth thanks to business increase, not reductions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens after the first 90 days?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "After go-live, support continues according to chosen package: Starter (3 months), Professional (6 months), Enterprise (12 months). Includes proactive monitoring, continuous optimizations, additional training on request, technology updates, priority support. After the included period, we offer customized continuous support plans."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do you protect our business data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Security and privacy are absolute priorities. We use end-to-end encryption, hosting in European data centers (GDPR compliant), redundant automatic backups, complete audit logs, ISO 27001 certifications. Your data always remains your property. We sign NDAs and confidentiality agreements before every project."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can we start with a pilot project?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Certainly! We offer a POC (Proof of Concept) for 30 days at €5,000 (deductible from complete package). Includes implementation of a specific use case, measurable results in 30 days, detailed report with complete roadmap. It's the perfect way to experience AI benefits before full investment."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which sectors have the best results with AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All sectors benefit from AI, but we see exceptional results in: manufacturing (efficiency +40%), retail (sales +30%), financial services (processing time -75%), logistics (route optimization +35%), private healthcare (waiting time reduction -50%). The key is to customize AI for specific needs of each sector and company."
+                }
+            }
+        ]
     }
     </script>
 
@@ -287,6 +263,10 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
+      "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".answer-block__lead", ".answer-block__facts"]
+      },
       "name": "PugliAI - Complete AI Packages for Italian SMEs",
       "description": "AI consulting for Italian SMEs. Complete packages from €15K with 150% ROI guaranteed.",
       "datePublished": "2024-01-15",
@@ -479,8 +459,8 @@
     </script>
 </head>
 <body>
-    <!-- Skip Navigation Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Skip link is injected by navigation.js; a second one here duplicated it
+         in the DOM and polluted the extracted text for crawlers. -->
 
     <!-- Dynamic Navigation - Generated by navigation.js -->
     <div id="nav-placeholder"></div>
@@ -511,8 +491,7 @@
         <div class="container">
             <div class="split-hero-header animate-fade-in-up">
                 <h1 id="hero-title">
-                    <span class="sr-only">AI Consulting for Italian SMEs: Complete Packages from €15K with 150% ROI Guaranteed - </span>
-                    AI for Italy: <span class="text-gradient-gold">choose your path</span>
+                    AI consulting for Italian SMEs: <span class="text-gradient-gold">choose your path</span>
                 </h1>
                 <p class="hero-subtitle body-large" style="margin-top: 1rem; color: var(--text-secondary); max-width: 700px; margin-left: auto; margin-right: auto;">
                     Specialized AI consulting for Italian SMEs: autonomous AI agents, MCP hosting and ready-to-use automations. Complete packages from €15,000 with 150% ROI contractually guaranteed. Active in 2-4 weeks.
@@ -597,6 +576,37 @@
     <!-- Stats Section -->
     <section class="section section--compact" aria-label="Company statistics">
         <div class="container">
+            <!-- Answer block: self-contained summary that answer engines can quote whole -->
+            <div class="answer-block">
+                <p class="answer-block__lead">
+                    <strong>PugliAI</strong> is an Italian AI consulting firm that helps small and medium
+                    enterprises adopt artificial intelligence through fixed-price packages starting at
+                    €15,000. It operates from Latiano (Brindisi, Puglia) and Bergamo (Lombardy) across
+                    Italy, in Italian and English.
+                </p>
+                <dl class="answer-block__facts">
+                    <dt>What it does</dt>
+                    <dd>AI strategy consulting, autonomous AI agents, on-premise MCP hosting, automation and team training.</dd>
+                    <dt>Who it serves</dt>
+                    <dd>Italian SMEs with 10 to 500 employees, and startups through the PugliAI Accelerator.</dd>
+                    <dt>Pricing</dt>
+                    <dd>Packages from €15,000 to €100,000+, fixed in the quote before work starts.</dd>
+                    <dt>Timeline</dt>
+                    <dd>First results in 2-4 weeks using pre-built automations.</dd>
+                    <dt>ROI guarantee</dt>
+                    <dd>150% within 12 months, measured against KPIs agreed before kick-off and written into the contract; if the target is missed, we keep working at no extra cost until it is met.</dd>
+                    <dt>Data and compliance</dt>
+                    <dd>On-premise option: data stays on the company's own servers. GDPR and EU AI Act.</dd>
+                    <dt>Contact</dt>
+                    <dd><a href="mailto:sales@pugliai.com">sales@pugliai.com</a> — reply within 2 business hours (Mon-Fri 9:00-18:00 CET).</dd>
+                </dl>
+                <p class="answer-block__meta">
+                    Founded 2023 · 50+ Italian SMEs supported since 2023 ·
+                    Written by <a href="about-us.html">Gregor Marić, CEO &amp; Founder of PugliAI</a> ·
+                    Last updated: 27 July 2026
+                </p>
+            </div>
+
             <div class="stat-strip">
                 <div class="stat-item animate-fade-in-up">
                     <span class="stat-number" aria-label="50+ SMEs">50+</span>
@@ -1158,21 +1168,14 @@
             <div class="grid grid-cols-2">
                 <div class="testimonial-card">
                     <p class="testimonial-content">
-                        "With the €25K AI Accelerator package we automated 70% of marketing activities.
-                        In 3 months we increased leads by 250% and reduced costs by 40%. ROI was immediate."
+                        "PugliAI completely transformed the way we manage digital menus. With the AI Accelerator we automated menu digitisation and multilingual translation, cutting turnaround times by 60%. In 6 months we grew our partner restaurants by 40%, with concrete, measurable data."
                     </p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">LR</div>
+                        <div class="testimonial-avatar">PR</div>
                         <div class="testimonial-info">
-                            <div class="testimonial-name">Luigi Rossi</div>
-                            <div class="testimonial-title">Marketing Director</div>
-                            <div class="testimonial-company">Manufacturing SME - 50 employees</div>
-                            <a href="https://linkedin.com/in/marcobenetton" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-size: 0.875rem; text-decoration: none; margin-top: 0.25rem; display: inline-block;">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align: middle; margin-right: 4px;">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                                </svg>
-                                LinkedIn Profile
-                            </a>
+                            <div class="testimonial-name">Pietro Ruffoni</div>
+                            <div class="testimonial-title">CEO &amp; Founder</div>
+                            <div class="testimonial-company">My CIA - Digital Menu</div>
                         </div>
                         <div class="testimonial-rating">
                             <span class="sr-only">Rating: 5 out of 5</span>
@@ -1183,16 +1186,15 @@
 
                 <div class="testimonial-card">
                     <p class="testimonial-content">
-                        "We thought AI was too complex for us. The Transformation package allowed us
-                        to compete with much larger players. Revenue +30% in 6 months, all documented."
+                        "With PugliAI we overhauled our customer service. The AI agents we deployed handle 70% of requests around the clock, improving customer satisfaction by 45%. The conversational AI platform cut response times by 80%, with measurable, documented results."
                     </p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">SC</div>
+                        <div class="testimonial-avatar">MP</div>
                         <div class="testimonial-info">
-                            <div class="testimonial-name">Sofia Colombo</div>
-                            <div class="testimonial-title">CEO</div>
-                            <div class="testimonial-company">Fashion E-commerce - 20 employees</div>
-                            <a href="https://linkedin.com/in/lucaferretti-cto" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-size: 0.875rem; text-decoration: none; margin-top: 0.25rem; display: inline-block;">
+                            <div class="testimonial-name">Michele Pomposo</div>
+                            <div class="testimonial-title">Co-Founder &amp; COO</div>
+                            <div class="testimonial-company">Tiledesk - Conversational AI Platform</div>
+                            <a href="https://www.linkedin.com/in/michelepomposo/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-size: 0.875rem; text-decoration: none; margin-top: 0.25rem; display: inline-block;">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                 </svg>

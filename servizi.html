@@ -53,6 +53,10 @@
     {
         "@context": "https://schema.org",
         "@type": ["WebPage", "ItemList"],
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".answer-block__lead", ".answer-block__facts"]
+        },
         "name": "Pacchetti AI Completi per PMI - PugliAI",
         "description": "Pacchetti AI tutto incluso per PMI: consulenza strategica, automazioni pre-costruite, formazione team. Accelera la tua crescita con PugliAI. Da €15K.",
         "url": "https://pugliai.com/servizi.html",
@@ -199,6 +203,14 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "La garanzia ROI è contrattuale: definiamo insieme KPI misurabili (risparmio tempo, riduzione costi, aumento vendite). Se non raggiungi il 150% di ROI entro 12 mesi, continuiamo a lavorare gratuitamente fino al raggiungimento dell'obiettivo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "I vostri servizi sono adatti a una PMI senza esperienza di AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sì. Il pacchetto AI Accelerator è pensato proprio per le PMI che partono da zero: formazione del team, automazioni pre-costruite e affiancamento operativo. Non serve alcuna competenza tecnica preliminare — la complessità tecnologica la gestiamo noi."
                 }
             },
             {
@@ -756,6 +768,36 @@
     <!-- Services Section -->
     <section class="services-section">
         <div class="container">
+            <!-- Answer block: self-contained summary that answer engines can quote whole -->
+            <div class="answer-block">
+                <p class="answer-block__lead">
+                    <strong>PugliAI offre tre pacchetti AI a prezzo fisso per le PMI italiane</strong>:
+                    AI Accelerator (€15.000-25.000, 3 mesi), AI Transformation (€50.000-70.000, 6 mesi)
+                    e AI Partnership (da €100.000, 12 mesi). Ogni pacchetto comprende consulenza strategica,
+                    automazioni, formazione del team e supporto dedicato.
+                </p>
+                <dl class="answer-block__facts">
+                    <dt>AI Accelerator</dt>
+                    <dd>€15.000-25.000 · 3 mesi · audit AI gratuito, 3 automazioni su misura, formazione per 10 dipendenti, dashboard ROI. Per chi parte da zero.</dd>
+                    <dt>AI Transformation</dt>
+                    <dd>€50.000-70.000 · 6 mesi · trasformazione digitale completa su più processi aziendali.</dd>
+                    <dt>AI Partnership</dt>
+                    <dd>Da €100.000 · 12 mesi · innovazione strategica continuativa con team dedicato.</dd>
+                    <dt>Primi risultati</dt>
+                    <dd>2-4 settimane dall'avvio, grazie alle automazioni pre-costruite.</dd>
+                    <dt>Garanzia ROI</dt>
+                    <dd>Contrattuale: KPI misurabili definiti insieme prima dell'avvio. Se non raggiungi il 150% di ROI entro 12 mesi, continuiamo a lavorare senza costi aggiuntivi fino all'obiettivo.</dd>
+                    <dt>Settori</dt>
+                    <dd>Manifatturiero, moda e lusso, servizi finanziari, sanità, turismo, agroalimentare, retail e studi professionali.</dd>
+                    <dt>Prerequisiti</dt>
+                    <dd>Nessuna competenza tecnica richiesta. PMI da 10 a 500 dipendenti, in tutta Italia.</dd>
+                </dl>
+                <p class="answer-block__meta">
+                    A cura di <a href="chi-siamo.html">Gregor Marić, CEO &amp; Founder di PugliAI</a> ·
+                    Prezzi in euro, IVA esclusa · Ultimo aggiornamento: 27 luglio 2026
+                </p>
+            </div>
+
             <div class="services-intro">
                 <h2>Scegli il Pacchetto Giusto per la Tua PMI</h2>
                 <p>Tutto quello che serve per il successo con l'AI: strategia, automazioni, formazione e supporto continuo. Cerchi una soluzione on-premise pronta all'uso? <a href="prodotti.html" style="color: var(--accent-gold);">Scopri i prodotti AI &rarr;</a></p>
@@ -969,6 +1011,10 @@
           <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Come funziona la garanzia ROI del 150%?</summary>
             <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">La garanzia ROI è contrattuale: definiamo insieme KPI misurabili (risparmio tempo, riduzione costi, aumento vendite). Se non raggiungi il 150% di ROI entro 12 mesi, continuiamo a lavorare gratuitamente fino al raggiungimento dell'obiettivo.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">I vostri servizi sono adatti a una PMI senza esperienza di AI?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">Sì. Il pacchetto AI Accelerator è pensato proprio per le PMI che partono da zero: formazione del team, automazioni pre-costruite e affiancamento operativo. Non serve alcuna competenza tecnica preliminare — la complessità tecnologica la gestiamo noi.</p>
           </details>
           <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
             <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Quali settori servite con i vostri pacchetti AI?</summary>

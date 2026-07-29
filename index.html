@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="src/assets/css/stylesheet.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <!-- Structured Data - WebSite Schema with SearchAction -->
+    <!-- Structured Data - WebSite Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -57,14 +57,6 @@
       "url": "https://pugliai.com",
       "description": "Consulenza AI per PMI italiane. Pacchetti completi di intelligenza artificiale da €15K con ROI garantito.",
       "inLanguage": ["it-IT", "en"],
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://pugliai.com/guida-ai-ceo-2025.html?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      },
       "publisher": {
         "@type": "Organization",
         "name": "PugliAI",
@@ -198,90 +190,74 @@
     <!-- FAQ Schema - Complete with all 8 questions -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Quanto costano i pacchetti AI per PMI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "I nostri pacchetti AI per PMI partono da €15.000 e includono tutto: consulenza strategica, automazioni pre-costruite, formazione del team e supporto. Ogni pacchetto è progettato per generare un ROI del 150% garantito contrattualmente entro 12 mesi."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Come garantite il ROI del 150% sui vostri pacchetti AI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Garantiamo il ROI attraverso metriche concrete e misurabili: riduzione dei costi operativi (20-40%), aumento produttività (25-35%), riduzione errori (60-80%). Documentiamo ogni metrica prima e dopo l'implementazione. Se non raggiungiamo il ROI promesso, continuiamo a lavorare gratuitamente fino al raggiungimento degli obiettivi."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Quanto tempo serve per implementare l'AI nella mia PMI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "L'implementazione standard richiede 90 giorni dalla firma del contratto: assessment iniziale (2 settimane), sviluppo e configurazione (6-8 settimane), testing e formazione (2-3 settimane), go-live con supporto intensivo (1 settimana). Per progetti urgenti, offriamo un percorso accelerato di 45 giorni con team dedicato."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "I pacchetti AI sono adatti a tutte le dimensioni di PMI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sì, i nostri pacchetti sono progettati specificamente per PMI da 10 a 250 dipendenti. Abbiamo soluzioni scalabili per micro-imprese, piccole e medie aziende, con automazioni e consulenza personalizzate per ogni dimensione aziendale."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Cosa include esattamente un pacchetto AI completo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ogni pacchetto include: automazioni AI pre-costruite per marketing e vendite, consulenza strategica continua con sessioni mensili, formazione completa per fino a 15 persone del team, supporto tecnico dedicato e materiali didattici sempre accessibili."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Quali sono i requisiti tecnici minimi per iniziare con l'AI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Non sono richiesti prerequisiti tecnici complessi. Serve solo: connessione internet stabile, accesso ai sistemi aziendali esistenti (ERP, CRM se presenti), disponibilità del team per la formazione. La nostra infrastruttura cloud gestisce tutto il resto. Non serve acquistare hardware o software aggiuntivi."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "L'AI sostituirà i dipendenti della mia azienda?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Assolutamente no. L'AI potenzia il vostro team, non lo sostituisce. Automatizza compiti ripetitivi permettendo ai dipendenti di concentrarsi su attività a maggior valore aggiunto. Il 95% delle nostre implementazioni ha portato a crescita del personale grazie all'aumento del business, non a riduzioni."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Come proteggete i dati aziendali sensibili?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sicurezza e privacy sono priorità assolute. Utilizziamo crittografia end-to-end, hosting in data center europei (GDPR compliant), backup automatici ridondanti, audit log completi, certificazioni ISO 27001. I vostri dati rimangono sempre di vostra proprietà. Firmiamo NDA e accordi di riservatezza prima di ogni progetto."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Posso partire con un progetto pilota prima dell'investimento completo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Certamente! Offriamo un POC (Proof of Concept) di 30 giorni a €5.000 (deducibili dal pacchetto completo). Include implementazione di un caso d'uso specifico, risultati misurabili in 30 giorni, report dettagliato con roadmap completa. È il modo perfetto per toccare con mano i benefici dell'AI prima dell'investimento completo."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Quali settori hanno i migliori risultati con l'AI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Tutti i settori beneficiano dell'AI, ma vediamo risultati eccezionali in: manifatturiero (efficienza +40%), retail (vendite +30%), servizi finanziari (processing time -75%), logistica (ottimizzazione percorsi +35%), sanità privata (riduzione attese -50%). La chiave è personalizzare l'AI per le esigenze specifiche di ogni settore e azienda."
-          }
-        }
-      ]
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quanto tempo richiede l'implementazione di un pacchetto AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "L'implementazione standard richiede 90 giorni dalla firma del contratto. Questo include assessment iniziale (2 settimane), sviluppo e configurazione (6-8 settimane), testing e formazione (2-3 settimane), e go-live con supporto intensivo (1 settimana). Per progetti urgenti, offriamo un percorso accelerato di 45 giorni con team dedicato."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quali sono i requisiti tecnici minimi per iniziare?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Non sono richiesti prerequisiti tecnici complessi. Serve solo: connessione internet stabile, accesso ai sistemi aziendali esistenti (ERP, CRM se presenti), disponibilità del team per la formazione. La nostra infrastruttura cloud gestisce tutto il resto. Non serve acquistare hardware o software aggiuntivi."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come calcolate il ROI garantito del 150%?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Il ROI viene calcolato su metriche concrete e misurabili: riduzione costi operativi (20-40%), aumento produttività (25-35%), riduzione errori (60-80%), tempo liberato per attività strategiche (30%). Documentiamo ogni metrica prima e dopo l'implementazione. Calcola il tuo ROI potenziale →"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "L'AI sostituirà i nostri dipendenti?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Assolutamente no. L'AI potenzia il vostro team, non lo sostituisce. Automatizza compiti ripetitivi permettendo ai dipendenti di concentrarsi su attività a maggior valore aggiunto. Il 95% delle nostre implementazioni ha portato a crescita del personale grazie all'aumento del business, non a riduzioni."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Cosa succede dopo i primi 90 giorni?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Dopo il go-live, il supporto continua secondo il pacchetto scelto: Starter (3 mesi), Professional (6 mesi), Enterprise (12 mesi). Include monitoraggio proattivo, ottimizzazioni continue, formazione aggiuntiva su richiesta, aggiornamenti tecnologici, supporto prioritario. Dopo il periodo incluso, offriamo piani di supporto continuativo personalizzati."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Come proteggete i nostri dati aziendali?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sicurezza e privacy sono priorità assolute. Utilizziamo crittografia end-to-end, hosting in data center europei (GDPR compliant), backup automatici ridondanti, audit log completi, certificazioni ISO 27001. I vostri dati rimangono sempre di vostra proprietà. Firmiamo NDA e accordi di riservatezza prima di ogni progetto."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Possiamo partire con un progetto pilota?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Certamente! Offriamo un POC (Proof of Concept) di 30 giorni a €5.000 (deducibili dal pacchetto completo). Include implementazione di un caso d'uso specifico, risultati misurabili in 30 giorni, report dettagliato con roadmap completa. È il modo perfetto per toccare con mano i benefici dell'AI prima dell'investimento completo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quali settori hanno i migliori risultati con l'AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tutti i settori beneficiano dell'AI, ma vediamo risultati eccezionali in: manifatturiero (efficienza +40%), retail (vendite +30%), servizi finanziari (processing time -75%), logistica (ottimizzazione percorsi +35%), sanità privata (riduzione attese -50%). La chiave è personalizzare l'AI per le esigenze specifiche di ogni settore e azienda. Scopri tutti i settori →"
+                }
+            }
+        ]
     }
     </script>
 
@@ -290,6 +266,10 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
+      "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".answer-block__lead", ".answer-block__facts"]
+      },
       "name": "PugliAI - Pacchetti AI Completi per PMI Italiane",
       "description": "Consulenza AI per PMI italiane. Pacchetti completi da €15K con ROI 150% garantito.",
       "datePublished": "2024-01-15",
@@ -482,8 +462,8 @@
     </script>
 </head>
 <body>
-    <!-- Skip Navigation Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Vai al contenuto principale</a>
+    <!-- Skip link is injected by navigation.js; a second one here duplicated it
+         in the DOM and polluted the extracted text for crawlers. -->
 
     <!-- Dynamic Navigation - Generated by navigation.js -->
     <div id="nav-placeholder"></div>
@@ -514,8 +494,7 @@
         <div class="container">
             <div class="split-hero-header animate-fade-in-up">
                 <h1 id="hero-title">
-                    <span class="sr-only">Consulenza AI per PMI Italiane: Pacchetti Completi da €15K con ROI 150% Garantito - </span>
-                    L'AI per l'Italia: <span class="text-gradient-gold">scegli il tuo percorso</span>
+                    Consulenza AI per PMI italiane: <span class="text-gradient-gold">scegli il tuo percorso</span>
                 </h1>
                 <p class="hero-subtitle body-large" style="margin-top: 1rem; color: var(--text-secondary); max-width: 700px; margin-left: auto; margin-right: auto;">
                     <a href="consulenza-strategica.html" style="color: var(--text-secondary); text-decoration: underline;">Consulenza AI</a> specializzata per PMI italiane: agenti AI autonomi, hosting MCP e automazioni pronte all'uso. <a href="investimenti-ai.html" style="color: var(--text-secondary); text-decoration: underline;">Pacchetti completi da €15.000</a> con ROI del 150% garantito contrattualmente. Attivi in 2-4 settimane.
@@ -600,6 +579,37 @@
     <!-- Stats Section -->
     <section class="section section--compact" aria-label="Statistiche aziendali">
         <div class="container">
+            <!-- Answer block: self-contained summary that answer engines can quote whole -->
+            <div class="answer-block">
+                <p class="answer-block__lead">
+                    <strong>PugliAI</strong> è una società di consulenza AI italiana che aiuta le piccole e medie
+                    imprese ad adottare l'intelligenza artificiale con pacchetti a prezzo fisso a partire da
+                    €15.000. Opera da Latiano (Brindisi, Puglia) e Bergamo (Lombardia) su tutto il territorio
+                    italiano, in italiano e in inglese.
+                </p>
+                <dl class="answer-block__facts">
+                    <dt>Cosa fa</dt>
+                    <dd>Consulenza strategica AI, agenti AI autonomi, hosting MCP on-premise, automazioni e formazione del team.</dd>
+                    <dt>Per chi</dt>
+                    <dd>PMI italiane da 10 a 500 dipendenti e startup (tramite il PugliAI Accelerator).</dd>
+                    <dt>Prezzi</dt>
+                    <dd>Pacchetti da €15.000 a €100.000+, definiti in offerta prima dell'avvio.</dd>
+                    <dt>Tempi</dt>
+                    <dd>Primi risultati in 2-4 settimane con le automazioni pre-costruite.</dd>
+                    <dt>Garanzia ROI</dt>
+                    <dd>150% entro 12 mesi, misurato sui KPI concordati prima dell'avvio e messi per iscritto nel contratto; se l'obiettivo non viene raggiunto, proseguiamo senza costi aggiuntivi fino al raggiungimento.</dd>
+                    <dt>Dati e conformità</dt>
+                    <dd>Opzione on-premise: i dati restano nei server dell'azienda. GDPR e AI Act europeo.</dd>
+                    <dt>Contatto</dt>
+                    <dd><a href="mailto:sales@pugliai.com">sales@pugliai.com</a> — risposta entro 2 ore lavorative (Lun-Ven 9:00-18:00).</dd>
+                </dl>
+                <p class="answer-block__meta">
+                    Fondata nel 2023 · 50+ PMI italiane seguite dal 2023 ·
+                    A cura di <a href="chi-siamo.html">Gregor Marić, CEO &amp; Founder di PugliAI</a> ·
+                    Ultimo aggiornamento: 27 luglio 2026
+                </p>
+            </div>
+
             <div class="stat-strip">
                 <div class="stat-item animate-fade-in-up">
                     <span class="stat-number" aria-label="50+ PMI">50+</span>

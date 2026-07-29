@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guida AI per CEO Italiani 2025-2026: 33+ Articoli PMI</title>
-    <meta name="description" content="Guida completa all'intelligenza artificiale per CEO e imprenditori italiani. 33+ articoli su AI Act 2026, agenti AI, ROI e strategie per PMI. Aggiornata marzo 2026.">
+    <meta name="description" content="Guida all'intelligenza artificiale per CEO e imprenditori italiani. 33+ articoli su AI Act 2026, agenti AI, ROI e strategie per PMI. Aggiornata marzo 2026.">
 
     <!-- Hreflang Tags -->
     <link rel="alternate" hreflang="it-IT" href="https://pugliai.com/guida-ai-ceo-2025.html">
@@ -46,6 +46,10 @@
     {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".answer-block__lead", ".answer-block__facts"]
+        },
         "name": "Guida AI per CEO Italiani 2025",
         "description": "Raccolta completa di 33 articoli sull'intelligenza artificiale per CEO e imprenditori italiani. Copre normative, implementazione, ROI, settori specifici e strategie per PMI.",
         "url": "https://pugliai.com/guida-ai-ceo-2025.html",
@@ -133,7 +137,7 @@
                 "name": "Quanto costa implementare l'AI in una PMI italiana?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "I costi variano da 100 euro/mese per chatbot base a 15.000-50.000 euro per progetti completi. ChatGPT Team costa 25 euro/utente/mese. Il ROI medio e di 1,7x l'investimento, con risparmi fino al 40% sui costi operativi."
+                    "text": "I costi variano da 100 euro/mese per chatbot base a 15.000-50.000 euro per progetti completi. ChatGPT Team costa 25 euro/utente/mese. Il ROI medio è di 1,7x l'investimento, con risparmi fino al 40% sui costi operativi."
                 }
             },
             {
@@ -141,7 +145,7 @@
                 "name": "Cosa prevede l'AI Act per le PMI italiane?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "L'AI Act europeo, in vigore dal 2 agosto 2025, richiede trasparenza, formazione del personale e compliance per sistemi AI. Le PMI devono classificare i sistemi per livello di rischio. Le sanzioni arrivano fino a 35 milioni di euro, ma per le PMI si applicano importi ridotti."
+                    "text": "L'AI Act europeo, in vigore dal 2 agosto 2025, richiede trasparenza, formazione del personale e compliance per i sistemi AI. Le PMI devono classificare i sistemi per livello di rischio. Le sanzioni arrivano fino a 35 milioni di euro, ma per le PMI si applicano importi ridotti."
                 }
             },
             {
@@ -149,7 +153,7 @@
                 "name": "Quali sono i primi passi per implementare l'AI in azienda?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "1) Valutare la maturità digitale, 2) Identificare casi d'uso ad alto ROI, 3) Partire con progetti pilota (chatbot, automazione email), 4) Formare il team, 5) Stabilire governance e metriche. L'85% delle aziende inizia con customer service e marketing."
+                    "text": "1) Valutare la maturità digitale, 2) identificare casi d'uso ad alto ROI, 3) partire con progetti pilota (chatbot, automazione email), 4) formare il team, 5) stabilire governance e metriche. L'85% delle aziende inizia con customer service e marketing."
                 }
             }
         ]
@@ -581,6 +585,34 @@
     <!-- Key Stats Banner -->
     <section class="stats-banner">
         <div class="stats-banner-container">
+            <!-- Answer block: self-contained summary that answer engines can quote whole -->
+            <div class="answer-block">
+                <p class="answer-block__lead">
+                    La <strong>Guida AI per CEO Italiani</strong> di PugliAI è una raccolta gratuita di
+                    oltre 33 articoli su come le PMI italiane possono adottare l'intelligenza artificiale:
+                    normativa AI Act, agenti AI, costi, ROI e strategie di implementazione. Consultabile
+                    online, senza registrazione.
+                </p>
+                <dl class="answer-block__facts">
+                    <dt>Che cos'è</dt>
+                    <dd>Una guida-raccolta di 33+ articoli, non un PDF da scaricare. Ogni articolo è una pagina consultabile online.</dd>
+                    <dt>Per chi</dt>
+                    <dd>CEO, imprenditori e decisori di PMI italiane che stanno valutando l'adozione dell'AI.</dd>
+                    <dt>Argomenti</dt>
+                    <dd>AI Act e conformità, agenti AI, costi e budget, calcolo del ROI, scelta del fornitore, casi d'uso per settore.</dd>
+                    <dt>Costo</dt>
+                    <dd>Gratuita. Nessuna registrazione o email richiesta.</dd>
+                    <dt>Aggiornamento</dt>
+                    <dd>Contenuti rivisti nel 2026; i dati di mercato citati sono indicativi e in rapida evoluzione.</dd>
+                    <dt>Lingua</dt>
+                    <dd>Italiano. Una sintesi in inglese è disponibile su <a href="/en/ceo-ai-guide-2025.html">AI Guide for CEOs</a>.</dd>
+                </dl>
+                <p class="answer-block__meta">
+                    A cura della redazione PugliAI · Contenuti della guida aggiornati a marzo 2026 ·
+                    Pagina rivista il 27 luglio 2026
+                </p>
+            </div>
+
             <h2>Perché l'AI Conta per le PMI Italiane</h2>
             <p style="text-align: center; color: var(--accent-platinum); max-width: 640px; margin: -20px auto 36px; font-size: 0.95rem; opacity: 0.85;">Dati di mercato indicativi, in rapida evoluzione &mdash; un quadro di contesto, non una fotografia esatta.</p>
             <div class="stats-grid">
@@ -1080,6 +1112,32 @@
                 </a>
             </div>
         </div>
+    </section>
+
+    <!-- FAQ Section — must stay in sync with the FAQPage JSON-LD in <head>:
+         FAQ schema without visible FAQ content breaches Google's policy. -->
+    <section class="section-padding" style="background: var(--primary-navy);">
+      <div class="container">
+        <h2 class="section-title text-center" style="color: var(--accent-platinum);">Domande Frequenti sull'AI per le PMI</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Cos'è l'intelligenza artificiale per le PMI?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">L'intelligenza artificiale per le PMI comprende tecnologie come machine learning, AI generativa e automazione intelligente che permettono alle piccole e medie imprese di ottimizzare processi, ridurre costi e aumentare la competitività. Nel 2025, il 26,7% delle PMI italiane utilizza già strumenti AI.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Quanto costa implementare l'AI in una PMI italiana?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">I costi variano da 100 euro/mese per chatbot base a 15.000-50.000 euro per progetti completi. ChatGPT Team costa 25 euro/utente/mese. Il ROI medio è di 1,7x l'investimento, con risparmi fino al 40% sui costi operativi.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Cosa prevede l'AI Act per le PMI italiane?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">L'AI Act europeo, in vigore dal 2 agosto 2025, richiede trasparenza, formazione del personale e compliance per i sistemi AI. Le PMI devono classificare i sistemi per livello di rischio. Le sanzioni arrivano fino a 35 milioni di euro, ma per le PMI si applicano importi ridotti.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--accent-gold); font-size: 1.1rem;">Quali sono i primi passi per implementare l'AI in azienda?</summary>
+            <p style="margin-top: 1rem; color: var(--accent-platinum); line-height: 1.7;">1) Valutare la maturità digitale, 2) identificare casi d'uso ad alto ROI, 3) partire con progetti pilota (chatbot, automazione email), 4) formare il team, 5) stabilire governance e metriche. L'85% delle aziende inizia con customer service e marketing.</p>
+          </details>
+        </div>
+      </div>
     </section>
 
     <!-- CTA Section -->
