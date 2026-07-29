@@ -11,6 +11,7 @@
         // Main pages
         'index.html': 'index.html',
         'chi-siamo.html': 'about-us.html',
+        'gregor-maric.html': 'gregor-maric.html',
         'contatti.html': 'contact.html',
         'sessione-strategica.html': 'strategy-session.html',
 

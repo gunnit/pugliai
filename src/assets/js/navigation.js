@@ -215,6 +215,7 @@
         const pageMap = {
             'index.html': 'index.html',
             'about-us.html': 'chi-siamo.html',
+            'gregor-maric.html': 'gregor-maric.html',
             'contact.html': 'contatti.html',
             'services.html': 'servizi.html',
             'products.html': 'prodotti.html',
@@ -247,6 +248,7 @@
         const pageMap = {
             'index.html': 'index.html',
             'chi-siamo.html': 'about-us.html',
+            'gregor-maric.html': 'gregor-maric.html',
             'contatti.html': 'contact.html',
             'servizi.html': 'services.html',
             'prodotti.html': 'products.html',
