@@ -24,7 +24,7 @@
     <meta property="og:site_name" content="PugliAI">
     <meta property="og:locale" content="it_IT">
     <meta property="article:published_time" content="2025-01-25">
-    <meta property="article:modified_time" content="2026-02-28">
+    <meta property="article:modified_time" content="2026-07-29">
     <meta property="article:section" content="AI in Italia">
 
     <meta name="twitter:card" content="summary_large_image">
@@ -39,21 +39,49 @@
 
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Eccellenze AI nel Sud Italia: Puglia Leader dell'Innovazione",
-        "description": "La Puglia emerge come polo dell'intelligenza artificiale nel Sud Italia. Scopri le eccellenze tech, i settori trainanti, le università e perché investire in AI nel Mezzogiorno.",
-        "image": "https://pugliai.com/src/assets/img/guida-ai/eccellenze-ai-sud-italia-og.jpg",
-        "author": {"@type": "Organization", "name": "PugliAI", "url": "https://pugliai.com"},
-        "publisher": {"@type": "Organization", "name": "PugliAI", "logo": {"@type": "ImageObject", "url": "https://pugliai.com/src/assets/img/pugliai_pittogramma.png"}},
-        "datePublished": "2025-01-25",
-        "dateModified": "2026-02-28",
-        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://pugliai.com/guida-ai/eccellenze-ai-sud-italia.html"},
-        "articleSection": "AI in Italia",
-        "keywords": ["AI Sud Italia", "innovazione Puglia", "polo tecnologico Puglia", "eccellenze tech Mezzogiorno", "Politecnico Bari AI", "startup AI Puglia"],
-        "wordCount": 3000,
-        "inLanguage": "it-IT"
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Eccellenze AI nel Sud Italia: Puglia Leader dell'Innovazione",
+    "description": "La Puglia emerge come polo dell'intelligenza artificiale nel Sud Italia. Scopri le eccellenze tech, i settori trainanti, le università e perché investire in AI nel Mezzogiorno.",
+    "image": "https://pugliai.com/src/assets/img/guida-ai/eccellenze-ai-sud-italia-og.jpg",
+    "author": {
+        "@type": "Organization",
+        "name": "PugliAI",
+        "url": "https://pugliai.com"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "PugliAI",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://pugliai.com/src/assets/img/pugliai_pittogramma.png"
+        }
+    },
+    "datePublished": "2025-01-25",
+    "dateModified": "2026-07-29",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://pugliai.com/guida-ai/eccellenze-ai-sud-italia.html"
+    },
+    "articleSection": "AI in Italia",
+    "keywords": [
+        "AI Sud Italia",
+        "innovazione Puglia",
+        "polo tecnologico Puglia",
+        "eccellenze tech Mezzogiorno",
+        "Politecnico Bari AI",
+        "startup AI Puglia"
+    ],
+    "wordCount": 3000,
+    "inLanguage": "it-IT",
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+            ".answer-block__lead",
+            ".answer-block__facts"
+        ]
     }
+}
     </script>
 
     <script type="application/ld+json">
@@ -166,6 +194,18 @@
         .stat-card .value { font-size: 2rem; font-weight: 700; color: var(--accent-emerald); }
         .stat-card .description { font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; }
         @media (max-width: 768px) { .article-nav { grid-template-columns: 1fr; } .article-nav .next { text-align: left; } }
+    
+        /* Wide tables must scroll inside their own box, never the page body */
+        @media (max-width: 768px) {
+            .comparison-table,
+            .pricing-table {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
     </style>
 </head>
 <body>
@@ -194,6 +234,19 @@
 
         <div class="article-container">
             <div class="article-content">
+                <div class="answer-block">
+                    <p class="answer-block__lead">La Puglia combina diversi fattori favorevoli: università di eccellenza (Politecnico di Bari, UniSalento), costi operativi competitivi (20-30% inferiori al Nord), qualità della vita attrattiva per talenti, incentivi regionali dedicati, e un tessuto imprenditoriale dinamico nei settori agroalimentare, turismo e manifatturiero.</p>
+                    <dl class="answer-block__facts">
+                        <dt>Quali sono i principali centri di ricerca AI in Puglia?</dt>
+                        <dd>I principali centri includono: Politecnico di Bari con i laboratori di AI e Machine Learning, Università del Salento con il centro di Intelligenza Artificiale e Robotica, CINI (Consorzio Interuniversitario Nazionale Informatica), e diversi centri di competenza Industria 4.0 come il DIH Puglia.</dd>
+                        <dt>Quali settori pugliesi sono leader nell&#x27;adozione AI?</dt>
+                        <dd>I settori trainanti sono: agroalimentare (tracciabilità, agricoltura di precisione per olio e vino), aerospazio (cluster Leonardo e indotto), turismo e hospitality (personalizzazione, revenue management), manifatturiero (manutenzione predittiva), e moda/tessile (trend forecasting, design).</dd>
+                        <dt>Quali vantaggi offre la Puglia rispetto ad altri poli AI italiani?</dt>
+                        <dd>La Puglia offre: costi del lavoro e operativi inferiori del 20-30%, qualità della vita superiore che attrae talenti, forte supporto istituzionale con incentivi dedicati, connessione con il mercato mediterraneo, e un ecosistema startup in crescita con oltre 200 aziende tech innovative.</dd>
+                        <dt>Come posso collaborare con l&#x27;ecosistema AI pugliese?</dt>
+                        <dd>Le opzioni includono: partnership con università per progetti di ricerca applicata, collaborazione con startup e acceleratori locali, utilizzo di consulenti AI pugliesi come PugliAI, partecipazione a eventi e networking (es.</dd>
+                    </dl>
+                </div>
                 <p><strong>Dimentica lo stereotipo del Sud Italia tecnologicamente arretrato.</strong> Nel 2025, la Puglia sta emergendo come uno dei poli AI più dinamici del Paese, sfidando la tradizionale supremazia del triangolo Milano-Torino-Roma nel settore dell'innovazione tecnologica.</p>
 
                 <p>Questa trasformazione non e casuale. E il risultato di una convergenza strategica tra università di eccellenza, incentivi regionali mirati, costi competitivi e un nuovo fenomeno: il "ritorno dei cervelli" attratti dalla qualità della vita e dalle opportunità di un ecosistema in fermento.</p>
