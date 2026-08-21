@@ -33,6 +33,11 @@
         'moda-lusso.html': 'fashion-luxury.html',
         'servizi-finanziari.html': 'financial-services.html',
 
+        // Accelerator (lead-generation funnel)
+        'acceleratore.html': 'accelerator.html',
+        'acceleratore-candidatura.html': 'accelerator-apply.html',
+        'acceleratore-success.html': 'accelerator-success.html',
+
         // Resources & Tools
         'investimenti-ai.html': 'ai-investment.html',
         'guida-ai-ceo-2025.html': 'ceo-ai-guide-2025.html',
@@ -48,8 +53,7 @@
 
         // Other
         'architettura-tecnica.html': 'technical-architecture.html',
-        'success.html': 'success.html',
-        'login.html': 'login.html'
+        'success.html': 'success.html'
     };
 
     /**
@@ -74,13 +78,15 @@
     function getAlternateUrl(currentPage, toEnglish) {
         if (toEnglish) {
             // Italian to English
-            const englishPage = urlMap[currentPage] || currentPage;
-            return '/en/' + englishPage;
+            const englishPage = urlMap[currentPage];
+            // Pages with no English mirror (login.html, risorse.html) would
+            // otherwise resolve to a 404; send them to the English home.
+            return englishPage ? '/en/' + englishPage : '/en/';
         } else {
             // English to Italian
             // Reverse lookup in urlMap
-            const italianPage = Object.keys(urlMap).find(key => urlMap[key] === currentPage) || currentPage;
-            return '/' + italianPage;
+            const italianPage = Object.keys(urlMap).find(key => urlMap[key] === currentPage);
+            return italianPage ? '/' + italianPage : '/';
         }
     }
 
