@@ -7,8 +7,8 @@ IMG = 'src/assets/img/2026/incontro.jpg'
 
 A_IT = dict(
     path='acceleratore.html', alt='en/accelerator.html',
-    title='PugliAI Accelerator: 16 settimane per startup basate sull’AI | PugliAI',
-    description='Programma di accelerazione di 16 settimane per startup basate sull’AI: oltre €100.000 di valore in servizi e supporto, mentorship settimanale, Demo Day con investitori e ponte verso Singapore tramite la partnership ISSA. Candidature aperte per il 2026.',
+    title='PugliAI Accelerator: 16 settimane per startup AI | PugliAI',
+    description='Programma di accelerazione di 16 settimane per startup basate sull’AI: oltre €100.000 di valore in servizi, mentorship settimanale, Demo Day e ponte verso Singapore (ISSA).',
     eyebrow='Candidature aperte 2026', h1='PugliAI Accelerator: sedici settimane per la tua startup basata sull’AI.',
     lead='Un founder con gli strumenti AI giusti può fare il lavoro di un team. In 16 settimane costruiamo con te una startup AI-native: automazioni, mentorship dedicata e il ponte verso Singapore tramite la partnership ISSA.',
     cta=('Candidati ora', 'acceleratore-candidatura.html'), ghost=('Scopri il programma', '#programma'),
@@ -52,7 +52,7 @@ A_IT = dict(
 A_EN = dict(
     path='en/accelerator.html', alt='acceleratore.html',
     title='PugliAI Accelerator: 16 weeks for AI-driven startups | PugliAI',
-    description='A 16-week acceleration programme for AI-driven startups: over €100,000 in services and support, weekly mentorship, Demo Day with investors and a bridge to Singapore through the ISSA partnership. Applications open for 2026.',
+    description='A 16-week acceleration programme for AI-driven startups: over €100,000 in services, weekly mentorship, Demo Day with investors and a bridge to Singapore (ISSA).',
     eyebrow='Applications open 2026', h1='PugliAI Accelerator: sixteen weeks for your AI-driven startup.',
     lead='A founder with the right AI tools can do the work of a team. In 16 weeks we build an AI-native startup with you: automations, dedicated mentorship and a bridge to Singapore through the ISSA partnership.',
     cta=('Apply now', 'accelerator-apply.html'), ghost=('See the programme', '#programme'),

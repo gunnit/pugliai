@@ -91,7 +91,7 @@ def contatti(lang):
 L_IT = dict(
     path='sessione-strategica.html', alt='en/strategy-session.html',
     title='Sessione strategica AI gratuita per PMI (45 minuti) | PugliAI',
-    description='Prenota una sessione strategica gratuita di 45 minuti con un consulente senior PugliAI: 2–3 opportunità AI concrete per i tuoi processi, stima del ROI sui tuoi numeri e una mini-roadmap entro 48 ore. Senza impegno.',
+    description='Prenota una sessione strategica gratuita di 45 minuti con un consulente senior PugliAI: 2–3 opportunità AI per i tuoi processi, stima del ROI e mini-roadmap entro 48 ore.',
     tag='Posti limitati ogni mese', h1='Quanto vale l’AI per la tua impresa? Scoprilo in 45 minuti, gratis.',
     lead='Sessione strategica 1:1 con un consulente senior: 2–3 opportunità AI concrete per i tuoi processi, stima del ROI sui tuoi numeri e una mini-roadmap entro 48 ore. Senza impegno.',
     bullets=['Risposta entro 2 ore lavorative', 'Nessun obbligo di acquisto', 'Dati trattati secondo il GDPR'],
@@ -126,7 +126,7 @@ L_IT = dict(
 L_EN = dict(
     path='en/strategy-session.html', alt='sessione-strategica.html',
     title='Free AI strategy session for SMEs (45 minutes) | PugliAI',
-    description='Book a free 45-minute strategy session with a senior PugliAI consultant: 2–3 concrete AI opportunities for your processes, an ROI estimate on your numbers and a mini-roadmap within 48 hours. No commitment.',
+    description='Book a free 45-minute strategy session with a senior PugliAI consultant: 2–3 AI opportunities for your processes, an ROI estimate and a mini-roadmap within 48 hours.',
     tag='Limited slots each month', h1='How much is AI worth to your business? Find out in 45 minutes, free.',
     lead='A 1:1 strategy session with a senior consultant: 2–3 concrete AI opportunities for your processes, an ROI estimate on your numbers and a mini-roadmap within 48 hours. No commitment.',
     bullets=['Reply within 2 business hours', 'No obligation to buy', 'Data handled under GDPR'],

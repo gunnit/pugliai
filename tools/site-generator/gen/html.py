@@ -1,3 +1,4 @@
+import re
 """HTML component helpers for the PugliAI site generator.
 
 Every helper returns a string of markup that relies on the classes defined in
@@ -154,7 +155,8 @@ def service_card(icon_name, title, text, items, href, link_label, price=None):
 
 
 def price_card(name, price, duration, one_liner, items, href, link_label):
-    inner = (f'<div class="price-card"><div class="price-card__head"><h3 class="h4">{esc(name)}</h3>{tag(duration)}</div>'
+    slug = re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
+    inner = (f'<div class="price-card" id="{slug}"><div class="price-card__head"><h3 class="h4">{esc(name)}</h3>{tag(duration)}</div>'
              f'<p class="price-card__price">{esc(price)}</p><p class="price-card__one">{esc(one_liner)}</p><hr class="hairline">'
              f'{checks(items)}<div class="mt-2">{link(link_label, href)}</div></div>')
     return card(inner)

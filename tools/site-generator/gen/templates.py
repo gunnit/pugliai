@@ -37,8 +37,8 @@ def render_sections(page, sections):
             note_html = f'<div class="packages__note"><p>{esc(note)}</p>{link(more[0], more[1]) if more else ""}</div>' if note else ''
             out += section(section_head(eb, h2, lead) + grid(cards, 3) + note_html, id_=s[7] if len(s) > 7 else '')
         elif kind == 'table':
-            _, eb, h2, lead, head, rows = s
-            out += section(section_head(eb, h2, lead) + table(head, rows), container='container--narrow')
+            _, eb, h2, lead, head, rows = s[:6]
+            out += section(section_head(eb, h2, lead) + table(head, rows), container='container--narrow', id_=(s[6] if len(s) > 6 else ''))
         elif kind == 'specs':
             _, eb, h2, lead, groups = s
             cards = [card(f'<h3 class="h5" style="margin-bottom:16px;">{esc(t)}</h3>{checks(items, "checks--sm")}') for t, items in groups]

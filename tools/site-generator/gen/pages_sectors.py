@@ -18,7 +18,7 @@ def settori(lang):
     if lang == 'it':
         spec = dict(
             path='settori.html', alt='en/sectors.html', chat=True,
-            title='Settori: soluzioni AI per manifatturiero, moda, finanza e altri comparti | PugliAI',
+            title='Settori: AI per manifatturiero, moda, finanza | PugliAI',
             description='Soluzioni di intelligenza artificiale per i settori delle PMI italiane: manifatturiero, moda e lusso, servizi finanziari, sanità, turismo, agroalimentare, retail e studi professionali.',
             eyebrow='Settori', h1='Ogni settore ha i suoi processi. L’AI si adatta a loro.',
             lead='Partiamo dai processi che contano nel tuo comparto, non da una tecnologia da piazzare. Tre settori in cui abbiamo la maggiore esperienza, e soluzioni trasversali per tutti gli altri.',
@@ -59,7 +59,7 @@ def settori(lang):
     else:
         spec = dict(
             path='en/sectors.html', alt='settori.html', chat=True,
-            title='Sectors: AI solutions for manufacturing, fashion, finance and more | PugliAI',
+            title='Sectors: AI for manufacturing, fashion, finance | PugliAI',
             description='Artificial-intelligence solutions for the sectors of Italian SMEs: manufacturing, fashion and luxury, financial services, healthcare, tourism, agrifood, retail and professional firms.',
             eyebrow='Sectors', h1='Every sector has its own processes. AI adapts to them.',
             lead='We start from the processes that matter in your industry, not from a technology to place. Three sectors where we have the deepest experience, and cross-sector solutions for all the others.',
@@ -104,8 +104,8 @@ def manifatturiero(lang):
     if lang == 'it':
         spec = dict(
             path='manifatturiero.html', alt='en/manufacturing.html', chat=True,
-            title='AI per il manifatturiero: manutenzione predittiva, qualità, filiera | PugliAI',
-            description='Soluzioni AI per le PMI manifatturiere: manutenzione predittiva, controllo qualità con visione artificiale, ottimizzazione di scorte e filiera, integrazione con MES, SCADA ed ERP, con elaborazione on-premise.',
+            title='AI per il manifatturiero: manutenzione e qualità | PugliAI',
+            description='Soluzioni AI per le PMI manifatturiere: manutenzione predittiva, controllo qualità con visione artificiale, scorte e filiera, integrazione con MES ed ERP, on-premise.',
             eyebrow='Settori · Manifatturiero', h1='Intelligenza artificiale per la fabbrica, con i dati che restano in fabbrica.',
             lead='Manutenzione predittiva, controllo qualità con visione artificiale e ottimizzazione della filiera, integrati con MES, SCADA ed ERP ed elaborati on-premise.',
             cta=('Prenota la sessione strategica', 'sessione-strategica.html'), ghost=('Calcola il ROI', 'roi-calculator.html'),
@@ -141,7 +141,7 @@ def manifatturiero(lang):
     else:
         spec = dict(
             path='en/manufacturing.html', alt='manifatturiero.html', chat=True,
-            title='AI for manufacturing: predictive maintenance, quality, supply chain | PugliAI',
+            title='AI for manufacturing SMEs: maintenance, quality | PugliAI',
             description='AI solutions for manufacturing SMEs: predictive maintenance, quality control with computer vision, stock and supply-chain optimisation, MES, SCADA and ERP integration, with on-premise processing.',
             eyebrow='Sectors · Manufacturing', h1='Artificial intelligence for the factory, with data that stays in the factory.',
             lead='Predictive maintenance, quality control with computer vision and supply-chain optimisation, integrated with MES, SCADA and ERP and processed on-premise.',
@@ -183,7 +183,7 @@ def moda(lang):
         spec = dict(
             path='moda-lusso.html', alt='en/fashion-luxury.html', chat=True,
             title='AI per moda e lusso: tendenze, personalizzazione, filiera | PugliAI',
-            description='Soluzioni AI per i marchi di moda e lusso: previsione delle tendenze, esperienza cliente personalizzata, gestione delle scorte e tracciabilità della filiera, con la riservatezza che il settore richiede.',
+            description='Soluzioni AI per i marchi di moda e lusso: previsione delle tendenze, esperienza cliente personalizzata, gestione delle scorte e tracciabilità della filiera.',
             eyebrow='Settori · Moda e lusso', h1='L’AI su misura per il tuo marchio, con la riservatezza che il lusso richiede.',
             lead='Previsione delle tendenze, esperienza cliente personalizzata e una filiera più efficiente e tracciabile. Integrata con PLM, ERP e sistemi di negozio.',
             cta=('Prenota la sessione strategica', 'sessione-strategica.html'), ghost=('Calcola il ROI', 'roi-calculator.html'),
@@ -218,7 +218,7 @@ def moda(lang):
     else:
         spec = dict(
             path='en/fashion-luxury.html', alt='moda-lusso.html', chat=True,
-            title='AI for fashion and luxury: trends, personalisation, supply chain | PugliAI',
+            title='AI for fashion and luxury: trends, personalisation | PugliAI',
             description='AI solutions for fashion and luxury brands: trend forecasting, personalised customer experience, stock management and supply-chain traceability, with the confidentiality the sector demands.',
             eyebrow='Sectors · Fashion and luxury', h1='AI tailored to your brand, with the confidentiality luxury demands.',
             lead='Trend forecasting, personalised customer experience and a more efficient, traceable supply chain. Integrated with PLM, ERP and store systems.',
@@ -259,7 +259,7 @@ def finanza(lang):
         spec = dict(
             path='servizi-finanziari.html', alt='en/financial-services.html', chat=True,
             title='AI per servizi finanziari: frodi, rischio, conformità | PugliAI',
-            description='Soluzioni AI per banche, assicurazioni e fintech: rilevamento delle frodi in tempo reale, analisi del rischio, conformità (KYC, antiriciclaggio) e consulenza assistita, con modelli spiegabili e sicurezza fin dalla progettazione.',
+            description='Soluzioni AI per banche, assicurazioni e fintech: rilevamento delle frodi, analisi del rischio, conformità (KYC, antiriciclaggio) e consulenza assistita.',
             eyebrow='Settori · Servizi finanziari', h1='AI per la finanza: decisioni rapide, spiegabili e conformi.',
             lead='Rilevamento delle frodi, analisi del rischio, conformità e consulenza assistita. Modelli spiegabili, integrati con i sistemi principali in sicurezza.',
             cta=('Prenota la sessione strategica', 'sessione-strategica.html'), ghost=('Calcola il ROI', 'roi-calculator.html'),

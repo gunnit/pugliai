@@ -882,3 +882,313 @@ figure.photo-fig figcaption { font-size: 12px; color: var(--text-2); margin-top:
   .card, .faq__item, .panel { border-color: #999; }
 }
 .lang--panel { display: inline-flex !important; font-size: 15px; padding: 8px 0; }
+
+/* ==== Article components (guida-ai) ==== */
+/* Bespoke blocks used inside the long-form articles. Everything is scoped to
+   .article-content: white cards on the parchment canvas, hairline borders, no
+   shadows or gradients; big figures in light weight ink; lilac pills; violet
+   only for links; wine only for primary buttons, the CTA box and warning bars. */
+.article-content { --article-green: #2f6f4f; }
+
+/* Tables (wrapped by the generator so they scroll on phones) */
+.article-content .table-wrap { margin: 1.5em 0; }
+.article-content .table-wrap > table { margin: 0; }
+.article-content .table-wrap[data-cols="3"] > table { min-width: 460px; }
+.article-content .table-wrap[data-cols="4"] > table, .article-content .table-wrap[data-cols="5"] > table, .article-content .table-wrap[data-cols="6"] > table { min-width: 600px; }
+.article-content .pricing-table .price { font-weight: var(--w-medium); white-space: nowrap; }
+.article-content .best-for { color: var(--text-2); }
+
+/* Grids */
+.article-content .stats-grid, .article-content .tool-grid, .article-content .integration-grid, .article-content .tech-grid,
+.article-content .framework-grid, .article-content .competence-grid, .article-content .hidden-costs-grid, .article-content .checklist-grid,
+.article-content .risk-grid, .article-content .leadership-framework, .article-content .cost-breakdown, .article-content .comparison-grid,
+.article-content .matrix-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 1.5em 0;
+}
+.article-content .company-stats, .article-content .metrics, .article-content .benefits {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 16px 0 0; padding-top: 16px; border-top: 1px solid var(--border);
+}
+.article-content .matrix-box .matrix-grid, .article-content .decision-matrix .matrix-grid { margin: 0; }
+.article-content .skills-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px 16px; margin: 14px 0 0; }
+
+/* Cards (white, hairline border) */
+.article-content .stat-card, .article-content .case-study-card, .article-content .use-case-card, .article-content .skills-map-card,
+.article-content .training-path-card, .article-content .solution-card, .article-content .resistance-card, .article-content .tool-card,
+.article-content .platform-card, .article-content .pricing-card, .article-content .step-card, .article-content .cert-card,
+.article-content .sector-card, .article-content .integration-card, .article-content .tech-item, .article-content .framework-item,
+.article-content .framework-pillar, .article-content .competence-card, .article-content .company-card, .article-content .startup-card,
+.article-content .criteria-card, .article-content .trend-card, .article-content .risk-card, .article-content .cost-card,
+.article-content .company-size-card, .article-content .hidden-cost-item, .article-content .integration-item, .article-content .tool-item,
+.article-content .roadmap-item, .article-content .resource-card, .article-content .evolution-item, .article-content .timeline-content,
+.article-content > .timeline-item, .article-content .timeline-container .timeline-item, .article-content .process-step,
+.article-content .workflow-step, .article-content .process-rank-item, .article-content .green-flag, .article-content .red-flag {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; margin: 1.5em 0; min-width: 0; font-size: 16px;
+}
+/* Boxes (containers holding other blocks) */
+.article-content .budget-box, .article-content .success-box, .article-content .future-box, .article-content .funding-box,
+.article-content .financing-box, .article-content .roi-framework, .article-content .decision-matrix, .article-content .matrix-box,
+.article-content .incentive-card, .article-content .checklist, .article-content .formula-box, .article-content .series-conclusion,
+.article-content .highlight-box-danger {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; margin: 1.5em 0; font-size: 16px;
+}
+/* Tinted boxes (lilac mist) */
+.article-content .culture-pillar, .article-content .quote-box, .article-content .question-box, .article-content .superseded-notice {
+  background: var(--color-lilac-soft); border-radius: var(--radius); padding: 20px 22px; margin: 1.5em 0; font-size: 16px;
+}
+/* Grid children and stacked items: spacing comes from the grid gap / the stack */
+.article-content .stats-grid > *, .article-content .tool-grid > *, .article-content .integration-grid > *, .article-content .tech-grid > *,
+.article-content .framework-grid > *, .article-content .competence-grid > *, .article-content .hidden-costs-grid > *, .article-content .checklist-grid > *,
+.article-content .risk-grid > *, .article-content .leadership-framework > *, .article-content .cost-breakdown > *, .article-content .comparison-grid > *,
+.article-content .matrix-grid > * { margin: 0; }
+.article-content .financing-item, .article-content .quickwin-item, .article-content .checklist-item, .article-content .skill-demand-item,
+.article-content .timeline-item, .article-content .roadmap-item, .article-content .evolution-item, .article-content .process-step,
+.article-content .resource-card, .article-content .process-rank-item, .article-content .green-flag, .article-content .red-flag,
+.article-content .question-box, .article-content .tool-card, .article-content .platform-card, .article-content .cert-card,
+.article-content .pricing-card, .article-content .integration-card { margin: 0 0 12px; }
+.article-content .financing-item:last-child, .article-content .checklist-item:last-child, .article-content .timeline-item:last-child,
+.article-content .roadmap-item:last-child, .article-content .evolution-item:last-child, .article-content .green-flag:last-child,
+.article-content .red-flag:last-child, .article-content .question-box:last-child, .article-content .process-rank-item:last-child { margin-bottom: 0; }
+.article-content .process-flow, .article-content .process-ranking { display: flex; flex-direction: column; gap: 12px; margin: 1.5em 0; }
+.article-content .process-flow > *, .article-content .process-ranking > * { margin: 0; }
+.article-content .timeline, .article-content .timeline-container, .article-content .roadmap-timeline, .article-content .evolution-timeline { margin: 1.5em 0; }
+
+/* Headings, copy and lists inside cards and boxes */
+.article-content .stat-card h4, .article-content .case-study-card h4, .article-content .use-case-card h4, .article-content .skills-map-card h4,
+.article-content .training-path-card h4, .article-content .solution-card h4, .article-content .resistance-card h4, .article-content .tool-card h4,
+.article-content .platform-card h4, .article-content .pricing-card h4, .article-content .step-card h4, .article-content .cert-card h5,
+.article-content .sector-card h4, .article-content .integration-card h5, .article-content .tech-item h5, .article-content .framework-item h5,
+.article-content .framework-pillar h4, .article-content .competence-card h5, .article-content .trend-card h4, .article-content .risk-card h4,
+.article-content .cost-card h5, .article-content .company-size-card h5, .article-content .hidden-cost-item h5, .article-content .integration-item h5,
+.article-content .tool-item h5, .article-content .roadmap-item h5, .article-content .resource-card h5, .article-content .evolution-content h4,
+.article-content .timeline-item h4, .article-content .step-content h4, .article-content .step-content h5, .article-content .process-rank-item h4,
+.article-content .budget-box h4, .article-content .success-box h4, .article-content .future-box h4, .article-content .funding-box h4,
+.article-content .financing-box h4, .article-content .roi-framework h4, .article-content .decision-matrix h4, .article-content .matrix-box h4,
+.article-content .incentive-card h4, .article-content .checklist h4, .article-content .formula-box h4, .article-content .highlight-box-danger h4,
+.article-content .culture-pillar h4, .article-content .financing-item h5, .article-content .quickwin-item h5, .article-content .phase-content h4 {
+  margin: 0 0 8px; font-size: 18px; line-height: 1.25; font-weight: var(--w-medium); letter-spacing: -0.2px;
+}
+.article-content .case-study-card h4, .article-content .use-case-card h4, .article-content .skills-map-card h4, .article-content .training-path-card h4,
+.article-content .trend-card h4, .article-content .pricing-card h4, .article-content .step-card h4 { font-size: 20px; }
+.article-content .company-card h3, .article-content .startup-card h3, .article-content .criteria-card h3, .article-content .series-conclusion h3 {
+  display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 21px; line-height: 1.25; font-weight: var(--w-medium); letter-spacing: -0.3px;
+}
+.article-content .series-conclusion h3 { display: block; }
+.article-content .stat-card > :last-child, .article-content .case-study-card > :last-child, .article-content .use-case-card > :last-child,
+.article-content .skills-map-card > :last-child, .article-content .training-path-card > :last-child, .article-content .solution-card > :last-child,
+.article-content .resistance-card > :last-child, .article-content .tool-card > :last-child, .article-content .platform-card > :last-child,
+.article-content .pricing-card > :last-child, .article-content .step-card > :last-child, .article-content .cert-card > :last-child,
+.article-content .sector-card > :last-child, .article-content .integration-card > :last-child, .article-content .tech-item > :last-child,
+.article-content .framework-item > :last-child, .article-content .framework-pillar > :last-child, .article-content .competence-card > :last-child,
+.article-content .company-card > :last-child, .article-content .startup-card > :last-child, .article-content .criteria-card > :last-child,
+.article-content .trend-card > :last-child, .article-content .risk-card > :last-child, .article-content .cost-card > :last-child,
+.article-content .company-size-card > :last-child, .article-content .hidden-cost-item > :last-child, .article-content .integration-item > :last-child,
+.article-content .tool-item > :last-child, .article-content .roadmap-item > :last-child, .article-content .timeline-item > :last-child,
+.article-content .timeline-content > :last-child, .article-content .evolution-content > :last-child, .article-content .step-content > :last-child,
+.article-content .budget-box > :last-child, .article-content .success-box > :last-child, .article-content .future-box > :last-child,
+.article-content .funding-box > :last-child, .article-content .financing-box > :last-child, .article-content .roi-framework > :last-child,
+.article-content .decision-matrix > :last-child, .article-content .matrix-box > :last-child, .article-content .incentive-card > :last-child,
+.article-content .checklist > :last-child, .article-content .formula-box > :last-child, .article-content .series-conclusion > :last-child,
+.article-content .highlight-box-danger > :last-child, .article-content .culture-pillar > :last-child, .article-content .quote-box > :last-child,
+.article-content .question-box > :last-child, .article-content .superseded-notice > :last-child, .article-content .financing-item > :last-child,
+.article-content .resource-content > :last-child, .article-content .matrix-quadrant > :last-child, .article-content .matrix-column > :last-child { margin-bottom: 0; }
+.article-content .tool-card ul, .article-content .pricing-card ul, .article-content .step-card ul, .article-content .risk-card ul,
+.article-content .sector-card ul, .article-content .cost-card ul, .article-content .company-size-card ul, .article-content .use-case-card ul,
+.article-content .incentive-card ul, .article-content .case-study-card ul, .article-content .matrix-quadrant ul, .article-content .matrix-column ul,
+.article-content .criteria-card ul, .article-content .company-card ul, .article-content .startup-card ul { margin: 10px 0 0; padding-left: 1.2em; font-size: 15px; }
+.article-content .step-content p, .article-content .roadmap-item p, .article-content .evolution-content p, .article-content .timeline-item p,
+.article-content .framework-pillar p, .article-content .competence-card p, .article-content .tool-item p, .article-content .integration-item p,
+.article-content .hidden-cost-item p, .article-content .financing-item p, .article-content .resource-content p, .article-content .platform-card .features,
+.article-content .process-rank-item p { font-size: 15px; color: var(--text-2); margin: 0 0 8px; }
+
+/* Eyebrow labels that the old theme drew from data-* attributes */
+.article-content .use-case-card[data-use-case]::before, .article-content .skills-map-card[data-role]::before,
+.article-content .training-path-card[data-role]::before, .article-content .solution-card[data-type]::before,
+.article-content .resistance-card[data-type]::before, .article-content .case-study-card::before, .article-content .pricing-card.recommended::before {
+  display: inline-flex; align-items: center; height: 24px; padding: 0 10px; margin: 0 0 12px; border-radius: var(--radius-pill);
+  background: var(--color-lilac); color: var(--color-ink); font-size: 12px; font-weight: var(--w-medium); letter-spacing: .01em; white-space: nowrap; max-width: 100%;
+}
+.article-content .use-case-card[data-use-case]::before { content: attr(data-use-case); }
+.article-content .skills-map-card[data-role]::before, .article-content .training-path-card[data-role]::before { content: attr(data-role); }
+.article-content .solution-card[data-type]::before, .article-content .resistance-card[data-type]::before { content: attr(data-type); }
+.article-content .case-study-card::before { content: 'Caso studio'; }
+.article-content .pricing-card.recommended::before { content: 'Consigliato per PMI'; }
+.article-content .resistance-card { border-left: 3px solid var(--color-wine); }
+.article-content .company-card.highlight, .article-content .startup-card.highlight, .article-content .company-size-card.featured,
+.article-content .pricing-card.recommended { border-color: var(--color-ink); }
+
+/* Figures */
+.article-content .stat-card { display: flex; flex-direction: column; gap: 6px; }
+.article-content .stat-card .number, .article-content .stat-card .value, .article-content .stat-item .stat-value, .article-content .benefit .benefit-value,
+.article-content .metric .metric-value, .article-content .pricing-card .price, .article-content .company-size-card .budget-range {
+  display: block; font-size: 30px; font-weight: var(--w-light); letter-spacing: -0.9px; line-height: 1.05; color: var(--color-ink); overflow-wrap: anywhere;
+}
+.article-content .metric .metric-value, .article-content .benefit .benefit-value, .article-content .stat-item .stat-value { font-size: 24px; letter-spacing: -0.6px; }
+.article-content .stat-card .label, .article-content .stat-card .desc, .article-content .stat-card .description, .article-content .stat-item .stat-label,
+.article-content .benefit .benefit-label, .article-content .metric .metric-label, .article-content .pricing-card .price-note, .article-content .company-size-card .period,
+.article-content .company-size-card .employees, .article-content .cert-card .provider, .article-content .quote-box .author {
+  display: block; font-size: 13px; line-height: 1.4; font-weight: var(--w-regular); color: var(--text-2); margin: 0;
+}
+.article-content .metric, .article-content .benefit, .article-content .stat-item { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: var(--color-parchment); border-radius: 12px; min-width: 0; }
+.article-content .platform-card .price, .article-content .process-rank-item .percentage { font-size: 22px; font-weight: var(--w-light); letter-spacing: -0.5px; line-height: 1.1; color: var(--color-ink); }
+.article-content .platform-card .price { margin: 0 0 8px; }
+.article-content .tool-item .price, .article-content .price { font-weight: var(--w-medium); }
+.article-content .tool-item .price { display: block; margin-top: 8px; font-size: 14px; }
+.article-content .tool-card h4 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.article-content .tool-card h4 .price { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: var(--radius-pill); background: var(--color-lilac); font-size: 12px; font-weight: var(--w-medium); white-space: nowrap; }
+.article-content .pricing-card .price-note { margin: 4px 0 12px; }
+.article-content .pricing-card .target { display: inline-block; background: var(--color-lilac-soft); border-radius: var(--radius-sm); padding: 6px 12px; font-size: 14px; margin: 0 0 14px; }
+.article-content .company-size-card .budget-range { margin: 10px 0 2px; }
+.article-content .company-size-card .period { margin-bottom: 12px; }
+.article-content .cert-card .provider { margin: -4px 0 10px; }
+.article-content .impact, .article-content .results { background: var(--color-parchment); border-radius: 12px; padding: 14px 16px; margin: 14px 0 0; font-size: 15px; }
+.article-content .trend-card .trend-number { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-2); margin: 0 0 8px; }
+
+/* Number bullets */
+.article-content .step-number, .article-content .pillar-number, .article-content .rank, .article-content .checklist-number, .article-content .criteria-card .number {
+  display: inline-flex; align-items: center; justify-content: center; flex: none; width: 32px; height: 32px; border-radius: var(--radius-pill);
+  background: var(--color-lilac); color: var(--color-ink); font-size: 14px; font-weight: var(--w-medium); line-height: 1; letter-spacing: 0;
+}
+.article-content .step-card .step-number { margin: 0 0 12px; }
+.article-content .framework-pillar .pillar-number { margin: 0 0 12px; }
+.article-content .startup-card .rank { width: 28px; height: 28px; font-size: 13px; }
+.article-content .process-rank-item .rank { width: 36px; height: 36px; }
+
+/* Steps and flows */
+.article-content .process-step, .article-content .workflow-step { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; border-radius: 12px; }
+.article-content .workflow-step { margin: 12px 0; }
+.article-content .step-content { flex: 1; min-width: 0; }
+.article-content .step-content h4, .article-content .step-content h5 { margin: 5px 0 4px; font-size: 17px; }
+.article-content .process-step .step-title { font-size: 15px; font-weight: var(--w-medium); line-height: 1.3; align-self: center; }
+.article-content .process-flow:has(.step-title) { flex-direction: row; flex-wrap: wrap; }
+.article-content .process-flow:has(.step-title) > .process-step { flex: 1 1 150px; flex-direction: column; align-items: flex-start; gap: 10px; }
+.article-content .process-flow:has(.step-title) .step-title { align-self: auto; }
+.article-content .process-rank-item { display: flex; gap: 14px; align-items: center; padding: 14px 18px; border-radius: 12px; }
+.article-content .process-rank-item .content { flex: 1; min-width: 0; }
+.article-content .process-rank-item h4 { margin: 0 0 2px; font-size: 16px; }
+.article-content .process-rank-item p { margin: 0; font-size: 14px; }
+.article-content .process-rank-item .percentage { flex: none; }
+
+/* Timelines */
+.article-content .timeline, .article-content .timeline-container, .article-content .roadmap-timeline { position: relative; padding-left: 28px; }
+.article-content .timeline::before, .article-content .timeline-container::before, .article-content .roadmap-timeline::before {
+  content: ''; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 2px; background: var(--color-lilac);
+}
+.article-content .timeline-item, .article-content .roadmap-item { position: relative; }
+.article-content .timeline .timeline-item::before, .article-content .timeline-container .timeline-item::before, .article-content .roadmap-item::before {
+  content: ''; position: absolute; left: -28px; top: 8px; width: 16px; height: 16px; box-sizing: border-box; border-radius: var(--radius-pill);
+  background: var(--color-lilac); border: 3px solid var(--bg);
+}
+.article-content .timeline .timeline-item { margin: 0 0 20px; }
+.article-content .timeline-item.completed::before { background: var(--color-ink); }
+.article-content .timeline-item.active::before { background: var(--color-wine); }
+.article-content .timeline-item.active .timeline-content { border-left: 3px solid var(--color-wine); }
+.article-content .timeline-date, .article-content .timeline-item .period, .article-content .roadmap-item .phase {
+  font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-2); margin: 0 0 8px; line-height: 1.3;
+}
+.article-content .timeline-date { font-weight: var(--w-medium); color: var(--color-ink); }
+.article-content .timeline-content { padding: 14px 18px; margin: 0; border-radius: 12px; }
+.article-content .timeline-item h4 { font-size: 17px; }
+.article-content .evolution-item { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px 20px; padding: 16px 18px; }
+.article-content .evolution-phase { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: var(--radius-pill); background: var(--color-lilac); font-size: 12px; font-weight: var(--w-medium); white-space: nowrap; width: fit-content; }
+.article-content .evolution-content { min-width: 0; }
+.article-content .evolution-content h4 { font-size: 17px; margin-bottom: 6px; }
+.article-content .phase-item .phase-label { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: var(--radius-pill); background: var(--color-lilac); font-size: 12px; font-weight: var(--w-medium); margin: 4px 0 8px; }
+.article-content .phase-content h4 { font-size: 17px; }
+
+/* Checklists */
+.article-content .checklist ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.article-content .checklist ul li { position: relative; padding-left: 30px; margin: 0; }
+.article-content .checklist ul li::before { content: ''; position: absolute; left: 0; top: 2px; width: 20px; height: 20px; border-radius: var(--radius-pill); background: var(--color-lilac); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23292827' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l4 4L19 7'/%3E%3C/svg%3E"); background-size: 12px; background-repeat: no-repeat; background-position: center; }
+.article-content .checklist-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; background: var(--color-parchment); border-radius: 12px; font-size: 15px; line-height: 1.5; }
+.article-content .checklist-item > div:last-child { min-width: 0; }
+.article-content .checklist-item input[type="checkbox"] { flex: none; width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--color-ink); }
+.article-content .checklist-item label { flex: 1; cursor: pointer; }
+.article-content .check-icon { flex: none; display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: var(--radius-pill); background: var(--color-lilac); color: var(--color-ink); }
+.article-content .check-icon svg { width: 13px; height: 13px; }
+.article-content .checklist-grid .checklist-item { background: var(--bg-elev); border: 1px solid var(--border); }
+.article-content .skill-item { position: relative; padding-left: 16px; font-size: 15px; line-height: 1.45; }
+.article-content .skill-item::before { content: ''; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: var(--radius-pill); background: var(--color-ink); }
+.article-content .skill-demand-item { margin: 0 0 14px; }
+.article-content .skill-name { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; margin: 0 0 6px; }
+.article-content .skill-name span:last-child { font-weight: var(--w-medium); }
+.article-content .skill-demand-bar { height: 22px; border-radius: var(--radius-pill); background: var(--color-mist); overflow: hidden; }
+.article-content .skill-demand-bar .fill { height: 100%; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; border-radius: var(--radius-pill); background: var(--color-lilac); color: var(--color-ink); font-size: 12px; font-weight: var(--w-medium); min-width: 44px; }
+
+/* Flags, notices, quotes, prompts, formulas */
+.article-content .green-flag { border-left: 3px solid var(--article-green); padding: 14px 18px; border-radius: 12px; font-size: 15px; }
+.article-content .red-flag { border-left: 3px solid var(--color-wine); padding: 14px 18px; border-radius: 12px; font-size: 15px; }
+.article-content .question-box { padding: 14px 18px; border-radius: 12px; font-size: 15px; }
+.article-content .highlight-box-danger, .article-content .hidden-cost-item { border-left: 3px solid var(--color-wine); }
+.article-content .superseded-notice { font-size: 15px; }
+.article-content .superseded-notice p { margin: 0; }
+.article-content .quote-box { font-size: 18px; line-height: 1.5; font-style: italic; }
+.article-content .quote-box .author { font-style: normal; margin-top: 12px; }
+.article-content .prompt-example { background: var(--color-parchment); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin: 1.5em 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+.article-content .prompt-example .label { display: block; font-family: var(--font-sans); font-size: 12px; font-weight: var(--w-medium); text-transform: uppercase; letter-spacing: .05em; color: var(--text-2); margin: 0 0 10px; }
+.article-content .prompt-example .output { border-top: 1px solid var(--border); margin-top: 14px; padding-top: 12px; font-family: var(--font-sans); font-size: 14px; color: var(--text-2); }
+.article-content .formula-box { text-align: center; }
+.article-content .formula-box .formula, .article-content .roi-formula { background: var(--color-parchment); border-radius: 12px; padding: 16px 18px; margin: 0 0 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 17px; text-align: center; overflow-wrap: anywhere; }
+.article-content .roi-formula code { font: inherit; color: var(--color-ink); }
+.article-content .formula-box .explanation { font-size: 15px; color: var(--text-2); margin: 0; }
+.article-content .series-conclusion { padding: 28px 24px; }
+.article-content .series-conclusion .highlight { font-weight: var(--w-medium); }
+.article-content .financing-item { background: var(--color-parchment); border-radius: 12px; padding: 14px 18px; font-size: 15px; }
+.article-content .matrix-quadrant, .article-content .matrix-column { background: var(--color-parchment); border-radius: 12px; padding: 16px 18px; min-width: 0; }
+.article-content .matrix-quadrant h5, .article-content .matrix-column h5 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 15px; line-height: 1.3; font-weight: var(--w-medium); }
+.article-content .matrix-quadrant.quick-win { background: var(--color-lilac-soft); }
+.article-content .matrix-column svg { width: 18px; height: 18px; flex: none; }
+
+/* Pills and tags */
+.article-content .badge, .article-content .system-tag, .article-content .priority-badge, .article-content .risk-badge, .article-content .deadline,
+.article-content .financing-item .percentage {
+  display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: var(--radius-pill); background: var(--color-lilac); color: var(--color-ink);
+  font-size: 12px; font-weight: var(--w-medium); letter-spacing: .01em; white-space: nowrap; vertical-align: middle;
+}
+.article-content .risk-badge { text-transform: uppercase; letter-spacing: .04em; font-size: 11px; }
+.article-content .risk-badge.unacceptable, .article-content .deadline { background: var(--color-ink); color: #fff; }
+.article-content .risk-badge.limited, .article-content .priority-badge.medium { background: var(--color-lilac-soft); }
+.article-content .risk-badge.minimal { background: transparent; border: 1px solid var(--border); }
+.article-content .deadline { margin-top: 12px; height: auto; min-height: 28px; padding: 4px 12px; white-space: normal; }
+.article-content .financing-item .percentage { margin-top: 10px; }
+.article-content .systems, .article-content .startup-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
+.article-content .startup-meta { margin: 0 0 14px; }
+.article-content .cert-meta, .article-content .resource-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 13px; color: var(--text-2); margin: 12px 0 0; }
+.article-content .risk-card h4, .article-content .tech-item h5, .article-content .cost-card h5, .article-content .framework-item h5 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.article-content .priority-badge { margin-left: auto; }
+.article-content .risk-card.unacceptable { border-left: 3px solid var(--color-wine); }
+.article-content .risk-card.high { border-left: 3px solid var(--color-ink); }
+.article-content .risk-card.limited { border-left: 3px solid var(--color-lilac); }
+.article-content .risk-card.minimal { border-left: 3px solid var(--article-green); }
+
+/* Icons in card headings and resource rows */
+.article-content .icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 30px; height: 30px; border-radius: var(--radius-sm); background: var(--color-lilac); color: var(--color-ink); }
+.article-content .icon svg { width: 16px; height: 16px; }
+.article-content .resource-card { display: flex; gap: 16px; align-items: flex-start; }
+.article-content .resource-icon { flex: none; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: var(--color-lilac); color: var(--color-ink); }
+.article-content .resource-icon svg { width: 20px; height: 20px; }
+.article-content .resource-content { flex: 1; min-width: 0; }
+
+/* Legacy button classes used by the article CTA boxes */
+.article-content .btn-primary { background: var(--color-wine); color: #fff; }
+.article-content .btn-primary:hover { background: var(--color-wine-deep); color: #fff; }
+.article-content .btn-secondary { background: var(--color-lilac); color: var(--color-ink); border-color: var(--color-ink); border-radius: var(--radius-sm); min-height: 40px; padding: 0 16px; }
+.article-content .btn-secondary:hover { background: #c4b4f7; color: var(--color-ink); }
+.article-content .btn-lg { min-height: 52px; padding: 0 24px; font-size: 17px; }
+.article-content .cta-box .btn-primary { background: #fff; color: var(--color-wine); }
+.article-content .cta-box .btn-primary:hover { background: var(--color-lilac); color: var(--color-ink); }
+.article-content .cta-box .btn { white-space: normal; text-align: center; }
+
+@media (min-width: 720px) {
+  .article-content .evolution-item { grid-template-columns: 150px minmax(0, 1fr); }
+  .article-content .series-conclusion { padding: 32px; }
+}
+/* ==== /Article components ==== */
+
+/* ==== ROI calculator ==== */
+button.industry-option { font: inherit; text-align: left; cursor: pointer; color: inherit; appearance: none; }
+button.industry-option:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.range-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14px; font-weight: var(--w-medium); line-height: 1.4; }
+.range-row output { font-weight: var(--w-regular); color: var(--text-2); font-variant-numeric: tabular-nums; }
+.result-value:empty::before { content: '—'; }
+@media (min-width: 1024px) { #resultsCard[hidden], #projection[hidden], #initialMessage[hidden] { display: none; } }
+/* ==== /ROI calculator ==== */

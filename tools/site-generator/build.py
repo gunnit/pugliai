@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from gen.site import shell  # noqa: E402
 
-MODULES = ['pages_home']
+MODULES = ['pages_home', 'pages_services', 'pages_products', 'pages_sectors', 'pages_about', 'pages_contact', 'pages_accelerator', 'pages_resources', 'pages_roi', 'pages_legal', 'articles']
 
 
 def write(page, body):

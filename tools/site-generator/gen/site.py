@@ -216,15 +216,16 @@ FOOTER = {
 
 def footer(page):
     f = FOOTER[page.lang]
-    p = page.prefix
+    p = page.prefix                                   # assets: relative to the site root
+    lp = page.prefix if page.lang == 'it' else ''     # page links: IT pages live at the root, EN pages in en/
     cols = ''.join(
-        f'<div class="footer__col"><h2>{esc(title)}</h2>' + ''.join(f'<a href="{p + href}">{esc(label)}</a>' for label, href in links) + '</div>'
+        f'<div class="footer__col"><h2>{esc(title)}</h2>' + ''.join(f'<a href="{lp + href}">{esc(label)}</a>' for label, href in links) + '</div>'
         for title, links in f['cols'])
-    legal = ''.join(f'<a href="{p + href}">{esc(label)}</a>' for label, href in f['legal'])
-    legal += f'<a href="{p}cookie.html" data-cookie-prefs>{esc(f["prefs"])}</a>'
+    legal = ''.join(f'<a href="{lp + href}">{esc(label)}</a>' for label, href in f['legal'])
+    legal += f'<a href="{lp}cookie.html" data-cookie-prefs>{esc(f["prefs"])}</a>'
     a1, a2 = ORG['addr1'], ORG['addr2']
     return (f'<footer class="footer" role="contentinfo"><div class="container"><div class="footer__top">'
-            f'<div class="footer__brand"><a class="footer__wordmark" href="{p}index.html"><img src="{p}src/assets/img/2026/mark.png" alt="" width="157" height="152">PugliAI</a>'
+            f'<div class="footer__brand"><a class="footer__wordmark" href="{lp}index.html"><img src="{p}src/assets/img/2026/mark.png" alt="" width="157" height="152">PugliAI</a>'
             f'<p class="footer__tagline">{esc(f["tagline"])}</p></div>'
             f'<nav class="footer__cols" aria-label="{esc(f["nav_label"])}">{cols}</nav></div>'
             f'<div class="footer__bottom"><div class="footer__legal">'

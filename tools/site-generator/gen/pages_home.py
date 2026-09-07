@@ -3,7 +3,7 @@ from .html import *
 from .site import Page, ld_org, ld_website, ld_webpage, ld_faq, offer, SITE, UPDATED_IT, UPDATED_EN, url_of
 
 IT = dict(
-    title='PugliAI — Consulenza AI, agenti e infrastrutture on-premise per le PMI italiane',
+    title='PugliAI — Consulenza AI e prodotti on-premise per le PMI italiane',
     description='Consulenza AI a prezzo fisso, agenti AI autonomi e prodotti on-premise per le piccole e medie imprese italiane. Sedi a Latiano (BR) e Bergamo. Primi risultati in 2–4 settimane.',
     h1='L’intelligenza artificiale al lavoro nella tua azienda.',
     sub='Consulenza, agenti AI e infrastrutture on-premise per le piccole e medie imprese italiane. Primi risultati in 2–4 settimane.',
@@ -63,7 +63,7 @@ IT = dict(
 )
 
 EN = dict(
-    title='PugliAI — AI consulting, agents and on-premise infrastructure for Italian SMEs',
+    title='PugliAI — AI consulting and on-premise products for Italian SMEs',
     description='Fixed-price AI consulting, autonomous AI agents and on-premise products for Italian small and mid-sized companies. Offices in Latiano (BR) and Bergamo. First results in 2–4 weeks.',
     h1='Artificial intelligence at work in your business.',
     sub='Consulting, AI agents and on-premise infrastructure for Italian small and mid-sized companies. First results in 2–4 weeks.',

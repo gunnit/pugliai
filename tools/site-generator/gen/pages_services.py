@@ -137,7 +137,7 @@ def consulenza(lang):
     if lang == 'it':
         spec = dict(
             path='consulenza-strategica.html', alt='en/strategic-consulting.html', chat=True,
-            title='Consulenza strategica AI per PMI: roadmap, business case, adozione | PugliAI',
+            title='Consulenza strategica AI per PMI: roadmap e ROI | PugliAI',
             description='Valutazione della maturità AI, roadmap con priorità e KPI, business case e change management. Consulenza pensata per CEO e direzioni di PMI, senza competenze tecniche richieste.',
             eyebrow='Consulenza strategica', h1='Una strategia AI che parte dai numeri della tua azienda.',
             lead='Guidiamo le PMI dalla valutazione iniziale al piano esecutivo: opportunità ordinate per ritorno atteso, tempi realistici e responsabilità chiare.',
@@ -174,7 +174,7 @@ def consulenza(lang):
     else:
         spec = dict(
             path='en/strategic-consulting.html', alt='consulenza-strategica.html', chat=True,
-            title='AI strategy consulting for SMEs: roadmap, business case, adoption | PugliAI',
+            title='AI strategy consulting for SMEs: roadmap and ROI | PugliAI',
             description='AI maturity assessment, prioritised roadmap with KPIs, business case and change management. Consulting designed for CEOs and management of SMEs, no technical skills required.',
             eyebrow='Strategic consulting', h1='An AI strategy that starts from your company’s numbers.',
             lead='We guide SMEs from the initial assessment to the execution plan: opportunities ranked by expected return, realistic timelines and clear responsibilities.',
@@ -225,8 +225,8 @@ def agenti(lang):
     if lang == 'it':
         spec = dict(
             path='agenti-ai.html', alt='en/ai-agents.html', chat=True,
-            title='Agenti AI per PMI: assistenti conversazionali e agenti autonomi | PugliAI',
-            description='Agenti AI su misura per le PMI: dagli assistenti conversazionali agli agenti autonomi che eseguono processi end-to-end sui tuoi sistemi tramite MCP, con supervisione umana sui passaggi critici. Da €490/mese.',
+            title='Agenti AI per PMI: assistenti e agenti autonomi | PugliAI',
+            description='Agenti AI per le PMI: assistenti conversazionali e agenti autonomi che eseguono processi sui tuoi sistemi via MCP, con supervisione umana. Da €490/mese.',
             eyebrow='Agenti AI · Novità 2026', h1='Agenti AI che eseguono, non solo rispondono.',
             lead='Dai chatbot per il servizio clienti agli agenti autonomi che leggono i dati dai tuoi sistemi, pianificano ed eseguono attività complete. Con supervisione umana sui passaggi critici.',
             cta=('Prenota la sessione strategica', 'sessione-strategica.html'), ghost=('Vedi l’hosting MCP', 'hosting-mcp.html'),
@@ -272,7 +272,7 @@ def agenti(lang):
     else:
         spec = dict(
             path='en/ai-agents.html', alt='agenti-ai.html', chat=True,
-            title='AI agents for SMEs: conversational assistants and autonomous agents | PugliAI',
+            title='AI agents for SMEs: assistants and autonomous agents | PugliAI',
             description='Custom AI agents for SMEs: from conversational assistants to autonomous agents that run end-to-end processes on your systems via MCP, with human oversight on critical steps. From €490/month.',
             eyebrow='AI agents · New in 2026', h1='AI agents that execute, not just answer.',
             lead='From customer-service chatbots to autonomous agents that read data from your systems, plan and execute complete tasks. With human oversight on critical steps.',
@@ -325,7 +325,7 @@ def infrastrutture(lang):
     if lang == 'it':
         spec = dict(
             path='infrastrutture-ai.html', alt='en/ai-infrastructure.html', chat=True,
-            title='Infrastrutture AI per PMI: on-premise, cloud privato e ibride | PugliAI',
+            title='Infrastrutture AI per PMI: on-premise e cloud privato | PugliAI',
             description='Progettiamo e gestiamo l’infrastruttura su cui gira l’AI della tua azienda: server on-premise, cloud privato europeo o architetture ibride, con monitoraggio, sicurezza e conformità al GDPR.',
             eyebrow='Infrastrutture AI', h1='L’infrastruttura giusta perché l’AI giri dove vuoi tu.',
             lead='Server on-premise, cloud privato europeo o architetture ibride: progettiamo, installiamo e gestiamo la base tecnica dei tuoi progetti AI, con sicurezza e costi prevedibili.',
@@ -364,7 +364,7 @@ def infrastrutture(lang):
     else:
         spec = dict(
             path='en/ai-infrastructure.html', alt='infrastrutture-ai.html', chat=True,
-            title='AI infrastructure for SMEs: on-premise, private cloud and hybrid | PugliAI',
+            title='AI infrastructure: on-premise, private cloud, hybrid | PugliAI',
             description='We design and run the infrastructure your company’s AI runs on: on-premise servers, European private cloud or hybrid architectures, with monitoring, security and GDPR compliance.',
             eyebrow='AI infrastructure', h1='The right infrastructure so AI runs where you want it.',
             lead='On-premise servers, European private cloud or hybrid architectures: we design, install and run the technical base of your AI projects, with security and predictable costs.',

@@ -6,7 +6,7 @@ from .templates import CTA_DEFAULT, FAQ_TITLE
 IT = dict(
     path='chi-siamo.html', alt='en/about-us.html',
     title='Chi siamo: il team di consulenza AI per le PMI italiane | PugliAI',
-    description='PugliAI è una società di consulenza AI fondata nel 2023 da Gregor Marić, con sede a Latiano (Brindisi) e Bergamo. Affianchiamo le PMI italiane nell’adozione dell’intelligenza artificiale con percorsi a prezzo fisso e risultati misurabili.',
+    description='Consulenza AI fondata nel 2023 da Gregor Marić, con sedi a Latiano (Brindisi) e Bergamo: affianchiamo le PMI italiane nell’adozione dell’AI con percorsi a prezzo fisso.',
     eyebrow='Chi siamo', h1='Un team italiano che porta l’AI nelle PMI.',
     lead='Fondata nel 2023 da Gregor Marić, PugliAI ha sede a Latiano (Brindisi) e a Bergamo. Affianchiamo le piccole e medie imprese italiane nell’adozione dell’intelligenza artificiale.',
     photo_alt='Il team PugliAI riunito all’aperto in una masseria pugliese', photo_caption='Il team al lavoro in masseria, in Puglia',
@@ -50,7 +50,7 @@ IT = dict(
 EN = dict(
     path='en/about-us.html', alt='chi-siamo.html',
     title='About us: the AI consulting team for Italian SMEs | PugliAI',
-    description='PugliAI is an AI consulting firm founded in 2023 by Gregor Marić, based in Latiano (Brindisi) and Bergamo. We support Italian SMEs in adopting artificial intelligence with fixed-price programmes and measurable results.',
+    description='AI consulting firm founded in 2023 by Gregor Marić, based in Latiano (Brindisi) and Bergamo: we help Italian SMEs adopt AI with fixed-price programmes.',
     eyebrow='About us', h1='An Italian team bringing AI to SMEs.',
     lead='Founded in 2023 by Gregor Marić, PugliAI is based in Latiano (Brindisi) and Bergamo. We support Italian small and mid-sized companies in adopting artificial intelligence.',
     photo_alt='The PugliAI team gathered outdoors at a farmhouse in Puglia', photo_caption='The team at work in a masseria, Puglia',
@@ -129,7 +129,7 @@ def chi_siamo(lang):
 FD_IT = dict(
     path='gregor-maric.html', alt='en/gregor-maric.html',
     title='Gregor Marić — Fondatore e CEO di PugliAI | PugliAI',
-    description='Gregor Marić è fondatore e CEO di PugliAI. Imprenditore, autore di «Oltre il divario digitale» e speaker: da oltre quindici anni lavora su automazione e intelligenza artificiale applicate ai processi aziendali.',
+    description='Fondatore e CEO di PugliAI, autore di «Oltre il divario digitale» e speaker: da oltre quindici anni lavora su automazione e AI applicate ai processi aziendali.',
     eyebrow='Il fondatore', h1='Gregor Marić, fondatore e CEO di PugliAI.',
     lead='Imprenditore, autore e speaker. Da oltre quindici anni lavora su automazione e intelligenza artificiale applicate ai processi aziendali; dal 2023 guida PugliAI nell’adozione dell’AI da parte delle PMI italiane.',
     img_alt='Gregor Marić parla al microfono durante un evento',
@@ -156,7 +156,7 @@ FD_IT = dict(
 FD_EN = dict(
     path='en/gregor-maric.html', alt='gregor-maric.html',
     title='Gregor Marić — Founder and CEO of PugliAI | PugliAI',
-    description='Gregor Marić is the founder and CEO of PugliAI. Entrepreneur, author of «Oltre il divario digitale» and speaker: for over fifteen years he has worked on automation and artificial intelligence applied to business processes.',
+    description='Founder and CEO of PugliAI, author of «Oltre il divario digitale» and speaker: over fifteen years of automation and AI applied to business processes.',
     eyebrow='The founder', h1='Gregor Marić, founder and CEO of PugliAI.',
     lead='Entrepreneur, author and speaker. For over fifteen years he has worked on automation and artificial intelligence applied to business processes; since 2023 he has led PugliAI in helping Italian SMEs adopt AI.',
     img_alt='Gregor Marić speaking into a microphone at an event',

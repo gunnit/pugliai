@@ -33,8 +33,8 @@ def prodotti(lang):
         ]
         spec = dict(
             path='prodotti.html', alt='en/products.html', chat=True,
-            title='Prodotti AI on-premise per PMI: VoiceAI, KnowledgeAI, hosting MCP, agenti | PugliAI',
-            description='Quattro prodotti AI installati sui server della tua azienda: VoiceAI On-Premise, KnowledgeAI Enterprise, hosting MCP e agenti AI autonomi. Nessun dato nel cloud di terzi, conformità al GDPR, costi definiti in anticipo.',
+            title='Prodotti AI on-premise: VoiceAI, KnowledgeAI, MCP | PugliAI',
+            description='Quattro prodotti AI installati sui server della tua azienda: VoiceAI On-Premise, KnowledgeAI Enterprise, hosting MCP e agenti AI autonomi. Nessun dato nel cloud di terzi.',
             eyebrow='Prodotti on-premise', h1='Soluzioni AI pronte, installate sui tuoi server.',
             lead='Quattro prodotti che girano nella tua infrastruttura: nessun dato nel cloud di terzi, latenza minima, costi definiti in anticipo.',
             cta=('Richiedi una demo', 'contatti.html'), ghost=('On-premise o cloud?', '#confronto'),
@@ -53,7 +53,7 @@ def prodotti(lang):
                     ('Dove risiedono i dati', 'Sui tuoi server', 'Su server di terzi'),
                     ('Latenza', 'Inferiore a 200 ms in rete locale', 'Dipende dalla connessione'),
                     ('GDPR e AI Act', 'Conformità garantita, senza trasferimenti di dati', 'Da verificare per ogni fornitore'),
-                    ('Costi', 'Definiti in anticipo', 'Variabili in base all’uso')]),
+                    ('Costi', 'Definiti in anticipo', 'Variabili in base all’uso')], 'confronto'),
                 BAND['it'],
                 ('faq', [
                     ('Cosa sono i prodotti AI on-premise?', 'Soluzioni di intelligenza artificiale installate nell’infrastruttura IT della tua azienda anziché nel cloud di un fornitore. I dati non lasciano mai i tuoi server: massima riservatezza, conformità al GDPR e nessuna dipendenza da servizi esterni.'),
@@ -78,8 +78,8 @@ def prodotti(lang):
     ]
     spec = dict(
         path='en/products.html', alt='prodotti.html', chat=True,
-        title='On-premise AI products for SMEs: VoiceAI, KnowledgeAI, MCP hosting, agents | PugliAI',
-        description='Four AI products installed on your company’s servers: VoiceAI On-Premise, KnowledgeAI Enterprise, MCP hosting and autonomous AI agents. No data in third-party clouds, GDPR compliance, costs set upfront.',
+        title='On-premise AI products: VoiceAI, KnowledgeAI, MCP | PugliAI',
+        description='Four AI products installed on your servers: VoiceAI On-Premise, KnowledgeAI Enterprise, MCP hosting and autonomous agents. No data in third-party clouds.',
         eyebrow='On-premise products', h1='Ready-made AI solutions, installed on your servers.',
         lead='Four products that run inside your infrastructure: no data in third-party clouds, minimal latency, costs set upfront.',
         cta=('Request a demo', 'contact.html'), ghost=('On-premise or cloud?', '#comparison'),
@@ -98,7 +98,7 @@ def prodotti(lang):
                 ('Where data lives', 'On your servers', 'On third-party servers'),
                 ('Latency', 'Under 200 ms on the local network', 'Depends on the connection'),
                 ('GDPR and AI Act', 'Guaranteed compliance, no data transfers', 'To be verified for each vendor'),
-                ('Costs', 'Set upfront', 'Variable with usage')]),
+                ('Costs', 'Set upfront', 'Variable with usage')], 'comparison'),
             BAND['en'],
             ('faq', [
                 ('What are on-premise AI products?', 'Artificial-intelligence solutions installed in your company’s IT infrastructure rather than in a vendor’s cloud. Data never leaves your servers: maximum confidentiality, GDPR compliance and no dependence on external services.'),
@@ -123,8 +123,8 @@ def voiceai(lang):
     if lang == 'it':
         spec = dict(
             path='voiceai-on-premise.html', alt='en/voiceai-on-premise.html', chat=False,
-            title='VoiceAI On-Premise: assistente vocale AI per centralino e servizio clienti | PugliAI',
-            description='Assistente vocale AI installato sui server della tua azienda: centralino intelligente, servizio clienti 24 ore su 24, trascrizione delle chiamate, integrazione con CRM e gestionale. Da €25.000, IVA esclusa.',
+            title='VoiceAI On-Premise: assistente vocale AI aziendale | PugliAI',
+            description='Assistente vocale AI installato sui server della tua azienda: centralino intelligente, servizio clienti 24 ore su 24, integrazione con CRM e gestionale. Da €25.000.',
             eyebrow='Prodotto on-premise', h1='VoiceAI On-Premise: l’assistente vocale che risponde per la tua azienda.',
             lead='Centralino intelligente, servizio clienti 24 ore su 24 e trascrizione delle chiamate. Tutto sui tuoi server: nessun dato vocale su cloud esterni.',
             cta=('Richiedi una demo', 'contatti.html'), ghost=('Vedi i prezzi', '#prezzi'),
@@ -163,7 +163,7 @@ def voiceai(lang):
     else:
         spec = dict(
             path='en/voiceai-on-premise.html', alt='voiceai-on-premise.html', chat=False,
-            title='VoiceAI On-Premise: AI voice assistant for switchboard and customer service | PugliAI',
+            title='VoiceAI On-Premise: AI voice assistant | PugliAI',
             description='An AI voice assistant installed on your company’s servers: intelligent switchboard, 24/7 customer service, call transcription, CRM and ERP integration. From €25,000, VAT excluded.',
             eyebrow='On-premise product', h1='VoiceAI On-Premise: the voice assistant that answers for your company.',
             lead='Intelligent switchboard, 24/7 customer service and call transcription. All on your servers: no voice data on external clouds.',
@@ -209,8 +209,8 @@ def knowledgeai(lang):
     if lang == 'it':
         spec = dict(
             path='knowledgeai-enterprise.html', alt='en/knowledgeai-enterprise.html', chat=False,
-            title='KnowledgeAI Enterprise: chat RAG on-premise sui documenti aziendali | PugliAI',
-            description='Chat aziendale che interroga manuali, contratti e procedure con tecnologia RAG, installata sui tuoi server. Risposte con la fonte citata, permessi per ruolo, tracciabilità completa. Da €30.000, IVA esclusa.',
+            title='KnowledgeAI Enterprise: chat RAG on-premise | PugliAI',
+            description='Chat aziendale che interroga manuali, contratti e procedure con tecnologia RAG, installata sui tuoi server: fonte citata, permessi per ruolo, tracciabilità. Da €30.000.',
             eyebrow='Prodotto on-premise', h1='KnowledgeAI Enterprise: le risposte sono nei tuoi documenti.',
             lead='Una chat che interroga manuali, contratti e procedure con tecnologia RAG e cita sempre la fonte. Installata sui tuoi server, con permessi per ruolo e tracciabilità completa.',
             cta=('Richiedi una demo', 'contatti.html'), ghost=('Vedi i prezzi', '#prezzi'),
@@ -259,8 +259,8 @@ def knowledgeai(lang):
     else:
         spec = dict(
             path='en/knowledgeai-enterprise.html', alt='knowledgeai-enterprise.html', chat=False,
-            title='KnowledgeAI Enterprise: on-premise RAG chat on company documents | PugliAI',
-            description='A company chat that queries manuals, contracts and procedures with RAG technology, installed on your servers. Answers with cited sources, permissions per role, full traceability. From €30,000, VAT excluded.',
+            title='KnowledgeAI Enterprise: on-premise RAG chat | PugliAI',
+            description='A company chat that queries manuals, contracts and procedures with RAG, installed on your servers: cited sources, permissions per role, full traceability. From €30,000.',
             eyebrow='On-premise product', h1='KnowledgeAI Enterprise: the answers are in your documents.',
             lead='A chat that queries manuals, contracts and procedures with RAG technology and always cites the source. Installed on your servers, with permissions per role and full traceability.',
             cta=('Request a demo', 'contact.html'), ghost=('See pricing', '#pricing'),
@@ -315,8 +315,8 @@ def hosting_mcp(lang):
     if lang == 'it':
         spec = dict(
             path='hosting-mcp.html', alt='en/mcp-hosting.html', chat=False,
-            title='Hosting MCP on-premise: server Model Context Protocol gestiti | PugliAI',
-            description='Ospitiamo e gestiamo i server MCP (Model Context Protocol) sulla tua infrastruttura: i tuoi agenti AI accedono a gestionale, CRM e documenti in modo controllato e tracciato. Da €290 al mese, IVA esclusa.',
+            title='Hosting MCP on-premise: server MCP gestiti | PugliAI',
+            description='Server MCP (Model Context Protocol) gestiti sulla tua infrastruttura: gli agenti AI accedono a gestionale, CRM e documenti in modo controllato e tracciato. Da €290 al mese.',
             eyebrow='Prodotto on-premise · Novità 2026', h1='Hosting MCP: collega l’AI ai tuoi sistemi, senza far uscire i dati.',
             lead='Installiamo, configuriamo e gestiamo i server Model Context Protocol sulla tua infrastruttura. Modelli e agenti AI accedono a gestionale, CRM, ERP e documenti con permessi granulari e registro di ogni accesso.',
             cta=('Richiedi una valutazione gratuita', 'contatti.html'), ghost=('Vedi i prezzi', '#prezzi'),
@@ -362,7 +362,7 @@ def hosting_mcp(lang):
     else:
         spec = dict(
             path='en/mcp-hosting.html', alt='hosting-mcp.html', chat=False,
-            title='On-premise MCP hosting: managed Model Context Protocol servers | PugliAI',
+            title='On-premise MCP hosting: managed MCP servers | PugliAI',
             description='We host and manage MCP (Model Context Protocol) servers on your infrastructure: your AI agents access ERP, CRM and documents in a controlled, logged way. From €290 per month, VAT excluded.',
             eyebrow='On-premise product · New in 2026', h1='MCP hosting: connect AI to your systems without letting data out.',
             lead='We install, configure and manage Model Context Protocol servers on your infrastructure. AI models and agents access ERP, CRM and documents with granular permissions and a log of every access.',
