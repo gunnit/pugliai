@@ -188,7 +188,7 @@ def build(lang):
 
     founder = section(
         f'<div class="grid grid--5-7 card card--flush" style="gap:0;">'
-        f'<img src="{a("src/assets/img/team/gregor_givingspeach.png")}" alt="{esc(c["fd_alt"])}" loading="lazy" style="width:100%;height:100%;min-height:280px;object-fit:cover;">'
+        f'<img src="{a("src/assets/img/2026/founder-stage.jpg")}" alt="{esc(c["fd_alt"])}" loading="lazy" style="width:100%;height:100%;min-height:280px;object-fit:cover;">'
         f'<div class="stack" style="padding:32px;justify-content:center;">{eyebrow(c["fd_eyebrow"])}<h2 class="h3">{esc(c["fd_h3"])}</h2>'
         f'<p class="muted" style="margin:0;">{esc(c["fd_body"])}</p><div>{link(c["fd_link"], c["fd_href"])}</div></div></div>', cls='section--flush-top')
 
