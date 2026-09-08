@@ -73,7 +73,7 @@ def risorse(lang):
             ('cta_default',),
         ]
         spec = dict(path='risorse.html', alt='en/resources.html',
-                    title='Risorse AI per PMI: guide, calcolatore ROI, scenari | PugliAI',
+                    title='Risorse AI per PMI: guide e calcolatore ROI | PugliAI',
                     description=f'{N_GUIDES} guide gratuite sull’AI per le PMI italiane, un calcolatore ROI con ipotesi dichiarate, scenari per settore, prezzi e percorsi formativi. Senza registrazione.',
                     eyebrow='Risorse', h1='Guide, strumenti e articoli per portare l’AI in azienda.',
                     lead=f'{N_GUIDES} guide gratuite, un calcolatore ROI con ipotesi dichiarate, scenari per settore e i percorsi formativi PugliAI. Tutto consultabile online, senza registrazione.',
@@ -104,8 +104,8 @@ def risorse(lang):
         ('cta_default',),
     ]
     spec = dict(path='en/resources.html', alt='risorse.html',
-                title='AI resources for SMEs: calculator, scenarios, guides | PugliAI',
-                description=f'Free AI resources for SMEs: an ROI calculator with stated assumptions, sector scenarios, pricing, training paths and a CEO guide, plus {N_GUIDES} in-depth guides in Italian.',
+                title='AI resources for SMEs: guides and ROI calculator | PugliAI',
+                description=f'Free AI resources for SMEs: an ROI calculator with stated assumptions, sector scenarios, pricing, training paths and {N_GUIDES} in-depth guides in Italian.',
                 eyebrow='Resources', h1='Guides, tools and articles to bring AI into your company.',
                 lead=f'A free ROI calculator with stated assumptions, sector scenarios, transparent pricing, training paths and a guide for CEOs. Plus a library of {N_GUIDES} in-depth guides in Italian. No sign-up required.',
                 breadcrumb=[('Home', 'index.html'), ('Resources', '')], crumb_urls=['en/index.html', 'en/resources.html'],
@@ -152,7 +152,7 @@ def formative(lang):
         ]
         spec = dict(path='risorse-formative.html', alt='en/training-resources.html',
                     title='Formazione AI per PMI: dirigenti e team tecnici | PugliAI',
-                    description='Percorsi formativi PugliAI sull’AI: programma per dirigenti, percorso tecnico per sviluppatori e formazione aziendale su misura. In sede o da remoto, con guide gratuite.',
+                    description='Percorsi formativi PugliAI sull’AI: programma per dirigenti, percorso tecnico per sviluppatori e formazione aziendale su misura. In sede o da remoto.',
                     eyebrow='Risorse formative', h1='Formazione AI per il tuo team, dai dirigenti agli sviluppatori.',
                     lead='Tre percorsi formativi e una libreria di guide gratuite. In sede o da remoto, con esercitazioni sui processi della tua impresa.',
                     cta=('Richiedi informazioni', 'contatti.html'), ghost=('Vedi le guide gratuite', 'risorse.html'),
@@ -195,8 +195,8 @@ def formative(lang):
         ('cta_default',),
     ]
     spec = dict(path='en/training-resources.html', alt='risorse-formative.html',
-                title='AI training for SMEs: executive and technical paths | PugliAI',
-                description='PugliAI AI training paths: an executive programme, a technical path for developers and tailored corporate training. On site or remote, with free guides and materials.',
+                title='AI training for SMEs: executives and tech teams | PugliAI',
+                description='PugliAI AI training paths: an executive programme, a technical path for developers and tailored corporate training. On site or remote, with free guides.',
                 eyebrow='Training resources', h1='AI training for your team, from executives to developers.',
                 lead='Three training paths and a library of free guides. On site or remote, with exercises on your company’s own processes.',
                 cta=('Request information', 'contact.html'), ghost=('See the free resources', 'resources.html'),
@@ -390,7 +390,7 @@ def investimenti(lang):
         ]
         spec = dict(path='investimenti-ai.html', alt='en/ai-investment.html',
                     title='Prezzi AI per PMI: percorsi, prodotti e garanzia | PugliAI',
-                    description='Prezzi trasparenti per l’AI nelle PMI: percorsi da €15.000, prodotti on-premise da €25.000, hosting MCP da €290 al mese. Garanzia contrattuale di ROI, nessun costo nascosto.',
+                    description='Prezzi trasparenti per l’AI nelle PMI: percorsi da €15.000, prodotti on-premise da €25.000, hosting MCP da €290 al mese. Garanzia contrattuale di ROI.',
                     eyebrow='Investimenti e prezzi', h1='Quanto costa portare l’AI nella tua impresa.',
                     lead='Prezzi pubblici, definiti prima di iniziare. Tre percorsi di consulenza, quattro prodotti on-premise e una garanzia contrattuale sul ritorno dell’investimento.',
                     cta=('Richiedi un preventivo', 'sessione-strategica.html'), ghost=('Calcola il tuo ROI', 'roi-calculator.html'),
@@ -437,7 +437,7 @@ def investimenti(lang):
         ('cta_default',),
     ]
     spec = dict(path='en/ai-investment.html', alt='investimenti-ai.html',
-                title='AI pricing for SMEs: programmes, products, guarantee | PugliAI',
+                title='AI pricing for SMEs: programmes and products | PugliAI',
                 description='AI pricing for SMEs: programmes from €15,000, on-premise products from €25,000, MCP hosting from €290 a month. Contractual ROI guarantee, no hidden costs.',
                 eyebrow='Investment and pricing', h1='What it costs to bring AI into your company.',
                 lead='Public prices, set before we start. Three consulting programmes, four on-premise products and a contractual guarantee on the return on investment.',
@@ -484,7 +484,7 @@ def guida_ceo_it():
         ('cta_default',),
     ]
     spec = dict(path='guida-ai-ceo-2025.html', alt='en/ceo-ai-guide-2025.html',
-                title=f'Guida AI per CEO italiani 2026: {total} articoli per PMI | PugliAI',
+                title=f'Guida AI per CEO 2026: {total} articoli per le PMI | PugliAI',
                 description=f'{total} articoli gratuiti per adottare l’intelligenza artificiale in una PMI: AI Act, agenti AI, costi, ROI, competenze, settori e leadership. Aggiornata al 2026.',
                 eyebrow='Guida AI per CEO · edizione 2026', h1='La guida all’intelligenza artificiale per chi guida una PMI.',
                 lead=f'{total} articoli in {len(CEO_CATS)} aree tematiche: normativa, implementazione, costi e ROI, competenze, settori, leadership. Gratuita, consultabile online, senza registrazione.',
@@ -575,8 +575,8 @@ def guida_ceo_en():
         ('cta_default',),
     ]
     spec = dict(path='en/ceo-ai-guide-2025.html', alt='guida-ai-ceo-2025.html',
-                title='AI guide for CEOs 2026: strategy, leadership, AI Act | PugliAI',
-                description='A free six-chapter AI guide for CEOs of SMEs: adoption in Italy, where AI pays off first, a strategy that fits, leadership, the EU AI Act and a 90-day action plan.',
+                title='AI guide for CEOs 2026: strategy and the AI Act | PugliAI',
+                description='A free six-chapter AI guide for CEOs of SMEs: adoption in Italy, where AI pays off first, strategy, leadership, the EU AI Act and a 90-day action plan.',
                 eyebrow='AI guide for CEOs · 2026 edition', h1='Artificial intelligence for the people who run a company.',
                 lead='A free six-chapter guide for CEOs and founders of small and mid-sized companies: where adoption stands, what to do first, how to lead the change and how to stay compliant with the EU AI Act. No sign-up required.',
                 breadcrumb=[('Home', 'index.html'), ('Resources', 'resources.html'), ('AI guide for CEOs', '')], crumb_urls=['en/index.html', 'en/resources.html', 'en/ceo-ai-guide-2025.html'],

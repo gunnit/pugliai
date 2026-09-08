@@ -9,13 +9,23 @@ FORMCARRY = 'https://formcarry.com/s/xWKwXtJvS4C'
 FORMCARRY_ACCELERATOR = 'https://formcarry.com/s/accelerator-pugliai'
 CHAT_WIDGET = '<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>'
 OG_IMAGE = SITE + '/src/assets/img/2026/og-pugliai-2026.jpg'
+OG_IMAGE_SIZE = ('1200', '630')
+OG_IMAGE_ALT = {'it': 'PugliAI — consulenza AI e prodotti on-premise per le PMI italiane',
+                'en': 'PugliAI — AI consulting and on-premise products for Italian SMEs'}
 LOGO_URL = SITE + '/src/assets/img/pugliai_pittogramma.png'
 UPDATED = '2026-09-07'
 UPDATED_IT = '7 settembre 2026'
 UPDATED_EN = '7 September 2026'
 
+# Footer copyright. COPYRIGHT_FROM is the year the company was founded; bump
+# COPYRIGHT_YEAR every January and rebuild — the site is static, so nothing
+# updates it on its own.
+COPYRIGHT_FROM = '2023'
+COPYRIGHT_YEAR = '2026'
+
 ORG = {
     'name': 'PugliAI', 'legal': 'PugliAI S.r.l.', 'vat': 'IT02735920742', 'rea': 'BR-170874',
+    'capital_it': '€10.000 i.v.', 'capital_en': '€10,000 fully paid',
     'email': 'sales@pugliai.com', 'founded': '2023',
     'addr1': ('Via Giovanni Forleo 45', 'Latiano', 'BR', '72022'),
     'addr2': ('Via Angelo Maj 16', 'Bergamo', 'BG', '24121'),
@@ -34,6 +44,7 @@ class Page:
     alt: str | None = None    # path of the other-language mirror
     og_image: str = OG_IMAGE
     og_type: str = 'website'
+    canonical: str | None = None   # set when the page is superseded and points elsewhere
     jsonld: list = field(default_factory=list)
     noindex: bool = False
     chat: bool = False
@@ -60,6 +71,10 @@ class Page:
         if self.path == 'en/index.html':
             return SITE + '/en/'
         return SITE + '/' + self.path
+
+    @property
+    def canonical_url(self):
+        return self.canonical or self.url
 
     def asset(self, rel):
         return self.prefix + rel
@@ -197,6 +212,8 @@ FOOTER = {
         'prefs': 'Preferenze cookie',
         'reply': 'Risposta entro 2 ore lavorative, lun–ven 9:00–18:00',
         'nav_label': 'Link del footer',
+        'rights': 'Tutti i diritti riservati',
+        'vat_label': 'P.IVA', 'capital_label': 'Capitale sociale', 'capital': ORG['capital_it'],
     },
     'en': {
         'cols': [
@@ -210,6 +227,8 @@ FOOTER = {
         'prefs': 'Cookie preferences',
         'reply': 'Reply within 2 business hours, Mon–Fri 9:00–18:00 CET',
         'nav_label': 'Footer links',
+        'rights': 'All rights reserved',
+        'vat_label': 'VAT', 'capital_label': 'Share capital', 'capital': ORG['capital_en'],
     },
 }
 
@@ -229,7 +248,8 @@ def footer(page):
             f'<p class="footer__tagline">{esc(f["tagline"])}</p></div>'
             f'<nav class="footer__cols" aria-label="{esc(f["nav_label"])}">{cols}</nav></div>'
             f'<div class="footer__bottom"><div class="footer__legal">'
-            f'<p>© 2026 {ORG["legal"]} · P.IVA {ORG["vat"]}</p>'
+            f'<p>© {COPYRIGHT_FROM}–{COPYRIGHT_YEAR} {ORG["legal"]} · {esc(f["rights"])}</p>'
+            f'<p>{esc(f["vat_label"])} {ORG["vat"]} · REA {ORG["rea"]} · {esc(f["capital_label"])} {esc(f["capital"])}</p>'
             f'<p>{a1[0]}, {a1[3]} {a1[1]} ({a1[2]}) · {a2[0]}, {a2[3]} {a2[1]} ({a2[2]})</p>'
             f'<p><a href="mailto:{ORG["email"]}">{ORG["email"]}</a> · {esc(f["reply"])}</p></div>'
             f'<div class="footer__links">{legal}</div></div></div></footer>')
@@ -261,6 +281,7 @@ def head(page):
     x_default = url_of(it_path) if it_path else page.url
     hreflang += f'\n    <link rel="alternate" hreflang="x-default" href="{x_default}">'
     locale = 'it_IT' if page.lang == 'it' else 'en_US'
+    og_alt = OG_IMAGE_ALT[page.lang] if page.og_image == OG_IMAGE else page.title
     alt_locale = 'en_US' if page.lang == 'it' else 'it_IT'
     robots = '\n    <meta name="robots" content="noindex, follow">' if page.noindex else ''
     ld = ''.join(f'\n    <script type="application/ld+json">{json.dumps(d, ensure_ascii=False)}</script>' for d in page.jsonld)
@@ -272,12 +293,15 @@ def head(page):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{esc(page.title)}</title>
     <meta name="description" content="{esc(page.description)}">{robots}
-    <link rel="canonical" href="{page.url}">{hreflang}
+    <link rel="canonical" href="{page.canonical_url}">{hreflang}
     <meta property="og:title" content="{esc(page.title)}">
     <meta property="og:description" content="{esc(page.description)}">
     <meta property="og:type" content="{page.og_type}">
     <meta property="og:url" content="{page.url}">
     <meta property="og:image" content="{page.og_image}">
+    <meta property="og:image:width" content="{OG_IMAGE_SIZE[0]}">
+    <meta property="og:image:height" content="{OG_IMAGE_SIZE[1]}">
+    <meta property="og:image:alt" content="{esc(og_alt)}">
     <meta property="og:site_name" content="PugliAI">
     <meta property="og:locale" content="{locale}">
     <meta property="og:locale:alternate" content="{alt_locale}">
@@ -285,9 +309,11 @@ def head(page):
     <meta name="twitter:title" content="{esc(page.title)}">
     <meta name="twitter:description" content="{esc(page.description)}">
     <meta name="twitter:image" content="{page.og_image}">
+    <meta name="twitter:image:alt" content="{esc(og_alt)}">
     <meta name="twitter:site" content="@PugliAI">
     <meta name="theme-color" content="#f2f0eb">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="preload" href="{p}src/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{p}src/assets/css/stylesheet.css">
     {ga_snippet()}{ld}{page.extra_head}

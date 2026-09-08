@@ -34,7 +34,7 @@ def prodotti(lang):
         spec = dict(
             path='prodotti.html', alt='en/products.html', chat=True,
             title='Prodotti AI on-premise: VoiceAI, KnowledgeAI, MCP | PugliAI',
-            description='Quattro prodotti AI installati sui server della tua azienda: VoiceAI On-Premise, KnowledgeAI Enterprise, hosting MCP e agenti AI autonomi. Nessun dato nel cloud di terzi.',
+            description='Quattro prodotti AI sui server della tua azienda: VoiceAI On-Premise, KnowledgeAI Enterprise, hosting MCP e agenti autonomi. Nessun dato nel cloud di terzi.',
             eyebrow='Prodotti on-premise', h1='Soluzioni AI pronte, installate sui tuoi server.',
             lead='Quattro prodotti che girano nella tua infrastruttura: nessun dato nel cloud di terzi, latenza minima, costi definiti in anticipo.',
             cta=('Richiedi una demo', 'contatti.html'), ghost=('On-premise o cloud?', '#confronto'),
@@ -124,7 +124,7 @@ def voiceai(lang):
         spec = dict(
             path='voiceai-on-premise.html', alt='en/voiceai-on-premise.html', chat=False,
             title='VoiceAI On-Premise: assistente vocale AI aziendale | PugliAI',
-            description='Assistente vocale AI installato sui server della tua azienda: centralino intelligente, servizio clienti 24 ore su 24, integrazione con CRM e gestionale. Da €25.000.',
+            description='Assistente vocale AI sui server della tua azienda: centralino intelligente, servizio clienti 24 ore su 24, integrazione con CRM e gestionale. Da €25.000.',
             eyebrow='Prodotto on-premise', h1='VoiceAI On-Premise: l’assistente vocale che risponde per la tua azienda.',
             lead='Centralino intelligente, servizio clienti 24 ore su 24 e trascrizione delle chiamate. Tutto sui tuoi server: nessun dato vocale su cloud esterni.',
             cta=('Richiedi una demo', 'contatti.html'), ghost=('Vedi i prezzi', '#prezzi'),
@@ -164,7 +164,7 @@ def voiceai(lang):
         spec = dict(
             path='en/voiceai-on-premise.html', alt='voiceai-on-premise.html', chat=False,
             title='VoiceAI On-Premise: AI voice assistant | PugliAI',
-            description='An AI voice assistant installed on your company’s servers: intelligent switchboard, 24/7 customer service, call transcription, CRM and ERP integration. From €25,000, VAT excluded.',
+            description='An AI voice assistant on your company’s servers: intelligent switchboard, 24/7 customer service, call transcription, CRM and ERP integration. From €25,000.',
             eyebrow='On-premise product', h1='VoiceAI On-Premise: the voice assistant that answers for your company.',
             lead='Intelligent switchboard, 24/7 customer service and call transcription. All on your servers: no voice data on external clouds.',
             cta=('Request a demo', 'contact.html'), ghost=('See pricing', '#pricing'),
@@ -210,7 +210,7 @@ def knowledgeai(lang):
         spec = dict(
             path='knowledgeai-enterprise.html', alt='en/knowledgeai-enterprise.html', chat=False,
             title='KnowledgeAI Enterprise: chat RAG on-premise | PugliAI',
-            description='Chat aziendale che interroga manuali, contratti e procedure con tecnologia RAG, installata sui tuoi server: fonte citata, permessi per ruolo, tracciabilità. Da €30.000.',
+            description='Chat aziendale che interroga manuali, contratti e procedure con tecnologia RAG, sui tuoi server: fonte citata, permessi per ruolo. Da €30.000.',
             eyebrow='Prodotto on-premise', h1='KnowledgeAI Enterprise: le risposte sono nei tuoi documenti.',
             lead='Una chat che interroga manuali, contratti e procedure con tecnologia RAG e cita sempre la fonte. Installata sui tuoi server, con permessi per ruolo e tracciabilità completa.',
             cta=('Richiedi una demo', 'contatti.html'), ghost=('Vedi i prezzi', '#prezzi'),
@@ -260,7 +260,7 @@ def knowledgeai(lang):
         spec = dict(
             path='en/knowledgeai-enterprise.html', alt='knowledgeai-enterprise.html', chat=False,
             title='KnowledgeAI Enterprise: on-premise RAG chat | PugliAI',
-            description='A company chat that queries manuals, contracts and procedures with RAG, installed on your servers: cited sources, permissions per role, full traceability. From €30,000.',
+            description='A company chat that queries manuals, contracts and procedures with RAG, on your own servers: cited sources, role-based permissions. From €30,000.',
             eyebrow='On-premise product', h1='KnowledgeAI Enterprise: the answers are in your documents.',
             lead='A chat that queries manuals, contracts and procedures with RAG technology and always cites the source. Installed on your servers, with permissions per role and full traceability.',
             cta=('Request a demo', 'contact.html'), ghost=('See pricing', '#pricing'),
@@ -316,7 +316,7 @@ def hosting_mcp(lang):
         spec = dict(
             path='hosting-mcp.html', alt='en/mcp-hosting.html', chat=False,
             title='Hosting MCP on-premise: server MCP gestiti | PugliAI',
-            description='Server MCP (Model Context Protocol) gestiti sulla tua infrastruttura: gli agenti AI accedono a gestionale, CRM e documenti in modo controllato e tracciato. Da €290 al mese.',
+            description='Server MCP (Model Context Protocol) gestiti sulla tua infrastruttura: gli agenti AI accedono a gestionale, CRM e documenti in modo tracciato. Da €290 al mese.',
             eyebrow='Prodotto on-premise · Novità 2026', h1='Hosting MCP: collega l’AI ai tuoi sistemi, senza far uscire i dati.',
             lead='Installiamo, configuriamo e gestiamo i server Model Context Protocol sulla tua infrastruttura. Modelli e agenti AI accedono a gestionale, CRM, ERP e documenti con permessi granulari e registro di ogni accesso.',
             cta=('Richiedi una valutazione gratuita', 'contatti.html'), ghost=('Vedi i prezzi', '#prezzi'),
@@ -363,7 +363,7 @@ def hosting_mcp(lang):
         spec = dict(
             path='en/mcp-hosting.html', alt='hosting-mcp.html', chat=False,
             title='On-premise MCP hosting: managed MCP servers | PugliAI',
-            description='We host and manage MCP (Model Context Protocol) servers on your infrastructure: your AI agents access ERP, CRM and documents in a controlled, logged way. From €290 per month, VAT excluded.',
+            description='Managed MCP (Model Context Protocol) servers on your infrastructure: your AI agents reach ERP, CRM and documents in a controlled, logged way. From €290/month.',
             eyebrow='On-premise product · New in 2026', h1='MCP hosting: connect AI to your systems without letting data out.',
             lead='We install, configure and manage Model Context Protocol servers on your infrastructure. AI models and agents access ERP, CRM and documents with granular permissions and a log of every access.',
             cta=('Request a free assessment', 'contact.html'), ghost=('See pricing', '#pricing'),
@@ -416,7 +416,7 @@ def architettura(lang):
         spec = dict(
             path='architettura-tecnica.html', alt='en/technical-architecture.html', chat=False,
             title='Architettura tecnica delle soluzioni AI PugliAI | PugliAI',
-            description='Come sono costruite le soluzioni AI di PugliAI: livelli di interfaccia, applicazione, modelli, dati e infrastruttura; stack tecnologico, sicurezza e integrazioni con i sistemi aziendali.',
+            description='Come sono costruite le soluzioni AI di PugliAI: livelli di interfaccia, applicazione, modelli, dati e infrastruttura; stack, sicurezza e integrazioni.',
             eyebrow='Architettura tecnica', h1='Come sono costruite le nostre soluzioni.',
             lead='Un’architettura a livelli, con componenti aperti e sostituibili, pensata per integrarsi con i sistemi che l’azienda usa già e per girare dove i dati devono restare.',
             cta=('Parla con il team tecnico', 'contatti.html'), ghost=('Vedi le infrastrutture AI', 'infrastrutture-ai.html'),
@@ -454,7 +454,7 @@ def architettura(lang):
         spec = dict(
             path='en/technical-architecture.html', alt='architettura-tecnica.html', chat=False,
             title='Technical architecture of PugliAI’s AI solutions | PugliAI',
-            description='How PugliAI’s AI solutions are built: interface, application, model, data and infrastructure layers; technology stack, security and integrations with business systems.',
+            description='How PugliAI’s AI solutions are built: interface, application, model, data and infrastructure layers; technology stack, security and integrations.',
             eyebrow='Technical architecture', h1='How our solutions are built.',
             lead='A layered architecture with open, replaceable components, designed to integrate with the systems the company already uses and to run where the data has to stay.',
             cta=('Talk to the technical team', 'contact.html'), ghost=('See AI infrastructure', 'ai-infrastructure.html'),

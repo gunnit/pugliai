@@ -7,7 +7,12 @@
    Mobile-first. No build step: this file is served as-is.
    ========================================================================== */
 
-/* ---------- Fonts ---------- */
+/* ---------- Fonts ----------
+   Geist — Copyright 2024 The Geist Project Authors
+   (https://github.com/vercel/geist-font), licensed under the SIL Open Font
+   License 1.1. Full licence text: src/assets/fonts/OFL.txt (redistributed
+   with the .woff2 files as the licence requires).
+   -------------------------------------------------------------------- */
 @font-face {
   font-family: 'Geist';
   font-style: normal;

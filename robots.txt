@@ -1,33 +1,165 @@
 # robots.txt for PugliAI
 # https://pugliai.com
+#
+# A crawler obeys ONLY the most specific group that matches its token, so
+# every named group below repeats the Disallow rules of the "*" group.
+# A named group without them would make those paths crawlable again.
 
 User-agent: *
 Allow: /
 Disallow: /src/tests/
 Disallow: /src/components/
 Disallow: /tools/
-
-# Sitemap location
-Sitemap: https://pugliai.com/sitemap.xml
-
-# LLMs.txt for AI systems (GPT, Claude, Perplexity, etc.)
-# https://llmstxt.org
-LLMsTxt: https://pugliai.com/llms.txt
-
-# Crawl-delay for responsible crawling
 Crawl-delay: 1
 
-# Major search engines
+# Sitemap (standard directive, read independently of the groups above).
+Sitemap: https://pugliai.com/sitemap.xml
+
+# The llms.txt summary for AI systems is at https://pugliai.com/llms.txt
+# (https://llmstxt.org). robots.txt has no directive for it: it is a
+# well-known path, not something declared here.
+
+# ------------------------------------------------------------- search engines
+
+# Google
 User-agent: Googlebot
 Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
 
+# Bing
 User-agent: Bingbot
 Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
 
+# Yahoo
 User-agent: Slurp
 Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
 
-# Block bad bots
+# ----------------------------------------- AI answer engines (GEO / AEO)
+# Explicitly allowed: we want PugliAI quoted and cited in AI answers.
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# OpenAI — ChatGPT search
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# OpenAI — user-initiated fetches
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# Anthropic — legacy token
+User-agent: Claude-Web
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# Anthropic — legacy token
+User-agent: anthropic-ai
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# You.com
+User-agent: YouBot
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# Google — Gemini and AI Overviews
+User-agent: Google-Extended
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# Allen Institute for AI
+User-agent: AI2Bot
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# ByteDance
+User-agent: Bytespider
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# Diffbot knowledge graph
+User-agent: Diffbot
+Allow: /
+Disallow: /src/tests/
+Disallow: /src/components/
+Disallow: /tools/
+
+# -------------------------------------------- commercial SEO crawlers
+# Blocked: heavy crawling, no benefit to the site.
+
 User-agent: AhrefsBot
 Disallow: /
 
@@ -39,62 +171,3 @@ Disallow: /
 
 User-agent: MJ12bot
 Disallow: /
-
-# Allow AI crawlers for Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO)
-# OpenAI GPT Crawlers
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-# Anthropic Claude Crawlers
-User-agent: Claude-Web
-Allow: /
-
-User-agent: Anthropic-AI
-Allow: /
-
-# Perplexity AI
-User-agent: PerplexityBot
-Allow: /
-
-# You.com
-User-agent: YouBot
-Allow: /
-
-# Google AI
-User-agent: Google-Extended
-Allow: /
-
-# Common Crawl (used by many AI systems)
-User-agent: CCBot
-Allow: /
-
-# Anthropic ClaudeBot
-User-agent: ClaudeBot
-Allow: /
-
-# Apple Intelligence / Siri
-User-agent: Applebot-Extended
-Allow: /
-
-# Amazon Alexa / Rufus
-User-agent: Amazonbot
-Allow: /
-
-# Allen Institute for AI
-User-agent: AI2Bot
-Allow: /
-
-# Cohere AI
-User-agent: cohere-ai
-Allow: /
-
-# ByteDance AI
-User-agent: Bytespider
-Allow: /
-
-# Diffbot (knowledge graph)
-User-agent: Diffbot
-Allow: /

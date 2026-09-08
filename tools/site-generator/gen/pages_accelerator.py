@@ -8,7 +8,7 @@ IMG = 'src/assets/img/2026/incontro.jpg'
 A_IT = dict(
     path='acceleratore.html', alt='en/accelerator.html',
     title='PugliAI Accelerator: 16 settimane per startup AI | PugliAI',
-    description='Programma di accelerazione di 16 settimane per startup basate sull’AI: oltre €100.000 di valore in servizi, mentorship settimanale, Demo Day e ponte verso Singapore (ISSA).',
+    description='Accelerazione di 16 settimane per startup basate sull’AI: oltre €100.000 di valore in servizi, mentorship settimanale, Demo Day e ponte verso Singapore.',
     eyebrow='Candidature aperte 2026', h1='PugliAI Accelerator: sedici settimane per la tua startup basata sull’AI.',
     lead='Un founder con gli strumenti AI giusti può fare il lavoro di un team. In 16 settimane costruiamo con te una startup AI-native: automazioni, mentorship dedicata e il ponte verso Singapore tramite la partnership ISSA.',
     cta=('Candidati ora', 'acceleratore-candidatura.html'), ghost=('Scopri il programma', '#programma'),
@@ -51,7 +51,7 @@ A_IT = dict(
 
 A_EN = dict(
     path='en/accelerator.html', alt='acceleratore.html',
-    title='PugliAI Accelerator: 16 weeks for AI-driven startups | PugliAI',
+    title='PugliAI Accelerator: 16 weeks for AI startups',
     description='A 16-week acceleration programme for AI-driven startups: over €100,000 in services, weekly mentorship, Demo Day with investors and a bridge to Singapore (ISSA).',
     eyebrow='Applications open 2026', h1='PugliAI Accelerator: sixteen weeks for your AI-driven startup.',
     lead='A founder with the right AI tools can do the work of a team. In 16 weeks we build an AI-native startup with you: automations, dedicated mentorship and a bridge to Singapore through the ISSA partnership.',
@@ -157,7 +157,7 @@ F_IT = dict(
 F_EN = dict(
     path='en/accelerator-apply.html', alt='acceleratore-candidatura.html',
     title='Apply to the PugliAI Accelerator | PugliAI',
-    description='Apply with your startup to the PugliAI Accelerator: fill in the form in 5–10 minutes. Confirmation within 24 hours, review in one week, video interview and decision.',
+    description='Apply with your startup to the PugliAI Accelerator: the form takes 5–10 minutes. Confirmation within 24 hours, review in a week, video interview, decision.',
     eyebrow='Applications open 2026', h1='Apply to the PugliAI Accelerator.', lead='Fill in the form in 5–10 minutes. We confirm receipt within 24 hours.',
     sections=[
         ('The founder', [('text', 'Full name', 'founder_name', True, 'name'), ('email', 'Email', 'founder_email', True, 'email'), ('tel', 'Phone', 'founder_phone', True, 'tel'), ('url', 'LinkedIn profile', 'founder_linkedin', True, 'url'),

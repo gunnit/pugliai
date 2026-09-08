@@ -29,8 +29,8 @@ def servizi(lang):
     if lang == 'it':
         spec = dict(
             path='servizi.html', alt='en/services.html', chat=True,
-            title='Servizi di consulenza AI per PMI: percorsi a prezzo fisso | PugliAI',
-            description='Consulenza strategica, automazioni pronte all’uso, formazione e affiancamento in tre percorsi a prezzo fisso: AI Accelerator, AI Transformation e AI Partnership. KPI concordati per iscritto.',
+            title='Consulenza AI per PMI: percorsi a prezzo fisso | PugliAI',
+            description='Consulenza strategica, automazioni e formazione in tre percorsi a prezzo fisso: AI Accelerator, AI Transformation e AI Partnership. KPI per iscritto.',
             eyebrow='Servizi', h1='Consulenza AI a prezzo fisso, con risultati misurabili.',
             lead='Strategia, automazioni, formazione e affiancamento in un unico percorso. Definiamo i KPI prima di iniziare e li mettiamo per iscritto nel contratto.',
             cta=('Prenota la sessione strategica', 'sessione-strategica.html'), ghost=('Confronta i percorsi', '#percorsi'),
@@ -76,8 +76,8 @@ def servizi(lang):
     else:
         spec = dict(
             path='en/services.html', alt='servizi.html', chat=True,
-            title='AI consulting services for SMEs: fixed-price programmes | PugliAI',
-            description='Strategic consulting, ready-made automations, training and hands-on support in three fixed-price programmes: AI Accelerator, AI Transformation and AI Partnership. KPIs agreed in writing.',
+            title='AI consulting for SMEs: fixed-price programmes | PugliAI',
+            description='Strategic consulting, automations and training in three fixed-price programmes: AI Accelerator, AI Transformation and AI Partnership. KPIs agreed in writing.',
             eyebrow='Services', h1='Fixed-price AI consulting, with measurable results.',
             lead='Strategy, automations, training and hands-on support in a single programme. We define the KPIs before we start and write them into the contract.',
             cta=('Book the strategy session', 'strategy-session.html'), ghost=('Compare programmes', '#programmes'),
@@ -138,7 +138,7 @@ def consulenza(lang):
         spec = dict(
             path='consulenza-strategica.html', alt='en/strategic-consulting.html', chat=True,
             title='Consulenza strategica AI per PMI: roadmap e ROI | PugliAI',
-            description='Valutazione della maturità AI, roadmap con priorità e KPI, business case e change management. Consulenza pensata per CEO e direzioni di PMI, senza competenze tecniche richieste.',
+            description='Valutazione della maturità AI, roadmap con priorità e KPI, business case e change management. Per CEO e direzioni di PMI, senza competenze tecniche richieste.',
             eyebrow='Consulenza strategica', h1='Una strategia AI che parte dai numeri della tua azienda.',
             lead='Guidiamo le PMI dalla valutazione iniziale al piano esecutivo: opportunità ordinate per ritorno atteso, tempi realistici e responsabilità chiare.',
             cta=('Prenota la sessione strategica', 'sessione-strategica.html'), ghost=('Vedi i percorsi', 'servizi.html#percorsi'),
@@ -175,7 +175,7 @@ def consulenza(lang):
         spec = dict(
             path='en/strategic-consulting.html', alt='consulenza-strategica.html', chat=True,
             title='AI strategy consulting for SMEs: roadmap and ROI | PugliAI',
-            description='AI maturity assessment, prioritised roadmap with KPIs, business case and change management. Consulting designed for CEOs and management of SMEs, no technical skills required.',
+            description='AI maturity assessment, prioritised roadmap with KPIs, business case and change management. For CEOs and management of SMEs, no technical skills required.',
             eyebrow='Strategic consulting', h1='An AI strategy that starts from your company’s numbers.',
             lead='We guide SMEs from the initial assessment to the execution plan: opportunities ranked by expected return, realistic timelines and clear responsibilities.',
             cta=('Book the strategy session', 'strategy-session.html'), ghost=('See the programmes', 'services.html#programmes'),
@@ -272,8 +272,8 @@ def agenti(lang):
     else:
         spec = dict(
             path='en/ai-agents.html', alt='agenti-ai.html', chat=True,
-            title='AI agents for SMEs: assistants and autonomous agents | PugliAI',
-            description='Custom AI agents for SMEs: from conversational assistants to autonomous agents that run end-to-end processes on your systems via MCP, with human oversight on critical steps. From €490/month.',
+            title='AI agents for SMEs: assistants and full autonomy | PugliAI',
+            description='AI agents for SMEs: conversational assistants and autonomous agents that run processes on your systems via MCP, with human oversight. From €490/month.',
             eyebrow='AI agents · New in 2026', h1='AI agents that execute, not just answer.',
             lead='From customer-service chatbots to autonomous agents that read data from your systems, plan and execute complete tasks. With human oversight on critical steps.',
             cta=('Book the strategy session', 'strategy-session.html'), ghost=('See MCP hosting', 'mcp-hosting.html'),
@@ -325,8 +325,8 @@ def infrastrutture(lang):
     if lang == 'it':
         spec = dict(
             path='infrastrutture-ai.html', alt='en/ai-infrastructure.html', chat=True,
-            title='Infrastrutture AI per PMI: on-premise e cloud privato | PugliAI',
-            description='Progettiamo e gestiamo l’infrastruttura su cui gira l’AI della tua azienda: server on-premise, cloud privato europeo o architetture ibride, con monitoraggio, sicurezza e conformità al GDPR.',
+            title='Infrastrutture AI: on-premise e cloud privato | PugliAI',
+            description='Progettiamo e gestiamo l’infrastruttura su cui gira l’AI della tua azienda: server on-premise, cloud privato europeo o architetture ibride, conformi al GDPR.',
             eyebrow='Infrastrutture AI', h1='L’infrastruttura giusta perché l’AI giri dove vuoi tu.',
             lead='Server on-premise, cloud privato europeo o architetture ibride: progettiamo, installiamo e gestiamo la base tecnica dei tuoi progetti AI, con sicurezza e costi prevedibili.',
             cta=('Richiedi una valutazione gratuita', 'contatti.html'), ghost=('Vedi l’architettura tecnica', 'architettura-tecnica.html'),
@@ -364,8 +364,8 @@ def infrastrutture(lang):
     else:
         spec = dict(
             path='en/ai-infrastructure.html', alt='infrastrutture-ai.html', chat=True,
-            title='AI infrastructure: on-premise, private cloud, hybrid | PugliAI',
-            description='We design and run the infrastructure your company’s AI runs on: on-premise servers, European private cloud or hybrid architectures, with monitoring, security and GDPR compliance.',
+            title='AI infrastructure: on-premise and private cloud | PugliAI',
+            description='We design and run the infrastructure your company’s AI runs on: on-premise servers, European private cloud or hybrid architectures. GDPR-compliant.',
             eyebrow='AI infrastructure', h1='The right infrastructure so AI runs where you want it.',
             lead='On-premise servers, European private cloud or hybrid architectures: we design, install and run the technical base of your AI projects, with security and predictable costs.',
             cta=('Request a free assessment', 'contact.html'), ghost=('See the technical architecture', 'technical-architecture.html'),
@@ -410,7 +410,7 @@ def poc(lang):
         spec = dict(
             path='poc-framework.html', alt='en/poc-framework.html', chat=True,
             title='POC Framework: progetto pilota AI in 8 settimane | PugliAI',
-            description='Un progetto pilota strutturato in 8 settimane per validare un caso d’uso AI prima di investire: obiettivi misurabili, consegne chiare a ogni fase, codice pronto per la produzione. Da €25.000.',
+            description='Un progetto pilota di 8 settimane per validare un caso d’uso AI prima di investire: obiettivi misurabili, consegne a ogni fase, codice pronto. Da €25.000.',
             eyebrow='POC Framework', h1='Valida l’idea in otto settimane, prima di investire.',
             lead='Un progetto pilota con obiettivi misurabili, consegne chiare a ogni fase e codice già pronto per la produzione. Il modo più sicuro per decidere se e come scalare.',
             cta=('Prenota la sessione strategica', 'sessione-strategica.html'), ghost=('Vedi i percorsi completi', 'servizi.html#percorsi'),
