@@ -5,6 +5,7 @@ User-agent: *
 Allow: /
 Disallow: /src/tests/
 Disallow: /src/components/
+Disallow: /tools/
 
 # Sitemap location
 Sitemap: https://pugliai.com/sitemap.xml

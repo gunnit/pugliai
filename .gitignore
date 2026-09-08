@@ -72,3 +72,7 @@ image.png
 # Local design-iteration screenshots (before/after dev captures, not part of the site)
 /servizi-before.png
 /servizi-fixed-mid.png
+
+# Python bytecode from tools/site-generator
+__pycache__/
+*.pyc
