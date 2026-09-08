@@ -172,8 +172,8 @@ def roi(lang):
             ('cta_default',),
         ]
         spec = dict(path='roi-calculator.html', alt='en/roi-calculator.html',
-                    title='Calcolatore ROI dell’AI per PMI: risparmi e rientro | PugliAI',
-                    description='Calcola in due minuti quanto può rendere l’AI nella tua PMI: ore liberate, risparmio annuo, ROI nel primo anno e tempo di rientro. Ipotesi dichiarate, senza registrazione.',
+                    title='Calcolatore ROI dell’AI per PMI: risparmi stimati | PugliAI',
+                    description='Calcola in due minuti quanto può rendere l’AI nella tua PMI: ore liberate, risparmio annuo, ROI del primo anno e tempo di rientro. Ipotesi dichiarate.',
                     eyebrow='Calcolatore ROI', h1='Quanto può rendere l’AI nella tua impresa.',
                     lead='Inserisci quattro dati e ottieni una stima di ore liberate, risparmio annuo, ROI e tempo di rientro. Ipotesi dichiarate, nessuna registrazione.',
                     breadcrumb=[('Home', 'index.html'), ('Risorse', 'risorse.html'), ('Calcolatore ROI', '')], crumb_urls=['index.html', 'risorse.html', 'roi-calculator.html'],
@@ -204,7 +204,7 @@ def roi(lang):
         ]
         spec = dict(path='en/roi-calculator.html', alt='roi-calculator.html',
                     title='AI ROI calculator for SMEs: savings and payback | PugliAI',
-                    description='Estimate in two minutes what artificial intelligence could return in your company: hours freed, annual savings, first-year ROI and payback time. Stated, conservative assumptions, no sign-up.',
+                    description='Estimate in two minutes what AI could return in your company: hours freed, annual savings, first-year ROI and payback time. Stated assumptions, no sign-up.',
                     eyebrow='ROI calculator', h1='What AI could return in your company.',
                     lead='Enter four figures and get an estimate of hours freed, annual savings, ROI and payback time. Stated assumptions, no sign-up.',
                     breadcrumb=[('Home', 'index.html'), ('Resources', 'resources.html'), ('ROI calculator', '')], crumb_urls=['en/index.html', 'en/resources.html', 'en/roi-calculator.html'],

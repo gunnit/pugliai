@@ -71,7 +71,7 @@ def privacy(lang):
             + '<p>Possiamo aggiornare questa informativa; la data in cima alla pagina indica l’ultima revisione. Le modifiche sostanziali saranno segnalate sul sito.</p>'
         )
         return legal('it', 'privacy.html', 'en/privacy.html', 'Informativa sulla privacy | PugliAI',
-                     'Come PugliAI S.r.l. tratta i dati personali di chi visita il sito, compila i moduli o ci scrive: titolare, finalità, basi giuridiche, fornitori, conservazione e diritti ai sensi del GDPR.',
+                     'Come PugliAI S.r.l. tratta i dati di chi visita il sito, compila i moduli o ci scrive: titolare, finalità, basi giuridiche, conservazione e diritti GDPR.',
                      'Informativa', 'Informativa sulla privacy', body, 'Privacy')
     body = (
         '<p class="lead">This notice explains how PugliAI S.r.l. processes the personal data of people who visit pugliai.com, fill in the forms, use the chat assistant or write to us, under Articles 13 and 14 of Regulation (EU) 2016/679 (GDPR).</p>'
@@ -114,7 +114,7 @@ def privacy(lang):
         + '<p>We may update this notice; the date at the top of the page shows the latest revision. Substantial changes will be flagged on the site.</p>'
     )
     return legal('en', 'en/privacy.html', 'privacy.html', 'Privacy policy | PugliAI',
-                 'How PugliAI S.r.l. processes the personal data of people who visit the site, fill in the forms or write to us: controller, purposes, legal bases, suppliers, retention and rights under the GDPR.',
+                 'How PugliAI S.r.l. processes the data of site visitors and people who write to us: controller, purposes, legal bases, retention and rights under the GDPR.',
                  'Policy', 'Privacy policy', body, 'Privacy')
 
 
@@ -159,9 +159,9 @@ def cookie(lang):
             + h('Contatti')
             + f'<p>Per domande su questa cookie policy o sul trattamento dei dati scrivi a {MAIL}. Per i dettagli sui tuoi diritti consulta l’<a href="privacy.html">informativa sulla privacy</a>.</p>'
         )
-        return legal('it', 'cookie.html', 'en/cookie.html', 'Cookie policy | PugliAI',
-                     'Quali cookie e tecnologie simili usa pugliai.com, con quali finalità, per quanto tempo e come gestire il consenso: cookie necessari, Google Analytics 4 con consenso, nessun cookie di marketing.',
-                     'Informativa', 'Cookie policy', body, 'Cookie')
+        return legal('it', 'cookie.html', 'en/cookie.html', 'Informativa sui cookie | PugliAI',
+                     'Quali cookie usa pugliai.com, con quali finalità e per quanto tempo, e come gestire il consenso: cookie necessari, Google Analytics 4, nessun marketing.',
+                     'Informativa', 'Informativa sui cookie', body, 'Cookie')
     body = (
         '<p class="lead">This page explains which cookies and similar technologies pugliai.com uses, for what purposes, and how you can manage your consent.</p>'
         + h('What cookies are')
@@ -182,7 +182,7 @@ def cookie(lang):
         + f'<p>For questions about this cookie policy or about data processing write to {MAIL}. For details on your rights see the <a href="privacy.html">privacy policy</a>.</p>'
     )
     return legal('en', 'en/cookie.html', 'cookie.html', 'Cookie policy | PugliAI',
-                 'Which cookies and similar technologies pugliai.com uses, for what purposes, for how long and how to manage consent: necessary cookies, Google Analytics 4 with consent, no marketing cookies.',
+                 'Which cookies pugliai.com uses, for what purposes, for how long and how to manage consent: necessary cookies, Google Analytics 4, no marketing cookies.',
                  'Policy', 'Cookie policy', body, 'Cookies')
 
 
@@ -218,7 +218,7 @@ def terms(lang):
             + f'<p>Per domande su questi termini scrivi a {MAIL}. PugliAI S.r.l., Via Giovanni Forleo 45, 72022 Latiano (BR), P.IVA IT02735920742.</p>'
         )
         return legal('it', 'termini.html', 'en/terms.html', 'Termini e condizioni | PugliAI',
-                     'Termini di utilizzo del sito pugliai.com e condizioni generali dei servizi di PugliAI S.r.l.: contenuti, obblighi, proprietà intellettuale, garanzia ROI, responsabilità, legge applicabile.',
+                     'Termini di utilizzo di pugliai.com e condizioni generali dei servizi PugliAI: contenuti, obblighi, proprietà intellettuale, garanzia ROI, legge applicabile.',
                      'Termini', 'Termini e condizioni', body, 'Termini')
     body = (
         '<p class="lead">These terms govern the use of pugliai.com and describe the general conditions of the services of PugliAI S.r.l. Contracts with clients are governed by the signed proposals, which prevail over this page.</p>'
@@ -248,7 +248,7 @@ def terms(lang):
         + f'<p>For questions about these terms write to {MAIL}. PugliAI S.r.l., Via Giovanni Forleo 45, 72022 Latiano (BR), Italy, VAT IT02735920742.</p>'
     )
     return legal('en', 'en/terms.html', 'termini.html', 'Terms and conditions | PugliAI',
-                 'Terms of use of pugliai.com and general conditions of PugliAI S.r.l. services: content, obligations, intellectual property, ROI guarantee, liability, governing law.',
+                 'Terms of use of pugliai.com and general conditions of PugliAI services: content, obligations, intellectual property, ROI guarantee, governing law.',
                  'Terms', 'Terms and conditions', body, 'Terms')
 
 

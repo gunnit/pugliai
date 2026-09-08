@@ -3,8 +3,8 @@ from .html import *
 from .site import Page, ld_org, ld_website, ld_webpage, ld_faq, offer, SITE, UPDATED_IT, UPDATED_EN, url_of
 
 IT = dict(
-    title='PugliAI — Consulenza AI e prodotti on-premise per le PMI italiane',
-    description='Consulenza AI a prezzo fisso, agenti AI autonomi e prodotti on-premise per le piccole e medie imprese italiane. Sedi a Latiano (BR) e Bergamo. Primi risultati in 2–4 settimane.',
+    title='PugliAI — Consulenza AI e prodotti on-premise per le PMI',
+    description='Consulenza AI a prezzo fisso, agenti AI autonomi e prodotti on-premise per le PMI italiane. Primi risultati in 2–4 settimane. Sedi a Latiano (BR) e Bergamo.',
     h1='L’intelligenza artificiale al lavoro nella tua azienda.',
     sub='Consulenza, agenti AI e infrastrutture on-premise per le piccole e medie imprese italiane. Primi risultati in 2–4 settimane.',
     cta='Prenota la sessione strategica gratuita', cta_href='sessione-strategica.html', ghost='Scopri come lavoriamo', ghost_href='servizi.html',
@@ -63,8 +63,8 @@ IT = dict(
 )
 
 EN = dict(
-    title='PugliAI — AI consulting and on-premise products for Italian SMEs',
-    description='Fixed-price AI consulting, autonomous AI agents and on-premise products for Italian small and mid-sized companies. Offices in Latiano (BR) and Bergamo. First results in 2–4 weeks.',
+    title='PugliAI — AI consulting and on-premise products for SMEs',
+    description='Fixed-price AI consulting, autonomous AI agents and on-premise products for Italian SMEs. First results in 2–4 weeks. Offices in Latiano (BR) and Bergamo.',
     h1='Artificial intelligence at work in your business.',
     sub='Consulting, AI agents and on-premise infrastructure for Italian small and mid-sized companies. First results in 2–4 weeks.',
     cta='Book your free strategy session', cta_href='strategy-session.html', ghost='See how we work', ghost_href='services.html',

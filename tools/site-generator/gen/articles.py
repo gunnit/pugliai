@@ -28,6 +28,16 @@ from .site import LOGO_URL, OG_IMAGE, SITE, Page
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 ART_DIR = os.path.join(ROOT, 'guida-ai')
 
+# Articles kept online as an archive but replaced by a newer, fuller guide on the
+# same keywords. Each one already carries a visible .superseded-notice pointing at
+# its successor; the canonical below sends the ranking signals there too and keeps
+# the page out of sitemap.xml (GitHub Pages cannot serve a 301).
+SUPERSEDED = {
+    'ai-act-pmi-italiane.html': 'ai-act-conformita-pmi-2026.html',
+    'roi-intelligenza-artificiale.html': 'roi-intelligenza-artificiale-2026.html',
+    'agenti-ai-automazione.html': 'agenti-ai-pmi-2026.html',
+}
+
 # Inline-style properties that carried the old navy/gold palette. Everything
 # else (margins, widths, font sizes) is layout and is left alone.
 COLOR_PROPS = {'color', 'background', 'background-color', 'border-color'}
@@ -202,6 +212,7 @@ def build_one(filename):
         og_image=OG_IMAGE,
         jsonld=lds,
         extra_head=extra_head,
+        canonical=(SITE + '/guida-ai/' + SUPERSEDED[filename]) if filename in SUPERSEDED else None,
     )
     return page, _body(src)
 

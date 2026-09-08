@@ -2,11 +2,11 @@
 
     python3 tools/site-generator/sitemap.py
 
-Pages flagged noindex are skipped. lastmod is today's date for every page (the
-whole site is regenerated together); articles keep their own dateModified when
-their Article JSON-LD carries one.
+Pages flagged noindex, and pages whose canonical points elsewhere, are skipped. lastmod is UPDATED from gen/site.py for every page (the whole site is
+regenerated together, and that keeps lastmod equal to the dateModified the
+pages themselves declare); articles keep their own dateModified when their
+Article JSON-LD carries one.
 """
-import datetime
 import importlib
 import json
 import os
@@ -17,8 +17,7 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, HERE)
 
 from build import MODULES  # noqa: E402
-
-TODAY = datetime.date.today().isoformat()
+from gen.site import UPDATED  # noqa: E402
 
 
 def priority(path):
@@ -39,7 +38,9 @@ def main():
         for page, _body in pages:
             if page.noindex:
                 continue
-            lastmod = TODAY
+            if page.canonical and page.canonical != page.url:
+                continue   # superseded page: the canonical target is listed instead
+            lastmod = UPDATED
             for d in page.jsonld or []:
                 if isinstance(d, dict) and d.get('@type') == 'Article' and d.get('dateModified'):
                     lastmod = d['dateModified']

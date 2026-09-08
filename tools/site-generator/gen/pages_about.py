@@ -5,8 +5,8 @@ from .templates import CTA_DEFAULT, FAQ_TITLE
 
 IT = dict(
     path='chi-siamo.html', alt='en/about-us.html',
-    title='Chi siamo: il team di consulenza AI per le PMI italiane | PugliAI',
-    description='Consulenza AI fondata nel 2023 da Gregor Marić, con sedi a Latiano (Brindisi) e Bergamo: affianchiamo le PMI italiane nell’adozione dell’AI con percorsi a prezzo fisso.',
+    title='Chi siamo: consulenza AI per le PMI italiane | PugliAI',
+    description='Consulenza AI fondata nel 2023 da Gregor Marić, con sedi a Latiano (BR) e Bergamo: affianchiamo le PMI italiane con percorsi AI a prezzo fisso.',
     eyebrow='Chi siamo', h1='Un team italiano che porta l’AI nelle PMI.',
     lead='Fondata nel 2023 da Gregor Marić, PugliAI ha sede a Latiano (Brindisi) e a Bergamo. Affianchiamo le piccole e medie imprese italiane nell’adozione dell’intelligenza artificiale.',
     photo_alt='Il team PugliAI riunito all’aperto in una masseria pugliese', photo_caption='Il team al lavoro in masseria, in Puglia',
