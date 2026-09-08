@@ -45,7 +45,8 @@ screenshots/
 
 # AI agent tooling & local settings (kept local, not part of the deployed site)
 .claude/settings.local.json
-.claude/skills/
+.claude/skills/*
+!.claude/skills/framer-motion/
 .claude/launch.json
 .impeccable/
 .agents/

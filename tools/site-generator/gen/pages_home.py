@@ -127,74 +127,96 @@ LOGOS = [('clients/mycia_logo.svg', 'MyCia'), ('clients/tiledesk-logo.png', 'Til
 
 
 def glass_agent(c):
+    # The figure counts up and the bar fills once the card itself has landed.
     return glass(
         f'<div class="glass__head">{avatar("AI")}<div style="flex:1;min-width:0;"><p class="label">{esc(c["cardA_title"])}</p>'
         f'<p class="caption">{esc(c["cardA_sub"])}</p></div>{tag(c["cardA_tag"])}</div>'
-        f'<p class="glass__num">{esc(c["cardA_num"])}</p><p class="caption muted" style="margin:4px 0 0;">{esc(c["cardA_numlabel"])}</p>'
-        f'<div class="bar" role="img" aria-label="94%"><span style="width:94%"></span></div>'
+        f'<p class="glass__num" data-motion-count{mo(start="load", delay=900)}>{esc(c["cardA_num"])}</p>'
+        f'<p class="caption muted" style="margin:4px 0 0;">{esc(c["cardA_numlabel"])}</p>'
+        f'<div class="bar" role="img" aria-label="94%"><span data-motion-bar style="--m-bar:94%"{mo(start="load", delay=950)}></span></div>'
         f'<p class="body-sm" style="margin:0;">{esc(c["cardA_bar"])}</p><p class="caption muted" style="margin:4px 0 0;">{esc(c["cardA_note"])}</p>',
-        'hero-photo__card hero-photo__card--top')
+        'hero-photo__card hero-photo__card--top', attrs=mo('pop', start='load', delay=700))
 
 
 def glass_session(c):
     return glass(
         f'<div class="glass__head">{icon_badge("calendar")}<div><p class="label">{esc(c["cardB_title"])}</p><p class="caption">{esc(c["cardB_sub"])}</p></div></div>'
         f'{checks(c["cardB_items"], "checks--sm")}<a class="btn btn--primary btn--sm" href="{esc(c["cta_href"])}">{esc(c["cardB_btn"])}{icon("arrow", 14, 1.75)}</a>',
-        'hero-photo__card hero-photo__card--bottom')
+        'hero-photo__card hero-photo__card--bottom', attrs=mo('pop', start='load', delay=820))
 
 
 def run_log(c):
+    # The log lines arrive one after another, the way a real run would report.
     rows = ''.join(f'<li class="runlog__row"><span class="runlog__dot{" runlog__dot--wait" if s == "wait" else ""}" aria-hidden="true"></span><span>{esc(t)}</span></li>' for s, t in c['run_rows'])
     return glass(f'<p class="label" style="display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:13px;">{icon("bolt", 16, 1.75)}{esc(c["run_title"])}</p>'
-                 f'<ul class="runlog">{rows}</ul><p class="caption muted" style="margin:0;">{esc(c["run_foot"])}</p>', 'panel__glass')
+                 f'<ul class="runlog"{mo(group="fade-up-sm", delay=620, stagger=150)}>{rows}</ul>'
+                 f'<p class="caption muted" style="margin:0;">{esc(c["run_foot"])}</p>', 'panel__glass',
+                 attrs=mo('pop', delay=420))
 
 
 def build(lang):
     c = IT if lang == 'it' else EN
     path = 'index.html' if lang == 'it' else 'en/index.html'
     alt = 'en/index.html' if lang == 'it' else 'index.html'
-    page = Page(lang=lang, path=path, title=c['title'], description=c['description'], alt=alt, chat=True)
+    page = Page(lang=lang, path=path, title=c['title'], description=c['description'], alt=alt, chat=True, motion=True)
     a = page.asset
     hero_img = a('src/assets/img/2026/hero-masseria.jpg')
     page.extra_head = f'\n    <link rel="preload" as="image" href="{hero_img}" fetchpriority="high">'
 
-    hero = (f'<section class="hero-photo"><img class="hero-photo__media" src="{hero_img}" alt="" width="1920" height="960" fetchpriority="high">'
+    # Hero choreography, all on load: the photo settles out of an over-scale
+    # while the headline rises word by word, then the sub-line, the buttons and
+    # finally the two glass cards.
+    hero = (f'<section class="hero-photo">'
+            f'<img class="hero-photo__media" src="{hero_img}" alt="" width="1920" height="960" fetchpriority="high"'
+            f' data-motion-zoom{mo(start="load")}>'
             f'<div class="hero-photo__scrim" aria-hidden="true"></div><div class="hero-photo__inner">'
-            f'<h1 class="display hero-photo__title">{esc(c["h1"])}</h1><p class="sub hero-photo__sub">{esc(c["sub"])}</p>'
-            f'<div class="hero-photo__actions">{btn(c["cta"], c["cta_href"])}{ghost_link(c["ghost"], c["ghost_href"])}</div>'
+            f'<h1 class="display hero-photo__title"{mo("fade", split="words", start="load", delay=80, stagger=38, duration=780)}>{esc(c["h1"])}</h1>'
+            f'<p class="sub hero-photo__sub"{mo("fade-up", start="load", delay=420)}>{esc(c["sub"])}</p>'
+            f'<div class="hero-photo__actions"{mo(group="fade-up-sm", start="load", delay=560, stagger=90)}>'
+            f'{btn(c["cta"], c["cta_href"])}{ghost_link(c["ghost"], c["ghost_href"])}</div>'
             f'{glass_agent(c)}{glass_session(c)}</div></section>')
 
-    logos = (f'<section class="logo-strip" aria-label="{esc(c["logos_caption"])}"><div class="container"><p class="logo-strip__caption">{esc(c["logos_caption"])}</p>'
-             f'<div class="logo-strip__grid">' + ''.join(
+    # Opacity only for the cells: the strip is a hairline grid, so nothing moves
+    # that would briefly break the borders.
+    logos = (f'<section class="logo-strip" aria-label="{esc(c["logos_caption"])}"><div class="container">'
+             f'<p class="logo-strip__caption"{mo("fade-up-sm")}>{esc(c["logos_caption"])}</p>'
+             f'<div class="logo-strip__grid"{mo(group="fade", delay=80, stagger=70)}>' + ''.join(
                  f'<div class="logo-strip__cell"><img src="{a("src/assets/img/" + f)}" alt="{esc(n)}" loading="lazy"></div>' for f, n in LOGOS) + '</div></div></section>')
 
-    answer = section(answer_block(c['answer_lead'], c['answer_facts'], c['answer_meta']), cls='section--tight section--flush-bottom', container='container--narrow')
+    answer = section(answer_block(c['answer_lead'], c['answer_facts'], c['answer_meta'], attrs=mo(group='fade-up', stagger=90)),
+                     cls='section--tight section--flush-bottom', container='container--narrow')
 
-    tabs = '<nav class="tabs" aria-label="' + esc(c['prod_eyebrow']) + '">' + ''.join(
+    tabs = '<nav class="tabs" aria-label="' + esc(c['prod_eyebrow']) + '"' + mo(group='fade-up-sm', stagger=70) + '>' + ''.join(
         ('<a class="tabs__item is-active" aria-current="true"' if i == 3 else '<a class="tabs__item"') + f' href="{esc(h)}">{icon(ic, 20)}<span><span class="tabs__name">{esc(n)}</span><span class="tabs__desc">{esc(d)}</span></span></a>'
         for i, (ic, n, d, h) in enumerate(c['tabs'])) + '</nav>'
-    panel = (f'<div class="panel"><div class="panel__text"><div>{tag(c["det_tag"])}</div><h3 class="h3">{esc(c["det_h3"])}</h3>'
+    panel = (f'<div class="panel"><div class="panel__text"{mo(group="fade-up", stagger=80)}>'
+             f'<div>{tag(c["det_tag"])}</div><h3 class="h3">{esc(c["det_h3"])}</h3>'
              f'<p class="muted">{esc(c["det_body"])}</p>{checks(c["det_items"])}<div>{link(c["det_link"], c["det_href"])}</div></div>'
-             f'<div class="panel__media"><img src="{a("src/assets/img/2026/scrivania.jpg")}" alt="" loading="lazy" width="1600" height="1067">{run_log(c)}</div></div>')
-    products = section(section_head(c['prod_eyebrow'], c['prod_h2'], c['prod_lead']) + tabs + panel, id_='prodotti' if lang == 'it' else 'products')
+             f'<div class="panel__media"{mo(reveal=True)}><img src="{a("src/assets/img/2026/scrivania.jpg")}" alt="" loading="lazy" width="1600" height="1067">'
+             f'{run_log(c)}</div></div>')
+    products = section(section_head(c['prod_eyebrow'], c['prod_h2'], c['prod_lead'], attrs=mo(group='fade-up', stagger=80)) + tabs + panel,
+                       id_='prodotti' if lang == 'it' else 'products')
 
-    pk = section(section_head(c['pk_eyebrow'], c['pk_h2'], c['pk_lead']) + grid(
-        [price_card(n, p, d, o, items, href, c['pk_card_link']) for n, p, d, o, items, href in c['packages']], 3)
-        + f'<div class="packages__note"><p>{esc(c["pk_note"])}</p>{link(c["pk_link"], c["pk_href"])}</div>')
+    pk = section(section_head(c['pk_eyebrow'], c['pk_h2'], c['pk_lead'], attrs=mo(group='fade-up', stagger=80)) + grid(
+        [price_card(n, p, d, o, items, href, c['pk_card_link'], cls='card--lift') for n, p, d, o, items, href in c['packages']],
+        3, attrs=mo(group='rise', stagger=100))
+        + f'<div class="packages__note"{mo(group="fade-up-sm", stagger=80)}><p>{esc(c["pk_note"])}</p>{link(c["pk_link"], c["pk_href"])}</div>')
 
-    dark = band(c['dk_eyebrow'], c['dk_h2'], c['dk_body'], c['dk_btn'], c['dk_href'], c['dk_chips'], a('src/assets/img/2026/officina.jpg'))
+    dark = band(c['dk_eyebrow'], c['dk_h2'], c['dk_body'], c['dk_btn'], c['dk_href'], c['dk_chips'], a('src/assets/img/2026/officina.jpg'), motion=True)
 
-    proof = section(section_head(c['pf_eyebrow'], c['pf_h2']) + grid([quote_card(*t) for t in c['testimonials']], 2, 'mb-12') + stats(c['stats']))
+    proof = section(section_head(c['pf_eyebrow'], c['pf_h2'], attrs=mo(group='fade-up', stagger=80))
+                    + grid([quote_card(*t, cls='card--lift') for t in c['testimonials']], 2, 'mb-12', attrs=mo(group='rise', stagger=120))
+                    + stats(c['stats'], attrs=mo(group='fade-up-sm', stagger=90), count=True))
 
     founder = section(
-        f'<div class="grid grid--5-7 card card--flush" style="gap:0;">'
+        f'<div class="grid grid--5-7 card card--flush" style="gap:0;"{mo(reveal=True)}>'
         f'<img src="{a("src/assets/img/2026/founder-stage.jpg")}" alt="{esc(c["fd_alt"])}" loading="lazy" style="width:100%;height:100%;min-height:280px;object-fit:cover;">'
-        f'<div class="stack" style="padding:32px;justify-content:center;">{eyebrow(c["fd_eyebrow"])}<h2 class="h3">{esc(c["fd_h3"])}</h2>'
+        f'<div class="stack" style="padding:32px;justify-content:center;"{mo(group="fade-up", stagger=80)}>{eyebrow(c["fd_eyebrow"])}<h2 class="h3">{esc(c["fd_h3"])}</h2>'
         f'<p class="muted" style="margin:0;">{esc(c["fd_body"])}</p><div>{link(c["fd_link"], c["fd_href"])}</div></div></div>', cls='section--flush-top')
 
-    faqs = faq_section(c['faq'], c['faq_title'])
+    faqs = faq_section(c['faq'], c['faq_title'], motion=True)
 
-    cta = cta_band(c['cta_h2'], c['cta_body'], c['cta_btn'], c['cta_href'], c['cta_mail'], 'mailto:sales@pugliai.com')
+    cta = cta_band(c['cta_h2'], c['cta_body'], c['cta_btn'], c['cta_href'], c['cta_mail'], 'mailto:sales@pugliai.com', motion=True)
 
     body = hero + logos + answer + products + pk + dark + proof + founder + faqs + cta
 

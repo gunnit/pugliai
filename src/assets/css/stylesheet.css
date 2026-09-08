@@ -65,6 +65,21 @@
   --radius: 16px;
   --radius-pill: 999px;
 
+  /* Motion — easing curves and durations.
+     --ease-spring / --ease-spring-bounce are real damped-spring solutions
+     (mass 1, stiffness 200/300, damping 24) sampled as linear() stops, so
+     transforms settle the way a physics-based animation library would.
+     Browsers without linear() fall back to the cubic-bezier declared first. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);          /* expo-out: text, opacity */
+  --ease-out-soft: cubic-bezier(0.33, 1, 0.68, 1);    /* cubic-out: hover states */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-1: 140ms;   /* micro-interactions */
+  --dur-2: 240ms;   /* small state changes */
+  --dur-3: 620ms;   /* enter animations */
+  --dur-4: 900ms;   /* large media reveals */
+
   /* Spacing (4px base) */
   --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px; --space-5: 20px;
   --space-6: 24px; --space-7: 28px; --space-8: 32px; --space-9: 36px; --space-10: 40px;
@@ -99,6 +114,13 @@
   --font-size-xl: 1.25rem; --font-size-2xl: 1.5rem; --font-size-3xl: 1.75rem; --font-size-4xl: 2.25rem;
 }
 
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --ease-spring: linear(0,0.0282,0.0977,0.1902,0.2929,0.3967,0.4957,0.5864,0.6671,0.7368,0.7959,0.845,0.885,0.9169,0.942,0.9613,0.9759,0.9866,0.9943,0.9995,1.0029,1.005,1.0061,1.0065,1.0064,1.006,1.0054,1.0048,1.0041,1.0034,1);
+    --ease-spring-bounce: linear(0,0.0422,0.1451,0.2791,0.4227,0.5613,0.6857,0.7911,0.8759,0.9406,0.9873,1.0185,1.0373,1.0465,1.0489,1.0465,1.0413,1.0347,1.0277,1.021,1.0149,1.0099,1.0058,1.0027,1.0005,0.999,0.9981,0.9977,0.9976,0.9977,1);
+  }
+}
+
 @media (min-width: 720px) { :root { --gutter: 32px; } }
 @media (min-width: 1024px) { :root { --gutter: 40px; } }
 
@@ -108,6 +130,11 @@ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
+  /* The motion runtime never starts here, but guard the resting states anyway
+     so nothing can be left invisible if the preference changes mid-session. */
+  [data-motion], [data-motion-group] > *, [data-motion-reveal] > img, .m-word > span {
+    opacity: 1 !important; transform: none !important; clip-path: none !important;
+  }
 }
 body {
   margin: 0;
@@ -233,10 +260,15 @@ table { border-collapse: collapse; width: 100%; }
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   min-height: 48px; padding: 0 20px; border-radius: var(--radius); border: 1px solid transparent;
   font-size: 16px; font-weight: var(--w-regular); line-height: 1.2; text-decoration: none; cursor: pointer;
-  white-space: nowrap; transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+  white-space: nowrap;
+  transition: background-color var(--dur-1) var(--ease-out-soft), color var(--dur-1) var(--ease-out-soft),
+              border-color var(--dur-1) var(--ease-out-soft), transform var(--dur-2) var(--ease-spring);
 }
-.btn:hover { text-decoration: none; }
-.btn svg { flex: none; }
+.btn:hover { text-decoration: none; transform: translateY(-2px); }
+.btn:active { transform: translateY(0) scale(.985); transition-duration: var(--dur-1); }
+.btn svg { flex: none; transition: transform var(--dur-2) var(--ease-spring); }
+.btn--primary:hover svg, .btn--outline-light:hover svg, .btn--secondary:hover svg { transform: translateX(3px); }
+.btn--ghost:hover svg { transform: translateX(2px); }
 .btn--primary { background: var(--color-wine); color: #fff; }
 .btn--primary:hover { background: var(--color-wine-deep); color: #fff; }
 .btn--secondary { background: var(--color-lilac); color: var(--color-ink); border-color: var(--color-ink); border-radius: var(--radius-sm); min-height: 40px; padding: 0 16px; }
@@ -252,9 +284,10 @@ table { border-collapse: collapse; width: 100%; }
 .btn[disabled], .btn.is-disabled { opacity: .55; pointer-events: none; }
 
 .link-arrow { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-weight: var(--w-regular); }
-.link-arrow svg { flex: none; transition: transform .15s ease; }
+.link-arrow { transition: color var(--dur-1) var(--ease-out-soft); }
+.link-arrow svg { flex: none; transition: transform var(--dur-2) var(--ease-spring); }
 .link-arrow:hover { color: var(--color-wine); }
-.link-arrow:hover svg { transform: translateX(2px); }
+.link-arrow:hover svg { transform: translateX(4px); }
 .link-plain { color: var(--color-ink); }
 
 .tag {
@@ -284,8 +317,14 @@ table { border-collapse: collapse; width: 100%; }
 }
 .card--pad-lg { padding: var(--space-8); }
 .card--flush { padding: 0; overflow: hidden; }
-.card--link { display: block; color: inherit; transition: border-color .15s ease; }
-.card--link:hover { border-color: var(--color-ink); text-decoration: none; color: inherit; }
+.card { transition: border-color var(--dur-2) var(--ease-out-soft), transform var(--dur-2) var(--ease-spring); }
+.card--link { display: block; color: inherit; }
+.card--link:hover { border-color: var(--color-ink); text-decoration: none; color: inherit; transform: translateY(-3px); }
+.card--link:active { transform: translateY(-1px); }
+/* Opt-in lift for cards that are not themselves links (pricing, quotes). */
+.card--lift:hover { border-color: var(--color-ink); transform: translateY(-3px); }
+.icon-badge, .avatar { transition: transform var(--dur-2) var(--ease-spring), background-color var(--dur-2) var(--ease-out-soft); }
+.card--link:hover .icon-badge, .card--lift:hover .icon-badge { transform: scale(1.06) rotate(-3deg); }
 .card__title { margin: var(--space-4) 0 var(--space-2); }
 .card__text { color: var(--text-2); margin: 0; }
 .card--link .card__title { color: var(--color-ink); }
@@ -323,11 +362,18 @@ table { border-collapse: collapse; width: 100%; }
   position: sticky; top: 0; z-index: 100;
   background: rgba(242,240,235,0.86); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  transition: background-color var(--dur-2) var(--ease-out-soft), border-color var(--dur-2) var(--ease-out-soft);
 }
+.site-header.is-scrolled { background: rgba(242,240,235,0.94); border-bottom-color: #d6d4cf; }
 .site-header__inner {
   height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
   max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter);
 }
+.logo__mark, .logo__word { transition: transform var(--dur-3) var(--ease-spring); }
+.logo:hover .logo__mark { transform: rotate(-6deg) scale(1.06); }
+.nav__link { transition: border-color var(--dur-2) var(--ease-out-soft), color var(--dur-1) var(--ease-out-soft); }
+.nav__link svg { transition: transform var(--dur-2) var(--ease-spring); }
+.nav__item:hover > .nav__link svg, .nav__item.is-open > .nav__link svg { transform: rotate(180deg); }
 .logo { display: inline-flex; align-items: center; gap: 8px; color: var(--color-ink); text-decoration: none; }
 .logo:hover { text-decoration: none; }
 .logo__mark { height: 30px; width: auto; }
@@ -344,10 +390,16 @@ table { border-collapse: collapse; width: 100%; }
 .nav__link:hover, .nav__link[aria-current="page"], .nav__item.is-active > .nav__link { color: var(--color-ink); border-bottom-color: var(--color-ink); text-decoration: none; }
 .nav__link svg { color: var(--text-2); }
 .dropdown {
-  display: none; position: absolute; left: -12px; top: 100%; min-width: 260px; padding: 8px; margin: 0; list-style: none;
+  position: absolute; left: -12px; top: 100%; min-width: 260px; padding: 8px; margin: 0; list-style: none;
   background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  opacity: 0; visibility: hidden; transform: translateY(-6px) scale(.99); transform-origin: top left;
+  transition: opacity var(--dur-2) var(--ease-out-soft), transform var(--dur-2) var(--ease-spring), visibility 0s linear var(--dur-2);
 }
-.nav__item:hover > .dropdown, .nav__item:focus-within > .dropdown, .nav__item.is-open > .dropdown { display: block; }
+.nav__item:hover > .dropdown, .nav__item:focus-within > .dropdown, .nav__item.is-open > .dropdown {
+  opacity: 1; visibility: visible; transform: none; transition-delay: 0s;
+}
+.dropdown a { transition: background-color var(--dur-1) var(--ease-out-soft), padding-left var(--dur-2) var(--ease-spring); }
+.dropdown a:hover { padding-left: 16px; }
 .dropdown li { margin: 0; }
 .dropdown a { display: block; padding: 9px 12px; border-radius: 6px; color: var(--color-ink); font-size: 14px; text-decoration: none; }
 .dropdown a:hover, .dropdown a[aria-current="page"] { background: var(--color-lilac); text-decoration: none; }
@@ -479,7 +531,13 @@ body.has-sticky-cta { padding-bottom: 76px; }
 .logo-strip__cell { display: flex; align-items: center; justify-content: center; height: 72px; padding: 16px; background: var(--bg-elev); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .logo-strip__cell:nth-child(3n) { border-right: 0; }
 .logo-strip__cell:nth-last-child(-n+3) { border-bottom: 0; }
-.logo-strip__cell img { max-height: 28px; width: auto; max-width: 100%; filter: grayscale(1); opacity: .75; }
+.logo-strip__cell { transition: background-color var(--dur-2) var(--ease-out-soft); }
+.logo-strip__cell:hover { background: var(--color-parchment); }
+.logo-strip__cell img {
+  max-height: 28px; width: auto; max-width: 100%; filter: grayscale(1); opacity: .75;
+  transition: filter var(--dur-2) var(--ease-out-soft), opacity var(--dur-2) var(--ease-out-soft), transform var(--dur-2) var(--ease-spring);
+}
+.logo-strip__cell:hover img { filter: grayscale(0); opacity: 1; transform: scale(1.04); }
 @media (min-width: 720px) {
   .logo-strip { padding: var(--space-12) 0; }
   .logo-strip__grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
@@ -494,7 +552,10 @@ body.has-sticky-cta { padding-bottom: 76px; }
 .tabs__item { display: flex; align-items: center; gap: 12px; padding: 14px 16px; color: var(--color-ink); text-decoration: none; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .tabs__item:nth-child(2n) { border-right: 0; }
 .tabs__item:nth-last-child(-n+2) { border-bottom: 0; }
+.tabs__item { transition: background-color var(--dur-2) var(--ease-out-soft); }
 .tabs__item:hover { background: var(--color-parchment); text-decoration: none; }
+.tabs__item svg { transition: transform var(--dur-2) var(--ease-spring); }
+.tabs__item:hover svg { transform: translateY(-2px) scale(1.08); }
 .tabs__item.is-active { background: var(--color-lilac); }
 .tabs__item svg { flex: none; color: var(--color-ink); }
 .tabs__item.is-active svg { color: var(--accent); }
@@ -596,7 +657,12 @@ body.has-sticky-cta { padding-bottom: 76px; }
   background-size: 20px; background-repeat: no-repeat; transition: transform .2s ease;
 }
 .faq__item[open] > summary::after { transform: rotate(180deg); }
+.faq__item { transition: border-color var(--dur-2) var(--ease-out-soft); }
+.faq__item:hover { border-color: #d2d0cb; }
+.faq__item[open] { border-color: var(--color-ink); }
 .faq__a { padding: 0 24px 22px; color: var(--text-2); }
+.faq__item[open] > .faq__a { animation: faq-open var(--dur-3) var(--ease-out) both; }
+@keyframes faq-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 .faq__a > :last-child { margin-bottom: 0; }
 .faq__a p { margin: 0 0 .75em; }
 
@@ -874,9 +940,148 @@ figure.photo-fig figcaption { font-size: 12px; color: var(--text-2); margin-top:
 .center-block > * { margin: 0; }
 .success-hero { min-height: 70vh; display: flex; align-items: center; }
 
+/* ---------- Motion system ----------
+   A dependency-free equivalent of a declarative animation library (Framer
+   Motion's model: initial / animate / whileInView / variants / stagger),
+   expressed as data attributes and driven by src/assets/js/motion.js.
+
+     data-motion="<variant>"        one element animates when it scrolls in
+     data-motion-group[="variant"]  its direct children animate, staggered
+     data-motion-stagger="90"       ms between children (default 80)
+     data-motion-delay="200"        ms before the element starts
+     data-motion-duration="800"     ms
+     data-motion-amount="0.3"       fire on a visible fraction instead of the
+                                    default trigger line (top past 88% of the viewport)
+     data-motion-once="false"       replay every time it re-enters the viewport
+     data-motion-start="load"       play on load instead of on scroll
+     data-motion-split="words"      split the text and stagger word by word
+     data-motion-count               count a number up when revealed
+     data-motion-reveal              open a mask over the container's <img>
+     data-motion-bar                 grow a progress bar to its --m-bar width
+     data-motion-zoom                slow settle + scroll parallax (hero media)
+
+   Nothing here applies until the inline head snippet adds `.motion` to <html>,
+   which it does only when the browser supports the runtime AND the visitor has
+   not asked for reduced motion. Without JavaScript the page renders finished.
+   ---------------------------------------------------------------------- */
+
+/* Resting (pre-animation) state. Only opacity and transform, so every reveal
+   stays on the compositor and nothing reflows. */
+html.motion [data-motion],
+html.motion [data-motion-group] > * {
+  opacity: 0;
+  transform: translate3d(var(--m-x, 0px), var(--m-y, 22px), 0) scale(var(--m-s, 1));
+  transition:
+    opacity var(--m-dur, var(--dur-3)) var(--ease-out) var(--m-delay, 0ms),
+    transform var(--m-dur, var(--dur-3)) var(--m-ease, var(--ease-spring)) var(--m-delay, 0ms);
+}
+html.motion [data-motion].is-inview,
+html.motion [data-motion-group] > .is-inview {
+  opacity: 1;
+  transform: none;
+}
+/* Once an element has arrived, motion.js removes the attribute that drives it.
+   The rules above stop matching and the element goes back to the transitions
+   its own component rules declare, so a revealed card lifts on hover in 240ms
+   rather than over the 620ms of its entrance. */
+
+/* Safety net for keyboard users: if focus reaches something that has not been
+   revealed yet, show it at once rather than moving focus into an invisible box. */
+html.motion [data-motion]:focus-within,
+html.motion [data-motion-group] > *:focus-within {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Variants — each one only re-declares the offsets it needs. */
+html.motion [data-motion="fade"],       html.motion [data-motion-group="fade"] > *       { --m-y: 0px; }
+html.motion [data-motion="fade-up"],    html.motion [data-motion-group="fade-up"] > *    { --m-y: 22px; }
+html.motion [data-motion="fade-up-sm"], html.motion [data-motion-group="fade-up-sm"] > * { --m-y: 12px; }
+html.motion [data-motion="fade-down"],  html.motion [data-motion-group="fade-down"] > *  { --m-y: -16px; }
+html.motion [data-motion="fade-left"],  html.motion [data-motion-group="fade-left"] > *  { --m-x: -28px; --m-y: 0px; }
+html.motion [data-motion="fade-right"], html.motion [data-motion-group="fade-right"] > * { --m-x: 28px; --m-y: 0px; }
+html.motion [data-motion="rise"],       html.motion [data-motion-group="rise"] > *       { --m-y: 30px; --m-s: .985; }
+html.motion [data-motion="pop"],        html.motion [data-motion-group="pop"] > *        { --m-y: 10px; --m-s: .94; --m-dur: 720ms; --m-ease: var(--ease-spring-bounce); }
+
+/* Masked media reveal: the frame opens upward while the picture settles back
+   to scale 1.
+
+   The attribute goes on the *container*, not on the picture: an element whose
+   own clip-path collapses it to zero height reports an empty intersection
+   rectangle, so an observer watching the image itself would never fire. The
+   container keeps its normal box and only its direct <img> children are
+   clipped, which also leaves any overflowing decoration in the container
+   (the band's floating rectangles) untouched. */
+html.motion [data-motion-reveal] > img {
+  clip-path: inset(0 0 100% 0);
+  transform: scale(1.05);
+  transition:
+    clip-path var(--m-dur, var(--dur-4)) var(--ease-out) var(--m-delay, 0ms),
+    transform var(--m-dur, var(--dur-4)) var(--ease-out) var(--m-delay, 0ms);
+}
+html.motion [data-motion-reveal].is-inview > img { clip-path: inset(0 0 0 0); transform: none; }
+
+/* Word-by-word heading reveal: each word rises out of its own mask. The text
+   nodes are unchanged, so the accessible name and the DOM copy stay intact. */
+html.motion .m-word {
+  display: inline-block; overflow: hidden; vertical-align: top;
+  padding: 0.14em 0 0.20em; margin: -0.14em 0 -0.20em;
+}
+html.motion .m-word > span {
+  display: inline-block; opacity: 0; transform: translate3d(0, 108%, 0);
+  transition:
+    opacity var(--m-dur, 700ms) var(--ease-out) var(--m-delay, 0ms),
+    transform var(--m-dur, 700ms) var(--ease-out) var(--m-delay, 0ms);
+}
+html.motion .m-word.is-inview > span { opacity: 1; transform: none; }
+/* The heading is hidden before first paint so the unsplit text never flashes;
+   motion.js reveals the container as soon as the word masks are in place. */
+html.motion [data-motion-split].m-split-ready { opacity: 1; transform: none; transition: none; }
+
+/* Hero media: a slow settle out of an over-scale, then a few pixels of
+   scroll parallax. --m-scale is registered so it can be transitioned; where
+   @property is unsupported the image simply starts at its resting scale. */
+@property --m-scale { syntax: '<number>'; inherits: false; initial-value: 1; }
+html.motion [data-motion-zoom] {
+  --m-scale: 1.12;
+  transform: scale(var(--m-scale)) translate3d(0, var(--m-py, 0px), 0);
+  transition: --m-scale 1800ms var(--ease-out);
+}
+html.motion [data-motion-zoom].is-inview { --m-scale: 1.06; }
+
+/* Progress bar grows to the width carried in --m-bar. */
+.bar > span { width: var(--m-bar, 100%); }
+html.motion .bar > [data-motion-bar] {
+  width: 0;
+  transition: width var(--m-dur, 1100ms) var(--ease-out) var(--m-delay, 0ms);
+}
+html.motion .bar > [data-motion-bar].is-inview { width: var(--m-bar, 100%); }
+
+/* Site chrome is injected after first paint; fade it in instead of popping. */
+.announce.is-entering, .site-header.is-entering { animation: chrome-in 500ms var(--ease-out) both; }
+@keyframes chrome-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* Failsafe: if motion.js never runs (blocked, failed to load, old browser) the
+   inline snippet's watchdog puts everything back to its finished state. */
+html.motion-failsafe [data-motion],
+html.motion-failsafe [data-motion-group] > *,
+html.motion-failsafe [data-motion-reveal] > img,
+html.motion-failsafe .m-word > span,
+html.motion-failsafe .bar > [data-motion-bar] {
+  opacity: 1 !important; transform: none !important; clip-path: none !important;
+  transition: none !important;
+}
+html.motion-failsafe .bar > [data-motion-bar] { width: var(--m-bar, 100%); }
+
 /* ---------- Print ---------- */
 @media print {
   .site-header, .announce, .footer, .cookie, .cookie-modal, .lp-sticky-cta, .skip-link, .cta-band, .menu-toggle { display: none !important; }
+  /* Sections the reader never scrolled to are still waiting to animate in. */
+  [data-motion], [data-motion-group] > *, [data-motion-reveal] > img, .m-word > span, .bar > [data-motion-bar] {
+    opacity: 1 !important; transform: none !important; clip-path: none !important;
+  }
+  .bar > [data-motion-bar] { width: var(--m-bar, 100%) !important; }
   body { background: #fff; color: #000; }
   a { color: #000; text-decoration: underline; }
   .card, .faq__item, .panel { border-color: #999; }

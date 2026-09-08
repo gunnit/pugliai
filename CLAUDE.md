@@ -86,6 +86,31 @@ Defined in `stylesheet.css`; use them rather than hard-coded values:
 
 Conventions: Geist at weights light/regular/medium (`--w-light`, `--w-regular`, `--w-medium`), tight negative letter-spacing on headlines, **no drop shadows, no gradients** (except the CTA band), no gradient text, BEM-like class names (`.block__element--modifier`), mobile-first, WCAG 2.1 AA. Legacy aliases (`--primary-navy`, `--accent-gold`, …) still resolve to the new palette for the few remaining old classes; do not use them in new code.
 
+## Motion
+
+Animation is a dependency-free port of the Framer Motion model (`initial` /
+`whileInView` / variants / staggered children / spring easing) — the library
+itself is React-only and cannot ship here. See the `framer-motion` skill in
+`.claude/skills/` for the full reference.
+
+- `src/assets/js/motion.js` decides *when* something moves; the
+  `/* ---------- Motion system ---------- */` section of `stylesheet.css` owns
+  every resting state, easing and transition. Markup only declares intent
+  through `data-motion*` attributes, built by `mo()` in `gen/html.py`.
+- **Opt-in per page**: `Page(motion=True)` emits the blocking `<head>` snippet
+  and the script tag. Currently on the homepage (IT + EN) only. Without it the
+  `.motion` class is never added and every `data-motion` attribute is inert.
+- Content is never hidden by JavaScript: the class is added only when the
+  runtime can work and the visitor has not asked for reduced motion, and a
+  failsafe restores the finished state if `motion.js` fails to run. After any
+  change, verify the page with motion on, with reduced motion, with JavaScript
+  off, at mobile width and in `/en/` — nothing may stay invisible, and the
+  settled layout must match the reduced-motion render exactly.
+- Keep entrances restrained (620ms, 12–30px of travel, 70–120ms stagger). The
+  design system still forbids drop shadows and gradients.
+- Do not make any `<script>` in `<body>` parser-blocking: it delays every
+  deferred script, and the hero would sit invisible until it resolves.
+
 ## Adding a page
 
 1. Add the IT and EN specs to the right `gen/pages_*.py` module (or a new module listed in `MODULES` in `build.py`), with `path`/`alt` pointing at each other, title, description, JSON-LD types and sections.
