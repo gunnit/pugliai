@@ -263,6 +263,39 @@
         });
     }
 
+    /**
+     * The header is condensed once the page has scrolled past the announcement
+     * bar. Cheap: a passive listener that only schedules a frame when the state
+     * would actually change. Skipped when the visitor prefers reduced motion.
+     */
+    function initScrollState(header) {
+        if (!header || !('requestAnimationFrame' in window)) return;
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var scrolled = false, queued = false;
+
+        function apply() {
+            queued = false;
+            var next = (window.pageYOffset || document.documentElement.scrollTop) > 24;
+            if (next === scrolled) return;
+            scrolled = next;
+            header.classList.toggle('is-scrolled', scrolled);
+        }
+        function onScroll() {
+            if (queued) return;
+            queued = true;
+            requestAnimationFrame(apply);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        apply();
+
+        // Fade the chrome in: it is injected after first paint, so without this
+        // the bar and header pop into place.
+        if (reduce) return;
+        var announce = document.querySelector('.announce');
+        if (announce) announce.classList.add('is-entering');
+        header.classList.add('is-entering');
+    }
+
     function insert() {
         var placeholder = document.getElementById('nav-placeholder');
         var html = render();
@@ -272,7 +305,9 @@
             document.body.insertAdjacentHTML('afterbegin', html);
         }
         ensureMainTarget();
-        initMenu(document.querySelector('.site-header'));
+        var header = document.querySelector('.site-header');
+        initMenu(header);
+        initScrollState(header);
     }
 
     if (document.readyState === 'loading') {

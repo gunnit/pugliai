@@ -60,6 +60,44 @@ def esc(s):
     return _html.escape(str(s), quote=True)
 
 
+def mo(variant=None, group=None, reveal=False, delay=None, stagger=None, duration=None,
+       amount=None, start=None, once=None, split=None):
+    """Build the data-motion attribute string read by src/assets/js/motion.js.
+
+    Returns a string with a leading space, ready to drop into an opening tag,
+    or '' when nothing is requested. The attributes are inert on pages that do
+    not set ``Page.motion``: every stylesheet rule behind them is scoped to the
+    `.motion` class that only those pages add to <html>.
+
+        mo('fade-up', delay=200)        -> ' data-motion="fade-up" data-motion-delay="200"'
+        mo(group='rise', stagger=100)   -> ' data-motion-group="rise" data-motion-stagger="100"'
+
+    See the "Motion system" section of src/assets/css/stylesheet.css.
+    """
+    a = []
+    if variant:
+        a.append(f'data-motion="{variant}"')
+    if group is not None:
+        a.append(f'data-motion-group="{group}"' if group else 'data-motion-group')
+    if reveal:
+        a.append('data-motion-reveal')
+    if split:
+        a.append(f'data-motion-split="{split}"')
+    if delay is not None:
+        a.append(f'data-motion-delay="{int(delay)}"')
+    if stagger is not None:
+        a.append(f'data-motion-stagger="{int(stagger)}"')
+    if duration is not None:
+        a.append(f'data-motion-duration="{int(duration)}"')
+    if amount is not None:
+        a.append(f'data-motion-amount="{amount}"')
+    if start:
+        a.append(f'data-motion-start="{start}"')
+    if once is False:
+        a.append('data-motion-once="false"')
+    return (' ' + ' '.join(a)) if a else ''
+
+
 def icon(name, size=20, stroke=1.5, cls=''):
     c = f' class="{cls}"' if cls else ''
     return (f'<svg{c} width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
@@ -69,18 +107,19 @@ def icon(name, size=20, stroke=1.5, cls=''):
 # ---------- inline elements ----------
 
 def btn(label, href, kind='primary', arrow=True, size='', attrs='', aria=''):
+    # `attrs` is spliced in verbatim and must carry its own leading space (mo() does).
     cls = f'btn btn--{kind}' + (f' btn--{size}' if size else '')
     a = f' aria-label="{esc(aria)}"' if aria else ''
     icon_html = icon('arrow', 16, 1.75) if arrow and kind in ('primary', 'outline-light') else ''
-    return f'<a class="{cls}" href="{esc(href)}"{a}{(" " + attrs) if attrs else ""}>{esc(label)}{icon_html}</a>'
+    return f'<a class="{cls}" href="{esc(href)}"{a}{attrs}>{esc(label)}{icon_html}</a>'
 
 
-def link(label, href, cls='link-arrow'):
-    return f'<a class="{cls}" href="{esc(href)}">{esc(label)}{icon("arrow", 14, 1.75)}</a>'
+def link(label, href, cls='link-arrow', attrs=''):
+    return f'<a class="{cls}" href="{esc(href)}"{attrs}>{esc(label)}{icon("arrow", 14, 1.75)}</a>'
 
 
-def ghost_link(label, href, chevron=True):
-    return f'<a class="btn btn--ghost" href="{esc(href)}">{esc(label)}{icon("chevron", 16, 1.75) if chevron else ""}</a>'
+def ghost_link(label, href, chevron=True, attrs=''):
+    return f'<a class="btn btn--ghost" href="{esc(href)}"{attrs}>{esc(label)}{icon("chevron", 16, 1.75) if chevron else ""}</a>'
 
 
 def tag(label, kind=''):
@@ -96,8 +135,8 @@ def avatar(initials):
     return f'<span class="avatar" aria-hidden="true">{esc(initials)}</span>'
 
 
-def checks(items, cls=''):
-    return f'<ul class="checks{(" " + cls) if cls else ""}">' + ''.join(f'<li>{esc(i)}</li>' for i in items) + '</ul>'
+def checks(items, cls='', attrs=''):
+    return f'<ul class="checks{(" " + cls) if cls else ""}"{attrs}>' + ''.join(f'<li>{esc(i)}</li>' for i in items) + '</ul>'
 
 
 def checks_html(items_html, cls=''):
@@ -110,16 +149,16 @@ def eyebrow(text):
 
 # ---------- layout ----------
 
-def section(inner_html, cls='', container='', id_=''):
+def section(inner_html, cls='', container='', id_='', attrs=''):
     c = ' ' + cls if cls else ''
     cc = ' ' + container if container else ''
     i = f' id="{id_}"' if id_ else ''
-    return f'<section class="section{c}"{i}><div class="container{cc}">{inner_html}</div></section>'
+    return f'<section class="section{c}"{i}{attrs}><div class="container{cc}">{inner_html}</div></section>'
 
 
-def section_head(eb, h2, lead=None, center=False, lead_html=None, h2_html=None):
+def section_head(eb, h2, lead=None, center=False, lead_html=None, h2_html=None, attrs=''):
     cls = 'section-head section-head--center' if center else 'section-head'
-    out = f'<div class="{cls}">' + (eyebrow(eb) if eb else '')
+    out = f'<div class="{cls}"{attrs}>' + (eyebrow(eb) if eb else '')
     out += f'<h2 class="h2">{h2_html if h2_html else esc(h2)}</h2>'
     if lead_html:
         out += f'<p class="lead">{lead_html}</p>'
@@ -128,14 +167,14 @@ def section_head(eb, h2, lead=None, center=False, lead_html=None, h2_html=None):
     return out + '</div>'
 
 
-def grid(items_html, cols=3, cls=''):
-    return f'<div class="grid grid--{cols}{(" " + cls) if cls else ""}">' + ''.join(items_html) + '</div>'
+def grid(items_html, cols=3, cls='', attrs=''):
+    return f'<div class="grid grid--{cols}{(" " + cls) if cls else ""}"{attrs}>' + ''.join(items_html) + '</div>'
 
 
-def card(inner_html, cls='', href=None):
+def card(inner_html, cls='', href=None, attrs=''):
     if href:
-        return f'<a class="card card--link{(" " + cls) if cls else ""}" href="{esc(href)}">{inner_html}</a>'
-    return f'<div class="card{(" " + cls) if cls else ""}">{inner_html}</div>'
+        return f'<a class="card card--link{(" " + cls) if cls else ""}" href="{esc(href)}"{attrs}>{inner_html}</a>'
+    return f'<div class="card{(" " + cls) if cls else ""}"{attrs}>{inner_html}</div>'
 
 
 def feature_card(icon_name, title, text, href=None, link_label=None):
@@ -154,12 +193,12 @@ def service_card(icon_name, title, text, items, href, link_label, price=None):
     return card(inner, cls='card--pad-lg')
 
 
-def price_card(name, price, duration, one_liner, items, href, link_label):
+def price_card(name, price, duration, one_liner, items, href, link_label, cls='', attrs=''):
     slug = re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
     inner = (f'<div class="price-card" id="{slug}"><div class="price-card__head"><h3 class="h4">{esc(name)}</h3>{tag(duration)}</div>'
              f'<p class="price-card__price">{esc(price)}</p><p class="price-card__one">{esc(one_liner)}</p><hr class="hairline">'
              f'{checks(items)}<div class="mt-2">{link(link_label, href)}</div></div>')
-    return card(inner)
+    return card(inner, cls=cls, attrs=attrs)
 
 
 def steps(items, cols=4, numbered=True, years=False):
@@ -174,50 +213,61 @@ def steps(items, cols=4, numbered=True, years=False):
     return out + '</div>'
 
 
-def stats(items):
-    return '<div class="stats">' + ''.join(
-        f'<div class="stat"><p class="stat__num">{esc(n)}</p><p class="stat__label">{esc(l)}</p></div>' for n, l in items) + '</div>'
+def stats(items, attrs='', count=False):
+    # count=True lets motion.js animate each figure up from zero. Values that are
+    # not a single integer (ranges such as "2–4") are skipped by the runtime.
+    num_attrs = ' data-motion-count' if count else ''
+    return f'<div class="stats"{attrs}>' + ''.join(
+        f'<div class="stat"><p class="stat__num"{num_attrs}>{esc(n)}</p><p class="stat__label">{esc(l)}</p></div>' for n, l in items) + '</div>'
 
 
-def quote_card(text, initials, name, role):
+def quote_card(text, initials, name, role, cls='', attrs=''):
     return card(f'<div class="quote-card"><span class="quote-card__mark" aria-hidden="true">“</span>'
                 f'<p class="quote-card__text">{esc(text)}</p><div class="quote-card__who">{avatar(initials)}'
-                f'<div><p class="label">{esc(name)}</p><p class="caption">{esc(role)}</p></div></div></div>', cls='card--pad-lg')
+                f'<div><p class="label">{esc(name)}</p><p class="caption">{esc(role)}</p></div></div></div>',
+                cls=('card--pad-lg ' + cls).strip(), attrs=attrs)
 
 
-def faq(items, title=None, id_='faq'):
-    out = f'<h2 class="h3 mb-6">{esc(title)}</h2>' if title else ''
-    out += '<div class="faq">'
+def faq(items, title=None, id_='faq', motion=False):
+    m_title = mo('fade-up') if motion else ''
+    out = f'<h2 class="h3 mb-6"{m_title}>{esc(title)}</h2>' if title else ''
+    out += f'<div class="faq"{mo(group="fade-up-sm", stagger=70) if motion else ""}>'
     for q, a in items:
         a_html = a if a.lstrip().startswith('<') else f'<p>{esc(a)}</p>'
         out += f'<details class="faq__item"><summary>{esc(q)}</summary><div class="faq__a">{a_html}</div></details>'
     return out + '</div>'
 
 
-def faq_section(items, title, container='container--narrow', cls='section--flush-top'):
-    return section(faq(items, title), cls=cls, container=container)
+def faq_section(items, title, container='container--narrow', cls='section--flush-top', motion=False):
+    return section(faq(items, title, motion=motion), cls=cls, container=container)
 
 
-def cta_band(h2, lead, btn_label, btn_href, ghost_label=None, ghost_href=None):
+def cta_band(h2, lead, btn_label, btn_href, ghost_label=None, ghost_href=None, motion=False):
     ghost = (f'<a class="btn btn--ghost" href="{esc(ghost_href)}">{icon("mail", 18)}{esc(ghost_label)}</a>'
              if ghost_label else '')
-    return (f'<section class="cta-band"><div class="container"><div class="cta-band__inner">'
+    m_inner = mo(group='fade-up', stagger=90) if motion else ''
+    return (f'<section class="cta-band"><div class="container"><div class="cta-band__inner"{m_inner}>'
             f'<h2 class="h2">{esc(h2)}</h2><p class="lead">{esc(lead)}</p>'
             f'<div class="cta-band__actions">{btn(btn_label, btn_href)}{ghost}</div></div></div></section>')
 
 
-def band(eb, h2, lead, btn_label, btn_href, chips, img_src, img_alt=''):
+def band(eb, h2, lead, btn_label, btn_href, chips, img_src, img_alt='', motion=False):
     chip_html = ''.join(f'<span class="tag tag--light">{icon("check", 12, 2.2)}{esc(c)}</span>' for c in chips)
+    m_media = mo(reveal=True) if motion else ''
+    m_a = mo('pop', delay=320) if motion else ''
+    m_b = mo('pop', delay=420) if motion else ''
+    m_chips = mo(group='fade-up-sm', delay=520, stagger=70) if motion else ''
+    m_text = mo(group='fade-up', stagger=90) if motion else ''
     return (f'<section class="band"><div class="container"><div class="band__grid">'
-            f'<div class="band__media"><img src="{esc(img_src)}" alt="{esc(img_alt)}" loading="lazy" width="1600" height="1067">'
-            f'<div class="band__rect band__rect--a" aria-hidden="true"></div><div class="band__rect band__rect--b" aria-hidden="true"></div>'
-            f'<div class="band__chips">{chip_html}</div></div>'
-            f'<div class="band__text">{eyebrow(eb)}<h2 class="h2">{esc(h2)}</h2><p class="lead">{esc(lead)}</p>'
+            f'<div class="band__media"{m_media}><img src="{esc(img_src)}" alt="{esc(img_alt)}" loading="lazy" width="1600" height="1067">'
+            f'<div class="band__rect band__rect--a" aria-hidden="true"{m_a}></div><div class="band__rect band__rect--b" aria-hidden="true"{m_b}></div>'
+            f'<div class="band__chips"{m_chips}>{chip_html}</div></div>'
+            f'<div class="band__text"{m_text}>{eyebrow(eb)}<h2 class="h2">{esc(h2)}</h2><p class="lead">{esc(lead)}</p>'
             f'<div>{btn(btn_label, btn_href, kind="outline-light")}</div></div></div></div></section>')
 
 
-def glass(inner_html, cls=''):
-    return f'<div class="glass{(" " + cls) if cls else ""}">{inner_html}</div>'
+def glass(inner_html, cls='', attrs=''):
+    return f'<div class="glass{(" " + cls) if cls else ""}"{attrs}>{inner_html}</div>'
 
 
 def glass_checks(title, rows, cls=''):
@@ -269,10 +319,10 @@ def table(head, rows, brand_col=1):
     return f'<div class="table-wrap"><div class="table"><table><thead><tr>{th}</tr></thead><tbody>{body}</tbody></table></div></div>'
 
 
-def answer_block(lead_html, facts, meta_html=''):
+def answer_block(lead_html, facts, meta_html='', attrs=''):
     dl = ''.join(f'<dt>{esc(k)}</dt><dd>{esc(v)}</dd>' for k, v in facts)
     meta = f'<p class="answer-block__meta">{meta_html}</p>' if meta_html else ''
-    return f'<div class="answer-block"><p class="answer-block__lead">{lead_html}</p><dl class="answer-block__facts">{dl}</dl>{meta}</div>'
+    return f'<div class="answer-block"{attrs}><p class="answer-block__lead">{lead_html}</p><dl class="answer-block__facts">{dl}</dl>{meta}</div>'
 
 
 def spec_grid(items, cols=3):

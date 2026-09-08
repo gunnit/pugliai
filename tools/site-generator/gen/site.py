@@ -7,7 +7,8 @@ SITE = 'https://pugliai.com'
 GA_ID = 'G-L7711R1PDP'
 FORMCARRY = 'https://formcarry.com/s/xWKwXtJvS4C'
 FORMCARRY_ACCELERATOR = 'https://formcarry.com/s/accelerator-pugliai'
-CHAT_WIDGET = '<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>'
+CHAT_WIDGET = ('<script src="https://chatniuexa.onrender.com/widget.js" '
+               'data-chatbot-id="cmm7mojtm0001fzrkekjpfh84" defer></script>')
 OG_IMAGE = SITE + '/src/assets/img/2026/og-pugliai-2026.jpg'
 LOGO_URL = SITE + '/src/assets/img/pugliai_pittogramma.png'
 UPDATED = '2026-09-07'
@@ -42,6 +43,7 @@ class Page:
     extra_head: str = ''
     extra_scripts: str = ''
     own_header: bool = False  # funnel landings render their own minimal header
+    motion: bool = False      # opt into the scroll/entrance motion runtime (motion.js)
     sticky_cta: str = ''      # html for the mobile sticky CTA (landings)
     main_class: str = ''
 
@@ -250,6 +252,26 @@ def ga_snippet():
     <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'''
 
 
+MOTION_HEAD = """
+    <script>
+      /* Motion opt-in, before first paint. Adds `.motion` to <html> only when the
+         runtime can work and the visitor has not asked for reduced motion — every
+         animation rule in the stylesheet is scoped to that class, so without this
+         the page renders in its finished state. The watchdog restores that state
+         if src/assets/js/motion.js never runs. See that file for the contract. */
+      (function (d) {
+        try {
+          if (!d.classList || !('IntersectionObserver' in window)) return;
+          if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          d.classList.add('motion');
+          var fail = function () { if (!window.__pugliaiMotionReady) d.classList.add('motion-failsafe'); };
+          document.addEventListener('DOMContentLoaded', fail);   // deferred scripts have run by then
+          window.__pugliaiMotionWatchdog = setTimeout(fail, 4000);
+        } catch (e) {}
+      })(document.documentElement);
+    </script>"""
+
+
 def head(page):
     it_path = page.path if page.lang == 'it' else page.alt
     en_path = page.alt if page.lang == 'it' else page.path
@@ -289,7 +311,7 @@ def head(page):
     <meta name="theme-color" content="#f2f0eb">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="preload" href="{p}src/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="{p}src/assets/css/stylesheet.css">
+    <link rel="stylesheet" href="{p}src/assets/css/stylesheet.css">{MOTION_HEAD if page.motion else ''}
     {ga_snippet()}{ld}{page.extra_head}
 </head>'''
 
@@ -316,6 +338,8 @@ def shell(page, body_html):
     scripts = ''
     if not page.own_header:
         scripts += f'\n    <script src="{p}src/assets/js/navigation.js" defer></script>'
+    if page.motion:
+        scripts += f'\n    <script src="{p}src/assets/js/motion.js" defer></script>'
     scripts += f'\n    <script src="{p}src/assets/js/consent.js" defer></script>'
     if page.form_source:
         scripts += f'\n    <script src="{p}src/assets/js/form-security.js" defer></script>\n    {lead_observer(page.form_source)}'
