@@ -1,6 +1,6 @@
 """Contact page, strategy-session landing, success and login pages (IT/EN)."""
 from .html import *
-from .site import Page, ld_webpage, ld_faq, ld_org, FORMCARRY, SITE, UPDATED_IT, UPDATED_EN, ORG
+from .site import Page, ld_webpage, ld_faq, ld_org, FORMCARRY, SITE, modified_date_text, ORG
 from .templates import FAQ_TITLE
 
 C_IT = dict(
@@ -14,7 +14,7 @@ C_IT = dict(
                   ('Sede legale', 'Via Giovanni Forleo 45, 72022 Latiano (BR), Puglia'), ('Sede operativa', 'Via Angelo Maj 16, 24121 Bergamo (BG), Lombardia'),
                   ('Cosa succede dopo', '1) Risposta entro 2 ore lavorative. 2) Sessione strategica gratuita di 45 minuti. 3) Report scritto con le opportunità AI prioritarie e una stima del ROI.'),
                   ('Costo', 'La sessione strategica è gratuita e senza obbligo di acquisto.'), ('Lingue', 'Italiano e inglese.')],
-    answer_meta=f'Ultimo aggiornamento: {UPDATED_IT}',
+    answer_meta=f'Ultimo aggiornamento: {modified_date_text("contatti.html", "it")}',
     form_h2='Prenota la sessione strategica',
     fields=[('Nome e cognome', 'name', 'name', 'text', 'name'), ('Email aziendale', 'email', 'email', 'email', 'email'), ('Azienda', 'company', 'company', 'text', 'organization'), ('Telefono (facoltativo)', 'phone', 'phone', 'tel', 'tel')],
     message='Come possiamo aiutarti?', message_ph='Raccontaci in due righe i processi che vorresti migliorare.',
@@ -40,7 +40,7 @@ C_EN = dict(
                   ('Registered office', 'Via Giovanni Forleo 45, 72022 Latiano (BR), Puglia, Italy'), ('Operating office', 'Via Angelo Maj 16, 24121 Bergamo (BG), Lombardy, Italy'),
                   ('What happens next', '1) Reply within 2 business hours. 2) Free 45-minute strategy session. 3) Written report with priority AI opportunities and an ROI estimate.'),
                   ('Cost', 'The strategy session is free and carries no obligation to buy.'), ('Languages', 'Italian and English.')],
-    answer_meta=f'Last updated: {UPDATED_EN}',
+    answer_meta=f'Last updated: {modified_date_text("en/contact.html", "en")}',
     form_h2='Book the strategy session',
     fields=[('Full name', 'name', 'name', 'text', 'name'), ('Business email', 'email', 'email', 'email', 'email'), ('Company', 'company', 'company', 'text', 'organization'), ('Phone (optional)', 'phone', 'phone', 'tel', 'tel')],
     message='How can we help?', message_ph='Tell us in two lines which processes you would like to improve.',

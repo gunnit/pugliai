@@ -1,6 +1,6 @@
 """Homepage (IT + EN)."""
 from .html import *
-from .site import Page, ld_org, ld_website, ld_webpage, ld_faq, offer, SITE, UPDATED_IT, UPDATED_EN, url_of
+from .site import Page, ld_org, ld_website, ld_webpage, ld_faq, offer, SITE, modified_date_text, url_of
 
 IT = dict(
     title='PugliAI — Consulenza AI e prodotti on-premise per le PMI',
@@ -21,7 +21,7 @@ IT = dict(
                   ('Garanzia', 'ROI del 150% entro 12 mesi, misurato sui KPI concordati per iscritto: se non lo raggiungiamo, continuiamo senza costi aggiuntivi.'),
                   ('Dati', 'Opzione on-premise: i dati restano sui server dell’azienda. Conformità al GDPR e all’AI Act europeo.'),
                   ('Contatto', 'sales@pugliai.com — risposta entro 2 ore lavorative, lun–ven 9:00–18:00.')],
-    answer_meta=f'Fondata nel 2023 · 50+ PMI seguite dal 2023 · A cura di <a href="gregor-maric.html">Gregor Marić, CEO &amp; Founder</a> · Ultimo aggiornamento: {UPDATED_IT}',
+    answer_meta=f'Fondata nel 2023 · 50+ PMI seguite dal 2023 · A cura di <a href="gregor-maric.html">Gregor Marić, CEO &amp; Founder</a> · Ultimo aggiornamento: {modified_date_text("index.html", "it")}',
     prod_eyebrow='Prodotti on-premise', prod_h2='Quattro soluzioni pronte, installate sui tuoi server.',
     prod_lead='Ogni prodotto gira nella tua infrastruttura: i dati non lasciano mai l’azienda e i costi sono definiti in anticipo.',
     tabs=[('mic', 'VoiceAI', 'Centralino e assistenza vocale', 'voiceai-on-premise.html'),
@@ -81,7 +81,7 @@ EN = dict(
                   ('Guarantee', '150% ROI within 12 months, measured on KPIs agreed in writing: if we miss it, we keep working at no extra cost.'),
                   ('Data', 'On-premise option: data stays on the company’s servers. GDPR and EU AI Act compliance.'),
                   ('Contact', 'sales@pugliai.com — reply within 2 business hours, Mon–Fri 9:00–18:00 CET.')],
-    answer_meta=f'Founded in 2023 · 50+ SMEs supported since 2023 · By <a href="gregor-maric.html">Gregor Marić, CEO &amp; Founder</a> · Last updated: {UPDATED_EN}',
+    answer_meta=f'Founded in 2023 · 50+ SMEs supported since 2023 · By <a href="gregor-maric.html">Gregor Marić, CEO &amp; Founder</a> · Last updated: {modified_date_text("en/index.html", "en")}',
     prod_eyebrow='On-premise products', prod_h2='Four ready-made solutions, installed on your servers.',
     prod_lead='Every product runs inside your own infrastructure: data never leaves the company and costs are set upfront.',
     tabs=[('mic', 'VoiceAI', 'Switchboard and voice assistance', 'voiceai-on-premise.html'),

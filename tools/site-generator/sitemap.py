@@ -2,13 +2,12 @@
 
     python3 tools/site-generator/sitemap.py
 
-Pages flagged noindex, and pages whose canonical points elsewhere, are skipped. lastmod is UPDATED from gen/site.py for every page (the whole site is
-regenerated together, and that keeps lastmod equal to the dateModified the
-pages themselves declare); articles keep their own dateModified when their
-Article JSON-LD carries one.
+Pages flagged noindex, and pages whose canonical points elsewhere, are skipped.
+lastmod follows the explicit meaningful-page-change registry, retaining the
+historical UPDATED fallback for unreviewed pages. Articles keep the dateModified
+declared in their Article JSON-LD. A shared asset rebuild does not renew dates.
 """
 import importlib
-import json
 import os
 import sys
 
@@ -17,7 +16,7 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, HERE)
 
 from build import MODULES  # noqa: E402
-from gen.site import UPDATED  # noqa: E402
+from gen.site import content_modified  # noqa: E402
 
 
 def priority(path):
@@ -40,7 +39,7 @@ def main():
                 continue
             if page.canonical and page.canonical != page.url:
                 continue   # superseded page: the canonical target is listed instead
-            lastmod = UPDATED
+            lastmod = content_modified(page.path)
             for d in page.jsonld or []:
                 if isinstance(d, dict) and d.get('@type') == 'Article' and d.get('dateModified'):
                     lastmod = d['dateModified']

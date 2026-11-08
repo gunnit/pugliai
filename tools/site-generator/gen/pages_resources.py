@@ -1,6 +1,6 @@
 """Resources hub, training paths, sector scenarios, investment/pricing and the CEO guide (IT/EN)."""
 from .html import *
-from .site import Page, SITE, url_of, ld_webpage, ld_faq, ld_breadcrumb, ld_service, ld_article, offer, UPDATED, UPDATED_IT, UPDATED_EN
+from .site import Page, SITE, url_of, ld_webpage, ld_faq, ld_breadcrumb, ld_service, ld_article, offer, UPDATED, UPDATED_IT, UPDATED_EN, modified_date_text
 from .templates import detail_page
 from .pages_services import packages, PK_NOTE
 from .data_articles import CEO_CATS, RES_CATS, FEATURED, RES_CATS_EN
@@ -60,6 +60,7 @@ def risorse(lang):
             cards = [res_card(t, '', title, desc, href, READ['it']) for href, t, title, desc, _n in items]
             cats.append(category_block(slug, name, f'{len(items)} guide' if len(items) > 1 else '1 guida', cards))
         sections = [
+            ('html', f'<div class="container"><p class="caption muted">Ultimo aggiornamento: {modified_date_text("risorse.html", "it")}</p></div>'),
             ('features', 'Da dove iniziare', 'Gli strumenti più usati.', None, tools, 3),
             ('html', section(section_head('Novità 2026', 'Le guide aggiornate nel 2026.', 'Agenti AI, conformità all’AI Act e misurazione del ROI: i tre temi più richiesti dalle PMI italiane.') + featured, cls='section--white')),
             ('html', section(section_head('Tutte le guide', f'{N_GUIDES} guide, organizzate per tema.', 'Ogni guida riporta esempi italiani, azioni concrete e la data dell’ultimo aggiornamento. Gli articoli sono in italiano.') + stack(cats))),
@@ -92,6 +93,7 @@ def risorse(lang):
     overview = grid([card(f'<h3 class="h5 card__title" style="margin-top:0;">{esc(RES_CATS_EN[slug])}</h3><p class="card__text body-sm">{len(items)} guide{"s" if len(items) > 1 else ""} in Italian</p>', href=f'../risorse.html#{slug}')
                      for slug, _name, items in RES_CATS], 4)
     sections = [
+        ('html', f'<div class="container"><p class="caption muted">Last updated: {modified_date_text("en/resources.html", "en")}</p></div>'),
         ('features', 'Where to start', 'The most used tools.', None, tools, 3),
         ('html', section(section_head('Italian guide library', f'{N_GUIDES} guides, written for the Italian market.', 'Our editorial team publishes in Italian. These are the three most recent 2026 updates; the full library is one click away.') + featured + '<div class="mt-8">' + link('Browse the full Italian library', '../risorse.html') + '</div>', cls='section--white')),
         ('html', section(section_head('By topic', 'Eight areas, from fundamentals to market.', None) + overview, cls='section--flush-top')),
@@ -467,7 +469,7 @@ def guida_ceo_it():
           ('Costo', 'Gratuita. Nessuna registrazione o email richiesta.'),
           ('Aggiornamento', 'Contenuti rivisti nel 2026; i dati di mercato citati sono indicativi e in rapida evoluzione.'),
           ('Lingua', 'Italiano. Una guida in inglese è disponibile su AI guide for CEOs.')],
-         f'A cura della redazione PugliAI · Ultimo aggiornamento: {UPDATED_IT}'),
+         f'A cura della redazione PugliAI · Ultimo aggiornamento: {modified_date_text("guida-ai-ceo-2025.html", "it")}'),
         ('steps', 'Come usare la guida', 'Quattro tappe, dalla teoria alla pratica.', None, [
             ('Parti dai fondamenti', 'Gli articoli 1 e 2 spiegano cosa può fare l’AI in una PMI, senza tecnicismi.'),
             ('Verifica gli obblighi', 'AI Act e GDPR: cosa cambia per la tua impresa e da quando.'),

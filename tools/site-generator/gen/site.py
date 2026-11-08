@@ -1,7 +1,9 @@
 """Page shell: <head> with SEO/JSON-LD, footer, scripts. Language-aware paths."""
 import json
 from dataclasses import dataclass, field
+from datetime import date
 from .html import esc, icon
+from .content_dates import content_modified as _content_modified
 
 SITE = 'https://pugliai.com'
 GA_ID = 'G-L7711R1PDP'
@@ -16,6 +18,24 @@ LOGO_URL = SITE + '/src/assets/img/pugliai_pittogramma.png'
 UPDATED = '2026-09-07'
 UPDATED_IT = '7 settembre 2026'
 UPDATED_EN = '7 September 2026'
+
+
+def content_modified(path, fallback=UPDATED):
+    """Date of a meaningful page edit, independent of shared asset builds."""
+    return _content_modified(path, fallback)
+
+
+def modified_date_text(path, lang):
+    """Display the same page revision used in JSON-LD and the sitemap."""
+    modified = date.fromisoformat(content_modified(path))
+    months = (
+        ('gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
+         'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre')
+        if lang == 'it' else
+        ('January', 'February', 'March', 'April', 'May', 'June',
+         'July', 'August', 'September', 'October', 'November', 'December')
+    )
+    return f'{modified.day} {months[modified.month - 1]} {modified.year}'
 
 # Footer copyright. COPYRIGHT_FROM is the year the company was founded; bump
 # COPYRIGHT_YEAR every January and rebuild — the site is static, so nothing
@@ -131,10 +151,11 @@ def ld_breadcrumb(items):
         {'@type': 'ListItem', 'position': i + 1, 'name': name, 'item': url} for i, (name, url) in enumerate(items)]}
 
 
-def ld_webpage(page, name, types=None, extra=None, date_modified=UPDATED):
+def ld_webpage(page, name, types=None, extra=None, date_modified=None):
     d = {'@context': 'https://schema.org', '@type': types or 'WebPage', 'name': name, 'url': page.url,
          'description': page.description, 'inLanguage': 'it-IT' if page.lang == 'it' else 'en',
-         'dateModified': date_modified, 'isPartOf': {'@type': 'WebSite', 'url': SITE, 'name': 'PugliAI'},
+         'dateModified': date_modified if date_modified is not None else content_modified(page.path),
+         'isPartOf': {'@type': 'WebSite', 'url': SITE, 'name': 'PugliAI'},
          'publisher': {'@id': SITE + '/#organization'}}
     if extra:
         d.update(extra)

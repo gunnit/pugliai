@@ -1,6 +1,6 @@
 """Legal pages: privacy policy, cookie policy, terms (IT/EN)."""
 from .html import *
-from .site import UPDATED_IT, UPDATED_EN
+from .site import modified_date_text
 from .templates import detail_page
 
 MAIL = '<a href="mailto:sales@pugliai.com">sales@pugliai.com</a>'
@@ -20,7 +20,8 @@ def ul(items):
 
 def legal(lang, path, alt, title, description, eyebrow, h1, body_html, crumb_label):
     spec = dict(path=path, alt=alt, title=title, description=description, eyebrow=eyebrow, h1=h1,
-                lead=(f'Ultimo aggiornamento: {UPDATED_IT}' if lang == 'it' else f'Last updated: {UPDATED_EN}'),
+                lead=(f'Ultimo aggiornamento: {modified_date_text(path, lang)}' if lang == 'it'
+                      else f'Last updated: {modified_date_text(path, lang)}'),
                 breadcrumb=[('Home', 'index.html'), (crumb_label, '')], crumb_urls=[('index.html' if lang == 'it' else 'en/index.html'), path],
                 sections=[('html', prose(body_html))])
     return detail_page(lang, spec)

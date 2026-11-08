@@ -15,12 +15,12 @@ CEO_CATS = [
     ]),
     ('Implementazione Pratica', [
         (5, 'guida-ai/come-iniziare-ai-pmi.html', "Come Iniziare con l'AI: 7 Primi Passi per le PMI", 'Guida step-by-step per avviare il percorso AI: dalla valutazione della maturità digitale ai primi progetti pilota. Con checklist scaricabile.', '16 min', 'Base'),
-        (6, 'guida-ai/chatgpt-aziende-guida.html', "ChatGPT per Aziende: Guida Pratica all'Implementazione", "Come integrare ChatGPT nei processi aziendali: piani disponibili, casi d'uso, prompt efficaci e best practice per massimizzare i risultati.", '20 min', 'Base'),
-        (7, 'guida-ai/agenti-ai-pmi-2026.html', 'Agenti AI: Come Automatizzare i Processi Aziendali', "La nuova frontiera dell'automazione intelligente: cosa sono gli agenti AI, come funzionano e quali processi possono gestire autonomamente.", '17 min', 'Intermedio'),
+        (6, 'guida-ai/chatgpt-aziende-guida.html', "ChatGPT per Aziende: Guida Pratica all'Implementazione", 'ChatGPT per aziende: Business, uso manuale e automazioni API. Criteri per scegliere, verificare le risposte e collegare sistemi con approvazione umana.', '7 min', 'Base'),
+        (7, 'guida-ai/agenti-ai-pmi-2026.html', "Agenti AI per le PMI Italiane nel 2026: Guida Completa all'Adozione", 'Agenti AI per PMI: scegli un processo, definisci sistemi e permessi, prova le eccezioni e misura gli esiti prima di estendere l’automazione.', '6 min', 'Intermedio'),
     ]),
     ('ROI e Investimenti', [
         (8, 'guida-ai/roi-intelligenza-artificiale-2026.html', "ROI dell'Intelligenza Artificiale: Come Calcolarlo e Massimizzarlo", "Metodologie per misurare il ritorno sull'investimento AI: metriche chiave, benchmark di settore e strategie per accelerare il payback.", '15 min', 'Intermedio'),
-        (9, 'guida-ai/costi-ai-pmi-budget.html', "Quanto Costa l'AI per una PMI? Budget e Investimenti 2025", 'Analisi dettagliata dei costi: licenze software, implementazione, formazione e manutenzione. Come pianificare il budget AI in modo realistico.', '14 min', 'Base'),
+        (9, 'guida-ai/costi-ai-pmi-budget.html', "Quanto Costa l'AI per una PMI? Budget e Investimenti 2026", 'Budget AI per PMI: separa licenze, avvio, consumi, integrazione, gestione e tempo interno. Una scheda TCO per stimare un processo senza prezzi universali.', '7 min', 'Base'),
         (10, 'guida-ai/ai-incentivi-finanziamenti-italia.html', 'Incentivi e Finanziamenti AI Italia 2025: Transizione 5.0 e Agevolazioni', "Guida completa a Transizione 5.0, crediti d'imposta fino al 45%, bandi regionali e fondi europei. Come finanziare i progetti AI nella tua PMI.", '18 min', 'Intermedio'),
     ]),
     ('Competenze e Formazione', [
@@ -38,8 +38,8 @@ CEO_CATS = [
         (20, 'guida-ai/ai-studi-professionali.html', 'AI per Studi Professionali: Avvocati, Commercialisti e Consulenti', "Legal tech, automazione contabile, due diligence e gestione documentale. Come l'AI trasforma il lavoro dei professionisti italiani.", '15 min', 'Intermedio'),
     ]),
     ('Applicazioni Aziendali', [
-        (21, 'guida-ai/chatbot-ai-customer-service.html', 'Chatbot AI per Customer Service: Guida Completa PMI', 'Come implementare chatbot efficaci: piattaforme consigliate, integrazione con CRM, metriche di successo. Da assistente base ad agente conversazionale.', '19 min', 'Intermedio'),
-        (22, 'guida-ai/ai-marketing-vendite.html', 'AI per Marketing e Vendite: Strategie che Funzionano', "Personalizzazione, lead scoring, content creation e campagne automatizzate. Come l'AI sta trasformando il marketing delle PMI italiane.", '17 min', 'Base'),
+        (21, 'guida-ai/chatbot-ai-customer-service.html', 'Chatbot AI per Customer Service: Guida Completa PMI', 'Chatbot AI per assistenza clienti: FAQ, bozze o azioni nel CRM. Definisci fonti, permessi, passaggio umano e criteri di accettazione; trasparenza dell’articolo 50.', '7 min', 'Intermedio'),
+        (22, 'guida-ai/ai-marketing-vendite.html', 'AI per marketing e vendite: dalla nuova richiesta al CRM', 'AI per marketing e vendite: controlla nuove richieste, prepara bozze da approvare e aggiorna il CRM. Misura qualità, tempi e contatti qualificati.', '7 min', 'Base'),
         (23, 'guida-ai/automazione-ai-processi.html', 'Automazione AI: Processi Aziendali da Automatizzare', "I 10 processi con maggiore potenziale di automazione: dall'amministrazione alle vendite. ROI atteso e complessità di implementazione.", '14 min', 'Intermedio'),
         (24, 'guida-ai/ai-hr-recruiting.html', 'AI per HR e Recruiting: Rivoluzionare la Gestione delle Risorse Umane', "Screening CV automatico, analisi predittiva turnover, onboarding intelligente e gestione performance. L'AI per HR nelle PMI italiane.", '17 min', 'Intermedio'),
         (25, 'guida-ai/ai-cybersecurity-aziendale.html', "AI e Cybersecurity Aziendale: Proteggere l'Impresa nell'Era Digitale", "Threat detection, risposta automatica agli incidenti, antifrode e protezione dati. Come l'AI difende le PMI dalle minacce cyber.", '18 min', 'Avanzato'),
@@ -79,19 +79,19 @@ RES_CATS = [
     ('strategia-e-implementazione', 'Strategia e Implementazione', [
         ('guida-ai/come-iniziare-ai-pmi.html', 'Strategia', "Come Iniziare con l'AI", 'Guida step-by-step: dalla valutazione della maturità digitale ai primi progetti pilota.', False),
         ('guida-ai/roi-intelligenza-artificiale-2026.html', 'ROI', "ROI dell'AI 2026", "Dati aggiornati al 2026: nuovi benchmark, strategie e casi studio italiani sul ritorno dell'AI.", True),
-        ('guida-ai/costi-ai-pmi-budget.html', 'Budget', 'Costi AI per PMI', 'Analisi dettagliata dei costi: licenze, implementazione, formazione e come pianificare il budget.', False),
+        ('guida-ai/costi-ai-pmi-budget.html', 'Budget', "Quanto Costa l'AI per una PMI? Budget e Investimenti 2026", 'Budget AI per PMI: separa licenze, avvio, consumi, integrazione, gestione e tempo interno. Una scheda TCO per stimare un processo senza prezzi universali.', False),
         ('guida-ai/leadership-ai-trasformazione.html', 'Leadership', 'Leadership AI', 'Come guidare la trasformazione AI in azienda: competenze, governance e gestione del cambiamento.', False),
         ('guida-ai/ai-incentivi-finanziamenti-italia.html', 'Finanziamenti', 'Incentivi e Finanziamenti AI', "Transizione 5.0, crediti d'imposta, bandi regionali e fondi europei per finanziare i progetti AI.", False),
         ('guida-ai/consulenza-ai-puglia.html', 'Consulenza', 'Consulenza AI in Puglia', "L'ecosistema AI pugliese: competenze locali, progetti di successo e opportunità per le imprese.", False),
     ]),
     ('automazione-e-tecnologia', 'Automazione e Tecnologia', [
-        ('guida-ai/agenti-ai-pmi-2026.html', 'Automazione', 'Agenti AI per PMI 2026', 'La nuova generazione di agenti AI: come automatizzare processi complessi nelle PMI italiane.', True),
-        ('guida-ai/chatgpt-aziende-guida.html', 'Strumenti', 'ChatGPT per Aziende', "Come integrare ChatGPT nei processi aziendali: piani, casi d'uso e prompt efficaci.", False),
-        ('guida-ai/chatbot-ai-customer-service.html', 'Customer Service', 'Chatbot AI Customer Service', 'Implementare chatbot AI per il servizio clienti: piattaforme, best practice e risultati misurabili.', False),
+        ('guida-ai/agenti-ai-pmi-2026.html', 'Automazione', "Agenti AI per le PMI Italiane nel 2026: Guida Completa all'Adozione", 'Agenti AI per PMI: scegli un processo, definisci sistemi e permessi, prova le eccezioni e misura gli esiti prima di estendere l’automazione.', True),
+        ('guida-ai/chatgpt-aziende-guida.html', 'Strumenti', "ChatGPT per Aziende: Guida Pratica all'Implementazione", 'ChatGPT per aziende: Business, uso manuale e automazioni API. Criteri per scegliere, verificare le risposte e collegare sistemi con approvazione umana.', False),
+        ('guida-ai/chatbot-ai-customer-service.html', 'Customer Service', 'Chatbot AI per Customer Service: Guida Completa PMI', 'Chatbot AI per assistenza clienti: FAQ, bozze o azioni nel CRM. Definisci fonti, permessi, passaggio umano e criteri di accettazione; trasparenza dell’articolo 50.', False),
         ('guida-ai/automazione-ai-processi.html', 'Automazione', 'Automazione AI Processi', "Automatizzare i processi aziendali con l'AI: dalla mappatura alla misurazione dei risultati.", False),
     ]),
     ('funzioni-aziendali', 'Funzioni Aziendali', [
-        ('guida-ai/ai-marketing-vendite.html', 'Marketing', 'AI Marketing e Vendite', "Personalizzazione, lead scoring, content marketing e automazione vendite con l'intelligenza artificiale.", False),
+        ('guida-ai/ai-marketing-vendite.html', 'Marketing', 'AI per marketing e vendite: dalla nuova richiesta al CRM', 'AI per marketing e vendite: controlla nuove richieste, prepara bozze da approvare e aggiorna il CRM. Misura qualità, tempi e contatti qualificati.', False),
         ('guida-ai/ai-hr-recruiting.html', 'HR', 'AI HR e Recruiting', "Screening CV, talent acquisition, onboarding e gestione HR potenziati dall'intelligenza artificiale.", False),
         ('guida-ai/ai-predittiva-data-analytics.html', 'Data Analytics', 'AI Predittiva e Data Analytics', "Analisi predittiva, business intelligence e decisioni data-driven con l'AI per le PMI.", False),
         ('guida-ai/ai-cybersecurity-aziendale.html', 'Cybersecurity', 'AI Cybersecurity Aziendale', "Proteggere l'azienda con l'AI: threat detection, prevenzione attacchi e sicurezza dei dati.", False),
@@ -121,7 +121,7 @@ RES_CATS = [
 ]
 
 FEATURED = [
-    ('guida-ai/agenti-ai-pmi-2026.html', 'Automazione', 'Agenti AI per le PMI 2026: guida completa all’automazione intelligente', 'Come gli agenti AI stanno trasformando le PMI italiane nel 2026: casi d’uso, piattaforme e strategie di implementazione.'),
+    ('guida-ai/agenti-ai-pmi-2026.html', 'Automazione', "Agenti AI per le PMI Italiane nel 2026: Guida Completa all'Adozione", 'Agenti AI per PMI: scegli un processo, definisci sistemi e permessi, prova le eccezioni e misura gli esiti prima di estendere l’automazione.'),
     ('guida-ai/ai-act-conformita-pmi-2026.html', 'Compliance', 'AI Act 2026: checklist di conformità per le PMI italiane', 'Checklist pratica e aggiornata per adeguarsi all’AI Act: scadenze, obblighi e azioni concrete per le PMI.'),
     ('guida-ai/roi-intelligenza-artificiale-2026.html', 'Strategia e ROI', 'ROI dell’AI 2026: benchmark e strategie per le PMI', 'Dati aggiornati al 2026 sul ritorno dell’investimento AI: benchmark di settore, metriche e casi italiani.'),
 ]

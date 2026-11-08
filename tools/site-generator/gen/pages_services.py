@@ -1,6 +1,6 @@
 """Services hub + service detail pages (IT/EN)."""
 from .html import *
-from .site import ld_service, offer, UPDATED_IT, UPDATED_EN, SITE
+from .site import ld_service, offer, UPDATED_IT, UPDATED_EN, SITE, modified_date_text
 from .templates import detail_page
 
 IMG_DESK = 'src/assets/img/2026/scrivania.jpg'
@@ -25,6 +25,44 @@ PK_NOTE = {'it': 'Garanzia contrattuale: se entro 12 mesi non raggiungiamo un RO
 
 # ---------------------------------------------------------------- servizi / services
 
+def process_fit(lang):
+    if lang == 'it':
+        panel_id = 'parti-da-un-processo'
+        heading = ('Da dove partire', 'Parti da un processo ricorrente.',
+                   'Per valutare da dove partire, descrivi una sola attività che si ripete e il risultato che vuoi ottenere.')
+        criteria = [
+            ('Un buon punto di partenza', 'Hai un’attività ricorrente, dati accessibili e un responsabile che può verificare il risultato.'),
+            ('Cosa chiarire prima', 'Se l’obiettivo è generico, mancano accessi o non è definito chi approva le azioni, parti da questi punti.')]
+        brief_title = 'Nel modulo indica'
+        brief = [
+            'Il processo: cosa lo avvia e quale risultato deve produrre.',
+            'I sistemi: indica fino a due strumenti coinvolti.',
+            'Il volume: quante richieste, documenti o operazioni gestisci a settimana o al mese.',
+            'Il responsabile: chi conosce il processo e verificherà il risultato.',
+            'Il controllo umano: quali azioni richiedono approvazione.']
+        action = ('Descrivi il tuo processo', 'contatti.html#valuta-processo')
+    else:
+        panel_id = 'start-with-a-process'
+        heading = ('Where to start', 'Start with one recurring process.',
+                   'To assess where to start, describe one recurring task and the outcome you want it to produce.')
+        criteria = [
+            ('A useful starting point', 'You have a recurring task, accessible data and an internal owner who can check the outcome.'),
+            ('What to clarify first', 'If the objective is vague, access is missing or nobody is assigned to approve actions, start with those points.')]
+        brief_title = 'Include in the form'
+        brief = [
+            'The process: what triggers it and what outcome it should produce.',
+            'The systems: name up to two tools involved.',
+            'The volume: how many requests, documents or operations you handle per week or month.',
+            'The owner: who knows the process and will check the outcome.',
+            'Human control: which actions require approval.']
+        action = ('Describe your process', 'contact.html#valuta-processo')
+    cards = [card(f'<h3 class="h4">{esc(title)}</h3><p class="card__text body-sm">{esc(text)}</p>')
+             for title, text in criteria]
+    brief_html = f'<div class="mt-6"><h3 class="h4">{esc(brief_title)}</h3>{checks(brief)}<div class="mt-6">{btn(*action)}</div></div>'
+    return section(section_head(*heading) + grid(cards, 2) + brief_html,
+                   container='container--narrow', id_=panel_id)
+
+
 def servizi(lang):
     if lang == 'it':
         spec = dict(
@@ -44,7 +82,8 @@ def servizi(lang):
                   ('Garanzia', 'Contrattuale: KPI misurabili definiti insieme prima dell’avvio. Se entro 12 mesi non raggiungiamo un ROI del 150%, continuiamo a lavorare senza costi aggiuntivi.'),
                   ('Settori', 'Manifatturiero, moda e lusso, servizi finanziari, sanità, turismo, agroalimentare, retail e studi professionali.'),
                   ('Prerequisiti', 'Nessuna competenza tecnica richiesta. PMI da 10 a 500 dipendenti, in tutta Italia.')],
-                 f'A cura di <a href="gregor-maric.html">Gregor Marić, CEO &amp; Founder</a> · Prezzi IVA esclusa · Ultimo aggiornamento: {UPDATED_IT}'),
+                 f'A cura di <a href="gregor-maric.html">Gregor Marić, CEO &amp; Founder</a> · Prezzi IVA esclusa · Ultimo aggiornamento: {modified_date_text("servizi.html", lang)}'),
+                ('html', process_fit(lang)),
                 ('features', 'Cosa comprende', 'Tutto quello che serve, in un unico percorso.', None, [
                     ('chart', 'Consulenza strategica', 'Roadmap AI su misura, sessioni settimanali o mensili, priorità decise sulla base dei numeri.', 'consulenza-strategica.html', 'Scopri'),
                     ('bolt', 'Automazioni pronte all’uso', 'Marketing, vendite e servizio clienti attivi in 2–4 settimane, senza bisogno di competenze tecniche interne.', 'agenti-ai.html', 'Scopri'),
@@ -91,7 +130,8 @@ def servizi(lang):
                   ('Guarantee', 'Contractual: measurable KPIs agreed before kick-off. If 150% ROI is not reached within 12 months, we keep working at no extra cost.'),
                   ('Sectors', 'Manufacturing, fashion and luxury, financial services, healthcare, tourism, agrifood, retail and professional firms.'),
                   ('Prerequisites', 'No technical skills required. SMEs with 10 to 500 employees, across Italy.')],
-                 f'By <a href="gregor-maric.html">Gregor Marić, CEO &amp; Founder</a> · Prices exclude VAT · Last updated: {UPDATED_EN}'),
+                 f'By <a href="gregor-maric.html">Gregor Marić, CEO &amp; Founder</a> · Prices exclude VAT · Last updated: {modified_date_text("en/services.html", lang)}'),
+                ('html', process_fit(lang)),
                 ('features', 'What is included', 'Everything you need, in one programme.', None, [
                     ('chart', 'Strategic consulting', 'A tailored AI roadmap, weekly or monthly sessions, priorities decided on the numbers.', 'strategic-consulting.html', 'Learn more'),
                     ('bolt', 'Ready-made automations', 'Marketing, sales and customer service live in 2–4 weeks, with no in-house technical skills required.', 'ai-agents.html', 'Learn more'),
@@ -258,7 +298,7 @@ def agenti(lang):
                     ('building', 'Studi professionali', 'Ricerca su pratiche e normative, bozze di documenti, gestione delle scadenze.')], 3),
                 ('links', 'Approfondimenti', 'Per capire cosa aspettarsi dagli agenti AI.', [
                     ('Agenti AI per PMI nel 2026', 'Tendenze, opportunità e casi d’uso per le piccole e medie imprese.', 'guida-ai/agenti-ai-pmi-2026.html'),
-                    ('Automazione con agenti AI', 'Come gli agenti automatizzano processi complessi e ripetitivi.', 'guida-ai/agenti-ai-automazione.html'),
+                    ('Automazione con agenti AI', 'Come gli agenti automatizzano processi complessi e ripetitivi.', 'guida-ai/agenti-ai-pmi-2026.html'),
                     ('Chatbot AI per il servizio clienti', 'Guida agli assistenti intelligenti per il servizio clienti.', 'guida-ai/chatbot-ai-customer-service.html')]),
                 ('faq', [
                     ('Che differenza c’è tra un chatbot e un agente AI autonomo?', 'Un chatbot conversa e risponde a domande; un agente autonomo ragiona, pianifica ed esegue attività end-to-end sui tuoi sistemi. Collegato ai tuoi strumenti tramite l’hosting MCP, può creare ordini, aggiornare ticket o preparare report, con supervisione umana sui passaggi critici.'),
