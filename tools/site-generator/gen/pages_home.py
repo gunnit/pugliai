@@ -7,11 +7,11 @@ IT = dict(
     description='Consulenza AI a prezzo fisso, agenti AI autonomi e prodotti on-premise per le PMI italiane. Primi risultati in 2–4 settimane. Sedi a Latiano (BR) e Bergamo.',
     h1='L’intelligenza artificiale al lavoro nella tua azienda.',
     sub='Consulenza, agenti AI e infrastrutture on-premise per le piccole e medie imprese italiane. Primi risultati in 2–4 settimane.',
-    cta='Prenota la sessione strategica gratuita', cta_href='sessione-strategica.html', ghost='Scopri come lavoriamo', ghost_href='servizi.html',
+    cta='Valuta un processo da automatizzare', cta_href='contatti.html#valuta-processo', ghost='Scopri come lavoriamo', ghost_href='servizi.html',
     cardA_title='Agente servizio clienti', cardA_sub='PugliAI · esempio di esecuzione', cardA_tag='Attivo', cardA_num='128',
     cardA_numlabel='richieste gestite oggi', cardA_bar='94% risolte senza intervento umano', cardA_note='Supervisione umana sui passaggi critici',
     cardB_title='Sessione strategica', cardB_sub='45 minuti · gratuita · senza impegno',
-    cardB_items=['Analisi dei processi chiave', 'Opportunità AI prioritarie', 'Report scritto con stima del ROI'], cardB_btn='Prenota',
+    cardB_items=['Valutazione di un processo prioritario', 'Opportunità AI prioritarie', 'Report scritto con stima del ROI'], cardB_btn='Descrivi il processo',
     logos_caption='PMI e partner che lavorano con noi',
     answer_lead='<strong>PugliAI è una società di consulenza AI italiana</strong> che aiuta le piccole e medie imprese ad adottare l’intelligenza artificiale con percorsi a prezzo fisso, agenti AI autonomi e prodotti installati sui server dell’azienda. Opera da Latiano (Brindisi) e Bergamo su tutto il territorio nazionale, in italiano e in inglese.',
     answer_facts=[('Cosa fa', 'Consulenza strategica AI, agenti AI autonomi, hosting MCP on-premise, automazioni pronte all’uso e formazione del team.'),
@@ -57,9 +57,9 @@ IT = dict(
          ('Quali requisiti tecnici servono per iniziare?', 'Nessuna competenza tecnica interna. Servono una connessione stabile, l’accesso ai sistemi già in uso (gestionale, CRM) e la disponibilità del team per la formazione. Per le soluzioni on-premise valutiamo insieme i server disponibili.'),
          ('Come funziona la garanzia di ROI del 150%?', 'Prima dell’avvio definiamo insieme KPI misurabili (tempo risparmiato, costi, errori, vendite) e li scriviamo nel contratto. Se entro 12 mesi il ROI del 150% non viene raggiunto, continuiamo a lavorare senza costi aggiuntivi fino all’obiettivo.'),
          ('Come vengono protetti i dati aziendali?', 'Le soluzioni on-premise elaborano tutto sui server dell’azienda. In ogni caso applichiamo il GDPR e l’AI Act europeo, firmiamo accordi di riservatezza prima di ogni progetto e manteniamo un registro delle attività degli agenti.')],
-    cta_h2='Parliamo della tua impresa.',
-    cta_body='45 minuti con un consulente PugliAI: analisi dei processi, opportunità prioritarie e un report scritto con la stima del ROI. Gratuita e senza impegno.',
-    cta_btn='Prenota la sessione strategica', cta_mail='Scrivi a sales@pugliai.com',
+    cta_h2='Quale processo vorresti migliorare?',
+    cta_body='Raccontaci un’attività ripetitiva, gli strumenti che usate e il volume di lavoro. La sessione strategica gratuita serve a valutarne la fattibilità e il possibile beneficio. Ricevi un report scritto con la stima del ROI, senza obbligo di acquisto.',
+    cta_btn='Valuta un processo da automatizzare', cta_mail='Scrivi a sales@pugliai.com',
 )
 
 EN = dict(
@@ -67,11 +67,11 @@ EN = dict(
     description='Fixed-price AI consulting, autonomous AI agents and on-premise products for Italian SMEs. First results in 2–4 weeks. Offices in Latiano (BR) and Bergamo.',
     h1='Artificial intelligence at work in your business.',
     sub='Consulting, AI agents and on-premise infrastructure for Italian small and mid-sized companies. First results in 2–4 weeks.',
-    cta='Book your free strategy session', cta_href='strategy-session.html', ghost='See how we work', ghost_href='services.html',
+    cta='Assess a process to automate', cta_href='contact.html#valuta-processo', ghost='See how we work', ghost_href='services.html',
     cardA_title='Customer service agent', cardA_sub='PugliAI · sample run', cardA_tag='Active', cardA_num='128',
     cardA_numlabel='requests handled today', cardA_bar='94% resolved without human intervention', cardA_note='Human review on critical steps',
     cardB_title='Strategy session', cardB_sub='45 minutes · free · no commitment',
-    cardB_items=['Review of your key processes', 'Priority AI opportunities', 'Written report with ROI estimate'], cardB_btn='Book',
+    cardB_items=['Assessment of one priority process', 'Priority AI opportunities', 'Written report with ROI estimate'], cardB_btn='Describe your process',
     logos_caption='SMEs and partners we work with',
     answer_lead='<strong>PugliAI is an Italian AI consulting firm</strong> that helps small and mid-sized companies adopt artificial intelligence with fixed-price programmes, autonomous AI agents and products installed on the company’s own servers. Based in Latiano (Brindisi) and Bergamo, it serves the whole of Italy in Italian and English.',
     answer_facts=[('What we do', 'AI strategy consulting, autonomous AI agents, on-premise MCP hosting, ready-made automations and team training.'),
@@ -117,9 +117,9 @@ EN = dict(
          ('What technical requirements do we need to start?', 'No in-house technical skills. You need a stable connection, access to the systems you already use (ERP, CRM) and your team’s availability for training. For on-premise solutions we assess the available servers together.'),
          ('How does the 150% ROI guarantee work?', 'Before the start we agree measurable KPIs (time saved, costs, errors, sales) and write them into the contract. If 150% ROI is not reached within 12 months, we keep working at no extra cost until the target is met.'),
          ('How is company data protected?', 'On-premise solutions process everything on the company’s servers. In every case we apply GDPR and the EU AI Act, sign confidentiality agreements before each project and keep a log of agent activity.')],
-    cta_h2='Let’s talk about your business.',
-    cta_body='45 minutes with a PugliAI consultant: process review, priority opportunities and a written report with an ROI estimate. Free and without obligation.',
-    cta_btn='Book the strategy session', cta_mail='Email sales@pugliai.com',
+    cta_h2='Which process would you like to improve?',
+    cta_body='Tell us about a repetitive task, the tools you use and the volume of work. The free strategy session helps assess feasibility and potential benefit. You receive a written report with an ROI estimate, with no obligation to buy.',
+    cta_btn='Assess a process to automate', cta_mail='Email sales@pugliai.com',
 )
 
 LOGOS = [('clients/mycia_logo.svg', 'MyCia'), ('clients/tiledesk-logo.png', 'Tiledesk'), ('clients/comtel.png', 'Comtel'),
@@ -156,7 +156,8 @@ def build(lang):
     page = Page(lang=lang, path=path, title=c['title'], description=c['description'], alt=alt, chat=True)
     a = page.asset
     hero_img = a('src/assets/img/2026/hero-masseria.jpg')
-    page.extra_head = f'\n    <link rel="preload" as="image" href="{hero_img}" fetchpriority="high">'
+    page.extra_head = (f'\n    <link rel="preload" as="image" href="{hero_img}" fetchpriority="high">'
+                       '<style>.hero-photo__actions .btn,.cta-band__actions .btn{white-space:normal;text-align:center;padding-top:10px;padding-bottom:10px;max-width:100%;}</style>')
 
     hero = (f'<section class="hero-photo"><img class="hero-photo__media" src="{hero_img}" alt="" width="1920" height="960" fetchpriority="high">'
             f'<div class="hero-photo__scrim" aria-hidden="true"></div><div class="hero-photo__inner">'

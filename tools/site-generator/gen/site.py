@@ -48,7 +48,7 @@ class Page:
     jsonld: list = field(default_factory=list)
     noindex: bool = False
     chat: bool = False
-    form_source: str | None = None   # when set, form-security.js + lead observer are included
+    form_source: str | None = None   # when set, the shared lead form handler is included
     body_class: str = ''
     extra_head: str = ''
     extra_scripts: str = ''
@@ -320,22 +320,6 @@ def head(page):
 </head>'''
 
 
-def lead_observer(source):
-    return f'''<script>
-    (function () {{
-      var success = document.getElementById('form-success');
-      if (!success || typeof MutationObserver === 'undefined') return;
-      var fired = false;
-      new MutationObserver(function () {{
-        if (!fired && success.style.display !== 'none') {{
-          fired = true;
-          if (typeof gtag === 'function') gtag('event', 'generate_lead', {{ source: '{source}' }});
-        }}
-      }}).observe(success, {{ attributes: true, attributeFilter: ['style'] }});
-    }})();
-    </script>'''
-
-
 def shell(page, body_html):
     p = page.prefix
     nav = '' if page.own_header else '\n    <div id="nav-placeholder"></div>'
@@ -343,8 +327,11 @@ def shell(page, body_html):
     if not page.own_header:
         scripts += f'\n    <script src="{p}src/assets/js/navigation.js" defer></script>'
     scripts += f'\n    <script src="{p}src/assets/js/consent.js" defer></script>'
+    scripts += f'\n    <script src="{p}src/assets/js/lead-attribution.js" defer></script>'
+    if page.form_source == 'contatti':
+        scripts += f'\n    <script src="{p}src/assets/js/process-intake.js" defer></script>'
     if page.form_source:
-        scripts += f'\n    <script src="{p}src/assets/js/form-security.js" defer></script>\n    {lead_observer(page.form_source)}'
+        scripts += f'\n    <script src="{p}src/assets/js/form-security.js" defer></script>'
     if page.extra_scripts:
         scripts += '\n    ' + page.extra_scripts
     if page.chat:

@@ -55,7 +55,7 @@ CEO_CATS = [
     ]),
     ('Scegliere il Partner AI', [
         (31, 'guida-ai/come-scegliere-consulenza-ai-italia.html', 'Come Scegliere una Società di Consulenza AI in Italia', 'I criteri che contano davvero: specializzazione, referenze verificabili, trasparenza sui prezzi e garanzie contrattuali. Con le domande da porre prima di firmare.', '14 min', 'Base'),
-        (32, 'guida-ai/migliori-aziende-ai-italia-2025.html', 'Migliori Aziende AI in Italia 2026: Classifica e Guida', 'Panoramica delle società AI italiane per PMI, startup ed enterprise, con confronto di servizi, specializzazioni e fasce di prezzo.', '13 min', 'Base'),
+        (32, 'guida-ai/migliori-aziende-ai-italia-2025.html', 'Aziende AI in Italia: come scegliere il partner per la tua PMI', 'Criteri per definire il processo, confrontare costi e responsabilità e verificare le referenze di un partner AI.', '13 min', 'Base'),
         (33, 'guida-ai/startup-ai-italiane-2025.html', 'Startup AI Italiane 2026: Le Migliori 15 da Conoscere', "Chi sono le startup che stanno costruendo l'AI italiana, cosa fanno e come valutarle come fornitori o partner tecnologici.", '12 min', 'Base'),
     ]),
     ('AI e Territorio', [
@@ -112,7 +112,7 @@ RES_CATS = [
         ('guida-ai/competenze-digitali-ai.html', 'Competenze', 'Competenze Digitali AI', "Le competenze chiave per lavorare con l'AI: prompt engineering, data literacy e pensiero critico.", False),
     ]),
     ('mercato-e-aziende', 'Mercato e Aziende', [
-        ('guida-ai/migliori-aziende-ai-italia-2025.html', 'Mercato', 'Migliori Aziende AI Italia 2025', 'La classifica delle aziende AI più innovative in Italia: chi sono, cosa fanno e perché contano.', False),
+        ('guida-ai/migliori-aziende-ai-italia-2025.html', 'Mercato', 'Aziende AI in Italia: criteri di scelta per le PMI', 'Una guida per confrontare ambito, sistemi, costi, responsabilità e referenze verificabili di un partner AI.', False),
         ('guida-ai/startup-ai-italiane-2025.html', 'Startup', 'Startup AI Italiane 2025', "Le startup AI più promettenti d'Italia: settori, tecnologie e opportunità di collaborazione.", False),
         ('guida-ai/come-scegliere-consulenza-ai-italia.html', 'Consulenza', 'Come Scegliere Consulenza AI', 'Criteri di valutazione, domande da fare e red flag per scegliere il partner AI giusto in Italia.', False),
         ('guida-ai/eccellenze-ai-sud-italia.html', 'Sud Italia', 'Eccellenze AI nel Sud Italia', 'Hub tecnologici, centri di ricerca e aziende AI che stanno trasformando il Mezzogiorno.', False),

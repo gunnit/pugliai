@@ -56,14 +56,92 @@ C_EN = dict(
 )
 
 
+# This intake belongs only to the contact page; the strategy landing keeps its form.
+C_IT.update(
+    form_h2='Valutiamo il tuo processo',
+    form_intro='Parti da una sola attività. Descrivi come funziona oggi, gli strumenti coinvolti e il volume di lavoro: useremo queste informazioni per preparare la sessione strategica gratuita. Non inviare password, dati di clienti o documenti riservati.',
+    message='Descrivi la tua esigenza', message_ph='Indica il prodotto o l’esigenza, gli utenti o i volumi previsti e gli eventuali sistemi da integrare.',
+    process_message='Quale processo vuoi migliorare?',
+    process_message_ph='Descrivi l’attività, cosa la avvia e quale risultato deve produrre. Esempio: dalle email con gli ordini all’inserimento nel gestionale.',
+    inquiry_label='Di cosa vuoi parlare?',
+    inquiry_choices=[('other', 'Un’altra esigenza'), ('process', 'Automazione di un processo'), ('voiceai', 'VoiceAI On-Premise'), ('knowledgeai', 'KnowledgeAI Enterprise')],
+    process_legend='Dettagli del processo',
+    systems_label='Quali sistemi sono coinvolti? Indicane fino a due.',
+    systems_ph='Esempio: Outlook e TeamSystem. Un solo sistema va bene; se non lo sai, scrivi “da verificare”.',
+    volume_label='Qual è il volume di lavoro?',
+    volume_ph='Esempio: 300 ordini al mese, 50 email al giorno oppure 10 ore a settimana. Va bene una stima.',
+    role_label='Qual è il tuo ruolo sul processo?',
+    role_choices=[('approver', 'Sono responsabile del processo e posso approvare il progetto'), ('owner', 'Sono responsabile del processo; l’approvazione spetta ad altri'), ('team', 'Lavoro nel team che svolge il processo'), ('consultant', 'Sono un consulente esterno'), ('other', 'Altro / da definire')],
+    timing_label='Quando vorresti iniziare?',
+    timing_choices=[('month', 'Entro un mese'), ('quarter', 'Tra uno e tre mesi'), ('later', 'Oltre tre mesi'), ('research', 'Sto raccogliendo informazioni')],
+    choose='Seleziona un’opzione',
+    enterprise_note='VoiceAI On-Premise e KnowledgeAI Enterprise sono progetti dedicati: infrastruttura, utenti e integrazioni si valutano separatamente.',
+    discovery_label='Come hai conosciuto PugliAI? (facoltativo)',
+    discovery_choices=[('chatgpt', 'ChatGPT'), ('google_ai', 'Google AI / AI Overview'), ('copilot_bing', 'Copilot / Bing'), ('perplexity', 'Perplexity'), ('search', 'Ricerca Google o Bing'), ('referral', 'Passaparola'), ('other_unknown', 'Altro / non ricordo')],
+    discovery_empty='Preferisco non indicarlo',
+    submit='Invia la richiesta', process_submit='Richiedi la valutazione del processo',
+    nojs='Puoi inviare una richiesta generale compilando il messaggio. Per una valutazione di processo, descrivi anche gli strumenti e il volume di lavoro nel messaggio.',
+)
+C_EN.update(
+    form_h2='Let’s assess your process',
+    form_intro='Start with one task. Describe how it works today, the tools involved and the volume of work: we will use this information to prepare the free strategy session. Do not send passwords, customer data or confidential documents.',
+    message='Describe your requirement', message_ph='Tell us about the product or requirement, expected users or volumes and any systems to integrate.',
+    process_message='Which process would you like to improve?',
+    process_message_ph='Describe the task, what starts it and the result it should produce. Example: from order emails to entering them in your management system.',
+    inquiry_label='What would you like to discuss?',
+    inquiry_choices=[('other', 'Another requirement'), ('process', 'Process automation'), ('voiceai', 'VoiceAI On-Premise'), ('knowledgeai', 'KnowledgeAI Enterprise')],
+    process_legend='Process details',
+    systems_label='Which systems are involved? Name up to two.',
+    systems_ph='Example: Outlook and TeamSystem. One system is fine; if you do not know, write “to confirm”.',
+    volume_label='What is the volume of work?',
+    volume_ph='Example: 300 orders a month, 50 emails a day or 10 hours a week. An estimate is fine.',
+    role_label='What is your role in this process?',
+    role_choices=[('approver', 'I own the process and can approve the project'), ('owner', 'I own the process; someone else approves the project'), ('team', 'I work in the team that runs the process'), ('consultant', 'I am an external consultant'), ('other', 'Other / to be defined')],
+    timing_label='When would you like to start?',
+    timing_choices=[('month', 'Within one month'), ('quarter', 'In one to three months'), ('later', 'After three months'), ('research', 'I am gathering information')],
+    choose='Select an option',
+    enterprise_note='VoiceAI On-Premise and KnowledgeAI Enterprise are dedicated projects: infrastructure, users and integrations are assessed separately.',
+    discovery_label='How did you hear about PugliAI? (optional)',
+    discovery_choices=[('chatgpt', 'ChatGPT'), ('google_ai', 'Google AI / AI Overview'), ('copilot_bing', 'Copilot / Bing'), ('perplexity', 'Perplexity'), ('search', 'Google or Bing search'), ('referral', 'Referral'), ('other_unknown', 'Other / cannot remember')],
+    discovery_empty='Prefer not to say',
+    submit='Send enquiry', process_submit='Request a process assessment',
+    nojs='You can send a general enquiry by completing the message. For a process assessment, also describe the tools and volume of work in your message.',
+)
+
+
+def contact_intake(c):
+    """General enquiries work without JS; enhancement activates process questions."""
+    inquiry = select(c['inquiry_label'], 'inquiry-type', 'inquiry_type', c['inquiry_choices'])
+    process = (field(c['systems_label'], 'process-systems', 'process_systems', required=False, placeholder=c['systems_ph'])
+               + field(c['volume_label'], 'work-volume', 'work_volume', required=False, placeholder=c['volume_ph'])
+               + select(c['role_label'], 'process-role', 'process_role', c['role_choices'], required=False, placeholder=c['choose'])
+               + select(c['timing_label'], 'process-timing', 'process_timing', c['timing_choices'], required=False, placeholder=c['choose']))
+    process = process.replace('class="form-input"', 'class="form-input" disabled')
+    after = (f'<fieldset data-process-fields hidden disabled class="stack" style="display:none;border:0;padding:0;margin:0;min-width:0;">'
+             f'<legend class="label">{esc(c["process_legend"])}</legend>{process}</fieldset>'
+             f'<p class="caption muted" style="margin:0;">{esc(c["enterprise_note"])}</p>'
+             + select(c['discovery_label'], 'discovery-source', 'discovery_source', c['discovery_choices'], required=False, placeholder=c['discovery_empty'])
+             + f'<noscript><p class="caption muted">{esc(c["nojs"])}</p></noscript>')
+    return inquiry, after
+
+
 def contact_form(c, source, extra_fields_html='', select_html=''):
     fields = ''.join(field(l, i, n, t, autocomplete=ac, required=(t != 'tel')) for l, i, n, t, ac in c['fields'])
+    intake_attrs = ''
+    if source == 'contatti':
+        select_html, intake_fields = contact_intake(c)
+        extra_fields_html = intake_fields + extra_fields_html
+        intake_attrs = ' data-process-intake' + ''.join(
+            f' data-{key}="{esc(value)}"' for key, value in (
+                ('process-message', c['process_message']), ('process-placeholder', c['process_message_ph']),
+                ('general-message', c['message']), ('general-placeholder', c['message_ph']),
+                ('process-submit', c['process_submit']), ('general-submit', c['submit'])))
     consent = (f'<div class="form-checkbox-group required"><input type="checkbox" id="privacy-consent" name="privacy_consent" class="form-checkbox" required aria-required="true" aria-describedby="privacy-error">'
                f'<label for="privacy-consent" class="form-checkbox-label">{c["consent_html"]}</label></div><span id="privacy-error" class="form-error" style="display:none;" aria-live="polite"></span>')
-    return (f'<form action="{FORMCARRY}" method="POST" class="contact-form form" id="contact-form" data-ajax="true">'
+    return (f'<form action="{FORMCARRY}" method="POST" class="contact-form form" id="contact-form" data-ajax="true"{intake_attrs}>'
             f'<input type="hidden" name="source" value="{source}"><div class="form__row form__row--2">{fields}</div>{select_html}'
             f'{field(c["message"], "message", "message", "textarea", placeholder=c["message_ph"])}{extra_fields_html}{consent}'
-            f'<button type="submit" class="btn btn--primary btn--block btn--lg">{esc(c["submit"])}{icon("arrow", 16, 1.75)}</button>'
+            f'<button type="submit" class="btn btn--primary btn--block btn--lg" style="white-space:normal;text-align:center;padding-top:12px;padding-bottom:12px;"><span data-submit-label>{esc(c["submit"])}</span>{icon("arrow", 16, 1.75)}</button>'
             f'<p class="caption muted" style="margin:0;">{esc(c["helper"])}</p></form>'
             f'<div id="form-success" class="form-success" style="display:none;" role="status"><h3>{esc(c["success_h3"])}</h3><p>{esc(c["success_p"])}</p></div>')
 
@@ -73,11 +151,11 @@ def contatti(lang):
     page = Page(lang=lang, path=c['path'], title=c['title'], description=c['description'], alt=c['alt'], chat=True, form_source='contatti')
     a = page.asset
     head = page_head(c['eyebrow'], c['h1'], c['lead'])
-    form = card(f'<h2 class="h3" style="margin-bottom:24px;">{esc(c["form_h2"])}</h2>' + contact_form(c, 'contatti'), cls='card--pad-lg')
+    form = card(f'<h2 class="h3" style="margin-bottom:12px;">{esc(c["form_h2"])}</h2><p class="muted body-sm" style="margin-bottom:24px;">{esc(c["form_intro"])}</p>' + contact_form(c, 'contatti'), cls='card--pad-lg')
     info = card('<div class="stack stack--lg">' + ''.join(f'<div class="info-row">{icon_badge(ic)}<div><p class="caption">{esc(k)}</p><p class="label">{esc(v)}</p></div></div>' for ic, k, v in c['info']) + '</div>', cls='card--pad-lg')
     nxt = card(f'<h3 class="h4" style="margin-bottom:16px;">{esc(c["next_h3"])}</h3><ol class="numbered">' + ''.join(f'<li>{esc(s)}</li>' for s in c['next']) + '</ol>', cls='card--pad-lg')
     side = f'<div class="stack stack--lg">{info}{nxt}<img class="photo" src="{a("src/assets/img/2026/incontro.jpg")}" alt="" loading="lazy" width="1600" height="900" style="aspect-ratio:16/9;"></div>'
-    main = section(f'<div class="grid grid--7-5" style="align-items:start;">{form}{side}</div>', cls='section--flush-top')
+    main = section(f'<div class="grid grid--7-5" style="align-items:start;">{form}{side}</div>', cls='section--flush-top', id_='valuta-processo')
     answer = section(answer_block(c['answer_lead'], c['answer_facts'], c['answer_meta']), cls='section--flush-top', container='container--narrow')
     faqs = faq_section(c['faq'], FAQ_TITLE[lang])
     body = head + main + answer + faqs

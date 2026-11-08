@@ -60,8 +60,9 @@ Keep the site's own published figures (package prices, product tiers, the "150% 
 
 ## Forms & analytics
 
-- Lead forms POST to Formcarry (`https://formcarry.com/s/xWKwXtJvS4C`) with class `contact-form`; `form-security.js` adds validation, a honeypot and a CSRF token.
-- Every lead form has `data-ajax="true"` (inline `#form-success` message) and a hidden `source` field naming the page; the shell emits the GA4 `generate_lead` MutationObserver automatically when a `Page` has `form_source` set.
+- Lead forms POST to their existing Formcarry endpoints with class `contact-form`; `form-security.js` validates, locks pending/accepted submissions and requires a successful HTTP response with numeric `code: 200` and `status: "success"`. Client tokens and honeypots do not establish server enforcement.
+- Every lead form has `data-ajax="true"` (inline `#form-success` message) and a hidden `source` field naming the page. Only the confirmed-acceptance branch emits `generate_lead`, once per form instance, with explicit current analytics consent. Provider acceptance, email delivery and qualified leads are distinct.
+- `lead-attribution.js` runs on every generated page and retains sanitized first-entry context in a consent-dependent, versioned tab record with 30-minute inactivity expiry. It supplies Formcarry context, never GA4 input data. `process-intake.js` enhances only contact pages; disabled process fields remain absent for general/product requests, and the general form works without JavaScript.
 - GA4 (`G-L7711R1PDP`) is on every page, gated by Consent Mode: the head reads the stored `cookieConsent` choice and `consent.js` updates it. Do not add tags that bypass the banner.
 
 ## SEO / structured data

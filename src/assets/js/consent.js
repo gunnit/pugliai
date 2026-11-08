@@ -11,6 +11,7 @@
     'use strict';
 
     var KEY = 'cookieConsent';
+    var unsavedChoice = null;
     var isEnglish = window.location.pathname.indexOf('/en/') !== -1;
     var depth = Math.max(0, window.location.pathname.split('/').filter(Boolean).length - 1);
     var prefix = isEnglish ? '' : new Array(depth + 1).join('../');
@@ -43,19 +44,31 @@
     };
 
     function read() {
+        if (unsavedChoice) return unsavedChoice;
         try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; }
     }
 
     function save(analytics, marketing) {
         var value = { necessary: true, analytics: !!analytics, marketing: !!marketing, timestamp: new Date().toISOString() };
-        try { localStorage.setItem(KEY, JSON.stringify(value)); } catch (e) { /* storage unavailable */ }
+        try {
+            localStorage.setItem(KEY, JSON.stringify(value));
+            unsavedChoice = null;
+        } catch (e) {
+            // The latest choice governs this page even if an older stored grant
+            // remains readable. Try removing it so a withdrawal survives navigation.
+            unsavedChoice = value;
+            if (!analytics) { try { localStorage.removeItem(KEY); } catch (_) { /* storage unavailable */ } }
+        }
+        window.dispatchEvent(new CustomEvent('pugliai:consent-change', { detail: value }));
         if (typeof window.gtag === 'function') {
-            window.gtag('consent', 'update', {
-                analytics_storage: analytics ? 'granted' : 'denied',
-                ad_storage: marketing ? 'granted' : 'denied',
-                ad_user_data: marketing ? 'granted' : 'denied',
-                ad_personalization: marketing ? 'granted' : 'denied'
-            });
+            try {
+                window.gtag('consent', 'update', {
+                    analytics_storage: analytics ? 'granted' : 'denied',
+                    ad_storage: marketing ? 'granted' : 'denied',
+                    ad_user_data: marketing ? 'granted' : 'denied',
+                    ad_personalization: marketing ? 'granted' : 'denied'
+                });
+            } catch (e) { /* consent UI must remain usable when analytics fails */ }
         }
     }
 
@@ -125,6 +138,9 @@
     }
 
     window.PugliAIConsent = { open: openModal, read: read };
+    window.addEventListener('storage', function (event) {
+        if (event.key === KEY || event.key === null) unsavedChoice = null;
+    });
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
