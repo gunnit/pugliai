@@ -202,7 +202,7 @@
             if (paths.includes(location.pathname)) payload.set('submission_path', location.pathname);
             try {
                 const context = window.PugliAIAttribution && window.PugliAIAttribution.getFields();
-                const allowed = ['first_landing_path', 'first_referrer_host', 'attribution_captured_at', 'utm_source', 'utm_medium', 'utm_campaign'];
+                const allowed = ['first_landing_path', 'first_referrer_host', 'attribution_captured_at', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
                 if (context) allowed.forEach(key => { if (typeof context[key] === 'string') payload.set(key, context[key]); });
             } catch (_) { /* Optional attribution cannot prevent an enquiry. */ }
             // Preserve nodes: the contact enhancement holds its label reference,

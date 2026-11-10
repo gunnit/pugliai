@@ -9,7 +9,7 @@
     var KEY = 'pugliai:lead-attribution:v1';
     var CONSENT_KEY = 'cookieConsent';
     var LIFETIME = 30 * 60 * 1000;
-    var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign'];
+    var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
     var expiryTimer = null;
     var lastScrollActivity = 0;
 
