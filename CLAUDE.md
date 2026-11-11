@@ -4,9 +4,9 @@ Guidance for working in this repository.
 
 ## Project
 
-PugliAI — a bilingual (Italian/English) **static** marketing site for an Italian AI consulting firm targeting SMBs (PMI). Plain HTML/CSS/JS with **no frameworks and no runtime dependencies**: the committed HTML files are served exactly as they are by GitHub Pages. The site's job is lead generation: contact-form submissions, free strategy sessions, accelerator applications.
+PugliAI — a bilingual (Italian/English) **static** marketing site for an Italian AI consulting firm targeting SMBs (PMI). Plain HTML/CSS/JS with **no framework or server runtime**. The cinematic homepages use a locally bundled Motion.dev client library: the committed HTML files are served exactly as they are by GitHub Pages. The site's job is lead generation: contact-form submissions, free strategy sessions, accelerator applications.
 
-See `PRODUCT.md` for brand register and positioning.
+See `PRODUCT.md` for brand register and positioning. The user-approved cinematic homepage direction supersedes the older palette for the two homepages only.
 
 ## How the pages are produced
 
@@ -21,6 +21,8 @@ python3 tools/site-generator/sitemap.py            # regenerate sitemap.xml from
 - `gen/site.py` — `Page` dataclass, `<head>` (canonical, hreflang, OG/Twitter, GA4 with Consent Mode defaults, JSON-LD), page shell, footer, organisation data (`ORG`), `UPDATED_*` dates.
 - `gen/html.py` — component helpers (buttons, cards, tabs, tables, forms, page heads, stats, steps, FAQ…).
 - `gen/templates.py` — `detail_page()` and the section kinds most pages are built from.
+- `gen/cinematic/home-it.html` and `home-en.html` — approved cinematic homepage body templates. `pages_home.py` wraps them with shared production metadata, consent, attribution and company links.
+- `tools/cinematic/home.js` — editable Motion.dev entry; `npm ci && npm run build:home` bundles it to `src/assets/js/cinematic/home.js` and regenerates both homepages. Commit source and bundle. `src/assets/css/cinematic.css` is the standalone homepage stylesheet. The bundle is committed because GitHub Pages does not run npm.
 - `gen/pages_*.py` — page content, IT and EN side by side in the same module (home, services, products, sectors, about, contact, accelerator, resources, ROI calculator, legal).
 - `gen/data_articles.py` — the article index used by the resources hub and the CEO guide.
 - `gen/articles.py` — re-wraps the 39 blog articles in `guida-ai/` in the current shell. Their copy lives only in the HTML (inside `<article>`), so edit the article file directly, then re-run the build: the module is idempotent and only refreshes head, chrome and scripts.
@@ -41,7 +43,7 @@ python -m http.server 8000   # http://localhost:8000/index.html   (English: /en/
 - **Italian pages** live at the repo root (`servizi.html`, `chi-siamo.html`, …). Run `ls *.html` for the current list.
 - **English pages** mirror them in `/en/` with English filenames (`servizi.html` → `en/services.html`, `contatti.html` → `en/contact.html`, `risorse.html` → `en/resources.html`, …). The IT↔EN map is `IT_TO_EN` in `src/assets/js/navigation.js` (used by the language toggle); keep it in sync when adding pages.
 - **Articles** live in `/guida-ai/` (Italian only, no English mirrors; `alt=None` in the generator).
-- **Assets** in `src/assets/`: `css/stylesheet.css` (the only stylesheet), `js/navigation.js` (announce bar, header, dropdown nav and mobile panel, injected into `#nav-placeholder`), `js/consent.js` (cookie banner + preferences dialog, Google Consent Mode v2), `js/form-security.js`, `fonts/` (self-hosted Geist woff2), `img/2026/` (photos, logo mark and wordmark, OG image).
+- **Assets** in `src/assets/`: `css/stylesheet.css` (internal pages) and `css/cinematic.css` (homepages), `js/navigation.js` (announce bar, header, dropdown nav and mobile panel, injected into `#nav-placeholder`), `js/consent.js` (cookie banner + preferences dialog, Google Consent Mode v2), `js/form-security.js`, `fonts/` (self-hosted Geist woff2), `img/2026/` (photos, logo mark and wordmark, OG image).
 - `src/assets/js/language-switcher.js` is legacy and no longer referenced by any page.
 - `src/components/footer.html` is a static copy of the generated IT footer, kept for reference; pages carry their footer inline. `src/components/stylesheet.html` is the pre-2026 design reference and is not part of the site.
 - **Funnel landings** (`sessione-strategica.html`, `en/strategy-session.html`) use the minimal header (`own_header=True`) and a sticky CTA; follow the existing page, not the standard template.

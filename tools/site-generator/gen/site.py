@@ -75,6 +75,9 @@ class Page:
     own_header: bool = False  # funnel landings render their own minimal header
     sticky_cta: str = ''      # html for the mobile sticky CTA (landings)
     main_class: str = ''
+    stylesheet: str = 'src/assets/css/stylesheet.css'
+    theme_color: str = '#f2f0eb'
+    standalone_body: bool = False  # custom home layout supplies its own header/main/footer
 
     @property
     def depth(self):
@@ -332,11 +335,11 @@ def head(page):
     <meta name="twitter:image" content="{page.og_image}">
     <meta name="twitter:image:alt" content="{esc(og_alt)}">
     <meta name="twitter:site" content="@PugliAI">
-    <meta name="theme-color" content="#f2f0eb">
+    <meta name="theme-color" content="{page.theme_color}">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="preload" href="{p}src/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="{p}src/assets/css/stylesheet.css">
+    <link rel="stylesheet" href="{p}{page.stylesheet}">
     {ga_snippet()}{ld}{page.extra_head}
 </head>'''
 
@@ -359,5 +362,7 @@ def shell(page, body_html):
         scripts += '\n    ' + CHAT_WIDGET
     body_cls = f' class="{page.body_class}"' if page.body_class else ''
     main_cls = f' class="{page.main_class}"' if page.main_class else ''
+    if page.standalone_body:
+        return f'{head(page)}\n<body{body_cls}>\n{body_html}\n{scripts}\n</body>\n</html>\n'
     return (f'{head(page)}\n<body{body_cls}>{nav}\n    <main id="main-content"{main_cls}>\n{body_html}\n    </main>\n    '
             f'{footer(page)}{page.sticky_cta}{scripts}\n</body>\n</html>\n')
