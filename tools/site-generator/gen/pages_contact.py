@@ -291,10 +291,11 @@ def success(lang):
 
 def login():
     page = Page(lang='it', path='login.html', title='Area riservata | PugliAI', description='Area riservata PugliAI: accesso per i clienti ai materiali di progetto.', noindex=True)
-    body = section(f'<div class="center-block" style="min-height:60vh;justify-content:center;"><div class="card card--pad-lg" style="width:100%;max-width:420px;text-align:left;">'
-                   f'<h1 class="h3" style="margin-bottom:8px;">Area riservata</h1><p class="muted body-sm" style="margin-bottom:20px;">Accesso riservato ai clienti PugliAI. Per ricevere le credenziali scrivi a <a href="mailto:sales@pugliai.com">sales@pugliai.com</a>.</p>'
-                   f'<form class="form" action="#" method="post" onsubmit="return false;">{field("Email", "login-email", "email", "email", autocomplete="email")}{field("Password", "login-password", "password", "password", autocomplete="current-password")}'
-                   f'<button type="submit" class="btn btn--primary btn--block">Accedi{icon("arrow", 16, 1.75)}</button></form></div></div>')
+    body = section(f'<div class="center-block" style="min-height:60vh;justify-content:center;"><div class="card card--pad-lg" style="width:100%;max-width:560px;text-align:left;">'
+                   f'<h1 class="h3" style="margin-bottom:16px;">Area riservata</h1>'
+                   f'<p class="lead">Per richiedere l’accesso ai materiali del tuo progetto, contatta il team PugliAI.</p>'
+                   f'<p class="muted body-sm">Scrivi a <a href="mailto:{ORG["email"]}">{ORG["email"]}</a>, indicando il nome dell’azienda e del progetto.</p>'
+                   f'<div class="stack mt-6">{btn("Contatta il team", "mailto:" + ORG["email"])}{ghost_link("Torna alla home", "index.html")}</div></div></div>')
     page.jsonld = [ld_webpage(page, page.title)]
     return page, body
 

@@ -21,10 +21,12 @@ SECTORS = {
 
 I18N = {
     'it': dict(locale='it-IT', month='mese', months='mesi', over36='oltre 36 mesi',
+               copied='Risultati copiati negli appunti.', copy_error='Copia automatica non disponibile. Copia il testo selezionato qui sotto.',
                pkg=dict(accelerator='AI Accelerator', transformation='AI Transformation', partnership='AI Partnership'),
                rec='In base ai dati inseriti consigliamo il percorso {pkg} ({inv}): risparmio stimato nel primo anno {ben}, con il 70% delle soluzioni a regime.',
                share='Stima ROI con PugliAI: {roi} nel primo anno e {sav} di risparmio annuo a regime. Calcola la tua: https://pugliai.com/roi-calculator.html'),
     'en': dict(locale='en-GB', month='month', months='months', over36='over 36 months',
+               copied='Results copied to the clipboard.', copy_error='Automatic copying is unavailable. Copy the selected text below.',
                pkg=dict(accelerator='AI Accelerator', transformation='AI Transformation', partnership='AI Partnership'),
                rec='Based on your data we recommend the {pkg} programme ({inv}): estimated first-year savings {ben}, with 70% of the solutions at full run rate.',
                share='ROI estimate with PugliAI: {roi} in year one and {sav} of annual savings at run rate. Calculate yours: https://pugliai.com/en/roi-calculator.html'),
@@ -52,6 +54,7 @@ JS = r"""
   bindRange('processes', 'processesValue'); bindRange('hours', 'hoursValue');
   function set(id, v) { document.getElementById(id).textContent = v; }
   function calc() {
+    if (!document.getElementById('calcForm').reportValidity()) return;
     if (!sel) { document.getElementById('sectorError').hidden = false; opts[0].focus(); return; }
     var revenue = parseFloat(document.getElementById('revenue').value) || 0;
     var employees = parseInt(document.getElementById('employees').value, 10) || 0;
@@ -80,6 +83,8 @@ JS = r"""
     document.getElementById('resultsCard').hidden = false;
     document.getElementById('projection').hidden = false;
     document.getElementById('initialMessage').hidden = true;
+    document.getElementById('copyMsg').textContent = '';
+    document.getElementById('copyFallback').hidden = true;
     if (window.innerWidth < 1024) document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
     if (typeof gtag === 'function') gtag('event', 'roi_calculated', { sector: sel.industry, package: pkg });
   }
@@ -87,8 +92,20 @@ JS = r"""
   document.getElementById('copyBtn').addEventListener('click', function () {
     var text = fill(T.share, { roi: document.getElementById('roiPercentage').textContent, sav: document.getElementById('annualSavings').textContent });
     var msg = document.getElementById('copyMsg');
-    var done = function () { msg.hidden = false; setTimeout(function () { msg.hidden = true; }, 3000); };
-    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, done); } else { done(); }
+    var fallback = document.getElementById('copyFallback');
+    var done = function () { fallback.hidden = true; msg.textContent = T.copied; };
+    var failed = function () {
+      var field = document.getElementById('copyText');
+      field.value = text;
+      fallback.hidden = false;
+      msg.textContent = T.copy_error;
+      field.focus();
+      field.select();
+    };
+    msg.textContent = '';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try { navigator.clipboard.writeText(text).then(done, failed); } catch (_) { failed(); }
+    } else { failed(); }
   });
 })();
 """
@@ -109,7 +126,7 @@ def calculator(lang):
                 note='Stima indicativa basata sulle ipotesi descritte sotto. Non è un’offerta.',
                 init_h='Inserisci i dati', init_p='Scegli il settore e compila i campi: la stima appare qui.',
                 res_h='La tua stima', r_hours='Ore liberate all’anno', r_sav='Risparmio annuo a regime', r_y1='Risparmio nel primo anno', r_roi='ROI nel primo anno', r_pay='Tempo di rientro', r_inv='Investimento consigliato', r_up='Potenziale sui ricavi (non incluso nel ROI)',
-                cta='Richiedi un’analisi dettagliata', cta_href='sessione-strategica.html', copy='Copia i risultati', copied='Risultati copiati negli appunti.',
+                cta='Richiedi un’analisi dettagliata', cta_href='sessione-strategica.html', copy='Copia i risultati', copy_text='Risultati da copiare',
                 proj_h='Proiezione a 3 anni', p_cum='Risparmi cumulati in 3 anni', p_net='Beneficio netto dopo l’investimento', p_month='Costo di ogni mese di attesa',
                 proj_note='70% del risparmio a regime nel primo anno, poi 100% nel secondo e nel terzo, meno l’investimento iniziale. Esclude eventuali canoni successivi.'),
         en=dict(h2='Your company data', sector='Sector', sector_err='Select a sector to run the estimate.', revenue='Annual revenue (€)', employees='Number of employees',
@@ -117,15 +134,15 @@ def calculator(lang):
                 note='Indicative estimate based on the assumptions described below. This is not an offer.',
                 init_h='Enter your data', init_p='Choose the sector and fill in the fields: the estimate appears here.',
                 res_h='Your estimate', r_hours='Hours freed per year', r_sav='Annual savings at run rate', r_y1='First-year savings', r_roi='First-year ROI', r_pay='Payback time', r_inv='Recommended investment', r_up='Revenue potential (not included in the ROI)',
-                cta='Request a detailed analysis', cta_href='strategy-session.html', copy='Copy the results', copied='Results copied to the clipboard.',
+                cta='Request a detailed analysis', cta_href='strategy-session.html', copy='Copy the results', copy_text='Results to copy',
                 proj_h='Three-year projection', p_cum='Cumulative savings over 3 years', p_net='Net benefit after the investment', p_month='Cost of every month of waiting',
                 proj_note='70% of run-rate savings in year one, then 100% in years two and three, minus the initial investment. Excludes any later fees.'),
     )[lang]
-    form = (f'<form id="calcForm" class="card card--pad-lg" novalidate><h2 class="h4" style="margin:0 0 20px;">{L["h2"]}</h2>'
+    form = (f'<form id="calcForm" class="card card--pad-lg"><h2 class="h4" style="margin:0 0 20px;">{L["h2"]}</h2>'
             f'<div class="field"><span class="label">{L["sector"]}</span><div class="industry-grid">{sectors}</div><p id="sectorError" class="caption" style="color:#b3261e;margin:6px 0 0;" hidden>{L["sector_err"]}</p></div>'
             f'<div class="grid grid--2 mt-6" style="gap:16px;">'
-            f'<div class="field"><label for="revenue">{L["revenue"]}</label><input class="form-input" type="number" id="revenue" inputmode="numeric" min="100000" step="50000" value="5000000"></div>'
-            f'<div class="field"><label for="employees">{L["employees"]}</label><input class="form-input" type="number" id="employees" inputmode="numeric" min="1" max="5000" value="50"></div></div>'
+            f'<div class="field"><label for="revenue">{L["revenue"]}</label><input class="form-input" type="number" id="revenue" inputmode="numeric" min="100000" step="1" value="5000000" required></div>'
+            f'<div class="field"><label for="employees">{L["employees"]}</label><input class="form-input" type="number" id="employees" inputmode="numeric" min="1" max="5000" value="50" required></div></div>'
             f'<div class="field mt-6"><div class="range-row"><label for="processes">{L["processes"]}</label><output id="processesValue" for="processes">3</output></div><input type="range" id="processes" min="1" max="10" value="3"></div>'
             f'<div class="field mt-6"><div class="range-row"><label for="hours">{L["hours"]}</label><output id="hoursValue" for="hours">6</output></div><input type="range" id="hours" min="1" max="15" value="6"></div>'
             f'<div class="mt-8"><button class="btn btn--primary btn--block" type="submit">{L["calc"]}{icon("arrow", 16, 1.75)}</button></div>'
@@ -138,7 +155,8 @@ def calculator(lang):
                + f'</div><div class="result-item mt-4" style="background:var(--color-lilac-soft);"><span class="result-value" id="revenueUplift">—</span><span class="result-label">{L["r_up"]}</span></div>'
                f'<p id="recommendedPackage" class="mt-6" style="margin-bottom:0;"></p>'
                f'<div class="cluster mt-6">{btn(L["cta"], L["cta_href"], "primary")}<button type="button" class="btn btn--ghost" id="copyBtn">{L["copy"]}</button></div>'
-               f'<p id="copyMsg" class="caption muted mt-2" hidden>{L["copied"]}</p></div>'
+               f'<p id="copyMsg" class="caption muted mt-2" role="status" aria-live="polite"></p>'
+               f'<div id="copyFallback" class="field mt-4" hidden><label for="copyText">{L["copy_text"]}</label><textarea id="copyText" class="form-input" rows="4" readonly aria-describedby="copyMsg"></textarea></div></div>'
                f'<div id="projection" class="card card--pad-lg mt-6" hidden><h3 class="h5" style="margin:0 0 16px;">{L["proj_h"]}</h3>'
                + proj_grid +
                f'<p class="caption muted mt-4" style="margin-bottom:0;">{L["proj_note"]}</p></div>')

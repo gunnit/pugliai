@@ -7,7 +7,7 @@ from pathlib import Path
 import re
 from html import unescape
 from .html import esc
-from .site import Page, FOOTER, ORG, ld_org, ld_website, ld_webpage, ld_faq, SITE
+from .site import Page, FOOTER, ORG, ld_org, ld_website, ld_webpage, ld_faq, SITE, navigation_fallback
 
 TEMPLATES = Path(__file__).with_name('cinematic')
 META = {
@@ -55,9 +55,10 @@ def build(lang):
     page = Page(lang=lang, path=path, title=title, description=description, alt=alt,
                 chat=True, own_header=True, standalone_body=True,
                 body_class='cinematic-home', stylesheet='src/assets/css/cinematic.css', theme_color='#080d13',
-                extra_head='\n    <link rel="preload" href="/src/assets/img/cinematic/hero-light.webp" as="image" fetchpriority="high">',
-                extra_scripts='<script type="module" src="/src/assets/js/cinematic/home.js"></script>')
+                extra_head='\n    <link rel="stylesheet" href="/src/assets/css/cinematic-navigation.css">\n    <link rel="preload" href="/src/assets/img/cinematic/hero-light.webp" as="image" fetchpriority="high">',
+                extra_scripts='<script src="/src/assets/js/navigation.js" defer></script>\n    <script type="module" src="/src/assets/js/cinematic/home.js"></script>')
     body = (TEMPLATES / f'home-{lang}.html').read_text(encoding='utf-8')
+    body = body.replace('{{NAVIGATION}}', navigation_fallback(page, 'main'))
     body = body.replace('{{FOOTER_DIRECTORY}}', footer_directory(lang))
     body = body.replace('{{LEGAL_LINKS}}', legal_links(lang))
     body = body.replace('{{COMPANY_DETAILS}}', company_details(lang))

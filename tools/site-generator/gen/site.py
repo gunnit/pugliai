@@ -226,10 +226,10 @@ def ld_article(page, headline, date_published, date_modified, section, image=OG_
 FOOTER = {
     'it': {
         'cols': [
-            ('Servizi', [('Consulenza strategica', 'consulenza-strategica.html'), ('Agenti AI', 'agenti-ai.html'), ('Infrastrutture AI', 'infrastrutture-ai.html'), ('POC Framework', 'poc-framework.html'), ('PugliAI Accelerator', 'acceleratore.html')]),
-            ('Prodotti', [('VoiceAI On-Premise', 'voiceai-on-premise.html'), ('KnowledgeAI Enterprise', 'knowledgeai-enterprise.html'), ('Hosting MCP', 'hosting-mcp.html'), ('Architettura tecnica', 'architettura-tecnica.html')]),
+            ('Servizi', [('Consulenza strategica', 'consulenza-strategica.html'), ('Agenti AI', 'agenti-ai.html'), ('Infrastrutture AI', 'infrastrutture-ai.html'), ('POC Framework', 'poc-framework.html'), ('PugliAI Accelerator', 'acceleratore.html'), ('Tutti i servizi', 'servizi.html')]),
+            ('Prodotti', [('VoiceAI On-Premise', 'voiceai-on-premise.html'), ('KnowledgeAI Enterprise', 'knowledgeai-enterprise.html'), ('Hosting MCP', 'hosting-mcp.html'), ('Architettura tecnica', 'architettura-tecnica.html'), ('Tutti i prodotti', 'prodotti.html')]),
             ('Settori', [('Manifatturiero', 'manifatturiero.html'), ('Moda e lusso', 'moda-lusso.html'), ('Servizi finanziari', 'servizi-finanziari.html'), ('Tutti i settori', 'settori.html')]),
-            ('Risorse', [('Guida AI per CEO', 'guida-ai-ceo-2025.html'), ('Casi studio', 'casi-studio.html'), ('Calcolatore ROI', 'roi-calculator.html'), ('Risorse formative', 'risorse-formative.html'), ('Chi siamo', 'chi-siamo.html'), ('Contatti', 'contatti.html')]),
+            ('Risorse', [('Guida AI per CEO', 'guida-ai-ceo-2025.html'), ('Casi studio', 'casi-studio.html'), ('Calcolatore ROI', 'roi-calculator.html'), ('Risorse formative', 'risorse-formative.html'), ('Chi siamo', 'chi-siamo.html'), ('Contatti', 'contatti.html'), ('Tutte le risorse', 'risorse.html')]),
         ],
         'tagline': 'Consulenza AI per le PMI italiane, dal 2023. Operiamo in conformità con il GDPR e l’AI Act europeo.',
         'legal': [('Privacy', 'privacy.html'), ('Cookie', 'cookie.html'), ('Termini', 'termini.html')],
@@ -241,10 +241,10 @@ FOOTER = {
     },
     'en': {
         'cols': [
-            ('Services', [('Strategic consulting', 'strategic-consulting.html'), ('AI agents', 'ai-agents.html'), ('AI infrastructure', 'ai-infrastructure.html'), ('POC Framework', 'poc-framework.html'), ('PugliAI Accelerator', 'accelerator.html')]),
-            ('Products', [('VoiceAI On-Premise', 'voiceai-on-premise.html'), ('KnowledgeAI Enterprise', 'knowledgeai-enterprise.html'), ('MCP Hosting', 'mcp-hosting.html'), ('Technical architecture', 'technical-architecture.html')]),
+            ('Services', [('Strategic consulting', 'strategic-consulting.html'), ('AI agents', 'ai-agents.html'), ('AI infrastructure', 'ai-infrastructure.html'), ('POC Framework', 'poc-framework.html'), ('PugliAI Accelerator', 'accelerator.html'), ('All services', 'services.html')]),
+            ('Products', [('VoiceAI On-Premise', 'voiceai-on-premise.html'), ('KnowledgeAI Enterprise', 'knowledgeai-enterprise.html'), ('MCP Hosting', 'mcp-hosting.html'), ('Technical architecture', 'technical-architecture.html'), ('All products', 'products.html')]),
             ('Sectors', [('Manufacturing', 'manufacturing.html'), ('Fashion & luxury', 'fashion-luxury.html'), ('Financial services', 'financial-services.html'), ('All sectors', 'sectors.html')]),
-            ('Resources', [('CEO AI guide', 'ceo-ai-guide-2025.html'), ('Case studies', 'case-studies.html'), ('ROI calculator', 'roi-calculator.html'), ('Training resources', 'training-resources.html'), ('About us', 'about-us.html'), ('Contact', 'contact.html')]),
+            ('Resources', [('CEO AI guide', 'ceo-ai-guide-2025.html'), ('Case studies', 'case-studies.html'), ('ROI calculator', 'roi-calculator.html'), ('Training resources', 'training-resources.html'), ('About us', 'about-us.html'), ('Contact', 'contact.html'), ('All resources', 'resources.html')]),
         ],
         'tagline': 'AI consulting for Italian SMEs since 2023. We operate in compliance with GDPR and the EU AI Act.',
         'legal': [('Privacy', 'privacy.html'), ('Cookies', 'cookie.html'), ('Terms', 'terms.html')],
@@ -282,6 +282,33 @@ def footer(page):
 
 
 # ---------- Head & shell ----------
+
+def navigation_fallback(page, main_id='main-content'):
+    """Native disclosure navigation remains usable before JS loads or without it."""
+    it = page.lang == 'it'
+    lp = page.prefix if it else ''
+    links = ([('Servizi', 'servizi.html'), ('Prodotti', 'prodotti.html'), ('Settori', 'settori.html'),
+              ('Risorse', 'risorse.html'), ('Chi siamo', 'chi-siamo.html'), ('Contatti', 'contatti.html')]
+             if it else
+             [('Services', 'services.html'), ('Products', 'products.html'), ('Sectors', 'sectors.html'),
+              ('Resources', 'resources.html'), ('About', 'about-us.html'), ('Contact', 'contact.html')])
+    menu_links = ''.join(f'<a href="{lp + href}">{esc(label)} <span aria-hidden="true">↗</span></a>' for label, href in links)
+    other_lang = 'en' if it else 'it'
+    alternate = '/' + (page.alt or ('en/index.html' if it else 'index.html'))
+    language = 'English' if it else 'Italiano'
+    contact = '#contatti' if page.standalone_body else lp + ('contatti.html' if it else 'contact.html') + '#valuta-processo'
+    skip = 'Vai al contenuto principale' if it else 'Skip to main content'
+    label = 'Menu principale' if it else 'Main menu'
+    home_label = 'PugliAI — torna alla home' if it else 'PugliAI — back to the homepage'
+    cta = 'Parliamone' if it else 'Let’s talk'
+    return (f'<div id="nav-placeholder"><a class="skip-link" href="#{main_id}">{skip}</a>'
+            f'<header class="cinematic-nav" data-navigation-fallback><div class="c-nav__capsule">'
+            f'<details class="c-nav__fallback"><summary class="c-nav__toggle"><span>Menu</span><span class="c-nav__toggle-icon" aria-hidden="true"></span></summary>'
+            f'<nav class="c-nav__panel" aria-label="{label}"><div class="c-nav__fallback-links">{menu_links}'
+            f'<a href="{alternate}" hreflang="{other_lang}" lang="{other_lang}">{language} <span aria-hidden="true">↗</span></a>'
+            f'</div></nav></details><a class="c-nav__wordmark" href="{lp}index.html" aria-label="{home_label}">PugliAI<span class="c-nav__brand-dot" aria-hidden="true"></span></a>'
+            f'<a class="c-nav__contact" href="{contact}">{cta}<span aria-hidden="true">↗</span></a>'
+            '</div></header></div>')
 
 def ga_snippet():
     return f'''<script>
@@ -350,7 +377,7 @@ def head(page):
 
 def shell(page, body_html):
     p = page.prefix
-    nav = '' if page.own_header else '\n    <div id="nav-placeholder"></div>'
+    nav = '' if page.own_header else '\n    ' + navigation_fallback(page)
     scripts = ''
     if not page.own_header:
         scripts += f'\n    <script src="{p}src/assets/js/navigation.js" defer></script>'

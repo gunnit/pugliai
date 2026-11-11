@@ -192,7 +192,7 @@
             '<ul>' + subs + '<li><a class="c-nav__all" href="' + withPrefix(item.href) + '">' + esc(item.all) + ' <span aria-hidden="true">→</span></a></li></ul></div>';
     }
 
-    function render() {
+    function render(mainId) {
         var a = config.announce;
         var languageLabel = !isEnglish && subdirPrefix ? 'Visit PugliAI in English' : config.lang.aria;
         var language = '<a class="c-nav__language" href="' + alternateHref() + '" hreflang="' + (isEnglish ? 'it' : 'en') + '" lang="' + (isEnglish ? 'it' : 'en') + '" aria-label="' + esc(languageLabel) + '">' +
@@ -206,21 +206,24 @@
             '<div class="c-nav__groups">' + config.items.filter(function (item) { return item.sub; }).map(panelGroup).join('') + '</div>' +
             '<div class="c-nav__utilities">' + utilityLinks + '<a href="' + withPrefix(config.contact.href) + '"' + activeAttribute(config.contact.href) + '>' + esc(config.contact.label) + ' <span aria-hidden="true">↗</span></a>' +
             '<a class="c-nav__session" href="' + withPrefix(config.cta.href) + '">' + esc(config.cta.aria) + ' <span aria-hidden="true">↗</span></a></div>' + announcement + '</nav>';
-        return '<a href="#main-content" class="skip-link">' + esc(config.skip) + '</a>' +
+        var homePage = document.body.classList.contains('cinematic-home');
+        var contactHref = homePage ? '#contatti' : withPrefix(config.contact.href) + '#valuta-processo';
+        return '<a href="#' + esc(mainId) + '" class="skip-link">' + esc(config.skip) + '</a>' +
             '<header class="cinematic-nav"><div class="c-nav__capsule">' +
             '<button class="c-nav__toggle" type="button" aria-expanded="false" aria-controls="cinematic-menu" aria-label="' + esc(config.openMenu) + '"><span class="c-nav__toggle-label">Menu</span><span class="c-nav__toggle-icon" aria-hidden="true"></span></button>' +
             '<a class="c-nav__wordmark" href="' + withPrefix(config.home) + '" aria-label="' + esc(config.logoAria) + '">PugliAI<span class="c-nav__brand-dot" aria-hidden="true"></span></a>' +
-            '<a class="c-nav__contact" href="' + withPrefix(config.contact.href) + '#valuta-processo">' + (isEnglish ? 'Let’s talk' : 'Parliamone') + '<span aria-hidden="true">↗</span></a>' +
+            '<a class="c-nav__contact" href="' + contactHref + '">' + (isEnglish ? 'Let’s talk' : 'Parliamone') + '<span aria-hidden="true">↗</span></a>' +
             '</div>' + panel + '</header>';
     }
 
     function ensureMainTarget() {
-        if (document.getElementById('main-content')) return;
-        var target = document.querySelector('main, [role="main"], article') || document.querySelector('section');
+        var target = document.getElementById('main-content') || document.querySelector('main, [role="main"], article') || document.querySelector('section');
         if (target) {
-            target.id = 'main-content';
+            // Home already uses #main for its skip link; preserve existing anchors.
+            if (!target.id) target.id = 'main-content';
             if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
         }
+        return target ? target.id : 'main-content';
     }
 
     function initMenu(header) {
@@ -261,15 +264,14 @@
     }
 
     function insert() {
-        if (document.querySelector('.cinematic-nav')) return;
+        if (document.querySelector('.cinematic-nav:not([data-navigation-fallback])')) return;
         var placeholder = document.getElementById('nav-placeholder');
-        var html = render();
+        var html = render(ensureMainTarget());
         if (placeholder) {
             placeholder.outerHTML = html;
         } else {
             document.body.insertAdjacentHTML('afterbegin', html);
         }
-        ensureMainTarget();
         initMenu(document.querySelector('.cinematic-nav'));
     }
 

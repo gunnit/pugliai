@@ -13,9 +13,8 @@
     var KEY = 'cookieConsent';
     var unsavedChoice = null;
     var isEnglish = window.location.pathname.indexOf('/en/') !== -1;
-    var depth = Math.max(0, window.location.pathname.split('/').filter(Boolean).length - 1);
-    var prefix = isEnglish ? '' : new Array(depth + 1).join('../');
-    var policyHref = prefix + 'cookie.html';
+    // Root paths also resolve when GitHub serves the fallback at a missing URL.
+    var policyHref = isEnglish ? '/en/cookie.html' : '/cookie.html';
 
     var T = isEnglish ? {
         title: 'Cookies',
@@ -79,13 +78,35 @@
     }
 
     var banner = null, modal = null;
+    var modalOpener = null, modalBackground = [], modalObserver = null;
+
+    function modalControls() {
+        return Array.from(modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]')).filter(function (control) {
+            return !control.disabled && control.tabIndex >= 0 && control.getClientRects().length;
+        });
+    }
+
+    function focusModal() {
+        var controls = modalControls();
+        (controls[0] || modal).focus({ preventScroll: true });
+    }
+
+    function disableBackground() {
+        Array.from(document.body.children).forEach(function (element) {
+            if (element === modal || modalBackground.some(function (entry) { return entry.element === element; })) return;
+            modalBackground.push({ element: element, inert: element.inert });
+            element.inert = true;
+        });
+    }
 
     function closeBanner() { if (banner) { banner.remove(); banner = null; } }
 
     function openModal() {
+        if (modal) { focusModal(); return; }
+        modalOpener = document.activeElement;
         var current = read() || { analytics: false, marketing: false };
         modal = el(
-            '<div class="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">' +
+            '<div class="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title" tabindex="-1">' +
             '<div class="cookie-modal__box">' +
             '<h2 id="cookie-modal-title">' + T.modalTitle + '</h2>' +
             '<div class="cookie-modal__row"><input type="checkbox" id="ck-nec" checked disabled><label for="ck-nec"><strong>' + T.nec + '</strong><span>' + T.necDesc + '</span></label></div>' +
@@ -95,23 +116,56 @@
             '<button type="button" class="btn btn--primary" data-save>' + T.save + '</button></div>' +
             '</div></div>');
         document.body.appendChild(modal);
-        var first = modal.querySelector('#ck-ana');
-        if (first) first.focus();
+        disableBackground();
+        modalObserver = new MutationObserver(disableBackground);
+        modalObserver.observe(document.body, { childList: true });
+        focusModal();
         modal.querySelector('[data-close]').addEventListener('click', closeModal);
         modal.querySelector('[data-save]').addEventListener('click', function () {
             save(modal.querySelector('#ck-ana').checked, modal.querySelector('#ck-mkt').checked);
-            closeModal();
             closeBanner();
+            closeModal();
         });
         modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
-        document.addEventListener('keydown', onEsc);
+        document.addEventListener('keydown', onModalKeydown);
+        document.addEventListener('focusin', onModalFocus);
     }
 
-    function onEsc(e) { if (e.key === 'Escape') closeModal(); }
+    function onModalFocus(e) {
+        if (modal && !modal.contains(e.target)) focusModal();
+    }
+
+    function onModalKeydown(e) {
+        if (e.key === 'Escape') { e.preventDefault(); closeModal(); return; }
+        if (e.key !== 'Tab' || !modal) return;
+        var controls = modalControls();
+        var first = controls[0], last = controls[controls.length - 1];
+        if (!first) { e.preventDefault(); modal.focus(); return; }
+        if (!modal.contains(document.activeElement) || document.activeElement === modal ||
+            (e.shiftKey && document.activeElement === first) || (!e.shiftKey && document.activeElement === last)) {
+            e.preventDefault();
+            (e.shiftKey ? last : first).focus();
+        }
+    }
 
     function closeModal() {
+        if (modalObserver) { modalObserver.disconnect(); modalObserver = null; }
+        document.removeEventListener('keydown', onModalKeydown);
+        document.removeEventListener('focusin', onModalFocus);
         if (modal) { modal.remove(); modal = null; }
-        document.removeEventListener('keydown', onEsc);
+        modalBackground.forEach(function (entry) { entry.element.inert = entry.inert; });
+        modalBackground = [];
+        if (modalOpener && modalOpener.isConnected && typeof modalOpener.focus === 'function') {
+            modalOpener.focus({ preventScroll: true });
+        } else if (modalOpener) {
+            // Saving a first-visit choice removes the banner that opened us.
+            var main = document.querySelector('main');
+            if (main) {
+                if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
+                main.focus({ preventScroll: true });
+            }
+        }
+        modalOpener = null;
     }
 
     function showBanner() {

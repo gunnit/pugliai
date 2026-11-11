@@ -7,9 +7,10 @@
       var inquiry = form.querySelector('[name="inquiry_type"]');
       var fields = form.querySelector('[data-process-fields]');
       var message = form.querySelector('[name="message"]');
+      if (!inquiry || !fields || !message) return;
       var messageLabel = form.querySelector('label[for="' + message.id + '"]');
       var submitLabel = form.querySelector('[data-submit-label]');
-      if (!inquiry || !fields || !messageLabel || !submitLabel) return;
+      if (!messageLabel || !submitLabel) return;
 
       function update() {
         var process = inquiry.value === 'process';
@@ -37,8 +38,25 @@
         submitLabel.textContent = process ? form.dataset.processSubmit : form.dataset.generalSubmit;
       }
 
-      // The CTA fragment selects the process route once; visitors can then choose another enquiry.
+      function activateProcess() {
+        inquiry.value = 'process';
+        update();
+      }
+
+      // Apply intentional CTA navigation, including another click on the current
+      // fragment. A manual enquiry change remains in place until that next visit.
       if (window.location.hash === '#valuta-processo') inquiry.value = 'process';
+      window.addEventListener('hashchange', function () {
+        if (window.location.hash === '#valuta-processo') activateProcess();
+      });
+      document.addEventListener('click', function (event) {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        var anchor = event.target.closest('a[href]');
+        if (!anchor || anchor.hasAttribute('download') || (anchor.target && anchor.target !== '_self')) return;
+        var destination = new URL(anchor.href, window.location.href);
+        if (destination.origin === window.location.origin && destination.pathname === window.location.pathname &&
+            destination.search === window.location.search && destination.hash === '#valuta-processo') activateProcess();
+      });
       inquiry.addEventListener('change', update);
       form.addEventListener('reset', function () { window.setTimeout(update, 0); });
       update();
