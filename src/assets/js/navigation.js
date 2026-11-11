@@ -1,9 +1,9 @@
 /**
- * PugliAI — site header (2026 design system)
+ * PugliAI — shared cinematic navigation
  *
- * Injects the announcement bar and the sticky header into `#nav-placeholder`
- * (or at the start of <body>). One configuration per language; the menu is
- * edited here and applies to every page. No dependencies.
+ * Injects a compact floating header and a keyboard-accessible menu into
+ * `#nav-placeholder` (or at the start of <body>). Existing bilingual routes
+ * and the accelerator announcement live in the expanded menu. No dependencies.
  */
 
 (function () {
@@ -24,15 +24,8 @@
         return subdirPrefix + path;
     }
 
-    var ICON = {
-        chevron: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"></path></svg>',
-        globe: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg>',
-        sparkle: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>'
-    };
-
     var CONFIG = {
         it: {
-            assets: 'src/assets/img/2026/',
             home: 'index.html',
             logoAria: 'PugliAI — torna alla home',
             menuLabel: 'Menu principale',
@@ -77,7 +70,6 @@
             lang: { current: 'IT', other: 'EN', aria: 'Read this page in English' }
         },
         en: {
-            assets: '../src/assets/img/2026/',
             home: 'index.html',
             logoAria: 'PugliAI — back to the homepage',
             menuLabel: 'Main menu',
@@ -186,50 +178,40 @@
 
     function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
 
-    function desktopItem(item) {
-        var childActive = (item.sub || []).some(function (s) { return isActive(s.href); });
-        var active = isActive(item.href) || childActive;
-        var link = '<a href="' + withPrefix(item.href) + '" class="nav__link"' + (isActive(item.href) ? ' aria-current="page"' : '') +
-            (item.sub ? ' aria-haspopup="true" aria-expanded="false"' : '') + '>' + esc(item.label) + (item.sub ? ICON.chevron : '') + '</a>';
-        if (!item.sub) return '<li class="nav__item' + (active ? ' is-active' : '') + '">' + link + '</li>';
-        var subs = item.sub.map(function (s) {
-            return '<li><a href="' + withPrefix(s.href) + '"' + (isActive(s.href) ? ' aria-current="page"' : '') + '>' + esc(s.label) + '</a></li>';
-        }).join('');
-        subs += '<li class="dropdown__all"><a href="' + withPrefix(item.href) + '">' + esc(item.all) + ' →</a></li>';
-        return '<li class="nav__item has-dropdown' + (active ? ' is-active' : '') + '">' + link + '<ul class="dropdown" aria-label="' + esc(item.label) + '">' + subs + '</ul></li>';
+    function activeAttribute(href) {
+        return isActive(href) ? ' aria-current="page"' : '';
     }
 
     function panelGroup(item) {
-        if (!item.sub) return '<div class="nav-panel__group"><a class="nav-panel__title" href="' + withPrefix(item.href) + '"' + (isActive(item.href) ? ' aria-current="page"' : '') + '>' + esc(item.label) + '</a></div>';
         var subs = item.sub.map(function (s) {
-            return '<li><a href="' + withPrefix(s.href) + '"' + (isActive(s.href) ? ' aria-current="page"' : '') + '>' + esc(s.label) + '</a></li>';
+            return '<li><a href="' + withPrefix(s.href) + '"' + activeAttribute(s.href) + '>' + esc(s.label) + '</a></li>';
         }).join('');
-        subs += '<li><a href="' + withPrefix(item.href) + '">' + esc(item.all) + ' →</a></li>';
-        return '<div class="nav-panel__group"><a class="nav-panel__title" href="' + withPrefix(item.href) + '">' + esc(item.label) + '</a><ul class="nav-panel__links">' + subs + '</ul></div>';
+        var childActive = isActive(item.href) || item.sub.some(function (s) { return isActive(s.href); });
+        return '<div class="c-nav__group' + (childActive ? ' is-active' : '') + '">' +
+            '<a class="c-nav__group-title" href="' + withPrefix(item.href) + '"' + activeAttribute(item.href) + '>' + esc(item.label) + '<span aria-hidden="true">↗</span></a>' +
+            '<ul>' + subs + '<li><a class="c-nav__all" href="' + withPrefix(item.href) + '">' + esc(item.all) + ' <span aria-hidden="true">→</span></a></li></ul></div>';
     }
 
     function render() {
         var a = config.announce;
-        var announce = a ? '<div class="announce" role="region" aria-label="' + (isEnglish ? 'Announcement' : 'Annuncio') + '">' + ICON.sparkle +
-            '<span>' + esc(a.text) + '</span><a class="announce__link" href="' + withPrefix(a.href) + '">' + esc(a.link) + '</a></div>' : '';
-        var assets = subdirPrefix + config.assets;
-        var logo = '<a href="' + withPrefix(config.home) + '" class="logo" aria-label="' + esc(config.logoAria) + '">' +
-            '<img class="logo__mark" src="' + assets + 'mark.png" alt="" width="157" height="152">' +
-            '<img class="logo__word" src="' + assets + 'wordmark.png" alt="PugliAI" width="298" height="96"></a>';
-        var nav = '<nav class="nav" aria-label="' + esc(config.menuLabel) + '"><ul class="nav__list">' + config.items.map(desktopItem).join('') + '</ul></nav>';
-        var lang = '<a class="lang" href="' + alternateHref() + '" hreflang="' + (isEnglish ? 'it' : 'en') + '" lang="' + (isEnglish ? 'it' : 'en') + '" aria-label="' + esc(config.lang.aria) + '">' +
-            ICON.globe + '<strong>' + config.lang.current + '</strong><span>/</span><span>' + config.lang.other + '</span></a>';
-        var actions = '<div class="header__actions">' +
-            '<a class="btn btn--ghost header__contact" href="' + withPrefix(config.contact.href) + '">' + esc(config.contact.label) + '</a>' +
-            '<a class="btn btn--secondary header__cta" href="' + withPrefix(config.cta.href) + '" aria-label="' + esc(config.cta.aria) + '"><span class="header__cta-long">' + esc(config.cta.label) + '</span><span class="header__cta-short">' + esc(config.cta.short) + '</span></a>' +
-            lang +
-            '<button type="button" class="menu-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="' + esc(config.openMenu) + '"><span class="menu-toggle__bars"></span></button>' +
-            '</div>';
-        var panel = '<div class="nav-panel" id="nav-panel">' + config.items.map(panelGroup).join('') +
-            '<div class="nav-panel__actions"><a class="btn btn--primary" href="' + withPrefix(config.cta.href) + '">' + esc(config.cta.label) + '</a>' +
-            '<a class="btn btn--ghost" href="' + withPrefix(config.contact.href) + '">' + esc(config.contact.label) + '</a>' + lang.replace('class="lang"', 'class="lang lang--panel"') + '</div></div>';
-        return '<a href="#main-content" class="skip-link">' + esc(config.skip) + '</a>' + announce +
-            '<header class="site-header" role="banner"><div class="site-header__inner">' + logo + nav + actions + '</div>' + panel + '</header>';
+        var languageLabel = !isEnglish && subdirPrefix ? 'Visit PugliAI in English' : config.lang.aria;
+        var language = '<a class="c-nav__language" href="' + alternateHref() + '" hreflang="' + (isEnglish ? 'it' : 'en') + '" lang="' + (isEnglish ? 'it' : 'en') + '" aria-label="' + esc(languageLabel) + '">' +
+            '<span>' + (isEnglish ? 'Italiano' : 'English') + '</span><span aria-hidden="true">' + config.lang.other + ' ↗</span></a>';
+        var utilityLinks = config.items.filter(function (item) { return !item.sub; }).map(function (item) {
+            return '<a href="' + withPrefix(item.href) + '"' + activeAttribute(item.href) + '>' + esc(item.label) + ' <span aria-hidden="true">↗</span></a>';
+        }).join('');
+        var announcement = a ? '<div class="c-nav__announcement"><p>' + esc(a.text) + '</p><a href="' + withPrefix(a.href) + '">' + esc(a.link) + ' <span aria-hidden="true">↗</span></a></div>' : '';
+        var panel = '<nav class="c-nav__panel" id="cinematic-menu" aria-label="' + esc(config.menuLabel) + '" aria-hidden="true" hidden inert>' +
+            '<div class="c-nav__panel-top"><span>' + (isEnglish ? 'Explore PugliAI' : 'Esplora PugliAI') + '</span>' + language + '</div>' +
+            '<div class="c-nav__groups">' + config.items.filter(function (item) { return item.sub; }).map(panelGroup).join('') + '</div>' +
+            '<div class="c-nav__utilities">' + utilityLinks + '<a href="' + withPrefix(config.contact.href) + '"' + activeAttribute(config.contact.href) + '>' + esc(config.contact.label) + ' <span aria-hidden="true">↗</span></a>' +
+            '<a class="c-nav__session" href="' + withPrefix(config.cta.href) + '">' + esc(config.cta.aria) + ' <span aria-hidden="true">↗</span></a></div>' + announcement + '</nav>';
+        return '<a href="#main-content" class="skip-link">' + esc(config.skip) + '</a>' +
+            '<header class="cinematic-nav"><div class="c-nav__capsule">' +
+            '<button class="c-nav__toggle" type="button" aria-expanded="false" aria-controls="cinematic-menu" aria-label="' + esc(config.openMenu) + '"><span class="c-nav__toggle-label">Menu</span><span class="c-nav__toggle-icon" aria-hidden="true"></span></button>' +
+            '<a class="c-nav__wordmark" href="' + withPrefix(config.home) + '" aria-label="' + esc(config.logoAria) + '">PugliAI<span class="c-nav__brand-dot" aria-hidden="true"></span></a>' +
+            '<a class="c-nav__contact" href="' + withPrefix(config.contact.href) + '#valuta-processo">' + (isEnglish ? 'Let’s talk' : 'Parliamone') + '<span aria-hidden="true">↗</span></a>' +
+            '</div>' + panel + '</header>';
     }
 
     function ensureMainTarget() {
@@ -242,28 +224,44 @@
     }
 
     function initMenu(header) {
-        var toggle = header.querySelector('.menu-toggle');
-        if (!toggle) return;
-        function setOpen(open) {
+        var toggle = header.querySelector('.c-nav__toggle');
+        var label = header.querySelector('.c-nav__toggle-label');
+        var panel = header.querySelector('.c-nav__panel');
+        var open = false;
+        function setOpen(next, restoreFocus) {
+            open = next;
             header.classList.toggle('is-open', open);
-            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-expanded', String(open));
             toggle.setAttribute('aria-label', open ? config.closeMenu : config.openMenu);
+            label.textContent = open ? (isEnglish ? 'Close' : 'Chiudi') : 'Menu';
+            panel.hidden = !open;
+            panel.inert = !open;
+            panel.setAttribute('aria-hidden', String(!open));
+            if (open) {
+                panel.scrollTop = 0;
+                panel.querySelector('a').focus({ preventScroll: true });
+            } else if (restoreFocus) {
+                toggle.focus({ preventScroll: true });
+            }
         }
-        toggle.addEventListener('click', function () { setOpen(!header.classList.contains('is-open')); });
+        toggle.addEventListener('click', function () { setOpen(!open, open); });
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && header.classList.contains('is-open')) { setOpen(false); toggle.focus(); }
+            if (e.key === 'Escape' && open) { e.preventDefault(); setOpen(false, true); }
         });
-        // Desktop dropdowns: keep aria-expanded in sync with hover/focus.
-        header.querySelectorAll('.has-dropdown').forEach(function (item) {
-            var link = item.querySelector('.nav__link');
-            item.addEventListener('mouseenter', function () { link.setAttribute('aria-expanded', 'true'); });
-            item.addEventListener('mouseleave', function () { link.setAttribute('aria-expanded', 'false'); });
-            item.addEventListener('focusin', function () { link.setAttribute('aria-expanded', 'true'); });
-            item.addEventListener('focusout', function () { if (!item.contains(document.activeElement)) link.setAttribute('aria-expanded', 'false'); });
+        document.addEventListener('pointerdown', function (e) {
+            if (open && !header.contains(e.target)) setOpen(false, false);
         });
+        header.addEventListener('focusout', function (e) {
+            if (open && e.relatedTarget && !header.contains(e.relatedTarget)) setOpen(false, false);
+        });
+        panel.addEventListener('click', function (e) {
+            if (e.target.closest('a')) setOpen(false, false);
+        });
+        window.addEventListener('pagehide', function () { setOpen(false, false); });
     }
 
     function insert() {
+        if (document.querySelector('.cinematic-nav')) return;
         var placeholder = document.getElementById('nav-placeholder');
         var html = render();
         if (placeholder) {
@@ -272,7 +270,7 @@
             document.body.insertAdjacentHTML('afterbegin', html);
         }
         ensureMainTarget();
-        initMenu(document.querySelector('.site-header'));
+        initMenu(document.querySelector('.cinematic-nav'));
     }
 
     if (document.readyState === 'loading') {

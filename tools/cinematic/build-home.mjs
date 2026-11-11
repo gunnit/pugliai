@@ -8,8 +8,9 @@ const python = candidates.find((command) => spawnSync(command, [
   '-c', 'import sys; sys.exit(0 if sys.version_info >= (3, 11) else 1)',
 ], { stdio: 'ignore' }).status === 0);
 if (!python) throw new Error('Python 3.11+ is required. Set PUGLIAI_PYTHON to its executable.');
+const fullSite = process.argv.includes('--all');
 for (const args of [
-  ['tools/site-generator/build.py', 'pages_home'],
+  ['tools/site-generator/build.py', ...(fullSite ? [] : ['pages_home'])],
   ['tools/site-generator/sitemap.py'],
 ]) {
   const result = spawnSync(python, args, { stdio: 'inherit' });

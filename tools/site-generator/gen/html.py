@@ -227,11 +227,11 @@ def glass_checks(title, rows, cls=''):
 def inner_hero(eb, h1, lead, actions_html, img_src, img_alt='', glass_html='', img_w=1600, img_h=1067, priority=True):
     load = 'fetchpriority="high"' if priority else 'loading="lazy"'
     glass_wrap = f'<div class="hero__glass">{glass_html}</div>' if glass_html else ''
-    return (f'<section class="hero"><div class="container"><div class="hero__grid">'
+    return (f'<section class="hero hero--cinematic"><div class="hero__media"><img src="{esc(img_src)}" alt="{esc(img_alt)}" width="{img_w}" height="{img_h}" {load}></div>'
+            f'<div class="container"><div class="hero__grid">'
             f'<div class="hero__text">{eyebrow(eb)}<h1 class="h1">{esc(h1)}</h1><p class="lead">{esc(lead)}</p>'
             f'<div class="hero__actions">{actions_html}</div></div>'
-            f'<div class="hero__media"><img src="{esc(img_src)}" alt="{esc(img_alt)}" width="{img_w}" height="{img_h}" {load}>'
-            f'{glass_wrap}</div></div></div></section>')
+            f'{glass_wrap}</div></div></section>')
 
 
 def page_head(eb, h1, lead, breadcrumb_html='', actions_html='', lead_html=None):

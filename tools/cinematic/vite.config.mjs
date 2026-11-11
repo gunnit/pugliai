@@ -8,10 +8,16 @@ export default defineConfig({
     outDir: fileURLToPath(new URL('../../src/assets/js/cinematic', import.meta.url)),
     emptyOutDir: true,
     minify: true,
+    rolldownOptions: {
+      output: { chunkFileNames: 'motion-[hash].js' },
+    },
     lib: {
-      entry: fileURLToPath(new URL('./home.js', import.meta.url)),
+      entry: {
+        home: fileURLToPath(new URL('./home.js', import.meta.url)),
+        interior: fileURLToPath(new URL('./interior.js', import.meta.url)),
+      },
       formats: ['es'],
-      fileName: () => 'home.js',
+      fileName: (_format, entryName) => `${entryName}.js`,
     },
   },
 });

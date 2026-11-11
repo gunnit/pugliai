@@ -246,8 +246,8 @@ def landing(lang):
     a = page.asset
     alt_href = '/en/strategy-session.html' if lang == 'it' else '/sessione-strategica.html'
     header = (f'<a href="#main-content" class="skip-link">{"Vai al contenuto principale" if lang == "it" else "Skip to main content"}</a>'
-              f'<header class="lp-header" role="banner"><div class="lp-header__inner"><a href="{a("index.html")}" class="logo" aria-label="PugliAI">'
-              f'<img class="logo__mark" src="{a("src/assets/img/2026/mark.png")}" alt="" width="157" height="152"><img class="logo__word" src="{a("src/assets/img/2026/wordmark.png")}" alt="PugliAI" width="298" height="96"></a>'
+              f'<header class="lp-header" role="banner"><div class="lp-header__inner"><a href="index.html" class="logo" aria-label="PugliAI">'
+              f'PugliAI.</a>'
               f'<div class="lp-header__actions"><a class="btn btn--ghost header__contact" href="mailto:sales@pugliai.com">sales@pugliai.com</a>'
               f'<a class="lang" href="{alt_href}" hreflang="{"en" if lang == "it" else "it"}">{icon("globe", 15)}<strong>{c["lang_link"]}</strong></a>'
               f'<a class="btn btn--primary btn--sm" href="#prenota">{esc(c["header_cta"])}</a></div></div></header>')
@@ -255,7 +255,7 @@ def landing(lang):
             + ''.join(f'<option value="{v}">{esc(l)}</option>' for v, l in c['when']) + '</select></div>')
     form = card(f'<h2 class="h3" style="margin-bottom:6px;">{esc(c["form_h2"])}</h2><p class="muted body-sm" style="margin-bottom:20px;">{esc(c["form_p"])}</p>' + contact_form(c, 'landing-sessione-strategica', select_html=when), cls='card--pad-lg')
     hero_text = (f'<div class="hero__text"><div>{tag(c["tag"])}</div><h1 class="h1">{esc(c["h1"])}</h1><p class="lead">{esc(c["lead"])}</p>{checks(c["bullets"])}</div>')
-    hero = f'<section class="hero" id="prenota"><div class="container"><div class="hero__grid" style="align-items:start;">{hero_text}<div>{form}</div></div></div></section>'
+    hero = f'<section class="hero"><div class="container"><div class="hero__grid" style="align-items:start;">{hero_text}<div id="prenota">{form}</div></div></div></section>'
     logos = (f'<section class="logo-strip" aria-label="{esc(c["logos_caption"])}"><div class="container"><p class="logo-strip__caption">{esc(c["logos_caption"])}</p><div class="logo-strip__grid">'
              + ''.join(f'<div class="logo-strip__cell"><img src="{a("src/assets/img/" + f)}" alt="{esc(n)}" loading="lazy"></div>' for f, n in LOGOS) + '</div></div></section>')
     st = section(stats(c['stats']), cls='section--tight')

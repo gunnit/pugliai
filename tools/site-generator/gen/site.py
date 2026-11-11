@@ -76,7 +76,7 @@ class Page:
     sticky_cta: str = ''      # html for the mobile sticky CTA (landings)
     main_class: str = ''
     stylesheet: str = 'src/assets/css/stylesheet.css'
-    theme_color: str = '#f2f0eb'
+    theme_color: str = '#080d13'
     standalone_body: bool = False  # custom home layout supplies its own header/main/footer
 
     @property
@@ -267,9 +267,11 @@ def footer(page):
     legal = ''.join(f'<a href="{lp + href}">{esc(label)}</a>' for label, href in f['legal'])
     legal += f'<a href="{lp}cookie.html" data-cookie-prefs>{esc(f["prefs"])}</a>'
     a1, a2 = ORG['addr1'], ORG['addr2']
+    tagline = 'Intelligenza applicata.<br>Al tuo lavoro.' if page.lang == 'it' else 'Applied intelligence.<br>For your work.'
+    top_label = 'Torna all’inizio' if page.lang == 'it' else 'Back to top'
     return (f'<footer class="footer" role="contentinfo"><div class="container"><div class="footer__top">'
-            f'<div class="footer__brand"><a class="footer__wordmark" href="{lp}index.html"><img src="{p}src/assets/img/2026/mark.png" alt="" width="157" height="152">PugliAI</a>'
-            f'<p class="footer__tagline">{esc(f["tagline"])}</p></div>'
+            f'<div class="footer__brand"><a class="footer__wordmark" href="{lp}index.html">PugliAI</a>'
+            f'<p class="footer__tagline">{tagline}</p><a class="footer__back" href="#main-content">{top_label} {icon("arrow", 20)}</a></div>'
             f'<nav class="footer__cols" aria-label="{esc(f["nav_label"])}">{cols}</nav></div>'
             f'<div class="footer__bottom"><div class="footer__legal">'
             f'<p>© {COPYRIGHT_FROM}–{COPYRIGHT_YEAR} {ORG["legal"]} · {esc(f["rights"])}</p>'
@@ -310,6 +312,8 @@ def head(page):
     robots = '\n    <meta name="robots" content="noindex, follow">' if page.noindex else ''
     ld = ''.join(f'\n    <script type="application/ld+json">{json.dumps(d, ensure_ascii=False)}</script>' for d in page.jsonld)
     p = page.prefix
+    interior_styles = '' if page.standalone_body else (f'\n    <link rel="stylesheet" href="{p}src/assets/css/cinematic-interior.css">'
+                                                      f'\n    <link rel="stylesheet" href="{p}src/assets/css/cinematic-navigation.css">')
     return f'''<!DOCTYPE html>
 <html lang="{page.lang}">
 <head>
@@ -339,7 +343,7 @@ def head(page):
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="preload" href="{p}src/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="{p}{page.stylesheet}">
+    <link rel="stylesheet" href="{p}{page.stylesheet}">{interior_styles}
     {ga_snippet()}{ld}{page.extra_head}
 </head>'''
 
@@ -360,7 +364,10 @@ def shell(page, body_html):
         scripts += '\n    ' + page.extra_scripts
     if page.chat:
         scripts += '\n    ' + CHAT_WIDGET
-    body_cls = f' class="{page.body_class}"' if page.body_class else ''
+    if not page.standalone_body:
+        scripts += f'\n    <script type="module" src="{p}src/assets/js/cinematic/interior.js"></script>'
+    classes = page.body_class if page.standalone_body else ('cinematic-interior ' + page.body_class).strip()
+    body_cls = f' class="{classes}"' if classes else ''
     main_cls = f' class="{page.main_class}"' if page.main_class else ''
     if page.standalone_body:
         return f'{head(page)}\n<body{body_cls}>\n{body_html}\n{scripts}\n</body>\n</html>\n'

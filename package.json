@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "build:motion": "vite build --config tools/cinematic/vite.config.mjs",
-    "build:home": "npm run build:motion && node tools/cinematic/build-home.mjs"
+    "build:home": "npm run build:motion && node tools/cinematic/build-home.mjs",
+    "build:site": "npm run build:motion && node tools/cinematic/build-home.mjs --all"
   },
   "devDependencies": {
     "motion": "^14.12.0",
