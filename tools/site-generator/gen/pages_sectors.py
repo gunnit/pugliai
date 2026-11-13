@@ -106,7 +106,7 @@ def manifatturiero(lang):
             path='manifatturiero.html', alt='en/manufacturing.html', chat=True,
             title='AI per il manifatturiero: manutenzione e qualità | PugliAI',
             description='Soluzioni AI per le PMI manifatturiere: manutenzione predittiva, controllo qualità con visione artificiale, scorte e filiera, integrazione con MES ed ERP.',
-            eyebrow='Settori · Manifatturiero', h1='Intelligenza artificiale per la fabbrica, con i dati che restano in fabbrica.',
+            eyebrow='Settori · Manifatturiero', h1='Intelligenza artificiale per la fabbrica, con elaborazione on-premise.',
             lead='Manutenzione predittiva, controllo qualità con visione artificiale e ottimizzazione della filiera, integrati con MES, SCADA ed ERP ed elaborati on-premise.',
             cta=('Prenota la sessione strategica', 'sessione-strategica.html'), ghost=('Calcola il ROI', 'roi-calculator.html'),
             image=(IMG_WORK, 'Tecnica che controlla un tablet accanto a una macchina utensile in officina'), glass=('Linea 2 · esempio', ['Vibrazioni anomale sul mandrino 4', 'Intervento suggerito: venerdì', 'Fermo evitato: 6 ore stimate']),
@@ -114,7 +114,7 @@ def manifatturiero(lang):
             sections=[
                 ('features', 'Soluzioni', 'Tre applicazioni con impatto misurabile.', None, [
                     ('cog', 'Manutenzione predittiva', 'Analizza i dati dei sensori per anticipare i guasti, ridurre i fermi non pianificati e ottimizzare i cicli di manutenzione.'),
-                    ('eye', 'Controllo qualità con visione artificiale', 'Individua i difetti in linea, in tempo reale, con una costanza che l’occhio umano non può garantire su un turno intero.'),
+                    ('eye', 'Controllo qualità con visione artificiale', 'Supporta l’ispezione dei difetti in linea. Precisione, falsi allarmi e difetti non rilevati vanno misurati su campioni rappresentativi e nelle condizioni dell’impianto.'),
                     ('truck', 'Ottimizzazione della filiera', 'Previsione della domanda, scorte ottimizzate e logistica automatizzata per una filiera più resiliente.')], 3),
                 ('steps', 'Il metodo', 'Un approccio ingegneristico in quattro fasi.', None, [
                     ('Analisi dell’impianto e dei dati', 'Impianti, flussi produttivi e dati disponibili (MES, ERP, SCADA) per individuare i casi d’uso a maggiore potenziale.'),
@@ -143,7 +143,7 @@ def manifatturiero(lang):
             path='en/manufacturing.html', alt='manifatturiero.html', chat=True,
             title='AI for manufacturing SMEs: maintenance, quality | PugliAI',
             description='AI for manufacturing SMEs: predictive maintenance, quality control with computer vision, stock and supply-chain optimisation, MES and ERP integration.',
-            eyebrow='Sectors · Manufacturing', h1='Artificial intelligence for the factory, with data that stays in the factory.',
+            eyebrow='Sectors · Manufacturing', h1='Artificial intelligence for the factory, with on-premise processing.',
             lead='Predictive maintenance, quality control with computer vision and supply-chain optimisation, integrated with MES, SCADA and ERP and processed on-premise.',
             cta=('Book the strategy session', 'strategy-session.html'), ghost=('Calculate the ROI', 'roi-calculator.html'),
             image=(IMG_WORK, 'Technician checking a tablet next to a machine tool in a workshop'), glass=('Line 2 · sample', ['Abnormal vibration on spindle 4', 'Suggested intervention: Friday', 'Downtime avoided: 6 hours estimated']),
@@ -151,7 +151,7 @@ def manifatturiero(lang):
             sections=[
                 ('features', 'Solutions', 'Three applications with measurable impact.', None, [
                     ('cog', 'Predictive maintenance', 'Analyses sensor data to anticipate failures, reduce unplanned downtime and optimise maintenance cycles.'),
-                    ('eye', 'Quality control with computer vision', 'Detects defects in line, in real time, with a consistency the human eye cannot guarantee over a whole shift.'),
+                    ('eye', 'Quality control with computer vision', 'Supports in-line defect inspection. Measure precision, false alarms and missed defects using representative samples under actual plant conditions.'),
                     ('truck', 'Supply-chain optimisation', 'Demand forecasting, optimised stock and automated logistics for a more resilient supply chain.')], 3),
                 ('steps', 'The method', 'An engineering approach in four phases.', None, [
                     ('Plant and data analysis', 'Plants, production flows and available data (MES, ERP, SCADA) to identify the highest-potential use cases.'),
@@ -260,7 +260,7 @@ def finanza(lang):
             path='servizi-finanziari.html', alt='en/financial-services.html', chat=True,
             title='AI per servizi finanziari: frodi e rischio | PugliAI',
             description='Soluzioni AI per banche, assicurazioni e fintech: rilevamento delle frodi, analisi del rischio, conformità (KYC, antiriciclaggio) e consulenza assistita.',
-            eyebrow='Settori · Servizi finanziari', h1='AI per la finanza: decisioni rapide, spiegabili e conformi.',
+            eyebrow='Settori · Servizi finanziari', h1='AI per la finanza: analisi e controlli a supporto delle decisioni.',
             lead='Rilevamento delle frodi, analisi del rischio, conformità e consulenza assistita. Modelli spiegabili, integrati con i sistemi principali in sicurezza.',
             cta=('Prenota la sessione strategica', 'sessione-strategica.html'), ghost=('Calcola il ROI', 'roi-calculator.html'),
             image=(IMG_DESK, 'Scrivania con computer portatile e quaderno di appunti'), glass=('Controllo transazioni · esempio', ['3 operazioni segnalate su 12.400', 'Motivazione disponibile per ogni segnalazione', 'Elaborazione in azienda']),
@@ -277,7 +277,7 @@ def finanza(lang):
                     ('Monitoraggio e spiegabilità', 'Prestazioni sotto controllo e decisioni degli algoritmi trasparenti e interpretabili.')]),
                 ('features_white', 'Perché PugliAI', 'La lingua dei dati e della conformità.', None, [
                     ('bank', 'Competenza di dominio', 'Normative, dati e sicurezza del settore, dalle banche tradizionali alle fintech.'),
-                    ('eye', 'AI spiegabile', 'Modelli trasparenti e interpretabili, requisito per la conformità e per la fiducia dei regolatori.'),
+                    ('eye', 'AI spiegabile', 'Spiegazioni e tracciabilità da validare per il caso d’uso. La spiegabilità da sola non dimostra la conformità.'),
                     ('lock', 'Sicurezza fin dalla progettazione', 'GDPR, PSD2 e MiFID II alla base di ogni soluzione.'),
                     ('server', 'Prestazioni', 'Infrastrutture per grandi volumi di dati e transazioni in tempo reale.')], 4),
                 ('links', 'Approfondimenti', 'Letture per il settore.', [
@@ -297,7 +297,7 @@ def finanza(lang):
             path='en/financial-services.html', alt='servizi-finanziari.html', chat=True,
             title='AI for financial services: fraud, risk, compliance | PugliAI',
             description='AI for banks, insurers and fintechs: real-time fraud detection, risk analysis, compliance (KYC, anti-money laundering) and assisted advice.',
-            eyebrow='Sectors · Financial services', h1='AI for finance: fast, explainable, compliant decisions.',
+            eyebrow='Sectors · Financial services', h1='AI for finance: analysis and controls to support decisions.',
             lead='Fraud detection, risk analysis, compliance and assisted advice. Explainable models, securely integrated with core systems.',
             cta=('Book the strategy session', 'strategy-session.html'), ghost=('Calculate the ROI', 'roi-calculator.html'),
             image=(IMG_DESK, 'Desk with a laptop and a notebook'), glass=('Transaction screening · sample', ['3 operations flagged out of 12,400', 'Explanation available for every flag', 'Processed on site']),
@@ -314,7 +314,7 @@ def finanza(lang):
                     ('Monitoring and explainability', 'Performance under control and algorithmic decisions that are transparent and interpretable.')]),
                 ('features_white', 'Why PugliAI', 'The language of data and compliance.', None, [
                     ('bank', 'Domain expertise', 'Regulation, data and security of the sector, from traditional banks to fintechs.'),
-                    ('eye', 'Explainable AI', 'Transparent, interpretable models, a requirement for compliance and for regulators’ trust.'),
+                    ('eye', 'Explainable AI', 'Explanations and traceability to validate for each use case. Explainability alone does not establish compliance.'),
                     ('lock', 'Security by design', 'GDPR, PSD2 and MiFID II at the foundation of every solution.'),
                     ('server', 'Performance', 'Infrastructure for large data volumes and real-time transactions.')], 4),
                 ('links', 'Further reading', 'Reading for the sector.', [

@@ -12,9 +12,12 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import sys
 from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'tools/site-generator'))
+from gen.redirects import REDIRECTS, render as render_redirect
 HOME = {'index.html', 'en/index.html'}
 ROI = {'roi-calculator.html', 'en/roi-calculator.html'}
 RECOVERY = '404.html'
@@ -137,7 +140,18 @@ def main():
         ['git', 'ls-tree', '-r', '--name-only', args.baseline], cwd=ROOT).decode().splitlines())
     files = public_files()
     texts = {p: p.read_text() for p in files}
-    pages = {p: Page(text) for p, text in texts.items() if p.name != VERIFICATION}
+    # Redirect stubs intentionally have no application shell. Accept only the
+    # exact generated document and a destination that exists in this build.
+    for alias, destination in REDIRECTS.items():
+        target = ROOT / destination.lstrip('/')
+        if target.is_dir():
+            target /= 'index.html'
+        if texts.get(ROOT / alias) != render_redirect(destination):
+            errors.append(f'{alias}: missing or altered legacy redirect')
+        if not target.is_file():
+            errors.append(f'{alias}: redirect destination is missing')
+    pages = {p: Page(text) for p, text in texts.items()
+             if p.name != VERIFICATION and str(p.relative_to(ROOT)) not in REDIRECTS}
     counts = Counter()
     for path, page in pages.items():
         rel = str(path.relative_to(ROOT))

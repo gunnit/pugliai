@@ -38,6 +38,9 @@ def main(argv):
             for lang in ('it', 'en'):
                 page, body = mod.build(lang)
                 written.append(write(page, body))
+    if not argv:
+        from gen.redirects import write_all
+        written.extend(write_all(ROOT))
     for w in written:
         print('wrote', os.path.relpath(w, ROOT), os.path.getsize(w) // 1024, 'KB')
 

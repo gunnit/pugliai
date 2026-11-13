@@ -19,8 +19,8 @@ def packages(lang):
             ('AI Partnership', 'from €100,000', '12 months', 'To make AI a lasting advantage.', ['Dedicated team and AI strategist', 'Custom AI models', 'No limit on the number of automations', 'Quarterly reviews with management', 'Ongoing AI strategy'], 'strategy-session.html', 'Talk to the team')]
 
 
-PK_NOTE = {'it': 'Garanzia contrattuale: se entro 12 mesi non raggiungiamo un ROI del 150%, continuiamo a lavorare senza costi aggiuntivi. Prezzi IVA esclusa.',
-           'en': 'Contractual guarantee: if 150% ROI is not reached within 12 months, we keep working at no extra cost. Prices exclude VAT.'}
+PK_NOTE = {'it': 'Garanzia contrattuale: se entro 12 mesi non raggiungiamo un ROI del 150%, continuiamo a lavorare senza costi aggiuntivi. Si applicano il contratto sottoscritto e i criteri di misurazione concordati. È un impegno commerciale, non un risultato già ottenuto. Prezzi IVA esclusa.',
+           'en': 'Contractual guarantee: if 150% ROI is not reached within 12 months, we keep working at no extra cost. The signed agreement and agreed measurement criteria apply. This is a commercial commitment, not an achieved result. Prices exclude VAT.'}
 
 
 # ---------------------------------------------------------------- servizi / services
@@ -78,7 +78,7 @@ def servizi(lang):
                  [('AI Accelerator', '€15.000–€25.000 · 3 mesi · audit AI iniziale, 2–3 automazioni pronte all’uso, formazione del team, dashboard ROI. Per chi parte da zero.'),
                   ('AI Transformation', '€50.000–€70.000 · 6 mesi · trasformazione su più processi, 2–3 soluzioni su misura, formazione fino a 15 persone.'),
                   ('AI Partnership', 'Da €100.000 · 12 mesi · innovazione continua con team dedicato e modelli AI su misura.'),
-                  ('Primi risultati', '2–4 settimane dall’avvio, grazie alle automazioni pronte all’uso.'),
+                  ('Prime automazioni', 'La pianificazione viene definita in base ad accessi, dati, integrazioni e disponibilità del team.'),
                   ('Garanzia', 'Contrattuale: KPI misurabili definiti insieme prima dell’avvio. Se entro 12 mesi non raggiungiamo un ROI del 150%, continuiamo a lavorare senza costi aggiuntivi.'),
                   ('Settori', 'Manifatturiero, moda e lusso, servizi finanziari, sanità, turismo, agroalimentare, retail e studi professionali.'),
                   ('Prerequisiti', 'Nessuna competenza tecnica richiesta. PMI da 10 a 500 dipendenti, in tutta Italia.')],
@@ -107,7 +107,7 @@ def servizi(lang):
                 ('faq', [
                     ('Qual è il percorso giusto per una PMI che inizia?', 'AI Accelerator: tre mesi con audit iniziale, automazioni pronte all’uso e formazione. È il punto di partenza per chi non ha ancora esperienza con l’AI.'),
                     ('Cosa comprende AI Accelerator?', 'Audit AI iniziale, 2–3 automazioni pronte all’uso, l’implementazione di una soluzione principale, la formazione del team fino a 5 persone, una dashboard per seguire il ROI e il supporto per tre mesi.'),
-                    ('Come funziona la garanzia di ROI?', 'Definiamo insieme KPI misurabili prima dell’avvio e li scriviamo nel contratto. Se entro 12 mesi non raggiungiamo un ROI del 150%, continuiamo a lavorare senza costi aggiuntivi.'),
+                    ('Come funziona la garanzia di ROI?', 'Definiamo insieme KPI misurabili prima dell’avvio e li scriviamo nel contratto. L’offerta prevede che, se entro 12 mesi non raggiungiamo un ROI del 150%, continuiamo a lavorare senza costi aggiuntivi, secondo il contratto sottoscritto. Prima di firmare, verifica baseline, costi inclusi, metodo di calcolo, periodo e condizioni applicabili. La garanzia non è una statistica sui risultati dei clienti.'),
                     ('Servono competenze tecniche interne?', 'No. La complessità tecnica la gestiamo noi; il tuo team riceve una formazione pratica per usare gli strumenti ogni giorno.'),
                     ('Quali settori servite?', 'PMI di tutti i settori: manifatturiero, moda e lusso, servizi finanziari, sanità, turismo, agroalimentare, retail e studi professionali. Ogni percorso viene adattato alle esigenze del settore.')]),
                 ('cta_default',),
@@ -126,7 +126,7 @@ def servizi(lang):
                  [('AI Accelerator', '€15,000–€25,000 · 3 months · initial AI audit, 2–3 ready-made automations, team training, ROI dashboard. For companies starting from zero.'),
                   ('AI Transformation', '€50,000–€70,000 · 6 months · transformation across several processes, 2–3 custom solutions, training for up to 15 people.'),
                   ('AI Partnership', 'From €100,000 · 12 months · continuous innovation with a dedicated team and custom AI models.'),
-                  ('First results', '2–4 weeks from kick-off, using ready-made automations.'),
+                  ('First automations', 'The schedule is defined around access, data, integrations and team availability.'),
                   ('Guarantee', 'Contractual: measurable KPIs agreed before kick-off. If 150% ROI is not reached within 12 months, we keep working at no extra cost.'),
                   ('Sectors', 'Manufacturing, fashion and luxury, financial services, healthcare, tourism, agrifood, retail and professional firms.'),
                   ('Prerequisites', 'No technical skills required. SMEs with 10 to 500 employees, across Italy.')],
@@ -155,7 +155,7 @@ def servizi(lang):
                 ('faq', [
                     ('Which programme is right for an SME just starting out?', 'AI Accelerator: three months with an initial audit, ready-made automations and training. It is the starting point for companies with no AI experience yet.'),
                     ('What does AI Accelerator include?', 'An initial AI audit, 2–3 ready-made automations, the implementation of one core solution, team training for up to 5 people, a dashboard to track ROI and support for three months.'),
-                    ('How does the ROI guarantee work?', 'We agree measurable KPIs before the start and write them into the contract. If 150% ROI is not reached within 12 months, we keep working at no extra cost.'),
+                    ('How does the ROI guarantee work?', 'We agree measurable KPIs before the start and write them into the contract. The offer provides that, if 150% ROI is not reached within 12 months, we keep working at no extra cost under the signed agreement. Before signing, review the baseline, included costs, calculation method, period and applicable conditions. The guarantee is not a statistic about client outcomes.'),
                     ('Do we need in-house technical skills?', 'No. We handle the technical complexity; your team receives hands-on training to use the tools every day.'),
                     ('Which sectors do you serve?', 'SMEs in every sector: manufacturing, fashion and luxury, financial services, healthcare, tourism, agrifood, retail and professional firms. Each programme is adapted to the sector.')]),
                 ('cta_default',),
@@ -165,8 +165,9 @@ def servizi(lang):
     items = []
     for i, p in enumerate(packages(lang)):
         low, high = [(15000, 25000), (50000, 70000), (100000, None)][i]
-        items.append({'@type': 'Service', 'position': i + 1, 'name': p[0], 'serviceType': 'AI consulting', 'provider': {'@id': SITE + '/#organization'},
-                      'offers': offer(low=low, high=high) if high else offer(price=low)})
+        items.append({'@type': 'ListItem', 'position': i + 1, 'item': {
+            '@type': 'Service', 'name': p[0], 'serviceType': 'AI consulting', 'provider': {'@id': SITE + '/#organization'},
+            'offers': offer(low=low, high=high) if high else offer(price=low)}})
     page.jsonld.append({'@context': 'https://schema.org', '@type': 'ItemList', 'name': name, 'url': page.url, 'itemListElement': items})
     return page, body
 
@@ -197,7 +198,7 @@ def consulenza(lang):
                     ('Piano', 'Strategia AI con roadmap dettagliata, priorità chiare e business case per ogni iniziativa.'),
                     ('Pilota', 'Un progetto pilota per validare l’approccio e dimostrare valore in tempi brevi.'),
                     ('Scala', 'Estensione delle soluzioni validate e ottimizzazione continua delle prestazioni.')]),
-                ('stats', [('3–12', 'mesi di affiancamento'), ('50+', 'PMI seguite dal 2023'), ('150%', 'ROI garantito per contratto, entro 12 mesi'), ('0', 'competenze tecniche richieste')]),
+                ('stats', [('3–12', 'mesi di affiancamento'), ('2023', 'anno di fondazione'), ('150%', 'ROI garantito per contratto, entro 12 mesi'), ('0', 'competenze tecniche richieste')]),
                 ('links', 'Approfondimenti', 'Letture utili per chi guida la trasformazione.', [
                     ('Leadership AI e trasformazione', 'Come i leader aziendali guidano l’adozione dell’AI nelle PMI.', 'guida-ai/leadership-ai-trasformazione.html'),
                     ('Come scegliere la consulenza AI', 'I criteri per selezionare il partner giusto in Italia.', 'guida-ai/come-scegliere-consulenza-ai-italia.html'),
@@ -205,7 +206,7 @@ def consulenza(lang):
                 ('faq', [
                     ('Come funziona la consulenza strategica AI per PMI?', 'Partiamo da una valutazione completa dei processi, individuiamo le opportunità a maggiore impatto e costruiamo una roadmap con priorità, tempi e budget. Poi accompagniamo l’implementazione con sessioni settimanali o mensili, per 3–12 mesi.'),
                     ('Quanto dura un progetto di consulenza?', 'Da 3 a 12 mesi a seconda degli obiettivi. La valutazione richiede 2–3 settimane, la strategia e la roadmap 1–2 settimane; segue l’affiancamento nell’implementazione, con traguardi verificabili.'),
-                    ('Quali risultati posso aspettarmi?', 'Dipendono dal settore e dai processi su cui si interviene: per questo definiamo KPI misurabili prima dell’avvio invece di promettere medie. L’impegno che mettiamo per iscritto è la garanzia di ROI del 150% entro 12 mesi.'),
+                    ('Quali risultati posso aspettarmi?', 'Dipendono dal settore e dai processi su cui si interviene: per questo definiamo KPI misurabili prima dell’avvio invece di promettere medie. L’offerta di garanzia del ROI del 150% entro 12 mesi è un impegno commerciale soggetto al contratto sottoscritto e ai criteri concordati, non una media dei risultati ottenuti.'),
                     ('La consulenza include il supporto tecnico?', 'Sì: selezione dei fornitori, supervisione delle implementazioni, formazione del team, change management e monitoraggio. Restiamo al tuo fianco fino ai risultati.'),
                     ('Serve esperienza tecnica per beneficiarne?', 'No. La consulenza è pensata per CEO e direzioni senza background tecnico: traduciamo l’AI in termini di business, costi e risultati misurabili.')]),
                 ('cta_default',),
@@ -234,7 +235,7 @@ def consulenza(lang):
                     ('Plan', 'AI strategy with a detailed roadmap, clear priorities and a business case for every initiative.'),
                     ('Pilot', 'A pilot project to validate the approach and demonstrate value quickly.'),
                     ('Scale', 'Roll-out of validated solutions and continuous performance optimisation.')]),
-                ('stats', [('3–12', 'months of support'), ('50+', 'SMEs supported since 2023'), ('150%', 'ROI guaranteed by contract, within 12 months'), ('0', 'technical skills required')]),
+                ('stats', [('3–12', 'months of support'), ('2023', 'year founded'), ('150%', 'ROI guaranteed by contract, within 12 months'), ('0', 'technical skills required')]),
                 ('links', 'Further reading', 'Useful reading for those leading the change.', [
                     ('CEO AI guide', 'What business leaders need to know before adopting AI.', 'ceo-ai-guide-2025.html'),
                     ('POC Framework', 'Validate a use case in 8 weeks before investing.', 'poc-framework.html'),
@@ -242,7 +243,7 @@ def consulenza(lang):
                 ('faq', [
                     ('How does AI strategy consulting for SMEs work?', 'We start from a full review of your processes, identify the highest-impact opportunities and build a roadmap with priorities, timing and budget. Then we support implementation with weekly or monthly sessions, for 3–12 months.'),
                     ('How long does a consulting project last?', 'From 3 to 12 months depending on the goals. The assessment takes 2–3 weeks, strategy and roadmap 1–2 weeks; implementation support follows, with verifiable milestones.'),
-                    ('What results can I expect?', 'They depend on the sector and the processes involved: that is why we define measurable KPIs before the start instead of promising averages. The commitment we put in writing is the 150% ROI guarantee within 12 months.'),
+                    ('What results can I expect?', 'They depend on the sector and the processes involved: that is why we define measurable KPIs before the start instead of promising averages. The 150% ROI guarantee within 12 months is a commercial commitment subject to the signed agreement and agreed criteria, not an average of achieved results.'),
                     ('Does consulting include technical support?', 'Yes: vendor selection, implementation supervision, team training, change management and monitoring. We stay at your side until the results are in.'),
                     ('Do we need technical experience to benefit?', 'No. The consulting is designed for CEOs and management without a technical background: we translate AI into business terms, costs and measurable results.')]),
                 ('cta_default',),

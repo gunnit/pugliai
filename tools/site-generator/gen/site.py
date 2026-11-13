@@ -1,4 +1,6 @@
 """Page shell: <head> with SEO/JSON-LD, footer, scripts. Language-aware paths."""
+from __future__ import annotations
+
 import json
 from dataclasses import dataclass, field
 from datetime import date
@@ -198,9 +200,10 @@ def offer(price=None, low=None, high=None, unit=None, desc=None):
 
 
 def ld_product(page, name, desc, offers, category, image=OG_IMAGE):
+    # Google's optional Product audience field only accepts PeopleAudience
+    # (age/gender). Our B2B audience remains in page copy and Service markup.
     return {'@context': 'https://schema.org', '@type': 'Product', 'name': name, 'description': desc, 'url': page.url, 'image': image,
-            'brand': {'@type': 'Brand', 'name': 'PugliAI'}, 'category': category, 'offers': offers,
-            'audience': {'@type': 'BusinessAudience', 'name': 'PMI italiane' if page.lang == 'it' else 'Italian SMEs'}}
+            'brand': {'@type': 'Brand', 'name': 'PugliAI'}, 'category': category, 'offers': offers}
 
 
 def ld_person():
@@ -231,7 +234,7 @@ FOOTER = {
             ('Settori', [('Manifatturiero', 'manifatturiero.html'), ('Moda e lusso', 'moda-lusso.html'), ('Servizi finanziari', 'servizi-finanziari.html'), ('Tutti i settori', 'settori.html')]),
             ('Risorse', [('Guida AI per CEO', 'guida-ai-ceo-2025.html'), ('Casi studio', 'casi-studio.html'), ('Calcolatore ROI', 'roi-calculator.html'), ('Risorse formative', 'risorse-formative.html'), ('Chi siamo', 'chi-siamo.html'), ('Contatti', 'contatti.html'), ('Tutte le risorse', 'risorse.html')]),
         ],
-        'tagline': 'Consulenza AI per le PMI italiane, dal 2023. Operiamo in conformità con il GDPR e l’AI Act europeo.',
+        'tagline': 'Consulenza AI per le PMI italiane, dal 2023. Strategia, sviluppo e formazione, con attenzione alla protezione dei dati.',
         'legal': [('Privacy', 'privacy.html'), ('Cookie', 'cookie.html'), ('Termini', 'termini.html')],
         'prefs': 'Preferenze cookie',
         'reply': 'Risposta entro 2 ore lavorative, lun–ven 9:00–18:00',
@@ -246,7 +249,7 @@ FOOTER = {
             ('Sectors', [('Manufacturing', 'manufacturing.html'), ('Fashion & luxury', 'fashion-luxury.html'), ('Financial services', 'financial-services.html'), ('All sectors', 'sectors.html')]),
             ('Resources', [('CEO AI guide', 'ceo-ai-guide-2025.html'), ('Case studies', 'case-studies.html'), ('ROI calculator', 'roi-calculator.html'), ('Training resources', 'training-resources.html'), ('About us', 'about-us.html'), ('Contact', 'contact.html'), ('All resources', 'resources.html')]),
         ],
-        'tagline': 'AI consulting for Italian SMEs since 2023. We operate in compliance with GDPR and the EU AI Act.',
+        'tagline': 'AI consulting for Italian SMEs since 2023. Strategy, development and training, with attention to data protection.',
         'legal': [('Privacy', 'privacy.html'), ('Cookies', 'cookie.html'), ('Terms', 'terms.html')],
         'prefs': 'Cookie preferences',
         'reply': 'Reply within 2 business hours, Mon–Fri 9:00–18:00 CET',

@@ -269,8 +269,8 @@ SCENARIOS = {
 
 def scenario_card(lang, s):
     sector, profile, desc, challenge, solution, results, tech = s
-    L = {'it': ('Scenario illustrativo', 'La sfida', 'La soluzione', 'Risultati attesi nello scenario', 'Tecnologie'),
-         'en': ('Illustrative scenario', 'The challenge', 'The solution', 'Expected results in the scenario', 'Technologies')}[lang]
+    L = {'it': ('Scenario illustrativo', 'La sfida', 'La soluzione', 'Valori illustrativi, non previsioni', 'Tecnologie'),
+         'en': ('Illustrative scenario', 'The challenge', 'The solution', 'Illustrative values, not forecasts', 'Technologies')}[lang]
     tags = f'<div class="cluster" style="gap:8px;">{tag(sector)}{tag(L[0], "outline")}</div>'
     body = (f'{tags}<h3 class="h4" style="margin:16px 0 4px;">{esc(profile)}</h3><p class="body-sm muted" style="margin:0 0 16px;">{esc(desc)}</p>'
             f'<p class="label" style="margin:0 0 4px;">{L[1]}</p><p style="margin:0 0 14px;">{esc(challenge)}</p>'
@@ -284,17 +284,17 @@ def casi(lang):
     cards = [scenario_card(lang, s) for s in SCENARIOS[lang]]
     if lang == 'it':
         sections = [
-            ('answer', '<strong>Gli scenari di questa pagina mostrano il tipo di risultato che un progetto AI può produrre in una PMI: riduzione dei costi operativi, aumento della produttività, migliore qualità.</strong> Aziende e cifre sono esempi costruiti a scopo dimostrativo, non clienti reali. Dal 2023 abbiamo seguito oltre 50 PMI italiane: per referenze e risultati effettivi scrivi a sales@pugliai.com.',
+            ('answer', '<strong>Gli scenari di questa pagina mostrano il tipo di risultato che un progetto AI può produrre in una PMI: riduzione dei costi operativi, aumento della produttività, migliore qualità.</strong> Aziende e cifre sono esempi costruiti a scopo dimostrativo, non clienti reali. I valori non derivano da misurazioni o studi clinici e non sono previsioni di risultato. Per valutare l’esperienza su un caso simile al tuo, richiedi referenze e risultati verificabili a sales@pugliai.com.',
              [('Cosa trovi', 'Sei scenari in sei settori, con sfida, soluzione, tecnologie e durata indicativa.'),
               ('Cosa non trovi', 'Nomi di clienti reali o risultati misurati: li condividiamo in un confronto diretto, con il consenso del cliente.'),
               ('L’unico numero garantito per iscritto', 'Se entro 12 mesi non raggiungiamo un ROI del 150%, continuiamo a lavorare senza costi aggiuntivi.'),
-              ('Primi risultati', 'Con l’approccio POC-first i primi risultati misurabili arrivano entro 90 giorni; il ritorno completo in genere entro 6–12 mesi.')],
+              ('Primi risultati', 'Un progetto pilota verifica fattibilità e primi indicatori. Tempi e ritorno dipendono da dati, integrazioni, adozione e costi effettivi: si stimano per il singolo progetto.')],
              f'A cura della redazione PugliAI · Ultimo aggiornamento: {UPDATED_IT}'),
-            ('html', section(section_head('Sei scenari', 'Dalla sfida al risultato atteso.', 'Ogni scenario descrive un progetto tipo: il punto di partenza, cosa costruiamo, con quali tecnologie e in quanto tempo.') + grid(cards, 2))),
+            ('html', section(section_head('Sei scenari', 'Dalla sfida alle metriche da valutare.', 'Ogni scenario descrive un progetto tipo: il punto di partenza, cosa costruiamo, con quali tecnologie e in quanto tempo.') + grid(cards, 2))),
             ('faq', [
                 ('Quali risultati ottengono i clienti di PugliAI?', 'Gli scenari mostrano il tipo di risultato che un progetto AI può produrre: meno costi operativi, più produttività, migliore qualità. Le cifre sono esempi dimostrativi, non risultati di clienti reali. Per referenze verificabili scrivi a sales@pugliai.com. L’unico impegno numerico che assumiamo per iscritto è la garanzia contrattuale: se entro 12 mesi non raggiungiamo un ROI del 150%, continuiamo a lavorare senza costi aggiuntivi.'),
                 ('In quali settori opera PugliAI?', 'Manifatturiero e Industria 4.0, moda e lusso, servizi finanziari, retail ed e-commerce, sanità, logistica e automotive, oltre a studi professionali e turismo. Per ogni settore partiamo dai casi d’uso con il ritorno più rapido.'),
-                ('Quanto tempo serve per vedere il ritorno dell’investimento?', 'Con l’approccio POC-first i primi risultati misurabili arrivano entro 90 giorni dall’avvio. Il ritorno completo si raggiunge in genere entro 6–12 mesi, a seconda della complessità della soluzione e del settore. Ogni progetto parte con KPI definiti per iscritto.'),
+                ('Quanto tempo serve per vedere il ritorno dell’investimento?', 'Non esiste un tempo di rientro valido per tutti i progetti. Si stimano costi, adozione e benefici rispetto a una baseline, poi si verificano i dati nel pilota e dopo il rilascio. La stima economica e l’eventuale garanzia contrattuale sono elementi distinti.'),
                 ('Come misurate i risultati?', 'Concordiamo KPI specifici e misurabili prima di iniziare. Usiamo cruscotti di monitoraggio, report periodici e confronti prima/dopo. Le metriche tipiche: riduzione dei costi, ore liberate, qualità, tempi di risposta e soddisfazione dei clienti.'),
                 ('Posso avere una valutazione gratuita del mio caso?', 'Sì. La sessione strategica gratuita di 45 minuti analizza i tuoi processi, individua i casi d’uso a maggiore impatto e stima il ritorno atteso, senza impegno.'),
             ]),
@@ -310,17 +310,17 @@ def casi(lang):
                     sections=sections, ld_types='CollectionPage')
         return detail_page('it', spec)
     sections = [
-        ('answer', '<strong>The scenarios on this page show the kind of result an AI project can produce in an SME: lower operating costs, higher productivity, better quality.</strong> Companies and figures are illustrative examples built for demonstration purposes, not real clients. Since 2023 we have supported more than 50 Italian SMEs: for references and actual results, write to sales@pugliai.com.',
+        ('answer', '<strong>The scenarios on this page show the kind of result an AI project can produce in an SME: lower operating costs, higher productivity, better quality.</strong> Companies and figures are illustrative examples built for demonstration purposes, not real clients. These values do not come from measurements or clinical studies and are not outcome forecasts. To evaluate experience with a case similar to yours, request references and verifiable results at sales@pugliai.com.',
          [('What you will find', 'Six scenarios in six sectors, each with challenge, solution, technologies and an indicative timeline.'),
           ('What you will not find', 'Real client names or measured results: we share those in a direct conversation, with the client’s consent.'),
           ('The only number we guarantee in writing', 'If 150% ROI is not reached within 12 months, we keep working at no extra cost.'),
-          ('First results', 'With the POC-first approach the first measurable results arrive within 90 days; full return typically within 6–12 months.')],
+          ('First results', 'A pilot checks feasibility and initial indicators. Timing and returns depend on data, integrations, adoption and actual costs, and must be estimated for each project.')],
          f'By the PugliAI editorial team · Last updated: {UPDATED_EN}'),
-        ('html', section(section_head('Six scenarios', 'From the challenge to the expected result.', 'Each scenario describes a typical project: the starting point, what we build, with which technologies and how quickly.') + grid(cards, 2))),
+        ('html', section(section_head('Six scenarios', 'From the challenge to the metrics to evaluate.', 'Each scenario describes a typical project: the starting point, what we build, with which technologies and how quickly.') + grid(cards, 2))),
         ('faq', [
             ('What results do PugliAI clients achieve?', 'The scenarios show the kind of result an AI project can produce: lower operating costs, higher productivity, better quality. The figures are illustrative examples, not real client results. For verifiable references write to sales@pugliai.com. The only numeric commitment we put in writing is the contractual guarantee: if 150% ROI is not reached within 12 months, we keep working at no extra cost.'),
             ('Which sectors does PugliAI work in?', 'Manufacturing and Industry 4.0, fashion and luxury, financial services, retail and e-commerce, healthcare, logistics and automotive, plus professional services and tourism. In every sector we start from the use cases with the fastest return.'),
-            ('How long before the investment pays back?', 'With the POC-first approach the first measurable results arrive within 90 days of kick-off. Full return is typically reached within 6–12 months, depending on the complexity of the solution and the sector. Every project starts with KPIs defined in writing.'),
+            ('How long before the investment pays back?', 'There is no payback period that applies to every project. Costs, adoption and benefits are estimated against a baseline, then checked in the pilot and after release. The economic estimate and any contractual guarantee are separate matters.'),
             ('How do you measure results?', 'We agree specific, measurable KPIs before we start. We use monitoring dashboards, periodic reports and before/after comparisons. Typical metrics: cost reduction, hours freed, quality, response times and customer satisfaction.'),
             ('Can I get a free assessment of my case?', 'Yes. The free 45-minute strategy session reviews your processes, identifies the highest-impact use cases and estimates the expected return, with no commitment.'),
         ]),
@@ -375,7 +375,7 @@ def investimenti(lang):
             ('html', section(table_html, cls='section--white')),
             ('specs', 'Cosa è incluso', 'Niente sorprese, niente costi nascosti.', 'Ecco cosa ottieni con ogni percorso, e le opzioni di pagamento che possiamo concordare.', [
                 ('Sempre incluso', ['Analisi iniziale e roadmap', 'Garanzia contrattuale di ROI', 'Conformità GDPR e AI Act', 'Documentazione e trasferimento di competenze']),
-                ('Opzioni di pagamento', ['Rateizzazione fino a 24 mesi senza interessi', 'Quota legata ai risultati (success fee)', 'Supporto per Transizione 5.0, bandi e fondi europei', 'Compartecipazione ai ricavi per progetti selezionati']),
+                ('Opzioni di pagamento', ['Rateizzazione fino a 24 mesi senza interessi', 'Quota legata ai risultati (success fee)', 'Supporto sui bandi attivi, previa verifica di requisiti e fondi disponibili', 'Compartecipazione ai ricavi per progetti selezionati']),
                 ('Formazione e supporto', ['Workshop pratici per il team', 'Materiali e guide sempre disponibili', 'Supporto dedicato per tutta la durata', 'Revisioni periodiche dei KPI'])]),
             ('steps', 'La garanzia', 'Il ritorno dell’investimento è scritto nel contratto.', None, [
                 ('Contrattuale', 'Il ROI minimo è scritto nel contratto, insieme ai KPI e al metodo di misura.'),
@@ -423,7 +423,7 @@ def investimenti(lang):
         ('html', section(table_html, cls='section--white')),
         ('specs', 'What is included', 'No surprises, no hidden costs.', 'Here is what you get with every programme, and the payment options we can agree on.', [
             ('Always included', ['Initial analysis and roadmap', 'Contractual ROI guarantee', 'GDPR and EU AI Act compliance', 'Documentation and knowledge transfer']),
-            ('Payment options', ['Interest-free instalments over up to 24 months', 'A fee tied to results (success fee)', 'Support with Transizione 5.0, grants and EU funds', 'Revenue sharing for selected projects']),
+            ('Payment options', ['Interest-free instalments over up to 24 months', 'A fee tied to results (success fee)', 'Support with active funding calls, subject to eligibility and available funds', 'Revenue sharing for selected projects']),
             ('Training and support', ['Hands-on workshops for the team', 'Materials and guides always available', 'Dedicated support for the whole programme', 'Periodic KPI reviews'])]),
         ('steps', 'The guarantee', 'The return on investment is written into the contract.', None, [
             ('Contractual', 'The minimum ROI is written into the contract, together with the KPIs and the measurement method.'),
@@ -475,12 +475,12 @@ def guida_ceo_it():
             ('Verifica gli obblighi', 'AI Act e GDPR: cosa cambia per la tua impresa e da quando.'),
             ('Scegli il primo progetto', 'Costi, ROI e casi d’uso per settore per individuare un pilota con ritorno misurabile.'),
             ('Guida il cambiamento', 'Competenze, leadership e cultura per far durare i risultati.')]),
-        ('html', section(section_head('Aggiornamento 2026', 'I tre articoli più recenti.', 'Agenti AI, conformità all’AI Act e misurazione del ROI, rivisti a luglio 2026.') + featured, cls='section--flush-top')),
+        ('html', section(section_head('Aggiornamento 2026', 'Tre guide operative per decidere.', 'Agenti AI, conformità all’AI Act e misurazione del ROI. Consulta in ogni guida la data di verifica e le fonti.') + featured, cls='section--flush-top')),
         ('html', section(section_head('La guida completa', f'{total} articoli in {len(CEO_CATS)} aree tematiche.', 'Articoli organizzati per categoria, dalla teoria alla pratica. Ogni articolo include esempi italiani e azioni concrete.') + stack(cats))),
         ('faq', [
             ('Cos’è l’intelligenza artificiale per le PMI?', 'L’insieme di tecnologie (machine learning, modelli linguistici, automazione intelligente) che permettono a una piccola o media impresa di automatizzare attività ripetitive, analizzare dati e prendere decisioni migliori. La guida parte da qui, senza presupporre competenze tecniche.'),
             ('Quanto costa implementare l’AI in una PMI italiana?', 'Gli strumenti in abbonamento partono da poche decine di euro per utente al mese. Un primo progetto strutturato con PugliAI parte da €15.000 (AI Accelerator, 3 mesi); gli agenti AI autonomi da €490 al mese; i prodotti on-premise da €25.000. Gli articoli su costi e ROI spiegano come costruire il budget.'),
-            ('Cosa prevede l’AI Act per le PMI?', 'Divieti e obbligo di alfabetizzazione AI dal 2 febbraio 2025, obblighi per i modelli di uso generale dal 2 agosto 2025, applicazione generale (trasparenza e sistemi ad alto rischio dell’Allegato III) dal 2 agosto 2026, sistemi ad alto rischio integrati in prodotti regolamentati dal 2 agosto 2027. Le sanzioni per le PMI sono proporzionate alla dimensione. La checklist 2026 elenca le azioni concrete.'),
+            ('Cosa prevede l’AI Act per le PMI?', 'Al 13 novembre 2026 sono applicabili i divieti, le disposizioni sull’alfabetizzazione AI e quelle sulla trasparenza, nei rispettivi ambiti. Dopo il Digital Omnibus del luglio 2026, gli obblighi per i sistemi ad alto rischio dell’Allegato III si applicano dal 2 dicembre 2027 e quelli collegati ai prodotti dell’Allegato I dal 2 agosto 2028, con transizioni da verificare per ogni sistema. La checklist aggiornata collega le fonti ufficiali e distingue ruoli e obblighi.'),
             ('Da dove iniziare?', 'Dalla valutazione della maturità digitale, poi dai casi d’uso con ritorno rapido (assistenza clienti, amministrazione, vendite), con un progetto pilota misurabile, formazione del team e regole chiare di governance. L’articolo «Come iniziare con l’AI» descrive i sette passi.'),
         ]),
         ('cta_default',),
@@ -504,8 +504,8 @@ def chapter(num, title, html_body):
 
 def guida_ceo_en():
     ch1 = ('<p class="lead">Artificial intelligence has moved from experiment to infrastructure. The question for a CEO is no longer whether to use it, but where to start and how to keep control of data, costs and compliance.</p>'
-           '<p>Adoption in Italy is still low and concentrated in large companies: according to ISTAT, 8.2% of Italian enterprises with at least ten employees used AI technologies in 2024, up from 5% the year before, against an EU average of 13.5% (Eurostat). That gap is the opportunity. In most Italian sectors, the company that automates its repetitive work first competes with a cost base its peers do not have.</p>'
-           '<p>Three things changed between 2023 and 2026. Generative models became good enough for everyday office work. On-premise deployment made it possible to use them without sending data outside the company. And the regulatory framework, the EU AI Act and Italy’s Law 132/2025, gave legal certainty. What has not changed is the failure mode: most AI projects stall after the pilot because nobody owns the process, the data or the measurement.</p>')
+           '<p>AI adoption is growing. <a href="https://www.istat.it/comunicato-stampa/imprese-e-ict-anno-2025/" target="_blank" rel="noopener">ISTAT reports that 16.4% of Italian enterprises with at least ten persons employed used AI in 2025</a>, up from 8.2% in 2024. For the EU survey population with at least ten persons employed, <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251211-2" target="_blank" rel="noopener">Eurostat reports 20.0% in 2025</a>, up from 13.5% in 2024. These adoption figures do not measure the return on an individual project and do not cover every microbusiness.</p>'
+           '<p>Generative models can support office workflows, but their output still needs evaluation. On-premise deployment can keep processing inside the company when configuration and integrations support that boundary. The EU AI Act and Italy’s Law 132/2025 add obligations that depend on the role, system and use case. Give every pilot a process owner, a data owner and a measurement plan.</p>')
     ch2 = ('<p>Start where the work is repetitive, high-volume and already digital. In a typical SME the first returns come from five areas:</p>'
            '<ul><li><strong>Customer service:</strong> answering recurring requests, triaging tickets and emails, preparing replies for an operator to approve.</li>'
            '<li><strong>Sales and marketing:</strong> qualifying leads, following up, drafting proposals and content from the company’s own material.</li>'
@@ -516,25 +516,26 @@ def guida_ceo_en():
     ch3 = ('<p>An SME does not need an enterprise AI programme. It needs five decisions taken in the right order.</p>'
            '<ol><li><strong>One pilot with a measurable return within six months.</strong> Pick a single process, define the KPI and the owner, and set the go/no-go criteria in advance.</li>'
            '<li><strong>A roadmap, not a wish list.</strong> Sequence the next projects from simple automation to forecasting and agents, each building on the data and skills of the previous one.</li>'
-           '<li><strong>Data governance.</strong> Decide where data lives, who can access it and which data may leave the company. On-premise deployment keeps sensitive data inside.</li>'
+           '<li><strong>Data governance.</strong> Decide where data lives, who can access it and which data may leave the company. For on-premise systems, verify external integrations, telemetry, backups and remote access before claiming that data stays inside.</li>'
            '<li><strong>A cross-functional team.</strong> Operations, IT, HR and the legal or compliance function all sit at the table; the business owns the outcome, not the vendor.</li>'
            '<li><strong>A named owner for compliance and ethics.</strong> Someone keeps the inventory of AI systems, the documentation and the human-oversight rules up to date.</li></ol>'
            '<p>Budget realistically. A first structured project with PugliAI starts at €15,000 (AI Accelerator, three months); autonomous agents from €490 a month; on-premise products from €25,000. Subscription tools cost a few tens of euros per user per month, but they do not integrate with your systems on their own.</p>')
     ch4 = ('<p>AI transformation is cultural before it is technical. The leaders who succeed treat AI as a way to augment people’s work, not to replace it, and they say so explicitly.</p>'
            '<ul><li>Involve the people who do the work in designing the automation; they know where the exceptions are.</li>'
            '<li>Address fears about accuracy, security and jobs openly, with facts and with the rules you have set for human oversight.</li>'
-           '<li>Invest in skills at every level: since 2 February 2025 the EU AI Act (Article 4) requires companies that use AI systems to ensure a sufficient level of AI literacy among their staff.</li>'
+           '<li>Invest in skills at every level: the current EU AI Act (Article 4) requires measures to support the development of AI literacy, taking account of people’s knowledge and the context of use. It does not prescribe a universal number of training hours or require a specific literacy level for each person.</li>'
            '<li>Celebrate the first measurable wins and share what did not work; both build trust.</li>'
            '<li>Keep a person accountable for every automated decision that affects customers or employees.</li></ul>')
     timeline = ('<div class="table-wrap"><table><thead><tr><th>Date</th><th>What applies</th></tr></thead><tbody>'
                 '<tr><td>2 February 2025</td><td>Prohibited practices (Art. 5) and the AI literacy obligation (Art. 4).</td></tr>'
                 '<tr><td>2 August 2025</td><td>Governance rules, obligations for general-purpose AI models, penalties.</td></tr>'
-                '<tr><td>2 August 2026</td><td>General application: transparency obligations (Art. 50) and the obligations for high-risk systems listed in Annex III (HR, credit, education, essential services and others).</td></tr>'
-                '<tr><td>2 August 2027</td><td>High-risk systems that are safety components of products covered by EU product legislation (Annex I).</td></tr></tbody></table></div>')
+                '<tr><td>2 August 2026</td><td>General application of remaining provisions, including transparency obligations (Art. 50), subject to specific transition rules.</td></tr>'
+                '<tr><td>2 December 2027</td><td>Obligations for high-risk systems listed in Annex III.</td></tr>'
+                '<tr><td>2 August 2028</td><td>Obligations linked to high-risk systems in products covered by Annex I.</td></tr></tbody></table></div>')
     ch5 = ('<p>Regulation (EU) 2024/1689, the AI Act, applies in stages. Most SMEs are deployers of AI systems rather than providers, which keeps their obligations manageable: know which systems you use, tell people when they interact with AI, keep human oversight on decisions that matter, and comply with the high-risk rules only where a system falls into those categories.</p>'
            + timeline +
-           '<p>In November 2025 the European Commission proposed a “Digital Omnibus” that would postpone parts of the high-risk regime, with backstop dates in late 2027 and 2028. At the time of writing it is a proposal, not law: plan on the dates above and check the current status before you commit budget to compliance work.</p>'
-           '<p>Italy’s Law 132/2025, in force since 10 October 2025, is the first national AI law in the EU. It designates AgID and ACN as national authorities, requires that workers be informed when AI is used in the workplace, sets rules for AI in healthcare and the professions, protects works with a genuine human creative contribution, introduces a criminal offence for the unlawful dissemination of AI-generated or altered content, and authorises an investment programme of up to €1 billion through CDP Venture Capital.</p>'
+           '<p>The Digital Omnibus entered into force on 27 July 2026. The table reflects the <a href="https://digital-strategy.ec.europa.eu/en/faqs/navigating-ai-act">European Commission’s updated implementation dates</a>, checked on 13 November 2026. Existing systems and specific activities may have separate transitions. See also the <a href="https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers">official AI literacy guidance</a>.</p>'
+           '<p><a href="https://www.gazzettaufficiale.it/eli/id/2025/09/25/25G00143/sg">Italy’s Law 132/2025</a>, in force since 10 October 2025, identifies AgID and ACN as national AI authorities with distinct roles. It also includes sector-specific provisions. Read the provisions relevant to the actual use case alongside the EU rules and GDPR.</p>'
            '<h3>A compliance framework that fits on one page</h3>'
            '<ol><li><strong>Inventory and classify:</strong> list every AI system in use and assess its risk level.</li>'
            '<li><strong>Document:</strong> keep records of data sources, suppliers, purposes and decisions.</li>'
@@ -547,7 +548,7 @@ def guida_ceo_en():
            '<li><strong>Fix the data</strong> (weeks 3–6): where it lives, who can access it, what may leave the company.</li>'
            '<li><strong>Train the people involved</strong> (weeks 4–8): how the tool works, its limits, the oversight rules.</li>'
            '<li><strong>Set governance</strong> (week 6): the AI inventory, documentation and the person accountable.</li>'
-           '<li><strong>Use the ecosystem</strong> (ongoing): consultants, universities, incentives such as Transizione 5.0 and regional grants.</li>'
+           '<li><strong>Use the ecosystem</strong> (ongoing): consultants, universities and current funding programmes. Confirm eligible costs and application status before including any incentive in the budget.</li>'
            '<li><strong>Measure and iterate</strong> (from week 8): KPIs against the baseline, then scale or stop.</li></ol>'
            '<p>AI is a management decision before it is a technology decision. With a clear first project, honest measurement and a team that understands the rules, an SME can turn it into a lasting advantage. PugliAI is at your side on this path.</p>')
     sections = [
@@ -558,8 +559,8 @@ def guida_ceo_en():
           ('Cost', 'Free. No registration or email required.'),
           ('Data', 'Market figures are quoted with their source and are indicative; they change quickly.'),
           (f'Language', f'English. The fuller Italian library of {sum(len(i) for _, i in CEO_CATS)} articles is at Guida AI per CEO italiani.')],
-         f'By the PugliAI editorial team · Last updated: {UPDATED_EN}'),
-        ('stats', [('8.2%', 'Italian enterprises (10+ employees) using AI in 2024, ISTAT'), ('13.5%', 'EU average in 2024, Eurostat'), ('2 Aug 2026', 'General application of the EU AI Act'), ('€15,000', 'Typical starting budget for a first structured project')]),
+         f'By the PugliAI editorial team · Last updated: {modified_date_text("en/ceo-ai-guide-2025.html", "en")}'),
+        ('stats', [('16.4%', 'Italian enterprises (10+ persons employed) using AI in 2025, ISTAT'), ('20.0%', 'EU survey population using AI in 2025, Eurostat'), ('2 Aug 2026', 'General application of the EU AI Act'), ('€15,000', 'Typical starting budget for a first structured project')]),
         ('html', chapter(1, 'Why this matters now', ch1).replace('section--flush-top', 'section--flush-top').replace('<section class="section section--flush-top"', '<section class="section"', 1)),
         ('html', chapter(2, 'Where AI pays off first', ch2)),
         ('html', chapter(3, 'A strategy that fits an SME', ch3)),
@@ -570,7 +571,7 @@ def guida_ceo_en():
             ('What does the AI guide for CEOs cover?', 'Six chapters: the state of AI adoption in Italy and Europe, the business areas where AI pays off first, a five-decision strategy for SMEs, leadership and culture, the EU AI Act and Italian Law 132/2025 with a one-page compliance framework, and a 90-day action plan. It is a web page you read online, not a PDF download.'),
             ('Who is the guide for?', 'CEOs, founders and senior managers of small and mid-sized companies who need to make decisions about AI without a technical background. It is written in plain language.'),
             ('How much does a first AI project cost?', 'Subscription tools cost a few tens of euros per user per month. A first structured project with PugliAI starts at €15,000 (AI Accelerator, three months); autonomous AI agents from €490 a month; on-premise products from €25,000. All prices exclude VAT.'),
-            ('What does the EU AI Act require from an SME?', 'For most SMEs, which deploy rather than build AI systems: AI literacy for staff (since February 2025), an inventory of the systems in use, transparency towards people who interact with AI, human oversight on decisions that matter, and the high-risk obligations only where a system falls into those categories (from August 2026 for Annex III uses). Penalties for SMEs are proportionate to their size.'),
+            ('What does the EU AI Act require from an SME?', 'For most SMEs, which deploy rather than build AI systems: measures supporting AI literacy, applicable transparency duties and controls matched to the actual use case. An inventory helps identify the relevant duties. After the July 2026 Digital Omnibus, high-risk Annex III obligations apply from 2 December 2027 and those linked to Annex I products from 2 August 2028, subject to specific transitions. Check the current official guidance before deployment.'),
             ('How do I get started?', 'Assess your starting point, pick one use case with a measurable return, fix the data, train the people involved, set governance, use the ecosystem and measure against a baseline. The free 45-minute strategy session with PugliAI covers the first two steps.'),
         ]),
         ('html', section('<div class="center-block"><p class="lead">Looking for the Italian library?</p>' + link(f'Guida AI per CEO italiani ({sum(len(i) for _, i in CEO_CATS)} articles, in Italian)', '../guida-ai-ceo-2025.html') + '</div>', cls='section--flush-top')),

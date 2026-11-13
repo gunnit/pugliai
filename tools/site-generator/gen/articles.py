@@ -218,5 +218,8 @@ def build_one(filename):
 
 
 def build_all():
+    from .redirects import REDIRECTS
     for path in sorted(glob.glob(os.path.join(ART_DIR, '*.html'))):
+        if 'guida-ai/' + os.path.basename(path) in REDIRECTS:
+            continue
         yield build_one(os.path.basename(path))

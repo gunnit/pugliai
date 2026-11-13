@@ -1,4 +1,4 @@
-"""ROI calculator (IT/EN): transparent, conservative model with stated assumptions."""
+"""ROI calculator (IT/EN): illustrative model with stated assumptions."""
 import json
 from .html import *
 from .site import UPDATED_IT, UPDATED_EN
@@ -23,13 +23,13 @@ I18N = {
     'it': dict(locale='it-IT', month='mese', months='mesi', over36='oltre 36 mesi',
                copied='Risultati copiati negli appunti.', copy_error='Copia automatica non disponibile. Copia il testo selezionato qui sotto.',
                pkg=dict(accelerator='AI Accelerator', transformation='AI Transformation', partnership='AI Partnership'),
-               rec='In base ai dati inseriti consigliamo il percorso {pkg} ({inv}): risparmio stimato nel primo anno {ben}, con il 70% delle soluzioni a regime.',
-               share='Stima ROI con PugliAI: {roi} nel primo anno e {sav} di risparmio annuo a regime. Calcola la tua: https://pugliai.com/roi-calculator.html'),
+               rec='Lo scenario usa il percorso {pkg} ({inv}) come ipotesi di investimento e {ben} di beneficio lordo nel primo anno. Parametri, costi ricorrenti e risparmi realizzabili vanno verificati sul processo.',
+               share='Scenario illustrativo PugliAI: {roi} di ROI lordo nel primo anno e {sav} di valore annuo a regime, prima dei costi ricorrenti. Non è un risultato osservato. Calcola la tua: https://pugliai.com/roi-calculator.html'),
     'en': dict(locale='en-GB', month='month', months='months', over36='over 36 months',
                copied='Results copied to the clipboard.', copy_error='Automatic copying is unavailable. Copy the selected text below.',
                pkg=dict(accelerator='AI Accelerator', transformation='AI Transformation', partnership='AI Partnership'),
-               rec='Based on your data we recommend the {pkg} programme ({inv}): estimated first-year savings {ben}, with 70% of the solutions at full run rate.',
-               share='ROI estimate with PugliAI: {roi} in year one and {sav} of annual savings at run rate. Calculate yours: https://pugliai.com/en/roi-calculator.html'),
+               rec='The scenario uses the {pkg} programme ({inv}) as an investment assumption and {ben} in first-year gross benefit. Validate the parameters, recurring costs and realisable savings against the process.',
+               share='Illustrative PugliAI scenario: {roi} first-year gross ROI and {sav} of annual run-rate value before recurring costs. This is not an observed result. Calculate yours: https://pugliai.com/en/roi-calculator.html'),
 }
 
 JS = r"""
@@ -125,17 +125,17 @@ def calculator(lang):
                 processes='Processi da automatizzare', hours='Ore a settimana di attività ripetitive, per persona coinvolta', calc='Calcola il ROI',
                 note='Stima indicativa basata sulle ipotesi descritte sotto. Non è un’offerta.',
                 init_h='Inserisci i dati', init_p='Scegli il settore e compila i campi: la stima appare qui.',
-                res_h='La tua stima', r_hours='Ore liberate all’anno', r_sav='Risparmio annuo a regime', r_y1='Risparmio nel primo anno', r_roi='ROI nel primo anno', r_pay='Tempo di rientro', r_inv='Investimento consigliato', r_up='Potenziale sui ricavi (non incluso nel ROI)',
+                res_h='La tua stima', r_hours='Ore liberate all’anno', r_sav='Valore annuo lordo a regime', r_y1='Valore lordo nel primo anno', r_roi='ROI lordo dello scenario', r_pay='Rientro teorico, prima dei canoni', r_inv='Investimento ipotizzato', r_up='Potenziale sui ricavi (non incluso nel ROI)',
                 cta='Richiedi un’analisi dettagliata', cta_href='sessione-strategica.html', copy='Copia i risultati', copy_text='Risultati da copiare',
-                proj_h='Proiezione a 3 anni', p_cum='Risparmi cumulati in 3 anni', p_net='Beneficio netto dopo l’investimento', p_month='Costo di ogni mese di attesa',
+                proj_h='Proiezione a 3 anni', p_cum='Valore lordo cumulato in 3 anni', p_net='Valore meno investimento iniziale', p_month='Valore lordo mensile a regime',
                 proj_note='70% del risparmio a regime nel primo anno, poi 100% nel secondo e nel terzo, meno l’investimento iniziale. Esclude eventuali canoni successivi.'),
         en=dict(h2='Your company data', sector='Sector', sector_err='Select a sector to run the estimate.', revenue='Annual revenue (€)', employees='Number of employees',
                 processes='Processes to automate', hours='Hours a week of repetitive work, per person involved', calc='Calculate the ROI',
                 note='Indicative estimate based on the assumptions described below. This is not an offer.',
                 init_h='Enter your data', init_p='Choose the sector and fill in the fields: the estimate appears here.',
-                res_h='Your estimate', r_hours='Hours freed per year', r_sav='Annual savings at run rate', r_y1='First-year savings', r_roi='First-year ROI', r_pay='Payback time', r_inv='Recommended investment', r_up='Revenue potential (not included in the ROI)',
+                res_h='Your estimate', r_hours='Hours freed per year', r_sav='Annual gross run-rate value', r_y1='First-year gross value', r_roi='Scenario gross ROI', r_pay='Theoretical payback before fees', r_inv='Assumed investment', r_up='Revenue potential (not included in the ROI)',
                 cta='Request a detailed analysis', cta_href='strategy-session.html', copy='Copy the results', copy_text='Results to copy',
-                proj_h='Three-year projection', p_cum='Cumulative savings over 3 years', p_net='Net benefit after the investment', p_month='Cost of every month of waiting',
+                proj_h='Three-year projection', p_cum='Three-year cumulative gross value', p_net='Value less initial investment', p_month='Monthly gross run-rate value',
                 proj_note='70% of run-rate savings in year one, then 100% in years two and three, minus the initial investment. Excludes any later fees.'),
     )[lang]
     form = (f'<form id="calcForm" class="card card--pad-lg"><h2 class="h4" style="margin:0 0 20px;">{L["h2"]}</h2>'
@@ -169,22 +169,23 @@ def roi(lang):
     if it:
         how = [
             'Ore liberate all’anno = dipendenti × quota di personale impegnata in processi ripetitivi (30–50% secondo il settore) × ore ripetitive a settimana per persona × 46 settimane × tasso di automazione (50–65% secondo il settore).',
-            'Valore del tempo = ore liberate × €28 all’ora, costo aziendale medio di un’ora di lavoro impiegatizio (stima prudente).',
-            'Risparmi di qualità = €4.000 per processo all’anno: errori, rilavorazioni e ritardi evitati.',
+            'Valore del tempo = ore liberate × €28 all’ora. È un parametro illustrativo, non un costo medio verificato. Le ore liberate sono capacità disponibile: diventano risparmio di cassa solo se diminuisce una spesa effettiva.',
+            'Valore ipotizzato della qualità = €4.000 per processo all’anno. Non deriva da un benchmark: va sostituito con errori, rilavorazioni e ritardi effettivamente evitabili, senza contare due volte il valore del tempo.',
             'Risparmio a regime = valore del tempo + risparmi di qualità. Nel primo anno contiamo il 70% del valore a regime, perché le soluzioni entrano in produzione gradualmente.',
-            'Investimento consigliato: AI Accelerator (€20.000) fino a 100 dipendenti o €10 milioni di fatturato; AI Transformation (€60.000) fino a 500 dipendenti o €50 milioni; AI Partnership (€100.000) oltre.',
-            'ROI nel primo anno = (risparmio del primo anno − investimento) / investimento. Tempo di rientro = investimento / risparmio mensile del primo anno.',
+            'Investimento ipotizzato per lo scenario: AI Accelerator (€20.000) fino a 100 dipendenti o €10 milioni di fatturato; AI Transformation (€60.000) fino a 500 dipendenti o €50 milioni; AI Partnership (€100.000) oltre.',
+            'ROI lordo nel primo anno (%) = (valore lordo del primo anno − investimento) / investimento × 100. Tempo di rientro = investimento / risparmio mensile del primo anno.',
             'Potenziale sui ricavi = 0,5–2% del fatturato secondo il settore. È mostrato a parte e non entra nel ROI.',
         ]
         thead = ['Settore', 'Personale nei processi ripetitivi', 'Tasso di automazione', 'Potenziale sui ricavi']
-        how_html = section(section_head('Come calcoliamo', 'Ipotesi dichiarate, numeri prudenti.', 'Il calcolatore usa sette regole semplici. Le riportiamo per intero perché una stima si giudica dalle ipotesi.')
+        how_html = section(section_head('Come calcoliamo', 'Uno scenario, con ipotesi da verificare.', 'Questi parametri fissi illustrano il metodo: non sono medie di settore né risultati attesi. Il modello esclude canoni, manutenzione, costi interni e imposte. Per decidere, ricalcola con i costi completi e una baseline misurata.')
                            + '<div class="grid grid--7-5" style="align-items:start;">' + card(numbered(how), cls='card--pad-lg') + card('<p class="label" style="margin:0 0 12px;">Parametri per settore</p>' + table(thead, rows, brand_col=None), cls='card--pad-lg') + '</div>', cls='section--white')
         sections = [
             ('html', section(calculator('it'), cls='section--flush-top', id_='calcolatore')),
             ('html', how_html),
+            ('links', 'Metodo di valutazione' if it else 'Evaluation method', 'Costi completi e risultati misurabili.' if it else 'Full costs and measurable results.', [(('Formula ROI e checklist dei costi' if it else 'ROI formula and cost checklist (Italian)'), ('Baseline, costi ricorrenti e valore del tempo.' if it else 'Baseline, recurring costs and the value of time.'), ('guida-ai/roi-intelligenza-artificiale-2026.html' if it else '../guida-ai/roi-intelligenza-artificiale-2026.html'))]),
             ('faq', [
-                ('Quanto è affidabile la stima?', 'È una stima indicativa, costruita con ipotesi prudenti e dichiarate: serve a capire l’ordine di grandezza, non a sostituire un’analisi. Nella sessione strategica gratuita costruiamo la stima sui tuoi processi reali.'),
-                ('Perché il potenziale sui ricavi non è incluso nel ROI?', 'Perché dipende da fattori commerciali che il calcolatore non conosce: mercato, canali, stagionalità. Lo mostriamo a parte, come ordine di grandezza, e contiamo nel ROI solo i risparmi di costo, più facili da misurare.'),
+                ('Quanto è affidabile la stima?', 'È uno scenario illustrativo con parametri dichiarati ma non validati per la tua impresa: non è una previsione né una garanzia di rendimento. Nella sessione strategica gratuita costruiamo la stima sui tuoi processi reali.'),
+                ('Perché il potenziale sui ricavi non è incluso nel ROI?', 'Perché dipende da fattori commerciali che il calcolatore non conosce: mercato, canali, stagionalità. Lo mostriamo a parte, come ordine di grandezza, e usiamo nel ROI lordo il valore ipotizzato del tempo e della qualità, da verificare prima di considerarlo risparmio.'),
                 ('Cosa succede dopo il calcolo?', 'Puoi copiare i risultati e, se vuoi, prenotare la sessione strategica gratuita di 45 minuti: analizziamo i tuoi processi e ti consegniamo un report scritto con una stima del ROI più precisa.'),
             ]),
             ('cta_default',),
@@ -200,22 +201,23 @@ def roi(lang):
     else:
         how = [
             'Hours freed per year = employees × share of staff on repetitive processes (30–50% depending on the sector) × repetitive hours a week per person × 46 weeks × automation rate (50–65% depending on the sector).',
-            'Value of time = hours freed × €28 an hour, the average fully loaded cost of an hour of office work in Italy (a conservative estimate).',
-            'Quality savings = €4,000 per process per year: errors, rework and delays avoided.',
+            'Value of time = hours freed × €28 an hour. This is an illustrative parameter, not a verified average cost. Released time is available capacity: it becomes cash savings only when an actual expense falls.',
+            'Assumed quality value = €4,000 per process per year. This is not a benchmark: validate avoidable errors, rework and delays without counting the value of time twice.',
             'Run-rate savings = value of time + quality savings. In year one we count 70% of the run rate, because solutions go into production gradually.',
-            'Recommended investment: AI Accelerator (€20,000) up to 100 employees or €10 million revenue; AI Transformation (€60,000) up to 500 employees or €50 million; AI Partnership (€100,000) above that.',
-            'First-year ROI = (first-year savings − investment) / investment. Payback time = investment / first-year monthly savings.',
+            'Assumed scenario investment: AI Accelerator (€20,000) up to 100 employees or €10 million revenue; AI Transformation (€60,000) up to 500 employees or €50 million; AI Partnership (€100,000) above that.',
+            'First-year gross ROI (%) = (first-year gross value − investment) / investment × 100. Payback time = investment / first-year monthly savings.',
             'Revenue potential = 0.5–2% of revenue depending on the sector. It is shown separately and is not part of the ROI.',
         ]
         thead = ['Sector', 'Staff on repetitive processes', 'Automation rate', 'Revenue potential']
-        how_html = section(section_head('How we calculate', 'Stated assumptions, conservative numbers.', 'The calculator uses seven simple rules. We list them in full because an estimate is only as good as its assumptions.')
+        how_html = section(section_head('How we calculate', 'A scenario with assumptions to validate.', 'These fixed parameters illustrate the method: they are not sector averages or expected results. The model excludes recurring fees, maintenance, internal costs and taxes. For a decision, recalculate using full costs and a measured baseline.')
                            + '<div class="grid grid--7-5" style="align-items:start;">' + card(numbered(how), cls='card--pad-lg') + card('<p class="label" style="margin:0 0 12px;">Parameters by sector</p>' + table(thead, rows, brand_col=None), cls='card--pad-lg') + '</div>', cls='section--white')
         sections = [
             ('html', section(calculator('en'), cls='section--flush-top', id_='calculator')),
             ('html', how_html),
+            ('links', 'Metodo di valutazione' if it else 'Evaluation method', 'Costi completi e risultati misurabili.' if it else 'Full costs and measurable results.', [(('Formula ROI e checklist dei costi' if it else 'ROI formula and cost checklist (Italian)'), ('Baseline, costi ricorrenti e valore del tempo.' if it else 'Baseline, recurring costs and the value of time.'), ('guida-ai/roi-intelligenza-artificiale-2026.html' if it else '../guida-ai/roi-intelligenza-artificiale-2026.html'))]),
             ('faq', [
-                ('How reliable is the estimate?', 'It is an indicative estimate built on conservative, stated assumptions: it tells you the order of magnitude, it does not replace an analysis. In the free strategy session we build the estimate on your real processes.'),
-                ('Why is the revenue potential not part of the ROI?', 'Because it depends on commercial factors the calculator does not know: market, channels, seasonality. We show it separately as an order of magnitude and count only cost savings in the ROI, which are easier to measure.'),
+                ('How reliable is the estimate?', 'It is an illustrative scenario with stated parameters that have not been validated for your business. It is not a forecast or a return guarantee. In the free strategy session we build the estimate on your real processes.'),
+                ('Why is the revenue potential not part of the ROI?', 'Because it depends on commercial factors the calculator does not know: market, channels, seasonality. We show it separately as an order of magnitude and use the assumed value of time and quality in gross ROI, to be validated before treating it as savings.'),
                 ('What happens after the calculation?', 'You can copy the results and, if you wish, book the free 45-minute strategy session: we review your processes and deliver a written report with a more precise ROI estimate.'),
             ]),
             ('cta_default',),
