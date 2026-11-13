@@ -213,7 +213,30 @@ def apply(lang):
     side = (card(f'<h2 class="h4" style="margin-bottom:16px;">{esc(c["side_next"][0])}</h2><ol class="numbered">' + ''.join(f'<li>{esc(s)}</li>' for s in c['side_next'][1]) + '</ol>')
             + card(f'<h2 class="h4" style="margin-bottom:16px;">{esc(c["side_prep"][0])}</h2>{checks(c["side_prep"][1], "checks--sm")}', cls='mt-6')
             + card(f'<h2 class="h4" style="margin-bottom:8px;">{esc(c["side_help"][0])}</h2><p class="body-sm muted" style="margin:0;">{esc(c["side_help"][1])}</p>', cls='mt-6'))
-    body = head + section(f'<div class="grid grid--7-5" style="align-items:start;"><div class="card card--pad-lg">{form}</div><div>{side}</div></div>', cls='section--flush-top')
+    if lang == 'it':
+        preparation_title = 'Come preparare una candidatura utile.'
+        preparation_intro = 'Questo modulo raccoglie le informazioni per valutare la coerenza della startup con il PugliAI Accelerator. Prima di compilarlo, consulta <a href="acceleratore.html">il programma e le sue condizioni</a>: è un percorso per startup, distinto dai pacchetti di consulenza AI per le PMI.'
+        preparation_items = [
+            ('Team e disponibilità', 'Indica i ruoli dei fondatori, i profili professionali e chi seguirà il percorso. Spiega cosa volete ottenere nelle 16 settimane, senza limitarti a un obiettivo generico di crescita.'),
+            ('Problema, prodotto e dati', 'Descrivi il cliente, il problema concreto e il ruolo dell’AI nella soluzione. Se hai una demo o un prototipo, inserisci il collegamento; non condividere credenziali, dati personali dei clienti o materiale riservato.'),
+            ('Trazione e prossimi passi', 'Riporta solo numeri che puoi documentare, precisando periodo e unità: utenti, clienti o ricavi. Se il prodotto è ancora in fase iniziale, descrivi le prove svolte e le ipotesi da validare; distingui le stime dai risultati già ottenuti.'),
+        ]
+        preparation_note = 'L’invio del modulo è una candidatura, non un’ammissione o un finanziamento garantito. Eventuali condizioni economiche e impegni vengono discussi separatamente. I campi obbligatori sono indicati nel modulo; demo, profili e riferimenti aiutano a contestualizzare le risposte.'
+    else:
+        preparation_title = 'How to prepare a useful application.'
+        preparation_intro = 'This form collects the information needed to assess your startup’s fit with the PugliAI Accelerator. First review <a href="accelerator.html">the programme and its terms</a>: this is a startup programme, separate from our AI consulting packages for SMEs.'
+        preparation_items = [
+            ('Team and availability', 'State each founder’s role, professional background and who will take part. Explain what you want to achieve during the 16 weeks, beyond a general ambition to grow.'),
+            ('Problem, product and data', 'Describe the customer, the specific problem and AI’s role in your solution. Link to a demo or prototype if available; do not share credentials, customers’ personal data or confidential material.'),
+            ('Traction and next steps', 'Use figures you can support and specify the period and unit: users, customers or revenue. For an early-stage product, describe the tests completed and assumptions still to validate; distinguish estimates from observed results.'),
+        ]
+        preparation_note = 'Submitting the form is an application, not guaranteed admission or funding. Any financial terms and commitments are discussed separately. Required fields are marked in the form; demos, profiles and references help explain your answers.'
+    preparation = section(section_head('Prima del modulo' if lang == 'it' else 'Before the form', preparation_title)
+                          + f'<p class="lead">{preparation_intro}</p>'
+                          + grid([card(f'<h3 class="h5">{esc(title)}</h3><p class="card__text body-sm">{esc(description)}</p>')
+                                  for title, description in preparation_items], 3)
+                          + f'<p class="body-sm muted mt-6">{esc(preparation_note)}</p>', cls='section--flush-top')
+    body = head + preparation + section(f'<div class="grid grid--7-5" style="align-items:start;"><div class="card card--pad-lg">{form}</div><div>{side}</div></div>', cls='section--flush-top')
     page.jsonld = [ld_webpage(page, c['title']), ld_breadcrumb([('Home', url_of('index.html' if lang == 'it' else 'en/index.html')), ('PugliAI Accelerator', url_of('acceleratore.html' if lang == 'it' else 'en/accelerator.html')), (c['h1'].rstrip('.'), page.url)])]
     return page, body
 

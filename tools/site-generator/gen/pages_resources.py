@@ -139,6 +139,10 @@ def formative(lang):
                 ('Programma', 'Definiamo moduli, esercitazioni e materiali sui vostri processi reali.'),
                 ('Erogazione', 'In sede, da remoto o misto, con laboratori pratici e verifiche intermedie.'),
                 ('Dopo il corso', 'Materiali, registrazioni e un canale per le domande restano a disposizione del team.')]),
+            ('links', 'Preparare il percorso', 'Tre letture per impostare la formazione.', [
+                ('Formazione AI per i dipendenti', 'Un programma basato su ruoli, esercitazioni e verifiche sul lavoro.', 'guida-ai/formazione-ai-dipendenti.html'),
+                ('Competenze digitali e AI', 'Quali capacità sviluppare e come scegliere i materiali di studio.', 'guida-ai/competenze-digitali-ai.html'),
+                ('Cultura aziendale e AI', 'Coinvolgere le persone e chiarire responsabilità e modalità di utilizzo.', 'guida-ai/cultura-aziendale-ai.html')]),
             ('features', 'Risorse gratuite', 'Per iniziare subito, senza registrazione.', None, [
                 ('book', 'Guida AI per CEO', f'{N_GUIDES} articoli per chi guida una PMI: normativa, costi, ROI, competenze e settori.', 'guida-ai-ceo-2025.html', 'Apri la guida'),
                 ('layers', 'Tutte le guide', 'La libreria completa organizzata per tema, dai fondamenti al mercato italiano.', 'risorse.html', 'Sfoglia le guide'),

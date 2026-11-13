@@ -60,6 +60,10 @@ CONTENT_UPDATES = {
             'en/strategy-session.html',
         ), '2026-11-13',
          'Reviewed claims and sources, clarified examples and evaluation methods, updated guide references and structured data.'),
+        (('index.html', 'en/index.html', 'chi-siamo.html', 'en/about-us.html',
+          'acceleratore-candidatura.html', 'en/accelerator-apply.html',
+          'roi-calculator.html', 'en/roi-calculator.html', 'risorse-formative.html'), '2026-11-13',
+         'Added contextual routes to services, sectors, pricing, resources and startup applications; clarified application preparation.'),
     )
     for path in paths
 }

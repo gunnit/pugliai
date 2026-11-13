@@ -117,7 +117,20 @@ def chi_siamo(lang):
     faqs = faq_section(c['faq'], FAQ_TITLE[lang])
     d = CTA_DEFAULT[lang]
     cta = cta_band(d['h2'], d['lead'], d['btn'], d['href'], d['ghost'], 'mailto:sales@pugliai.com')
-    body = head + photo + answer + mv + tl + fd + partners + life + recsec + faqs + cta
+    startup_links = (
+        ('Per chi sta costruendo una startup', 'Conosci il programma e prepara la candidatura.',
+         [('PugliAI Accelerator', 'Obiettivi, fasi e condizioni del percorso dedicato alle startup.', 'acceleratore.html'),
+          ('Preparare la candidatura', 'Le informazioni su team, prodotto e trazione richieste nel modulo.', 'acceleratore-candidatura.html')])
+        if lang == 'it' else
+        ('For startup founders', 'Explore the programme and prepare your application.',
+         [('PugliAI Accelerator', 'Goals, stages and terms of the programme for startups.', 'accelerator.html'),
+          ('Prepare your application', 'The team, product and traction information requested in the form.', 'accelerator-apply.html')])
+    )
+    startups = section(section_head(startup_links[0], startup_links[1]) + grid([
+        card(f'<h3 class="h5">{esc(title)}</h3><p class="card__text body-sm">{esc(description)}</p>', href=href)
+        for title, description, href in startup_links[2]
+    ], 2), cls='section--flush-top')
+    body = head + photo + answer + mv + tl + fd + partners + startups + life + recsec + faqs + cta
     org = ld_org(lang)
     org['@type'] = ['Organization', 'ProfessionalService'] if False else 'Organization'
     page.jsonld = [ld_webpage(page, c['title'], types='AboutPage', extra={'mainEntity': {'@id': SITE + '/#organization'}}), org, ld_person(), ld_faq(c['faq'])]
