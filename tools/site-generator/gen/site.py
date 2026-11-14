@@ -10,7 +10,8 @@ from .content_dates import content_modified as _content_modified
 SITE = 'https://pugliai.com'
 GA_ID = 'G-L7711R1PDP'
 FORMCARRY = 'https://formcarry.com/s/xWKwXtJvS4C'
-FORMCARRY_ACCELERATOR = 'https://formcarry.com/s/accelerator-pugliai'
+# Applications use the configured PugliAI inbox; their source field identifies them.
+FORMCARRY_ACCELERATOR = FORMCARRY
 CHAT_WIDGET = '<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>'
 OG_IMAGE = SITE + '/src/assets/img/2026/og-pugliai-2026.jpg'
 OG_IMAGE_SIZE = ('1200', '630')
