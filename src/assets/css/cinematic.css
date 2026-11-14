@@ -52,3 +52,62 @@
 
 /* Contextual routes remain visible in the initial HTML and wrap on phones. */
 .story-links{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:24px;max-width:700px}.story-links a{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding-block:8px;border-bottom:1px solid #ffffff80;color:#fff;font-size:14px}.story-links a:hover{border-color:#fff}.resource-paths{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:28px}.resource-paths .text-link{max-width:100%}.story-copy{max-width:100%}
+
+/* Cinematic depth: independent scroll and pointer layers share no transforms. */
+.nav-capsule{position:relative;overflow:hidden}
+.reading-progress{position:absolute;bottom:0;left:0;width:100%;height:2px;background:#dce8ff;transform:scaleX(0);transform-origin:left;pointer-events:none}
+.hero{perspective:1600px}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% 55%;opacity:0;transition:opacity 1s ease}
+.hero-video.is-playing{opacity:1}
+.hero-shade{background:linear-gradient(180deg,#04080f15,#04080f5c 45%,#04080f40)}
+.hero-content{position:relative;z-index:2;will-change:transform,opacity;perspective:1500px}
+.hero-content-depth{transform-style:preserve-3d}
+.hero h1 span{transform-origin:50% 100%}
+.hero-atmosphere{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden;opacity:.65}
+.light-thread{position:absolute;bottom:-15%;right:10%;width:1px;height:85%;background:linear-gradient(0deg,transparent,#a8ceff45,transparent);transform:rotate(60deg);transform-origin:bottom;opacity:.1}
+.light-thread:nth-child(2){right:18%;height:64%;transform:rotate(65deg)}
+.light-thread:nth-child(3){right:3%;height:110%;transform:rotate(72deg)}
+.hero-bottom{z-index:3}
+.scroll-cue{display:inline-block}
+.motion-toggle{position:fixed;right:22px;bottom:20px;z-index:80;display:flex;align-items:center;gap:9px;min-height:44px;padding:10px 17px;background:#14191ee8;border:1px solid #ffffff32;color:#f1f3f5;border-radius:999px;font-size:11px;letter-spacing:.01em;backdrop-filter:blur(12px);box-shadow:0 3px 20px #0000001a}
+.motion-toggle:hover{background:#252c33}
+.motion-toggle:focus-visible{outline-color:#92b8ff}
+.motion-toggle:disabled{cursor:default;opacity:.75}
+.motion-toggle-icon{font-size:14px;width:12px;line-height:1;text-align:center}
+.intro-figure{perspective:1400px;transform-origin:50% 50%}
+.image-window{transform-style:preserve-3d}
+.intro-figure img{transform-origin:center;will-change:transform}
+.workflow-demo,.product-visual,.contact-card{transform-style:preserve-3d;transform-origin:center}
+.workflow-demo .demo-title,.product-visual .example-question,.contact-card h2{transform:translateZ(24px)}
+.method-step{position:relative;transform-origin:50% 0%;background:var(--canvas);transition:color .3s ease}
+.method-step::before{content:'';position:absolute;left:0;right:0;top:-1px;height:2px;background:#242424;transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease)}
+.method-step.is-reading::before{transform:scaleX(1)}
+.method-number{color:#8a8a8a;transition:color .35s ease}
+.method-step.is-reading .method-number{color:#1c1c1c}
+.story-image{will-change:transform}
+.story-copy{position:relative;z-index:1}
+.button .arrow,.text-link span,.nav-side span{display:inline-block;transition:transform .2s var(--ease)}
+.button:hover .arrow,.text-link:hover span,.nav-side:hover span{transform:translate(3px,-3px)}
+html[data-motion='paused'],html[data-motion='reduced']{scroll-behavior:auto}
+html:not([data-motion='active']) .hero-atmosphere{display:none}
+html:not([data-motion='active']) .hero-content,html:not([data-motion='active']) .intro-figure img,html:not([data-motion='active']) .story-image{will-change:auto}
+html:not([data-motion='active']) .button:hover .arrow,html:not([data-motion='active']) .text-link:hover span,html:not([data-motion='active']) .nav-side:hover span{transform:none}
+@media(min-width:1001px) and (prefers-reduced-motion:no-preference){
+  html[data-motion='active'] .method-step{position:sticky;top:calc(130px + var(--step-index,0)*24px);min-height:285px;padding-top:42px;box-shadow:none}
+  html[data-motion='active'] .method-steps{padding-bottom:90px}
+  html[data-motion='active'] .method-step:last-child{margin-bottom:25px}
+}
+@media(max-width:700px){.motion-toggle{right:12px;bottom:12px;min-height:42px;padding:9px 13px;font-size:10px}.hero-video{object-position:68% center}.hero-content{padding-inline:22px}.hero-atmosphere{opacity:.35}.light-thread{right:-35%}.site-footer{padding-bottom:78px}}
+@media(prefers-reduced-motion:reduce){.hero-video{display:none}.hero-content,.story-image,.intro-figure img{will-change:auto}.method-step::before{transition:none}}
+
+html:not([data-motion="active"]) *,html:not([data-motion="active"]) *::before,html:not([data-motion="active"]) *::after{transition:none!important;animation:none!important}
+
+.cinematic-home>.reading-progress{position:fixed;z-index:110;top:0;bottom:auto;background:#989fa5}
+.cinematic-home .motion-toggle{left:22px;right:auto;z-index:70}
+@media(max-width:700px){.cinematic-home .motion-toggle{left:12px;right:auto}}
+
+/* A static state also overrides a scroll timeline's last sampled transform. */
+html:not([data-motion="active"]) :is(.hero-media,.hero-content,.hero-content-depth,.hero-enter,.reveal,.intro-figure img,.image-window,.story-image,.story-copy,.contact-section,.workflow-demo,.product-visual,.voice-wave i,.document-stack>span,.connection-hub,.solution-panel){transform:none!important;opacity:1!important;filter:none!important}
+
+/* Keep the headline readable as the film’s bright doorway moves behind it. */
+.hero-shade{background:linear-gradient(180deg,#04080f20,#04080f3d 55%,#04080f40),radial-gradient(ellipse at 50% 43%,#04080fb0 10%,#04080f70 45%,transparent 80%)}

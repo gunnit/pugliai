@@ -1,40 +1,21 @@
-import { animate, scroll, inView, stagger } from 'motion';
+import { animate as motionAnimate } from 'motion';
 
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-let cleanups = [];
-const heroItems = [...document.querySelectorAll('.hero-enter')];
-const revealItems = [...document.querySelectorAll('.reveal')];
+import { setupScene } from './scene-motion.js';
 
-function setupMotion() {
-  cleanups.forEach((cleanup) => cleanup());
-  cleanups = [];
-  [...heroItems, ...revealItems].forEach((el) => {
-    el.style.opacity = '1';
-    el.style.transform = 'none';
-  });
-  document.querySelector('.hero-media').style.transform = 'none';
-  if (reducedMotion.matches) return;
-
-  const heroAnimation = animate(heroItems, { opacity: [0, 1], y: [18, 0] }, {
-    duration: 0.65, delay: stagger(0.09, { startDelay: 0.08 }), ease: [0.2, 0.7, 0.2, 1],
-  });
-  cleanups.push(() => heroAnimation.stop());
-
-  // Only animate an element when it enters; content remains visible without JS.
-  const stopInView = inView(revealItems, (element) => {
-    const animation = animate(element, { opacity: [0.25, 1], y: [20, 0] }, { duration: 0.55, ease: [0.2, 0.7, 0.2, 1] });
-    cleanups.push(() => animation.stop());
-  }, { margin: '0px 0px -40px 0px' });
-  cleanups.push(stopInView);
-
-  const media = document.querySelector('.hero-media');
-  const mediaAnimation = animate(media, { y: [0, 70], scale: [1, 1.05] }, { ease: 'linear' });
-  const stopScroll = scroll(mediaAnimation, { target: document.querySelector('.hero'), offset: ['start start', 'end start'] });
-  cleanups.push(() => { stopScroll(); mediaAnimation.stop(); });
+const uiAnimations = new Set();
+function animate(...args) {
+  const animation = motionAnimate(...args);
+  uiAnimations.add(animation);
+  animation.then(() => uiAnimations.delete(animation));
+  return animation;
 }
+document.documentElement.addEventListener('scene-reset', () => {
+  uiAnimations.forEach((animation) => animation.cancel());
+  uiAnimations.clear();
+});
 
-setupMotion();
-reducedMotion.addEventListener('change', setupMotion);
+const motionAllowed = () => document.documentElement.dataset.motion === 'active';
+setupScene();
 
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 function activateTab(tab, moveFocus = false) {
@@ -49,9 +30,9 @@ function activateTab(tab, moveFocus = false) {
   const list = tab.parentElement;
   const left = tab.offsetLeft - list.offsetLeft;
   if (left < list.scrollLeft || left + tab.offsetWidth > list.scrollLeft + list.clientWidth) {
-    list.scrollTo({ left: Math.max(0, left - 12), behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+    list.scrollTo({ left: Math.max(0, left - 12), behavior: motionAllowed() ? 'smooth' : 'instant' });
   }
-  if (!reducedMotion.matches) {
+  if (motionAllowed()) {
     const panel = document.getElementById(tab.getAttribute('aria-controls'));
     animate(panel, { opacity: [0, 1], y: [6, 0] }, { duration: 0.22, ease: 'easeOut' });
   }
@@ -84,12 +65,12 @@ document.querySelector('.demo-next').addEventListener('click', () => {
   document.querySelector('#demo-live').textContent = message;
   const button = document.querySelector('.demo-next');
   button.innerHTML = `${demoStep === 2 ? (isEnglish ? 'Restart' : 'Ricomincia') : (isEnglish ? 'Next step' : 'Passo successivo')} <span aria-hidden="true">${demoStep === 2 ? '↺' : '→'}</span>`;
-  if (!reducedMotion.matches) animate(document.querySelector('.workflow-steps .is-current .step-icon'), { scale: [0.94, 1] }, { duration: 0.2 });
+  if (motionAllowed()) animate(document.querySelector('.workflow-steps .is-current .step-icon'), { scale: [0.94, 1] }, { duration: 0.2 });
 });
 
-document.querySelectorAll('details').forEach((detail) => {
+document.querySelectorAll('.question-list details').forEach((detail) => {
   detail.addEventListener('toggle', () => {
-    if (detail.open && !reducedMotion.matches) {
+    if (detail.open && motionAllowed()) {
       animate(detail.querySelector('.answer'), { opacity: [0, 1], y: [-4, 0] }, { duration: 0.2 });
     }
   });
@@ -97,10 +78,3 @@ document.querySelectorAll('details').forEach((detail) => {
 
 // Use the displayed client year as a fallback; no analytics or third-party embeds.
 document.querySelector('#year').textContent = String(new Date().getFullYear());
-window.addEventListener('pagehide', () => {
-  cleanups.forEach((cleanup) => cleanup());
-  reducedMotion.removeEventListener('change', setupMotion);
-});
-window.addEventListener('pageshow', (event) => {
-  if (event.persisted) { setupMotion(); reducedMotion.addEventListener('change', setupMotion); }
-});

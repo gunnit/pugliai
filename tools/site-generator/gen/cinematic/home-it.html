@@ -1,11 +1,18 @@
 {{NAVIGATION}}
+    <button class="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-toggle-icon" aria-hidden="true">Ⅱ</span><span class="motion-toggle-label">Pausa effetti</span></button>
+    <span class="reading-progress" aria-hidden="true"></span>
     <main id="main">
       <section class="hero" id="inizio" aria-labelledby="hero-title">
         <div class="hero-media" aria-hidden="true">
-          <img class="hero-image" src="/src/assets/img/cinematic/hero-light.webp" width="1983" height="793" alt="" fetchpriority="high" />
+          <img class="hero-image" src="/src/assets/img/cinematic/hero-higgsfield-poster.webp" width="1983" height="793" alt="" fetchpriority="high" />
+          <video class="hero-video" muted playsinline loop preload="none" poster="/src/assets/img/cinematic/hero-higgsfield-poster.webp" disablepictureinpicture tabindex="-1">
+            <source data-src="/src/assets/video/hero-higgsfield.webm" type="video/webm" />
+            <source data-src="/src/assets/video/hero-higgsfield.mp4" type="video/mp4" />
+          </video>
           <div class="hero-shade"></div>
         </div>
-        <div class="hero-content">
+        <div class="hero-atmosphere" aria-hidden="true"><span class="light-thread"></span><span class="light-thread"></span><span class="light-thread"></span></div>
+        <div class="hero-content"><div class="hero-content-depth">
           <p class="eyebrow hero-enter">Intelligenza applicata. Imprese reali.</p>
           <h1 id="hero-title"><span class="hero-enter">L’AI entra nel lavoro.</span><span class="hero-enter">La tua impresa va avanti.</span></h1>
           <p class="hero-description hero-enter">Consulenza, agenti AI e soluzioni sui tuoi server.<br class="desktop-break" /> Partiamo da un processo concreto.</p>
@@ -14,7 +21,7 @@
             <span class="hero-note">45 minuti per capire da dove iniziare</span>
           </div>
         </div>
-        <div class="hero-bottom"><span>Radici in Puglia. Visione aperta.</span><a class="language-switch" href="/en/" lang="en" aria-label="Read this page in English">EN ↗</a><a href="#approccio">Scopri PugliAI <span aria-hidden="true">↓</span></a></div>
+        </div><div class="hero-bottom"><span>Radici in Puglia. Visione aperta.</span><a class="language-switch" href="/en/" lang="en" aria-label="Read this page in English">EN ↗</a><a href="#approccio">Scopri PugliAI <span class="scroll-cue" aria-hidden="true">↓</span></a></div>
       </section>
 
       <section class="intro section-shell" id="approccio" aria-labelledby="intro-title">

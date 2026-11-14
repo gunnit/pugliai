@@ -1,0 +1,13 @@
+{
+  "generator": "Higgsfield",
+  "model": "seedance_2_5",
+  "jobId": "2f60ed13-040a-462c-8992-c69e8609ac9f",
+  "status": "completed",
+  "date": "2026-11-14",
+  "quotedCredits": 96,
+  "source": "source-assets/higgsfield-hero-original.mp4",
+  "originalDurationSeconds": 6.041667,
+  "delivery": "5-second crossfaded loop, 1600×686, H.264 and VP9, silent",
+  "poster": "public/assets/hero-higgsfield-poster.webp",
+  "prompt": "Dark concrete architectural room with an icy doorway, slow camera travel, fine flowing light filaments, quiet central space for headline. No text, logos or people."
+}
