@@ -47,8 +47,10 @@ class Page(HTMLParser):
         for key in ('href', 'src'):
             if attrs.get(key):
                 self.refs.append(attrs[key])
-        if tag == 'img' and attrs.get('srcset'):
+        if tag in ('img', 'source') and attrs.get('srcset'):
             self.refs.extend(item.strip().split()[0] for item in attrs['srcset'].split(','))
+        if tag == 'style' and attrs.get('data-asset'):
+            self.refs.append(attrs['data-asset'])
         if tag == 'meta' and attrs.get('name') != 'theme-color':
             self.meta.append(attrs)
         if tag == 'link' and attrs.get('rel') in ('canonical', 'alternate'):
@@ -122,14 +124,27 @@ def allowed_calculator_forms(current, previous):
                     for key in ('action', 'method', 'target', 'enctype')))
 
 
-def scripts_preserved(current, previous, allow_navigation=False):
+def scripts_preserved(current, previous, allow_navigation=False, home=False):
     # Permit exactly the known home navigation addition, never edits to an
     # existing script's attributes, order, or configuration.
     def without_asset_version(scripts):
         return [dict(script, src=re.sub(
-            r'^((?:/|(?:\.\./)*)src/assets/js/(?:cinematic/(?:home|interior)|navigation)\.js)\?v=[0-9a-f]{12}$', r'\1',
+            r'^((?:/|(?:\.\./)*)src/assets/js/(?:cinematic/(?:home|interior)|navigation|consent-analytics)\.js)\?v=[0-9a-f]{12}$', r'\1',
             script['src'])) for script in scripts]
     current, previous = map(without_asset_version, (current, previous))
+    if home:
+        # The exact same queued GA4 config uses a local consent-aware loader.
+        expected = {'src': '/src/assets/js/consent-analytics.js', 'defer': None,
+                    'data-analytics-id': 'G-L7711R1PDP'}
+        legacy = {'src': 'https://www.googletagmanager.com/gtag/js?id=G-L7711R1PDP', 'async': None}
+        home_module = {'src': '/src/assets/js/cinematic/home.js', 'type': 'module',
+                       'async': None, 'fetchpriority': 'high'}
+        current = [dict(src='/src/assets/js/cinematic/home.js', type='module')
+                   if script == home_module else script for script in current]
+        previous = [dict(src='/src/assets/js/cinematic/home.js', type='module')
+                    if script == home_module else script for script in previous]
+        current = [legacy if script == expected else script for script in current]
+        previous = [legacy if script == expected else script for script in previous]
     # The existing chat keeps its configuration and order, but no longer blocks parsing.
     if any(script.get('src') == 'https://chatniuexa.onrender.com/widget.js' and 'defer' not in script for script in current):
         return False
@@ -202,6 +217,13 @@ def main():
                     errors.append(f'{rel}: missing or stale interior content version for {asset}')
             if text.count('class="motion-toggle"') != 1 or text.count('class="motion-progress"') != 1:
                 errors.append(f'{rel}: shared motion controls missing or duplicated')
+        inline_styles = re.findall(r'<style data-asset="([^"]+)">(.*?)</style>', text, re.S)
+        if rel in HOME and len(inline_styles) != 3:
+            errors.append(f'{rel}: expected three inlined homepage stylesheets')
+        for reference, css in inline_styles:
+            target, _ = local_target(path, reference)
+            if not target or not target.is_file() or target.read_text() != css:
+                errors.append(f'{rel}: inlined stylesheet differs from {reference}')
         if expected not in page.body_classes:
             errors.append(f'{rel}: missing body class {expected}')
         required = (['css/cinematic.css', 'js/cinematic/home.js'] if rel in HOME else
@@ -248,8 +270,8 @@ def main():
             if (current_inline != old_inline and not
                     (calculator_fix and allowed_calculator_scripts(current_inline, old_inline))):
                 errors.append(f'{rel}: inline application/analytics scripts changed')
-            if not scripts_preserved(page.scripts, old.scripts,
-                                     args.allow_audit_fixes and rel in HOME):
+            if not scripts_preserved(page.scripts, old.scripts, home=rel in HOME,
+                                     allow_navigation=args.allow_audit_fixes and rel in HOME):
                 errors.append(f'{rel}: existing script configuration changed')
             current_forms, old_forms = FORM.findall(text), FORM.findall(old_text)
             if (current_forms != old_forms

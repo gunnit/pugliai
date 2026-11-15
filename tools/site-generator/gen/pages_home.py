@@ -7,7 +7,7 @@ from pathlib import Path
 import re
 from html import unescape
 from .html import esc
-from .site import Page, FOOTER, ORG, ld_org, ld_website, ld_webpage, ld_faq, SITE, navigation_fallback, versioned_asset
+from .site import Page, FOOTER, ORG, ld_org, ld_website, ld_webpage, ld_faq, SITE, navigation_fallback, versioned_asset, stylesheet_markup
 
 TEMPLATES = Path(__file__).with_name('cinematic')
 
@@ -86,16 +86,25 @@ def visible_faq(body):
     return [(unescape(re.sub(r'<[^>]+>', '', q)), unescape(a)) for q, a in rows]
 
 
+def motion_preloads():
+    """Discover the built entry's shared dependency while parsing the HTML."""
+    root = Path(__file__).resolve().parents[3]
+    entry = root / 'src/assets/js/cinematic/home.js'
+    imports = re.findall(r'from\s+["\']\./(motion-[\w-]+\.js)["\']', entry.read_text())
+    return ''.join(f'\n    <link rel="modulepreload" href="/src/assets/js/cinematic/{name}">' for name in imports)
+
+
 def build(lang):
     path, alt = ('index.html', 'en/index.html') if lang == 'it' else ('en/index.html', 'index.html')
     title, description = META[lang]
     stylesheet = versioned_asset('src/assets/css/cinematic.css')
     home_script = versioned_asset('/src/assets/js/cinematic/home.js')
     page = Page(lang=lang, path=path, title=title, description=description, alt=alt,
-                chat=True, own_header=True, standalone_body=True,
+                chat=True, own_header=True, standalone_body=True, inline_styles=True, consent_analytics=True,
                 body_class='cinematic-home', stylesheet=stylesheet, theme_color='#080d13',
-                extra_head='\n    <link rel="stylesheet" href="/src/assets/css/cinematic-navigation.css">\n    <link rel="preload" href="/src/assets/img/cinematic/hero-higgsfield-poster.webp" as="image" fetchpriority="high">',
-                extra_scripts=f'<script src="{versioned_asset("/src/assets/js/navigation.js")}" defer></script>\n    <script type="module" src="{home_script}"></script>')
+                early_head='\n    <link rel="preload" href="/src/assets/img/cinematic/hero-higgsfield-mobile-poster.webp" as="image" fetchpriority="high" media="(max-width: 700px)">\n    <link rel="preload" href="/src/assets/img/cinematic/hero-higgsfield-poster.webp" as="image" fetchpriority="high" media="(min-width: 701px)">' + f'\n    <link rel="modulepreload" href="{home_script}">' + motion_preloads(),
+                extra_head='\n    ' + stylesheet_markup(versioned_asset('/src/assets/css/cinematic-navigation.css'), True),
+                extra_scripts=f'<script src="{versioned_asset("/src/assets/js/navigation.js")}" defer></script>\n    <script type="module" src="{home_script}" async fetchpriority="high"></script>')
     body = (TEMPLATES / f'home-{lang}.html').read_text(encoding='utf-8')
     body = body.replace('{{NAVIGATION}}', navigation_fallback(page, 'main'))
     body = body.replace('{{COMPANY_LOGOS}}', logo_strip(lang))

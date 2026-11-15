@@ -30,6 +30,12 @@ for source in sorted(SOURCES):
         variants.append({'url': '/' + str(path.relative_to(ROOT)), 'width': width})
     manifest['/' + str(source.relative_to(ROOT))] = variants
 (OUT / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+poster = Image.open(IMAGES / 'cinematic/hero-higgsfield-poster.webp')
+width = poster.height * 9 / 16
+left = (poster.width - width) * .68
+poster.crop((round(left), 0, round(left + width), poster.height)).resize(
+    (432, 768), Image.Resampling.LANCZOS).save(
+    IMAGES / 'cinematic/hero-higgsfield-mobile-poster.webp', 'WEBP', quality=76, method=6)
 light = Image.open(IMAGES / 'cinematic/hero-light.webp')
 light.resize((960, round(light.height * 960 / light.width)), Image.Resampling.LANCZOS).save(
     IMAGES / 'cinematic/hero-light-960.webp', 'WEBP', quality=64, method=6)

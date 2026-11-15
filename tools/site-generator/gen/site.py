@@ -90,6 +90,9 @@ class Page:
     main_class: str = ''
     stylesheet: str = 'src/assets/css/stylesheet.css'
     theme_color: str = '#080d13'
+    early_head: str = ''
+    inline_styles: bool = False
+    consent_analytics: bool = False
     standalone_body: bool = False  # custom home layout supplies its own header/main/footer
 
     @property
@@ -324,7 +327,19 @@ def navigation_fallback(page, main_id='main-content'):
             f'<a class="c-nav__contact" href="{contact}">{cta}<span aria-hidden="true">↗</span></a>'
             '</div></header></div>')
 
-def ga_snippet():
+def stylesheet_markup(path, inline=False):
+    if not inline:
+        return f'<link rel="stylesheet" href="{esc(path)}">'
+    root = Path(__file__).resolve().parents[3]
+    css = (root / path.split('?', 1)[0].lstrip('/')).read_text()
+    if '</style' in css.lower():
+        raise ValueError('Unexpected closing style tag in stylesheet')
+    return f'<style data-asset="{esc(path)}">{css}</style>'
+
+
+def ga_snippet(consent_only=False):
+    loader = (f'<script src="{versioned_asset("/src/assets/js/consent-analytics.js")}" defer data-analytics-id="{GA_ID}"></script>'
+              if consent_only else f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>')
     return f'''<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){{dataLayer.push(arguments);}}
@@ -334,7 +349,7 @@ def ga_snippet():
       gtag('js', new Date());
       gtag('config', '{GA_ID}', {{ anonymize_ip: true }});
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'''
+    {loader}'''
 
 
 def head(page, optical_background=False):
@@ -350,6 +365,7 @@ def head(page, optical_background=False):
     locale = 'it_IT' if page.lang == 'it' else 'en_US'
     og_alt = OG_IMAGE_ALT[page.lang] if page.og_image == OG_IMAGE else page.title
     alt_locale = 'en_US' if page.lang == 'it' else 'it_IT'
+    preconnect = '' if page.consent_analytics else '    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>'
     robots = '\n    <meta name="robots" content="noindex, follow">' if page.noindex else ''
     ld = ''.join(f'\n    <script type="application/ld+json">{json.dumps(d, ensure_ascii=False)}</script>' for d in page.jsonld)
     p = page.prefix
@@ -384,11 +400,11 @@ def head(page, optical_background=False):
     <meta name="theme-color" content="{page.theme_color}">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/src/assets/img/brand/pugliai-symbol.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="preload" href="{p}src/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="{p}{page.stylesheet}">{interior_styles}{optical_preload}
-    {ga_snippet()}{ld}{page.extra_head}
-    <link rel="stylesheet" href="{versioned_asset('/src/assets/css/brand.css')}">
+{preconnect}
+    <link rel="preload" href="{p}src/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>{page.early_head}
+    {stylesheet_markup('/' + page.stylesheet.lstrip('/') if page.inline_styles else p + page.stylesheet, page.inline_styles)}{interior_styles}{optical_preload}
+    {ga_snippet(page.consent_analytics)}{ld}{page.extra_head}
+    {stylesheet_markup(versioned_asset('/src/assets/css/brand.css'), page.inline_styles)}
 </head>'''
 
 

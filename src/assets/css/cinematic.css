@@ -71,7 +71,7 @@
 .nav-capsule{position:relative;overflow:hidden}
 .reading-progress{position:absolute;bottom:0;left:0;width:100%;height:2px;background:#dce8ff;transform:scaleX(0);transform-origin:left;pointer-events:none}
 .hero{perspective:1600px}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% 55%;opacity:0;transition:opacity 1s ease}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% 55%;opacity:0;transition:opacity .35s ease}
 .hero-video.is-playing{opacity:1}
 .hero-shade{background:linear-gradient(180deg,#04080f15,#04080f5c 45%,#04080f40)}
 .hero-content{position:relative;z-index:2;will-change:transform,opacity;perspective:1500px}
@@ -130,3 +130,9 @@ html:not([data-motion="active"]) :is(.hero-media,.hero-content,.hero-content-dep
 
 /* Keep the headline readable as the film’s bright doorway moves behind it. */
 .hero-shade{background:linear-gradient(180deg,#04080f20,#04080f3d 55%,#04080f40),radial-gradient(ellipse at 50% 43%,#04080fb0 10%,#04080f70 45%,transparent 80%)}
+
+/* Use the browser's linear wrapping path on narrow, frequently relaid-out text. */
+@media(max-width:700px){.cinematic-home :is(h1,h2,h3,p){text-wrap:wrap}}
+
+/* The art-directed phone poster occupies the same media layer as the film. */
+.hero-media>picture{display:block;width:100%;height:100%}
