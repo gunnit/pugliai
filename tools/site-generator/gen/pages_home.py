@@ -25,7 +25,7 @@ COMPANY_LOGOS = [
     ('Tiledesk', 'tiledesk-logo.png', 1000, 237, 150),
     ('bebit', 'bebit-home.webp', 320, 170, 118),
     ('Maxlube', 'maxlube_logo300.png', 300, 132, 130),
-    ('DBridge', 'dbridge_logo.png', 102, 19, 120),
+    ('DBridge', 'dbridge_logo.svg', 138, 24, 120),
     ('BCC Studio', 'bcc_studio_logo.png', 768, 219, 154),
 ]
 PARTNER_LOGOS = [
