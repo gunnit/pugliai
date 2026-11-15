@@ -115,11 +115,11 @@ def allowed_calculator_forms(current, previous):
 def scripts_preserved(current, previous, allow_navigation=False):
     # Permit exactly the known home navigation addition, never edits to an
     # existing script's attributes, order, or configuration.
-    def without_home_version(scripts):
+    def without_asset_version(scripts):
         return [dict(script, src=re.sub(
-            r'^(/src/assets/js/cinematic/home\.js)\?v=[0-9a-f]{12}$', r'\1',
+            r'^((?:/|(?:\.\./)*)src/assets/js/(?:cinematic/home|navigation)\.js)\?v=[0-9a-f]{12}$', r'\1',
             script['src'])) for script in scripts]
-    current, previous = map(without_home_version, (current, previous))
+    current, previous = map(without_asset_version, (current, previous))
     if current == previous:
         return True
     if (allow_navigation and HOME_NAVIGATION not in previous
@@ -167,6 +167,11 @@ def main():
             errors.append(f'{rel}: page absent from baseline (only a new 404 is allowed with --allow-audit-fixes)')
         counts['pages'] += 1
         counts['home' if rel in HOME else 'interior'] += 1
+        navigation = 'src/assets/js/navigation.js'
+        navigation_version = sha256((ROOT / navigation).read_bytes()).hexdigest()[:12]
+        for script in page.scripts:
+            if navigation in script['src'] and not script['src'].endswith(f'{navigation}?v={navigation_version}'):
+                errors.append(f'{rel}: missing or stale navigation content version')
         expected = 'cinematic-home' if rel in HOME else 'cinematic-interior'
         if rel in HOME:
             for asset in ('src/assets/css/cinematic.css', 'src/assets/js/cinematic/home.js'):

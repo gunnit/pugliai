@@ -4,20 +4,12 @@ The editable body templates live in gen/cinematic/. Shared head, consent,
 attribution and company data continue to come from site.py.
 """
 from pathlib import Path
-from hashlib import sha256
 import re
 from html import unescape
 from .html import esc
-from .site import Page, FOOTER, ORG, ld_org, ld_website, ld_webpage, ld_faq, SITE, navigation_fallback
+from .site import Page, FOOTER, ORG, ld_org, ld_website, ld_webpage, ld_faq, SITE, navigation_fallback, versioned_asset
 
 TEMPLATES = Path(__file__).with_name('cinematic')
-ROOT = Path(__file__).resolve().parents[3]
-
-
-def versioned_asset(path):
-    """Change the URL when bytes change, including for returning visitors."""
-    version = sha256((ROOT / path.lstrip('/')).read_bytes()).hexdigest()[:12]
-    return f'{path}?v={version}'
 
 
 META = {
@@ -68,7 +60,7 @@ def build(lang):
                 chat=True, own_header=True, standalone_body=True,
                 body_class='cinematic-home', stylesheet=stylesheet, theme_color='#080d13',
                 extra_head='\n    <link rel="stylesheet" href="/src/assets/css/cinematic-navigation.css">\n    <link rel="preload" href="/src/assets/img/cinematic/hero-higgsfield-poster.webp" as="image" fetchpriority="high">',
-                extra_scripts=f'<script src="/src/assets/js/navigation.js" defer></script>\n    <script type="module" src="{home_script}"></script>')
+                extra_scripts=f'<script src="{versioned_asset("/src/assets/js/navigation.js")}" defer></script>\n    <script type="module" src="{home_script}"></script>')
     body = (TEMPLATES / f'home-{lang}.html').read_text(encoding='utf-8')
     body = body.replace('{{NAVIGATION}}', navigation_fallback(page, 'main'))
     body = body.replace('{{FOOTER_DIRECTORY}}', footer_directory(lang))

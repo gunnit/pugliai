@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import json
+from hashlib import sha256
+from pathlib import Path
 from dataclasses import dataclass, field
 from datetime import date
 from .html import esc, icon
@@ -21,6 +23,13 @@ LOGO_URL = SITE + '/src/assets/img/pugliai_pittogramma.png'
 UPDATED = '2026-09-07'
 UPDATED_IT = '7 settembre 2026'
 UPDATED_EN = '7 September 2026'
+
+
+def versioned_asset(path):
+    """Refresh changed local assets for returning visitors."""
+    root = Path(__file__).resolve().parents[3]
+    version = sha256((root / path.lstrip('/')).read_bytes()).hexdigest()[:12]
+    return f'{path}?v={version}'
 
 
 def content_modified(path, fallback=UPDATED):
@@ -377,7 +386,7 @@ def head(page):
     <link rel="preload" href="{p}src/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{p}{page.stylesheet}">{interior_styles}
     {ga_snippet()}{ld}{page.extra_head}
-    <link rel="stylesheet" href="/src/assets/css/brand.css">
+    <link rel="stylesheet" href="{versioned_asset('/src/assets/css/brand.css')}">
 </head>'''
 
 
@@ -386,7 +395,7 @@ def shell(page, body_html):
     nav = '' if page.own_header else '\n    ' + navigation_fallback(page)
     scripts = ''
     if not page.own_header:
-        scripts += f'\n    <script src="{p}src/assets/js/navigation.js" defer></script>'
+        scripts += f'\n    <script src="{p}{versioned_asset("src/assets/js/navigation.js")}" defer></script>'
     scripts += f'\n    <script src="{p}src/assets/js/consent.js" defer></script>'
     scripts += f'\n    <script src="{p}src/assets/js/lead-attribution.js" defer></script>'
     if page.form_source == 'contatti':

@@ -11,8 +11,10 @@
 - [x] Trace the three source color layers with transparent background, preserve fine branches and lettering counters, and visually compare with the source.
 - [x] Add full-color stacked, white horizontal and tree SVGs. Replace the text-only header and footer identities in both language templates, shared runtime navigation, interior footer and cinematic preview.
 - [x] Check desktop/mobile sizing, navigation with and without JavaScript, SVG assets, menus, reduced motion and horizontal overflow. Run existing full-site integrity checks and the preview build.
-- [ ] Publish the public website and update the existing owner-private preview, verifying both outcomes.
+- [x] Publish the public website and update the existing owner-private preview, verifying both outcomes.
 
 No changes to content claims, video, animation, forms, metadata, canonical URLs or access policy.
 
 Validation: 16 Chrome cases passed at 320, 390, 768 and 1440px across Italian, English, interiors, focused landings, disabled JavaScript and the private preview. SVGs contain paths with no raster embeds or font dependency. Full-site integrity passed for 105 content pages, 6 lead forms and 324 JSON-LD blocks; the full build was idempotent. SEO checks passed for 96 sitemap URLs.
+
+Publication: the public GitHub Pages build for logo commit 13dd808 succeeded and served byte-matching homepage, English homepage, brand CSS and SVGs. The existing owner-private Sites preview deployed successfully as version 3. Shared navigation and brand CSS now use content hashes to refresh returning visitors.
