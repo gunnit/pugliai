@@ -1,0 +1,658 @@
+{
+  "browser": "Chrome via Playwright; Browser plugin not available",
+  "cases": 10,
+  "result": "pass",
+  "results": [
+    {
+      "route": "/",
+      "width": 320,
+      "kind": "companies",
+      "columns": 2,
+      "title": "Alcune delle realt\u00e0 con cui lavoriamo",
+      "images": [
+        {
+          "alt": "MyCIA",
+          "width": 114,
+          "height": 32.046875
+        },
+        {
+          "alt": "Tiledesk",
+          "width": 114,
+          "height": 27.015625
+        },
+        {
+          "alt": "bebit",
+          "width": 114,
+          "height": 48
+        },
+        {
+          "alt": "Maxlube",
+          "width": 114,
+          "height": 48
+        },
+        {
+          "alt": "DBridge",
+          "width": 114,
+          "height": 21.234375
+        },
+        {
+          "alt": "BCC Studio",
+          "width": 114,
+          "height": 32.5
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "kind": "partners",
+      "columns": 2,
+      "title": "Il nostro ecosistema",
+      "images": [
+        {
+          "alt": "Assist Digital",
+          "width": 120,
+          "height": 68.40625
+        },
+        {
+          "alt": "Merantix",
+          "width": 120,
+          "height": 68.265625
+        },
+        {
+          "alt": "Plug and Play",
+          "width": 120,
+          "height": 68.40625
+        },
+        {
+          "alt": "Puglia Women Lead",
+          "width": 120,
+          "height": 68.265625
+        },
+        {
+          "alt": "Politecnico di Bari",
+          "width": 120,
+          "height": 68.40625
+        },
+        {
+          "alt": "Universit\u00e0 del Salento",
+          "width": 120,
+          "height": 68.265625
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "kind": "companies",
+      "columns": 2,
+      "title": "Alcune delle realt\u00e0 con cui lavoriamo",
+      "images": [
+        {
+          "alt": "MyCIA",
+          "width": 134,
+          "height": 37.671875
+        },
+        {
+          "alt": "Tiledesk",
+          "width": 149,
+          "height": 35.3125
+        },
+        {
+          "alt": "bebit",
+          "width": 118,
+          "height": 48
+        },
+        {
+          "alt": "Maxlube",
+          "width": 130,
+          "height": 48
+        },
+        {
+          "alt": "DBridge",
+          "width": 120,
+          "height": 22.34375
+        },
+        {
+          "alt": "BCC Studio",
+          "width": 149,
+          "height": 42.484375
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "kind": "partners",
+      "columns": 2,
+      "title": "Il nostro ecosistema",
+      "images": [
+        {
+          "alt": "Assist Digital",
+          "width": 155,
+          "height": 88.375
+        },
+        {
+          "alt": "Merantix",
+          "width": 155,
+          "height": 88.171875
+        },
+        {
+          "alt": "Plug and Play",
+          "width": 155,
+          "height": 88.375
+        },
+        {
+          "alt": "Puglia Women Lead",
+          "width": 155,
+          "height": 88.171875
+        },
+        {
+          "alt": "Politecnico di Bari",
+          "width": 155,
+          "height": 88.375
+        },
+        {
+          "alt": "Universit\u00e0 del Salento",
+          "width": 155,
+          "height": 88.171875
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "kind": "companies",
+      "columns": 3,
+      "title": "Alcune delle realt\u00e0 con cui lavoriamo",
+      "images": [
+        {
+          "alt": "MyCIA",
+          "width": 134,
+          "height": 37.671875
+        },
+        {
+          "alt": "Tiledesk",
+          "width": 150,
+          "height": 35.546875
+        },
+        {
+          "alt": "bebit",
+          "width": 118,
+          "height": 56
+        },
+        {
+          "alt": "Maxlube",
+          "width": 130,
+          "height": 56
+        },
+        {
+          "alt": "DBridge",
+          "width": 120,
+          "height": 22.34375
+        },
+        {
+          "alt": "BCC Studio",
+          "width": 154,
+          "height": 43.90625
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "kind": "partners",
+      "columns": 3,
+      "title": "Il nostro ecosistema",
+      "images": [
+        {
+          "alt": "Assist Digital",
+          "width": 190,
+          "height": 108.328125
+        },
+        {
+          "alt": "Merantix",
+          "width": 190,
+          "height": 108.09375
+        },
+        {
+          "alt": "Plug and Play",
+          "width": 190,
+          "height": 108.328125
+        },
+        {
+          "alt": "Puglia Women Lead",
+          "width": 190,
+          "height": 108.09375
+        },
+        {
+          "alt": "Politecnico di Bari",
+          "width": 190,
+          "height": 108.328125
+        },
+        {
+          "alt": "Universit\u00e0 del Salento",
+          "width": 190,
+          "height": 108.09375
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "kind": "companies",
+      "columns": 6,
+      "title": "Alcune delle realt\u00e0 con cui lavoriamo",
+      "images": [
+        {
+          "alt": "MyCIA",
+          "width": 134,
+          "height": 37.671875
+        },
+        {
+          "alt": "Tiledesk",
+          "width": 150,
+          "height": 35.546875
+        },
+        {
+          "alt": "bebit",
+          "width": 118,
+          "height": 56
+        },
+        {
+          "alt": "Maxlube",
+          "width": 130,
+          "height": 56
+        },
+        {
+          "alt": "DBridge",
+          "width": 120,
+          "height": 22.34375
+        },
+        {
+          "alt": "BCC Studio",
+          "width": 154,
+          "height": 43.90625
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "kind": "partners",
+      "columns": 6,
+      "title": "Il nostro ecosistema",
+      "images": [
+        {
+          "alt": "Assist Digital",
+          "width": 212.484375,
+          "height": 121.140625
+        },
+        {
+          "alt": "Merantix",
+          "width": 212.5,
+          "height": 120.890625
+        },
+        {
+          "alt": "Plug and Play",
+          "width": 212.5,
+          "height": 121.15625
+        },
+        {
+          "alt": "Puglia Women Lead",
+          "width": 212.484375,
+          "height": 120.875
+        },
+        {
+          "alt": "Politecnico di Bari",
+          "width": 212.5,
+          "height": 121.15625
+        },
+        {
+          "alt": "Universit\u00e0 del Salento",
+          "width": 212.5,
+          "height": 120.890625
+        }
+      ]
+    },
+    {
+      "route": "/en/",
+      "width": 320,
+      "kind": "companies",
+      "columns": 2,
+      "title": "Some of the companies we work with",
+      "images": [
+        {
+          "alt": "MyCIA",
+          "width": 114,
+          "height": 32.046875
+        },
+        {
+          "alt": "Tiledesk",
+          "width": 114,
+          "height": 27.015625
+        },
+        {
+          "alt": "bebit",
+          "width": 114,
+          "height": 48
+        },
+        {
+          "alt": "Maxlube",
+          "width": 114,
+          "height": 48
+        },
+        {
+          "alt": "DBridge",
+          "width": 114,
+          "height": 21.234375
+        },
+        {
+          "alt": "BCC Studio",
+          "width": 114,
+          "height": 32.5
+        }
+      ]
+    },
+    {
+      "route": "/en/",
+      "width": 320,
+      "kind": "partners",
+      "columns": 2,
+      "title": "Our ecosystem",
+      "images": [
+        {
+          "alt": "Assist Digital",
+          "width": 120,
+          "height": 68.40625
+        },
+        {
+          "alt": "Merantix",
+          "width": 120,
+          "height": 68.265625
+        },
+        {
+          "alt": "Plug and Play",
+          "width": 120,
+          "height": 68.40625
+        },
+        {
+          "alt": "Puglia Women Lead",
+          "width": 120,
+          "height": 68.265625
+        },
+        {
+          "alt": "Politecnico di Bari",
+          "width": 120,
+          "height": 68.40625
+        },
+        {
+          "alt": "Universit\u00e0 del Salento",
+          "width": 120,
+          "height": 68.265625
+        }
+      ]
+    },
+    {
+      "route": "/en/",
+      "width": 390,
+      "kind": "companies",
+      "columns": 2,
+      "title": "Some of the companies we work with",
+      "images": [
+        {
+          "alt": "MyCIA",
+          "width": 134,
+          "height": 37.671875
+        },
+        {
+          "alt": "Tiledesk",
+          "width": 149,
+          "height": 35.3125
+        },
+        {
+          "alt": "bebit",
+          "width": 118,
+          "height": 48
+        },
+        {
+          "alt": "Maxlube",
+          "width": 130,
+          "height": 48
+        },
+        {
+          "alt": "DBridge",
+          "width": 120,
+          "height": 22.34375
+        },
+        {
+          "alt": "BCC Studio",
+          "width": 149,
+          "height": 42.484375
+        }
+      ]
+    },
+    {
+      "route": "/en/",
+      "width": 390,
+      "kind": "partners",
+      "columns": 2,
+      "title": "Our ecosystem",
+      "images": [
+        {
+          "alt": "Assist Digital",
+          "width": 155,
+          "height": 88.375
+        },
+        {
+          "alt": "Merantix",
+          "width": 155,
+          "height": 88.171875
+        },
+        {
+          "alt": "Plug and Play",
+          "width": 155,
+          "height": 88.375
+        },
+        {
+          "alt": "Puglia Women Lead",
+          "width": 155,
+          "height": 88.171875
+        },
+        {
+          "alt": "Politecnico di Bari",
+          "width": 155,
+          "height": 88.375
+        },
+        {
+          "alt": "Universit\u00e0 del Salento",
+          "width": 155,
+          "height": 88.171875
+        }
+      ]
+    },
+    {
+      "route": "/en/",
+      "width": 768,
+      "kind": "companies",
+      "columns": 3,
+      "title": "Some of the companies we work with",
+      "images": [
+        {
+          "alt": "MyCIA",
+          "width": 134,
+          "height": 37.671875
+        },
+        {
+          "alt": "Tiledesk",
+          "width": 150,
+          "height": 35.546875
+        },
+        {
+          "alt": "bebit",
+          "width": 118,
+          "height": 56
+        },
+        {
+          "alt": "Maxlube",
+          "width": 130,
+          "height": 56
+        },
+        {
+          "alt": "DBridge",
+          "width": 120,
+          "height": 22.34375
+        },
+        {
+          "alt": "BCC Studio",
+          "width": 154,
+          "height": 43.90625
+        }
+      ]
+    },
+    {
+      "route": "/en/",
+      "width": 768,
+      "kind": "partners",
+      "columns": 3,
+      "title": "Our ecosystem",
+      "images": [
+        {
+          "alt": "Assist Digital",
+          "width": 190,
+          "height": 108.328125
+        },
+        {
+          "alt": "Merantix",
+          "width": 190,
+          "height": 108.09375
+        },
+        {
+          "alt": "Plug and Play",
+          "width": 190,
+          "height": 108.328125
+        },
+        {
+          "alt": "Puglia Women Lead",
+          "width": 190,
+          "height": 108.09375
+        },
+        {
+          "alt": "Politecnico di Bari",
+          "width": 190,
+          "height": 108.328125
+        },
+        {
+          "alt": "Universit\u00e0 del Salento",
+          "width": 190,
+          "height": 108.09375
+        }
+      ]
+    },
+    {
+      "route": "/en/",
+      "width": 1440,
+      "kind": "companies",
+      "columns": 6,
+      "title": "Some of the companies we work with",
+      "images": [
+        {
+          "alt": "MyCIA",
+          "width": 134,
+          "height": 37.671875
+        },
+        {
+          "alt": "Tiledesk",
+          "width": 150,
+          "height": 35.546875
+        },
+        {
+          "alt": "bebit",
+          "width": 118,
+          "height": 56
+        },
+        {
+          "alt": "Maxlube",
+          "width": 130,
+          "height": 56
+        },
+        {
+          "alt": "DBridge",
+          "width": 120,
+          "height": 22.34375
+        },
+        {
+          "alt": "BCC Studio",
+          "width": 154,
+          "height": 43.90625
+        }
+      ]
+    },
+    {
+      "route": "/en/",
+      "width": 1440,
+      "kind": "partners",
+      "columns": 6,
+      "title": "Our ecosystem",
+      "images": [
+        {
+          "alt": "Assist Digital",
+          "width": 212.484375,
+          "height": 121.140625
+        },
+        {
+          "alt": "Merantix",
+          "width": 212.5,
+          "height": 120.890625
+        },
+        {
+          "alt": "Plug and Play",
+          "width": 212.5,
+          "height": 121.15625
+        },
+        {
+          "alt": "Puglia Women Lead",
+          "width": 212.484375,
+          "height": 120.875
+        },
+        {
+          "alt": "Politecnico di Bari",
+          "width": 212.5,
+          "height": 121.15625
+        },
+        {
+          "alt": "Universit\u00e0 del Salento",
+          "width": 212.5,
+          "height": 120.890625
+        }
+      ]
+    },
+    {
+      "javaScriptEnabled": false,
+      "motion": "normal",
+      "visible": true
+    },
+    {
+      "javaScriptEnabled": true,
+      "motion": "normal",
+      "visible": true
+    }
+  ],
+  "matte_blending": {
+    "motion": "active",
+    "reveal_transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "background_rgb": [
+      237,
+      237,
+      237
+    ],
+    "sample_rgb": [
+      237,
+      237,
+      237
+    ],
+    "result": "pass"
+  },
+  "source_build": "Bilingual source templates and generated HTML agree; site integrity and SEO checks pass.",
+  "review": "Independent read-only review found no blockers; normal-motion matte blending verified after correction."
+}

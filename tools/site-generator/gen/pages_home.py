@@ -20,6 +20,41 @@ META = {
 }
 
 
+COMPANY_LOGOS = [
+    ('MyCIA', 'mycia_logo.svg', 793, 223, 134),
+    ('Tiledesk', 'tiledesk-logo.png', 1000, 237, 150),
+    ('bebit', 'bebit-home.webp', 320, 170, 118),
+    ('Maxlube', 'maxlube_logo300.png', 300, 132, 130),
+    ('DBridge', 'dbridge_logo.png', 102, 19, 120),
+    ('BCC Studio', 'bcc_studio_logo.png', 768, 219, 154),
+]
+PARTNER_LOGOS = [
+    ('Assist Digital', 'assist_digital_logo.png', 456, 260, 220),
+    ('Merantix', 'merantix_partner_logo.png', 457, 260, 220),
+    ('Plug and Play', 'plug_and_play_logo.png', 456, 260, 220),
+    ('Puglia Women Lead', 'puglia_woman_lead_logo.png', 457, 260, 220),
+    ('Politecnico di Bari', 'universita_bari_logo.png', 456, 260, 220),
+    ('Università del Salento', 'universita_salento_logo.png', 457, 260, 220),
+]
+
+
+def logo_strip(lang, partners=False):
+    """Use the same existing marks and accessible names in both languages."""
+    kind = 'partners' if partners else 'companies'
+    folder = 'partners' if partners else 'clients'
+    title = ({'it': 'Il nostro ecosistema', 'en': 'Our ecosystem'} if partners else
+             {'it': 'Alcune delle realtà con cui lavoriamo', 'en': 'Some of the companies we work with'})[lang]
+    logos = PARTNER_LOGOS if partners else COMPANY_LOGOS
+    items = ''.join(
+        f'<li style="--logo-width:{size}px"><img src="/src/assets/img/{folder}/{filename}" '
+        f'width="{width}" height="{height}" alt="{esc(name)}" loading="lazy" decoding="async"></li>'
+        for name, filename, width, height, size in logos)
+    shell = '' if partners else ' section-shell'
+    return (f'<section class="logo-strip logo-strip--{kind}{shell}" aria-labelledby="{kind}-title">'
+            f'<div class="logo-strip-content reveal"><h2 class="logo-strip-title" id="{kind}-title">{title}</h2>'
+            f'<ul class="logo-grid">{items}</ul></div></section>')
+
+
 def footer_directory(lang):
     prefix = '/' if lang == 'it' else '/en/'
     columns = []
@@ -63,6 +98,8 @@ def build(lang):
                 extra_scripts=f'<script src="{versioned_asset("/src/assets/js/navigation.js")}" defer></script>\n    <script type="module" src="{home_script}"></script>')
     body = (TEMPLATES / f'home-{lang}.html').read_text(encoding='utf-8')
     body = body.replace('{{NAVIGATION}}', navigation_fallback(page, 'main'))
+    body = body.replace('{{COMPANY_LOGOS}}', logo_strip(lang))
+    body = body.replace('{{PARTNER_LOGOS}}', logo_strip(lang, partners=True))
     body = body.replace('{{FOOTER_DIRECTORY}}', footer_directory(lang))
     body = body.replace('{{LEGAL_LINKS}}', legal_links(lang))
     body = body.replace('{{COMPANY_DETAILS}}', company_details(lang))
