@@ -1,0 +1,214 @@
+{
+  "/src/assets/img/2026/founder-stage.jpg": [
+    {
+      "url": "/src/assets/img/responsive/2026-founder-stage-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-founder-stage-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-founder-stage-1200.webp",
+      "width": 1200
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-founder-stage-1248.webp",
+      "width": 1248
+    }
+  ],
+  "/src/assets/img/2026/hero-masseria-mobile.jpg": [
+    {
+      "url": "/src/assets/img/responsive/2026-hero-masseria-mobile-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-hero-masseria-mobile-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-hero-masseria-mobile-900.webp",
+      "width": 900
+    }
+  ],
+  "/src/assets/img/2026/hero-masseria.jpg": [
+    {
+      "url": "/src/assets/img/responsive/2026-hero-masseria-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-hero-masseria-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-hero-masseria-1200.webp",
+      "width": 1200
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-hero-masseria-1600.webp",
+      "width": 1600
+    }
+  ],
+  "/src/assets/img/2026/incontro.jpg": [
+    {
+      "url": "/src/assets/img/responsive/2026-incontro-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-incontro-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-incontro-1200.webp",
+      "width": 1200
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-incontro-1600.webp",
+      "width": 1600
+    }
+  ],
+  "/src/assets/img/2026/officina.jpg": [
+    {
+      "url": "/src/assets/img/responsive/2026-officina-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-officina-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-officina-1200.webp",
+      "width": 1200
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-officina-1600.webp",
+      "width": 1600
+    }
+  ],
+  "/src/assets/img/2026/scrivania.jpg": [
+    {
+      "url": "/src/assets/img/responsive/2026-scrivania-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-scrivania-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-scrivania-1200.webp",
+      "width": 1200
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-scrivania-1600.webp",
+      "width": 1600
+    }
+  ],
+  "/src/assets/img/2026/team-masseria.jpg": [
+    {
+      "url": "/src/assets/img/responsive/2026-team-masseria-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-team-masseria-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-team-masseria-1200.webp",
+      "width": 1200
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-team-masseria-1600.webp",
+      "width": 1600
+    }
+  ],
+  "/src/assets/img/2026/team-olive-arch.jpg": [
+    {
+      "url": "/src/assets/img/responsive/2026-team-olive-arch-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-team-olive-arch-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-team-olive-arch-1200.webp",
+      "width": 1200
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-team-olive-arch-1600.webp",
+      "width": 1600
+    }
+  ],
+  "/src/assets/img/2026/uliveti.jpg": [
+    {
+      "url": "/src/assets/img/responsive/2026-uliveti-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-uliveti-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-uliveti-1200.webp",
+      "width": 1200
+    },
+    {
+      "url": "/src/assets/img/responsive/2026-uliveti-1600.webp",
+      "width": 1600
+    }
+  ],
+  "/src/assets/img/cinematic/founder-stage.webp": [
+    {
+      "url": "/src/assets/img/responsive/cinematic-founder-stage-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/cinematic-founder-stage-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/cinematic-founder-stage-1200.webp",
+      "width": 1200
+    },
+    {
+      "url": "/src/assets/img/responsive/cinematic-founder-stage-1248.webp",
+      "width": 1248
+    }
+  ],
+  "/src/assets/img/cinematic/officina.webp": [
+    {
+      "url": "/src/assets/img/responsive/cinematic-officina-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/cinematic-officina-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/cinematic-officina-1200.webp",
+      "width": 1200
+    },
+    {
+      "url": "/src/assets/img/responsive/cinematic-officina-1600.webp",
+      "width": 1600
+    }
+  ],
+  "/src/assets/img/cinematic/scrivania.webp": [
+    {
+      "url": "/src/assets/img/responsive/cinematic-scrivania-480.webp",
+      "width": 480
+    },
+    {
+      "url": "/src/assets/img/responsive/cinematic-scrivania-800.webp",
+      "width": 800
+    },
+    {
+      "url": "/src/assets/img/responsive/cinematic-scrivania-1200.webp",
+      "width": 1200
+    },
+    {
+      "url": "/src/assets/img/responsive/cinematic-scrivania-1600.webp",
+      "width": 1600
+    }
+  ]
+}

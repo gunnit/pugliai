@@ -1,4 +1,5 @@
-import { animate, scroll, inView, stagger } from 'motion';
+import { animate } from 'motion/mini';
+import { scroll, inView, stagger } from 'motion';
 import { readMotionPause, writeMotionPause } from './motion-preference.js';
 
 // One owner for ambient motion: pause, preferences and back/forward all rebuild
@@ -20,22 +21,34 @@ export function setupScene() {
   let loaded = false;
   let videoFailed = false;
   let disposed = false;
+  let entered = false;
+  let videoReady = false;
+  let videoFrame = 0;
   let cleanups = [];
   let heroLoops = [];
   let originals = new Map();
 
   const allowed = () => !userPaused && !preference.matches;
-  const mayPlay = () => allowed() && !document.hidden && heroVisible && !videoFailed && (!connection?.saveData || explicitPlayback);
+  const mayPlay = () => videoReady && allowed() && !document.hidden && heroVisible && !videoFailed && (!connection?.saveData || explicitPlayback);
   function syncVideo() {
     if (!mayPlay()) { video.pause(); return; }
     if (!loaded) {
-      video.querySelectorAll('source').forEach((source) => { source.src = source.dataset.src; });
+      video.querySelectorAll('source').forEach((source) => { source.src = compact.matches ? source.dataset.srcMobile || source.dataset.src : source.dataset.src; });
       loaded = true;
       video.load();
     }
     // Autoplay can be refused by a browser or device power-saving policy.
     video.play().catch(() => { video.classList.remove('is-playing'); });
   }
+  // Let the poster, headline and fonts paint before starting the film download.
+  const prepareVideo = () => {
+    if (disposed) return;
+    videoFrame = requestAnimationFrame(() => {
+      videoFrame = requestAnimationFrame(() => { videoReady = true; syncVideo(); });
+    });
+  };
+  const poster = document.querySelector('.hero-image');
+  Promise.all([document.fonts.ready, poster.decode().catch(() => {})]).then(prepareVideo);
   const onPlaying = () => video.classList.add('is-playing');
   const onVideoError = () => { videoFailed = true; video.classList.remove('is-playing'); };
   video.addEventListener('playing', onPlaying);
@@ -92,23 +105,27 @@ export function setupScene() {
     const ease = [0.16, 1, 0.3, 1];
 
     // Separate layers let camera travel and pointer depth coexist.
-    if (window.scrollY < hero.offsetHeight) {
-      run('.hero-enter', { opacity: [0, 1], y: [34, 0], filter: ['blur(8px)', 'blur(0px)'] }, {
+    if (!entered && window.scrollY < hero.offsetHeight) {
+      entered = true;
+      run('.hero-enter', { transform: ['translateY(24px)', 'translateY(0px)'] }, {
         duration: 0.9, delay: stagger(0.1, { startDelay: 0.08 }), ease,
       });
     }
-    scrub(document.querySelector('.hero-media'), { y: [0, small ? 90 : 200], scale: [1.02, 1.22] }, hero, ['start start', 'end start']);
-    scrub(document.querySelector('.hero-content'), { y: [0, small ? -45 : -140], opacity: [1, 0] }, hero, ['start start', 'end start']);
-    scrub(document.querySelector('.hero-atmosphere'), { y: [0, -240], rotate: [0, 9], opacity: [0.65, 0] }, hero, ['start start', 'end start']);
-    heroLoops.push(run('.light-thread', { x: [-25, 25], opacity: [0.1, 0.55, 0.1] }, { duration: 6, repeat: Infinity, repeatType: 'reverse', delay: stagger(0.6), ease: 'easeInOut' }));
-    heroLoops.push(run('.scroll-cue', { y: [0, 7, 0] }, { duration: 1.8, repeat: Infinity, ease: 'easeInOut' }));
+    scrub(document.querySelector('.hero-media'), { transform: ['translateY(0px) scale(1.02)', `translateY(${small ? 90 : 200}px) scale(1.22)`] }, hero, ['start start', 'end start']);
+    scrub(document.querySelector('.hero-content'), { transform: ['translateY(0px)', `translateY(${small ? -45 : -140}px)`], opacity: [1, 0] }, hero, ['start start', 'end start']);
+    scrub(document.querySelector('.hero-atmosphere'), { transform: ['translateY(0px) rotate(0deg)', 'translateY(-240px) rotate(9deg)'], opacity: [0.65, 0] }, hero, ['start start', 'end start']);
+    document.querySelectorAll('.light-thread').forEach((thread, index) => {
+      const angle = [60, 65, 72][index];
+      heroLoops.push(run(thread, { transform: [`translateX(-25px) rotate(${angle}deg)`, `translateX(25px) rotate(${angle}deg)`], opacity: [0.1, 0.55, 0.1] }, { duration: 6, repeat: Infinity, repeatType: 'reverse', delay: index * 0.6, ease: 'easeInOut' }));
+    });
+    heroLoops.push(run('.scroll-cue', { transform: ['translateY(0px)', 'translateY(7px)', 'translateY(0px)'] }, { duration: 1.8, repeat: Infinity, ease: 'easeInOut' }));
     if (!heroVisible) heroLoops.forEach((animation) => animation.pause());
-    const progressAnimation = run('.reading-progress', { scaleX: [0, 1] }, { ease: 'linear' });
+    const progressAnimation = run('.reading-progress', { transform: ['scaleX(0)', 'scaleX(1)'] }, { ease: 'linear' });
     cleanups.push(scroll(progressAnimation));
 
     const revealTargets = [...document.querySelectorAll('.reveal')].filter((el) => !el.matches('.intro-figure, .method-step, .contact-card'));
     cleanups.push(inView(revealTargets, (element) => {
-      run(element, { opacity: [0.15, 1], y: [42, 0] }, { duration: 0.75, ease });
+      run(element, { opacity: [0.15, 1], transform: ['translateY(42px)', 'translateY(0px)'] }, { duration: 0.75, ease });
     }, { margin: '0px 0px -45px 0px' }));
 
     const intro = document.querySelector('.intro-figure');
@@ -117,10 +134,10 @@ export function setupScene() {
       'perspective(1400px) translateY(0px) rotateX(0deg) rotateY(0deg) scale(1)',
       'perspective(1400px) translateY(-25px) rotateX(-3deg) rotateY(3deg) scale(1)',
     ] }, intro, ['start 95%', 'end 5%']);
-    scrub(intro.querySelector('img'), { y: ['-5%', '5%'], scale: [1.15, 1.15] }, intro);
+    scrub(intro.querySelector('img'), { transform: ['translateY(-5%) scale(1.15)', 'translateY(5%) scale(1.15)'] }, intro);
     const story = document.querySelector('.human-story');
-    scrub(story.querySelector('.story-image'), { y: [small ? -35 : -85, small ? 35 : 85], scale: [1.16, 1.16] }, story);
-    scrub(story.querySelector('.story-copy'), { y: [35, -35] }, story);
+    scrub(story.querySelector('.story-image'), { transform: [`translateY(${small ? -35 : -85}px) scale(1.16)`, `translateY(${small ? 35 : 85}px) scale(1.16)`] }, story);
+    scrub(story.querySelector('.story-copy'), { transform: ['translateY(35px)', 'translateY(-35px)'] }, story);
     const contact = document.querySelector('.contact-section');
     scrub(contact, { transform: [
       'perspective(1500px) translateY(65px) rotateX(12deg) scale(.94)',
@@ -142,9 +159,9 @@ export function setupScene() {
 
     // Small illustrative loops only run when the active tab is on screen.
     const loopTargets = [
-      ['.voice-visual', '.voice-wave i', { scaleY: [0.3, 1, 0.45, 0.8, 0.3] }, { duration: 1.5, delay: stagger(0.055), repeat: Infinity, ease: 'easeInOut' }],
-      ['.knowledge-visual', '.document-stack > span', { y: [0, -9, 0] }, { duration: 2.8, delay: stagger(0.22), repeat: Infinity, ease: 'easeInOut' }],
-      ['.mcp-visual', '.connection-hub', { scale: [1, 1.025, 1] }, { duration: 2.5, repeat: Infinity, ease: 'easeInOut' }],
+      ['.voice-visual', '.voice-wave i', { transform: ['scaleY(.3)', 'scaleY(1)', 'scaleY(.45)', 'scaleY(.8)', 'scaleY(.3)'] }, { duration: 1.5, delay: stagger(0.055), repeat: Infinity, ease: 'easeInOut' }],
+      ['.knowledge-visual', '.document-stack > span', { transform: ['translateY(0px)', 'translateY(-9px)', 'translateY(0px)'] }, { duration: 2.8, delay: stagger(0.22), repeat: Infinity, ease: 'easeInOut' }],
+      ['.mcp-visual', '.connection-hub', { transform: ['scale(1)', 'scale(1.025)', 'scale(1)'] }, { duration: 2.5, repeat: Infinity, ease: 'easeInOut' }],
     ];
     loopTargets.forEach(([container, selector, keyframes, options]) => {
       cleanups.push(inView(container, () => {
@@ -161,23 +178,25 @@ export function setupScene() {
       remember([target]);
       let frame = 0;
       let transition;
+      let rect;
+      zone.addEventListener('pointerenter', () => { rect = zone.getBoundingClientRect(); }, events);
       const move = (event) => {
         cancelAnimationFrame(frame);
         frame = requestAnimationFrame(() => {
-          const rect = zone.getBoundingClientRect();
+          rect ||= zone.getBoundingClientRect();
           const x = (event.clientX - rect.left) / rect.width - 0.5;
           const y = (event.clientY - rect.top) / rect.height - 0.5;
           transition?.stop();
           transition = animate(target, {
-            rotateX: -y * maxRotate, rotateY: x * maxRotate,
-            x: x * maxTravel, y: y * maxTravel,
+            transform: `translate(${x * maxTravel}px, ${y * maxTravel}px) rotateX(${-y * maxRotate}deg) rotateY(${x * maxRotate}deg)`,
           }, { duration: 0.25, ease: 'easeOut' });
         });
       };
       const leave = () => {
         cancelAnimationFrame(frame);
+        rect = null;
         transition?.stop();
-        transition = animate(target, { rotateX: 0, rotateY: 0, x: 0, y: 0 }, { duration: 0.4, ease });
+        transition = animate(target, { transform: 'translate(0px, 0px) rotateX(0deg) rotateY(0deg)' }, { duration: 0.4, ease });
       };
       zone.addEventListener('pointermove', move, events);
       zone.addEventListener('pointerleave', leave, events);
@@ -198,9 +217,9 @@ export function setupScene() {
   compact.addEventListener('change', build);
   connection?.addEventListener('change', build);
   document.addEventListener('visibilitychange', onVisibility);
-  window.addEventListener('pagehide', () => { disposed = true; clear(); video.pause(); heroObserver.disconnect(); });
+  window.addEventListener('pagehide', () => { disposed = true; cancelAnimationFrame(videoFrame); clear(); video.pause(); heroObserver.disconnect(); });
   window.addEventListener('pageshow', (event) => {
-    if (event.persisted) { userPaused = readMotionPause(); disposed = false; heroObserver.observe(hero); build(); }
+    if (event.persisted) { userPaused = readMotionPause(); disposed = false; heroObserver.observe(hero); if (!videoReady) prepareVideo(); build(); }
   });
   build();
 }

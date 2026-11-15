@@ -1,4 +1,4 @@
-import { animate as motionAnimate } from 'motion';
+import { animate as motionAnimate } from 'motion/mini';
 
 import { setupScene } from './scene-motion.js';
 
@@ -34,7 +34,7 @@ function activateTab(tab, moveFocus = false) {
   }
   if (motionAllowed()) {
     const panel = document.getElementById(tab.getAttribute('aria-controls'));
-    animate(panel, { opacity: [0, 1], y: [6, 0] }, { duration: 0.22, ease: 'easeOut' });
+    animate(panel, { opacity: [0, 1], transform: ['translateY(6px)', 'translateY(0px)'] }, { duration: 0.22, ease: 'easeOut' });
   }
 }
 tabs.forEach((tab, index) => {
@@ -65,13 +65,13 @@ document.querySelector('.demo-next').addEventListener('click', () => {
   document.querySelector('#demo-live').textContent = message;
   const button = document.querySelector('.demo-next');
   button.innerHTML = `${demoStep === 2 ? (isEnglish ? 'Restart' : 'Ricomincia') : (isEnglish ? 'Next step' : 'Passo successivo')} <span aria-hidden="true">${demoStep === 2 ? '↺' : '→'}</span>`;
-  if (motionAllowed()) animate(document.querySelector('.workflow-steps .is-current .step-icon'), { scale: [0.94, 1] }, { duration: 0.2 });
+  if (motionAllowed()) animate(document.querySelector('.workflow-steps .is-current .step-icon'), { transform: ['scale(.94)', 'scale(1)'] }, { duration: 0.2 });
 });
 
 document.querySelectorAll('.question-list details').forEach((detail) => {
   detail.addEventListener('toggle', () => {
     if (detail.open && motionAllowed()) {
-      animate(detail.querySelector('.answer'), { opacity: [0, 1], y: [-4, 0] }, { duration: 0.2 });
+      animate(detail.querySelector('.answer'), { opacity: [0, 1], transform: ['translateY(-4px)', 'translateY(0px)'] }, { duration: 0.2 });
     }
   });
 });

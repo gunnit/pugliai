@@ -47,6 +47,8 @@ class Page(HTMLParser):
         for key in ('href', 'src'):
             if attrs.get(key):
                 self.refs.append(attrs[key])
+        if tag == 'img' and attrs.get('srcset'):
+            self.refs.extend(item.strip().split()[0] for item in attrs['srcset'].split(','))
         if tag == 'meta' and attrs.get('name') != 'theme-color':
             self.meta.append(attrs)
         if tag == 'link' and attrs.get('rel') in ('canonical', 'alternate'):
@@ -120,6 +122,13 @@ def scripts_preserved(current, previous, allow_navigation=False):
             r'^((?:/|(?:\.\./)*)src/assets/js/(?:cinematic/(?:home|interior)|navigation)\.js)\?v=[0-9a-f]{12}$', r'\1',
             script['src'])) for script in scripts]
     current, previous = map(without_asset_version, (current, previous))
+    # The existing chat keeps its configuration and order, but no longer blocks parsing.
+    if any(script.get('src') == 'https://chatniuexa.onrender.com/widget.js' and 'defer' not in script for script in current):
+        return False
+    for scripts in (current, previous):
+        for script in scripts:
+            if script.get('src') == 'https://chatniuexa.onrender.com/widget.js':
+                script.pop('defer', None)
     if current == previous:
         return True
     if (allow_navigation and HOME_NAVIGATION not in previous

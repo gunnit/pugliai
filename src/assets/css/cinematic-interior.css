@@ -91,7 +91,7 @@ a, button, summary { touch-action: manipulation; -webkit-tap-highlight-color: tr
 /* Quiet optical opening for resources, forms, legal and editorial articles. */
 .page-head, .article-hero {
   color: #f5f7fa;
-  background: linear-gradient(90deg, #080d13e8, #080d13bd), url('../img/cinematic/hero-light.webp') center 52% / cover #080d13;
+  background: linear-gradient(90deg, #080d13e8, #080d13bd), url('../img/cinematic/hero-light-960.webp') center 52% / cover #080d13;
   padding: 166px 0 72px;
   border: 0;
 }
@@ -217,7 +217,7 @@ a, button, summary { touch-action: manipulation; -webkit-tap-highlight-color: tr
 .industry-option.selected { background: #dce5ff; border-color: #597dff; }
 .result-value { letter-spacing: -.04em; }
 .cinematic-interior main > .section:first-child { padding-top: 154px; }
-.cinematic-interior main > .section:first-child:has(.success-hero) { background: linear-gradient(90deg, #080d13ee, #080d13c2), url('../img/cinematic/hero-light.webp') center / cover; color: #fff; min-height: 65svh; }
+.cinematic-interior main > .section:first-child:has(.success-hero) { background: linear-gradient(90deg, #080d13ee, #080d13c2), url('../img/cinematic/hero-light-960.webp') center / cover; color: #fff; min-height: 65svh; }
 .success-hero .lead { color: #d4deeb; }
 .success-hero .btn--primary { background: #fff; color: #111; }
 .success-hero .btn--ghost { color: #e4eaff; }
@@ -230,7 +230,7 @@ a, button, summary { touch-action: manipulation; -webkit-tap-highlight-color: tr
 .lp-header .lang, .lp-header .lang strong, .lp-header .lang svg { color: #e7edf5; }
 .lp-header .btn { color: #f4f6fa; background: transparent; border: 0; padding-inline: 0; font-size: 11px; }
 .lp-header__actions { gap: 24px; }
-.has-sticky-cta .hero { padding: 158px 0 72px; background: linear-gradient(100deg, #080d13ed, #080d13b0), url('../img/cinematic/hero-light.webp') center top / cover; color: #fff; }
+.has-sticky-cta .hero { padding: 158px 0 72px; background: linear-gradient(100deg, #080d13ed, #080d13b0), url('../img/cinematic/hero-light-960.webp') center top / cover; color: #fff; }
 .has-sticky-cta .hero__grid { gap: 50px; }
 .has-sticky-cta .hero__text { gap: 26px; padding-top: 24px; }
 .has-sticky-cta .hero__text .lead { color: #d0d9e6; }
@@ -334,7 +334,7 @@ a, button, summary { touch-action: manipulation; -webkit-tap-highlight-color: tr
 .motion-toggle:hover{background:#252c33}.motion-toggle:focus-visible{outline-color:#92b8ff}.motion-toggle:disabled{cursor:default;opacity:.75}
 .motion-toggle-icon{font-size:14px;width:12px;line-height:1;text-align:center}
 .motion-optical-hero{position:relative;isolation:isolate;overflow:hidden;background:#080d13!important}
-.motion-optical-layer{position:absolute;inset:-12%;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#080d13e8,#080d13bd),url('../img/cinematic/hero-light.webp') center 52%/cover #080d13;transform-origin:center}
+.motion-optical-layer{position:absolute;inset:-12%;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#080d13e8,#080d13bd),url('../img/cinematic/hero-light-960.webp') center 52%/cover #080d13;transform-origin:center}
 .motion-tilt{transform-style:preserve-3d;transform-origin:center}
 .grid:has(>.motion-tilt),.hero__grid:has(>.motion-tilt){perspective:1400px}
 .motion-tilt:focus-within{transform:none!important}

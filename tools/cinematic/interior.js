@@ -1,4 +1,5 @@
-import { animate, scroll, inView, stagger } from 'motion';
+import { animate } from 'motion/mini';
+import { scroll, inView, stagger } from 'motion';
 import { readMotionPause, writeMotionPause } from './motion-preference.js';
 
 const root = document.documentElement;
@@ -93,7 +94,7 @@ function depth(element, signal) {
     cancelAnimationFrame(frame);
     bounds = null;
     transition?.stop();
-    transition = animate(element, { rotateX: 0, rotateY: 0 }, { duration: 0.32, ease });
+    transition = animate(element, { transform: 'rotateX(0deg) rotateY(0deg)' }, { duration: 0.32, ease });
   };
   element.addEventListener('pointerenter', () => { bounds = element.getBoundingClientRect(); }, { signal, passive: true });
   element.addEventListener('pointermove', (event) => {
@@ -104,7 +105,7 @@ function depth(element, signal) {
     cancelAnimationFrame(frame);
     frame = requestAnimationFrame(() => {
       transition?.stop();
-      transition = animate(element, { rotateX: -y * 7, rotateY: x * 7 }, { duration: 0.2, ease: 'easeOut' });
+      transition = animate(element, { transform: `rotateX(${-y * 7}deg) rotateY(${x * 7}deg)` }, { duration: 0.2, ease: 'easeOut' });
     });
   }, { signal, passive: true });
   element.addEventListener('pointerleave', leave, { signal, passive: true });
@@ -126,16 +127,16 @@ function setup() {
   if (!active || suspended || document.hidden) return;
   const small = compact.matches;
   if (!entered && window.scrollY < 100) {
-    run(heroItems, { opacity: [0.15, 1], y: [26, 0] }, { duration: 0.7, delay: stagger(0.075), ease });
+    run(heroItems, { opacity: [0.15, 1], transform: ['translateY(26px)', 'translateY(0px)'] }, { duration: 0.7, delay: stagger(0.075), ease });
     entered = true;
   }
   if (progress) {
-    const animation = run(progress, { scaleX: [0, 1] }, { ease: 'linear' });
+    const animation = run(progress, { transform: ['scaleX(0)', 'scaleX(1)'] }, { ease: 'linear' });
     cleanups.push(scroll(animation));
   }
   if (hero) {
-    scrub(photoHero || optical, { y: [0, small ? 55 : 130], scale: [1.16, 1.26] }, hero, ['start start', 'end start']);
-    if (heroText && safe(heroText)) scrub(heroText, { y: [0, small ? -24 : -55] }, hero, ['start start', 'end start']);
+    scrub(photoHero || optical, { transform: ['translateY(0px) scale(1.16)', `translateY(${small ? 55 : 130}px) scale(1.26)`] }, hero, ['start start', 'end start']);
+    if (heroText && safe(heroText)) scrub(heroText, { transform: ['translateY(0px)', `translateY(${small ? -24 : -55}px)`] }, hero, ['start start', 'end start']);
   }
   const seen = new WeakSet();
   cleanups.push(inView(reveals, (element) => {
@@ -147,14 +148,14 @@ function setup() {
     // Scroll and pointer transforms have separate targets: the card owns hover,
     // while its opacity is the only entrance property when it also tilts.
     run(element, tiltTargets.includes(element) ? { opacity: [0.12, 1] } : {
-      opacity: [0.12, 1], y: [proseHeading ? 8 : 32, 0],
+      opacity: [0.12, 1], transform: [`translateY(${proseHeading ? 8 : 32}px)`, 'translateY(0px)'],
     }, { duration: proseHeading ? 0.35 : 0.65, delay, ease });
     if (element.matches('.step')) element.classList.add('motion-step-active');
   }, { margin: '0px 0px -30px 0px' }));
   for (const frame of mediaFrames) {
     frame.classList.add('motion-photo-frame');
     const image = frame.querySelector('img');
-    scrub(image, { y: ['-4%', '4%'], scale: [1.12, 1.12] }, frame);
+    scrub(image, { transform: ['translateY(-4%) scale(1.12)', 'translateY(4%) scale(1.12)'] }, frame);
   }
   for (const image of standalonePhotos) {
     scrub(image, { transform: [
@@ -175,7 +176,7 @@ document.querySelectorAll('details.faq__item').forEach((detail) => {
   detail.addEventListener('toggle', () => {
     const answer = detail.querySelector('.faq__a');
     if (detail.open && answer && safe(answer) && root.dataset.motion === 'active' && !suspended) {
-      run(answer, { opacity: [0.25, 1], y: [-4, 0] }, { duration: 0.2, ease });
+      run(answer, { opacity: [0.25, 1], transform: ['translateY(-4px)', 'translateY(0px)'] }, { duration: 0.2, ease });
     }
   });
 });

@@ -1,4 +1,4 @@
-import { a as e, i as t, n, o as r, r as i, t as a } from "./motion-DrBrM923.js";
+import { a as e, i as t, n, o as r, r as i, t as a } from "./motion-D0x9o2OA.js";
 // tools/cinematic/interior.js
 var o = document.documentElement, s = matchMedia("(prefers-reduced-motion: reduce)"), c = matchMedia("(hover: hover) and (pointer: fine)"), l = matchMedia("(max-width: 719px)"), u = matchMedia("print"), d = document.querySelector(".motion-toggle"), f = document.querySelector(".motion-progress"), p = o.lang === "en" ? {
 	pause: "Pause effects",
@@ -49,10 +49,7 @@ function P() {
 function F(t, n) {
 	j([t]), t.classList.add("motion-tilt");
 	let r, i = 0, a, o = () => {
-		cancelAnimationFrame(i), r = null, a?.stop(), a = e(t, {
-			rotateX: 0,
-			rotateY: 0
-		}, {
+		cancelAnimationFrame(i), r = null, a?.stop(), a = e(t, { transform: "rotateX(0deg) rotateY(0deg)" }, {
 			duration: .32,
 			ease: g
 		});
@@ -67,10 +64,7 @@ function F(t, n) {
 		r ||= t.getBoundingClientRect();
 		let o = (n.clientX - r.left) / r.width - .5, s = (n.clientY - r.top) / r.height - .5;
 		cancelAnimationFrame(i), i = requestAnimationFrame(() => {
-			a?.stop(), a = e(t, {
-				rotateX: -s * 7,
-				rotateY: o * 7
-			}, {
+			a?.stop(), a = e(t, { transform: `rotateX(${-s * 7}deg) rotateY(${o * 7}deg)` }, {
 				duration: .2,
 				ease: "easeOut"
 			});
@@ -92,19 +86,16 @@ function I() {
 	let n = l.matches;
 	if (!b && window.scrollY < 100 && (M(T, {
 		opacity: [.15, 1],
-		y: [26, 0]
+		transform: ["translateY(26px)", "translateY(0px)"]
 	}, {
 		duration: .7,
 		delay: r(.075),
 		ease: g
 	}), b = !0), f) {
-		let e = M(f, { scaleX: [0, 1] }, { ease: "linear" });
+		let e = M(f, { transform: ["scaleX(0)", "scaleX(1)"] }, { ease: "linear" });
 		x.push(t(e));
 	}
-	_ && (N(E || C, {
-		y: [0, n ? 55 : 130],
-		scale: [1.16, 1.26]
-	}, _, ["start start", "end start"]), w && h(w) && N(w, { y: [0, n ? -24 : -55] }, _, ["start start", "end start"]));
+	_ && (N(E || C, { transform: ["translateY(0px) scale(1.16)", `translateY(${n ? 55 : 130}px) scale(1.26)`] }, _, ["start start", "end start"]), w && h(w) && N(w, { transform: ["translateY(0px)", `translateY(${n ? -24 : -55}px)`] }, _, ["start start", "end start"]));
 	let a = /* @__PURE__ */ new WeakSet();
 	x.push(i(D, (e) => {
 		if (a.has(e)) return;
@@ -112,17 +103,14 @@ function I() {
 		let t = [...e.parentElement.children], n = e.matches(".card, .step, .stat") ? t.indexOf(e) % 4 * .055 : 0, r = !!e.closest(".article-content, .prose");
 		M(e, A.includes(e) ? { opacity: [.12, 1] } : {
 			opacity: [.12, 1],
-			y: [r ? 8 : 32, 0]
+			transform: [`translateY(${r ? 8 : 32}px)`, "translateY(0px)"]
 		}, {
 			duration: r ? .35 : .65,
 			delay: n,
 			ease: g
 		}), e.matches(".step") && e.classList.add("motion-step-active");
 	}, { margin: "0px 0px -30px 0px" }));
-	for (let e of O) e.classList.add("motion-photo-frame"), N(e.querySelector("img"), {
-		y: ["-4%", "4%"],
-		scale: [1.12, 1.12]
-	}, e);
+	for (let e of O) e.classList.add("motion-photo-frame"), N(e.querySelector("img"), { transform: ["translateY(-4%) scale(1.12)", "translateY(4%) scale(1.12)"] }, e);
 	for (let e of k) N(e, { transform: [
 		"perspective(1400px) translateY(28px) rotateY(-5deg) rotateX(4deg) scale(.95)",
 		"perspective(1400px) translateY(0px) rotateY(0deg) rotateX(0deg) scale(1)",
@@ -138,7 +126,7 @@ document.querySelectorAll("details.faq__item").forEach((e) => {
 		let t = e.querySelector(".faq__a");
 		e.open && t && h(t) && o.dataset.motion === "active" && !y && M(t, {
 			opacity: [.25, 1],
-			y: [-4, 0]
+			transform: ["translateY(-4px)", "translateY(0px)"]
 		}, {
 			duration: .2,
 			ease: g

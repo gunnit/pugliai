@@ -7,6 +7,7 @@ from pathlib import Path
 from dataclasses import dataclass, field
 from datetime import date
 from .html import esc, icon
+from .media import responsive_images
 from .content_dates import content_modified as _content_modified
 
 SITE = 'https://pugliai.com'
@@ -14,7 +15,7 @@ GA_ID = 'G-L7711R1PDP'
 FORMCARRY = 'https://formcarry.com/s/xWKwXtJvS4C'
 # Applications use the configured PugliAI inbox; their source field identifies them.
 FORMCARRY_ACCELERATOR = FORMCARRY
-CHAT_WIDGET = '<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84"></script>'
+CHAT_WIDGET = '<script src="https://chatniuexa.onrender.com/widget.js" data-chatbot-id="cmm7mojtm0001fzrkekjpfh84" defer></script>'
 OG_IMAGE = SITE + '/src/assets/img/2026/og-pugliai-2026.jpg'
 OG_IMAGE_SIZE = ('1200', '630')
 OG_IMAGE_ALT = {'it': 'PugliAI — consulenza AI e prodotti on-premise per le PMI italiane',
@@ -336,7 +337,7 @@ def ga_snippet():
     <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'''
 
 
-def head(page):
+def head(page, optical_background=False):
     it_path = page.path if page.lang == 'it' else page.alt
     en_path = page.alt if page.lang == 'it' else page.path
     hreflang = ''
@@ -352,6 +353,7 @@ def head(page):
     robots = '\n    <meta name="robots" content="noindex, follow">' if page.noindex else ''
     ld = ''.join(f'\n    <script type="application/ld+json">{json.dumps(d, ensure_ascii=False)}</script>' for d in page.jsonld)
     p = page.prefix
+    optical_preload = ('\n    <link rel="preload" href="/src/assets/img/cinematic/hero-light-960.webp" as="image" fetchpriority="high">' if optical_background else '')
     interior_styles = '' if page.standalone_body else (f'\n    <link rel="stylesheet" href="{p}{versioned_asset("src/assets/css/cinematic-interior.css")}">'
                                                       f'\n    <link rel="stylesheet" href="{p}src/assets/css/cinematic-navigation.css">')
     return f'''<!DOCTYPE html>
@@ -384,13 +386,14 @@ def head(page):
     <link rel="icon" href="/src/assets/img/brand/pugliai-symbol.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="preload" href="{p}src/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="{p}{page.stylesheet}">{interior_styles}
+    <link rel="stylesheet" href="{p}{page.stylesheet}">{interior_styles}{optical_preload}
     {ga_snippet()}{ld}{page.extra_head}
     <link rel="stylesheet" href="{versioned_asset('/src/assets/css/brand.css')}">
 </head>'''
 
 
 def shell(page, body_html):
+    body_html = responsive_images(body_html)
     p = page.prefix
     nav = '' if page.own_header else '\n    ' + navigation_fallback(page)
     scripts = ''
@@ -418,5 +421,6 @@ def shell(page, body_html):
                        '<span class="motion-toggle-icon" aria-hidden="true">Ⅱ</span>'
                        f'<span class="motion-toggle-label">{motion_label}</span></button>'
                        '\n    <span class="motion-progress" aria-hidden="true"></span>')
-    return (f'{head(page)}\n<body{body_cls}>{nav}{motion_controls}\n    <main id="main-content"{main_cls}>\n{body_html}\n    </main>\n    '
+    optical_background = any(marker in body_html for marker in ('class="page-head', 'class="article-hero', 'success-hero')) or 'has-sticky-cta' in page.body_class
+    return (f'{head(page, optical_background)}\n<body{body_cls}>{nav}{motion_controls}\n    <main id="main-content"{main_cls}>\n{body_html}\n    </main>\n    '
             f'{footer(page)}{page.sticky_cta}{scripts}\n</body>\n</html>\n')
