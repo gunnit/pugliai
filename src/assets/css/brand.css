@@ -8,9 +8,16 @@
 .brand-logo-nav {
   display: block;
   width: 126px;
+  max-width: none;
   height: auto;
   flex: none;
 }
+.floating-header .nav-side {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.floating-header .nav-side:last-of-type { justify-content: flex-end; }
 .site-footer .footer-top { align-items: center; }
 .site-footer .footer-wordmark,
 .cinematic-interior .footer__wordmark {
@@ -36,4 +43,6 @@
 }
 @media (max-width: 380px) {
   .brand-logo-nav { width: 108px; }
+  .floating-header .nav-capsule { padding-inline: 14px; gap: 10px; }
+  .cinematic-nav .c-nav__capsule { grid-template-columns: minmax(0, 1fr) auto auto; }
 }
