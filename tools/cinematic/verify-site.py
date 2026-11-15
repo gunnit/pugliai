@@ -115,6 +115,11 @@ def allowed_calculator_forms(current, previous):
 def scripts_preserved(current, previous, allow_navigation=False):
     # Permit exactly the known home navigation addition, never edits to an
     # existing script's attributes, order, or configuration.
+    def without_home_version(scripts):
+        return [dict(script, src=re.sub(
+            r'^(/src/assets/js/cinematic/home\.js)\?v=[0-9a-f]{12}$', r'\1',
+            script['src'])) for script in scripts]
+    current, previous = map(without_home_version, (current, previous))
     if current == previous:
         return True
     if (allow_navigation and HOME_NAVIGATION not in previous
@@ -163,6 +168,11 @@ def main():
         counts['pages'] += 1
         counts['home' if rel in HOME else 'interior'] += 1
         expected = 'cinematic-home' if rel in HOME else 'cinematic-interior'
+        if rel in HOME:
+            for asset in ('src/assets/css/cinematic.css', 'src/assets/js/cinematic/home.js'):
+                version = sha256((ROOT / asset).read_bytes()).hexdigest()[:12]
+                if not any(value.endswith(f'{asset}?v={version}') for value in page.refs):
+                    errors.append(f'{rel}: missing or stale asset content version for {asset}')
         if expected not in page.body_classes:
             errors.append(f'{rel}: missing body class {expected}')
         required = (['css/cinematic.css', 'js/cinematic/home.js'] if rel in HOME else
