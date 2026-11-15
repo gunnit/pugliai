@@ -39,3 +39,22 @@ attribution, canonical/hreflang, noindex states and archived article canonicals 
 Run `npm ci && npm run build:site` with Node 20.19+ or 22.12+ and Python 3.11+.
 Commit generated HTML and every file in `src/assets/js/cinematic/`, including shared
 Motion chunks. GitHub Pages serves them directly and performs no npm build.
+
+## Sitewide motion extension — 15 November 2026
+
+The same approved direction now supplies layered hero/image parallax, optical
+background depth, staggered section/card entrances, photo perspective, pointer tilt
+and scroll progress across all 103 interior routes (72 Italian, 31 English).
+Articles use short heading reveals; long prose stays still. Interactive forms and
+calculator inputs/results are excluded from animated containers. The six lead forms
+and existing bilingual content, article bodies and metadata retain their contracts.
+
+A bilingual pause control shares its setting with the homepage for the browser
+session. Reduced-motion and print preferences use a static version; pause cancels
+motion and restores static transforms. Coarse pointers skip hover tilt. The footer
+and focused strategy-session CTA retain space for fixed controls.
+
+The existing shared generator versions both interior assets by content hash. Keep
+older hashed Motion chunks in the output so an already cached page can finish
+loading while a new deployment rolls out. Only the current home/interior entry
+files are overwritten by builds.

@@ -117,7 +117,7 @@ def scripts_preserved(current, previous, allow_navigation=False):
     # existing script's attributes, order, or configuration.
     def without_asset_version(scripts):
         return [dict(script, src=re.sub(
-            r'^((?:/|(?:\.\./)*)src/assets/js/(?:cinematic/home|navigation)\.js)\?v=[0-9a-f]{12}$', r'\1',
+            r'^((?:/|(?:\.\./)*)src/assets/js/(?:cinematic/(?:home|interior)|navigation)\.js)\?v=[0-9a-f]{12}$', r'\1',
             script['src'])) for script in scripts]
     current, previous = map(without_asset_version, (current, previous))
     if current == previous:
@@ -178,6 +178,13 @@ def main():
                 version = sha256((ROOT / asset).read_bytes()).hexdigest()[:12]
                 if not any(value.endswith(f'{asset}?v={version}') for value in page.refs):
                     errors.append(f'{rel}: missing or stale asset content version for {asset}')
+        else:
+            for asset in ('src/assets/css/cinematic-interior.css', 'src/assets/js/cinematic/interior.js'):
+                version = sha256((ROOT / asset).read_bytes()).hexdigest()[:12]
+                if not any(value.endswith(f'{asset}?v={version}') for value in page.refs):
+                    errors.append(f'{rel}: missing or stale interior content version for {asset}')
+            if text.count('class="motion-toggle"') != 1 or text.count('class="motion-progress"') != 1:
+                errors.append(f'{rel}: shared motion controls missing or duplicated')
         if expected not in page.body_classes:
             errors.append(f'{rel}: missing body class {expected}')
         required = (['css/cinematic.css', 'js/cinematic/home.js'] if rel in HOME else

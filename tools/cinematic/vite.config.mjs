@@ -6,7 +6,8 @@ export default defineConfig({
   define: { 'process.env.NODE_ENV': JSON.stringify('production') },
   build: {
     outDir: fileURLToPath(new URL('../../src/assets/js/cinematic', import.meta.url)),
-    emptyOutDir: true,
+    // Keep prior hashed chunks usable by cached pages during a deployment.
+    emptyOutDir: false,
     minify: true,
     rolldownOptions: {
       output: { chunkFileNames: 'motion-[hash].js' },

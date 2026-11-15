@@ -1,4 +1,5 @@
 import { animate, scroll, inView, stagger } from 'motion';
+import { readMotionPause, writeMotionPause } from './motion-preference.js';
 
 // One owner for ambient motion: pause, preferences and back/forward all rebuild
 // from the same static page. Content is never hidden while waiting for JavaScript.
@@ -13,7 +14,7 @@ export function setupScene() {
   const hero = document.querySelector('.hero');
   const english = root.lang === 'en';
   const labels = english ? { reduced: 'Reduced motion', pause: 'Pause effects', play: 'Enable effects' } : { reduced: 'Effetti ridotti', pause: 'Pausa effetti', play: 'Attiva effetti' };
-  let userPaused = false;
+  let userPaused = readMotionPause();
   let explicitPlayback = false;
   let heroVisible = true;
   let loaded = false;
@@ -189,7 +190,7 @@ export function setupScene() {
     document.querySelectorAll('.workflow-demo, .product-visual').forEach((el) => depth(el, el, 7));
   }
 
-  const onToggle = () => { userPaused = !userPaused; explicitPlayback = !userPaused; build(); };
+  const onToggle = () => { userPaused = !userPaused; writeMotionPause(userPaused); explicitPlayback = !userPaused; build(); };
   const onVisibility = () => { if (!disposed) build(); };
   toggle.addEventListener('click', onToggle);
   preference.addEventListener('change', build);

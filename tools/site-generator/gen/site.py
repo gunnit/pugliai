@@ -352,7 +352,7 @@ def head(page):
     robots = '\n    <meta name="robots" content="noindex, follow">' if page.noindex else ''
     ld = ''.join(f'\n    <script type="application/ld+json">{json.dumps(d, ensure_ascii=False)}</script>' for d in page.jsonld)
     p = page.prefix
-    interior_styles = '' if page.standalone_body else (f'\n    <link rel="stylesheet" href="{p}src/assets/css/cinematic-interior.css">'
+    interior_styles = '' if page.standalone_body else (f'\n    <link rel="stylesheet" href="{p}{versioned_asset("src/assets/css/cinematic-interior.css")}">'
                                                       f'\n    <link rel="stylesheet" href="{p}src/assets/css/cinematic-navigation.css">')
     return f'''<!DOCTYPE html>
 <html lang="{page.lang}">
@@ -407,11 +407,16 @@ def shell(page, body_html):
     if page.chat:
         scripts += '\n    ' + CHAT_WIDGET
     if not page.standalone_body:
-        scripts += f'\n    <script type="module" src="{p}src/assets/js/cinematic/interior.js"></script>'
+        scripts += f'\n    <script type="module" src="{p}{versioned_asset("src/assets/js/cinematic/interior.js")}"></script>'
     classes = page.body_class if page.standalone_body else ('cinematic-interior ' + page.body_class).strip()
     body_cls = f' class="{classes}"' if classes else ''
     main_cls = f' class="{page.main_class}"' if page.main_class else ''
     if page.standalone_body:
         return f'{head(page)}\n<body{body_cls}>\n{body_html}\n{scripts}\n</body>\n</html>\n'
-    return (f'{head(page)}\n<body{body_cls}>{nav}\n    <main id="main-content"{main_cls}>\n{body_html}\n    </main>\n    '
+    motion_label = 'Pause effects' if page.lang == 'en' else 'Pausa effetti'
+    motion_controls = ('\n    <button class="motion-toggle" type="button" aria-pressed="false" hidden>'
+                       '<span class="motion-toggle-icon" aria-hidden="true">Ⅱ</span>'
+                       f'<span class="motion-toggle-label">{motion_label}</span></button>'
+                       '\n    <span class="motion-progress" aria-hidden="true"></span>')
+    return (f'{head(page)}\n<body{body_cls}>{nav}{motion_controls}\n    <main id="main-content"{main_cls}>\n{body_html}\n    </main>\n    '
             f'{footer(page)}{page.sticky_cta}{scripts}\n</body>\n</html>\n')
