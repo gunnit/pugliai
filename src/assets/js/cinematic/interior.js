@@ -14,7 +14,7 @@ var o = document.documentElement, s = matchMedia("(prefers-reduced-motion: reduc
 	.3,
 	1
 ], _ = document.querySelector(".hero--cinematic, .page-head, .article-hero, .has-sticky-cta .hero, .success-hero"), v = a(), y = !1, b = !1, x = [], S = /* @__PURE__ */ new Map(), C;
-_?.matches(".page-head, .article-hero, .has-sticky-cta .hero") && (_.classList.add("motion-optical-hero"), C = document.createElement("span"), C.className = "motion-optical-layer", C.setAttribute("aria-hidden", "true"), _.prepend(C));
+_?.matches(".page-head, .article-hero, .has-sticky-cta .hero") && (_.classList.add("motion-optical-hero"), C = _.querySelector(":scope > .motion-optical-layer"), C || (C = document.createElement("span"), C.className = "motion-optical-layer", C.setAttribute("aria-hidden", "true"), _.prepend(C)));
 var w = _?.querySelector(".hero__text, .page-head__inner, .article-hero-content") || (_?.matches(".success-hero") ? _ : null), T = w ? [...w.children].filter(h) : [], E = _?.querySelector(":scope > .hero__media > img"), D = [...document.querySelectorAll("main .section-head, main .card, main .step, main .stat, main .band__text, main .cta-band__inner, main .cta-box, main .article-content > h2, main .prose > h2")].filter((e) => h(e) && !_?.contains(e) && !e.parentElement.closest(".card, .cta-band__inner, .cta-box") && (!e.closest(".article-content, .prose") || e.matches("h2, .cta-box"))), O = [...document.querySelectorAll("main .photo-fig, main .band__media")].filter(h), k = [...document.querySelectorAll("main img.photo")].filter((e) => h(e) && !e.closest(".photo-fig, .band__media, .hero__media"));
 for (let e of O.filter((e) => e.matches("figure"))) {
 	let t = e.querySelector("img");

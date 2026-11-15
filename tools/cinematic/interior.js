@@ -27,10 +27,14 @@ let originals = new Map();
 let optical;
 if (hero?.matches('.page-head, .article-hero, .has-sticky-cta .hero')) {
   hero.classList.add('motion-optical-hero');
-  optical = document.createElement('span');
-  optical.className = 'motion-optical-layer';
-  optical.setAttribute('aria-hidden', 'true');
-  hero.prepend(optical);
+  optical = hero.querySelector(':scope > .motion-optical-layer');
+  // Keep cached pre-optimization pages working during a deployment.
+  if (!optical) {
+    optical = document.createElement('span');
+    optical.className = 'motion-optical-layer';
+    optical.setAttribute('aria-hidden', 'true');
+    hero.prepend(optical);
+  }
 }
 const heroText = hero?.querySelector('.hero__text, .page-head__inner, .article-hero-content') || (hero?.matches('.success-hero') ? hero : null);
 const heroItems = heroText ? [...heroText.children].filter(safe) : [];

@@ -86,6 +86,14 @@ def baseline_text(ref, path):
     return subprocess.check_output(['git', 'show', f'{ref}:{path}'], cwd=ROOT).decode()
 
 
+def article_bodies(text):
+    # Only the approved decorative header moves from runtime JS into HTML.
+    # Everything else in the article, including visible text and links, stays exact.
+    return [body.replace(
+        '<header class="article-hero motion-optical-hero"><span class="motion-optical-layer" aria-hidden="true"></span>',
+        '<header class="article-hero">') for body in ARTICLE.findall(text)]
+
+
 def inline_scripts(text):
     return [body for attrs, body in INLINE_JS.findall(text) if 'application/ld+json' not in attrs]
 
@@ -254,7 +262,7 @@ def main():
                 errors.append(f'{rel}: lead form missing or AJAX mode changed')
         if rel.startswith('guida-ai/'):
             counts['articles'] += 1
-            if old_text is not None and ARTICLE.findall(text) != ARTICLE.findall(old_text):
+            if old_text is not None and article_bodies(text) != article_bodies(old_text):
                 errors.append(f'{rel}: article body changed')
     missing_forms = FORMS - {str(path.relative_to(ROOT)) for path in pages}
     if missing_forms:

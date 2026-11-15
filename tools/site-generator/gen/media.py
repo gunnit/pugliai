@@ -33,3 +33,17 @@ def responsive_images(body):
             attributes += ' decoding="async"'
         return re.sub(r'\s*/?>$', attributes + '>', tag)
     return re.sub(r'<img\b[^>]*>', replace, body)
+
+
+def optical_header(body, sticky=False):
+    """Paint the decorative layer before the motion controller is downloaded."""
+    def replace(match):
+        prefix, classes, suffix = match.groups()
+        names = classes.split()
+        if 'motion-optical-hero' in names:
+            return match.group(0)
+        if not ({'page-head', 'article-hero'} & set(names) or (sticky and 'hero' in names)):
+            return match.group(0)
+        return (prefix + classes + ' motion-optical-hero' + suffix +
+                '<span class="motion-optical-layer" aria-hidden="true"></span>')
+    return re.sub(r'(<(?:section|header)\b[^>]*\bclass=")([^"]+)("[^>]*>)', replace, body)

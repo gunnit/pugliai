@@ -7,7 +7,7 @@ from pathlib import Path
 from dataclasses import dataclass, field
 from datetime import date
 from .html import esc, icon
-from .media import responsive_images
+from .media import responsive_images, optical_header
 from .content_dates import content_modified as _content_modified
 
 SITE = 'https://pugliai.com'
@@ -394,6 +394,8 @@ def head(page, optical_background=False):
 
 def shell(page, body_html):
     body_html = responsive_images(body_html)
+    if not page.standalone_body:
+        body_html = optical_header(body_html, 'has-sticky-cta' in page.body_class)
     p = page.prefix
     nav = '' if page.own_header else '\n    ' + navigation_fallback(page)
     scripts = ''
