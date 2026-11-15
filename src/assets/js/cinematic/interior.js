@@ -156,5 +156,5 @@ for (let e of [
 document.addEventListener("visibilitychange", I), window.addEventListener("pagehide", () => {
 	y = !0, P();
 }), window.addEventListener("pageshow", (e) => {
-	e.persisted && (y = !1, I());
+	e.persisted && (v = a(), y = !1, I());
 }), I();

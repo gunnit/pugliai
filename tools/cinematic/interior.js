@@ -183,5 +183,7 @@ toggle?.addEventListener('click', () => { paused = !paused; writeMotionPause(pau
 for (const media of [preference, compact, finePointer, print]) media.addEventListener('change', setup);
 document.addEventListener('visibilitychange', setup);
 window.addEventListener('pagehide', () => { suspended = true; clear(); });
-window.addEventListener('pageshow', (event) => { if (event.persisted) { suspended = false; setup(); } });
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) { paused = readMotionPause(); suspended = false; setup(); }
+});
 setup();

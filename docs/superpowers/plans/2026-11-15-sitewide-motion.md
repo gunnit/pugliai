@@ -10,8 +10,10 @@
 - [x] Add static, reduced-motion, print and pause states, visibility/back navigation cleanup, and safe motion exclusions for forms, calculator inputs/results and long prose. Keep footer links and strategy-page sticky CTAs reachable.
 - [x] Version changed assets in the generator, rebuild all pages and extend integrity verification for coverage and content versions. Verify against the starting commit `24bd335`.
 - [x] Test local representative service, product, article, legal, resource, contact, calculator and strategy-page layouts at desktop/mobile widths in both languages. Verify pause/resume, motion preference, keyboard, no-JS and protected forms.
-- [ ] Integrate and push to main, wait for the exact GitHub Pages build, compare live artifacts and verify live desktop/mobile interaction and screenshots.
+**Release handoff:** Integrate and push to main, wait for the exact GitHub Pages build, compare live artifacts and verify live desktop/mobile interaction and screenshots. Final evidence is stored in the workspace audit folder.
 
 **Review focus:** Hidden-tab entry should defer, then build on visibility. Repeated pause/resume must release listeners and timelines. Pointer and scroll transforms must target separate elements. Page shapes without a hero must remain usable. Direct images and short pages must not gain horizontal overflow. Shared styling must not hide footer links, calculator values or form controls.
 
 Local verification: 21 representative routes at 1440px and 390px passed runtime, control, protected-form and overflow checks. Hero scroll, pointer tilt, cross-language/homepage pause persistence, reduced motion, FAQ and calculator flows verified. The calculator requires a sector selection before calculating; the completed flow passed. Both integrity and SEO checks passed.
+
+Independent code review found a stale pause preference on BFCache restoration. The persisted-page handlers now re-read the session preference before rebuilding. A synthetic persisted-pageshow regression failed before the fix and passed afterward for both the interior controller and homepage/video. No other material findings.

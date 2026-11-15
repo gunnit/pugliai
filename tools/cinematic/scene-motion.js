@@ -200,7 +200,7 @@ export function setupScene() {
   document.addEventListener('visibilitychange', onVisibility);
   window.addEventListener('pagehide', () => { disposed = true; clear(); video.pause(); heroObserver.disconnect(); });
   window.addEventListener('pageshow', (event) => {
-    if (event.persisted) { disposed = false; heroObserver.observe(hero); build(); }
+    if (event.persisted) { userPaused = readMotionPause(); disposed = false; heroObserver.observe(hero); build(); }
   });
   build();
 }

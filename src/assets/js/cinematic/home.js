@@ -224,7 +224,7 @@ function o() {
 	}), window.addEventListener("pagehide", () => {
 		b = !0, j(), d.pause(), D.disconnect();
 	}), window.addEventListener("pageshow", (e) => {
-		e.persisted && (b = !1, D.observe(p), M());
+		e.persisted && (h = a(), b = !1, D.observe(p), M());
 	}), M();
 }
 // tools/cinematic/home.js
