@@ -274,7 +274,7 @@ def footer(page):
     tagline = 'Intelligenza applicata.<br>Al tuo lavoro.' if page.lang == 'it' else 'Applied intelligence.<br>For your work.'
     top_label = 'Torna all’inizio' if page.lang == 'it' else 'Back to top'
     return (f'<footer class="footer" role="contentinfo"><div class="container"><div class="footer__top">'
-            f'<div class="footer__brand"><a class="footer__wordmark" href="{lp}index.html">PugliAI</a>'
+            f'<div class="footer__brand"><a class="footer__wordmark" href="{lp}index.html"><img class="brand-logo-full" src="/src/assets/img/brand/pugliai-logo.svg" alt="PugliAI" width="306" height="258"></a>'
             f'<p class="footer__tagline">{tagline}</p><a class="footer__back" href="#main-content">{top_label} {icon("arrow", 20)}</a></div>'
             f'<nav class="footer__cols" aria-label="{esc(f["nav_label"])}">{cols}</nav></div>'
             f'<div class="footer__bottom"><div class="footer__legal">'
@@ -310,7 +310,7 @@ def navigation_fallback(page, main_id='main-content'):
             f'<details class="c-nav__fallback"><summary class="c-nav__toggle"><span>Menu</span><span class="c-nav__toggle-icon" aria-hidden="true"></span></summary>'
             f'<nav class="c-nav__panel" aria-label="{label}"><div class="c-nav__fallback-links">{menu_links}'
             f'<a href="{alternate}" hreflang="{other_lang}" lang="{other_lang}">{language} <span aria-hidden="true">↗</span></a>'
-            f'</div></nav></details><a class="c-nav__wordmark" href="{lp}index.html" aria-label="{home_label}">PugliAI<span class="c-nav__brand-dot" aria-hidden="true"></span></a>'
+            f'</div></nav></details><a class="c-nav__wordmark" href="{lp}index.html" aria-label="{home_label}"><img class="brand-logo-nav" src="/src/assets/img/brand/pugliai-logo-white-horizontal.svg" alt="" width="126" height="41"></a>'
             f'<a class="c-nav__contact" href="{contact}">{cta}<span aria-hidden="true">↗</span></a>'
             '</div></header></div>')
 
@@ -372,10 +372,12 @@ def head(page):
     <meta name="twitter:site" content="@PugliAI">
     <meta name="theme-color" content="{page.theme_color}">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/src/assets/img/brand/pugliai-symbol.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="preload" href="{p}src/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{p}{page.stylesheet}">{interior_styles}
     {ga_snippet()}{ld}{page.extra_head}
+    <link rel="stylesheet" href="/src/assets/css/brand.css">
 </head>'''
 
 

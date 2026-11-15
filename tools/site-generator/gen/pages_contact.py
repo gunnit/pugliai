@@ -247,7 +247,7 @@ def landing(lang):
     alt_href = '/en/strategy-session.html' if lang == 'it' else '/sessione-strategica.html'
     header = (f'<a href="#main-content" class="skip-link">{"Vai al contenuto principale" if lang == "it" else "Skip to main content"}</a>'
               f'<header class="lp-header" role="banner"><div class="lp-header__inner"><a href="index.html" class="logo" aria-label="PugliAI">'
-              f'PugliAI.</a>'
+              f'<img class="brand-logo-nav" src="/src/assets/img/brand/pugliai-logo-horizontal.svg" alt="" width="126" height="41"></a>'
               f'<div class="lp-header__actions"><a class="btn btn--ghost header__contact" href="mailto:sales@pugliai.com">sales@pugliai.com</a>'
               f'<a class="lang" href="{alt_href}" hreflang="{"en" if lang == "it" else "it"}">{icon("globe", 15)}<strong>{c["lang_link"]}</strong></a>'
               f'<a class="btn btn--primary btn--sm" href="#prenota">{esc(c["header_cta"])}</a></div></div></header>')

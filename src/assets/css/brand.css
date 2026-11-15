@@ -1,0 +1,39 @@
+/* Original PugliAI artwork. Keep the identity still and its colors local. */
+.cinematic-nav .c-nav__wordmark,
+.floating-header .wordmark {
+  justify-content: center;
+  min-width: 0;
+  min-height: 44px;
+}
+.brand-logo-nav {
+  display: block;
+  width: 126px;
+  height: auto;
+  flex: none;
+}
+.site-footer .footer-top { align-items: center; }
+.site-footer .footer-wordmark,
+.cinematic-interior .footer__wordmark {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  line-height: 1;
+}
+.site-footer .brand-logo-full,
+.cinematic-interior .footer__wordmark .brand-logo-full {
+  display: block;
+  width: clamp(210px, 18vw, 260px);
+  max-width: 100%;
+  height: auto;
+  filter: none;
+  opacity: 1;
+}
+@media (max-width: 700px) {
+  .site-footer .footer-wordmark { grid-column: 1 / -1; }
+  .site-footer .brand-logo-full,
+  .cinematic-interior .footer__wordmark .brand-logo-full { width: 210px; }
+  .cinematic-interior .footer__wordmark { flex-basis: 100%; }
+}
+@media (max-width: 380px) {
+  .brand-logo-nav { width: 108px; }
+}

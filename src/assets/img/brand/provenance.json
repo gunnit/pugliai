@@ -1,0 +1,23 @@
+{
+  "source": "src/assets/img/pugliai_logo.png",
+  "source_sha256": "84cdc708ed69cb0f030a55e1513ce3cb953932479a3553945cbe2efc21947b4b",
+  "source_dimensions": [
+    316,
+    268
+  ],
+  "method": "Potrace 1.16, 4x alpha masks, original artwork traced to Bezier paths",
+  "inks": {
+    "green": "#1b9032",
+    "blue": "#135ca9",
+    "branches": "#000000"
+  },
+  "variants": {
+    "pugliai-logo.svg": "Complete original stacked artwork, full color",
+    "pugliai-logo-horizontal.svg": "Original tree and lettering arranged horizontally, full color",
+    "pugliai-logo-white-horizontal.svg": "Same horizontal artwork, white ink for the dark floating header",
+    "pugliai-symbol.svg": "Original tree; white ink under browser dark-mode preference"
+  },
+  "contains_raster": false,
+  "requires_fonts": false,
+  "reproduce": "python3 tools/vectorize-logo.py"
+}

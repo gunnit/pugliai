@@ -211,7 +211,7 @@
         return '<a href="#' + esc(mainId) + '" class="skip-link">' + esc(config.skip) + '</a>' +
             '<header class="cinematic-nav"><div class="c-nav__capsule">' +
             '<button class="c-nav__toggle" type="button" aria-expanded="false" aria-controls="cinematic-menu" aria-label="' + esc(config.openMenu) + '"><span class="c-nav__toggle-label">Menu</span><span class="c-nav__toggle-icon" aria-hidden="true"></span></button>' +
-            '<a class="c-nav__wordmark" href="' + withPrefix(config.home) + '" aria-label="' + esc(config.logoAria) + '">PugliAI<span class="c-nav__brand-dot" aria-hidden="true"></span></a>' +
+            '<a class="c-nav__wordmark" href="' + withPrefix(config.home) + '" aria-label="' + esc(config.logoAria) + '"><img class="brand-logo-nav" src="/src/assets/img/brand/pugliai-logo-white-horizontal.svg" alt="" width="126" height="41"></a>' +
             '<a class="c-nav__contact" href="' + contactHref + '">' + (isEnglish ? 'Let’s talk' : 'Parliamone') + '<span aria-hidden="true">↗</span></a>' +
             '</div>' + panel + '</header>';
     }
